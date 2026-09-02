@@ -328,7 +328,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.28,
@@ -342,7 +342,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.3,
@@ -356,7 +356,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.33,
@@ -370,7 +370,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.35,
@@ -384,7 +384,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.37,
@@ -398,7 +398,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.4,
@@ -412,7 +412,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.45,
@@ -426,7 +426,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.5,
@@ -440,7 +440,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         },
         {
           "atk": 0.6,
@@ -454,7 +454,7 @@
           "spType": "INCREASE_WHEN_ATTACK",
           "duration": 30,
           "isToggle": false,
-          "isPermanent": false
+          "isPermanent": true
         }
       ]
     }

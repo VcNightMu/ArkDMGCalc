@@ -58,8 +58,8 @@ function convertOperator(id, charData, skillTable) {
       for (const b of lv.blackboard || []) bb[b.key] = b.value;
       const spData = lv.spData || {};
       const desc = lv.description || '';
-      const isToggle = desc.includes('\u5207\u6362') && (lv.duration === 0 || lv.duration === -1);
-      const isPermanent = !isToggle && ((lv.duration === -1) || (lv.duration === 0 && lv.skillType === 'AUTO' && (spData.spCost || 0) >= 20));
+      const isToggle = desc.includes('\u53EF\u4EE5\u5728\u4E0B\u5217\u72B6\u6001\u548C\u521D\u59CB\u72B6\u6001\u95F4\u5207\u6362');
+      const isPermanent = !isToggle && desc.includes('\u6301\u7EED\u65F6\u95F4\u65E0\u9650');
       // Blackboard first, then core fields (core fields must come after to avoid being overwritten)
       levels.push({ ...bb, level: levelNum, spCost: spData.spCost || 0, initialSp: spData.initSp || 0, spType: spData.spType || 'INCREASE_WITH_TIME', duration: lv.duration, isToggle, isPermanent });
     }

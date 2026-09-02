@@ -212,7 +212,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.25,
@@ -226,7 +226,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.3,
@@ -240,7 +240,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.375,
@@ -254,7 +254,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.425,
@@ -268,7 +268,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.475,
@@ -282,7 +282,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.55,
@@ -296,7 +296,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.65,
@@ -310,7 +310,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.75,
@@ -324,7 +324,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         },
         {
           "atk_scale": 1.85,
@@ -338,7 +338,7 @@
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
-          "isPermanent": true
+          "isPermanent": false
         }
       ]
     },
