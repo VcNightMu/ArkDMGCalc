@@ -75,64 +75,114 @@
       "name": "鞘击",
       "levels": [
         {
-          "level": 0,
-          "duration": 0,
           "atk_scale": 2,
-          "stun": 1
+          "stun": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 1,
-          "duration": 0,
           "atk_scale": 2.1,
-          "stun": 1
+          "stun": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 2,
-          "duration": 0,
           "atk_scale": 2.2,
-          "stun": 1
+          "stun": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 3,
-          "duration": 0,
           "atk_scale": 2.3,
-          "stun": 1.25
+          "stun": 1.25,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 4,
-          "duration": 0,
           "atk_scale": 2.4,
-          "stun": 1.25
+          "stun": 1.25,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 5,
-          "duration": 0,
           "atk_scale": 2.5,
-          "stun": 1.25
+          "stun": 1.25,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 6,
-          "duration": 0,
           "atk_scale": 2.6,
-          "stun": 1.5
+          "stun": 1.5,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 7,
-          "duration": 0,
           "atk_scale": 2.8,
-          "stun": 1.5
+          "stun": 1.5,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 8,
-          "duration": 0,
           "atk_scale": 3,
-          "stun": 1.5
+          "stun": 1.5,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 9,
-          "duration": 0,
           "atk_scale": 3.2,
-          "stun": 1.5
+          "stun": 1.5,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         }
       ]
     },
@@ -141,64 +191,114 @@
       "name": "赤霄·拔刀",
       "levels": [
         {
-          "level": 0,
-          "duration": 0,
           "atk_scale": 3.3,
-          "max_target": 4
+          "max_target": 4,
+          "level": 0,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 1,
-          "duration": 0,
           "atk_scale": 3.4,
-          "max_target": 4
+          "max_target": 4,
+          "level": 1,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 2,
-          "duration": 0,
           "atk_scale": 3.5,
-          "max_target": 4
+          "max_target": 4,
+          "level": 2,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 3,
-          "duration": 0,
           "atk_scale": 3.7,
-          "max_target": 5
+          "max_target": 5,
+          "level": 3,
+          "spCost": 26,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 4,
-          "duration": 0,
           "atk_scale": 3.8,
-          "max_target": 5
+          "max_target": 5,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 5,
-          "duration": 0,
           "atk_scale": 3.9,
-          "max_target": 5
+          "max_target": 5,
+          "level": 5,
+          "spCost": 26,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 6,
-          "duration": 0,
           "atk_scale": 4.1,
-          "max_target": 6
+          "max_target": 6,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 14,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 7,
-          "duration": 0,
           "atk_scale": 4.4,
-          "max_target": 6
+          "max_target": 6,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 8,
-          "duration": 0,
           "atk_scale": 4.7,
-          "max_target": 6
+          "max_target": 6,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 9,
-          "duration": 0,
           "atk_scale": 5,
-          "max_target": 7
+          "max_target": 7,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 20,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         }
       ]
     },
@@ -207,74 +307,124 @@
       "name": "赤霄·绝影",
       "levels": [
         {
-          "level": 0,
-          "duration": 0,
           "atk_scale": 2,
           "times": 10,
-          "stun": 2
+          "stun": 2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 1,
-          "duration": 0,
           "atk_scale": 2.1,
           "times": 10,
-          "stun": 2
+          "stun": 2,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 2,
-          "duration": 0,
           "atk_scale": 2.2,
           "times": 10,
-          "stun": 2
+          "stun": 2,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 3,
-          "duration": 0,
           "atk_scale": 2.3,
           "times": 10,
-          "stun": 2.5
+          "stun": 2.5,
+          "level": 3,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 4,
-          "duration": 0,
           "atk_scale": 2.4,
           "times": 10,
-          "stun": 2.5
+          "stun": 2.5,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 5,
-          "duration": 0,
           "atk_scale": 2.5,
           "times": 10,
-          "stun": 2.5
+          "stun": 2.5,
+          "level": 5,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 6,
-          "duration": 0,
           "atk_scale": 2.6,
           "times": 10,
-          "stun": 3
+          "stun": 3,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 7,
-          "duration": 0,
           "atk_scale": 2.8,
           "times": 10,
-          "stun": 3
+          "stun": 3,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 13,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 8,
-          "duration": 0,
           "atk_scale": 3,
           "times": 10,
-          "stun": 3
+          "stun": 3,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 9,
-          "duration": 0,
           "atk_scale": 3.2,
           "times": 10,
-          "stun": 4
+          "stun": 4,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "duration": 0,
+          "isToggle": false,
+          "isPermanent": false
         }
       ]
     }

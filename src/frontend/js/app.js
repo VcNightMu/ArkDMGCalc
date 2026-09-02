@@ -256,10 +256,22 @@ async function updateResults() {
     if (result.type === 'heal') {
       metricsHtml = '<div class="metric"><span class="label">HPS</span><span class="value heal">' + result.hps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">\u603B\u6CBB\u7597\u91CF</span><span class="value heal">' + result.totalHeal.toFixed(0) + '</span></div>';
+    } else if (result.isToggle || result.isPermanent) {
+      // Toggle/permanent skill: only DPS
+      metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u653B\u51FB\u95F4\u9694</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u9762\u677F ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+    } else if (result.cycleDps !== null) {
+      // Instant skill: total damage + cycle DPS
+      metricsHtml = '<div class="metric"><span class="label">\u603B\u4F24</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u5FAA\u73AF DPS</span><span class="value dps">' + result.cycleDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u653B\u51FB\u95F4\u9694</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u9762\u677F ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
+      // Duration skill: skill period DPS + normal DPS
       metricsHtml = '<div class="metric"><span class="label">\u6280\u80FD\u671F DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">\u6280\u80FD\u671F\u603B\u4F24</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">\u5FAA\u73AF DPS</span><span class="value dps">' + result.cycleDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">\u5E38\u6001 DPS</span><span class="value dps">' + result.normalDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">\u653B\u51FB\u95F4\u9694</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">\u9762\u677F ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     }
@@ -303,7 +315,7 @@ function calculateOperator(op, slotData) {
 
   const skillIndex = slotData.skillIndex || 0;
   const skill = op.skills[skillIndex];
-  if (!skill) return { type: 'unknown', skillDps: 0, skillTotalDamage: 0, cycleDps: 0, realInterval: phase.baseAttackTime, panelAtk };
+  if (!skill) return { type: 'unknown', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, realInterval: phase.baseAttackTime, panelAtk };
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
 
@@ -336,15 +348,49 @@ function calculateOperator(op, slotData) {
   const enemy = state.enemy;
   const isArts = op.damageType === 'arts';
   const singleHitDamage = isArts ? calcArtsDamage(skillAtk, enemy.res) : calcPhysicalDamage(skillAtk, enemy.def);
+  const normalHitDamage = isArts ? calcArtsDamage(panelAtk, enemy.res) : calcPhysicalDamage(panelAtk, enemy.def);
 
   const realInterval = skillInterval;
-  const skillAttacks = skillDuration > 0 ? Math.floor(skillDuration / realInterval) : 1;
-  const skillTotalDamage = singleHitDamage * skillAttacks;
-  const skillDps = skillDuration > 0 ? skillTotalDamage / skillDuration : 0;
+  const isToggle = levelData.isToggle || false;
+  const isPermanent = levelData.isPermanent || false;
+  let skillAttacks, skillTotalDamage, skillDps, cycleDps, normalDps;
 
-  const spCost = levelData.spCost || 0;
-  const cycleTime = skillDuration + (spCost * realInterval);
-  const cycleDps = cycleTime > 0 ? skillTotalDamage / cycleTime : skillDps;
+  if (isToggle || isPermanent) {
+    // Toggle/permanent skill: permanent duration, only show DPS
+    skillAttacks = 0;
+    skillTotalDamage = 0;
+    skillDps = singleHitDamage / realInterval;
+    cycleDps = null;
+    normalDps = null;
+  } else if (skillDuration > 0) {
+    // Duration skill: show skill period DPS and normal DPS
+    skillAttacks = Math.floor(skillDuration / realInterval);
+    skillTotalDamage = singleHitDamage * skillAttacks;
+    skillDps = skillTotalDamage / skillDuration;
+    cycleDps = null;
+    normalDps = normalHitDamage / realInterval;
+  } else {
+    // Instant skill: show total damage and cycle DPS
+    skillAttacks = 1;
+    skillTotalDamage = singleHitDamage;
+    skillDps = 0;
+    normalDps = null;
+    // Calculate cycle DPS
+    const spCost = levelData.spCost || 0;
+    const spType = levelData.spType || 'INCREASE_WITH_TIME';
+    if (spType === 'INCREASE_WHEN_ATTACK') {
+      const increment = levelData.attackIncrement || 1;
+      const attacksToCharge = Math.ceil(spCost / increment);
+      const cycleAttacks = attacksToCharge + 1;
+      const cycleTime = cycleAttacks * realInterval;
+      const cycleDamage = (attacksToCharge * normalHitDamage) + singleHitDamage;
+      cycleDps = cycleTime > 0 ? cycleDamage / cycleTime : 0;
+    } else {
+      const attacksDuringCharge = Math.floor(spCost / realInterval);
+      const cycleDamage = (attacksDuringCharge * normalHitDamage) + singleHitDamage;
+      cycleDps = spCost > 0 ? cycleDamage / spCost : 0;
+    }
+  }
 
   if (skill.type === SkillType.HEAL) {
     const healPercent = levelData.heal_percent || 0;
@@ -353,7 +399,7 @@ function calculateOperator(op, slotData) {
     return { type: 'heal', hps, totalHeal, panelAtk };
   }
 
-  return { type: 'damage', skillDps, skillTotalDamage, cycleDps, realInterval, panelAtk: skillAtk };
+  return { type: 'damage', skillDps, skillTotalDamage, cycleDps, normalDps, isToggle, isPermanent, realInterval, panelAtk: skillAtk };
 }
 
 function getSkillLevelData(skill, level) {

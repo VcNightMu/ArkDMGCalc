@@ -5,7 +5,8 @@ const path = require('path');
 
 const OPERATORS = [
   'char_172_svrash', 'char_010_chen', 'char_293_thorns', 'char_103_angel',
-  'char_180_amgoat', 'char_350_surtr', 'char_222_bpipe', 'char_202_demkni'
+  'char_180_amgoat', 'char_350_surtr', 'char_222_bpipe', 'char_202_demkni',
+  'char_147_shining', 'char_291_aglina', 'char_144_red'
 ];
 
 const EXCEL = 'https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel';
@@ -55,7 +56,12 @@ function convertOperator(id, charData, skillTable) {
       const levelNum = parseInt(lk.replace('LEVEL_', ''));
       const bb = {};
       for (const b of lv.blackboard || []) bb[b.key] = b.value;
-      levels.push({ level: levelNum, spCost: lv.spCost, initialSp: lv.initSp, duration: lv.duration, ...bb });
+      const spData = lv.spData || {};
+      const desc = lv.description || '';
+      const isToggle = desc.includes('\u5207\u6362') && (lv.duration === 0 || lv.duration === -1);
+      const isPermanent = !isToggle && ((lv.duration === -1) || (lv.duration === 0 && lv.skillType === 'AUTO' && (spData.spCost || 0) >= 20));
+      // Blackboard first, then core fields (core fields must come after to avoid being overwritten)
+      levels.push({ ...bb, level: levelNum, spCost: spData.spCost || 0, initialSp: spData.initSp || 0, spType: spData.spType || 'INCREASE_WITH_TIME', duration: lv.duration, isToggle, isPermanent });
     }
     levels.sort((a, b) => a.level - b.level);
     const firstLevel = Object.values(st.levels || {})[0];

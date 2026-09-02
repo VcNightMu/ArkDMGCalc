@@ -75,54 +75,104 @@
       "name": "烈焰魔剑",
       "levels": [
         {
+          "atk_scale": 2,
           "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.05,
           "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.05
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.1,
           "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.1
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.2,
           "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.2
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.25,
           "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.25
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.3,
           "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.3
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.4,
           "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.4
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.6,
           "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.6
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 2.8,
           "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 2.8
+          "isToggle": false,
+          "isPermanent": false
         },
         {
+          "atk_scale": 3.1,
           "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
           "duration": 0,
-          "atk_scale": 3.1
+          "isToggle": false,
+          "isPermanent": false
         }
       ]
     },
@@ -131,84 +181,134 @@
       "name": "熔核巨影",
       "levels": [
         {
-          "level": 0,
-          "duration": 15,
           "atk": 0.5,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 0,
+          "spCost": 28,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 15,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 1,
-          "duration": 15,
           "atk": 0.55,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 1,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 15,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 2,
-          "duration": 15,
           "atk": 0.6,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 2,
+          "spCost": 26,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 15,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 3,
-          "duration": 16,
           "atk": 0.65,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 16,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 4,
-          "duration": 16,
           "atk": 0.7,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 4,
+          "spCost": 24,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 16,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 5,
-          "duration": 16,
           "atk": 0.75,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.4
+          "attack@surtr_s_2[critical].atk_scale": 1.4,
+          "level": 5,
+          "spCost": 23,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 16,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 6,
-          "duration": 17,
           "atk": 0.8,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.5
+          "attack@surtr_s_2[critical].atk_scale": 1.5,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 17,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 7,
-          "duration": 17,
           "atk": 0.9,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.5
+          "attack@surtr_s_2[critical].atk_scale": 1.5,
+          "level": 7,
+          "spCost": 21,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 17,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 8,
-          "duration": 17,
           "atk": 1,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.5
+          "attack@surtr_s_2[critical].atk_scale": 1.5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 17,
+          "isToggle": false,
+          "isPermanent": false
         },
         {
-          "level": 9,
-          "duration": 18,
           "atk": 1.2,
           "ability_range_forward_extend": 1,
           "attack@max_target": 2,
-          "attack@surtr_s_2[critical].atk_scale": 1.6
+          "attack@surtr_s_2[critical].atk_scale": 1.6,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 18,
+          "isToggle": false,
+          "isPermanent": false
         }
       ]
     },
@@ -217,104 +317,154 @@
       "name": "黄昏",
       "levels": [
         {
-          "level": 0,
-          "duration": 60,
           "atk": 1.8,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 1,
-          "duration": 60,
           "atk": 1.9,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 2,
-          "duration": 60,
           "atk": 2,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 3,
-          "duration": 60,
           "atk": 2.1,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 4,
-          "duration": 60,
           "atk": 2.2,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 5,
-          "duration": 60,
           "atk": 2.3,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 6,
-          "duration": 60,
           "atk": 2.4,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 7,
-          "duration": 60,
           "atk": 2.7,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 7,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 8,
-          "duration": 60,
           "atk": 3,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 3
+          "duration": -1,
+          "attack@max_target": 3,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         },
         {
-          "level": 9,
-          "duration": 60,
           "atk": 3.3,
           "ability_range_forward_extend": 2,
           "max_hp": 5000,
           "interval": 0.2,
           "hp_ratio": 0.2,
-          "attack@max_target": 4
+          "duration": -1,
+          "attack@max_target": 4,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": true
         }
       ]
     }

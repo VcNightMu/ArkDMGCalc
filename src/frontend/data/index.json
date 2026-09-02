@@ -46,5 +46,23 @@
     "name": "塞雷娅",
     "rarity": "TIER_6",
     "profession": "TANK"
+  },
+  {
+    "id": "char_147_shining",
+    "name": "闪灵",
+    "rarity": "TIER_6",
+    "profession": "MEDIC"
+  },
+  {
+    "id": "char_291_aglina",
+    "name": "安洁莉娜",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT"
+  },
+  {
+    "id": "char_144_red",
+    "name": "红",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL"
   }
 ]
