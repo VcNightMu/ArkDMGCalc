@@ -21,6 +21,7 @@
         261,
         435
       ],
+      "magicResistance": 0,
       "baseAttackTime": 2.85,
       "attackSpeed": 100
     }

@@ -21,6 +21,7 @@
         868,
         1143
       ],
+      "magicResistance": 10,
       "baseAttackTime": 1.6,
       "attackSpeed": 100
     },
@@ -39,6 +40,7 @@
         1143,
         1361
       ],
+      "magicResistance": 15,
       "baseAttackTime": 1.6,
       "attackSpeed": 100
     },
@@ -57,6 +59,7 @@
         1361,
         1583
       ],
+      "magicResistance": 20,
       "baseAttackTime": 1.6,
       "attackSpeed": 100
     }
