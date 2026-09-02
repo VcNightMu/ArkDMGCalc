@@ -3,6 +3,21 @@ import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfession
 import { state } from './state.js';
 import { calculateOperator } from './damage-calc.js';
 
+function initEnemyPanel() {
+  const inputs = {
+    hp: document.getElementById('enemy-hp'),
+    atk: document.getElementById('enemy-atk'),
+    def: document.getElementById('enemy-def'),
+    res: document.getElementById('enemy-res')
+  };
+  Object.entries(inputs).forEach(([key, input]) => {
+    input.addEventListener('input', () => {
+      state.enemy[key] = Number(input.value) || 0;
+      updateResults();
+    });
+  });
+}
+
 function initOperatorSlots() {
   const container = document.getElementById('operator-slots');
   container.innerHTML = '';
@@ -232,22 +247,22 @@ async function updateResults() {
         metricsHtml += '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       }
       metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">面板 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.isToggle || result.isPermanent) {
       metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">面板 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.cycleDps !== null) {
       metricsHtml = '<div class="metric"><span class="label">总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">循环 DPS</span><span class="value dps">' + result.cycleDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">面板 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
       metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value dps">' + result.normalDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">面板 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     }
 
     card.innerHTML = '<div class="result-header">' +
@@ -259,4 +274,34 @@ async function updateResults() {
   }
 }
 
-export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker };
+function bindEvents() {
+  const searchInput = document.getElementById('operator-search');
+  searchInput.addEventListener('input', async () => {
+    const keyword = searchInput.value.toLowerCase();
+    if (!keyword) return;
+    const operators = await getPopularOperators();
+    const match = operators.find(op => op.name.toLowerCase().includes(keyword));
+    if (match) {
+      const emptyIndex = state.slots.findIndex(s => s === null);
+      if (emptyIndex !== -1) {
+        const opData = await getOperatorData(match.id);
+        if (opData) {
+          const maxElite = opData.phases.length - 1;
+          state.slots[emptyIndex] = {
+            operatorId: match.id,
+            elite: maxElite,
+            level: opData.phases[maxElite].maxLevel,
+            trustPercent: 100,
+            potentialRank: 0,
+            skillLevel: 9
+          };
+          await renderSlot(emptyIndex);
+          updateResults();
+          searchInput.value = '';
+        }
+      }
+    }
+  });
+}
+
+export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker, initEnemyPanel, bindEvents };
