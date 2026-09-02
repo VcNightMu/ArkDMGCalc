@@ -11,7 +11,7 @@ console.log('state.js 导出:', Object.keys(st).join(', '));
 console.log('medic-calc.js 导出:', Object.keys(mc).join(', '));
 console.log('damage-ops-calc.js 导出:', Object.keys(doc).join(', '));
 
-const uiNeed = ['initOperatorSlots', 'renderSlot', 'updateResults', 'showOperatorPicker', 'initEnemyPanel', 'bindEvents'];
+const uiNeed = ['initOperatorSlots', 'renderSlot', 'updateResults', 'showOperatorPicker', 'initEnemyPanel', 'renderPanelStats'];
 console.log('ui.js 缺失导出:', uiNeed.filter(k => !(k in ui)).join(', ') || '无');
 console.log('damage-calc.js calculateOperator:', typeof dc.calculateOperator === 'function' ? 'OK' : 'MISSING');
 console.log('state.js 不再导出 initEnemyPanel:', !('initEnemyPanel' in st) ? 'OK' : '仍导出');
