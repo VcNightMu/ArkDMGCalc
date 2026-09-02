@@ -203,8 +203,19 @@ async function renderSlot(index) {
   slot.querySelectorAll('select, input').forEach(el => {
     el.addEventListener('change', async (e) => {
       const field = e.target.dataset.field;
-      const value = e.target.type === 'number' ? Number(e.target.value) : Number(e.target.value);
+      let value = e.target.type === 'number' ? Number(e.target.value) : Number(e.target.value);
       state.slots[index][field] = value;
+      if (field === 'level') {
+        const phase = op.phases[state.slots[index].elite] || op.phases[op.phases.length - 1];
+        value = Math.min(Math.max(1, value), phase.maxLevel);
+        state.slots[index].level = value;
+        e.target.value = value;
+      }
+      if (field === 'trustPercent') {
+        value = Math.min(Math.max(0, value), 100);
+        state.slots[index].trustPercent = value;
+        e.target.value = value;
+      }
       if (field === 'elite') {
         const newPhase = op.phases[value] || op.phases[op.phases.length - 1];
         state.slots[index].level = Math.min(state.slots[index].level, newPhase.maxLevel);

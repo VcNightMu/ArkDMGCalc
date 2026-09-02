@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.1 (2026-09-02)
+
+### fix: 主职业中文名修复
+- 主职业内部代号映射修正：DEFENDER→TANK, VANGUARD→PIONEER, SUPPORTER→SUPPORT, SPECIALIST→SPECIAL
+- 新增3名干员（闪灵/安洁莉娜/红）覆盖全部8个主职业测试
+- 修复等级输入不受maxLevel限制的问题 - 添加change事件clamping
+
 ## v0.1.0 (2026-09-02)
 
 ### feat: 基础计算器框架
