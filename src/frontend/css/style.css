@@ -107,6 +107,7 @@ body {
 /* 干员搜索 */
 .operator-search {
   margin-bottom: 16px;
+  position: relative;
 }
 
 .operator-search input {
@@ -122,6 +123,42 @@ body {
 
 .operator-search input:focus {
   border-color: var(--accent);
+}
+
+/* 搜索下拉框 */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 50;
+  margin-top: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-primary);
+}
+
+.dropdown-empty {
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 /* 干员槽位 */

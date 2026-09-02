@@ -313,30 +313,68 @@ async function renderPanelStats() {
 
 function bindEvents() {
   const searchInput = document.getElementById('operator-search');
+
+  // 搜索下拉框
+  const dropdown = document.createElement('div');
+  dropdown.className = 'search-dropdown';
+  dropdown.style.display = 'none';
+  searchInput.parentElement.appendChild(dropdown);
+
+  const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
+
   searchInput.addEventListener('input', async () => {
-    const keyword = searchInput.value.toLowerCase();
-    if (!keyword) return;
+    const keyword = searchInput.value.trim().toLowerCase();
+    if (!keyword) { dropdown.style.display = 'none'; dropdown.innerHTML = ''; return; }
+
     const operators = await getPopularOperators();
-    const match = operators.find(op => op.name.toLowerCase().includes(keyword));
-    if (match) {
-      const emptyIndex = state.slots.findIndex(s => s === null);
-      if (emptyIndex !== -1) {
-        const opData = await getOperatorData(match.id);
-        if (opData) {
-          const maxElite = opData.phases.length - 1;
-          state.slots[emptyIndex] = {
-            operatorId: match.id,
-            elite: maxElite,
-            level: opData.phases[maxElite].maxLevel,
-            trustPercent: 100,
-            potentialRank: 0,
-            skillLevel: 9
-          };
-          await renderSlot(emptyIndex);
-          updateResults();
-          searchInput.value = '';
-        }
-      }
+    const matches = operators.filter(op => op.name.toLowerCase().includes(keyword));
+
+    if (matches.length === 0) {
+      dropdown.innerHTML = '<div class="dropdown-empty">无匹配干员</div>';
+      dropdown.style.display = 'block';
+      return;
+    }
+
+    let html = '';
+    for (const op of matches) {
+      const rNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
+      html += '<div class="dropdown-item" data-id="' + op.id + '">';
+      html += '<span class="rarity-' + rNum + '">★' + rNum + ' ' + (rarityLabels[rNum] || '') + '</span>';
+      html += '<span>' + op.name + '</span>';
+      html += '</div>';
+    }
+    dropdown.innerHTML = html;
+    dropdown.style.display = 'block';
+  });
+
+  dropdown.addEventListener('click', async (e) => {
+    const item = e.target.closest ? e.target.closest('.dropdown-item') : null;
+    if (!item) return;
+    const opId = item.dataset.id;
+    const emptyIndex = state.slots.findIndex(s => s === null);
+    if (emptyIndex === -1) { dropdown.style.display = 'none'; return; }
+    const opData = await getOperatorData(opId);
+    if (opData) {
+      const maxElite = opData.phases.length - 1;
+      state.slots[emptyIndex] = {
+        operatorId: opId,
+        elite: maxElite,
+        level: opData.phases[maxElite].maxLevel,
+        trustPercent: 100,
+        potentialRank: 0,
+        skillLevel: 9
+      };
+      await renderSlot(emptyIndex);
+      updateResults();
+      searchInput.value = '';
+      dropdown.style.display = 'none';
+      dropdown.innerHTML = '';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.parentElement.contains(e.target)) {
+      dropdown.style.display = 'none';
     }
   });
 }
