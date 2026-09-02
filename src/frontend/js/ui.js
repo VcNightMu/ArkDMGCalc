@@ -1,7 +1,7 @@
 // ArkDMGCalc - UI Rendering
 import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfessionCN } from './operators.js';
 import { state } from './state.js';
-import { calculateOperator } from './damage-calc.js';
+import { calculateOperator, calcPanelStats } from './damage-calc.js';
 
 function initEnemyPanel() {
   const inputs = {
@@ -21,7 +21,7 @@ function initEnemyPanel() {
 function initOperatorSlots() {
   const container = document.getElementById('operator-slots');
   container.innerHTML = '';
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     const slot = document.createElement('div');
     slot.className = 'operator-slot empty';
     slot.dataset.index = i;
@@ -48,7 +48,7 @@ async function showOperatorPicker(slotIndex) {
   html += '<input type="text" id="picker-search" placeholder="搜索..." style="width:100%;padding:8px 12px;background:#1e1e3a;border:1px solid #2a2a4a;border-radius:6px;color:#eaeaea;font-size:14px;margin-bottom:12px;outline:none;">';
   html += '<div class="picker-list">';
   for (const op of operators) {
-    const rNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[1] || '1');
+    const rNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     html += `<div class="picker-item" data-id="${op.id}" style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:6px;cursor:pointer;border:1px solid transparent;margin-bottom:4px;">`;
     html += `<span class="rarity-${rNum}" style="font-size:13px;min-width:30px;">${rarityLabels[rNum] || ''}</span>`;
     html += `<span style="color:#eaeaea;">${op.name}</span>`;
@@ -109,7 +109,7 @@ async function renderSlot(index) {
 
   const phase = op.phases[data.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
-  const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[1] || '1');
+  const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
   const subProfName = await getSubProfessionCN(op.subProfessionId);
 
   slot.className = 'operator-slot';
@@ -212,6 +212,7 @@ async function renderSlot(index) {
 }
 
 async function updateResults() {
+  await renderPanelStats();
   const container = document.getElementById('result-comparison');
   const filledSlots = state.slots.filter(s => s !== null);
 
@@ -229,7 +230,7 @@ async function updateResults() {
     const result = calculateOperator(op, slotData);
     const card = document.createElement('div');
     card.className = 'result-card';
-    const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[1] || '1');
+    const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
 
     let metricsHtml = '';
@@ -246,22 +247,22 @@ async function updateResults() {
       if (result.skillDps > 0) {
         metricsHtml += '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       }
-      metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.isToggle || result.isPermanent) {
       metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.cycleDps !== null) {
       metricsHtml = '<div class="metric"><span class="label">总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">循环 DPS</span><span class="value dps">' + result.cycleDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
       metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value dps">' + result.normalDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
     }
 
@@ -270,6 +271,42 @@ async function updateResults() {
       '<h3>' + op.name + '</h3>' +
       '<span style="font-size:12px;color:#a0a0b0;margin-left:auto;">' + skillName + '</span>' +
       '</div><div class="result-metrics">' + metricsHtml + '</div>';
+    container.appendChild(card);
+  }
+}
+
+async function renderPanelStats() {
+  const container = document.getElementById('panel-stats');
+  const filledSlots = state.slots.filter(s => s !== null);
+
+  if (filledSlots.length === 0) {
+    container.innerHTML = '<p class="placeholder-text">选择干员后显示基础属性</p>';
+    return;
+  }
+
+  container.innerHTML = '';
+  for (const slotData of filledSlots) {
+    const op = await getOperatorData(slotData.operatorId);
+    if (!op) continue;
+    const ps = calcPanelStats(op, slotData);
+    const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
+    const phaseLabel = 'E' + (op.phases[slotData.elite] ? op.phases[slotData.elite].eliteLevel : 0);
+
+    const card = document.createElement('div');
+    card.className = 'stats-card';
+    card.innerHTML =
+      '<div class="stats-header">' +
+        '<span class="rarity-' + rarityNum + '" style="font-size:13px;">★' + rarityNum + '</span>' +
+        '<h3>' + op.name + '</h3>' +
+        '<span class="stats-config">' + phaseLabel + ' Lv' + slotData.level + ' · 信赖' + slotData.trustPercent + '%</span>' +
+      '</div>' +
+      '<div class="stats-list">' +
+        '<div class="metric"><span class="label">生命值</span><span class="value">' + ps.panelHp + '</span></div>' +
+        '<div class="metric"><span class="label">攻击力</span><span class="value">' + ps.panelAtk + '</span></div>' +
+        '<div class="metric"><span class="label">防御力</span><span class="value">' + ps.panelDef + '</span></div>' +
+        '<div class="metric"><span class="label">法术抗性</span><span class="value">' + ps.magicResistance + '</span></div>' +
+        '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + ps.baseAttackTime.toFixed(2) + 's</span></div>' +
+      '</div>';
     container.appendChild(card);
   }
 }
@@ -304,4 +341,4 @@ function bindEvents() {
   });
 }
 
-export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker, initEnemyPanel, bindEvents };
+export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker, initEnemyPanel, bindEvents, renderPanelStats };

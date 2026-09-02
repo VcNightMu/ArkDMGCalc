@@ -104,4 +104,40 @@ function calculateOperator(op, slotData) {
   return { ...result, type: isMedic ? 'heal' : 'damage', isToggle, isPermanent, realInterval: skillRealInterval, panelAtk: skillAtk };
 }
 
-export { calculateOperator, getSkillLevelData };
+/**
+ * 计算干员面板基础属性（精英化/等级/信赖/潜能加成后）
+ * @returns {Object} { panelHp, panelAtk, panelDef, attackSpeed, baseAttackTime }
+ */
+function calcPanelStats(op, slotData) {
+  const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
+  const maxLevel = phase.maxLevel;
+
+  const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
+  const baseDef = interpolateAttr(phase.def[0], phase.def[1], slotData.level, maxLevel);
+  const baseHp = interpolateAttr(phase.maxHp[0], phase.maxHp[1], slotData.level, maxLevel);
+
+  const trustAtk = op.trustBonus.atk * (slotData.trustPercent / 100);
+  const trustDef = op.trustBonus.def * (slotData.trustPercent / 100);
+
+  let potAtk = 0, potDef = 0, potHp = 0;
+  const potRank = slotData.potentialRank || 0;
+  if (potRank > 0 && op.potentialRanks) {
+    for (let i = 0; i < Math.min(potRank, op.potentialRanks.length); i++) {
+      for (const m of (op.potentialRanks[i].modifiers || [])) {
+        if (m.attr === 'ATK' && m.formula === 'ADDITION') potAtk += m.value;
+        if (m.attr === 'DEF' && m.formula === 'ADDITION') potDef += m.value;
+        if (m.attr === 'MAX_HP' && m.formula === 'ADDITION') potHp += m.value;
+      }
+    }
+  }
+
+  return {
+    panelHp: Math.round(baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp),
+    panelAtk: Math.round(baseAtk + trustAtk + potAtk),
+    panelDef: Math.round(baseDef + trustDef + potDef),
+    magicResistance: phase.magicResistance ?? 0,
+    baseAttackTime: phase.baseAttackTime
+  };
+}
+
+export { calculateOperator, getSkillLevelData, calcPanelStats };
