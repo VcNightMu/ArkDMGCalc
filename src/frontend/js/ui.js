@@ -123,25 +123,27 @@ async function renderSlot(index) {
   html += '<div class="form-group"><label>信赖%</label>';
   html += '<input type="number" data-index="' + index + '" data-field="trustPercent" value="' + data.trustPercent + '" min="0" max="100">';
   html += '</div>';
-  html += '<div class="form-group"><label>技能</label>';
-  const maxSiForElite = data.elite === 0 ? 0 : data.elite === 1 ? 1 : 2;
-  const skillCount = Math.min(op.skills.length, maxSiForElite + 1);
-  html += '<select data-index="' + index + '" data-field="skillIndex">';
-  for (let i = 0; i < skillCount; i++) {
-    const sel = i === (data.skillIndex || 0) ? ' selected' : '';
-    html += '<option value="' + i + '"' + sel + '>' + op.skills[i].name + '</option>';
+  if (op.skills.length > 0) {
+    html += '<div class="form-group"><label>技能</label>';
+    const maxSiForElite = data.elite === 0 ? 0 : data.elite === 1 ? 1 : 2;
+    const skillCount = Math.min(op.skills.length, maxSiForElite + 1);
+    html += '<select data-index="' + index + '" data-field="skillIndex">';
+    for (let i = 0; i < skillCount; i++) {
+      const sel = i === (data.skillIndex || 0) ? ' selected' : '';
+      html += '<option value="' + i + '"' + sel + '>' + op.skills[i].name + '</option>';
+    }
+    html += '</select></div>';
+    html += '<div class="form-group"><label>技能等级</label>';
+    html += '<select data-index="' + index + '" data-field="skillLevel">';
+    const maxSkillIdx = data.elite === 0 ? 3 : data.elite === 1 ? 6 : 9;
+    const allSlOpts = [[0,'Lv1'],[1,'Lv2'],[2,'Lv3'],[3,'Lv4'],[4,'Lv5'],[5,'Lv6'],[6,'Lv7'],[7,'专一'],[8,'专二'],[9,'专三']];
+    const slOpts = allSlOpts.filter(function(x) { return x[0] <= maxSkillIdx; });
+    for (const [v, lbl] of slOpts) {
+      const sel = data.skillLevel === v ? ' selected' : '';
+      html += '<option value="' + v + '"' + sel + '>' + lbl + '</option>';
+    }
+    html += '</select></div>';
   }
-  html += '</select></div>';
-  html += '<div class="form-group"><label>技能等级</label>';
-  html += '<select data-index="' + index + '" data-field="skillLevel">';
-  const maxSkillIdx = data.elite === 0 ? 3 : data.elite === 1 ? 6 : 9;
-  const allSlOpts = [[0,'Lv1'],[1,'Lv2'],[2,'Lv3'],[3,'Lv4'],[4,'Lv5'],[5,'Lv6'],[6,'Lv7'],[7,'专一'],[8,'专二'],[9,'专三']];
-  const slOpts = allSlOpts.filter(function(x) { return x[0] <= maxSkillIdx; });
-  for (const [v, lbl] of slOpts) {
-    const sel = data.skillLevel === v ? ' selected' : '';
-    html += '<option value="' + v + '"' + sel + '>' + lbl + '</option>';
-  }
-  html += '</select></div>';
   html += '<div class="form-group"><label>潜能</label>';
   html += '<select data-index="' + index + '" data-field="potentialRank">';
   const pots = op.potentialRanks || [];

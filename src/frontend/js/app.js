@@ -396,13 +396,16 @@ function calculateOperator(op, slotData) {
       totalHeal = singleHeal;
     }
   } else if (isIncantationMedic) {
-    // Incantation medic: arts damage + healing
+    // Incantation medic: arts damage + healing based on damage dealt
+    const healScale = levelData.scale || 0.5;
     const singleHitDamage = calcArtsDamage(skillAtk, enemy.res);
     const normalHitDamage = calcArtsDamage(panelAtk, enemy.res);
-    normalHps = normalHeal / realInterval;
+    const singleHealFromDamage = singleHitDamage * healScale;
+    const normalHealFromDamage = normalHitDamage * healScale;
+    normalHps = normalHealFromDamage / realInterval;
     if (isToggle || isPermanent) {
       skillDps = singleHitDamage / realInterval;
-      skillHps = singleHeal / realInterval;
+      skillHps = singleHealFromDamage / realInterval;
       skillTotalDamage = 0;
       cycleDps = null;
       totalHeal = null;
@@ -410,8 +413,8 @@ function calculateOperator(op, slotData) {
       skillAttacks = Math.floor(skillDuration / realInterval);
       skillTotalDamage = singleHitDamage * skillAttacks;
       skillDps = skillTotalDamage / skillDuration;
-      skillHps = singleHeal / realInterval;
-      totalHeal = singleHeal * skillAttacks;
+      skillHps = singleHealFromDamage / realInterval;
+      totalHeal = singleHealFromDamage * skillAttacks;
       cycleDps = null;
     } else {
       skillTotalDamage = singleHitDamage;

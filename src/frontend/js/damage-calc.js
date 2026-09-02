@@ -1,5 +1,5 @@
 // ArkDMGCalc - Main Calculation Entry
-import { calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
+import { calcPhysicalDamage, calcArtsDamage, calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
 import { SkillType } from './operators.js';
 import { state } from './state.js';
 import { calcMedical } from './medic-calc.js';
@@ -41,7 +41,20 @@ function calculateOperator(op, slotData) {
   // ======== Skill Modifiers ========
   const skillIndex = slotData.skillIndex || 0;
   const skill = op.skills[skillIndex];
-  if (!skill) return { type: 'unknown', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: phase.baseAttackTime, panelAtk };
+  const isMedic = op.profession === 'MEDIC';
+  const realInterval = phase.baseAttackTime;
+
+  // No skill: return normal stats only
+  if (!skill) {
+    const healRatio = 1.0;
+    if (isMedic) {
+      const normalHeal = baseAtk * healRatio;
+      return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+    }
+    const isArts = op.damageType === 'arts';
+    const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+  }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
 
@@ -65,13 +78,12 @@ function calculateOperator(op, slotData) {
   // ======== Dispatch ========
   const isToggle = levelData.isToggle || false;
   const isPermanent = levelData.isPermanent || false;
-  const realInterval = skillInterval;
-  const isMedic = op.profession === 'MEDIC';
+  const skillRealInterval = skillInterval;
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   const isArts = op.damageType === 'arts';
 
   const params = {
-    panelAtk, baseAtk, skillAtk, realInterval, skillDuration,
+    panelAtk, baseAtk, skillAtk, realInterval: skillRealInterval, skillDuration,
     isToggle, isPermanent, levelData, isArts,
     isIncantationMedic, enemy: state.enemy
   };

@@ -105,13 +105,6 @@
     "subProfessionId": "physician"
   },
   {
-    "id": "char_613_acmedc",
-    "name": "Touch",
-    "rarity": "TIER_6",
-    "profession": "MEDIC",
-    "subProfessionId": "physician"
-  },
-  {
     "id": "char_003_kalts",
     "name": "凯尔希",
     "rarity": "TIER_6",
@@ -135,13 +128,6 @@
   {
     "id": "char_345_folnic",
     "name": "亚叶",
-    "rarity": "TIER_5",
-    "profession": "MEDIC",
-    "subProfessionId": "physician"
-  },
-  {
-    "id": "char_510_amedic",
-    "name": "Touch",
     "rarity": "TIER_5",
     "profession": "MEDIC",
     "subProfessionId": "physician"
@@ -182,13 +168,6 @@
     "subProfessionId": "physician"
   },
   {
-    "id": "char_605_cmedic",
-    "name": "预备干员-医疗",
-    "rarity": "TIER_4",
-    "profession": "MEDIC",
-    "subProfessionId": "physician"
-  },
-  {
     "id": "char_120_hibisc",
     "name": "芙蓉",
     "rarity": "TIER_3",
@@ -198,13 +177,6 @@
   {
     "id": "char_212_ansel",
     "name": "安赛尔",
-    "rarity": "TIER_3",
-    "profession": "MEDIC",
-    "subProfessionId": "physician"
-  },
-  {
-    "id": "char_506_rmedic",
-    "name": "预备干员-后勤",
     "rarity": "TIER_3",
     "profession": "MEDIC",
     "subProfessionId": "physician"
