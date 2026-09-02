@@ -10,6 +10,32 @@ function getSkillLevelData(skill, level) {
   return levels[level] || levels[levels.length - 1];
 }
 
+// 常驻攻击力天赋驱动表。
+// 此类天赋的 blackboard.atk 为「直接乘算」加数（与技能的直接乘算累加，不连乘），
+// 作用于常态与技能期，随精英化/等级/潜能强化取满足条件的最高档。
+// key: 干员 id；value: 常驻加攻天赋在 op.talents 数组中的索引。
+const TALENT_ATK_DRIVERS = {
+  'char_120_hibisc': 0  // 芙蓉「治疗力提升」：精1 Lv1 起 +4%，Lv55 起 +8%
+};
+
+// 查驱动表，返回常驻加攻天赋在当前精英化/等级下的直接乘算加数（0 表示无此天赋或未生效）。
+function calcTalentAtkBonus(op, slotData) {
+  const talentIndex = TALENT_ATK_DRIVERS[op.id];
+  if (talentIndex === undefined) return 0;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const level = slotData.level;
+  let bonus = 0;
+  for (const cand of talent.candidates) {
+    if (cand.phase <= elite && level >= (cand.level || 1)) {
+      const atk = cand.blackboard && typeof cand.blackboard.atk === 'number' ? cand.blackboard.atk : 0;
+      if (atk > bonus) bonus = atk;
+    }
+  }
+  return bonus;
+}
+
 function calculateOperator(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
@@ -34,8 +60,11 @@ function calculateOperator(op, slotData) {
     }
   }
 
-  let panelAtk = baseAtk + trustAtk + potAtk;
-  let panelDef = baseDef + trustDef + potDef;
+  const rawAtk = baseAtk + trustAtk + potAtk;
+  const rawDef = baseDef + trustDef + potDef;
+  const talentAtk = calcTalentAtkBonus(op, slotData);
+  let panelAtk = rawAtk * (1 + talentAtk);
+  let panelDef = rawDef;
   const panelHp = baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp;
 
   // ======== Skill Modifiers ========
@@ -70,9 +99,13 @@ function calculateOperator(op, slotData) {
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + levelData.attack_speed);
   if (levelData.base_attack_time) skillInterval = phase.baseAttackTime + levelData.base_attack_time;
 
-  if (modifiers.length > 0) {
-    skillAtk = calcAttribute(panelAtk, modifiers.filter(m => m.operator === 'direct_mul'));
-    skillDef = calcAttribute(panelDef, modifiers.filter(m => m.operator === 'final_mul'));
+  if (modifiers.length > 0 || talentAtk > 0) {
+    // 直接乘算累加：技能期攻击力 = 白值 × (1 + 天赋atk + 技能atk)
+    skillAtk = calcAttribute(rawAtk, [
+      { value: talentAtk, operator: 'direct_mul' },
+      ...modifiers.filter(m => m.operator === 'direct_mul')
+    ]);
+    skillDef = calcAttribute(rawDef, modifiers.filter(m => m.operator === 'final_mul'));
   }
 
   // ======== Dispatch ========
@@ -131,13 +164,16 @@ function calcPanelStats(op, slotData) {
     }
   }
 
+  const rawAtk = baseAtk + trustAtk + potAtk;
+  const talentAtk = calcTalentAtkBonus(op, slotData);
+
   return {
     panelHp: Math.round(baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp),
-    panelAtk: Math.round(baseAtk + trustAtk + potAtk),
+    panelAtk: Math.round(rawAtk * (1 + talentAtk)),
     panelDef: Math.round(baseDef + trustDef + potDef),
     magicResistance: phase.magicResistance ?? 0,
     baseAttackTime: phase.baseAttackTime
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, TALENT_ATK_DRIVERS };
