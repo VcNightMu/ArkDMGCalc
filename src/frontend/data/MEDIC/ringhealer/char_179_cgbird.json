@@ -429,6 +429,93 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+5",
+          "blackboard": {
+            "magic_resistance": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+7<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "magic_resistance": 7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+10",
+          "blackboard": {
+            "magic_resistance": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+12<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "magic_resistance": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+15",
+          "blackboard": {
+            "magic_resistance": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "白恶魔的庇护",
+          "description": "攻击范围内的友方单位法术抗性+17<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "magic_resistance": 17
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "转瞬即逝的幻影",
+          "description": "可以使用幻影。幻影无法攻击和阻挡敌人，拥有75法术抗性，30%的物理闪避，并且更容易吸引敌人的攻击，同时每秒流失3%的最大生命",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

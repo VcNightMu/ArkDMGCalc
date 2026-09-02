@@ -283,6 +283,56 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "强化注射",
+          "description": "在场时，所有友方【医疗】职业干员攻速+6",
+          "blackboard": {
+            "attack_speed": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "强化注射",
+          "description": "在场时，所有友方【医疗】职业干员攻速+8<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "attack_speed": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "强化注射",
+          "description": "在场时，所有友方【医疗】职业干员攻速+12",
+          "blackboard": {
+            "attack_speed": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "强化注射",
+          "description": "在场时，所有友方【医疗】职业干员攻速+14<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "attack_speed": 14
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

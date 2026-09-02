@@ -459,6 +459,92 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "神经腐蚀",
+          "description": "攻击使目标中毒，在3秒内每秒受到65点法术伤害（对会远程攻击的目标伤害加倍）",
+          "blackboard": {
+            "damage[normal]": 65,
+            "damage[ranged]": 130,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "神经腐蚀",
+          "description": "攻击使目标中毒，在3秒内每秒受到80<@ba.talpu>（+15）</>点法术伤害（对会远程攻击的目标伤害加倍）",
+          "blackboard": {
+            "damage[normal]": 80,
+            "damage[ranged]": 160,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "神经腐蚀",
+          "description": "攻击使目标中毒，在3秒内每秒受到125点法术伤害（对会远程攻击的目标伤害加倍）",
+          "blackboard": {
+            "damage[normal]": 125,
+            "damage[ranged]": 250,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "神经腐蚀",
+          "description": "攻击使目标中毒，在3秒内每秒受到140<@ba.talpu>（+15）</>点法术伤害（对会远程攻击的目标伤害加倍）",
+          "blackboard": {
+            "damage[normal]": 140,
+            "damage[ranged]": 280,
+            "duration": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "故土潮声",
+          "description": "如果2秒内没有主动攻击过，每秒恢复最大生命3.5%的生命",
+          "blackboard": {
+            "delay": 2,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.035
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "故土潮声",
+          "description": "如果2秒内没有主动攻击过，每秒恢复最大生命4%<@ba.talpu>（+0.5%）</>的生命",
+          "blackboard": {
+            "delay": 2,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.04
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

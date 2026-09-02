@@ -469,6 +469,104 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熔火",
+          "description": "无视攻击目标12法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "熔火",
+          "description": "无视攻击目标14<@ba.talpu>（+2）</>法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熔火",
+          "description": "无视攻击目标20法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "熔火",
+          "description": "无视攻击目标22<@ba.talpu>（+2）</>法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 22
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "余烬",
+          "description": "受到致命伤害时持续使生命值不低于1，4秒后强制退出战场",
+          "blackboard": {
+            "surtr_t_2[withdraw].interval": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "余烬",
+          "description": "受到致命伤害时持续使生命值不低于1，5<@ba.talpu>（+1）</>秒后强制退出战场",
+          "blackboard": {
+            "surtr_t_2[withdraw].interval": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "余烬",
+          "description": "受到致命伤害时持续使生命值不低于1，8秒后强制退出战场",
+          "blackboard": {
+            "surtr_t_2[withdraw].interval": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "余烬",
+          "description": "受到致命伤害时持续使生命值不低于1，9<@ba.talpu>（+1）</>秒后强制退出战场",
+          "blackboard": {
+            "surtr_t_2[withdraw].interval": 9
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

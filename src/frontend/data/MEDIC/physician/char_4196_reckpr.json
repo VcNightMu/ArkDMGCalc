@@ -323,6 +323,72 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "学成于聚",
+          "description": "攻击范围内的干员开启技能时自身回复1点技力，且攻击速度+8，持续8秒",
+          "blackboard": {
+            "attack_speed": 8,
+            "duration": 8,
+            "max_stack_cnt": 1,
+            "prob": 1,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "学成于聚",
+          "description": "攻击范围内的干员开启技能时自身回复1点技力，且攻击速度+8，持续10<@ba.talpu>（+2）</>秒",
+          "blackboard": {
+            "attack_speed": 8,
+            "duration": 10,
+            "max_stack_cnt": 1,
+            "prob": 1,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "学成于聚",
+          "description": "攻击范围内的干员开启技能时自身回复1点技力，且攻击速度+16，持续8秒",
+          "blackboard": {
+            "attack_speed": 16,
+            "duration": 8,
+            "max_stack_cnt": 1,
+            "prob": 1,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "学成于聚",
+          "description": "攻击范围内的干员开启技能时自身回复1点技力，且攻击速度+16，持续10<@ba.talpu>（+2）</>秒",
+          "blackboard": {
+            "attack_speed": 16,
+            "duration": 10,
+            "max_stack_cnt": 1,
+            "prob": 1,
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

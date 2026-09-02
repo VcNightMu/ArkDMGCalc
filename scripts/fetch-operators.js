@@ -119,6 +119,28 @@ async function fetchJSON(url) {
   return resp.json();
 }
 
+function convertTalents(charData) {
+  const phaseNum = { PHASE_0: 0, PHASE_1: 1, PHASE_2: 2 };
+  const talents = [];
+  for (const t of charData.talents || []) {
+    const candidates = (t.candidates || []).map(c => {
+      const bb = {};
+      for (const b of c.blackboard || []) bb[b.key] = b.value;
+      return {
+        phase: phaseNum[c.unlockCondition?.phase] ?? 0,
+        level: c.unlockCondition?.level ?? 1,
+        potentialRank: c.requiredPotentialRank ?? 0,
+        name: c.name,
+        description: c.description,
+        blackboard: bb,
+        isHideTalent: c.isHideTalent ?? false
+      };
+    });
+    if (candidates.length > 0) talents.push({ candidates });
+  }
+  return talents;
+}
+
 function convertOperator(id, charData, skillTable) {
   const phases = [];
   for (const [, p] of Object.entries(charData.phases || {})) {
@@ -172,7 +194,7 @@ function convertOperator(id, charData, skillTable) {
     id, name: charData.name, rarity: charData.rarity,
     profession: charData.profession, subProfessionId: charData.subProfessionId,
     damageType,
-    phases, trustBonus, skills,
+    phases, trustBonus, skills, talents: convertTalents(charData),
     potentialRanks: (charData.potentialRanks || []).map(p => ({
       description: p.description,
       type: p.type,

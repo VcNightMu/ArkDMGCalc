@@ -32,6 +32,78 @@
     "maxHp": 100
   },
   "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "救援喷雾·I",
+          "description": "部署后立即恢复全场友方单位200点生命",
+          "blackboard": {
+            "value": 200
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "救援喷雾·II",
+          "description": "部署后立即恢复全场友方单位260点生命",
+          "blackboard": {
+            "value": 260
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "救援喷雾·III",
+          "description": "部署后立即恢复全场友方单位320点生命",
+          "blackboard": {
+            "value": 320
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "救援喷雾·IV",
+          "description": "部署后立即恢复全场友方单位380点生命",
+          "blackboard": {
+            "value": 380
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "救援喷雾·V",
+          "description": "部署后立即恢复全场友方单位440点生命",
+          "blackboard": {
+            "value": 440
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "救援喷雾·VI",
+          "description": "部署后立即恢复全场友方单位500点生命",
+          "blackboard": {
+            "value": 500
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "天赋效果加强",

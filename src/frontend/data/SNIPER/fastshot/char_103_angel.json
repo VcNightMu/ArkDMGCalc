@@ -429,6 +429,84 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "快速弹匣",
+          "description": "攻击速度+6",
+          "blackboard": {
+            "attack_speed": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "快速弹匣",
+          "description": "攻击速度+9<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "attack_speed": 9
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "快速弹匣",
+          "description": "攻击速度+12",
+          "blackboard": {
+            "attack_speed": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "快速弹匣",
+          "description": "攻击速度+15<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "attack_speed": 15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "天使的祝福",
+          "description": "攻击力+6%，生命上限+10%。置入战场后这个效果会同样赋予给一名随机友方单位",
+          "blackboard": {
+            "max_hp": 0.1,
+            "atk": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "天使的祝福",
+          "description": "攻击力+8%<@ba.talpu>（+2%）</>，生命上限+13%<@ba.talpu>（+3%）</>。置入战场后这个效果会同样赋予给一名随机友方单位",
+          "blackboard": {
+            "max_hp": 0.13,
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

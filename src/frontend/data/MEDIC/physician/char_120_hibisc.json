@@ -128,6 +128,34 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "治疗力提升",
+          "description": "攻击力+4%",
+          "blackboard": {
+            "atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 55,
+          "potentialRank": 0,
+          "name": "治疗力提升",
+          "description": "攻击力+8%",
+          "blackboard": {
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

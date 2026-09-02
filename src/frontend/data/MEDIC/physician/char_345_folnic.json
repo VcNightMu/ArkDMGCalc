@@ -303,6 +303,48 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "药物阻断技巧",
+          "description": "拥有<$ba.buffres>抵抗</>",
+          "blackboard": {
+            "one_minus_status_resistance": -0.5,
+            "damage_scale": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "药物阻断技巧",
+          "description": "拥有<$ba.buffres>抵抗</>且受到来自自然环境的伤害-40%",
+          "blackboard": {
+            "one_minus_status_resistance": -0.5,
+            "damage_scale": 0.6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "药物阻断技巧",
+          "description": "拥有<$ba.buffres>抵抗</>且受到来自自然环境的伤害-50%<@ba.talpu>（+10%）</>",
+          "blackboard": {
+            "one_minus_status_resistance": -0.5,
+            "damage_scale": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

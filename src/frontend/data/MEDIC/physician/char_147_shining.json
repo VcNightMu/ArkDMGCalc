@@ -429,6 +429,104 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+20",
+          "blackboard": {
+            "def": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+25<@ba.talpu>（+5）</>",
+          "blackboard": {
+            "def": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+40",
+          "blackboard": {
+            "def": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+45<@ba.talpu>（+5）</>",
+          "blackboard": {
+            "def": 45
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+60",
+          "blackboard": {
+            "def": 60
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "黑恶魔的庇护",
+          "description": "攻击范围内的友方单位防御力+65<@ba.talpu>（+5）</>",
+          "blackboard": {
+            "def": 65
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "法典",
+          "description": "攻击速度+10",
+          "blackboard": {
+            "attack_speed": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "法典",
+          "description": "攻击速度+13<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "attack_speed": 13
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

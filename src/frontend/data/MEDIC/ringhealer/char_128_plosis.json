@@ -283,6 +283,34 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环",
+          "description": "在场时所有友方单位的技力自然回复速度+0.15/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环",
+          "description": "在场时所有友方单位的技力自然回复速度+0.3/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

@@ -409,6 +409,82 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "加速力场",
+          "description": "全场友方单位攻速+3",
+          "blackboard": {
+            "attack_speed": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "加速力场",
+          "description": "全场友方单位攻速+4<@ba.talpu>（+1）</>",
+          "blackboard": {
+            "attack_speed": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "加速力场",
+          "description": "全场友方单位攻速+7",
+          "blackboard": {
+            "attack_speed": 7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "加速力场",
+          "description": "全场友方单位攻速+8<@ba.talpu>（+1）</>",
+          "blackboard": {
+            "attack_speed": 8
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "兼职工作",
+          "description": "技能未开启时，全场友方单位每秒回复20点生命",
+          "blackboard": {
+            "hp_recovery_per_sec": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "兼职工作",
+          "description": "技能未开启时，全场友方单位每秒回复25<@ba.talpu>（+5）</>点生命",
+          "blackboard": {
+            "hp_recovery_per_sec": 25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

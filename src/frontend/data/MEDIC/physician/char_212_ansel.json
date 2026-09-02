@@ -135,6 +135,56 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "附加治疗",
+          "description": "有7%的几率额外治疗一名友方单位",
+          "blackboard": {
+            "attack@prob": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "附加治疗",
+          "description": "有10%<@ba.talpu>（+3%）</>的几率额外治疗一名友方单位",
+          "blackboard": {
+            "attack@prob": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 55,
+          "potentialRank": 0,
+          "name": "附加治疗",
+          "description": "有15%的几率额外治疗一名友方单位",
+          "blackboard": {
+            "attack@prob": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 55,
+          "potentialRank": 4,
+          "name": "附加治疗",
+          "description": "有18%<@ba.talpu>（+3%）</>的几率额外治疗一名友方单位",
+          "blackboard": {
+            "attack@prob": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",

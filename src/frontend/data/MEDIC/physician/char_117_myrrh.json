@@ -303,6 +303,56 @@
       ]
     }
   ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "急救包",
+          "description": "部署后立刻恢复全体友方单位的生命值，恢复量为末药攻击力的100%",
+          "blackboard": {
+            "heal_scale": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "急救包",
+          "description": "部署后立刻恢复全体友方单位的生命值，恢复量为末药攻击力的110%<@ba.talpu>（+10%）</>",
+          "blackboard": {
+            "heal_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "急救包",
+          "description": "部署后立刻恢复全体友方单位的生命值，恢复量为末药攻击力的150%",
+          "blackboard": {
+            "heal_scale": 1.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "急救包",
+          "description": "部署后立刻恢复全体友方单位的生命值，恢复量为末药攻击力的160%<@ba.talpu>（+10%）</>",
+          "blackboard": {
+            "heal_scale": 1.6
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
   "potentialRanks": [
     {
       "description": "部署费用-1",
