@@ -115,7 +115,7 @@ async function renderSlot(index) {
   slot.className = 'operator-slot';
   let html = '';
   html += '<div class="slot-header">';
-  html += '<div class="slot-avatar">&#9876;&#65039;</div>';
+  html += '<img class="slot-avatar" src="assets/avatars/' + op.profession + '/' + op.subProfessionId + '/' + op.id + '.png" alt="' + op.name + '">';
   html += '<div class="slot-info">';
   html += '<h3 class="rarity-' + rarityNum + '">' + op.name + '</h3>';
   html += '<span class="profession">' + getProfessionCN(op.profession) + ' · ' + subProfName + '</span>';
