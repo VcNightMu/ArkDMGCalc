@@ -1,0 +1,327 @@
+{
+  "id": "char_103_angel",
+  "name": "能天使",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        183,
+        305
+      ],
+      "def": [
+        57,
+        95
+      ],
+      "maxHp": [
+        711,
+        1016
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        305,
+        437
+      ],
+      "def": [
+        95,
+        136
+      ],
+      "maxHp": [
+        1016,
+        1338
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        437,
+        540
+      ],
+      "def": [
+        136,
+        161
+      ],
+      "maxHp": [
+        1338,
+        1673
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_angel_1",
+      "name": "冲锋模式",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 0,
+          "atk_scale": 1.05,
+          "times": 3
+        },
+        {
+          "level": 1,
+          "duration": 0,
+          "atk_scale": 1.07,
+          "times": 3
+        },
+        {
+          "level": 2,
+          "duration": 0,
+          "atk_scale": 1.09,
+          "times": 3
+        },
+        {
+          "level": 3,
+          "duration": 0,
+          "atk_scale": 1.13,
+          "times": 3
+        },
+        {
+          "level": 4,
+          "duration": 0,
+          "atk_scale": 1.15,
+          "times": 3
+        },
+        {
+          "level": 5,
+          "duration": 0,
+          "atk_scale": 1.17,
+          "times": 3
+        },
+        {
+          "level": 6,
+          "duration": 0,
+          "atk_scale": 1.21,
+          "times": 3
+        },
+        {
+          "level": 7,
+          "duration": 0,
+          "atk_scale": 1.29,
+          "times": 3
+        },
+        {
+          "level": 8,
+          "duration": 0,
+          "atk_scale": 1.37,
+          "times": 3
+        },
+        {
+          "level": 9,
+          "duration": 0,
+          "atk_scale": 1.45,
+          "times": 3
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_angel_2",
+      "name": "扫射模式",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 4
+        },
+        {
+          "level": 1,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 4
+        },
+        {
+          "level": 2,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 4
+        },
+        {
+          "level": 3,
+          "duration": 15,
+          "attack@atk_scale": 1.05,
+          "attack@times": 4
+        },
+        {
+          "level": 4,
+          "duration": 15,
+          "attack@atk_scale": 1.05,
+          "attack@times": 4
+        },
+        {
+          "level": 5,
+          "duration": 15,
+          "attack@atk_scale": 1.05,
+          "attack@times": 4
+        },
+        {
+          "level": 6,
+          "duration": 15,
+          "attack@atk_scale": 1.1,
+          "attack@times": 4
+        },
+        {
+          "level": 7,
+          "duration": 15,
+          "attack@atk_scale": 1.15,
+          "attack@times": 4
+        },
+        {
+          "level": 8,
+          "duration": 15,
+          "attack@atk_scale": 1.2,
+          "attack@times": 4
+        },
+        {
+          "level": 9,
+          "duration": 15,
+          "attack@atk_scale": 1.25,
+          "attack@times": 4
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_angel_3",
+      "name": "过载模式",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": 0
+        },
+        {
+          "level": 1,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": 0
+        },
+        {
+          "level": 2,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": 0
+        },
+        {
+          "level": 3,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": -0.05
+        },
+        {
+          "level": 4,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": -0.05
+        },
+        {
+          "level": 5,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": -0.05
+        },
+        {
+          "level": 6,
+          "duration": 15,
+          "attack@atk_scale": 1,
+          "attack@times": 5,
+          "base_attack_time": -0.08
+        },
+        {
+          "level": 7,
+          "duration": 15,
+          "attack@atk_scale": 1.03,
+          "attack@times": 5,
+          "base_attack_time": -0.08
+        },
+        {
+          "level": 8,
+          "duration": 15,
+          "attack@atk_scale": 1.07,
+          "attack@times": 5,
+          "base_attack_time": -0.08
+        },
+        {
+          "level": 9,
+          "duration": 15,
+          "attack@atk_scale": 1.1,
+          "attack@times": 5,
+          "base_attack_time": -0.11
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

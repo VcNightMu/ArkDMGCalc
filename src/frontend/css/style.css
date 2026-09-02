@@ -1,0 +1,310 @@
+/* ArkDMGCalc - 明日方舟风格深色主题 */
+
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --accent: #e94560;
+  --accent-hover: #ff6b81;
+  --text-primary: #eaeaea;
+  --text-secondary: #a0a0b0;
+  --border: #2a2a4a;
+  --input-bg: #1e1e3a;
+  --success: #4ecdc4;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --info: #3498db;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--accent);
+}
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.app-header .subtitle {
+  color: var(--text-secondary);
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.app-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.panel h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 表单 */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.form-group input, .form-group select {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--accent);
+}
+
+/* 干员搜索 */
+.operator-search {
+  margin-bottom: 16px;
+}
+
+.operator-search input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: var(--text-primary);
+  font-size: 15px;
+  outline: none;
+}
+
+.operator-search input:focus {
+  border-color: var(--accent);
+}
+
+/* 干员槽位 */
+.operator-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.operator-slot {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.operator-slot:hover {
+  border-color: var(--accent);
+}
+
+.operator-slot.empty {
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.operator-slot.empty:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.slot-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.slot-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.slot-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.slot-info .profession {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.slot-config {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot-config .form-group {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slot-config .form-group label {
+  font-size: 12px;
+  min-width: 50px;
+}
+
+.slot-config select, .slot-config input {
+  width: 140px;
+  padding: 4px 8px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 结果面板 */
+.result-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.result-card .result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-card .result-header h3 {
+  font-size: 15px;
+}
+
+.result-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric .label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.metric .value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.metric .value.damage { color: var(--accent); }
+.metric .value.heal { color: var(--success); }
+.metric .value.dps { color: var(--warning); }
+
+.placeholder-text {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 40px;
+  grid-column: 1 / -1;
+}
+
+/* 稀有度颜色 */
+.rarity-6 { color: #ffaa00; }
+.rarity-5 { color: #ff6600; }
+.rarity-4 { color: #cc44ff; }
+.rarity-3 { color: #44aaff; }
+.rarity-2 { color: #66cc66; }
+.rarity-1 { color: #aaaaaa; }
+
+/* 按钮 */
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn-remove {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 11px;
+  padding: 2px 8px;
+}
+
+.btn-remove:hover {
+  background: var(--danger);
+  color: white;
+}

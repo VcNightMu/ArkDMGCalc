@@ -1,0 +1,50 @@
+[
+  {
+    "id": "char_172_svrash",
+    "name": "银灰",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR"
+  },
+  {
+    "id": "char_010_chen",
+    "name": "陈",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR"
+  },
+  {
+    "id": "char_293_thorns",
+    "name": "棘刺",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR"
+  },
+  {
+    "id": "char_103_angel",
+    "name": "能天使",
+    "rarity": "TIER_6",
+    "profession": "SNIPER"
+  },
+  {
+    "id": "char_180_amgoat",
+    "name": "艾雅法拉",
+    "rarity": "TIER_6",
+    "profession": "CASTER"
+  },
+  {
+    "id": "char_350_surtr",
+    "name": "史尔特尔",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR"
+  },
+  {
+    "id": "char_222_bpipe",
+    "name": "风笛",
+    "rarity": "TIER_6",
+    "profession": "PIONEER"
+  },
+  {
+    "id": "char_202_demkni",
+    "name": "塞雷娅",
+    "rarity": "TIER_6",
+    "profession": "TANK"
+  }
+]

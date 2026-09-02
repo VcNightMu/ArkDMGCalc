@@ -1,0 +1,333 @@
+{
+  "id": "char_010_chen",
+  "name": "陈",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "sword",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        249,
+        361
+      ],
+      "def": [
+        154,
+        221
+      ],
+      "maxHp": [
+        1229,
+        1684
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        361,
+        469
+      ],
+      "def": [
+        221,
+        288
+      ],
+      "maxHp": [
+        1684,
+        2188
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        469,
+        610
+      ],
+      "def": [
+        288,
+        352
+      ],
+      "maxHp": [
+        2188,
+        2880
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_chen_1",
+      "name": "鞘击",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 0,
+          "atk_scale": 2,
+          "stun": 1
+        },
+        {
+          "level": 1,
+          "duration": 0,
+          "atk_scale": 2.1,
+          "stun": 1
+        },
+        {
+          "level": 2,
+          "duration": 0,
+          "atk_scale": 2.2,
+          "stun": 1
+        },
+        {
+          "level": 3,
+          "duration": 0,
+          "atk_scale": 2.3,
+          "stun": 1.25
+        },
+        {
+          "level": 4,
+          "duration": 0,
+          "atk_scale": 2.4,
+          "stun": 1.25
+        },
+        {
+          "level": 5,
+          "duration": 0,
+          "atk_scale": 2.5,
+          "stun": 1.25
+        },
+        {
+          "level": 6,
+          "duration": 0,
+          "atk_scale": 2.6,
+          "stun": 1.5
+        },
+        {
+          "level": 7,
+          "duration": 0,
+          "atk_scale": 2.8,
+          "stun": 1.5
+        },
+        {
+          "level": 8,
+          "duration": 0,
+          "atk_scale": 3,
+          "stun": 1.5
+        },
+        {
+          "level": 9,
+          "duration": 0,
+          "atk_scale": 3.2,
+          "stun": 1.5
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen_2",
+      "name": "赤霄·拔刀",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 0,
+          "atk_scale": 3.3,
+          "max_target": 4
+        },
+        {
+          "level": 1,
+          "duration": 0,
+          "atk_scale": 3.4,
+          "max_target": 4
+        },
+        {
+          "level": 2,
+          "duration": 0,
+          "atk_scale": 3.5,
+          "max_target": 4
+        },
+        {
+          "level": 3,
+          "duration": 0,
+          "atk_scale": 3.7,
+          "max_target": 5
+        },
+        {
+          "level": 4,
+          "duration": 0,
+          "atk_scale": 3.8,
+          "max_target": 5
+        },
+        {
+          "level": 5,
+          "duration": 0,
+          "atk_scale": 3.9,
+          "max_target": 5
+        },
+        {
+          "level": 6,
+          "duration": 0,
+          "atk_scale": 4.1,
+          "max_target": 6
+        },
+        {
+          "level": 7,
+          "duration": 0,
+          "atk_scale": 4.4,
+          "max_target": 6
+        },
+        {
+          "level": 8,
+          "duration": 0,
+          "atk_scale": 4.7,
+          "max_target": 6
+        },
+        {
+          "level": 9,
+          "duration": 0,
+          "atk_scale": 5,
+          "max_target": 7
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen_3",
+      "name": "赤霄·绝影",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 0,
+          "atk_scale": 2,
+          "times": 10,
+          "stun": 2
+        },
+        {
+          "level": 1,
+          "duration": 0,
+          "atk_scale": 2.1,
+          "times": 10,
+          "stun": 2
+        },
+        {
+          "level": 2,
+          "duration": 0,
+          "atk_scale": 2.2,
+          "times": 10,
+          "stun": 2
+        },
+        {
+          "level": 3,
+          "duration": 0,
+          "atk_scale": 2.3,
+          "times": 10,
+          "stun": 2.5
+        },
+        {
+          "level": 4,
+          "duration": 0,
+          "atk_scale": 2.4,
+          "times": 10,
+          "stun": 2.5
+        },
+        {
+          "level": 5,
+          "duration": 0,
+          "atk_scale": 2.5,
+          "times": 10,
+          "stun": 2.5
+        },
+        {
+          "level": 6,
+          "duration": 0,
+          "atk_scale": 2.6,
+          "times": 10,
+          "stun": 3
+        },
+        {
+          "level": 7,
+          "duration": 0,
+          "atk_scale": 2.8,
+          "times": 10,
+          "stun": 3
+        },
+        {
+          "level": 8,
+          "duration": 0,
+          "atk_scale": 3,
+          "times": 10,
+          "stun": 3
+        },
+        {
+          "level": 9,
+          "duration": 0,
+          "atk_scale": 3.2,
+          "times": 10,
+          "stun": 4
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

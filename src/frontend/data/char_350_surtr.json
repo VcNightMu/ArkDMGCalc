@@ -1,0 +1,367 @@
+{
+  "id": "char_350_surtr",
+  "name": "史尔特尔",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        288,
+        418
+      ],
+      "def": [
+        186,
+        267
+      ],
+      "maxHp": [
+        1330,
+        1750
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        418,
+        544
+      ],
+      "def": [
+        267,
+        343
+      ],
+      "maxHp": [
+        1750,
+        2216
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        544,
+        672
+      ],
+      "def": [
+        343,
+        414
+      ],
+      "maxHp": [
+        2216,
+        2916
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_surtr_1",
+      "name": "烈焰魔剑",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 0,
+          "atk_scale": 2
+        },
+        {
+          "level": 1,
+          "duration": 0,
+          "atk_scale": 2.05
+        },
+        {
+          "level": 2,
+          "duration": 0,
+          "atk_scale": 2.1
+        },
+        {
+          "level": 3,
+          "duration": 0,
+          "atk_scale": 2.2
+        },
+        {
+          "level": 4,
+          "duration": 0,
+          "atk_scale": 2.25
+        },
+        {
+          "level": 5,
+          "duration": 0,
+          "atk_scale": 2.3
+        },
+        {
+          "level": 6,
+          "duration": 0,
+          "atk_scale": 2.4
+        },
+        {
+          "level": 7,
+          "duration": 0,
+          "atk_scale": 2.6
+        },
+        {
+          "level": 8,
+          "duration": 0,
+          "atk_scale": 2.8
+        },
+        {
+          "level": 9,
+          "duration": 0,
+          "atk_scale": 3.1
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_surtr_2",
+      "name": "熔核巨影",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 15,
+          "atk": 0.5,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 1,
+          "duration": 15,
+          "atk": 0.55,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 2,
+          "duration": 15,
+          "atk": 0.6,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 3,
+          "duration": 16,
+          "atk": 0.65,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 4,
+          "duration": 16,
+          "atk": 0.7,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 5,
+          "duration": 16,
+          "atk": 0.75,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.4
+        },
+        {
+          "level": 6,
+          "duration": 17,
+          "atk": 0.8,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.5
+        },
+        {
+          "level": 7,
+          "duration": 17,
+          "atk": 0.9,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.5
+        },
+        {
+          "level": 8,
+          "duration": 17,
+          "atk": 1,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.5
+        },
+        {
+          "level": 9,
+          "duration": 18,
+          "atk": 1.2,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "attack@surtr_s_2[critical].atk_scale": 1.6
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_surtr_3",
+      "name": "黄昏",
+      "levels": [
+        {
+          "level": 0,
+          "duration": 60,
+          "atk": 1.8,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 1,
+          "duration": 60,
+          "atk": 1.9,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 2,
+          "duration": 60,
+          "atk": 2,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 3,
+          "duration": 60,
+          "atk": 2.1,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 4,
+          "duration": 60,
+          "atk": 2.2,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 5,
+          "duration": 60,
+          "atk": 2.3,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 6,
+          "duration": 60,
+          "atk": 2.4,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 7,
+          "duration": 60,
+          "atk": 2.7,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 8,
+          "duration": 60,
+          "atk": 3,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 3
+        },
+        {
+          "level": 9,
+          "duration": 60,
+          "atk": 3.3,
+          "ability_range_forward_extend": 2,
+          "max_hp": 5000,
+          "interval": 0.2,
+          "hp_ratio": 0.2,
+          "attack@max_target": 4
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}
