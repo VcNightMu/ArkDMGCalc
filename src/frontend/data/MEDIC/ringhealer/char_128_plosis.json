@@ -1,0 +1,340 @@
+{
+  "id": "char_128_plosis",
+  "name": "白面鸮",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "ringhealer",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        122,
+        198
+      ],
+      "def": [
+        71,
+        95
+      ],
+      "maxHp": [
+        751,
+        1016
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        198,
+        268
+      ],
+      "def": [
+        95,
+        124
+      ],
+      "maxHp": [
+        1016,
+        1271
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        268,
+        335
+      ],
+      "def": [
+        124,
+        150
+      ],
+      "maxHp": [
+        1271,
+        1610
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 55,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_heal_up[3]",
+      "name": "治疗强化·γ型",
+      "levels": [
+        {
+          "atk": 0.4,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_plosis_2",
+      "name": "脑啡肽",
+      "levels": [
+        {
+          "base_attack_time": -1.65,
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 65,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.65,
+          "level": 1,
+          "spCost": 100,
+          "initialSp": 65,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 31,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.65,
+          "level": 2,
+          "spCost": 100,
+          "initialSp": 65,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 32,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.8,
+          "level": 3,
+          "spCost": 100,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 33,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.8,
+          "level": 4,
+          "spCost": 100,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 34,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.8,
+          "level": 5,
+          "spCost": 100,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 35,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.9,
+          "level": 6,
+          "spCost": 100,
+          "initialSp": 75,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 36,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.9,
+          "level": 7,
+          "spCost": 100,
+          "initialSp": 78,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 37,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.9,
+          "level": 8,
+          "spCost": 100,
+          "initialSp": 82,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 38,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -2.1,
+          "level": 9,
+          "spCost": 100,
+          "initialSp": 85,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+21",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 21
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

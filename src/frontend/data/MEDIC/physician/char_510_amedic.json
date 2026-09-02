@@ -1,0 +1,198 @@
+{
+  "id": "char_510_amedic",
+  "name": "Touch",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        210,
+        345
+      ],
+      "def": [
+        59,
+        86
+      ],
+      "maxHp": [
+        865,
+        1219
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        345,
+        493
+      ],
+      "def": [
+        86,
+        108
+      ],
+      "maxHp": [
+        1219,
+        1469
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        493,
+        595
+      ],
+      "def": [
+        108,
+        135
+      ],
+      "maxHp": [
+        1469,
+        1633
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_amedic_1",
+      "name": "宛如天启",
+      "levels": [
+        {
+          "atk": 0.1,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "ability_range_forward_extend": 2,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": []
+}

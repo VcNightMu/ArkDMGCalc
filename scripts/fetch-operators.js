@@ -7,7 +7,28 @@ const BASE = path.join(__dirname, '..', 'src', 'frontend', 'data');
 const OPERATORS = [
   'char_172_svrash', 'char_010_chen', 'char_293_thorns', 'char_103_angel',
   'char_180_amgoat', 'char_350_surtr', 'char_222_bpipe', 'char_202_demkni',
-  'char_147_shining', 'char_291_aglina', 'char_144_red'
+  'char_147_shining', 'char_291_aglina', 'char_144_red',
+  // MEDIC - physician (all)
+  'char_128_plosis', // 白面鸮 (ringhealer)
+  'char_179_cgbird', // 夜莺 (ringhealer)
+  'char_1020_reed2', // 焰影苇草 (incantationmedic)
+  'char_147_shining', // 闪灵
+  'char_613_acmedc', // Touch (六星)
+  'char_003_kalts', // 凯尔希
+  'char_108_silent', // 赫默
+  'char_171_bldsk', // 华法琳
+  'char_345_folnic', // 亚叶
+  'char_510_amedic', // Touch (五星)
+  'char_4196_reckpr', // 录武官
+  'char_402_tuye', // 图耶
+  'char_117_myrrh', // 末药
+  'char_187_ccheal', // 嘉维尔
+  'char_298_susuro', // 苏苏洛
+  'char_605_cmedic', // 预备干员-医疗
+  'char_120_hibisc', // 芙蓉
+  'char_212_ansel', // 安赛尔
+  'char_506_rmedic', // 预备干员-后勤
+  'char_285_medic2', // Lancet-2
 ];
 
 async function fetchJSON(url) {

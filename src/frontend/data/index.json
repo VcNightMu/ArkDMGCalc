@@ -75,5 +75,145 @@
     "rarity": "TIER_5",
     "profession": "SPECIAL",
     "subProfessionId": "executor"
+  },
+  {
+    "id": "char_128_plosis",
+    "name": "白面鸮",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "ringhealer"
+  },
+  {
+    "id": "char_179_cgbird",
+    "name": "夜莺",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "ringhealer"
+  },
+  {
+    "id": "char_1020_reed2",
+    "name": "焰影苇草",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic"
+  },
+  {
+    "id": "char_147_shining",
+    "name": "闪灵",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_613_acmedc",
+    "name": "Touch",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_003_kalts",
+    "name": "凯尔希",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_108_silent",
+    "name": "赫默",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_171_bldsk",
+    "name": "华法琳",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_345_folnic",
+    "name": "亚叶",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_510_amedic",
+    "name": "Touch",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_4196_reckpr",
+    "name": "录武官",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_402_tuye",
+    "name": "图耶",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_117_myrrh",
+    "name": "末药",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_187_ccheal",
+    "name": "嘉维尔",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_298_susuro",
+    "name": "苏苏洛",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_605_cmedic",
+    "name": "预备干员-医疗",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_120_hibisc",
+    "name": "芙蓉",
+    "rarity": "TIER_3",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_212_ansel",
+    "name": "安赛尔",
+    "rarity": "TIER_3",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_506_rmedic",
+    "name": "预备干员-后勤",
+    "rarity": "TIER_3",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
+  },
+  {
+    "id": "char_285_medic2",
+    "name": "Lancet-2",
+    "rarity": "TIER_1",
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
   }
 ]

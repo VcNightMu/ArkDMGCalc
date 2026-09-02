@@ -1,0 +1,61 @@
+{
+  "id": "char_285_medic2",
+  "name": "Lancet-2",
+  "rarity": "TIER_1",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        42,
+        70
+      ],
+      "def": [
+        16,
+        27
+      ],
+      "maxHp": [
+        261,
+        435
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [],
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

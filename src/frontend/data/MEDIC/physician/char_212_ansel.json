@@ -1,0 +1,187 @@
+{
+  "id": "char_212_ansel",
+  "name": "安赛尔",
+  "rarity": "TIER_3",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 40,
+      "atk": [
+        156,
+        257
+      ],
+      "def": [
+        60,
+        81
+      ],
+      "maxHp": [
+        634,
+        907
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 55,
+      "atk": [
+        257,
+        362
+      ],
+      "def": [
+        81,
+        109
+      ],
+      "maxHp": [
+        907,
+        1135
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_range_extend",
+      "name": "治疗范围强化",
+      "levels": [
+        {
+          "atk": 0.05,
+          "ability_range_forward_extend": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 19,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "ability_range_forward_extend": 1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "ability_range_forward_extend": 1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 21,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "ability_range_forward_extend": 2,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 22,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "ability_range_forward_extend": 2,
+          "level": 4,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 23,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "ability_range_forward_extend": 2,
+          "level": 5,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 24,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "ability_range_forward_extend": 2,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 25,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+20",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

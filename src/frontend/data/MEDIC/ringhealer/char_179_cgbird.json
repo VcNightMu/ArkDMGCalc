@@ -1,0 +1,480 @@
+{
+  "id": "char_179_cgbird",
+  "name": "夜莺",
+  "rarity": "TIER_6",
+  "profession": "MEDIC",
+  "subProfessionId": "ringhealer",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        132,
+        210
+      ],
+      "def": [
+        80,
+        107
+      ],
+      "maxHp": [
+        796,
+        1076
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        210,
+        280
+      ],
+      "def": [
+        107,
+        140
+      ],
+      "maxHp": [
+        1076,
+        1346
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        280,
+        350
+      ],
+      "def": [
+        140,
+        169
+      ],
+      "maxHp": [
+        1346,
+        1705
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_heal_up[3]",
+      "name": "治疗强化·γ型",
+      "levels": [
+        {
+          "atk": 0.4,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cgbird_2",
+      "name": "法术护盾",
+      "levels": [
+        {
+          "atk_scale": 0.4,
+          "magic_resistance": 5,
+          "duration": -1,
+          "ct": 1,
+          "level": 0,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.43,
+          "magic_resistance": 5,
+          "duration": -1,
+          "ct": 1,
+          "level": 1,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.46,
+          "magic_resistance": 5,
+          "duration": -1,
+          "ct": 1,
+          "level": 2,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.5,
+          "magic_resistance": 10,
+          "duration": -1,
+          "ct": 2,
+          "level": 3,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.53,
+          "magic_resistance": 10,
+          "duration": -1,
+          "ct": 2,
+          "level": 4,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.56,
+          "magic_resistance": 10,
+          "duration": -1,
+          "ct": 2,
+          "level": 5,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.6,
+          "magic_resistance": 15,
+          "duration": -1,
+          "ct": 2,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.7,
+          "magic_resistance": 15,
+          "duration": -1,
+          "ct": 3,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.8,
+          "magic_resistance": 15,
+          "duration": -1,
+          "ct": 3,
+          "level": 8,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "magic_resistance": 20,
+          "duration": -1,
+          "ct": 3,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cgbird_3",
+      "name": "圣域",
+      "levels": [
+        {
+          "atk": 0.3,
+          "magic_resistance": 0.75,
+          "prob": 0.1,
+          "level": 0,
+          "spCost": 120,
+          "initialSp": 100,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "magic_resistance": 0.8,
+          "prob": 0.1,
+          "level": 1,
+          "spCost": 120,
+          "initialSp": 100,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "magic_resistance": 0.85,
+          "prob": 0.1,
+          "level": 2,
+          "spCost": 120,
+          "initialSp": 100,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "magic_resistance": 0.9,
+          "prob": 0.15,
+          "level": 3,
+          "spCost": 120,
+          "initialSp": 105,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "magic_resistance": 0.95,
+          "prob": 0.15,
+          "level": 4,
+          "spCost": 120,
+          "initialSp": 105,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "magic_resistance": 1,
+          "prob": 0.15,
+          "level": 5,
+          "spCost": 120,
+          "initialSp": 105,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "magic_resistance": 1.05,
+          "prob": 0.2,
+          "level": 6,
+          "spCost": 120,
+          "initialSp": 110,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "magic_resistance": 1.2,
+          "prob": 0.2,
+          "level": 7,
+          "spCost": 120,
+          "initialSp": 110,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "magic_resistance": 1.35,
+          "prob": 0.2,
+          "level": 8,
+          "spCost": 120,
+          "initialSp": 110,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "magic_resistance": 1.5,
+          "prob": 0.25,
+          "level": 9,
+          "spCost": 120,
+          "initialSp": 115,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 60,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "法术抗性+10",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAGIC_RESISTANCE",
+          "formula": "ADDITION",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

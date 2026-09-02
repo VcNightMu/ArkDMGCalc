@@ -1,0 +1,404 @@
+{
+  "id": "char_187_ccheal",
+  "name": "嘉维尔",
+  "rarity": "TIER_4",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        159,
+        262
+      ],
+      "def": [
+        66,
+        96
+      ],
+      "maxHp": [
+        851,
+        1167
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        262,
+        364
+      ],
+      "def": [
+        96,
+        121
+      ],
+      "maxHp": [
+        1167,
+        1374
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        364,
+        450
+      ],
+      "def": [
+        121,
+        152
+      ],
+      "maxHp": [
+        1374,
+        1580
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ccheal_1",
+      "name": "活力再生",
+      "levels": [
+        {
+          "heal_scale": 0.2,
+          "heal_scale_2": 0.4,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.21,
+          "heal_scale_2": 0.42,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.22,
+          "heal_scale_2": 0.44,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.23,
+          "heal_scale_2": 0.46,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.24,
+          "heal_scale_2": 0.48,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.25,
+          "heal_scale_2": 0.5,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 1,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.26,
+          "heal_scale_2": 0.52,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 2,
+          "level": 6,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.29,
+          "heal_scale_2": 0.58,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 2,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.32,
+          "heal_scale_2": 0.64,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 2,
+          "level": 8,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.35,
+          "heal_scale_2": 0.7,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "ct": 3,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ccheal_2",
+      "name": "活力再生·广域",
+      "levels": [
+        {
+          "heal_scale": 0.15,
+          "heal_scale_2": 0.38,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.16,
+          "heal_scale_2": 0.4,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.17,
+          "heal_scale_2": 0.42,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.18,
+          "heal_scale_2": 0.44,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 3,
+          "spCost": 60,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.19,
+          "heal_scale_2": 0.46,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 4,
+          "spCost": 60,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.2,
+          "heal_scale_2": 0.48,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 5,
+          "spCost": 60,
+          "initialSp": 37,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.21,
+          "heal_scale_2": 0.5,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.24,
+          "heal_scale_2": 0.6,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 7,
+          "spCost": 60,
+          "initialSp": 43,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.27,
+          "heal_scale_2": 0.7,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 8,
+          "spCost": 60,
+          "initialSp": 46,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.3,
+          "heal_scale_2": 0.8,
+          "hp_ratio": 0.5,
+          "interval": 1,
+          "duration": -1,
+          "level": 9,
+          "spCost": 60,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

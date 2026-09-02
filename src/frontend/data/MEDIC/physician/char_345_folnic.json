@@ -1,0 +1,354 @@
+{
+  "id": "char_345_folnic",
+  "name": "亚叶",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        163,
+        268
+      ],
+      "def": [
+        58,
+        84
+      ],
+      "maxHp": [
+        839,
+        1183
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        268,
+        383
+      ],
+      "def": [
+        84,
+        106
+      ],
+      "maxHp": [
+        1183,
+        1426
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        383,
+        479
+      ],
+      "def": [
+        106,
+        133
+      ],
+      "maxHp": [
+        1426,
+        1585
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_folnic_1",
+      "name": "最大剂量输注",
+      "levels": [
+        {
+          "atk": 0.2,
+          "ability_range_forward_extend": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "ability_range_forward_extend": 1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "ability_range_forward_extend": 1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "ability_range_forward_extend": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "ability_range_forward_extend": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "ability_range_forward_extend": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "ability_range_forward_extend": 1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "ability_range_forward_extend": 2,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "ability_range_forward_extend": 2,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "ability_range_forward_extend": 2,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 40,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_folnic_2",
+      "name": "复合型药物弹片",
+      "levels": [
+        {
+          "attack@heal_scale": 0.8,
+          "attack@atk_scale": 1,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 25,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.85,
+          "attack@atk_scale": 1.1,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 25,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.9,
+          "attack@atk_scale": 1.2,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 25,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1,
+          "attack@atk_scale": 1.3,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 26,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.05,
+          "attack@atk_scale": 1.4,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 26,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.1,
+          "attack@atk_scale": 1.5,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 26,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.2,
+          "attack@atk_scale": 1.6,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 27,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.3,
+          "attack@atk_scale": 1.7,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 28,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.4,
+          "attack@atk_scale": 1.8,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 29,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 1.5,
+          "attack@atk_scale": 2,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 30,
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

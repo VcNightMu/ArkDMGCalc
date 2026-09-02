@@ -1,0 +1,53 @@
+{
+  "id": "char_506_rmedic",
+  "name": "预备干员-后勤",
+  "rarity": "TIER_3",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 40,
+      "atk": [
+        145,
+        239
+      ],
+      "def": [
+        57,
+        76
+      ],
+      "maxHp": [
+        603,
+        863
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 55,
+      "atk": [
+        239,
+        338
+      ],
+      "def": [
+        76,
+        102
+      ],
+      "maxHp": [
+        863,
+        1080
+      ],
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "potentialRanks": []
+}
