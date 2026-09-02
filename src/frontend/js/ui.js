@@ -38,58 +38,87 @@ async function showOperatorPicker(slotIndex) {
   const operators = await getPopularOperators();
   const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
 
+  // 按 主职业 → 子职业 分组（只包含有数据的子职业）
+  const profGroups = {};
+  for (const op of operators) {
+    if (!profGroups[op.profession]) profGroups[op.profession] = {};
+    if (!profGroups[op.profession][op.subProfessionId]) profGroups[op.profession][op.subProfessionId] = [];
+    profGroups[op.profession][op.subProfessionId].push(op);
+  }
+
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:100;display:flex;align-items:center;justify-content:center;';
 
   const picker = document.createElement('div');
-  picker.style.cssText = 'background:#16213e;border-radius:12px;padding:20px;max-width:500px;width:90%;max-height:70vh;overflow-y:auto;border:1px solid #2a2a4a;';
+  picker.style.cssText = 'background:#16213e;border-radius:12px;padding:20px;max-width:520px;width:90%;max-height:70vh;overflow-y:auto;border:1px solid #2a2a4a;';
 
   let html = '<h3 style="margin-bottom:16px;color:#eaeaea;">选择干员</h3>';
-  html += '<input type="text" id="picker-search" placeholder="搜索..." style="width:100%;padding:8px 12px;background:#1e1e3a;border:1px solid #2a2a4a;border-radius:6px;color:#eaeaea;font-size:14px;margin-bottom:12px;outline:none;">';
-  html += '<div class="picker-list">';
-  for (const op of operators) {
-    const rNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
-    html += `<div class="picker-item" data-id="${op.id}" style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:6px;cursor:pointer;border:1px solid transparent;margin-bottom:4px;">`;
-    html += `<span class="rarity-${rNum}" style="font-size:13px;min-width:30px;">${rarityLabels[rNum] || ''}</span>`;
-    html += `<span style="color:#eaeaea;">${op.name}</span>`;
-    html += '</div>';
+  html += '<div class="picker-selects">';
+  html += '<select id="picker-profession"><option value="">主职业</option>';
+  for (const prof of Object.keys(profGroups)) {
+    html += '<option value="' + prof + '">' + getProfessionCN(prof) + '</option>';
   }
+  html += '</select>';
+  html += '<select id="picker-subprof"><option value="">子职业</option></select>';
   html += '</div>';
+  html += '<div class="picker-list" id="picker-list"></div>';
   picker.innerHTML = html;
   overlay.appendChild(picker);
   document.body.appendChild(overlay);
 
-  const searchInput = picker.querySelector('#picker-search');
-  searchInput.addEventListener('input', () => {
-    const keyword = searchInput.value.toLowerCase();
-    picker.querySelectorAll('.picker-item').forEach(item => {
-      item.style.display = item.textContent.toLowerCase().includes(keyword) ? 'flex' : 'none';
-    });
+  const profSelect = picker.querySelector('#picker-profession');
+  const subSelect = picker.querySelector('#picker-subprof');
+  const listEl = picker.querySelector('#picker-list');
+
+  // 主职业变化 → 填充子职业下拉框（只显示有数据的子职业）
+  profSelect.addEventListener('change', async () => {
+    const prof = profSelect.value;
+    subSelect.innerHTML = '<option value="">子职业</option>';
+    listEl.innerHTML = '';
+    if (!prof) return;
+    for (const sub of Object.keys(profGroups[prof])) {
+      const subName = await getSubProfessionCN(sub);
+      subSelect.innerHTML += '<option value="' + sub + '">' + subName + '</option>';
+    }
   });
 
-  picker.querySelectorAll('.picker-item').forEach(item => {
-    item.addEventListener('click', async () => {
-      const opId = item.dataset.id;
-      const opData = await getOperatorData(opId);
-      if (opData) {
-        const maxElite = opData.phases.length - 1;
-        state.slots[slotIndex] = {
-          operatorId: opId,
-          elite: maxElite,
-          level: opData.phases[maxElite].maxLevel,
-          trustPercent: 100,
-          potentialRank: 0,
-          skillLevel: 9
-        };
-        await renderSlot(slotIndex);
-        updateResults();
-      }
-      overlay.remove();
-    });
+  // 子职业变化 → 填充干员列表
+  subSelect.addEventListener('change', () => {
+    const prof = profSelect.value;
+    const sub = subSelect.value;
+    listEl.innerHTML = '';
+    if (!prof || !sub) return;
+    for (const op of (profGroups[prof][sub] || [])) {
+      listEl.innerHTML += '<div class="picker-item" data-id="' + op.id + '">' +
+        '<span class="rarity-' + op.rarity + '" style="font-size:13px;min-width:36px;">' + (rarityLabels[op.rarity] || '') + '</span>' +
+        '<span>' + op.name + '</span>' +
+        '</div>';
+    }
+  });
+
+  // 点击干员 → 添加
+  listEl.addEventListener('click', async (e) => {
+    const item = e.target.closest ? e.target.closest('.picker-item') : null;
+    if (!item) return;
+    const opId = item.dataset.id;
+    const opData = await getOperatorData(opId);
+    if (opData) {
+      const maxElite = opData.phases.length - 1;
+      state.slots[slotIndex] = {
+        operatorId: opId,
+        elite: maxElite,
+        level: opData.phases[maxElite].maxLevel,
+        trustPercent: 100,
+        potentialRank: 0,
+        skillLevel: 9
+      };
+      await renderSlot(slotIndex);
+      updateResults();
+    }
+    overlay.remove();
   });
 
   overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
-  searchInput.focus();
 }
 
 async function renderSlot(index) {
@@ -311,72 +340,4 @@ async function renderPanelStats() {
   }
 }
 
-function bindEvents() {
-  const searchInput = document.getElementById('operator-search');
-
-  // 搜索下拉框
-  const dropdown = document.createElement('div');
-  dropdown.className = 'search-dropdown';
-  dropdown.style.display = 'none';
-  searchInput.parentElement.appendChild(dropdown);
-
-  const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
-
-  searchInput.addEventListener('input', async () => {
-    const keyword = searchInput.value.trim().toLowerCase();
-    if (!keyword) { dropdown.style.display = 'none'; dropdown.innerHTML = ''; return; }
-
-    const operators = await getPopularOperators();
-    const matches = operators.filter(op => op.name.toLowerCase().includes(keyword));
-
-    if (matches.length === 0) {
-      dropdown.innerHTML = '<div class="dropdown-empty">无匹配干员</div>';
-      dropdown.style.display = 'block';
-      return;
-    }
-
-    let html = '';
-    for (const op of matches) {
-      const rNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
-      html += '<div class="dropdown-item" data-id="' + op.id + '">';
-      html += '<span class="rarity-' + rNum + '">★' + rNum + ' ' + (rarityLabels[rNum] || '') + '</span>';
-      html += '<span>' + op.name + '</span>';
-      html += '</div>';
-    }
-    dropdown.innerHTML = html;
-    dropdown.style.display = 'block';
-  });
-
-  dropdown.addEventListener('click', async (e) => {
-    const item = e.target.closest ? e.target.closest('.dropdown-item') : null;
-    if (!item) return;
-    const opId = item.dataset.id;
-    const emptyIndex = state.slots.findIndex(s => s === null);
-    if (emptyIndex === -1) { dropdown.style.display = 'none'; return; }
-    const opData = await getOperatorData(opId);
-    if (opData) {
-      const maxElite = opData.phases.length - 1;
-      state.slots[emptyIndex] = {
-        operatorId: opId,
-        elite: maxElite,
-        level: opData.phases[maxElite].maxLevel,
-        trustPercent: 100,
-        potentialRank: 0,
-        skillLevel: 9
-      };
-      await renderSlot(emptyIndex);
-      updateResults();
-      searchInput.value = '';
-      dropdown.style.display = 'none';
-      dropdown.innerHTML = '';
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!searchInput.parentElement.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
-}
-
-export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker, initEnemyPanel, bindEvents, renderPanelStats };
+export { initOperatorSlots, renderSlot, updateResults, showOperatorPicker, initEnemyPanel, renderPanelStats };

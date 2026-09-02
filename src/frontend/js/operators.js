@@ -68,7 +68,8 @@ export async function getPopularOperators() {
     id: op.id,
     name: op.name,
     rarity: parseRarity(op.rarity),
-    profession: op.profession
+    profession: op.profession,
+    subProfessionId: op.subProfessionId
   }));
 }
 

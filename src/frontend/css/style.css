@@ -104,61 +104,44 @@ body {
   border-color: var(--accent);
 }
 
-/* 干员搜索 */
-.operator-search {
-  margin-bottom: 16px;
-  position: relative;
+/* 干员选择器 */
+.picker-selects {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.operator-search input {
-  width: 100%;
+.picker-selects select {
+  flex: 1;
+  padding: 8px 12px;
   background: var(--input-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 16px;
+  border-radius: 6px;
   color: var(--text-primary);
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
 }
 
-.operator-search input:focus {
-  border-color: var(--accent);
+.picker-list {
+  display: flex;
+  flex-direction: column;
 }
 
-/* 搜索下拉框 */
-.search-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 50;
-  margin-top: 4px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-.dropdown-item {
-  padding: 8px 12px;
-  cursor: pointer;
+.picker-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin-bottom: 4px;
   color: var(--text-primary);
-  font-size: 14px;
 }
 
-.dropdown-item:hover {
+.picker-item:hover {
+  border-color: var(--accent);
   background: var(--bg-primary);
-}
-
-.dropdown-empty {
-  padding: 10px 12px;
-  color: var(--text-secondary);
-  font-size: 13px;
 }
 
 /* 干员槽位 */
