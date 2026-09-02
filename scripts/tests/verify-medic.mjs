@@ -1,5 +1,5 @@
 // 验证医疗干员技能等级是否影响 HPS / 总治疗量
-import { calculateOperator } from '../src/frontend/js/damage-calc.js';
+import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
 const BASE = 'F:/ArkCodes/ArkDMGCalc';

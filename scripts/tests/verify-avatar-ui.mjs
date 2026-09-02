@@ -1,6 +1,6 @@
 // 验证 renderSlot 生成的头像 img
-import { renderSlot } from '../src/frontend/js/ui.js';
-import { state } from '../src/frontend/js/state.js';
+import { renderSlot } from '../../src/frontend/js/ui.js';
+import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
 const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';

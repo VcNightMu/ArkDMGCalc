@@ -1,6 +1,6 @@
 // 端到端验证：真实数据 + mock fetch/DOM → calculateOperator → updateResults 渲染
-import * as ui from '../src/frontend/js/ui.js';
-import { state } from '../src/frontend/js/state.js';
+import * as ui from '../../src/frontend/js/ui.js';
+import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
 const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';

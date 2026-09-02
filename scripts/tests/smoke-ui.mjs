@@ -1,6 +1,6 @@
 // ui.js 冒烟测试：mock DOM，验证初始化/渲染函数不抛错
-import * as ui from '../src/frontend/js/ui.js';
-import { state } from '../src/frontend/js/state.js';
+import * as ui from '../../src/frontend/js/ui.js';
+import { state } from '../../src/frontend/js/state.js';
 
 function makeEl(tag) {
   return {

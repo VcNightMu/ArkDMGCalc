@@ -1,7 +1,7 @@
 // 验证基础属性面板：calcPanelStats 计算 + renderPanelStats 渲染
-import { calcPanelStats } from '../src/frontend/js/damage-calc.js';
-import * as ui from '../src/frontend/js/ui.js';
-import { state } from '../src/frontend/js/state.js';
+import { calcPanelStats } from '../../src/frontend/js/damage-calc.js';
+import * as ui from '../../src/frontend/js/ui.js';
+import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
 const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';

@@ -1,9 +1,9 @@
 // 校验模块拆分后的 import/export 链是否闭合、无循环依赖
-import * as ui from '../src/frontend/js/ui.js';
-import * as dc from '../src/frontend/js/damage-calc.js';
-import * as st from '../src/frontend/js/state.js';
-import * as mc from '../src/frontend/js/medic-calc.js';
-import * as doc from '../src/frontend/js/damage-ops-calc.js';
+import * as ui from '../../src/frontend/js/ui.js';
+import * as dc from '../../src/frontend/js/damage-calc.js';
+import * as st from '../../src/frontend/js/state.js';
+import * as mc from '../../src/frontend/js/medic-calc.js';
+import * as doc from '../../src/frontend/js/damage-ops-calc.js';
 
 console.log('ui.js 导出:', Object.keys(ui).join(', '));
 console.log('damage-calc.js 导出:', Object.keys(dc).join(', '));
