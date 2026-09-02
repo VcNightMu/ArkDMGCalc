@@ -48,7 +48,7 @@ function calculateOperator(op, slotData) {
   if (!skill) {
     const healRatio = 1.0;
     if (isMedic) {
-      const normalHeal = baseAtk * healRatio;
+      const normalHeal = panelAtk * healRatio;
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
@@ -68,7 +68,7 @@ function calculateOperator(op, slotData) {
   if (levelData.def !== undefined) modifiers.push({ value: levelData.def, operator: 'final_mul' });
   if (levelData.atk_scale !== undefined) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + levelData.attack_speed);
-  if (levelData.base_attack_time) skillInterval = levelData.base_attack_time;
+  if (levelData.base_attack_time) skillInterval = phase.baseAttackTime + levelData.base_attack_time;
 
   if (modifiers.length > 0) {
     skillAtk = calcAttribute(panelAtk, modifiers.filter(m => m.operator === 'direct_mul'));
@@ -83,7 +83,7 @@ function calculateOperator(op, slotData) {
   const isArts = op.damageType === 'arts';
 
   const params = {
-    panelAtk, baseAtk, skillAtk, realInterval: skillRealInterval, skillDuration,
+    panelAtk, baseAtk, skillAtk, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts,
     isIncantationMedic, enemy: state.enemy
   };
@@ -101,7 +101,7 @@ function calculateOperator(op, slotData) {
     return { type: 'heal', hps, totalHeal: hps * (skillDuration || 1), panelAtk };
   }
 
-  return { ...result, type: isMedic ? 'heal' : 'damage', isToggle, isPermanent, realInterval, panelAtk: skillAtk };
+  return { ...result, type: isMedic ? 'heal' : 'damage', isToggle, isPermanent, realInterval: skillRealInterval, panelAtk: skillAtk };
 }
 
 export { calculateOperator, getSkillLevelData };

@@ -6,15 +6,15 @@ import { calcArtsDamage } from './calculator.js';
  * @returns {Object} healing metrics
  */
 function calcMedical(params) {
-  const { panelAtk, baseAtk, skillAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isIncantationMedic } = params;
+  const { panelAtk, skillAtk, realInterval, baseInterval, skillDuration, isToggle, isPermanent, levelData, isIncantationMedic } = params;
 
   if (isIncantationMedic) return calcIncantationMedic(params);
 
   const healRatio = levelData.heal_ratio || 1.0;
-  const singleHeal = panelAtk * healRatio;
-  const normalHeal = baseAtk * healRatio;
+  const singleHeal = skillAtk * healRatio;
+  const normalHeal = panelAtk * healRatio;
 
-  const normalHps = normalHeal / realInterval;
+  const normalHps = normalHeal / baseInterval;
   let skillHps, totalHeal;
 
   if (isToggle || isPermanent) {
@@ -40,7 +40,7 @@ function calcMedical(params) {
  * @returns {Object} combined damage + healing metrics
  */
 function calcIncantationMedic(params) {
-  const { panelAtk, skillAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, enemy } = params;
+  const { panelAtk, skillAtk, realInterval, baseInterval, skillDuration, isToggle, isPermanent, levelData, enemy } = params;
 
   const healScale = levelData.scale || 0.5;
   const singleHitDamage = calcArtsDamage(skillAtk, enemy.res);
@@ -48,7 +48,7 @@ function calcIncantationMedic(params) {
   const singleHealFromDamage = singleHitDamage * healScale;
   const normalHealFromDamage = normalHitDamage * healScale;
 
-  const normalHps = normalHealFromDamage / realInterval;
+  const normalHps = normalHealFromDamage / baseInterval;
   let skillDps, skillHps, skillTotalDamage, totalHeal, cycleDps = null;
   let skillAttacks;
 
