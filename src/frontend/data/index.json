@@ -3,66 +3,77 @@
     "id": "char_172_svrash",
     "name": "银灰",
     "rarity": "TIER_6",
-    "profession": "WARRIOR"
+    "profession": "WARRIOR",
+    "subProfessionId": "lord"
   },
   {
     "id": "char_010_chen",
     "name": "陈",
     "rarity": "TIER_6",
-    "profession": "WARRIOR"
+    "profession": "WARRIOR",
+    "subProfessionId": "sword"
   },
   {
     "id": "char_293_thorns",
     "name": "棘刺",
     "rarity": "TIER_6",
-    "profession": "WARRIOR"
+    "profession": "WARRIOR",
+    "subProfessionId": "lord"
   },
   {
     "id": "char_103_angel",
     "name": "能天使",
     "rarity": "TIER_6",
-    "profession": "SNIPER"
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot"
   },
   {
     "id": "char_180_amgoat",
     "name": "艾雅法拉",
     "rarity": "TIER_6",
-    "profession": "CASTER"
+    "profession": "CASTER",
+    "subProfessionId": "corecaster"
   },
   {
     "id": "char_350_surtr",
     "name": "史尔特尔",
     "rarity": "TIER_6",
-    "profession": "WARRIOR"
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter"
   },
   {
     "id": "char_222_bpipe",
     "name": "风笛",
     "rarity": "TIER_6",
-    "profession": "PIONEER"
+    "profession": "PIONEER",
+    "subProfessionId": "charger"
   },
   {
     "id": "char_202_demkni",
     "name": "塞雷娅",
     "rarity": "TIER_6",
-    "profession": "TANK"
+    "profession": "TANK",
+    "subProfessionId": "guardian"
   },
   {
     "id": "char_147_shining",
     "name": "闪灵",
     "rarity": "TIER_6",
-    "profession": "MEDIC"
+    "profession": "MEDIC",
+    "subProfessionId": "physician"
   },
   {
     "id": "char_291_aglina",
     "name": "安洁莉娜",
     "rarity": "TIER_6",
-    "profession": "SUPPORT"
+    "profession": "SUPPORT",
+    "subProfessionId": "slower"
   },
   {
     "id": "char_144_red",
     "name": "红",
     "rarity": "TIER_5",
-    "profession": "SPECIAL"
+    "profession": "SPECIAL",
+    "subProfessionId": "executor"
   }
 ]

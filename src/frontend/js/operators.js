@@ -53,7 +53,10 @@ async function loadIndex() {
 
 async function loadOperator(id) {
   if (_cache[id]) return _cache[id];
-  const resp = await fetch(`data/${id}.json`);
+  const index = await loadIndex();
+  const entry = index.find(e => e.id === id);
+  if (!entry) return null;
+  const resp = await fetch(`data/${entry.profession}/${entry.subProfessionId}/${id}.json`);
   if (!resp.ok) return null;
   _cache[id] = await resp.json();
   return _cache[id];

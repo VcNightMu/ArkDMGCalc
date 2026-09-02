@@ -1,254 +1,233 @@
 {
-  "id": "char_180_amgoat",
-  "name": "艾雅法拉",
+  "id": "char_147_shining",
+  "name": "闪灵",
   "rarity": "TIER_6",
-  "profession": "CASTER",
-  "subProfessionId": "corecaster",
-  "damageType": "arts",
+  "profession": "MEDIC",
+  "subProfessionId": "physician",
+  "damageType": "physical",
   "phases": [
     {
       "eliteLevel": 0,
       "maxLevel": 50,
       "atk": [
-        292,
-        406
+        180,
+        296
       ],
       "def": [
-        46,
-        79
+        60,
+        88
       ],
       "maxHp": [
-        732,
-        1046
+        854,
+        1204
       ],
-      "magicResistance": 10,
-      "baseAttackTime": 1.6,
+      "baseAttackTime": 2.85,
       "attackSpeed": 100
     },
     {
       "eliteLevel": 1,
       "maxLevel": 80,
       "atk": [
-        406,
-        535
+        296,
+        424
       ],
       "def": [
-        79,
-        109
+        88,
+        110
       ],
       "maxHp": [
-        1046,
-        1359
+        1204,
+        1451
       ],
-      "magicResistance": 15,
-      "baseAttackTime": 1.6,
+      "baseAttackTime": 2.85,
       "attackSpeed": 100
     },
     {
       "eliteLevel": 2,
       "maxLevel": 90,
       "atk": [
-        535,
-        645
+        424,
+        530
       ],
       "def": [
-        109,
-        122
+        110,
+        138
       ],
       "maxHp": [
-        1359,
-        1743
+        1451,
+        1613
       ],
-      "magicResistance": 20,
-      "baseAttackTime": 1.6,
+      "baseAttackTime": 2.85,
       "attackSpeed": 100
     }
   ],
   "trustBonus": {
-    "atk": 90,
-    "def": 0,
+    "atk": 80,
+    "def": 20,
     "maxHp": 0
   },
   "skills": [
     {
-      "skillId": "skchr_amgoat_1",
-      "name": "二重咏唱",
+      "skillId": "skchr_shining_1",
+      "name": "信条",
       "levels": [
         {
-          "amgoat_s_1[a].attack_speed": 30,
-          "amgoat_s_1[b].attack_speed": 30,
-          "amgoat_s_1[b].atk": 0.3,
+          "atk": 0.45,
+          "attack_speed": 10,
           "level": 0,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.48,
+          "attack_speed": 10,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 10,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.58,
+          "attack_speed": 10,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.61,
+          "attack_speed": 10,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "duration": 20,
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.64,
+          "attack_speed": 10,
+          "level": 5,
           "spCost": 45,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "duration": 20,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "amgoat_s_1[a].attack_speed": 32,
-          "amgoat_s_1[b].attack_speed": 32,
-          "amgoat_s_1[b].atk": 0.32,
-          "level": 1,
-          "spCost": 44,
-          "initialSp": 10,
-          "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "amgoat_s_1[a].attack_speed": 35,
-          "amgoat_s_1[b].attack_speed": 35,
-          "amgoat_s_1[b].atk": 0.35,
-          "level": 2,
-          "spCost": 43,
-          "initialSp": 10,
-          "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "amgoat_s_1[a].attack_speed": 38,
-          "amgoat_s_1[b].attack_speed": 38,
-          "amgoat_s_1[b].atk": 0.38,
-          "level": 3,
-          "spCost": 42,
-          "initialSp": 15,
-          "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "amgoat_s_1[a].attack_speed": 40,
-          "amgoat_s_1[b].attack_speed": 40,
-          "amgoat_s_1[b].atk": 0.4,
-          "level": 4,
-          "spCost": 41,
-          "initialSp": 15,
-          "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "amgoat_s_1[a].attack_speed": 42,
-          "amgoat_s_1[b].attack_speed": 42,
-          "amgoat_s_1[b].atk": 0.42,
-          "level": 5,
-          "spCost": 40,
-          "initialSp": 15,
-          "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "amgoat_s_1[a].attack_speed": 45,
-          "amgoat_s_1[b].attack_speed": 45,
-          "amgoat_s_1[b].atk": 0.45,
+          "atk": 0.67,
+          "attack_speed": 20,
           "level": 6,
-          "spCost": 39,
-          "initialSp": 20,
+          "spCost": 44,
+          "initialSp": 14,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "duration": 20,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "amgoat_s_1[a].attack_speed": 50,
-          "amgoat_s_1[b].attack_speed": 50,
-          "amgoat_s_1[b].atk": 0.5,
+          "atk": 0.7,
+          "attack_speed": 20,
           "level": 7,
-          "spCost": 38,
-          "initialSp": 20,
+          "spCost": 43,
+          "initialSp": 16,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "duration": 20,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "amgoat_s_1[a].attack_speed": 55,
-          "amgoat_s_1[b].attack_speed": 55,
-          "amgoat_s_1[b].atk": 0.55,
+          "atk": 0.75,
+          "attack_speed": 20,
           "level": 8,
-          "spCost": 37,
-          "initialSp": 20,
+          "spCost": 42,
+          "initialSp": 18,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "duration": 20,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "amgoat_s_1[a].attack_speed": 60,
-          "amgoat_s_1[b].attack_speed": 60,
-          "amgoat_s_1[b].atk": 0.6,
+          "atk": 0.8,
+          "attack_speed": 20,
           "level": 9,
-          "spCost": 35,
-          "initialSp": 25,
+          "spCost": 40,
+          "initialSp": 20,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "duration": 20,
           "isToggle": false,
           "isPermanent": false
         }
       ]
     },
     {
-      "skillId": "skchr_amgoat_2",
-      "name": "点燃",
+      "skillId": "skchr_shining_2",
+      "name": "自动掩护",
       "levels": [
         {
-          "atk_scale": 1.2,
-          "atk_scale_2": 1.2,
-          "fk": 2.4,
-          "ct": 1,
+          "def": 0.2,
+          "atk_scale": 0.2,
           "duration": -1,
-          "magic_resistance": -0.1,
+          "ct": 1,
           "level": 0,
-          "spCost": 7,
+          "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk_scale": 1.25,
-          "atk_scale_2": 1.25,
-          "fk": 2.5,
-          "ct": 1,
+          "def": 0.2,
+          "atk_scale": 0.23,
           "duration": -1,
-          "magic_resistance": -0.1,
+          "ct": 1,
           "level": 1,
-          "spCost": 7,
+          "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk_scale": 1.3,
-          "atk_scale_2": 1.3,
-          "fk": 2.6,
+          "def": 0.2,
+          "atk_scale": 0.25,
+          "duration": -1,
           "ct": 1,
-          "duration": -1,
-          "magic_resistance": -0.1,
           "level": 2,
-          "spCost": 7,
+          "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk_scale": 1.375,
-          "atk_scale_2": 1.375,
-          "fk": 2.75,
-          "ct": 2,
+          "def": 0.25,
+          "atk_scale": 0.28,
           "duration": -1,
-          "magic_resistance": -0.15,
+          "ct": 1,
           "level": 3,
           "spCost": 7,
           "initialSp": 0,
@@ -257,12 +236,10 @@
           "isPermanent": false
         },
         {
-          "atk_scale": 1.425,
-          "atk_scale_2": 1.425,
-          "fk": 2.85,
-          "ct": 2,
+          "def": 0.25,
+          "atk_scale": 0.3,
           "duration": -1,
-          "magic_resistance": -0.15,
+          "ct": 1,
           "level": 4,
           "spCost": 7,
           "initialSp": 0,
@@ -271,12 +248,10 @@
           "isPermanent": false
         },
         {
-          "atk_scale": 1.475,
-          "atk_scale_2": 1.475,
-          "fk": 2.95,
-          "ct": 2,
+          "def": 0.25,
+          "atk_scale": 0.33,
           "duration": -1,
-          "magic_resistance": -0.15,
+          "ct": 1,
           "level": 5,
           "spCost": 7,
           "initialSp": 0,
@@ -285,26 +260,22 @@
           "isPermanent": false
         },
         {
-          "atk_scale": 1.55,
-          "atk_scale_2": 1.55,
-          "fk": 3.1,
-          "ct": 2,
+          "def": 0.35,
+          "atk_scale": 0.35,
           "duration": -1,
-          "magic_resistance": -0.2,
+          "ct": 2,
           "level": 6,
-          "spCost": 6,
+          "spCost": 7,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk_scale": 1.65,
-          "atk_scale_2": 1.65,
-          "fk": 3.3,
-          "ct": 3,
+          "def": 0.35,
+          "atk_scale": 0.4,
           "duration": -1,
-          "magic_resistance": -0.2,
+          "ct": 2,
           "level": 7,
           "spCost": 6,
           "initialSp": 0,
@@ -313,12 +284,10 @@
           "isPermanent": false
         },
         {
-          "atk_scale": 1.75,
-          "atk_scale_2": 1.75,
-          "fk": 3.5,
-          "ct": 3,
+          "def": 0.35,
+          "atk_scale": 0.45,
           "duration": -1,
-          "magic_resistance": -0.2,
+          "ct": 2,
           "level": 8,
           "spCost": 6,
           "initialSp": 0,
@@ -327,12 +296,10 @@
           "isPermanent": false
         },
         {
-          "atk_scale": 1.85,
-          "atk_scale_2": 1.85,
-          "fk": 3.7,
-          "ct": 3,
+          "def": 0.5,
+          "atk_scale": 0.5,
           "duration": -1,
-          "magic_resistance": -0.25,
+          "ct": 3,
           "level": 9,
           "spCost": 5,
           "initialSp": 0,
@@ -343,126 +310,116 @@
       ]
     },
     {
-      "skillId": "skchr_amgoat_3",
-      "name": "火山",
+      "skillId": "skchr_shining_3",
+      "name": "教条力场",
       "levels": [
         {
-          "atk": 0.55,
-          "base_attack_time": -1.1,
-          "attack@max_target": 3,
+          "def": 0.3,
+          "atk": 0.2,
           "level": 0,
-          "spCost": 80,
-          "initialSp": 30,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.6,
-          "base_attack_time": -1.1,
-          "attack@max_target": 3,
+          "def": 0.35,
+          "atk": 0.2,
           "level": 1,
-          "spCost": 80,
-          "initialSp": 31,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.65,
-          "base_attack_time": -1.1,
-          "attack@max_target": 3,
+          "def": 0.4,
+          "atk": 0.2,
           "level": 2,
-          "spCost": 80,
-          "initialSp": 32,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.7,
-          "base_attack_time": -1.1,
-          "attack@max_target": 4,
+          "def": 0.45,
+          "atk": 0.3,
           "level": 3,
-          "spCost": 80,
-          "initialSp": 33,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.75,
-          "base_attack_time": -1.1,
-          "attack@max_target": 4,
+          "def": 0.5,
+          "atk": 0.3,
           "level": 4,
-          "spCost": 80,
-          "initialSp": 34,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.8,
-          "base_attack_time": -1.1,
-          "attack@max_target": 4,
+          "def": 0.55,
+          "atk": 0.3,
           "level": 5,
-          "spCost": 80,
-          "initialSp": 35,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 0.85,
-          "base_attack_time": -1.1,
-          "attack@max_target": 5,
+          "def": 0.6,
+          "atk": 0.4,
           "level": 6,
-          "spCost": 80,
-          "initialSp": 40,
+          "spCost": 120,
+          "initialSp": 100,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 1,
-          "base_attack_time": -1.1,
-          "attack@max_target": 5,
+          "def": 0.7,
+          "atk": 0.4,
           "level": 7,
-          "spCost": 80,
-          "initialSp": 45,
+          "spCost": 120,
+          "initialSp": 105,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 1.15,
-          "base_attack_time": -1.1,
-          "attack@max_target": 5,
+          "def": 0.8,
+          "atk": 0.4,
           "level": 8,
-          "spCost": 80,
-          "initialSp": 50,
+          "spCost": 120,
+          "initialSp": 110,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "atk": 1.3,
-          "base_attack_time": -1.1,
-          "attack@max_target": 6,
+          "def": 1,
+          "atk": 0.5,
           "level": 9,
-          "spCost": 80,
-          "initialSp": 55,
+          "spCost": 120,
+          "initialSp": 115,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 15,
+          "duration": 60,
           "isToggle": false,
           "isPermanent": false
         }
@@ -487,13 +444,13 @@
       "modifiers": []
     },
     {
-      "description": "攻击力+27",
+      "description": "防御力+25",
       "type": "BUFF",
       "modifiers": [
         {
-          "attr": "ATK",
+          "attr": "DEF",
           "formula": "ADDITION",
-          "value": 27
+          "value": 25
         }
       ]
     },

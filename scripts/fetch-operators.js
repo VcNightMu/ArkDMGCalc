@@ -1,16 +1,14 @@
-// 从 Kengxxiao/ArknightsGameData 拉取所有需要的数据，存本地 JSON
-// 运行: node scripts/fetch-operators.js
 const fs = require('fs');
 const path = require('path');
+
+const EXCEL = 'https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel';
+const BASE = path.join(__dirname, '..', 'src', 'frontend', 'data');
 
 const OPERATORS = [
   'char_172_svrash', 'char_010_chen', 'char_293_thorns', 'char_103_angel',
   'char_180_amgoat', 'char_350_surtr', 'char_222_bpipe', 'char_202_demkni',
   'char_147_shining', 'char_291_aglina', 'char_144_red'
 ];
-
-const EXCEL = 'https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel';
-const OUT = path.join(__dirname, '..', 'src', 'frontend', 'data');
 
 async function fetchJSON(url) {
   const resp = await fetch(url, { headers: { 'User-Agent': 'ArkDMGCalc/1.0' } });
@@ -20,21 +18,17 @@ async function fetchJSON(url) {
 
 function convertOperator(id, charData, skillTable) {
   const phases = [];
-  for (const [key, phaseData] of Object.entries(charData.phases || {})) {
-    const eliteLevel = parseInt(key);
-    const akf = phaseData.attributesKeyFrames || [];
+  for (const [, p] of Object.entries(charData.phases || {})) {
+    const akf = p.attributesKeyFrames || [];
     if (akf.length === 0) continue;
-    const first = akf[0].data;
-    const last = akf[akf.length - 1].data;
     phases.push({
-      eliteLevel,
-      maxLevel: phaseData.maxLevel,
-      atk: [first.atk, last.atk],
-      def: [first.def, last.def],
-      maxHp: [first.maxHp, last.maxHp],
-      magicResistance: first.magicResistance || 0,
-      baseAttackTime: first.baseAttackTime || 1.0,
-      attackSpeed: first.attackSpeed || 100,
+      eliteLevel: p.phases?.[0]?.eliteLevel ?? (phases.length),
+      maxLevel: p.maxLevel,
+      atk: [akf[0].data.atk, akf[akf.length - 1].data.atk],
+      def: [akf[0].data.def, akf[akf.length - 1].data.def],
+      maxHp: [akf[0].data.maxHp, akf[akf.length - 1].data.maxHp],
+      baseAttackTime: akf[0].data.baseAttackTime || 1.0,
+      attackSpeed: akf[0].data.attackSpeed || 100,
     });
   }
   phases.sort((a, b) => a.eliteLevel - b.eliteLevel);
@@ -45,6 +39,9 @@ function convertOperator(id, charData, skillTable) {
     const max = favorKf[favorKf.length - 1].data;
     trustBonus = { atk: max.atk || 0, def: max.def || 0, maxHp: max.maxHp || 0 };
   }
+
+  const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx'];
+  const damageType = artsSubs.includes(charData.subProfessionId) ? 'arts' : 'physical';
 
   const skills = [];
   for (const skillRef of charData.skills || []) {
@@ -58,19 +55,14 @@ function convertOperator(id, charData, skillTable) {
       for (const b of lv.blackboard || []) bb[b.key] = b.value;
       const spData = lv.spData || {};
       const desc = lv.description || '';
-      const isToggle = desc.includes('\u53EF\u4EE5\u5728\u4E0B\u5217\u72B6\u6001\u548C\u521D\u59CB\u72B6\u6001\u95F4\u5207\u6362');
-      const isPermanent = !isToggle && desc.includes('\u6301\u7EED\u65F6\u95F4\u65E0\u9650');
-      // Blackboard first, then core fields (core fields must come after to avoid being overwritten)
+      const isToggle = desc.includes('可以在下列状态和初始状态间切换');
+      const isPermanent = !isToggle && desc.includes('持续时间无限');
       levels.push({ ...bb, level: levelNum, spCost: spData.spCost || 0, initialSp: spData.initSp || 0, spType: spData.spType || 'INCREASE_WITH_TIME', duration: lv.duration, isToggle, isPermanent });
     }
     levels.sort((a, b) => a.level - b.level);
     const firstLevel = Object.values(st.levels || {})[0];
     skills.push({ skillId: sid, name: firstLevel?.name || sid, levels });
   }
-
-  // Determine damage type from subprofession
-  const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx'];
-  const damageType = artsSubs.includes(charData.subProfessionId) ? 'arts' : 'physical';
 
   return {
     id, name: charData.name, rarity: charData.rarity,
@@ -83,38 +75,41 @@ function convertOperator(id, charData, skillTable) {
       modifiers: p.buff?.attributes?.attributeModifiers?.map(m => ({
         attr: m.attributeType, formula: m.formulaItem, value: m.value
       })) || []
-    })),
+    }))
   };
 }
 
 async function main() {
-  fs.mkdirSync(OUT, { recursive: true });
-
   console.log('拉取 character_table.json ...');
   const charTable = await fetchJSON(`${EXCEL}/character_table.json`);
-
   console.log('拉取 skill_table.json ...');
   const skillTable = await fetchJSON(`${EXCEL}/skill_table.json`);
-
   console.log('拉取 uniequip_table.json ...');
-  const uniequip = await fetchJSON(`${EXCEL}/uniequip_table.json`);
-  // 子职业字典
-  fs.writeFileSync(path.join(OUT, 'sub-professions.json'), JSON.stringify(uniequip.subProfDict, null, 2));
+  const uniequipTable = await fetchJSON(`${EXCEL}/uniequip_table.json`);
+
+  // Save sub-professions dictionary
+  const subProfDict = uniequipTable.subProfDict || {};
+  fs.writeFileSync(path.join(BASE, 'sub-professions.json'), JSON.stringify(subProfDict, null, 2), 'utf8');
   console.log('  → sub-professions.json');
 
-  // 干员数据
   const index = [];
+
   for (const id of OPERATORS) {
-    const ch = charTable[id];
-    if (!ch) { console.log(`  [SKIP] ${id}`); continue; }
-    const converted = convertOperator(id, ch, skillTable);
-    fs.writeFileSync(path.join(OUT, `${id}.json`), JSON.stringify(converted, null, 2));
-    index.push({ id: converted.id, name: converted.name, rarity: converted.rarity, profession: converted.profession });
-    console.log(`  [OK] ${converted.name}: ${converted.phases.length} phases, ${converted.skills.length} skills`);
+    const charData = charTable[id];
+    if (!charData) { console.log(`  [SKIP] ${id} not found`); continue; }
+    const converted = convertOperator(id, charData, skillTable);
+    // Directory: profession/subProfessionId/
+    const dir = path.join(BASE, converted.profession, converted.subProfessionId);
+    fs.mkdirSync(dir, { recursive: true });
+    const outPath = path.join(dir, `${id}.json`);
+    fs.writeFileSync(outPath, JSON.stringify(converted, null, 2), 'utf8');
+    index.push({ id: converted.id, name: converted.name, rarity: converted.rarity, profession: converted.profession, subProfessionId: converted.subProfessionId });
+    console.log(`  [OK] ${converted.name}: ${converted.phases.length} phases, ${converted.skills.length} skills → ${converted.profession}/${converted.subProfessionId}/`);
   }
 
-  fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify(index, null, 2));
-  console.log(`\n完成: ${index.length} 个干员 + sub-professions.json → ${OUT}`);
+  // Save index
+  fs.writeFileSync(path.join(BASE, 'index.json'), JSON.stringify(index, null, 2), 'utf8');
+  console.log(`\n完成: ${index.length} 个干员 + sub-professions.json → ${BASE}`);
 }
 
-main().catch(console.error);
+main().catch(e => { console.error(e); process.exit(1); });
