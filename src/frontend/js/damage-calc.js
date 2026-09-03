@@ -60,7 +60,8 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表（blackboard.attack_speed 为直接加算的攻速值，100 基准上加算）。
 // key: 干员 id；value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
-  'char_147_shining': 1  // 闪灵「法典」：精二起 攻速+10，潜能3 起 +13
+  'char_147_shining': 1,  // 闪灵「法典」：精二起 攻速+10，潜能3 起 +13
+  'char_108_silent': 0   // 赫默「医疗支援」：在场全体医疗攻速+6/8（精一），+12/14（精二）；自身必得
 };
 
 // 查驱动表，返回常驻攻速天赋的攻速加算值（0 表示无此天赋或未解锁）。

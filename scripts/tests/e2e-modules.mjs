@@ -83,7 +83,18 @@ const ss0 = calcPanelStats(susuro, sBase);
 const ss1 = calcPanelStats(susuro, { ...sBase, module: { moduleId: modS.id, moduleLevel: 1 } });
 check('苏苏洛X模组L1 HP+50', ss1.panelHp === ss0.panelHp + 50);
 const susuroSpd = calcTalentAttackSpeed(susuro, sBase);
-check('苏苏洛无常驻攻速天赋(驱动表未污染)', susuroSpd === 0);
+check('苏苏洛无常驻攻速天赋(驱动表未污染)', susuroSpd === 0);// ===== 赫默：在场全体医疗攻速，自身必得 =====
+const silent = JSON.parse(fs.readFileSync(BASE + '/MEDIC/physician/char_108_silent.json', 'utf8'));
+check('赫默精一 攻速+6', calcTalentAttackSpeed(silent, { elite: 1, level: 70, potentialRank: 0 }) === 6);
+check('赫默精一满潜 攻速+8', calcTalentAttackSpeed(silent, { elite: 1, level: 70, potentialRank: 4 }) === 8);
+check('赫默精二 攻速+12', calcTalentAttackSpeed(silent, { elite: 2, level: 80, potentialRank: 0 }) === 12);
+check('赫默精二满潜 攻速+14', calcTalentAttackSpeed(silent, { elite: 2, level: 80, potentialRank: 4 }) === 14);
+const sBase2 = { elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7, module: null };
+const psSilent = calcPanelStats(silent, sBase2);
+check('赫默精二 间隔含天赋+12', near(psSilent.attackInterval, 2.85 * 100 / 112));
+const psSilentP = calcPanelStats(silent, { ...sBase2, potentialRank: 4 });
+check('赫默精二满潜 间隔含+14', near(psSilentP.attackInterval, 2.85 * 100 / 114));
+
 const hibisc = JSON.parse(fs.readFileSync(BASE + '/MEDIC/physician/char_120_hibisc.json', 'utf8'));
 check('三星芙蓉无模组数据', !hibisc.modules || hibisc.modules.length === 0);
 const h0 = calcPanelStats(hibisc, { elite: 2, level: 60, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7, module: { moduleId: 'ghost', moduleLevel: 1 } });
