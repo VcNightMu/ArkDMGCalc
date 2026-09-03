@@ -645,14 +645,62 @@
           "attributeBlackboard": {
             "atk": 55,
             "def": 17
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "法典",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 15
+              }
+            },
+            {
+              "name": "法典",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack_speed": 18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15,
+                "sp_recovery_per_sec": 0.45
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 63,
             "def": 20
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "法典",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 15
+              }
+            },
+            {
+              "name": "法典",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack_speed": 18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.25,
+                "sp_recovery_per_sec": 0.6
+              }
+            }
+          ]
         }
       ]
     },
@@ -677,14 +725,50 @@
           "attributeBlackboard": {
             "atk": 50,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "黑恶魔的庇护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 80,
+                "def_lowland": 30
+              }
+            },
+            {
+              "name": "黑恶魔的庇护",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 85,
+                "def_lowland": 30
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 60,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "黑恶魔的庇护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 100,
+                "def_lowland": 40
+              }
+            },
+            {
+              "name": "黑恶魔的庇护",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 105,
+                "def_lowland": 40
+              }
+            }
+          ]
         }
       ]
     }

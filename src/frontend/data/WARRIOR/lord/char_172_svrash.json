@@ -600,14 +600,71 @@
           "attributeBlackboard": {
             "max_hp": 270,
             "atk": 60
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.2,
+                "respawn_time": -0.1
+              }
+            },
+            {
+              "name": "领袖",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.22,
+                "respawn_time": -0.12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 330,
             "atk": 70
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.25,
+                "respawn_time": -0.1
+              }
+            },
+            {
+              "name": "领袖",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.27,
+                "respawn_time": -0.12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -0.1
+              }
+            }
+          ]
         }
       ]
     }

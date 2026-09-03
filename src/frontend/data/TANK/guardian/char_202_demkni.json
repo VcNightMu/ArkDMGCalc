@@ -620,14 +620,33 @@
           "attributeBlackboard": {
             "max_hp": 250,
             "atk": 60
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "精神回复",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 2
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 350,
             "atk": 70
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "精神回复",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "demkni_e_sp.sp": 2,
+                "demkni_e_sp[rhine].sp": 3
+              }
+            }
+          ]
         }
       ]
     },
@@ -654,7 +673,29 @@
             "max_hp": 210,
             "atk": 43,
             "def": 43
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "莱茵充能护服",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 18,
+                "atk": 0.06,
+                "def": 0.05
+              }
+            },
+            {
+              "name": "莱茵充能护服",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 18,
+                "atk": 0.07,
+                "def": 0.06
+              }
+            }
+          ]
         },
         {
           "level": 3,
@@ -662,7 +703,29 @@
             "max_hp": 270,
             "atk": 50,
             "def": 50
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "莱茵充能护服",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 18,
+                "atk": 0.07,
+                "def": 0.06
+              }
+            },
+            {
+              "name": "莱茵充能护服",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 18,
+                "atk": 0.08,
+                "def": 0.07
+              }
+            }
+          ]
         }
       ]
     }

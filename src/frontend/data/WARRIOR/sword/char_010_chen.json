@@ -603,14 +603,42 @@
           "attributeBlackboard": {
             "atk": 65,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "呵斥",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "sp": 1
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 80,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "呵斥",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "sp": 1
+              }
+            }
+          ]
         }
       ]
     },
@@ -635,14 +663,54 @@
           "attributeBlackboard": {
             "atk": 68,
             "def": 36
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "持刀格斗术",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.11,
+                "def": 0.11,
+                "prob": 0.15
+              }
+            },
+            {
+              "name": "持刀格斗术",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.12,
+                "def": 0.12,
+                "prob": 0.18
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 85,
             "def": 42
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "持刀格斗术",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15,
+                "def": 0.15,
+                "prob": 0.18
+              }
+            },
+            {
+              "name": "持刀格斗术",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.16,
+                "def": 0.16,
+                "prob": 0.21
+              }
+            }
+          ]
         }
       ]
     }

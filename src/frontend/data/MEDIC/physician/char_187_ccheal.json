@@ -535,14 +535,54 @@
           "attributeBlackboard": {
             "max_hp": 50,
             "atk": 30
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "战地医师",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1,
+                "def": 100,
+                "duration": 20
+              }
+            },
+            {
+              "name": "战地医师",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.12,
+                "def": 120,
+                "duration": 22
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 70,
             "atk": 35
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "战地医师",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1,
+                "def": 100,
+                "duration": 25
+              }
+            },
+            {
+              "name": "战地医师",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.12,
+                "def": 120,
+                "duration": 27
+              }
+            }
+          ]
         }
       ]
     }

@@ -633,21 +633,74 @@
           "attributeBlackboard": {
             "atk": 40,
             "magic_resistance": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "atk": 55,
             "magic_resistance": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "白恶魔的庇护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resistance": 15,
+                "heal_scale": 1.03
+              }
+            },
+            {
+              "name": "白恶魔的庇护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "magic_resistance": 17,
+                "heal_scale": 1.03
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 65,
             "magic_resistance": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "白恶魔的庇护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resistance": 15,
+                "heal_scale": 1.05
+              }
+            },
+            {
+              "name": "白恶魔的庇护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "magic_resistance": 17,
+                "heal_scale": 1.05
+              }
+            }
+          ]
         }
       ]
     },
@@ -665,21 +718,74 @@
           "attributeBlackboard": {
             "max_hp": 160,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_target": 4,
+                "skill@max_target": 4
+              }
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "max_hp": 195,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "转瞬即逝的幻影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_target": 4,
+                "skill@max_target": 4
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 220,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "转瞬即逝的幻影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_target": 4,
+                "skill@max_target": 4
+              }
+            },
+            {
+              "name": "转瞬即逝的幻影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_deploy_count": 2,
+                "prob": 0.4,
+                "hp_ratio": 0.03
+              }
+            }
+          ]
         }
       ]
     }

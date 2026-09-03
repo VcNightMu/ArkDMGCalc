@@ -437,14 +437,46 @@
           "attributeBlackboard": {
             "max_hp": 100,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "强化注射",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 15
+              }
+            },
+            {
+              "name": "强化注射",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 17
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 120,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "强化注射",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 17
+              }
+            },
+            {
+              "name": "强化注射",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 19
+              }
+            }
+          ]
         }
       ]
     }

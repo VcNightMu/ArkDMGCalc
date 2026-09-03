@@ -414,21 +414,60 @@
           "attributeBlackboard": {
             "max_hp": 60,
             "atk": 30
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "max_hp": 80,
             "atk": 40
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.3
+              }
+            },
+            {
+              "name": "技力光环",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.33
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 100,
             "atk": 47
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.3
+              }
+            },
+            {
+              "name": "技力光环",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.35
+              }
+            }
+          ]
         }
       ]
     }

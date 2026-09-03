@@ -461,14 +461,50 @@
           "attributeBlackboard": {
             "max_hp": 80,
             "attack_speed": 4
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "微创治疗",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 10,
+                "heal_scale": 1.23
+              }
+            },
+            {
+              "name": "微创治疗",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cost": 10,
+                "heal_scale": 1.26
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 100,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "微创治疗",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 10,
+                "heal_scale": 1.25
+              }
+            },
+            {
+              "name": "微创治疗",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cost": 10,
+                "heal_scale": 1.28
+              }
+            }
+          ]
         }
       ]
     }

@@ -655,7 +655,29 @@
             "max_hp": 215,
             "atk": 48,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 3,
+                "damage[normal]": 125,
+                "damage[ranged]": 250,
+                "max_cnt": 3
+              }
+            },
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 3,
+                "damage[normal]": 140,
+                "damage[ranged]": 280,
+                "max_cnt": 3
+              }
+            }
+          ]
         },
         {
           "level": 3,
@@ -663,7 +685,29 @@
             "max_hp": 260,
             "atk": 55,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 3,
+                "damage[normal]": 135,
+                "damage[ranged]": 270,
+                "max_cnt": 4
+              }
+            },
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 3,
+                "damage[normal]": 150,
+                "damage[ranged]": 300,
+                "max_cnt": 4
+              }
+            }
+          ]
         }
       ]
     },
@@ -682,7 +726,16 @@
             "max_hp": 80,
             "atk": 60,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -690,7 +743,36 @@
             "max_hp": 120,
             "atk": 69,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage[normal]": 200,
+                "damage[ranged]": 400,
+                "duration": 3,
+                "ep_break_multi": 2
+              }
+            },
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage[normal]": 215,
+                "damage[ranged]": 430,
+                "duration": 3,
+                "ep_break_multi": 2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.1
+              }
+            }
+          ]
         },
         {
           "level": 3,
@@ -698,7 +780,36 @@
             "max_hp": 150,
             "atk": 75,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage[normal]": 300,
+                "damage[ranged]": 600,
+                "duration": 3,
+                "ep_break_multi": 2.5
+              }
+            },
+            {
+              "name": "神经腐蚀",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage[normal]": 315,
+                "damage[ranged]": 630,
+                "duration": 3,
+                "ep_break_multi": 2.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.1
+              }
+            }
+          ]
         }
       ]
     }

@@ -620,21 +620,80 @@
           "attributeBlackboard": {
             "max_hp": 150,
             "atk": 50
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "max_hp": 165,
             "atk": 64
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            },
+            {
+              "name": "军事传统",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 6,
+                "bpipe_e_2[locate].sp": 2
+              }
+            },
+            {
+              "name": "军事传统",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 8,
+                "bpipe_e_2[locate].sp": 2
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 180,
             "atk": 73
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            },
+            {
+              "name": "军事传统",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 6,
+                "bpipe_e_2[locate].sp": 4
+              }
+            },
+            {
+              "name": "军事传统",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 8,
+                "bpipe_e_2[locate].sp": 4
+              }
+            }
+          ]
         }
       ]
     },
@@ -652,21 +711,83 @@
           "attributeBlackboard": {
             "atk": 65,
             "def": 13
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.4,
+                "atk_scale": 1.15
+              }
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "atk": 75,
             "def": 17
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.4,
+                "atk_scale": 1.15
+              }
+            },
+            {
+              "name": "精密填弹",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.35,
+                "prob": 0.3
+              }
+            },
+            {
+              "name": "精密填弹",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk_scale": 1.35,
+                "prob": 0.33
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 85,
             "def": 20
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.4,
+                "atk_scale": 1.15
+              }
+            },
+            {
+              "name": "精密填弹",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.4,
+                "prob": 0.33
+              }
+            },
+            {
+              "name": "精密填弹",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk_scale": 1.4,
+                "prob": 0.36
+              }
+            }
+          ]
         }
       ]
     }

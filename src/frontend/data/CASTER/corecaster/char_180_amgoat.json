@@ -665,14 +665,46 @@
           "attributeBlackboard": {
             "max_hp": 160,
             "atk": 55
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "炎息",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.18
+              }
+            },
+            {
+              "name": "炎息",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "atk": 0.2
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 180,
             "atk": 65
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "炎息",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.22
+              }
+            },
+            {
+              "name": "炎息",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "atk": 0.24
+              }
+            }
+          ]
         }
       ]
     },
@@ -697,14 +729,62 @@
           "attributeBlackboard": {
             "max_hp": 210,
             "atk": 40
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "乱火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_min": 7,
+                "sp_max": 16,
+                "attack_speed_min": 0,
+                "attack_speed_max": 1,
+                "factor": 1
+              }
+            },
+            {
+              "name": "乱火",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "sp_min": 10,
+                "sp_max": 20,
+                "attack_speed_min": 0,
+                "attack_speed_max": 1,
+                "factor": 1
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 230,
             "atk": 50
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "乱火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_min": 7,
+                "sp_max": 16,
+                "attack_speed_min": 6,
+                "attack_speed_max": 16,
+                "factor": 1
+              }
+            },
+            {
+              "name": "乱火",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "sp_min": 10,
+                "sp_max": 20,
+                "attack_speed_min": 6,
+                "attack_speed_max": 16,
+                "factor": 1
+              }
+            }
+          ]
         }
       ]
     }

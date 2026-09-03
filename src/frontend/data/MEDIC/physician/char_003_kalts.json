@@ -620,14 +620,106 @@
           "attributeBlackboard": {
             "atk": 50,
             "def": 20
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 4,
+              "blackboard": {}
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 3,
+                "value": 1200
+              }
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "stun": 3.5,
+                "value": 1400
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 3,
+                "value": 1200,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "stun": 3.5,
+                "value": 1400,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 60,
             "def": 25
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 4,
+              "blackboard": {}
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 3.5,
+                "value": 1500
+              }
+            },
+            {
+              "name": "不毁重构",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "stun": 4,
+                "value": 1700
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 3.5,
+                "value": 1500,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "stun": 4,
+                "value": 1700,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         }
       ]
     },
@@ -652,14 +744,46 @@
           "attributeBlackboard": {
             "max_hp": 155,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.15,
+                "attack_speed": 12
+              }
+            },
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 195,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.2,
+                "attack_speed": 20
+              }
+            },
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         }
       ]
     },
@@ -684,14 +808,63 @@
           "attributeBlackboard": {
             "atk": 38,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0,
+                "attack_speed": 0
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.25,
+                "max_hp": 0.25
+              }
+            },
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 50,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0,
+                "attack_speed": 0
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.5,
+                "max_hp": 0.5,
+                "heal_scale": 1.5
+              }
+            },
+            {
+              "name": "Mon3tr",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
         }
       ]
     }

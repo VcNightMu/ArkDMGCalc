@@ -57,6 +57,66 @@ function calcModuleBonus(op, slotData) {
   return bonus;
 }
 
+// 常驻攻击速度天赋驱动表（blackboard.attack_speed 为直接加算的攻速值，100 基准上加算）。
+// key: 干员 id；value: 攻速天赋在 op.talents 数组中的索引。
+const TALENT_SPD_DRIVERS = {
+  'char_147_shining': 1  // 闪灵「法典」：精二起 攻速+10，潜能3 起 +13
+};
+
+// 查驱动表，返回常驻攻速天赋的攻速加算值（0 表示无此天赋或未解锁）。
+function calcTalentAttackSpeed(op, slotData) {
+  const talentIndex = TALENT_SPD_DRIVERS[op.id];
+  if (talentIndex === undefined) return 0;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const aspd = cand.blackboard && typeof cand.blackboard.attack_speed === 'number' ? cand.blackboard.attack_speed : 0;
+      if (aspd > best) best = aspd;
+    }
+  }
+  return best;
+}
+
+// 当前模组的指定等级数据（含 attributeBlackboard / talentEnhance）；无模组或等级不存在返回 null。
+function getModuleLevelData(op, slotData) {
+  const m = slotData.module;
+  if (!m) return null;
+  const mod = (op.modules || []).find(x => x.id === m.moduleId);
+  if (!mod) return null;
+  return (mod.levels || []).find(l => l.level === m.moduleLevel) || null;
+}
+
+/**
+ * 模组对天赋的强化（部分干员效果模组等级≥2 时更新天赋数值/附加效果）。
+ * 返回 { attackSpeed: null|number, extraAtkMul: number }：
+ * - attackSpeed：若强化候选覆盖了攻速类天赋（如闪灵X模组 L2 法典 10→15），取按潜能匹配的最大值；否则 null（走基础天赋）。
+ * - extraAtkMul：强化候选里附加的常态攻击乘算（如闪灵X模组「装备技能2时攻击+X%」）；
+ *   判定放调用侧（该乘算只对特定技能组合生效）。
+ */
+function calcModuleTalentEnhance(op, slotData) {
+  const out = { attackSpeed: null, extraAtkMul: 0 };
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !lv.talentEnhance || lv.talentEnhance.length === 0) return out;
+  const pot = slotData.potentialRank || 0;
+  let bestAspd = null;
+  let extraAtk = 0;
+  for (const cand of lv.talentEnhance) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (candPot > pot) continue;
+    const bb = cand.blackboard || {};
+    if (typeof bb.attack_speed === 'number' && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
+    if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
+  }
+  out.attackSpeed = bestAspd;
+  out.extraAtkMul = extraAtk;
+  return out;
+}
+
 function calculateOperator(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
@@ -85,7 +145,13 @@ function calculateOperator(op, slotData) {
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const rawDef = baseDef + trustDef + potDef + mod.def;
   const talentAtk = calcTalentAtkBonus(op, slotData);
-  let panelAtk = rawAtk * (1 + talentAtk);
+  // 模组天赋强化：X模组 L2 把「法典」攻速覆盖为 15/18；Y 模组走基础天赋（10/13）。
+  const enh = calcModuleTalentEnhance(op, slotData);
+  const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
+  // 附加常态攻击乘算：闪灵 X模组≥2级 且装备 2技能（自动掩护）时，面板攻击 ×(1+0.15/0.25) 直接乘算。
+  // 与携带技能的 atk 乘算互斥（带 atk 的信条/教条力场 ≠ 2技能），并入同乘区累加。
+  const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
+  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul);
   let panelDef = rawDef;
   const panelHp = baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp;
 
@@ -93,8 +159,9 @@ function calculateOperator(op, slotData) {
   const skillIndex = slotData.skillIndex || 0;
   const skill = op.skills[skillIndex];
   const isMedic = op.profession === 'MEDIC';
-  // 常态攻击间隔：攻速基准 100，模组 attackSpeed 增量加算后换算（无模组加成时 = baseAttackTime）
-  const realInterval = calcRealInterval(phase.baseAttackTime, 100 + mod.attackSpeed);
+  // 攻速总加成 = 天赋攻速（含模组覆盖）+ 模组白值攻速（100 基准上加算），再换算攻击间隔
+  const baseAspdBonus = talentAspd + mod.attackSpeed;
+  const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
 
   // No skill: return normal stats only
   if (!skill) {
@@ -112,7 +179,7 @@ function calculateOperator(op, slotData) {
 
   let skillAtk = panelAtk;
   let skillDef = panelDef;
-  let skillInterval = calcRealInterval(phase.baseAttackTime, 100 + mod.attackSpeed);
+  let skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
   let skillDuration = levelData.skillDuration || 0;
   // 手动开启的限时增益（skillDuration=-1 + duration>0，自身必然获得，如华法琳「不稳定血浆」）：
   // 视为持续型技能，技能期长度 = duration。
@@ -129,13 +196,15 @@ function calculateOperator(op, slotData) {
   // 以区分陈「赤霄·拔刀/绝影」（近卫，伤害倍率）与焰影苇草「枯荣共息」（行医，火球伤害倍率）。
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
   if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
-  if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + mod.attackSpeed + levelData.attack_speed);
-  if (levelData.base_attack_time) skillInterval = calcRealInterval(phase.baseAttackTime + levelData.base_attack_time, 100 + mod.attackSpeed);
+  if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + levelData.attack_speed);
+  if (levelData.base_attack_time) skillInterval = calcRealInterval(phase.baseAttackTime + levelData.base_attack_time, 100 + baseAspdBonus);
 
   if (modifiers.length > 0 || talentAtk > 0) {
-    // 直接乘算累加：技能期攻击力 = 白值 × (1 + 天赋atk + 技能atk)
+    // 直接乘算累加：技能期攻击力 = 白值 × (1 + 天赋atk + 模组装备乘算 + 技能atk)
+    // （extraAtkMul 仅装备特定技能时非 0，与带 atk 技能的乘算互斥，同区累加安全）
     skillAtk = calcAttribute(rawAtk, [
       { value: talentAtk, operator: 'direct_mul' },
+      { value: extraAtkMul, operator: 'direct_mul' },
       ...modifiers.filter(m => m.operator === 'direct_mul')
     ]);
     skillDef = calcAttribute(rawDef, modifiers.filter(m => m.operator === 'final_mul'));
@@ -218,11 +287,14 @@ function calcPanelStats(op, slotData) {
 
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const talentAtk = calcTalentAtkBonus(op, slotData);
-  const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + mod.attackSpeed);
+  const enh = calcModuleTalentEnhance(op, slotData);
+  const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
+  const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
+  const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + talentAspd + mod.attackSpeed);
 
   return {
     panelHp: Math.round(baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp),
-    panelAtk: Math.round(rawAtk * (1 + talentAtk)),
+    panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul)),
     panelDef: Math.round(baseDef + trustDef + potDef + mod.def),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance,
     baseAttackTime: phase.baseAttackTime,
@@ -230,4 +302,4 @@ function calcPanelStats(op, slotData) {
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, TALENT_ATK_DRIVERS };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcModuleTalentEnhance, TALENT_ATK_DRIVERS, TALENT_SPD_DRIVERS };

@@ -481,14 +481,50 @@
           "attributeBlackboard": {
             "max_hp": 65,
             "atk": 40
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "蓄水",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "delay": 4,
+                "heal_scale_2": 1.7
+              }
+            },
+            {
+              "name": "蓄水",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "delay": 4,
+                "heal_scale_2": 1.75
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 80,
             "atk": 47
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "蓄水",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "delay": 4,
+                "heal_scale_2": 1.8
+              }
+            },
+            {
+              "name": "蓄水",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "delay": 4,
+                "heal_scale_2": 1.85
+              }
+            }
+          ]
         }
       ]
     }

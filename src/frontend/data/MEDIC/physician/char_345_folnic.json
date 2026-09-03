@@ -449,14 +449,54 @@
           "attributeBlackboard": {
             "max_hp": 100,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "药物阻断技巧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "one_minus_status_resistance": -0.5,
+                "damage_scale": 0.6,
+                "damage_scale_aura": 0.85
+              }
+            },
+            {
+              "name": "药物阻断技巧",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "one_minus_status_resistance": -0.5,
+                "damage_scale": 0.5,
+                "damage_scale_aura": 0.85
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 120,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "药物阻断技巧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "one_minus_status_resistance": -0.5,
+                "damage_scale": 0.6,
+                "damage_scale_aura": 0.75
+              }
+            },
+            {
+              "name": "药物阻断技巧",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "one_minus_status_resistance": -0.5,
+                "damage_scale": 0.5,
+                "damage_scale_aura": 0.75
+              }
+            }
+          ]
         }
       ]
     }

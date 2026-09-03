@@ -163,7 +163,26 @@ function attachModules(converted, charId, uniTable, battleTable) {
       const p = phases[k];
       const bb = {};
       for (const b of p.attributeBlackboard || []) bb[b.key] = b.value;
-      return { level: parseInt(k) + 1, attributeBlackboard: bb };
+      // 模组对天赋/特性的强化（等级≥2 出现）：parts 中 target=TALENT/TALENT_DATA_ONLY 的候选，
+      // 数值覆盖类（如闪灵X L2 法典攻速 10→15）与附加效果类（装备技能2 攻击+15%）都在这。
+      const talentEnhance = [];
+      for (const part of p.parts || []) {
+        if (part.target !== 'TALENT' && part.target !== 'TALENT_DATA_ONLY') continue;
+        const bundle = part.addOrOverrideTalentDataBundle || part.overrideTraitDataBundle;
+        for (const c of (bundle && bundle.candidates) || []) {
+          if (!c) continue;
+          const tbb = {};
+          for (const b of c.blackboard || []) tbb[b.key] = b.value;
+          talentEnhance.push({
+            name: c.name || null,
+            requiredPotentialRank: c.requiredPotentialRank ?? 0,
+            blackboard: tbb,
+          });
+        }
+      }
+      const out = { level: parseInt(k) + 1, attributeBlackboard: bb };
+      if (talentEnhance.length > 0) out.talentEnhance = talentEnhance;
+      return out;
     });
     return {
       id: eid,

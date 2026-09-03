@@ -615,14 +615,50 @@
           "attributeBlackboard": {
             "max_hp": 160,
             "atk": 35
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "天使的祝福",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.06,
+                "max_hp": 0.1
+              }
+            },
+            {
+              "name": "天使的祝福",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "atk": 0.08,
+                "max_hp": 0.1
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 190,
             "atk": 41
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "天使的祝福",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "max_hp": 0.14
+              }
+            },
+            {
+              "name": "天使的祝福",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "atk": 0.1,
+                "max_hp": 0.17
+              }
+            }
+          ]
         }
       ]
     },
@@ -647,14 +683,58 @@
           "attributeBlackboard": {
             "atk": 37,
             "def": 37
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "快速弹匣",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 12,
+                "def_penetrate_fixed": 6,
+                "max_stack_cnt": 25,
+                "duration": 5
+              }
+            },
+            {
+              "name": "快速弹匣",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack_speed": 15,
+                "def_penetrate_fixed": 6,
+                "max_stack_cnt": 25,
+                "duration": 5
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 43,
             "def": 43
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "快速弹匣",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 12,
+                "def_penetrate_fixed": 10,
+                "max_stack_cnt": 25,
+                "duration": 5
+              }
+            },
+            {
+              "name": "快速弹匣",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack_speed": 15,
+                "def_penetrate_fixed": 10,
+                "max_stack_cnt": 25,
+                "duration": 5
+              }
+            }
+          ]
         }
       ]
     }

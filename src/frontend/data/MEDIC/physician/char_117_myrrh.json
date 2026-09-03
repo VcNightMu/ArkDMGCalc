@@ -457,14 +457,46 @@
           "attributeBlackboard": {
             "max_hp": 80,
             "attack_speed": 4
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "急救包",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 1.7
+              }
+            },
+            {
+              "name": "急救包",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 1.8
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 100,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "急救包",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 1.8
+              }
+            },
+            {
+              "name": "急救包",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 1.9
+              }
+            }
+          ]
         }
       ]
     }

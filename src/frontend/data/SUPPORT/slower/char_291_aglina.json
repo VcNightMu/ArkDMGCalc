@@ -587,7 +587,16 @@
             "max_hp": 60,
             "atk": 10,
             "attack_speed": 4
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -595,7 +604,30 @@
             "max_hp": 80,
             "atk": 15,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 3
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "attack_speed": 3
+              }
+            }
+          ]
         },
         {
           "level": 3,
@@ -603,7 +635,30 @@
             "max_hp": 100,
             "atk": 20,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 5
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "attack_speed": 5
+              }
+            }
+          ]
         }
       ]
     },
@@ -628,14 +683,46 @@
           "attributeBlackboard": {
             "max_hp": 110,
             "atk": 45
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "兼职工作",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec": 30
+              }
+            },
+            {
+              "name": "兼职工作",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_recovery_per_sec": 35
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 120,
             "atk": 50
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "兼职工作",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec": 35
+              }
+            },
+            {
+              "name": "兼职工作",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_recovery_per_sec": 40
+              }
+            }
+          ]
         }
       ]
     },
@@ -653,21 +740,82 @@
           "attributeBlackboard": {
             "atk": 35,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "mass_level": -1
+              }
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "atk": 51,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "mass_level": -1
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.5,
+                "atk_scale": 0.4
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "interval": 0.5,
+                "atk_scale": 0.4
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 65,
             "attack_speed": 7
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "mass_level": -1
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.5,
+                "atk_scale": 0.6,
+                "duration": 3
+              }
+            },
+            {
+              "name": "加速力场",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "interval": 0.5,
+                "atk_scale": 0.6,
+                "duration": 3
+              }
+            }
+          ]
         }
       ]
     }

@@ -463,14 +463,38 @@
           "attributeBlackboard": {
             "max_hp": 65,
             "atk": 40
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "血液样本回收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "bldsk_t_1[self][no].sp": 2,
+                "bldsk_t_1[rand][no].sp": 2,
+                "bldsk_t_1[self][ex].sp": 3,
+                "bldsk_t_1[rand][ex].sp": 3
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 80,
             "atk": 47
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "血液样本回收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "bldsk_t_1[self][no].sp": 2,
+                "bldsk_t_1[rand][no].sp": 2,
+                "bldsk_t_1[self][ex].sp": 4,
+                "bldsk_t_1[rand][ex].sp": 4
+              }
+            }
+          ]
         }
       ]
     }

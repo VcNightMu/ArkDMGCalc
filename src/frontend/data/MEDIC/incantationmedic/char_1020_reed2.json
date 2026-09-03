@@ -703,14 +703,50 @@
           "attributeBlackboard": {
             "max_hp": 145,
             "atk": 42
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "映耀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "scale": 0.55,
+                "heal_scale": 1.03
+              }
+            },
+            {
+              "name": "映耀",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "scale": 0.6,
+                "heal_scale": 1.03
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 160,
             "atk": 50
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "映耀",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "scale": 0.6,
+                "heal_scale": 1.05
+              }
+            },
+            {
+              "name": "映耀",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "scale": 0.65,
+                "heal_scale": 1.05
+              }
+            }
+          ]
         }
       ]
     },
@@ -728,21 +764,96 @@
           "attributeBlackboard": {
             "max_hp": 110,
             "atk": 42
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
         },
         {
           "level": 2,
           "attributeBlackboard": {
             "max_hp": 135,
             "atk": 54
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": "灼痕",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "atk": -0.2,
+                "damage_scale": 1.34,
+                "duration": 7,
+                "talent@atk": -0.2,
+                "talent@damage_scale": 1.34
+              }
+            },
+            {
+              "name": "灼痕",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.3,
+                "atk": -0.22,
+                "damage_scale": 1.36,
+                "duration": 7,
+                "talent@atk": -0.22,
+                "talent@damage_scale": 1.36
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 155,
             "atk": 67
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": "灼痕",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "atk": -0.2,
+                "damage_scale": 1.38,
+                "duration": 8,
+                "talent@atk": -0.2,
+                "talent@damage_scale": 1.38
+              }
+            },
+            {
+              "name": "灼痕",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.3,
+                "atk": -0.22,
+                "damage_scale": 1.4,
+                "duration": 8,
+                "talent@atk": -0.22,
+                "talent@damage_scale": 1.4
+              }
+            }
+          ]
         }
       ]
     }

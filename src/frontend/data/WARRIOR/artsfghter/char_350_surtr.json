@@ -685,14 +685,46 @@
           "attributeBlackboard": {
             "atk": 48,
             "magic_resistance": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "熔火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 24
+              }
+            },
+            {
+              "name": "熔火",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 26
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 60,
             "magic_resistance": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "熔火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 26
+              }
+            },
+            {
+              "name": "熔火",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 28
+              }
+            }
+          ]
         }
       ]
     },
@@ -717,14 +749,50 @@
           "attributeBlackboard": {
             "atk": 55,
             "def": 56
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "余烬",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "surtr_t_2[withdraw].interval": 8,
+                "surtr_t_2[withdraw].attack_speed": 20
+              }
+            },
+            {
+              "name": "余烬",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "surtr_t_2[withdraw].interval": 9,
+                "surtr_t_2[withdraw].attack_speed": 20
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "atk": 60,
             "def": 65
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "余烬",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "surtr_t_2[withdraw].interval": 9,
+                "surtr_t_2[withdraw].attack_speed": 30
+              }
+            },
+            {
+              "name": "余烬",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "surtr_t_2[withdraw].interval": 10,
+                "surtr_t_2[withdraw].attack_speed": 30
+              }
+            }
+          ]
         }
       ]
     }

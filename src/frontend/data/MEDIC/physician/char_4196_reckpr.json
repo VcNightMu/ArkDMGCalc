@@ -493,14 +493,62 @@
           "attributeBlackboard": {
             "max_hp": 100,
             "attack_speed": 5
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "学成于聚",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 20,
+                "duration": 8,
+                "max_stack_cnt": 1,
+                "prob": 1,
+                "sp": 1
+              }
+            },
+            {
+              "name": "学成于聚",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 20,
+                "duration": 10,
+                "max_stack_cnt": 1,
+                "prob": 1,
+                "sp": 1
+              }
+            }
+          ]
         },
         {
           "level": 3,
           "attributeBlackboard": {
             "max_hp": 120,
             "attack_speed": 6
-          }
+          },
+          "talentEnhance": [
+            {
+              "name": "学成于聚",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 23,
+                "duration": 8,
+                "max_stack_cnt": 1,
+                "prob": 1,
+                "sp": 1
+              }
+            },
+            {
+              "name": "学成于聚",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 23,
+                "duration": 10,
+                "max_stack_cnt": 1,
+                "prob": 1,
+                "sp": 1
+              }
+            }
+          ]
         }
       ]
     }
