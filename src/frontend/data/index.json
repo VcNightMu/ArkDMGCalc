@@ -279,6 +279,51 @@
     "ownerName": null
   },
   {
+    "id": "char_4041_chnut",
+    "name": "褐果",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "wandermedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_473_mberry",
+    "name": "桑葚",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "wandermedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_449_glider",
+    "name": "蜜莓",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "wandermedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4114_harold",
+    "name": "哈洛德",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "wandermedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1016_agoat2",
+    "name": "纯烬艾雅法拉",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "wandermedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_1020_reed2",
     "name": "焰影苇草",
     "rarity": "TIER_6",

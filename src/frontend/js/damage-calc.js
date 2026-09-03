@@ -17,7 +17,11 @@ function getSkillLevelData(skill, level) {
 const TALENT_ATK_DRIVERS = {
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」：精1 Lv1 起 +4%，Lv55 起 +8%
   'char_4163_rosesa': 0, // 瑰盐：攻击 -5%（治疗代价换倍率，见 TALENT_HEAL_DRIVERS）
-  'char_348_ceylon': 0   // 锡兰「湖畔漫步者」：只取默认档 [common].atk（+3%~6% 随精化/潜能5 增强），水地形 [map] 档不计
+  'char_348_ceylon': 0,// 锡兰「湖畔漫步者」：只取默认档 [common].atk（+3%~6% 随精化/潜能5 增强），水地形 [map] 档不计
+  'char_172_svrash': 0,   // 银灰「领袖」：攻击+5%/7%（精1）→+10%/12%（精2 潜4），自身常驻（编队再部署-5% 忽略）
+  'char_010_chen': 1,     // 陈「持刀格斗术」精二：攻击+5%~6%（防御部分在 TALENT_HP_DEF_DRIVERS）
+  'char_103_angel': 1,    // 能天使「天使的祝福」精二：自身攻击+6%~8%（随机友方同效不计）
+  'char_180_amgoat': 0    // 艾雅法拉「炎息」：在场全体术师攻+7%~16%，自身为术师必吃（同赫默光环先例）
 };
 
 // 常驻治疗倍率天赋驱动表（blackboard.heal_scale 为治疗量乘数）。
@@ -73,6 +77,35 @@ function calcTalentAtkBonus(op, slotData) {
   }
   return bonus === null ? 0 : bonus;
 }
+// 常驻生命/防御百分比天赋驱动（bb.max_hp / bb.def = 自身面板百分比乘区），仅收"必然生效于自身"类：
+// 范围友方光环（蜜莓/纯烬/夜莺白恶魔等，自身不在自身攻击范围内）与条件性/限时/叠层（桑葚双医疗、嘉维尔限时15s、塞雷娅叠层）不入表。
+const TALENT_HP_DEF_DRIVERS = {
+  'char_1052_kalts2': 0, // 凯尔希·思衡托「遗尘守望」：生命与防御 +5%~30%（随精化/潜3 增强，阻挡等忽略）
+  'char_010_chen': 1,    // 陈「持刀格斗术」精二：防御 +5%~6%（攻击部分在 TALENT_ATK_DRIVERS）
+  'char_103_angel': 1,    // 能天使「天使的祝福」精二：自身生命 +10%~13%（攻击部分在 TALENT_ATK_DRIVERS）
+  'char_449_glider': 0,  // 蜜莓「集体意识」：攻击范围内远程干员最大生命+5%/7%(精1)→+10%/12%(精2 潜4)，自身为远程医疗必在范围（单目标模型默认奶自己）
+  'char_1016_agoat2': 1 // 纯烬艾雅法拉「火山灰疗愈」：攻击范围内友方生命上限+6%(E2)/+8%(E2 潜4)，自身必在范围（同前）；同天赋普攻层叠增益治疗(heal_scale)不入面板
+};
+
+// 查 HP/DEF 常驻百分比天赋，返回 { hpMul, defMul }（未解锁/无键为 0）
+function calcTalentHpDefMul(op, slotData) {
+  const talentIndex = TALENT_HP_DEF_DRIVERS[op.id];
+  const out = { hpMul: 0, defMul: 0 };
+  if (talentIndex === undefined) return out;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return out;
+  const elite = slotData.elite;
+  const level = slotData.level;
+  const pot = slotData.potentialRank || 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase > elite || level < (cand.level || 1) || candPot > pot) continue;
+    const bb = cand.blackboard || {};
+    if (typeof bb.max_hp === 'number') out.hpMul = Math.max(out.hpMul, bb.max_hp);
+    if (typeof bb.def === 'number') out.defMul = Math.max(out.defMul, bb.def);
+  }
+  return out;
+}
 
 const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resistance: 'magicResistance', attack_speed: 'attackSpeed' };
 
@@ -80,6 +113,11 @@ const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resista
 // 流明「灯火不灭」：默认治疗单位无异常状态 → 耗弹强化（heal_scale×2）不计算，只留 atk+攻速 buff，技能无限持续（可手动关闭）。
 const PERMANENT_OVERRIDES = {
   'char_4042_lumen': [2]
+};
+
+// 单次攻击多重治疗的技能（连发全打同一目标/单目标模型）：纯烬艾雅法拉「火山回响」治疗变 5 连发（每发 attack@heal_scale），全部计入。
+const SKILL_HEAL_CHAIN = {
+  'char_1016_agoat2': { 2: 5 }   // 纯烬·艾雅法拉 S3 火山回响：每次攻击 5 连发
 };
 
 /**
@@ -105,7 +143,8 @@ function calcModuleBonus(op, slotData) {
 // key: 干员 id；value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
   'char_147_shining': 1,  // 闪灵「法典」：精二起 攻速+10，潜能3 起 +13
-  'char_108_silent': 0   // 赫默「医疗支援」：在场全体医疗攻速+6/8（精一），+12/14（精二）；自身必得
+  'char_108_silent': 0,// 赫默「医疗支援」：在场全体医疗攻速+6/8（精一），+12/14（精二）；自身必得
+  'char_103_angel': 0     // 能天使「快速弹匣」：精一 Lv1 起攻速+6 自身常驻
 };
 
 // 查驱动表，返回常驻攻速天赋的攻速加算值（0 表示无此天赋或未解锁）。
@@ -195,6 +234,7 @@ function calculateOperator(op, slotData) {
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const rawDef = baseDef + trustDef + potDef + mod.def;
   const talentAtk = calcTalentAtkBonus(op, slotData);
+  const pctTalent = calcTalentHpDefMul(op, slotData);  // 常驻生命/防御百分比天赋
   // 模组天赋强化：X模组 L2 把「法典」攻速覆盖为 15/18；Y 模组走基础天赋（10/13）。
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
@@ -202,8 +242,8 @@ function calculateOperator(op, slotData) {
   // 与携带技能的 atk 乘算互斥（带 atk 的信条/教条力场 ≠ 2技能），并入同乘区累加。
   const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
   let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul);
-  let panelDef = rawDef;
-  const panelHp = baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp;
+  let panelDef = rawDef * (1 + pctTalent.defMul);
+  const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
 
   // ======== Skill Modifiers ========
   const skillIndex = slotData.skillIndex || 0;
@@ -284,6 +324,7 @@ function calculateOperator(op, slotData) {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts,
     isIncantationMedic, enemy: state.enemy,
+    healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1)  // 常驻治疗倍率（天赋 × 模组天赋强化，如瑰盐/夜莺X模组）
   };
 
@@ -349,6 +390,7 @@ function calcPanelStats(op, slotData) {
   }
 
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
+  const pctTalent = calcTalentHpDefMul(op, slotData);
   const talentAtk = calcTalentAtkBonus(op, slotData);
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
@@ -356,13 +398,13 @@ function calcPanelStats(op, slotData) {
   const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + talentAspd + mod.attackSpeed);
 
   return {
-    panelHp: Math.round(baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp),
+    panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul)),
-    panelDef: Math.round(baseDef + trustDef + potDef + mod.def),
+    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul)),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance,
     baseAttackTime: phase.baseAttackTime,
     attackInterval
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS };

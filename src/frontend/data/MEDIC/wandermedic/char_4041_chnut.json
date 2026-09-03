@@ -1,0 +1,504 @@
+{
+  "id": "char_4041_chnut",
+  "name": "褐果",
+  "rarity": "TIER_4",
+  "profession": "MEDIC",
+  "subProfessionId": "wandermedic",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        136,
+        223
+      ],
+      "def": [
+        44,
+        64
+      ],
+      "maxHp": [
+        623,
+        820
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        223,
+        311
+      ],
+      "def": [
+        64,
+        80
+      ],
+      "maxHp": [
+        820,
+        977
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        311,
+        389
+      ],
+      "def": [
+        80,
+        101
+      ],
+      "maxHp": [
+        977,
+        1137
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skchr_chnut_1",
+      "name": "积微成著",
+      "levels": [
+        {
+          "trait_scale": 1.5,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 1.6,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 1.7,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 17,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2.1,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 16,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2.2,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2.5,
+          "cnt": 2,
+          "level": 6,
+          "spCost": 14,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2.7,
+          "cnt": 2,
+          "level": 7,
+          "spCost": 13,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 2.8,
+          "cnt": 2,
+          "level": 8,
+          "spCost": 12,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "trait_scale": 3,
+          "cnt": 2,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chnut_2",
+      "name": "厚土迸发",
+      "levels": [
+        {
+          "attack_speed": 80,
+          "attack@heal_continuously_scale": 1.05,
+          "level": 0,
+          "spCost": 90,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "attack@heal_continuously_scale": 1.1,
+          "level": 1,
+          "spCost": 88,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "attack@heal_continuously_scale": 1.15,
+          "level": 2,
+          "spCost": 86,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "attack@heal_continuously_scale": 1.2,
+          "level": 3,
+          "spCost": 82,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "attack@heal_continuously_scale": 1.2,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "attack@heal_continuously_scale": 1.3,
+          "level": 5,
+          "spCost": 78,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@heal_continuously_scale": 1.35,
+          "level": 6,
+          "spCost": 74,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "attack@heal_continuously_scale": 1.4,
+          "level": 7,
+          "spCost": 72,
+          "initialSp": 34,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "attack@heal_continuously_scale": 1.45,
+          "level": 8,
+          "spCost": 72,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 130,
+          "attack@heal_continuously_scale": 1.5,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "脚踏实地",
+          "description": "治疗地面单位，<$ba.dt.element>元素损伤</>回复量提高10%",
+          "blackboard": {
+            "ep_heal_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "脚踏实地",
+          "description": "治疗地面单位，<$ba.dt.element>元素损伤</>回复量提高13%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "ep_heal_scale": 1.13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "脚踏实地",
+          "description": "治疗地面单位，<$ba.dt.element>元素损伤</>回复量提高20%",
+          "blackboard": {
+            "ep_heal_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "脚踏实地",
+          "description": "治疗地面单位，<$ba.dt.element>元素损伤</>回复量提高23%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "ep_heal_scale": 1.23
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+15",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chnut",
+      "name": "褐果证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chnut",
+      "name": "地上巡旅纪念灯",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 50,
+            "atk": 15
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 60,
+            "atk": 24
+          },
+          "talentEnhance": [
+            {
+              "name": "脚踏实地",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_heal_scale": 1.25
+              }
+            },
+            {
+              "name": "脚踏实地",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_heal_scale": 1.28
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "脚踏实地",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_heal_scale": 1.27
+              }
+            },
+            {
+              "name": "脚踏实地",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_heal_scale": 1.3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

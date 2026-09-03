@@ -1,0 +1,514 @@
+{
+  "id": "char_449_glider",
+  "name": "蜜莓",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "wandermedic",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        131,
+        216
+      ],
+      "def": [
+        46,
+        68
+      ],
+      "maxHp": [
+        799,
+        1052
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        216,
+        300
+      ],
+      "def": [
+        68,
+        85
+      ],
+      "maxHp": [
+        1052,
+        1253
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        300,
+        375
+      ],
+      "def": [
+        85,
+        107
+      ],
+      "maxHp": [
+        1253,
+        1458
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 0,
+    "maxHp": 150
+  },
+  "skills": [
+    {
+      "skillId": "skchr_glider_1",
+      "name": "精神护理",
+      "levels": [
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.2,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.3,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.4,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.5,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 2,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.6,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 3,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.7,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 3,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.8,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 3,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 0.9,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "glider_s_1.duration": 3,
+          "glider_s_1.interval": 1,
+          "glider_s_1.ep_heal_ratio": 1,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_glider_2",
+      "name": "振奋",
+      "levels": [
+        {
+          "atk": 0.15,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.18,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 54,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.21,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 53,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 52,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 51,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.31,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@max_target": 3,
+          "level": 6,
+          "spCost": 49,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@max_target": 3,
+          "level": 7,
+          "spCost": 48,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 3,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@max_target": 3,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "集体意识",
+          "description": "攻击范围内的远程干员最大生命值+5%",
+          "blackboard": {
+            "max_hp": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "集体意识",
+          "description": "攻击范围内的远程干员最大生命值+7%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "max_hp": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "集体意识",
+          "description": "攻击范围内的远程干员最大生命值+10%",
+          "blackboard": {
+            "max_hp": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "集体意识",
+          "description": "攻击范围内的远程干员最大生命值+12%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "max_hp": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+19",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 19
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_glider",
+      "name": "蜜莓证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_glider",
+      "name": "落地之后",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "集体意识",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.13
+              }
+            },
+            {
+              "name": "集体意识",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "集体意识",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.15
+              }
+            },
+            {
+              "name": "集体意识",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.17
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

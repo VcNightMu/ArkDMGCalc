@@ -40,7 +40,7 @@ function calcMedical(params) {
   const healRatio = (levelData.heal_ratio || 1.0) * healScale;
   // attack@heal_scale：普攻治疗倍率替换（守望者起飞型技能，如风絮1技能每次回复攻击力 0.4~0.6 倍生命）
   // 仅技能期单次生效；常态普攻维持 heal_ratio（100%）不受影响
-  const skillHealRatio = healRatio * (levelData['attack@heal_scale'] ?? 1);
+  const skillHealRatio = healRatio * (levelData['attack@heal_scale'] ?? 1) * (params.healChain || 1);  // healChain：单次攻击多重治疗（纯烬 S3 五连发）
   const singleHeal = skillAtk * skillHealRatio;
   const normalHeal = panelAtk * healRatio;
 

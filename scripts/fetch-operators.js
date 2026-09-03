@@ -73,7 +73,7 @@ const OPERATORS = {
     ], // 医师
     ringhealer: ['char_128_plosis', 'char_179_cgbird', 'char_181_flower', 'char_275_breeze', 'char_4163_rosesa'], // 群愈师/瑰盐
     healer: ['char_385_finlpp', 'char_348_ceylon', 'char_436_whispr', 'char_4173_nowell', 'char_4042_lumen'],                     // 疗养师
-    wandermedic: [],                // 行医
+    wandermedic: ['char_4041_chnut', 'char_473_mberry', 'char_449_glider', 'char_4114_harold', 'char_1016_agoat2'],                // 行医
     incantationmedic: ['char_1020_reed2'], // 咒愈师
     chainhealer: [],                // 链愈师
     watchman: ['char_4222_taraxa', 'char_1052_kalts2'],  // 守望者
