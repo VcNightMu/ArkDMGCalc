@@ -24,6 +24,7 @@ const TALENT_ATK_DRIVERS = {
   'char_103_angel': 1,    // 能天使「天使的祝福」精二:自身攻击+6%~8%(随机友方同效不计)
   'char_180_amgoat': 0,   // 艾雅法拉「炎息」:在场全体术师攻+7%~16%,自身为术师必吃(同赫默光环先例)
   'char_202_demkni': 0,   // 塞雷娅「莱茵充能护服」:站场每20s叠1层×5(单层 atk+5~6%/def+4~5%),按满层处理 → atk+25~30%
+  'char_260_durnar': 0,    // 坚雷「攻守兼备」:攻击力+7%(防御部分在 TALENT_HP_DEF_DRIVERS)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -96,6 +97,7 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_4143_sensi': 0,  // 森西「十年魔物餐经验」:防御+10%(治疗部分在 TALENT_HEAL_DRIVERS)
   'char_226_hmau': 0,    // 吽「门神」:防御+6~8% 无条件常驻(身后高台治疗+75% 为条件部分不计,单目标默认自身非高台)
   'char_202_demkni': 0,  // 塞雷娅「莱茵充能护服」:防御叠层按满层 ×5(单层 def+4~5% → +20~25%),攻击部分在 TALENT_ATK_DRIVERS
+  'char_260_durnar': 0,  // 坚雷「攻守兼备」:防御力+7%(攻击部分在 TALENT_ATK_DRIVERS)
 };
 
 // 查 HP/DEF 常驻百分比天赋,返回 { hpMul, defMul }(未解锁/无键为 0)
@@ -370,6 +372,7 @@ function calcSleepAtkMul(op, slotData) {
 const BAT_ADD_OVERRIDES = {
   'char_163_hpsts': { 1: true },   // 火神 S2 武力模式:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4065_judge': { 2: true },  // 斥罪 S3 披荆斩棘:攻击间隔增大(1.6+0.9=2.5s)
+  'char_378_asbest': { 1: true },  // 石棉 S2 火电模式:攻击间隔增大(1.6+0.4=2.0s)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -396,6 +399,26 @@ const DELAYED_OUTPUT = {
 const PERIODIC_DOT = {
   'char_4130_luton': { 1: { interval: 2, atkScaleKey: 'magic_atk_scale' } },  // 露托 S2 强磁防卫:每2s 0.8×atk
   'char_4065_judge': { 1: { interval: 1, atkScaleKey: null } },               // 斥罪 S2 坚心苦修:每秒 1.2×atk(skillAtk 已含)
+};
+// 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
+const MULTI_HIT = {
+  'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
+};
+// atk_scale 不作为普攻倍率（技能结束爆炸等一次性伤害语义，如车尔尼 S2 结束时 2.1×atk 法伤）
+const SKILL_ATK_SCALE_EXCLUDE = {
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
+};
+// 顶层 atk 不作为普攻加成（键值是受击叠层基值，默认不受击 0 层，如车尔尼 S2 每层 +26%）
+const SKILL_ATK_EXCLUDE = {
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2：atk 0.26/层，默认不叠
+};
+// 技能结束爆炸伤害(结束后对周围敌人造成 atk_scale×atk 法伤单发,加入技能期总伤)
+const SKILL_END_ARTS_BURST = {
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2:结束时 2.1×atk 法伤
+};
+// 技能不计算(效果全在未建模机制上,展示常态普攻即可;如斩业星熊 S2 投盾系)
+const SKIP_SKILLS = {
+  'char_1044_hsgma2': { 1: true },  // 斩业星熊 S2 无始无明:投盾伤害不建模型
 };
 // AUTO 触发附加法伤(下次攻击=普攻物理+额外 X×atk 法伤,自然回充能周期;斥罪 S1 蓄力分支永不触发)
 const TRIGGER_ARTS_ADD = {
@@ -547,9 +570,10 @@ function calculateOperator(op, slotData) {
   if (delayedSec) skillDuration = Math.max(0, skillDuration - delayedSec);
 
   const modifiers = [];
-  // 技能攻击力增幅:顶层 atk;缺省时查前缀别名键(焰苇S3 reed2_skil_3[switch_mode].atk)
+  // 技能攻击力增幅：顶层 atk；缺省时查前缀别名键（焰苇S3 reed2_skil_3[switch_mode].atk）
   const atkKey = (SKILL_ATK_KEY_OVERRIDES[op.id] || {})[skillIndex] || 'atk';
-  if (levelData[atkKey] !== undefined) modifiers.push({ value: levelData[atkKey], operator: 'direct_mul' });
+  const atkExcluded = (SKILL_ATK_EXCLUDE[op.id] || {})[skillIndex] === true;
+  if (levelData[atkKey] !== undefined && !atkExcluded) modifiers.push({ value: levelData[atkKey], operator: 'direct_mul' });
   // attack@atk:守望者普攻攻击力加成(风絮2技能"起飞"攻击力+X%)与顶层 atk 同乘区累加
   if (levelData['attack@atk'] !== undefined) modifiers.push({ value: levelData['attack@atk'], operator: 'direct_mul' });
   if (levelData.def !== undefined) modifiers.push({ value: levelData.def, operator: 'final_mul' });
@@ -558,7 +582,9 @@ function calculateOperator(op, slotData) {
   // 限定:仅医疗、手动触发、带 blackboard 持续(duration)、无 atk 加成,
   // 以区分陈「赤霄·拔刀/绝影」(近卫,伤害倍率)与焰影苇草「枯荣共息」(行医,火球伤害倍率)。
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
-  if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
+  // atk_scale 排除:车尔尼 S2 的 2.1 是技能结束爆炸倍率,不作普攻倍率乘算
+  const scaleExcluded = (SKILL_ATK_SCALE_EXCLUDE[op.id] || {})[skillIndex] === true;
+  if (levelData.atk_scale !== undefined && !isOneShotHeal && !scaleExcluded) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
   // base_attack_time:负值=加算秒(白面鸮脑啡肽 -2.1 等);(0,1) 正小数=攻击间隔倍率("间隔缩短至 x 倍",
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
@@ -589,7 +615,12 @@ function calculateOperator(op, slotData) {
   const isPermanent = levelData.isPermanent === true || (PERMANENT_OVERRIDES[op.id] || []).includes(skillIndex);
   const skillRealInterval = skillInterval;
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
-  const isArts = op.damageType === 'arts' || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex));
+  // 驭法铁卫特性:技能开启时普通攻击变为法术伤害(常态仍物理);技能期=有持续时间/常驻的技能
+  const artsProtectorSkill = op.subProfessionId === 'artsprotector' && (skillDuration > 0 || isPermanent) && skillDuration !== 0;
+  const isArts = op.damageType === 'arts' || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex)) || artsProtectorSkill;
+  // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
+  const hitMul = ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
+    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1);
   const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;
   // 法脆必触发增伤:芙蓉常驻(×damage_scale);焰苇S3 灼痕 100% 触发(talent@prob=1)再乘灼痕档
   const fragileBase = calcMagicFragileMul(op, slotData);
@@ -597,7 +628,7 @@ function calculateOperator(op, slotData) {
 
   const params = {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
-    isToggle, isPermanent, levelData, isArts,
+    isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul,
     isIncantationMedic, enemy: state.enemy,
     incantMode,
     traitScale: calcTraitScale(op, slotData),
@@ -637,8 +668,8 @@ function calculateOperator(op, slotData) {
     const healAmount = panelHp * levelData.heal_scale;
     result = { skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: healAmount };
   } else if (!isSummon && (PERIODIC_DOT[op.id] || {})[skillIndex]) {
-    // 停攻 + 周期法术 DOT（把正常攻击改为周期性范围法伤）：
-    // 露托 S2 强磁防卫每2s 0.8×atk（magic_atk_scale 键）；斥罪 S2 坚心苦修每秒 1.2×atk（skillAtk 已含 atk_scale）
+    // 停攻 + 周期法术 DOT(把正常攻击改为周期性范围法伤):
+    // 露托 S2 强磁防卫每2s 0.8×atk(magic_atk_scale 键);斥罪 S2 坚心苦修每秒 1.2×atk(skillAtk 已含 atk_scale)
     const dotCfg = (PERIODIC_DOT[op.id] || {})[skillIndex];
     const dotInterval = dotCfg.interval > 0 ? dotCfg.interval : 1;
     const dotHit = calcArtsDamage(dotCfg.atkScaleKey ? skillAtk * levelData[dotCfg.atkScaleKey] : skillAtk, state.enemy.res);
@@ -653,15 +684,15 @@ function calculateOperator(op, slotData) {
       dmgTypes: { arts: { skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal, cycleDps: null } },
     };
   } else if (!isSummon && (TRIGGER_ARTS_ADD[op.id] || {})[skillIndex]) {
-    // AUTO 触发附加法伤（斥罪 S1 一锤定音，sp4 自然回）：下次攻击=普攻物理+额外 atk_scale_2×atk 法伤，
-    // 混合单发（蓄力分支 judge_s_1_enhance_checker 设计上持续输出永远无法蓄力，不计）
+    // AUTO 触发附加法伤(斥罪 S1 一锤定音,sp4 自然回):下次攻击=普攻物理+额外 atk_scale_2×atk 法伤,
+    // 混合单发(蓄力分支 judge_s_1_enhance_checker 设计上持续输出永远无法蓄力,不计)
     const trigCfg = (TRIGGER_ARTS_ADD[op.id] || {})[skillIndex];
     const artsScale = levelData[trigCfg.scaleKey] ?? 1;
     const triggerPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
     const triggerArts = calcArtsDamage(panelAtk * artsScale, state.enemy.res);
     const spCost = levelData.spCost > 0 ? levelData.spCost : 1;
     const interval = skillRealInterval > 0 ? skillRealInterval : 1;
-    const chargeAttacks = Math.floor(spCost / interval);              // 充能期普攻次数（自然回）
+    const chargeAttacks = Math.floor(spCost / interval);              // 充能期普攻次数(自然回)
     const cycleTime = spCost;
     const physCycle = ((chargeAttacks + 1) * triggerPhys);            // 触发当次普攻也算物理
     const artsCycle = triggerArts;
@@ -675,6 +706,17 @@ function calculateOperator(op, slotData) {
         physical: { skillDps: 0, skillTotalDamage: triggerPhys, cycleDps: physCycle / cycleTime },
         arts: { skillDps: 0, skillTotalDamage: triggerArts, cycleDps: artsCycle / cycleTime },
       },
+    };
+  } else if ((SKIP_SKILLS[op.id] || {})[skillIndex]) {
+    // 技能不计算(斩业星熊 S2 无始无明:投盾系伤害不建模型)→ 技能期无增益,常态普攻照常展示
+    const nI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
+    const isArtsOp = op.damageType === 'arts';
+    result = {
+      skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+      normalDps: isArtsOp ? calcArtsDamage(panelAtk, state.enemy.res) / nI : calcPhysicalDamage(panelAtk, state.enemy.def) / nI,
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: isArtsOp ? 'arts' : 'physical', normalDamageType: isArtsOp ? 'arts' : 'physical',
+      type: 'damage', realInterval: skillRealInterval,
     };
   } else {
     result = calcDamage(params);
@@ -723,6 +765,19 @@ function calculateOperator(op, slotData) {
     } else {
       result = { ...result, skillHps: (result.skillHps ?? 0) + perSec, totalHeal: (result.totalHeal ?? 0) + perSec * dur };
     }
+  }
+  // 技能结束爆炸(车尔尼 S2 曲惊四座:结束时对周围敌人造成 atk_scale×atk 法伤单发,加入技能期总伤;受击叠攻默认 0 层不计)
+  if ((SKILL_END_ARTS_BURST[op.id] || {})[skillIndex] && typeof levelData.atk_scale === 'number') {
+    const burst = calcArtsDamage(panelAtk * levelData.atk_scale, state.enemy.res);
+    result = {
+      ...result,
+      skillTotalDamage: (result.skillTotalDamage ?? 0) + burst,
+      dmgTypes: result.dmgTypes ? {
+        ...result.dmgTypes,
+        arts: { ...(result.dmgTypes.arts || {}), skillTotalDamage: (result.dmgTypes.arts?.skillTotalDamage ?? 0) + burst },
+      } : { arts: { skillDps: 0, skillTotalDamage: burst, cycleDps: null } },
+      damageType: result.damageType || 'arts',
+    };
   }
   // 技能结束回血(折桠「简易包扎」:技能结束时恢复 maxHp×hp_ratio)
   const endHealRatio = calcTalentEndHealRatio(op, slotData);
