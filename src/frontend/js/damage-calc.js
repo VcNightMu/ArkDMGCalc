@@ -370,12 +370,38 @@ function calcSleepAtkMul(op, slotData) {
   return mul === null ? 1 : mul;
 }
 
+// ===== 常驻伤害乘区天赋驱动（通用，非白值加成：物理/法术/真伤一律乘，如森蚺「勇冠三军」满血时攻击造成 115% 伤害）=====
+// 值：干员 id → { talentIndex, key }（blackboard 中伤害倍率所在键，各干员键名不一：damage_scale/atk_scale…）
+const TALENT_DMG_MUL_DRIVERS = {
+  'char_416_zumama': { talentIndex: 0, key: 'atk_scale' },  // 森蚺「勇冠三军」：hp>50% 时攻击伤害 ×1.15/1.17（默认满血必触发；≤50% 的庇护向不计）
+};
+// 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
+function calcTalentDmgMul(op, slotData) {
+  const cfg = TALENT_DMG_MUL_DRIVERS[op.id];
+  if (!cfg) return 1;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let mul = null;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      if (v > 0 && (mul === null || v > mul)) mul = v;
+    }
+  }
+  return mul === null ? 1 : mul;
+}
+
 // ===== 不屈者(unyield)及相关通用机制驱动表 =====
 // base_attack_time 正小数按加算秒处理(引擎默认 (0,1)=乘算缩短;描述为"间隔增大"的技能例外)
 const BAT_ADD_OVERRIDES = {
   'char_163_hpsts': { 1: true },   // 火神 S2 武力模式:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4065_judge': { 2: true },  // 斥罪 S3 披荆斩棘:攻击间隔增大(1.6+0.9=2.5s)
   'char_378_asbest': { 1: true },  // 石棉 S2 火电模式:攻击间隔增大(1.6+0.4=2.0s)
+  'char_416_zumama': { 1: true },  // 森蚺 S2 震慑劈砍:攻击间隔略微增大(1.6+0.4=2.0s)
+  'char_422_aurora': { 1: true },  // 极光 S2 人工降雪:攻击间隔略微增大(1.6+0.25=1.85s)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -550,7 +576,8 @@ function calculateOperator(op, slotData) {
     }
     const isArts = op.damageType === 'arts';
     const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isArts ? 'arts' : 'physical', normalDamageType: isArts ? 'arts' : 'physical' };
+    // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isArts ? 'arts' : 'physical', normalDamageType: isArts ? 'arts' : 'physical' };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -641,6 +668,7 @@ function calculateOperator(op, slotData) {
     isDotTick: (INCANTATION_DOT_OVERRIDES[op.id] || []).includes(skillIndex),
     healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率(天赋 × 模组天赋强化,如瑰盐/夜莺X模组)
+    talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
     sleepAtkMul: calcSleepAtkMul(op, slotData)  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
   };
 
@@ -718,6 +746,19 @@ function calculateOperator(op, slotData) {
         physical: { skillDps: 0, skillTotalDamage: trigPhys, cycleDps: (chargeAttacks * normPhys + trigPhys) / cycleTime },
         arts: { skillDps: 0, skillTotalDamage: dotTotal, cycleDps: dotTotal / cycleTime },
       },
+    };
+  } else if (op.id === 'char_422_aurora' && skillIndex === 1) {
+    // 极光 S2 人工降雪（9发弹药制，打完即结束，间隔 1.6+0.25=1.85s）：每3发一循环——第1发进寒冷、第2发叠层冻结、第3发暴击（冻结目标攻击力提高至 310%）。
+    // 默认单目标：9发=普通发(atk+65%)×6 + 暴击发(×3.1)×3（寒冷/冻结状态本身无伤害）
+    const normHit = calcPhysicalDamage(panelAtk * (1 + 0.65), state.enemy.def);   // 普通发：atk 0.65 加攻
+    const critHit = calcPhysicalDamage(panelAtk * 3.1, state.enemy.def);           // 暴击发：提高至 310%（替换非叠加）
+    const total = normHit * 6 + critHit * 3;
+    const ammoTime = 9 * (skillRealInterval > 0 ? skillRealInterval : 1);   // 打完总用时 9×1.85s
+    result = {
+      skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (op.id === 'char_493_firwhl' && skillIndex === 1) {
     // 火哨 S2 焦土:普攻照常(物理 6击)+ 燃烧区持续5s>攻击间隔2.8s 区域重叠常驻 → 全程每秒0.75×atk法伤×17s
@@ -944,4 +985,4 @@ function calcPanelStats(op, slotData) {
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, calcSelfAuraFlat, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS, SELF_AURA_DRIVERS };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, calcTalentDmgMul, calcSelfAuraFlat, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS, SELF_AURA_DRIVERS };
