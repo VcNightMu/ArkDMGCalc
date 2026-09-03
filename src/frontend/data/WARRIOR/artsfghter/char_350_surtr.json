@@ -608,6 +608,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -678,7 +679,14 @@
           "attributeBlackboard": {
             "atk": 30,
             "magic_resistance": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -699,6 +707,13 @@
               "requiredPotentialRank": 4,
               "blackboard": {
                 "magic_resist_penetrate_fixed": 26
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
               }
             }
           ]
@@ -724,6 +739,13 @@
                 "magic_resist_penetrate_fixed": 28
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
           ]
         }
       ]
@@ -742,7 +764,14 @@
           "attributeBlackboard": {
             "atk": 45,
             "def": 42
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -765,6 +794,13 @@
               "blackboard": {
                 "surtr_t_2[withdraw].interval": 9,
                 "surtr_t_2[withdraw].attack_speed": 20
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
               }
             }
           ]
@@ -790,6 +826,13 @@
               "blackboard": {
                 "surtr_t_2[withdraw].interval": 10,
                 "surtr_t_2[withdraw].attack_speed": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
               }
             }
           ]

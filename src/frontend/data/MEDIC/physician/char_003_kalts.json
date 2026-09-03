@@ -537,6 +537,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "char_id": 0
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -613,7 +619,15 @@
           "attributeBlackboard": {
             "atk": 35,
             "def": 15
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -663,6 +677,14 @@
               "blackboard": {
                 "stun": 3.5,
                 "value": 1400,
+                "hp_ratio": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
                 "hp_ratio": 0.5
               }
             }
@@ -719,6 +741,14 @@
                 "hp_ratio": 0.5
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
           ]
         }
       ]
@@ -737,7 +767,14 @@
           "attributeBlackboard": {
             "max_hp": 115,
             "attack_speed": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -759,6 +796,13 @@
               "name": "Mon3tr",
               "requiredPotentialRank": 0,
               "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
+              }
             }
           ]
         },
@@ -783,6 +827,13 @@
               "requiredPotentialRank": 0,
               "blackboard": {}
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
+              }
+            }
           ]
         }
       ]
@@ -801,7 +852,15 @@
           "attributeBlackboard": {
             "atk": 24,
             "attack_speed": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -831,6 +890,14 @@
               "name": "Mon3tr",
               "requiredPotentialRank": 0,
               "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
             }
           ]
         },
@@ -863,6 +930,14 @@
               "name": "Mon3tr",
               "requiredPotentialRank": 0,
               "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
             }
           ]
         }

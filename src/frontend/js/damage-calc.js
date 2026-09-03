@@ -160,6 +160,34 @@ const SKILL_HEAL_CHAIN = {
   'char_1016_agoat2': { 2: 5 }   // 纯烬·艾雅法拉 S3 火山回响：每次攻击 5 连发
 };
 
+// 咒愈师普攻替换为每秒持续伤害的技能（濯尘芙蓉S2「抚业之触」）：技能期无普攻，
+// 改为对范围内敌人每秒造成 atk_scale×面板 法伤（每秒一跳=一次攻击 → 特性治疗每跳触发）。
+const INCANTATION_DOT_OVERRIDES = {
+  'char_1024_hbisc2': [1],
+};
+
+// 咒愈师特殊技能模式（键=干员id，值=技能索引→模式）：
+// - orbital     焰影苇草S2「枯荣共息」：给地面干员（默认自身）挂三颗火球，每 cooldown 秒 3 发 atk_scale 法伤，
+//               仅对该干员触发特性治疗（单目标模型=默认治疗目标）；技能期无苇草自身普攻。
+// - burning     焰影苇草S3「生命火种」：攻击力增幅键带前缀（见 SKILL_ATK_KEY_OVERRIDES）；一天赋灼痕 100% 必触发
+//               （法脆增伤 ×damage_scale）；附带灼痕敌人每秒受 talent@s3_atk_scale 法伤（灼痕DOT，不触发治疗）；
+//               敌人被击倒爆炸（aoe_scale）默认不计算（无死亡）。
+// - zerohit-true 阿米娅S2「慈悲愿景」：开启一击强制 0 命中 → 0 叠层无伤；后续普攻转真实伤害（面板攻击力）。
+// - standby     缇缇S2「封护」：停止攻击（天赋1伤害×talent_scale 不建模型）→ 技能期无输出无治疗。
+// - slumber     缇缇S3「旧日绽放」：每 4 击一个睡眠周期（1.6s 间隔，睡眠 5s），第 4x+1 击打睡（普攻伤害照算），
+//               每次打睡 → 睡满 5s 醒来结算一次 max_atk_scale 法伤（醒伤次数=打睡次数）；普攻伤害=攻击力全额（min=1.0 档）。
+const INCANTATION_SPECIAL_MODES = {
+  'char_1037_amiya3': { 1: 'zerohit-true' },
+  'char_1020_reed2': { 1: 'orbital', 2: 'burning' },
+  'char_4056_titi': { 1: 'standby', 2: 'slumber' },
+};
+
+// 技能攻击力增幅键别名：数据把增幅放在带 switch_mode 前缀的键里（焰影苇草S3 reed2_skil_3[switch_mode].atk），
+// 语义与顶层 atk 相同（直接乘算累加）；顶层 atk 缺省时查此别名。
+const SKILL_ATK_KEY_OVERRIDES = {
+  'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
+};
+
 /**
  * 模组面板加成：按当前装配的模组 id+等级取该级 attributeBlackboard（数据为该等级生效后的最终加成）。
  * 证章（INITIAL 无 levels）/无模组返回全 0；attackSpeed 为攻速值增量（100 基准上加算）。
@@ -246,6 +274,58 @@ function calcModuleTalentEnhance(op, slotData) {
   return out;
 }
 
+/**
+ * 特性数值读取（咒愈师：攻击造成法伤并治疗 scale 倍伤害量的生命）。
+ * 基础值在干员 trait.blackboard.scale（如咒愈师 0.5）；装备效果模组后由模组 TRAIT
+ * 强化覆盖（overrideTraitDataBundle，如咒愈师模组 L1 起 scale 0.5→0.6）。
+ * 返回 null 表示干员无此特性变量（调用方回退默认值）。
+ */
+function calcTraitScale(op, slotData) {
+  const base = (op.trait && op.trait.blackboard && typeof op.trait.blackboard.scale === 'number')
+    ? op.trait.blackboard.scale : null;
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && lv.traitEnhance) {
+    for (const cand of lv.traitEnhance) {
+      const s = cand.blackboard && cand.blackboard.scale;
+      if (typeof s === 'number') return s;
+    }
+  }
+  return base;
+}
+
+// 咒愈师法脆增伤驱动（必触发 debuff，如濯尘芙蓉「朝开夕落」：攻击使敌人法术脆弱，自身伤害 ×damage_scale）。
+// 档位：精1 1.06/1.08(潜4)、精2 1.12/1.14(潜4)；X模组「结晶胸花」L2/L3 天赋强化覆盖至 1.17~1.22。
+// talentIndex 参数支持显式指定天赋（焰影苇草S3 灼痕必触发时由调用方传 0 查灼痕档）。
+const INCANTATION_FRAGILE_DRIVERS = {
+  'char_1024_hbisc2': 0,   // 濯尘芙蓉「朝开夕落」：常驻必触发
+};
+
+function calcMagicFragileMul(op, slotData, talentIndex = INCANTATION_FRAGILE_DRIVERS[op.id]) {
+  if (talentIndex === undefined) return 1;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let mul = null;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const ds = cand.blackboard && typeof cand.blackboard.damage_scale === 'number' ? cand.blackboard.damage_scale : 0;
+      if (ds > 0 && (mul === null || ds > mul)) mul = ds;
+    }
+  }
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && lv.talentEnhance) {
+    for (const cand of lv.talentEnhance) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (candPot > pot) continue;
+      const ds = cand.blackboard && typeof cand.blackboard.damage_scale === 'number' ? cand.blackboard.damage_scale : 0;
+      if (ds > 0 && (mul === null || ds > mul)) mul = ds;
+    }
+  }
+  return mul === null ? 1 : mul;
+}
+
 function calculateOperator(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
@@ -298,6 +378,14 @@ function calculateOperator(op, slotData) {
     const healScale = calcTalentHealScale(op, slotData) * (enh.healScale || 1);  // 无技能干员也乘常驻治疗倍率
     const healRatio = 1.0;
     if (isMedic) {
+      // 咒愈师：常态普攻=法术伤害 + 治疗 scale×伤害（单目标模型默认治疗目标=自身，必在攻击范围）
+      if (op.subProfessionId === 'incantationmedic') {
+        const traitScale = calcTraitScale(op, slotData) ?? 0.5;
+        const fragileMul = calcMagicFragileMul(op, slotData);  // 法脆必触发增伤（芙蓉：伤害×1.06~1.14）
+        const normalHit = calcArtsDamage(panelAtk, state.enemy.res) * fragileMul;
+        const hpsPerSec = normalHit * traitScale / realInterval;
+        return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalHit / realInterval, skillHps: null, normalHps: hpsPerSec, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: 'arts', normalDamageType: 'arts' };
+      }
       const normalHeal = panelAtk * healRatio * healScale;
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
@@ -319,7 +407,9 @@ function calculateOperator(op, slotData) {
   }
 
   const modifiers = [];
-  if (levelData.atk !== undefined) modifiers.push({ value: levelData.atk, operator: 'direct_mul' });
+  // 技能攻击力增幅：顶层 atk；缺省时查前缀别名键（焰苇S3 reed2_skil_3[switch_mode].atk）
+  const atkKey = (SKILL_ATK_KEY_OVERRIDES[op.id] || {})[skillIndex] || 'atk';
+  if (levelData[atkKey] !== undefined) modifiers.push({ value: levelData[atkKey], operator: 'direct_mul' });
   // attack@atk：守望者普攻攻击力加成（风絮2技能“起飞”攻击力+X%）与顶层 atk 同乘区累加
   if (levelData['attack@atk'] !== undefined) modifiers.push({ value: levelData['attack@atk'], operator: 'direct_mul' });
   if (levelData.def !== undefined) modifiers.push({ value: levelData.def, operator: 'final_mul' });
@@ -359,11 +449,19 @@ function calculateOperator(op, slotData) {
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   const isArts = op.damageType === 'arts';
   const isSummon = op.profession === 'TOKEN';
+  const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;
+  // 法脆必触发增伤：芙蓉常驻（×damage_scale）；焰苇S3 灼痕 100% 触发（talent@prob=1）再乘灼痕档
+  const fragileBase = calcMagicFragileMul(op, slotData);
+  const fragileExtra = (incantMode === 'burning' && levelData['talent@prob'] === 1) ? calcMagicFragileMul(op, slotData, 0) : 1;
 
   const params = {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts,
     isIncantationMedic, enemy: state.enemy,
+    incantMode,
+    traitScale: calcTraitScale(op, slotData),
+    magicFragileMul: fragileBase * fragileExtra,
+    isDotTick: (INCANTATION_DOT_OVERRIDES[op.id] || []).includes(skillIndex),
     healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1)  // 常驻治疗倍率（天赋 × 模组天赋强化，如瑰盐/夜莺X模组）
   };
@@ -398,7 +496,7 @@ function calculateOperator(op, slotData) {
   }
 
   const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined);
-  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: skillRealInterval, panelAtk: skillAtk };
+  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: skillAtk };
 }
 
 /**

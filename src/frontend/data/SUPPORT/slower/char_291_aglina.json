@@ -516,6 +516,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "sluggish": 0.8
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -676,7 +682,14 @@
           "attributeBlackboard": {
             "max_hp": 90,
             "atk": 35
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -697,6 +710,13 @@
               "requiredPotentialRank": 2,
               "blackboard": {
                 "hp_recovery_per_sec": 35
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
               }
             }
           ]
@@ -720,6 +740,13 @@
               "requiredPotentialRank": 2,
               "blackboard": {
                 "hp_recovery_per_sec": 40
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
               }
             }
           ]

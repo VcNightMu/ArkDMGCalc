@@ -15,16 +15,16 @@ const check = (label, actual, expect) => {
 
 console.log('=== 驱动表 ===');
 console.log('芙蓉在驱动表中:', TALENT_ATK_DRIVERS['char_120_hibisc'] !== undefined, '(期望 true)');
-console.log('银灰不在驱动表中:', TALENT_ATK_DRIVERS['char_172_svrash'] === undefined, '(期望 true)');
+console.log('银灰在驱动表中:', TALENT_ATK_DRIVERS['char_172_svrash'] !== undefined, '(期望 true，随行医阶段扩表)');
 if (TALENT_ATK_DRIVERS['char_120_hibisc'] === undefined) ok = false;
-if (TALENT_ATK_DRIVERS['char_172_svrash'] !== undefined) ok = false;
+if (TALENT_ATK_DRIVERS['char_172_svrash'] === undefined) ok = false;
 
 console.log('\n=== 天赋加数（直接乘算加数）===');
 check('芙蓉 精0 Lv40', calcTalentAtkBonus(hibisc, { elite: 0, level: 40 }), 0);
 check('芙蓉 精1 Lv1', calcTalentAtkBonus(hibisc, { elite: 1, level: 1 }), 0.04);
 check('芙蓉 精1 Lv54', calcTalentAtkBonus(hibisc, { elite: 1, level: 54 }), 0.04);
 check('芙蓉 精1 Lv55', calcTalentAtkBonus(hibisc, { elite: 1, level: 55 }), 0.08);
-check('银灰 精2 Lv1（不在表）', calcTalentAtkBonus(silverash, { elite: 2, level: 1 }), 0);
+check('银灰 精2 Lv1（领袖 +10%）', calcTalentAtkBonus(silverash, { elite: 2, level: 1 }), 0.1);
 
 console.log('\n=== 面板攻击力（信赖100%）===');
 // 白值 = 345(满级) + 45(信赖) = 390
@@ -42,4 +42,5 @@ check('精1 Lv55 技能期HPS(累加)', r55.skillHps, 390 * (1 + 0.08 + 0.5) / 2
 const r0 = calculateOperator(hibisc, { elite: 0, level: 40, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 6 });
 check('精0 Lv40 常态HPS(无天赋)', r0.normalHps, (248 + 45) / 2.85);
 
-console.log('\n' + (ok ? '✅ 全部通过' : '❌ 存在失败'));
+console.log('\n' + (ok ? 'ALL-PASS' : 'HAS-FAIL'));
+process.exit(ok ? 0 : 1);

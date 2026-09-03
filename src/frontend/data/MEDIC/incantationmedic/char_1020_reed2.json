@@ -4,7 +4,7 @@
   "rarity": "TIER_6",
   "profession": "MEDIC",
   "subProfessionId": "incantationmedic",
-  "damageType": "physical",
+  "damageType": "arts",
   "ownerOperatorId": null,
   "phases": [
     {
@@ -626,6 +626,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
+    "blackboard": {
+      "scale": 0.5
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -696,7 +702,14 @@
           "attributeBlackboard": {
             "max_hp": 105,
             "atk": 32
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -719,6 +732,13 @@
               "blackboard": {
                 "scale": 0.6,
                 "heal_scale": 1.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
               }
             }
           ]
@@ -744,6 +764,13 @@
               "blackboard": {
                 "scale": 0.65,
                 "heal_scale": 1.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
               }
             }
           ]

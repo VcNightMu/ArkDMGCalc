@@ -568,6 +568,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -638,7 +639,15 @@
           "attributeBlackboard": {
             "atk": 45,
             "def": 13
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -667,6 +676,14 @@
               "blackboard": {
                 "atk": 0.15,
                 "sp_recovery_per_sec": 0.45
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
               }
             }
           ]
@@ -700,6 +717,14 @@
                 "sp_recovery_per_sec": 0.6
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
           ]
         }
       ]
@@ -718,7 +743,14 @@
           "attributeBlackboard": {
             "atk": 35,
             "attack_speed": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -741,6 +773,13 @@
               "blackboard": {
                 "def": 85,
                 "def_lowland": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
               }
             }
           ]
@@ -766,6 +805,13 @@
               "blackboard": {
                 "def": 105,
                 "def_lowland": 40
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
               }
             }
           ]

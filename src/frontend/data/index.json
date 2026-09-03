@@ -324,9 +324,45 @@
     "ownerName": null
   },
   {
+    "id": "char_1024_hbisc2",
+    "name": "濯尘芙蓉",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_494_vendla",
+    "name": "刺玫",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_1020_reed2",
     "name": "焰影苇草",
     "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4056_titi",
+    "name": "缇缇",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1037_amiya3",
+    "name": "阿米娅(医疗)",
+    "rarity": "TIER_5",
     "profession": "MEDIC",
     "subProfessionId": "incantationmedic",
     "ownerOperatorId": null,

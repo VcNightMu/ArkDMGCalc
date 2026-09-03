@@ -544,6 +544,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+    "blackboard": {
+      "heal_scale": 0.8
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -620,7 +626,16 @@
           "attributeBlackboard": {
             "max_hp": 120,
             "atk": 30
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -638,6 +653,15 @@
                 "one_minus_status_resistance": -0.5,
                 "lumen_t_1[special].one_minus_status_resistance": -0.5,
                 "hp_ratio": 0.75
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
               }
             }
           ]
@@ -660,6 +684,15 @@
                 "hp_ratio": 0.75
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
+              }
+            }
           ]
         }
       ]
@@ -678,7 +711,14 @@
           "attributeBlackboard": {
             "atk": 30,
             "def": 20
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -701,6 +741,13 @@
               "blackboard": {
                 "heal_scale": 0.9,
                 "duration": 9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
               }
             }
           ]
@@ -726,6 +773,13 @@
               "blackboard": {
                 "heal_scale": 1,
                 "duration": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
               }
             }
           ]

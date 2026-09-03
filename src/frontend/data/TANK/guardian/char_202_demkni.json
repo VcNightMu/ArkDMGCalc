@@ -537,6 +537,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -613,7 +614,15 @@
           "attributeBlackboard": {
             "max_hp": 150,
             "atk": 50
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -627,6 +636,14 @@
               "requiredPotentialRank": 0,
               "blackboard": {
                 "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
               }
             }
           ]
@@ -644,6 +661,14 @@
               "blackboard": {
                 "demkni_e_sp.sp": 2,
                 "demkni_e_sp[rhine].sp": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
               }
             }
           ]
@@ -665,7 +690,14 @@
             "max_hp": 160,
             "atk": 35,
             "def": 35
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -693,6 +725,13 @@
                 "interval": 18,
                 "atk": 0.07,
                 "def": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
               }
             }
           ]
@@ -723,6 +762,13 @@
                 "interval": 18,
                 "atk": 0.08,
                 "def": 0.07
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
               }
             }
           ]

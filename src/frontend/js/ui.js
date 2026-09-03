@@ -343,6 +343,9 @@ async function updateResults() {
       if (result.normalHps !== null && result.normalHps !== undefined) {
         metricsHtml += '<div class="metric"><span class="label">' + hpsLabel + '</span><span class="value heal">' + result.normalHps.toFixed(0) + '</span></div>';
       }
+      if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
+        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + dmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+      }
       if (result.skillHps !== null && result.skillHps !== undefined && result.skillHps > 0) {
         metricsHtml += '<div class="metric"><span class="label">技能期 HPS</span><span class="value heal">' + result.skillHps.toFixed(0) + '</span></div>';
       }

@@ -550,6 +550,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "cost": 1
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -629,6 +635,13 @@
                 "withdraw_cost_recover_ratio": 1
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
+              }
+            }
           ]
         },
         {
@@ -661,6 +674,13 @@
                 "bpipe_e_2[locate].sp": 2
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
+              }
+            }
           ]
         },
         {
@@ -691,6 +711,13 @@
               "blackboard": {
                 "sp": 8,
                 "bpipe_e_2[locate].sp": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
               }
             }
           ]

@@ -366,6 +366,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -442,7 +443,14 @@
           "attributeBlackboard": {
             "max_hp": 70,
             "attack_speed": 4
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -467,6 +475,13 @@
                 "one_minus_status_resistance": -0.5,
                 "damage_scale": 0.5,
                 "damage_scale_aura": 0.85
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
               }
             }
           ]
@@ -494,6 +509,13 @@
                 "one_minus_status_resistance": -0.5,
                 "damage_scale": 0.5,
                 "damage_scale_aura": 0.75
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15
               }
             }
           ]

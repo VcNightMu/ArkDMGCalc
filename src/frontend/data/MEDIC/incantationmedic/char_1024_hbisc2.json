@@ -1,86 +1,85 @@
 {
-  "id": "char_4173_nowell",
-  "name": "诺威尔",
+  "id": "char_1024_hbisc2",
+  "name": "濯尘芙蓉",
   "rarity": "TIER_5",
   "profession": "MEDIC",
-  "subProfessionId": "healer",
-  "damageType": "physical",
+  "subProfessionId": "incantationmedic",
+  "damageType": "arts",
   "ownerOperatorId": null,
   "phases": [
     {
       "eliteLevel": 0,
       "maxLevel": 50,
       "atk": [
-        180,
-        296
+        178,
+        293
       ],
       "def": [
-        46,
-        68
+        47,
+        69
       ],
       "maxHp": [
-        750,
-        987
+        826,
+        1088
       ],
       "magicResistance": 10,
-      "baseAttackTime": 2.85,
+      "baseAttackTime": 1.6,
       "attackSpeed": 100
     },
     {
       "eliteLevel": 1,
       "maxLevel": 70,
       "atk": [
-        296,
-        412
+        293,
+        408
       ],
       "def": [
-        68,
-        86
+        69,
+        87
       ],
       "maxHp": [
-        987,
-        1175
+        1088,
+        1296
       ],
-      "magicResistance": 10,
-      "baseAttackTime": 2.85,
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
       "attackSpeed": 100
     },
     {
       "eliteLevel": 2,
       "maxLevel": 80,
       "atk": [
-        412,
-        516
+        408,
+        511
       ],
       "def": [
-        86,
-        108
+        87,
+        109
       ],
       "maxHp": [
-        1175,
-        1367
+        1296,
+        1508
       ],
-      "magicResistance": 10,
-      "baseAttackTime": 2.85,
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
       "attackSpeed": 100
     }
   ],
   "trustBonus": {
-    "atk": 40,
+    "atk": 60,
     "def": 0,
-    "maxHp": 200
+    "maxHp": 0
   },
   "skills": [
     {
-      "skillId": "skchr_nowell_1",
-      "name": "步履不停",
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
       "levels": [
         {
-          "atk": 0.15,
-          "attack_speed": 15,
+          "atk": 0.3,
           "level": 0,
           "spCost": 40,
-          "initialSp": 20,
+          "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "skillDuration": 30,
           "skillType": "MANUAL",
@@ -88,95 +87,10 @@
           "isPermanent": false
         },
         {
-          "atk": 0.2,
-          "attack_speed": 20,
+          "atk": 0.35,
           "level": 1,
           "spCost": 40,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.2,
-          "attack_speed": 25,
-          "level": 2,
-          "spCost": 40,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.25,
-          "attack_speed": 25,
-          "level": 3,
-          "spCost": 35,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.25,
-          "attack_speed": 30,
-          "level": 4,
-          "spCost": 35,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.3,
-          "attack_speed": 30,
-          "level": 5,
-          "spCost": 35,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.3,
-          "attack_speed": 35,
-          "level": 6,
-          "spCost": 32,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.35,
-          "attack_speed": 35,
-          "level": 7,
-          "spCost": 32,
-          "initialSp": 20,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": 30,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "atk": 0.35,
-          "attack_speed": 40,
-          "level": 8,
-          "spCost": 32,
-          "initialSp": 20,
+          "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
           "skillDuration": 30,
           "skillType": "MANUAL",
@@ -185,10 +99,86 @@
         },
         {
           "atk": 0.4,
-          "attack_speed": 40,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
           "level": 9,
           "spCost": 30,
-          "initialSp": 20,
+          "initialSp": 15,
           "spType": "INCREASE_WITH_TIME",
           "skillDuration": 30,
           "skillType": "MANUAL",
@@ -198,165 +188,145 @@
       ]
     },
     {
-      "skillId": "skchr_nowell_2",
-      "name": "生命不息",
+      "skillId": "skchr_hbisc2_2",
+      "name": "抚业之触",
       "levels": [
         {
+          "atk_scale": 0.8,
+          "move_speed": -0.25,
           "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.25,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
+          "hit_duration": 8,
           "level": 0,
-          "spCost": 30,
-          "initialSp": 12,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.25,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 1,
-          "spCost": 29,
-          "initialSp": 12,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.25,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 2,
-          "spCost": 28,
-          "initialSp": 12,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.3,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 3,
-          "spCost": 27,
-          "initialSp": 12,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.3,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 4,
-          "spCost": 26,
-          "initialSp": 12,
-          "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
-          "skillType": "MANUAL",
-          "isToggle": false,
-          "isPermanent": false
-        },
-        {
-          "max_target": 2,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.3,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 5,
           "spCost": 25,
-          "initialSp": 12,
+          "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
+          "skillDuration": 8,
           "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "max_target": 3,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.3,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 6,
+          "atk_scale": 0.9,
+          "move_speed": -0.25,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 1,
           "spCost": 24,
-          "initialSp": 12,
+          "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
+          "skillDuration": 8,
           "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "max_target": 3,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.35,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 7,
+          "atk_scale": 1,
+          "move_speed": -0.25,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 2,
           "spCost": 23,
-          "initialSp": 12,
+          "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
+          "skillDuration": 8,
           "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "max_target": 3,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.4,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 8,
+          "atk_scale": 1.1,
+          "move_speed": -0.3,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 3,
           "spCost": 22,
-          "initialSp": 12,
+          "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
+          "skillDuration": 8,
           "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
         {
-          "max_target": 3,
-          "status_resistance[limit]": 12,
-          "interval": 1,
-          "heal_scale": 0.45,
-          "nowell_s_2[immediately_heal].heal_scale": 0,
-          "one_minus_status_resistance": 0.5,
-          "level": 9,
-          "spCost": 20,
-          "initialSp": 12,
+          "atk_scale": 1.2,
+          "move_speed": -0.3,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "skillDuration": -1,
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "move_speed": -0.3,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "move_speed": -0.35,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "move_speed": -0.4,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 7,
+          "spCost": 19,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "move_speed": -0.4,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 8,
+          "spCost": 18,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "move_speed": -0.45,
+          "max_target": 2,
+          "hit_duration": 8,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
           "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
@@ -371,10 +341,11 @@
           "phase": 1,
           "level": 1,
           "potentialRank": 0,
-          "name": "精准配镜",
-          "description": "治疗处于异常状态中的友方干员时治疗量提升至110%",
+          "name": "朝开夕落",
+          "description": "攻击敌人时对目标施加6%的<$ba.magicfragile>【法术脆弱】</>，持续5秒",
           "blackboard": {
-            "heal_scale_up": 1.1
+            "weak[magic][limit]": 5,
+            "damage_scale": 1.06
           },
           "isHideTalent": false
         },
@@ -382,10 +353,11 @@
           "phase": 1,
           "level": 1,
           "potentialRank": 4,
-          "name": "精准配镜",
-          "description": "治疗处于异常状态中的友方干员时治疗量提升至113%<@ba.talpu>（+3%）</>",
+          "name": "朝开夕落",
+          "description": "攻击敌人时对目标施加8%<@ba.talpu>（+2%）</>的<$ba.magicfragile>【法术脆弱】</>，持续5秒",
           "blackboard": {
-            "heal_scale_up": 1.13
+            "weak[magic][limit]": 5,
+            "damage_scale": 1.08
           },
           "isHideTalent": false
         },
@@ -393,10 +365,11 @@
           "phase": 2,
           "level": 1,
           "potentialRank": 0,
-          "name": "精准配镜",
-          "description": "治疗处于异常状态中的友方干员时治疗量提升至120%",
+          "name": "朝开夕落",
+          "description": "攻击敌人时对目标施加12%的<$ba.magicfragile>【法术脆弱】</>，持续5秒",
           "blackboard": {
-            "heal_scale_up": 1.2
+            "weak[magic][limit]": 5,
+            "damage_scale": 1.12
           },
           "isHideTalent": false
         },
@@ -404,10 +377,11 @@
           "phase": 2,
           "level": 1,
           "potentialRank": 4,
-          "name": "精准配镜",
-          "description": "治疗处于异常状态中的友方干员时治疗量提升至123%<@ba.talpu>（+3%）</>",
+          "name": "朝开夕落",
+          "description": "攻击敌人时对目标施加14%<@ba.talpu>（+2%）</>的<$ba.magicfragile>【法术脆弱】</>，持续5秒",
           "blackboard": {
-            "heal_scale_up": 1.23
+            "weak[magic][limit]": 5,
+            "damage_scale": 1.14
           },
           "isHideTalent": false
         }
@@ -415,9 +389,9 @@
     }
   ],
   "trait": {
-    "description": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+    "description": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
     "blackboard": {
-      "heal_scale": 0.8
+      "scale": 0.5
     }
   },
   "potentialRanks": [
@@ -444,13 +418,13 @@
       ]
     },
     {
-      "description": "攻击力+23",
+      "description": "攻击力+22",
       "type": "BUFF",
       "modifiers": [
         {
           "attr": "ATK",
           "formula": "ADDITION",
-          "value": 23
+          "value": 22
         }
       ]
     },
@@ -473,8 +447,8 @@
   ],
   "modules": [
     {
-      "id": "uniequip_001_nowell",
-      "name": "诺威尔证章",
+      "id": "uniequip_001_hbisc2",
+      "name": "濯尘芙蓉证章",
       "type": "INITIAL",
       "typeName2": null,
       "isSpecialEquip": false,
@@ -483,13 +457,13 @@
       "levels": []
     },
     {
-      "id": "uniequip_002_nowell",
-      "name": "致祖父",
+      "id": "uniequip_002_hbisc2",
+      "name": "结晶胸花",
       "type": "ADVANCED",
-      "typeName2": "Y",
+      "typeName2": "X",
       "isSpecialEquip": false,
       "unlockLevel": 50,
-      "order": 2,
+      "order": 1,
       "levels": [
         {
           "level": 1,
@@ -500,7 +474,7 @@
           "traitEnhance": [
             {
               "blackboard": {
-                "heal_scale": 1
+                "scale": 0.6
               }
             }
           ]
@@ -508,29 +482,31 @@
         {
           "level": 2,
           "attributeBlackboard": {
-            "max_hp": 125,
+            "max_hp": 120,
             "atk": 33
           },
           "talentEnhance": [
             {
-              "name": "精准配镜",
+              "name": "朝开夕落",
               "requiredPotentialRank": 0,
               "blackboard": {
-                "heal_scale_up": 1.3
+                "weak[magic][limit]": 5,
+                "damage_scale": 1.17
               }
             },
             {
-              "name": "精准配镜",
+              "name": "朝开夕落",
               "requiredPotentialRank": 4,
               "blackboard": {
-                "heal_scale_up": 1.33
+                "weak[magic][limit]": 5,
+                "damage_scale": 1.19
               }
             }
           ],
           "traitEnhance": [
             {
               "blackboard": {
-                "heal_scale": 1
+                "scale": 0.6
               }
             }
           ]
@@ -538,29 +514,31 @@
         {
           "level": 3,
           "attributeBlackboard": {
-            "max_hp": 145,
-            "atk": 38
+            "max_hp": 140,
+            "atk": 40
           },
           "talentEnhance": [
             {
-              "name": "精准配镜",
+              "name": "朝开夕落",
               "requiredPotentialRank": 0,
               "blackboard": {
-                "heal_scale_up": 1.35
+                "weak[magic][limit]": 5,
+                "damage_scale": 1.2
               }
             },
             {
-              "name": "精准配镜",
+              "name": "朝开夕落",
               "requiredPotentialRank": 4,
               "blackboard": {
-                "heal_scale_up": 1.38
+                "weak[magic][limit]": 5,
+                "damage_scale": 1.22
               }
             }
           ],
           "traitEnhance": [
             {
               "blackboard": {
-                "heal_scale": 1
+                "scale": 0.6
               }
             }
           ]

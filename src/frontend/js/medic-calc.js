@@ -227,37 +227,116 @@ function calcDualMedic(params) {
  */
 function calcIncantationMedic(params) {
   const { panelAtk, skillAtk, realInterval, baseInterval, skillDuration, isToggle, isPermanent, levelData, enemy } = params;
+  const mode = params.incantMode || null;
 
-  const healScale = levelData.scale || 0.5;
-  const singleHitDamage = calcArtsDamage(skillAtk, enemy.res);
-  const normalHitDamage = calcArtsDamage(panelAtk, enemy.res);
-  const singleHealFromDamage = singleHitDamage * healScale;
+  // 特性治疗比例 scale：技能级覆盖优先（未来技能若改比例），否则取特性/模组（traitScale，0.5→模组 0.6）
+  const healScale = levelData.scale ?? (params.traitScale ?? 0.5);
+  const fragileMul = params.magicFragileMul ?? 1;  // 法脆必触发增伤（芙蓉常驻 / 焰苇S3灼痕），实际造成伤害 ×damage_scale
+  const artsHit = (atk) => calcArtsDamage(atk, enemy.res) * fragileMul;
+  const normalHitDamage = artsHit(panelAtk);
   const normalHealFromDamage = normalHitDamage * healScale;
 
   const normalHps = normalHealFromDamage / baseInterval;
+  const normalDps = normalHitDamage / baseInterval;
+  // 每击额外治疗（阿米娅S1「哀恸共情」：攻击时额外治疗自身周围我方 = 攻击力×heal_scale，单目标模型 1 份=自身）
+  const extraHealPerHit = typeof levelData.heal_scale === 'number' ? skillAtk * levelData.heal_scale : 0;
+
+  // —— 阿米娅S2「慈悲愿景」(zerohit-true)：开启一击强制 0 命中（无伤害、0 叠层无增幅）→ 后续普攻真实伤害（面板攻击力）——
+  if (mode === 'zerohit-true') {
+    const trueHit = calcTrueDamage(panelAtk);
+    const attacks = Math.max(1, Math.floor(skillDuration / realInterval));
+    const skillTotalDamage = trueHit * attacks;
+    const totalHeal = trueHit * healScale * attacks;
+    return { skillDps: skillTotalDamage / skillDuration, skillTotalDamage, cycleDps: null, normalDps, skillHps: trueHit * healScale / realInterval, normalHps, totalHeal, damageType: 'true' };
+  }
+
+  // —— 焰苇S2「枯荣共息」(orbital)：给地面干员（默认自身）挂三颗火球，每 cooldown 秒 3 发 atk_scale 法伤，
+  //    仅对该干员触发特性治疗；苇草自身普攻照常（技能期无 buff），输出=普攻+火球 ——
+  if (mode === 'orbital') {
+    const perOrb = artsHit(panelAtk * (levelData.atk_scale ?? 1));
+    const tickEvery = levelData.cooldown || 1.5;
+    const ticks = Math.max(1, Math.floor(skillDuration / tickEvery));
+    const orbHits = ticks * 3;                      // 三颗火球每轮齐发
+    const normalSkillHit = artsHit(panelAtk);       // 苇草自身普攻（法伤）
+    const atkAttacks = Math.max(1, Math.floor(skillDuration / realInterval));
+    const skillTotalDamage = normalSkillHit * atkAttacks + perOrb * orbHits;
+    const skillDps = skillDuration > 0 ? skillTotalDamage / skillDuration : 0;
+    const healHps = normalSkillHit * healScale / realInterval + perOrb * healScale * 3 / tickEvery;
+    const totalHeal = normalSkillHit * healScale * atkAttacks + perOrb * healScale * orbHits;
+    return { skillDps, skillTotalDamage, cycleDps: null, normalDps, skillHps: healHps, normalHps, totalHeal };
+  }
+
+  // —— 焰苇S3「生命火种」(burning)：普攻 2 目标（单目标模型×1）法伤 ×灼痕法脆；
+  //    附带灼痕敌人每秒受 talent@s3_atk_scale 法伤（灼痕DOT，同样吃灼痕法脆；非苇草攻击 → 不治疗）；死亡爆炸(aoe_scale)默认不计 ——
+  if (mode === 'burning') {
+    const singleHitDamage = artsHit(skillAtk);
+    const s3DotScale = levelData['talent@s3_atk_scale'] ?? 0;
+    const dotTick = artsHit(skillAtk * s3DotScale);  // 灼痕秒伤：技能期攻击力×X%，吃灼痕法脆
+    const attacks = Math.max(1, Math.floor(skillDuration / realInterval));
+    const dotTicks = Math.max(1, Math.floor(skillDuration / 1));
+    const atkTotal = singleHitDamage * attacks;
+    const dotTotal = dotTick * dotTicks;
+    const skillTotalDamage = atkTotal + dotTotal;
+    const totalHeal = singleHitDamage * healScale * attacks;   // 仅普攻治疗，DOT 不治疗
+    return { skillDps: skillTotalDamage / skillDuration, skillTotalDamage, cycleDps: null, normalDps, skillHps: singleHitDamage * healScale / realInterval, normalHps, totalHeal };
+  }
+
+  // —— 缇缇S2「封护」(standby)：停止攻击（atk 加成只服务天赋1伤害，天赋伤害不建模型）→ 技能期无输出无治疗 ——
+  if (mode === 'standby') {
+    return { skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: 0, normalHps, totalHeal: 0 };
+  }
+
+  // —— 缇缇S3「旧日绽放」(slumber)：每击普攻全额法伤（min=1.0 档，打睡与睡着无差别）；第 4x+1 击打睡（1.6s 间隔×4=6.4s > 沉睡5s），
+  //    每次打睡 → 醒来结算一次睡满 5s 的 max_atk_scale 法伤（醒伤非攻击 → 不触发特性治疗）；死亡结算/友方沉睡不计 ——
+  if (mode === 'slumber') {
+    const attacks = Math.max(1, Math.floor(skillDuration / realInterval));
+    const sleepCount = Math.ceil(attacks / 4);              // 打睡次数（第 1/5/9/13…击）
+    const hitDmg = artsHit(skillAtk);
+    const wakeHit = calcArtsDamage(skillAtk * (levelData.max_atk_scale ?? 1), enemy.res);
+    const skillTotalDamage = hitDmg * attacks + wakeHit * sleepCount;
+    const totalHeal = hitDmg * healScale * attacks;          // 醒伤不治疗
+    return { skillDps: skillDuration > 0 ? skillTotalDamage / skillDuration : 0, skillTotalDamage, cycleDps: null, normalDps, skillHps: hitDmg * healScale / realInterval, normalHps, totalHeal };
+  }
+
+  const singleHitDamage = artsHit(skillAtk);
+  const singleHealFromDamage = singleHitDamage * healScale;
+
+  // DOT 替换型（濯尘芙蓉S2「抚业之触」）：技能期普攻替换为每秒一跳法伤（atk_scale×面板，伤害已含法脆），
+  // 每秒一跳视为一次攻击 → 特性治疗每跳触发；间隔展示 1s。
+  if (params.isDotTick) {
+    const ticks = Math.max(1, Math.floor(skillDuration / 1));
+    const skillTotalDamage = singleHitDamage * ticks;
+    const skillDps = skillDuration > 0 ? skillTotalDamage / skillDuration : singleHitDamage;
+    const totalHeal = singleHealFromDamage * ticks;
+    return { skillDps, skillTotalDamage, cycleDps: null, normalDps, skillHps: singleHealFromDamage, normalHps, totalHeal, realInterval: 1 };
+  }
+
+  // 技能期单发治疗 = 特性治疗 + 每击额外治疗（阿米娅S1）
+  const singleHealPerHit = singleHealFromDamage + extraHealPerHit;
+
   let skillDps, skillHps, skillTotalDamage, totalHeal, cycleDps = null;
   let skillAttacks;
 
   if (isToggle || isPermanent) {
     skillDps = singleHitDamage / realInterval;
-    skillHps = singleHealFromDamage / realInterval;
+    skillHps = singleHealPerHit / realInterval;
     skillTotalDamage = 0;
     totalHeal = null;
   } else if (skillDuration > 0) {
     skillAttacks = Math.floor(skillDuration / realInterval);
     skillTotalDamage = singleHitDamage * skillAttacks;
     skillDps = skillTotalDamage / skillDuration;
-    skillHps = singleHealFromDamage / realInterval;
-    totalHeal = singleHealFromDamage * skillAttacks;
+    skillHps = singleHealPerHit / realInterval;
+    totalHeal = singleHealPerHit * skillAttacks;
   } else {
     skillTotalDamage = singleHitDamage;
     skillDps = 0;
     skillHps = 0;
-    totalHeal = singleHealFromDamage;
+    totalHeal = singleHealFromDamage + extraHealPerHit;
     cycleDps = calcCycleDps(levelData, realInterval, normalHitDamage, singleHitDamage);
   }
 
-  return { skillDps, skillTotalDamage, cycleDps, normalDps: null, skillHps, normalHps, totalHeal };
+  return { skillDps, skillTotalDamage, cycleDps, normalDps, skillHps, normalHps, totalHeal };
 }
 
 /**

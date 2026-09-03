@@ -588,6 +588,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -658,7 +659,14 @@
           "attributeBlackboard": {
             "max_hp": 130,
             "atk": 40
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 10
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -679,6 +687,13 @@
               "requiredPotentialRank": 5,
               "blackboard": {
                 "atk": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 10
               }
             }
           ]
@@ -704,6 +719,13 @@
                 "atk": 0.24
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 10
+              }
+            }
           ]
         }
       ]
@@ -722,7 +744,14 @@
           "attributeBlackboard": {
             "max_hp": 180,
             "atk": 25
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -751,6 +780,13 @@
                 "attack_speed_min": 0,
                 "attack_speed_max": 1,
                 "factor": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
               }
             }
           ]
@@ -782,6 +818,13 @@
                 "attack_speed_min": 6,
                 "attack_speed_max": 16,
                 "factor": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
               }
             }
           ]

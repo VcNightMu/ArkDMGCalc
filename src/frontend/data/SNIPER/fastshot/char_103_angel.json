@@ -538,6 +538,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -608,7 +609,14 @@
           "attributeBlackboard": {
             "max_hp": 110,
             "atk": 27
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -631,6 +639,13 @@
               "blackboard": {
                 "atk": 0.08,
                 "max_hp": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
               }
             }
           ]
@@ -658,6 +673,13 @@
                 "max_hp": 0.17
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
           ]
         }
       ]
@@ -676,7 +698,15 @@
           "attributeBlackboard": {
             "atk": 26,
             "def": 26
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8,
+                "cnt": 1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -703,6 +733,14 @@
                 "def_penetrate_fixed": 6,
                 "max_stack_cnt": 25,
                 "duration": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8,
+                "cnt": 1
               }
             }
           ]
@@ -732,6 +770,14 @@
                 "def_penetrate_fixed": 10,
                 "max_stack_cnt": 25,
                 "duration": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8,
+                "cnt": 1
               }
             }
           ]

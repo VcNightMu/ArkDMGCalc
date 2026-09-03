@@ -384,6 +384,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "恢复友方单位生命，并回复相当于攻击力50%的元素损伤（可以回复未受伤友方单位的元素损伤）",
+    "blackboard": {
+      "ep_heal_ratio": 0.5
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -469,6 +475,13 @@
                 "ep_heal_ratio": 0.6
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_heal_ratio": 0.6
+              }
+            }
           ]
         },
         {
@@ -499,6 +512,13 @@
                 "atk": 0.14
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_heal_ratio": 0.6
+              }
+            }
           ]
         },
         {
@@ -527,6 +547,13 @@
               "requiredPotentialRank": 4,
               "blackboard": {
                 "atk": 0.16
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_heal_ratio": 0.6
               }
             }
           ]

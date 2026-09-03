@@ -520,6 +520,7 @@
       ]
     }
   ],
+  "trait": null,
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -596,7 +597,15 @@
           "attributeBlackboard": {
             "atk": 50,
             "attack_speed": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -611,6 +620,14 @@
               "blackboard": {
                 "interval": 3,
                 "sp": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
               }
             }
           ]
@@ -638,6 +655,14 @@
                 "sp": 1
               }
             }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
           ]
         }
       ]
@@ -656,7 +681,14 @@
           "attributeBlackboard": {
             "atk": 52,
             "def": 28
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -681,6 +713,13 @@
                 "atk": 0.12,
                 "def": 0.12,
                 "prob": 0.18
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
               }
             }
           ]
@@ -708,6 +747,13 @@
                 "atk": 0.16,
                 "def": 0.16,
                 "prob": 0.21
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
               }
             }
           ]

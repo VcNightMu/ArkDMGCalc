@@ -1,0 +1,555 @@
+{
+  "id": "char_1037_amiya3",
+  "name": "阿米娅(医疗)",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "incantationmedic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        186,
+        306
+      ],
+      "def": [
+        46,
+        67
+      ],
+      "maxHp": [
+        776,
+        1022
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        306,
+        425
+      ],
+      "def": [
+        67,
+        84
+      ],
+      "maxHp": [
+        1022,
+        1217
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        425,
+        532
+      ],
+      "def": [
+        84,
+        106
+      ],
+      "maxHp": [
+        1217,
+        1416
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 0,
+    "maxHp": 120
+  },
+  "skills": [
+    {
+      "skillId": "skchr_amiya3_1",
+      "name": "哀恸共情",
+      "levels": [
+        {
+          "attack_speed": 30,
+          "heal_scale": 0.1,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "heal_scale": 0.1,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "heal_scale": 0.1,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "heal_scale": 0.15,
+          "level": 3,
+          "spCost": 70,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "heal_scale": 0.15,
+          "level": 4,
+          "spCost": 70,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "heal_scale": 0.15,
+          "level": 5,
+          "spCost": 70,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "heal_scale": 0.2,
+          "level": 6,
+          "spCost": 70,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "heal_scale": 0.2,
+          "level": 7,
+          "spCost": 70,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "heal_scale": 0.2,
+          "level": 8,
+          "spCost": 70,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "heal_scale": 0.25,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_amiya3_2",
+      "name": "慈悲愿景",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "atk": 0.15,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 5,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "atk": 0.15,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 5,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "atk": 0.15,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 5,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "atk": 0.2,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 6,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 3,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "atk": 0.2,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 6,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 4,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "atk": 0.2,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 6,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "atk": 0.25,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 7,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "atk": 0.25,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 8,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "atk": 0.25,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 9,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "atk": 0.3,
+          "max_stack_cnt": 5,
+          "skill_max_trigger_time": 1,
+          "amiya3_s_2[debuff].duration": 10,
+          "amiya3_s_2[debuff].attack_speed": -60,
+          "amiya3_s_2[debuff].move_speed": -0.6,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "诚挚期许",
+          "description": "在场时所有友方单位最大生命+5%，技能期间所有友方单位每秒恢复1.5%最大生命",
+          "blackboard": {
+            "max_hp": 0.05,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.015
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "诚挚期许",
+          "description": "在场时所有友方单位最大生命+8%，技能期间所有友方单位每秒恢复2.5%最大生命",
+          "blackboard": {
+            "max_hp": 0.08,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.025
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击造成法术伤害，攻击敌人时为攻击范围内一名友方干员治疗相当于50%伤害的生命值",
+    "blackboard": {
+      "scale": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "生命上限+200",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+22",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 22
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "法术抗性+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAGIC_RESISTANCE",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_amiya3",
+      "name": "阿米娅证章（医疗）",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_amiya3",
+      "name": "带有灼痕的裙子",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "诚挚期许",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.09,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "诚挚期许",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.1,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "scale": 0.6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -344,6 +344,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+    "blackboard": {
+      "heal_scale": 0.8
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -426,7 +432,14 @@
           "attributeBlackboard": {
             "atk": 20,
             "def": 20
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -440,6 +453,13 @@
               "requiredPotentialRank": 0,
               "blackboard": {
                 "heal_scale": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
               }
             }
           ]
@@ -456,6 +476,13 @@
               "requiredPotentialRank": 0,
               "blackboard": {
                 "heal_scale": 1.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
               }
             }
           ]

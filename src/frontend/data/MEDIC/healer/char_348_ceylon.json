@@ -388,6 +388,12 @@
       ]
     }
   ],
+  "trait": {
+    "description": "拥有较大治疗范围，但在治疗较远目标时治疗量变为80%",
+    "blackboard": {
+      "heal_scale": 0.8
+    }
+  },
   "potentialRanks": [
     {
       "description": "部署费用-1",
@@ -464,7 +470,16 @@
           "attributeBlackboard": {
             "atk": 25,
             "magic_resistance": 5
-          }
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
+              }
+            }
+          ]
         },
         {
           "level": 2,
@@ -487,6 +502,15 @@
               "blackboard": {
                 "ceylon_t_1[common].atk": 0.09,
                 "celyon_t_1[map].atk": 0.27
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
               }
             }
           ]
@@ -512,6 +536,15 @@
               "blackboard": {
                 "ceylon_t_1[common].atk": 0.12,
                 "celyon_t_1[map].atk": 0.36
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 0.8,
+                "taunt_level": -1,
+                "one_minus_status_resistance": -0.5
               }
             }
           ]

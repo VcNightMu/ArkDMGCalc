@@ -4,6 +4,12 @@ const path = require('path');
 const EXCEL = 'https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel';
 const BASE = path.join(__dirname, '..', 'src', 'frontend', 'data');
 
+// 升变/特殊形态干员：数据在 char_patch_table（不在 character_table 主表）。
+// 显示名需与原型区分（半角括号与 prts 头像文件名一致，如「头像_阿米娅(医疗).png」）。
+const PATCH_CHARS = {
+  'char_1037_amiya3': '阿米娅(医疗)',   // 阿米娅升变·医疗形态（咒愈师）
+};
+
 // 干员列表按 主职业 → 子职业 → 干员id 三层组织。
 // 尚未拉取数据的子职业保留空列表，便于后续按职业补充。
 const OPERATORS = {
@@ -74,7 +80,7 @@ const OPERATORS = {
     ringhealer: ['char_128_plosis', 'char_179_cgbird', 'char_181_flower', 'char_275_breeze', 'char_4163_rosesa'], // 群愈师/瑰盐
     healer: ['char_385_finlpp', 'char_348_ceylon', 'char_436_whispr', 'char_4173_nowell', 'char_4042_lumen'],                     // 疗养师
     wandermedic: ['char_4041_chnut', 'char_473_mberry', 'char_449_glider', 'char_4114_harold', 'char_1016_agoat2'],                // 行医
-    incantationmedic: ['char_1020_reed2'], // 咒愈师
+    incantationmedic: ['char_1024_hbisc2', 'char_494_vendla', 'char_1020_reed2', 'char_4056_titi', 'char_1037_amiya3'], // 咒愈师（阿米娅医疗形态走 patch 表）
     chainhealer: [],                // 链愈师
     watchman: ['char_4222_taraxa', 'char_1052_kalts2'],  // 守望者
   },
@@ -145,6 +151,28 @@ function convertTalents(charData) {
 }
 
 /**
+ * 特性（trait）转换：咒愈师等职业的治疗/伤害由特性决定（如攻击时治疗相当于伤害量 scale%）。
+ * 取无解锁条件的默认 candidate（PHASE_0），blackboard 存数值变量（如 scale=0.5），
+ * 描述文本去掉富文本标签、将 {key:格式} 占位符替换为实际数值（如 {scale:0%} → 50%）。
+ */
+function convertTrait(charData) {
+  const cands = charData.trait?.candidates || [];
+  const cand = cands.find(c => (c.unlockCondition?.phase || 'PHASE_0') === 'PHASE_0' && !c.requiredPotentialRank) || cands[0];
+  if (!cand) return null;
+  const bb = {};
+  for (const b of cand.blackboard || []) bb[b.key] = b.value;
+  let desc = (cand.overrideDescripton || cand.traitName || '').replace(/<[^>]+>/g, '');
+  desc = desc.replace(/\{([a-zA-Z_]+):([^}]*)\}/g, (m, key, fmt) => {
+    const v = bb[key];
+    if (v === undefined) return m;
+    if (fmt.includes('%')) return `${Math.round(v * 100)}%`;
+    if (fmt.startsWith('0.')) return String(v);
+    return String(v);
+  });
+  return { description: desc, blackboard: bb };
+}
+
+/**
  * 干员模组挂载：从 uniequip_table（元数据）+ battle_equip_table（等级面板）组装。
  * charEquip[charId] 给出该干员全部模组（含 INITIAL 基础证章，order=0），按 charEquipOrder 排序。
  * 每个模组 levels 为 battle_equip phases（键 0/1/2 → 模组等级 1/2/3），
@@ -182,6 +210,18 @@ function attachModules(converted, charId, uniTable, battleTable) {
       }
       const out = { level: parseInt(k) + 1, attributeBlackboard: bb };
       if (talentEnhance.length > 0) out.talentEnhance = talentEnhance;
+      // 特性强化（咒愈师模组把治疗比例 scale 0.5→0.6 等）：target=TRAIT_DATA_ONLY 的 overrideTraitDataBundle
+      const traitEnhance = [];
+      for (const part of p.parts || []) {
+        if (part.target !== 'TRAIT' && part.target !== 'TRAIT_DATA_ONLY') continue;
+        for (const c of (part.overrideTraitDataBundle && part.overrideTraitDataBundle.candidates) || []) {
+          if (!c) continue;
+          const tbb = {};
+          for (const b of c.blackboard || []) tbb[b.key] = b.value;
+          traitEnhance.push({ blackboard: tbb });
+        }
+      }
+      if (traitEnhance.length > 0) out.traitEnhance = traitEnhance;
       return out;
     });
     return {
@@ -262,7 +302,7 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
     trustBonus = { atk: max.atk || 0, def: max.def || 0, maxHp: max.maxHp || 0 };
   }
 
-  const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx'];
+  const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx','incantationmedic'];
   // 无攻击能力的召唤物（如夜莺幻影/鸟笼 atk=0）按法术色展示，DPS 按 0 攻计算
   const tokenArtsIds = ['token_10003_cgbird_bird'];
   const isNoAtkToken = String(id).startsWith('token_') && tokenArtsIds.includes(id);
@@ -295,11 +335,11 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   }
 
   return {
-    id, name: charData.name, rarity: charData.rarity,
+    id, name: PATCH_CHARS[id] || charData.name, rarity: charData.rarity,
     profession: charData.profession, subProfessionId: charData.subProfessionId,
     damageType,
     ownerOperatorId: ownerOperatorId || null,
-    phases, trustBonus, skills, talents: convertTalents(charData),
+    phases, trustBonus, skills, talents: convertTalents(charData), trait: convertTrait(charData),
     potentialRanks: (charData.potentialRanks || []).map(p => ({
       description: p.description,
       type: p.type,
@@ -313,6 +353,11 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
 async function main() {
   console.log('拉取 character_table.json ...');
   const charTable = await fetchJSON(`${EXCEL}/character_table.json`);
+  // 升变/特殊形态（阿米娅近卫/医疗）数据在 char_patch_table.patchChars，并入主表供按 id 取用
+  const patchTable = await fetchJSON(`${EXCEL}/char_patch_table.json`);
+  for (const [pid, pdata] of Object.entries(patchTable.patchChars || {})) {
+    if (!charTable[pid]) charTable[pid] = pdata;
+  }
   console.log('拉取 skill_table.json ...');
   const skillTable = await fetchJSON(`${EXCEL}/skill_table.json`);
   console.log('拉取 uniequip_table.json ...');
