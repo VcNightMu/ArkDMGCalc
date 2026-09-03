@@ -1,5 +1,5 @@
 // ArkDMGCalc - UI Rendering
-import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfessionCN } from './operators.js';
+import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfessionCN, getNote } from './operators.js';
 import { state } from './state.js';
 import { calculateOperator, calcPanelStats } from './damage-calc.js';
 
@@ -257,10 +257,12 @@ async function updateResults() {
 
   if (filledSlots.length === 0) {
     container.innerHTML = '<p class="placeholder-text">选择干员后显示计算结果</p>';
+    document.getElementById('notes-list').innerHTML = '<p class="placeholder-text">选择干员后显示说明</p>';
     return;
   }
 
   container.innerHTML = '';
+  const notes = [];
 
   for (const slotData of filledSlots) {
     const op = await getOperatorData(slotData.operatorId);
@@ -272,6 +274,9 @@ async function updateResults() {
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
     const dmgCls = dmgClass(result.damageType);
+
+    const note = await getNote(op.id);
+    if (note) notes.push({ name: op.name, rarity: rarityNum, text: note });
 
     let metricsHtml = '';
     if (result.type === 'heal') {
@@ -320,6 +325,24 @@ async function updateResults() {
       '<span style="font-size:12px;color:#a0a0b0;margin-left:auto;">' + skillName + '</span>' +
       '</div><div class="result-metrics">' + metricsHtml + '</div>';
     container.appendChild(card);
+  }
+
+  renderNotes(notes);
+}
+
+function renderNotes(notes) {
+  const container = document.getElementById('notes-list');
+  if (notes.length === 0) {
+    container.innerHTML = '<p class="placeholder-text">所选干员暂无说明</p>';
+    return;
+  }
+  container.innerHTML = '';
+  for (const n of notes) {
+    const item = document.createElement('div');
+    item.className = 'note-item';
+    item.innerHTML = '<div class="note-head"><span class="rarity-' + n.rarity + '" style="font-size:13px;">★' + n.rarity + '</span><span class="note-name">' + n.name + '</span></div>' +
+      '<p class="note-text">' + n.text + '</p>';
+    container.appendChild(item);
   }
 }
 

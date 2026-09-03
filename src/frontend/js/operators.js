@@ -30,6 +30,7 @@ const PROFESSION_CN = {
 // 缓存
 let _index = null;
 let _subProfDict = null;
+let _notes = null;
 const _cache = {};
 
 function parseRarity(r) {
@@ -81,6 +82,26 @@ export async function getOperatorData(id) {
   const entry = index.find(e => e.id === id);
   if (entry) return loadOperator(id);
   return null;
+}
+
+async function loadNotes() {
+  if (_notes) return _notes;
+  try {
+    const resp = await fetch('data/notes.json');
+    _notes = resp.ok ? await resp.json() : {};
+  } catch (e) {
+    _notes = {};
+  }
+  return _notes;
+}
+
+/**
+ * 干员说明文本（手工维护于 data/notes.json，重抓干员数据不会被覆盖）
+ * @returns {Promise<string|null>} 无说明返回 null
+ */
+export async function getNote(id) {
+  const notes = await loadNotes();
+  return notes[id] || null;
 }
 
 export function getProfessionCN(profession) {
