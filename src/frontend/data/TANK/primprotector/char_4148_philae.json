@@ -1,0 +1,564 @@
+{
+  "id": "char_4148_philae",
+  "name": "菲莱",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "primprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        252,
+        361
+      ],
+      "def": [
+        218,
+        321
+      ],
+      "maxHp": [
+        1289,
+        1742
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        361,
+        482
+      ],
+      "def": [
+        321,
+        435
+      ],
+      "maxHp": [
+        1742,
+        2323
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        482,
+        603
+      ],
+      "def": [
+        435,
+        544
+      ],
+      "maxHp": [
+        2323,
+        3227
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_philae_1",
+      "name": "灵河护佑",
+      "levels": [
+        {
+          "max_hp": 0.3,
+          "shield_value": 600,
+          "level": 0,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.35,
+          "shield_value": 700,
+          "level": 1,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.4,
+          "shield_value": 800,
+          "level": 2,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "shield_value": 900,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.5,
+          "shield_value": 1000,
+          "level": 4,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.55,
+          "shield_value": 1100,
+          "level": 5,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "shield_value": 1200,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.7,
+          "shield_value": 1400,
+          "level": 7,
+          "spCost": 21,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.8,
+          "shield_value": 1600,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.9,
+          "shield_value": 1800,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_philae_2",
+      "name": "冥河诅咒",
+      "levels": [
+        {
+          "atk_scale": 0.8,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.6,
+          "aoe_cd": 2,
+          "max_hp": 0.3,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.6,
+          "aoe_cd": 2,
+          "max_hp": 0.33,
+          "level": 1,
+          "spCost": 58,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.6,
+          "aoe_cd": 2,
+          "max_hp": 0.36,
+          "level": 2,
+          "spCost": 57,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.7,
+          "aoe_cd": 2,
+          "max_hp": 0.4,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.7,
+          "aoe_cd": 2,
+          "max_hp": 0.43,
+          "level": 4,
+          "spCost": 53,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.7,
+          "aoe_cd": 2,
+          "max_hp": 0.46,
+          "level": 5,
+          "spCost": 52,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.8,
+          "aoe_cd": 2,
+          "max_hp": 0.5,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.85,
+          "aoe_cd": 2,
+          "max_hp": 0.5,
+          "level": 7,
+          "spCost": 49,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "ep_damage_ratio": 0.25,
+          "atk": 0.9,
+          "aoe_cd": 2,
+          "max_hp": 0.5,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "ep_damage_ratio": 0.25,
+          "atk": 1,
+          "aoe_cd": 2,
+          "max_hp": 0.5,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "神河谕使",
+          "description": "受到的元素损伤-5%，受到凋亡损伤时回复1点技力",
+          "blackboard": {
+            "damage_resistance": 0.05,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "神河谕使",
+          "description": "受到的元素损伤-7%<@ba.talpu>（+2%）</>，受到凋亡损伤时回复1点技力",
+          "blackboard": {
+            "damage_resistance": 0.07,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "神河谕使",
+          "description": "受到的元素损伤-10%，受到凋亡损伤时回复2点技力",
+          "blackboard": {
+            "damage_resistance": 0.1,
+            "sp": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "神河谕使",
+          "description": "受到的元素损伤-12%<@ba.talpu>（+2%）</>，受到凋亡损伤时回复2点技力",
+          "blackboard": {
+            "damage_resistance": 0.12,
+            "sp": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_philae",
+      "name": "菲莱证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_philae",
+      "name": "被摩挲的日子",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 57
+          },
+          "talentEnhance": [
+            {
+              "name": "神河谕使",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.16,
+                "sp": 2
+              }
+            },
+            {
+              "name": "神河谕使",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.18,
+                "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "神河谕使",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.2,
+                "sp": 2
+              }
+            },
+            {
+              "name": "神河谕使",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.22,
+                "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

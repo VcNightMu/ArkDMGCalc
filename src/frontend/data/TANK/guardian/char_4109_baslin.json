@@ -1,0 +1,524 @@
+{
+  "id": "char_4109_baslin",
+  "name": "深律",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "guardian",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        195,
+        279
+      ],
+      "def": [
+        238,
+        350
+      ],
+      "maxHp": [
+        1150,
+        1555
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        279,
+        378
+      ],
+      "def": [
+        350,
+        467
+      ],
+      "maxHp": [
+        1555,
+        1994
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        378,
+        473
+      ],
+      "def": [
+        467,
+        570
+      ],
+      "maxHp": [
+        1994,
+        2770
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_baslin_1",
+      "name": "急救",
+      "levels": [
+        {
+          "heal_scale": 1.1,
+          "ct": 1,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.15,
+          "ct": 1,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "ct": 1,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.3,
+          "ct": 1,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.35,
+          "ct": 1,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.4,
+          "ct": 1,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "ct": 2,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "ct": 2,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "ct": 2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "ct": 3,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_baslin_2",
+      "name": "沉音宁神",
+      "levels": [
+        {
+          "atk": 0.2,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.3,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.3,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.3,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.4,
+          "level": 3,
+          "spCost": 65,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.4,
+          "level": 4,
+          "spCost": 65,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.4,
+          "level": 5,
+          "spCost": 65,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.5,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.5,
+          "level": 7,
+          "spCost": 60,
+          "initialSp": 51,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.5,
+          "level": 8,
+          "spCost": 60,
+          "initialSp": 52,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "base_attack_time": 1.3,
+          "attack@scale": 0.6,
+          "level": 9,
+          "spCost": 60,
+          "initialSp": 53,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "威权教诲",
+          "description": "法术抗性+6，周围8格有友方干员时，法术抗性额外+2",
+          "blackboard": {
+            "baslin_t[self].magic_resistance": 6,
+            "baslin_t[ally].magic_resistance": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "威权教诲",
+          "description": "法术抗性+12，周围8格有友方干员时，法术抗性额外+4",
+          "blackboard": {
+            "baslin_t[self].magic_resistance": 12,
+            "baslin_t[ally].magic_resistance": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "生命上限+200",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_baslin",
+      "name": "深律证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_baslin",
+      "name": "受赐玩物",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 265,
+            "atk": 23
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 345,
+            "atk": 28
+          },
+          "talentEnhance": [
+            {
+              "name": "威权教诲",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "baslin_t[self].magic_resistance": 12,
+                "baslin_t[ally].magic_resistance": 4
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resistance": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 410,
+            "atk": 32
+          },
+          "talentEnhance": [
+            {
+              "name": "威权教诲",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "baslin_t[self].magic_resistance": 14,
+                "baslin_t[ally].magic_resistance": 5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resistance": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

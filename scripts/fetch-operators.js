@@ -38,14 +38,34 @@ const OPERATORS = {
     mercenary: [],                  // 佣兵
   },
   TANK: { // 重装
-    protector: [],                  // 铁卫
-    guardian: ['char_202_demkni'],  // 守护者
-    unyield: [],                    // 不屈者
-    artsprotector: [],              // 驭法铁卫
-    duelist: [],                    // 决战者
-    fortress: [],                   // 要塞
-    shotprotector: [],              // 哨戒铁卫
-    primprotector: [],              // 本源铁卫
+    protector: [ // 铁卫
+      'char_136_hsguma', 'char_610_acfend', 'char_2014_nian',          // 星熊/Mechanist/年 6★
+      'char_201_moeshd', 'char_325_bison', 'char_304_zebra',           // 可颂/拜松/暴雨 5★
+      'char_199_yak', 'char_150_snakek', 'char_381_bubble', 'char_602_cdfend', // 角峰/蛇屠箱/泡泡/预备干员-重装 4★
+      'char_209_ardign', 'char_122_beagle', 'char_514_rdfend',         // 卡缇/米格鲁/预备干员-重装 3★
+      'char_500_noirc', 'char_4093_frston',                            // 黑角 2★ / Friston-3 1★
+    ],
+    guardian: [ // 守护者
+      'char_202_demkni', 'char_423_blemsh', 'char_2025_shu',           // 塞雷娅/瑕光/黍 6★
+      'char_148_nearl', 'char_226_hmau', 'char_4109_baslin', 'char_4143_sensi', // 临光/吽/深律/森西 5★
+      'char_196_sunbr', 'char_284_spot',                               // 古米 4★ / 斑点 3★
+    ],
+    unyield: ['char_311_mudrok', 'char_4065_judge', 'char_163_hpsts', 'char_4207_branch', 'char_4130_luton'], // 不屈者（泥岩/斥罪 6★、火神/折桠 5★、露托 4★）
+    artsprotector: [ // 驭法铁卫
+      'char_1044_hsgma2',                                               // 斩业星熊 6★
+      'char_378_asbest', 'char_4047_pianst', 'char_4025_aprot2',        // 石棉/车尔尼/暮落(VC07) 5★（旧版 512_aprot 占位不录）
+      'char_260_durnar',                                                // 坚雷 4★
+    ],
+    duelist: ['char_416_zumama', 'char_422_aurora', 'char_464_cement'], // 决战者（森蚺 6★、极光/洋灰 5★）
+    fortress: ['char_4039_horn', 'char_431_ashlok', 'char_493_firwhl'], // 要塞（号角 6★、灰毫/火哨 5★）
+    shotprotector: [ // 哨戒铁卫
+      'char_1034_jesca2', 'char_4194_rmixer', 'char_4230_mcnist',       // 涤火杰西卡/信仰搅拌机/机械师 6★
+      'char_107_liskam', 'char_4137_udflow', 'char_457_blitz',          // 雷蛇/深巡/闪击 5★
+    ],
+    primprotector: [ // 本源铁卫
+      'char_2026_yu', 'char_4235_thumpy',                               // 余/珊比 6★
+      'char_4148_philae', 'char_4225_tanya', 'char_4214_cairn',         // 菲莱/裂响/响石 5★
+    ],
   },
   SNIPER: { // 狙击
     fastshot: ['char_103_angel'],   // 速射手

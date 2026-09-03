@@ -1,0 +1,558 @@
+{
+  "id": "char_457_blitz",
+  "name": "闪击",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "shotprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        230,
+        295
+      ],
+      "def": [
+        243,
+        364
+      ],
+      "maxHp": [
+        1296,
+        1728
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        295,
+        369
+      ],
+      "def": [
+        364,
+        493
+      ],
+      "maxHp": [
+        1728,
+        2305
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        369,
+        445
+      ],
+      "def": [
+        493,
+        676
+      ],
+      "maxHp": [
+        2305,
+        3213
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 45,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_blitz_1",
+      "name": "闪光护盾",
+      "levels": [
+        {
+          "stun": 2.5,
+          "silence": 2.5,
+          "level": 0,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 2.5,
+          "silence": 2.5,
+          "level": 1,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 2.5,
+          "silence": 2.5,
+          "level": 2,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 3,
+          "silence": 3,
+          "level": 3,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 3,
+          "silence": 3,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 3,
+          "silence": 3,
+          "level": 5,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 3.5,
+          "silence": 3.5,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 3.8,
+          "silence": 3.8,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4.1,
+          "silence": 4.1,
+          "level": 8,
+          "spCost": 16,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4.5,
+          "silence": 4.5,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blitz_2",
+      "name": "突破防线",
+      "levels": [
+        {
+          "atk_scale": 1.25,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.2,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.2,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.2,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.3,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.3,
+          "level": 4,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "stun": 5,
+          "attack_speed": 200,
+          "talent_scale": 1.3,
+          "level": 5,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "stun": 6,
+          "attack_speed": 200,
+          "talent_scale": 1.4,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "stun": 6,
+          "attack_speed": 200,
+          "talent_scale": 1.5,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "stun": 6,
+          "attack_speed": 200,
+          "talent_scale": 1.5,
+          "level": 8,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "stun": 7,
+          "attack_speed": 200,
+          "talent_scale": 1.5,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "持盾射击",
+          "description": "优先攻击<$ba.stun>晕眩</>的敌人且攻击<$ba.stun>晕眩</>敌人时攻击力提升至130%",
+          "blackboard": {
+            "atk_scale": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "持盾射击",
+          "description": "优先攻击<$ba.stun>晕眩</>的敌人且攻击<$ba.stun>晕眩</>敌人时攻击力提升至135%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.35
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "持盾射击",
+          "description": "优先攻击<$ba.stun>晕眩</>的敌人且攻击<$ba.stun>晕眩</>敌人时攻击力提升至160%",
+          "blackboard": {
+            "atk_scale": 1.6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "持盾射击",
+          "description": "优先攻击<$ba.stun>晕眩</>的敌人且攻击<$ba.stun>晕眩</>敌人时攻击力提升至165%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.65
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "掩体防御",
+          "description": "身侧或身后存在高台时获得25%的物理抵挡",
+          "blackboard": {
+            "cnt": 1,
+            "prob": 0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_blitz",
+      "name": "闪击证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_blitz",
+      "name": "战术盾牌维护油",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 220,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "持盾射击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.7
+              }
+            },
+            {
+              "name": "持盾射击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.75
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 52
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "持盾射击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.8
+              }
+            },
+            {
+              "name": "持盾射击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.85
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

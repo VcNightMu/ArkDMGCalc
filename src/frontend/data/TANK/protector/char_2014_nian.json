@@ -1,0 +1,805 @@
+{
+  "id": "char_2014_nian",
+  "name": "年",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "protector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        295,
+        405
+      ],
+      "def": [
+        254,
+        380
+      ],
+      "maxHp": [
+        1539,
+        2080
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        405,
+        513
+      ],
+      "def": [
+        380,
+        529
+      ],
+      "maxHp": [
+        2080,
+        2737
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        513,
+        619
+      ],
+      "def": [
+        529,
+        726
+      ],
+      "maxHp": [
+        2737,
+        3699
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 70,
+    "maxHp": 400
+  },
+  "skills": [
+    {
+      "skillId": "skchr_nian_1",
+      "name": "锡灼",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.25,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def": 0.3,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def": 0.35,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.4,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.45,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.5,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.55,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.6,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.65,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.7,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_nian_2",
+      "name": "铜印",
+      "levels": [
+        {
+          "def": 0.6,
+          "block_cnt": 1,
+          "atk_scale": 0.5,
+          "silence": 3,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.65,
+          "block_cnt": 1,
+          "atk_scale": 0.5,
+          "silence": 3,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.7,
+          "block_cnt": 1,
+          "atk_scale": 0.5,
+          "silence": 3,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.8,
+          "block_cnt": 1,
+          "atk_scale": 0.6,
+          "silence": 3,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.85,
+          "block_cnt": 1,
+          "atk_scale": 0.6,
+          "silence": 3,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "block_cnt": 1,
+          "atk_scale": 0.6,
+          "silence": 3,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "block_cnt": 1,
+          "atk_scale": 0.7,
+          "silence": 3,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.1,
+          "block_cnt": 1,
+          "atk_scale": 0.7,
+          "silence": 4,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.2,
+          "block_cnt": 1,
+          "atk_scale": 0.8,
+          "silence": 4,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.3,
+          "block_cnt": 1,
+          "atk_scale": 0.9,
+          "silence": 5,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_nian_3",
+      "name": "铁御",
+      "levels": [
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.55,
+          "level": 0,
+          "spCost": 85,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.55,
+          "level": 1,
+          "spCost": 85,
+          "initialSp": 42,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.6,
+          "level": 2,
+          "spCost": 85,
+          "initialSp": 44,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.65,
+          "level": 3,
+          "spCost": 85,
+          "initialSp": 48,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.7,
+          "level": 4,
+          "spCost": 85,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.75,
+          "level": 5,
+          "spCost": 85,
+          "initialSp": 52,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.5,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.8,
+          "level": 6,
+          "spCost": 85,
+          "initialSp": 56,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.6,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 0.9,
+          "level": 7,
+          "spCost": 85,
+          "initialSp": 60,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 41,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.7,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 1,
+          "level": 8,
+          "spCost": 85,
+          "initialSp": 64,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 42,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "nian_s_3[self].block_cnt": 0,
+          "nian_s_3[ally].block_cnt": 1,
+          "nian_s_3[ally].def": 0.8,
+          "one_minus_status_resistance": -0.5,
+          "nian_s_3[self].atk": 1.2,
+          "level": 9,
+          "spCost": 85,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "积甲成山",
+          "description": "编入队伍时，所有【重装】职业干员的生命上限+8%",
+          "blackboard": {
+            "max_hp": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "积甲成山",
+          "description": "编入队伍时，所有【重装】职业干员的生命上限+12%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "max_hp": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "积甲成山",
+          "description": "编入队伍时，所有【重装】职业干员的生命上限+16%",
+          "blackboard": {
+            "max_hp": 0.16
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "积甲成山",
+          "description": "编入队伍时，所有【重装】职业干员的生命上限+20%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "max_hp": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "干明可鉴",
+          "description": "部署后立即获得3层<$ba.shield>护盾</>",
+          "blackboard": {
+            "times": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "防御力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_nian",
+      "name": "年证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_nian",
+      "name": "混沌阵列",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 60
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 35,
+            "def": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "干明可鉴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "times": 3,
+                "atk": 0.05,
+                "def": 0.05,
+                "sp": 2,
+                "max_stack_cnt": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 375,
+            "atk": 50,
+            "def": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "干明可鉴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "times": 3,
+                "atk": 0.07,
+                "def": 0.07,
+                "sp": 3,
+                "max_stack_cnt": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_nian",
+      "name": "“请勿叩门”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 35,
+            "def": 21,
+            "block_cnt": 1
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 440,
+            "atk": 55,
+            "def": 26,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "积甲成山",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.19
+              }
+            },
+            {
+              "name": "积甲成山",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_hp": 0.03,
+                "heal_scale": 1,
+                "max_stack_cnt": 3,
+                "heal_scale_addition": 0.03,
+                "heal_scale_max_value": 1.09
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 550,
+            "atk": 70,
+            "def": 30,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "积甲成山",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.21
+              }
+            },
+            {
+              "name": "积甲成山",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_hp": 0.04,
+                "heal_scale": 1,
+                "max_stack_cnt": 3,
+                "heal_scale_addition": 0.04,
+                "heal_scale_max_value": 1.12
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "id": "char_325_bison",
+  "name": "拜松",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "protector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        198,
+        254
+      ],
+      "def": [
+        245,
+        367
+      ],
+      "maxHp": [
+        1475,
+        1941
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        254,
+        318
+      ],
+      "def": [
+        367,
+        504
+      ],
+      "maxHp": [
+        1941,
+        2522
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        318,
+        375
+      ],
+      "def": [
+        504,
+        701
+      ],
+      "maxHp": [
+        2522,
+        3456
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 80,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_def_up[3]",
+      "name": "防御力强化·γ型",
+      "levels": [
+        {
+          "def": 0.3,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.35,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.4,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.45,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.5,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.55,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_bison_2",
+      "name": "深化阵线",
+      "levels": [
+        {
+          "bison_s_2[self].def": 0.5,
+          "bison_s_2[ally].def": 0.15,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.55,
+          "bison_s_2[ally].def": 0.15,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.6,
+          "bison_s_2[ally].def": 0.15,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.65,
+          "bison_s_2[ally].def": 0.2,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.7,
+          "bison_s_2[ally].def": 0.2,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.75,
+          "bison_s_2[ally].def": 0.2,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.8,
+          "bison_s_2[ally].def": 0.25,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 0.9,
+          "bison_s_2[ally].def": 0.25,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 1,
+          "bison_s_2[ally].def": 0.25,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "bison_s_2[self].def": 1.2,
+          "bison_s_2[ally].def": 0.3,
+          "bison_s_2[self].taunt_level": 1,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "交叉掩护",
+          "description": "在场时自身防御力+25，自己身后的如果是【先锋】或【近卫】干员也能享受到相同效果",
+          "blackboard": {
+            "def": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "交叉掩护",
+          "description": "在场时自身防御力+45<@ba.talpu>（+20）</>，自己身后的如果是【先锋】或【近卫】干员也能享受到相同效果",
+          "blackboard": {
+            "def": 45
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "交叉掩护",
+          "description": "在场时自身防御力+50，自己身后的如果是【先锋】或【近卫】干员也能享受到相同效果",
+          "blackboard": {
+            "def": 50
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "交叉掩护",
+          "description": "在场时自身防御力+70<@ba.talpu>（+20）</>，自己身后的如果是【先锋】或【近卫】干员也能享受到相同效果",
+          "blackboard": {
+            "def": 70
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bison",
+      "name": "拜松证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bison",
+      "name": "“一路以来”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 60
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "交叉掩护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 60
+              }
+            },
+            {
+              "name": "交叉掩护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 80
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "def": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "交叉掩护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 80
+              }
+            },
+            {
+              "name": "交叉掩护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 100
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

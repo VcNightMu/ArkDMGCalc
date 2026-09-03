@@ -1,0 +1,566 @@
+{
+  "id": "char_4025_aprot2",
+  "name": "暮落",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "artsprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        286,
+        403
+      ],
+      "def": [
+        221,
+        325
+      ],
+      "maxHp": [
+        1234,
+        1691
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        403,
+        538
+      ],
+      "def": [
+        325,
+        440
+      ],
+      "maxHp": [
+        1691,
+        2255
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        538,
+        649
+      ],
+      "def": [
+        440,
+        550
+      ],
+      "maxHp": [
+        2255,
+        3090
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_aprot2_1",
+      "name": "速战速决",
+      "levels": [
+        {
+          "base_attack_time": -0.15,
+          "max_hp": 0.1,
+          "level": 0,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.15,
+          "max_hp": 0.15,
+          "level": 1,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.15,
+          "max_hp": 0.2,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "max_hp": 0.2,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "max_hp": 0.25,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "max_hp": 0.3,
+          "level": 5,
+          "spCost": 36,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.35,
+          "max_hp": 0.3,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.35,
+          "max_hp": 0.4,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.35,
+          "max_hp": 0.5,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.45,
+          "max_hp": 0.5,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aprot2_2",
+      "name": "燃命狂欢",
+      "levels": [
+        {
+          "attack@atk_scale": 0.55,
+          "attack@times": 4,
+          "hp_ratio": 0.05,
+          "level": 0,
+          "spCost": 32,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.57,
+          "attack@times": 4,
+          "hp_ratio": 0.05,
+          "level": 1,
+          "spCost": 31,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.6,
+          "attack@times": 4,
+          "hp_ratio": 0.05,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.6,
+          "attack@times": 5,
+          "hp_ratio": 0.05,
+          "level": 3,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.63,
+          "attack@times": 5,
+          "hp_ratio": 0.05,
+          "level": 4,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.65,
+          "attack@times": 5,
+          "hp_ratio": 0.05,
+          "level": 5,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.65,
+          "attack@times": 6,
+          "hp_ratio": 0.05,
+          "level": 6,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.7,
+          "attack@times": 6,
+          "hp_ratio": 0.05,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.75,
+          "attack@times": 6,
+          "hp_ratio": 0.05,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.8,
+          "attack@times": 6,
+          "hp_ratio": 0.05,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "回忆之地",
+          "description": "在【傀影与猩红孤钻】中，攻击速度+10",
+          "blackboard": {
+            "attack_speed": 10,
+            "atk": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "回忆之地",
+          "description": "在【傀影与猩红孤钻】中，攻击力+5%，攻击速度+20",
+          "blackboard": {
+            "attack_speed": 20,
+            "atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "回忆之地",
+          "description": "在【傀影与猩红孤钻】中，攻击力+15%，攻击速度+30",
+          "blackboard": {
+            "attack_speed": 30,
+            "atk": 0.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "厄运宣告",
+          "description": "攻击时有20%的几率使目标法术抗性-25%，持续3秒",
+          "blackboard": {
+            "prob": 0.2,
+            "magic_resistance": -0.25,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "厄运宣告",
+          "description": "攻击时有25%<@ba.talpu>（+5%）</>的几率使目标法术抗性-25%，持续3秒",
+          "blackboard": {
+            "prob": 0.25,
+            "magic_resistance": -0.25,
+            "duration": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aprot2",
+      "name": "暮落证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_aprot2",
+      "name": "票根收纳册",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 23
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "厄运宣告",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.35,
+                "magic_resistance": -0.3,
+                "duration": 3
+              }
+            },
+            {
+              "name": "厄运宣告",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.4,
+                "magic_resistance": -0.3,
+                "duration": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "厄运宣告",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.4,
+                "magic_resistance": -0.3,
+                "duration": 6
+              }
+            },
+            {
+              "name": "厄运宣告",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.45,
+                "magic_resistance": -0.3,
+                "duration": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

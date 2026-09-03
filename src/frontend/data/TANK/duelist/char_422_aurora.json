@@ -1,0 +1,574 @@
+{
+  "id": "char_422_aurora",
+  "name": "极光",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "duelist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        413,
+        582
+      ],
+      "def": [
+        257,
+        378
+      ],
+      "maxHp": [
+        1696,
+        2356
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        582,
+        747
+      ],
+      "def": [
+        378,
+        512
+      ],
+      "maxHp": [
+        2356,
+        3100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        747,
+        901
+      ],
+      "def": [
+        512,
+        640
+      ],
+      "maxHp": [
+        3100,
+        4027
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 55,
+    "def": 55,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_aurora_1",
+      "name": "固守家园",
+      "levels": [
+        {
+          "def": 0.6,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 0,
+          "spCost": 28,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.8,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 1,
+          "spCost": 28,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 2,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.2,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 3,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.4,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 4,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.6,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 5,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.8,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.9,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 2,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 2.1,
+          "block_cnt": 2,
+          "stun": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aurora_2",
+      "name": "人工降雪",
+      "levels": [
+        {
+          "atk": 0.3,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2,
+          "level": 0,
+          "spCost": 26,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2,
+          "level": 1,
+          "spCost": 26,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2,
+          "level": 2,
+          "spCost": 24,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2.5,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2.5,
+          "level": 4,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 2.5,
+          "level": 5,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 3,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 3.1,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 3.2,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "base_attack_time": 0.25,
+          "attack@cold": 2.5,
+          "atk_scale": 3.3,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "低温休憩",
+          "description": "未开启技能且技力小于或等于最大值一半时，停止攻击并每秒恢复1.5%最大生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.015,
+            "sp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "低温休憩",
+          "description": "未开启技能且技力小于或等于最大值一半时，停止攻击并每秒恢复2%<@ba.talpu>（+0.5%）</>最大生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.02,
+            "sp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "低温休憩",
+          "description": "未开启技能且技力小于或等于最大值一半时，停止攻击并每秒恢复3%最大生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+            "sp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "低温休憩",
+          "description": "未开启技能且技力小于或等于最大值一半时，停止攻击并每秒恢复3.5%<@ba.talpu>（+0.5%）</>最大生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+            "sp_ratio": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aurora",
+      "name": "极光证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_aurora",
+      "name": "盾用摄制模块",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 60
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "低温休憩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "sp_ratio": 0.5
+              }
+            },
+            {
+              "name": "低温休憩",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "sp_ratio": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 380,
+            "atk": 90
+          },
+          "talentEnhance": [
+            {
+              "name": "低温休憩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "sp_ratio": 0.5
+              }
+            },
+            {
+              "name": "低温休憩",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.045,
+                "sp_ratio": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,880 @@
+{
+  "id": "char_4235_thumpy",
+  "name": "珊比",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "primprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        296,
+        412
+      ],
+      "def": [
+        209,
+        313
+      ],
+      "maxHp": [
+        1442,
+        1898
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        412,
+        536
+      ],
+      "def": [
+        313,
+        430
+      ],
+      "maxHp": [
+        1898,
+        2565
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        536,
+        671
+      ],
+      "def": [
+        430,
+        559
+      ],
+      "maxHp": [
+        2565,
+        3514
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 30,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_thumpy_1",
+      "name": "“还不走？”",
+      "levels": [
+        {
+          "atk": 0.2,
+          "def": 0.2,
+          "attack@force": 0,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "def": 0.22,
+          "attack@force": 0,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "def": 0.25,
+          "attack@force": 0,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "def": 0.28,
+          "attack@force": 0,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.31,
+          "def": 0.31,
+          "attack@force": 0,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "def": 0.34,
+          "attack@force": 0,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.37,
+          "def": 0.37,
+          "attack@force": 0,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "attack@force": 0,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "attack@force": 0,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "attack@force": 0,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_thumpy_2",
+      "name": "“慢慢走~”",
+      "levels": [
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "atk_scale": 0.3,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 0,
+          "spCost": 33,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.42,
+          "def": 0.42,
+          "atk_scale": 0.32,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 1,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "atk_scale": 0.34,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 2,
+          "spCost": 31,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.48,
+          "def": 0.48,
+          "atk_scale": 0.37,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.51,
+          "def": 0.51,
+          "atk_scale": 0.39,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 4,
+          "spCost": 29,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.54,
+          "def": 0.54,
+          "atk_scale": 0.41,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.57,
+          "def": 0.57,
+          "atk_scale": 0.43,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 6,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "atk_scale": 0.45,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 7,
+          "spCost": 26,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.65,
+          "atk_scale": 0.47,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "atk_scale": 0.5,
+          "max_cnt": 5,
+          "sluggish": 0.5,
+          "interval": 0.7,
+          "ep_damage_ratio[trigger]": 0,
+          "ep_damage_ratio[damage]": 0.15,
+          "level": 9,
+          "spCost": 23,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_thumpy_3",
+      "name": "“不准走！”",
+      "levels": [
+        {
+          "atk": 0.5,
+          "def": 0.6,
+          "atk_scale": 0.2,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 0,
+          "spCost": 58,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.65,
+          "atk_scale": 0.22,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 1,
+          "spCost": 58,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.7,
+          "atk_scale": 0.24,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.75,
+          "atk_scale": 0.27,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 3,
+          "spCost": 58,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.85,
+          "atk_scale": 0.29,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 4,
+          "spCost": 57,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.95,
+          "atk_scale": 0.31,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 5,
+          "spCost": 57,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 1.05,
+          "atk_scale": 0.33,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 6,
+          "spCost": 57,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "def": 1.15,
+          "atk_scale": 0.35,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 7,
+          "spCost": 56,
+          "initialSp": 41,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 1.25,
+          "atk_scale": 0.37,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 8,
+          "spCost": 56,
+          "initialSp": 41,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 1.35,
+          "atk_scale": 0.4,
+          "block_cnt": 2,
+          "interval": 1,
+          "conveyor_speed": 0.8,
+          "ep_damage_ratio[trigger]": 0,
+          "max_cnt": 5,
+          "mass_level": 4,
+          "thumpy[ep_break_water].def": -30,
+          "level": 9,
+          "spCost": 55,
+          "initialSp": 42,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "探险理论",
+          "description": "珊比受到的<$ba.dt.element>元素损伤</>降低5%；珊比造成物理伤害时，附带攻击力8%的<$ba.dt.erosion2>侵蚀损伤</>，并使目标的<$ba.dt.erosion2>侵蚀损伤</>冷却减少1秒",
+          "blackboard": {
+            "ep_damage_scale": 0.95,
+            "duration_dec": 1,
+            "ep_damage_ratio[trigger]": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "探险理论",
+          "description": "珊比受到的<$ba.dt.element>元素损伤</>降低10%<@ba.talpu>（+5%）</>；珊比造成物理伤害时，附带攻击力10%<@ba.talpu>（+2%）</>的<$ba.dt.erosion2>侵蚀损伤</>，并使目标的<$ba.dt.erosion2>侵蚀损伤</>冷却减少1.2<@ba.talpu>（+0.2）</>秒",
+          "blackboard": {
+            "ep_damage_scale": 0.9,
+            "duration_dec": 1.2,
+            "ep_damage_ratio[trigger]": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "探险理论",
+          "description": "珊比受到的<$ba.dt.element>元素损伤</>降低15%；珊比造成物理伤害时，附带攻击力10%的<$ba.dt.erosion2>侵蚀损伤</>，并使目标的<$ba.dt.erosion2>侵蚀损伤</>冷却减少1秒",
+          "blackboard": {
+            "ep_damage_scale": 0.85,
+            "duration_dec": 1,
+            "ep_damage_ratio[trigger]": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "探险理论",
+          "description": "珊比受到的<$ba.dt.element>元素损伤</>降低20%<@ba.talpu>（+5%）</>；珊比造成物理伤害时，附带攻击力12%<@ba.talpu>（+2%）</>的<$ba.dt.erosion2>侵蚀损伤</>，并使目标的<$ba.dt.erosion2>侵蚀损伤</>冷却减少1.2<@ba.talpu>（+0.2）</>秒",
+          "blackboard": {
+            "ep_damage_scale": 0.8,
+            "duration_dec": 1.2,
+            "ep_damage_ratio[trigger]": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "坚硬脚板",
+          "description": "受到过来自珊比伤害的敌人<$ba.dt.erosion2>侵蚀损伤</>爆发时，珊比获得8点防御力（最多叠加30层）和250点<$ba.barrier>屏障</>（不超过最大生命值的300%）",
+          "blackboard": {
+            "def": 8,
+            "atk": 0,
+            "shield_value": 250,
+            "max_stack_cnt": 30,
+            "scale": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "坚硬脚板",
+          "description": "受到过来自珊比伤害的敌人<$ba.dt.erosion2>侵蚀损伤</>爆发时，珊比获得11<@ba.talpu>（+3）</>点防御力（最多叠加30层）和330<@ba.talpu>（+80）</>点<$ba.barrier>屏障</>（不超过最大生命值的300%）",
+          "blackboard": {
+            "def": 11,
+            "atk": 0,
+            "shield_value": 330,
+            "max_stack_cnt": 30,
+            "scale": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "生命上限+270",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 270
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_thumpy",
+      "name": "珊比证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_thumpy",
+      "name": "出发的勇气",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "坚硬脚板",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 10,
+                "atk": 3,
+                "shield_value": 350,
+                "max_stack_cnt": 30,
+                "scale": 3
+              }
+            },
+            {
+              "name": "坚硬脚板",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 13,
+                "atk": 4,
+                "shield_value": 430,
+                "max_stack_cnt": 30,
+                "scale": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 450,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "坚硬脚板",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 12,
+                "atk": 5,
+                "shield_value": 400,
+                "max_stack_cnt": 30,
+                "scale": 3
+              }
+            },
+            {
+              "name": "坚硬脚板",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 15,
+                "atk": 6,
+                "shield_value": 480,
+                "max_stack_cnt": 30,
+                "scale": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

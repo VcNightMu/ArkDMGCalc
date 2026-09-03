@@ -1,0 +1,508 @@
+{
+  "id": "char_304_zebra",
+  "name": "暴雨",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "protector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        199,
+        256
+      ],
+      "def": [
+        253,
+        378
+      ],
+      "maxHp": [
+        1443,
+        1899
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        256,
+        321
+      ],
+      "def": [
+        378,
+        519
+      ],
+      "maxHp": [
+        1899,
+        2467
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        321,
+        378
+      ],
+      "def": [
+        519,
+        721
+      ],
+      "maxHp": [
+        2467,
+        3380
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 35,
+    "maxHp": 350
+  },
+  "skills": [
+    {
+      "skillId": "skchr_zebra_1",
+      "name": "应急迷彩",
+      "levels": [
+        {
+          "hp_recovery_per_sec": 30,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 33,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 36,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 40,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 43,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 46,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 50,
+          "cnt": 1,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 55,
+          "cnt": 2,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 60,
+          "cnt": 2,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_recovery_per_sec": 70,
+          "cnt": 2,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_zebra_2",
+      "name": "群体迷彩",
+      "levels": [
+        {
+          "max_hp": 0.2,
+          "def": 0.2,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.23,
+          "def": 0.23,
+          "level": 1,
+          "spCost": 58,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.26,
+          "def": 0.26,
+          "level": 2,
+          "spCost": 56,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.3,
+          "def": 0.3,
+          "level": 3,
+          "spCost": 54,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.33,
+          "def": 0.33,
+          "level": 4,
+          "spCost": 52,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.36,
+          "def": 0.36,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.4,
+          "def": 0.4,
+          "level": 6,
+          "spCost": 48,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "def": 0.45,
+          "level": 7,
+          "spCost": 46,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.5,
+          "def": 0.5,
+          "level": 8,
+          "spCost": 44,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.55,
+          "def": 0.55,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "条纹迷彩",
+          "description": "自身和周围8格内的高台干员获得10%的物理闪避",
+          "blackboard": {
+            "prob": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "条纹迷彩",
+          "description": "自身和周围8格内的高台干员获得13%<@ba.talpu>（+3%）</>的物理闪避",
+          "blackboard": {
+            "prob": 0.13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "条纹迷彩",
+          "description": "自身和周围8格内的高台干员获得20%的物理闪避",
+          "blackboard": {
+            "prob": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "条纹迷彩",
+          "description": "自身和周围8格内的高台干员获得23%<@ba.talpu>（+3%）</>的物理闪避",
+          "blackboard": {
+            "prob": 0.23
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_zebra",
+      "name": "暴雨证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_zebra",
+      "name": "人气角色贴纸",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 50,
+            "block_cnt": 1
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "def": 60,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "条纹迷彩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.23
+              }
+            },
+            {
+              "name": "条纹迷彩",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.26
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 375,
+            "def": 65,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "条纹迷彩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.25
+              }
+            },
+            {
+              "name": "条纹迷彩",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.28
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

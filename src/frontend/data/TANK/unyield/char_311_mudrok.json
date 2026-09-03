@@ -1,0 +1,859 @@
+{
+  "id": "char_311_mudrok",
+  "name": "泥岩",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "unyield",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        370,
+        515
+      ],
+      "def": [
+        229,
+        347
+      ],
+      "maxHp": [
+        1677,
+        2207
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        515,
+        687
+      ],
+      "def": [
+        347,
+        463
+      ],
+      "maxHp": [
+        2207,
+        2867
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        687,
+        882
+      ],
+      "def": [
+        463,
+        602
+      ],
+      "maxHp": [
+        2867,
+        3928
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 60,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skcom_def_up[3]",
+      "name": "防御力强化·γ型",
+      "levels": [
+        {
+          "def": 0.3,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.35,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.4,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.45,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.5,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.55,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mudrok_2",
+      "name": "岩崩锤",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "buff_prob": 0.3,
+          "stun": 0.4,
+          "hp_ratio": 0.04,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "buff_prob": 0.3,
+          "stun": 0.4,
+          "hp_ratio": 0.04,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "buff_prob": 0.3,
+          "stun": 0.4,
+          "hp_ratio": 0.04,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "buff_prob": 0.3,
+          "stun": 0.5,
+          "hp_ratio": 0.04,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "buff_prob": 0.3,
+          "stun": 0.5,
+          "hp_ratio": 0.04,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "buff_prob": 0.3,
+          "stun": 0.5,
+          "hp_ratio": 0.04,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "buff_prob": 0.3,
+          "stun": 0.6,
+          "hp_ratio": 0.05,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "buff_prob": 0.3,
+          "stun": 0.8,
+          "hp_ratio": 0.05,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "buff_prob": 0.3,
+          "stun": 1,
+          "hp_ratio": 0.05,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "buff_prob": 0.3,
+          "stun": 1.2,
+          "hp_ratio": 0.06,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mudrok_3",
+      "name": "秽壤的血脉",
+      "levels": [
+        {
+          "atk": 0.7,
+          "def": 0.3,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.3,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.3,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "def": 0.4,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.4,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "def": 0.4,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 0.5,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 3.5,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "def": 0.6,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 4,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 0.7,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 4.5,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "def": 0.8,
+          "move_speed": -0.6,
+          "sleep": 10,
+          "awake": 20,
+          "base_attack_time": -0.3,
+          "stun": 5,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多2层，部署后立即获得1层），每层护盾破裂时恢复自身15%最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 2,
+            "hp_ratio": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多2层，部署后立即获得1层），每层护盾破裂时恢复自身17%<@ba.talpu>（+2%）</>最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 2,
+            "hp_ratio": 0.17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多2层，部署后立即获得1层），每层护盾破裂时恢复自身20%最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 2,
+            "hp_ratio": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多2层，部署后立即获得1层），每层护盾破裂时恢复自身22%<@ba.talpu>（+2%）</>最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 2,
+            "hp_ratio": 0.22
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多3层，部署后立即获得1层），每层护盾破裂时恢复自身20%最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 3,
+            "hp_ratio": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "沃土予身",
+          "description": "每9秒获得1层<$ba.shield>护盾</>（最多3层，部署后立即获得1层），每层护盾破裂时恢复自身22%<@ba.talpu>（+2%）</>最大生命",
+          "blackboard": {
+            "interval": 9,
+            "times": 1,
+            "max_times": 3,
+            "hp_ratio": 0.22
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "手足相惜",
+          "description": "受到来自【萨卡兹】敌人的伤害降低30%",
+          "blackboard": {
+            "damage_resistance": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+29",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 29
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mudrok",
+      "name": "泥岩证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_mudrok",
+      "name": "土石的根系",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 245,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 325,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "沃土予身",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 9,
+                "times": 1,
+                "max_times": 3,
+                "hp_ratio": 0.22,
+                "sp": 1
+              }
+            },
+            {
+              "name": "沃土予身",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 9,
+                "times": 1,
+                "max_times": 3,
+                "hp_ratio": 0.24,
+                "sp": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 400,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "沃土予身",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 9,
+                "times": 1,
+                "max_times": 3,
+                "hp_ratio": 0.23,
+                "sp": 2
+              }
+            },
+            {
+              "name": "沃土予身",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 9,
+                "times": 1,
+                "max_times": 3,
+                "hp_ratio": 0.25,
+                "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_mudrok",
+      "name": "沃土的愿景",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "手足相惜",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.33,
+                "damage_scale": 1.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "手足相惜",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.35,
+                "damage_scale": 1.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

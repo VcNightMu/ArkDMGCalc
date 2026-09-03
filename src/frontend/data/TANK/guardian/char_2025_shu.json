@@ -1,0 +1,747 @@
+{
+  "id": "char_2025_shu",
+  "name": "黍",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "guardian",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        203,
+        290
+      ],
+      "def": [
+        250,
+        369
+      ],
+      "maxHp": [
+        1334,
+        1804
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        290,
+        392
+      ],
+      "def": [
+        369,
+        493
+      ],
+      "maxHp": [
+        1804,
+        2313
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        392,
+        479
+      ],
+      "def": [
+        493,
+        602
+      ],
+      "maxHp": [
+        2313,
+        3213
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_shu_1",
+      "name": "化被草木",
+      "levels": [
+        {
+          "heal_scale": 1.1,
+          "ct": 1,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.15,
+          "ct": 1,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "ct": 1,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.3,
+          "ct": 1,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.35,
+          "ct": 1,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.4,
+          "ct": 1,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "ct": 2,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "ct": 2,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "ct": 2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "ct": 3,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_shu_2",
+      "name": "嘉禾盈仓",
+      "levels": [
+        {
+          "atk": 0.3,
+          "extra_extend_scale": 1.2,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "extra_extend_scale": 1.2,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "extra_extend_scale": 1.2,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "extra_extend_scale": 1.3,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "extra_extend_scale": 1.3,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "extra_extend_scale": 1.3,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "extra_extend_scale": 1.4,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "extra_extend_scale": 1.4,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "extra_extend_scale": 1.4,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "extra_extend_scale": 1.5,
+          "block_cnt": 1,
+          "attack@max_target": 2,
+          "base_attack_time": 1.3,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_shu_3",
+      "name": "离离枯荣",
+      "levels": [
+        {
+          "atk": 0.1,
+          "e_atk": 0.1,
+          "e_attack_speed": 10,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.14,
+          "e_atk": 0.1,
+          "e_attack_speed": 10,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.18,
+          "e_atk": 0.1,
+          "e_attack_speed": 10,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "e_atk": 0.15,
+          "e_attack_speed": 15,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "e_atk": 0.15,
+          "e_attack_speed": 15,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "e_atk": 0.15,
+          "e_attack_speed": 15,
+          "e_max_stack_cnt": 1,
+          "max_distance": 4,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "e_atk": 0.2,
+          "e_attack_speed": 20,
+          "e_max_stack_cnt": 1,
+          "max_distance": 3,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.38,
+          "e_atk": 0.2,
+          "e_attack_speed": 20,
+          "e_max_stack_cnt": 1,
+          "max_distance": 3,
+          "level": 7,
+          "spCost": 47,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.44,
+          "e_atk": 0.25,
+          "e_attack_speed": 25,
+          "e_max_stack_cnt": 1,
+          "max_distance": 3,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "e_atk": 0.25,
+          "e_attack_speed": 25,
+          "e_max_stack_cnt": 1,
+          "max_distance": 2,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "百谷长青",
+          "description": "治疗干员时对其与周围四格地块进行播种施加如下效果：每秒恢复40生命、获得5%<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_recovery_per_sec": 40,
+            "damage_resistance": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "百谷长青",
+          "description": "治疗干员时对其与周围四格地块进行播种施加如下效果：每秒恢复45<@ba.talpu>（+5）</>生命、获得7%<@ba.talpu>（+2%）</><$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_recovery_per_sec": 45,
+            "damage_resistance": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "百谷长青",
+          "description": "治疗干员时对其与周围四格地块进行播种施加如下效果：每秒恢复70生命、获得10%<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_recovery_per_sec": 70,
+            "damage_resistance": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "百谷长青",
+          "description": "治疗干员时对其与周围四格地块进行播种施加如下效果：每秒恢复75<@ba.talpu>（+5）</>生命、获得12%<@ba.talpu>（+2%）</><$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_recovery_per_sec": 75,
+            "damage_resistance": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "天有四时",
+          "description": "场上有三名不同职业干员时所有干员生命上限+12%、三名相同职业干员时所有干员攻击速度+12，编队中有四名【岁】干员时所有干员攻击力+12%且4秒获得1点技力",
+          "blackboard": {
+            "max_hp": 0.12,
+            "attack_speed": 12,
+            "atk": 0.12,
+            "interval": 4,
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "生命上限+200",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_shu",
+      "name": "黍证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_shu",
+      "name": "“钦天司时”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 30,
+            "def": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 40,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "百谷长青",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec": 80,
+                "damage_resistance": 0.1
+              }
+            },
+            {
+              "name": "百谷长青",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec": 85,
+                "damage_resistance": 0.12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 50,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "百谷长青",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec": 80,
+                "damage_resistance": 0.15,
+                "born_range_id": 0
+              }
+            },
+            {
+              "name": "百谷长青",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec": 85,
+                "damage_resistance": 0.17,
+                "born_range_id": 0
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "id": "char_163_hpsts",
+  "name": "火神",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "unyield",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        344,
+        479
+      ],
+      "def": [
+        222,
+        337
+      ],
+      "maxHp": [
+        1574,
+        2072
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        479,
+        639
+      ],
+      "def": [
+        337,
+        450
+      ],
+      "maxHp": [
+        2072,
+        2692
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        639,
+        820
+      ],
+      "def": [
+        450,
+        585
+      ],
+      "maxHp": [
+        2692,
+        3688
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 400
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hpsts_1",
+      "name": "坚守模式",
+      "levels": [
+        {
+          "def": 0.6,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.02,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.65,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.02,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.7,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.02,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.8,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.85,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.1,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 37,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.2,
+          "block_cnt": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hpsts_2",
+      "name": "武力模式",
+      "levels": [
+        {
+          "atk": 0.65,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.05,
+          "block_cnt": -1,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.05,
+          "block_cnt": -1,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.05,
+          "block_cnt": -1,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.06,
+          "block_cnt": -1,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.06,
+          "block_cnt": -1,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.06,
+          "block_cnt": -1,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.07,
+          "block_cnt": -1,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.08,
+          "block_cnt": -1,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.09,
+          "block_cnt": -1,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 37,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "base_attack_time": 0.4,
+          "hp_ratio": 0.1,
+          "block_cnt": -1,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "自我防护",
+          "description": "技能开启时，每秒恢复最大生命值4%的生命",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+            "prob": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "自我防护",
+          "description": "技能开启时，每秒恢复最大生命值5%<@ba.talpu>（+1%）</>的生命",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+            "prob": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "自我防护",
+          "description": "技能开启时，每秒恢复最大生命值4%的生命，同时获得25%的近战物理闪避",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+            "prob": 0.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "自我防护",
+          "description": "技能开启时，每秒恢复最大生命值5%<@ba.talpu>（+1%）</>的生命，同时获得30%<@ba.talpu>（+5%）</>的近战物理闪避",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+            "prob": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+250",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_hpsts",
+      "name": "火神证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_hpsts",
+      "name": "锻椎者",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "def": 53
+          },
+          "talentEnhance": [
+            {
+              "name": "自我防护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "prob": 0.25
+              }
+            },
+            {
+              "name": "自我防护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+                "prob": 0.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 385,
+            "def": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "自我防护",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "prob": 0.25
+              }
+            },
+            {
+              "name": "自我防护",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+                "prob": 0.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

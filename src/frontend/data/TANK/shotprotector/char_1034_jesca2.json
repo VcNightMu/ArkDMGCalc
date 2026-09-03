@@ -1,0 +1,924 @@
+{
+  "id": "char_1034_jesca2",
+  "name": "涤火杰西卡",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "shotprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        269,
+        346
+      ],
+      "def": [
+        258,
+        386
+      ],
+      "maxHp": [
+        1455,
+        1941
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        346,
+        433
+      ],
+      "def": [
+        386,
+        522
+      ],
+      "maxHp": [
+        1941,
+        2589
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        433,
+        522
+      ],
+      "def": [
+        522,
+        716
+      ],
+      "maxHp": [
+        2589,
+        3608
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_jesca2_1",
+      "name": "坚守阵线",
+      "levels": [
+        {
+          "def": 0.25,
+          "atk": 0.25,
+          "duration": 20,
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.3,
+          "atk": 0.3,
+          "duration": 20,
+          "level": 1,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.35,
+          "atk": 0.35,
+          "duration": 20,
+          "level": 2,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.4,
+          "atk": 0.4,
+          "duration": 20,
+          "level": 3,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.45,
+          "atk": 0.45,
+          "duration": 20,
+          "level": 4,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.5,
+          "atk": 0.5,
+          "duration": 20,
+          "level": 5,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.55,
+          "atk": 0.55,
+          "duration": 20,
+          "level": 6,
+          "spCost": 90,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.6,
+          "atk": 0.6,
+          "duration": 25,
+          "level": 7,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.65,
+          "atk": 0.65,
+          "duration": 25,
+          "level": 8,
+          "spCost": 75,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "def": 0.7,
+          "atk": 0.7,
+          "duration": 30,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_jesca2_2",
+      "name": "掩蔽护卫",
+      "levels": [
+        {
+          "atk": 0.3,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "base_attack_time": -0.9,
+          "prob": 0.75,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_jesca2_3",
+      "name": "饱和迸射",
+      "levels": [
+        {
+          "atk": 2,
+          "jesca2_s_3_token[def].def": 0.75,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.2,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.1,
+          "jesca2_s_3_token[def].def": 0.8,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.3,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.3,
+          "jesca2_s_3_token[def].def": 0.9,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.35,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.4,
+          "jesca2_s_3_token[def].def": 1,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.5,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.5,
+          "jesca2_s_3_token[def].def": 1.1,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.55,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.6,
+          "jesca2_s_3_token[def].def": 1.2,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.6,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.7,
+          "jesca2_s_3_token[def].def": 1.35,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.65,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.8,
+          "jesca2_s_3_token[def].def": 1.5,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5.5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.7,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.9,
+          "jesca2_s_3_token[def].def": 1.6,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 5.5,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.75,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 3.1,
+          "jesca2_s_3_token[def].def": 1.7,
+          "ability_range_forward_extend": 1,
+          "base_attack_time": 0.6,
+          "attack@extrabomb.stun": 6,
+          "attack@extrabomb.atk_scale": 2.5,
+          "attack@trigger_time": 20,
+          "attack@extrabomb.projectile_range": 1.7,
+          "jesca2_s_3[def].def": 0.8,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "灵活应变",
+          "description": "可以使用一个持续20秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+5%",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "灵活应变",
+          "description": "可以使用一个持续20秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+8%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "灵活应变",
+          "description": "可以使用一个持续35秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+10%",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "灵活应变",
+          "description": "可以使用一个持续35秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+13%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "灵活应变",
+          "description": "可以使用一个持续50秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+15%",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "灵活应变",
+          "description": "可以使用一个持续50秒的机动盾牌，机动盾牌只能放置于涤火杰西卡四周，机动盾牌部署后，涤火杰西卡立刻转向盾牌且自身与身后的单位防御力+18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "cnt": 1,
+            "def": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "蓄能释放",
+          "description": "机动盾牌受到伤害时，有50%的概率使涤火杰西卡获得1点技力",
+          "blackboard": {
+            "sp": 1,
+            "prob": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "蓄能释放",
+          "description": "机动盾牌受到伤害时，有55%<@ba.talpu>（+5%）</>的概率使涤火杰西卡获得1点技力",
+          "blackboard": {
+            "sp": 1,
+            "prob": 0.55
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_jesca2",
+      "name": "涤火杰西卡证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_jesca2",
+      "name": "“私家英雄”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 50,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 220,
+            "atk": 57,
+            "def": 31
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "灵活应变",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.15
+              }
+            },
+            {
+              "name": "灵活应变",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 55,
+                "taunt_level": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "duration": 55,
+                "taunt_level": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 65,
+            "def": 37
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "灵活应变",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.15
+              }
+            },
+            {
+              "name": "灵活应变",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cnt": 1,
+                "def": 0.18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 60,
+                "taunt_level": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "duration": 60,
+                "taunt_level": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_jesca2",
+      "name": "未曾风化",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 52
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 69
+          },
+          "talentEnhance": [
+            {
+              "name": "蓄能释放",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "prob": 0.55,
+                "respawn_time": 1,
+                "respawn_time_max": 11
+              }
+            },
+            {
+              "name": "蓄能释放",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1,
+                "prob": 0.6,
+                "respawn_time": 1,
+                "respawn_time_max": 11
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 325,
+            "atk": 83
+          },
+          "talentEnhance": [
+            {
+              "name": "蓄能释放",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "prob": 0.6,
+                "respawn_time": 1,
+                "respawn_time_max": 14
+              }
+            },
+            {
+              "name": "蓄能释放",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1,
+                "prob": 0.65,
+                "respawn_time": 1,
+                "respawn_time_max": 14
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

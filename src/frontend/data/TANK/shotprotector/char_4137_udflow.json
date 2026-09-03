@@ -1,0 +1,576 @@
+{
+  "id": "char_4137_udflow",
+  "name": "深巡",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "shotprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        226,
+        291
+      ],
+      "def": [
+        251,
+        375
+      ],
+      "maxHp": [
+        1312,
+        1750
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        291,
+        364
+      ],
+      "def": [
+        375,
+        508
+      ],
+      "maxHp": [
+        1750,
+        2334
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        364,
+        439
+      ],
+      "def": [
+        508,
+        696
+      ],
+      "maxHp": [
+        2334,
+        3253
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 45,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_udflow_1",
+      "name": "侵袭破坏应对",
+      "levels": [
+        {
+          "atk": 0.25,
+          "def": 0.25,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.27,
+          "def": 0.27,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "def": 0.29,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "def": 0.32,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "def": 0.34,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "def": 0.36,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.39,
+          "def": 0.39,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.42,
+          "def": 0.42,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_udflow_2",
+      "name": "行动能力剥夺",
+      "levels": [
+        {
+          "atk": 0.2,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 20,
+          "attack@max_target": 3,
+          "level": 0,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 20,
+          "attack@max_target": 3,
+          "level": 1,
+          "spCost": 41,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 20,
+          "attack@max_target": 3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 25,
+          "attack@max_target": 3,
+          "level": 3,
+          "spCost": 39,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 25,
+          "attack@max_target": 3,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 25,
+          "attack@max_target": 3,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 30,
+          "attack@max_target": 3,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.43,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 36,
+          "attack@max_target": 3,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 43,
+          "attack@max_target": 3,
+          "level": 8,
+          "spCost": 34,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "mode": 1,
+          "attack@sluggish": 1,
+          "attack_speed": 50,
+          "attack@max_target": 4,
+          "level": 9,
+          "spCost": 32,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "细胞活性抑制剂",
+          "description": "攻击使目标在3秒内每秒受到40点法术伤害（对【海怪】敌人伤害加倍）",
+          "blackboard": {
+            "duration": 3,
+            "interval": 1,
+            "damage": 40,
+            "damage_seamonster": 80
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "细胞活性抑制剂",
+          "description": "攻击使目标在3秒内每秒受到50<@ba.talpu>（+10）</>点法术伤害（对【海怪】敌人伤害加倍）",
+          "blackboard": {
+            "duration": 3,
+            "interval": 1,
+            "damage": 50,
+            "damage_seamonster": 100
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "细胞活性抑制剂",
+          "description": "攻击使目标在3秒内每秒受到80点法术伤害（对【海怪】敌人伤害加倍）",
+          "blackboard": {
+            "duration": 3,
+            "interval": 1,
+            "damage": 80,
+            "damage_seamonster": 160
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "细胞活性抑制剂",
+          "description": "攻击使目标在3秒内每秒受到90<@ba.talpu>（+10）</>点法术伤害（对【海怪】敌人伤害加倍）",
+          "blackboard": {
+            "duration": 3,
+            "interval": 1,
+            "damage": 90,
+            "damage_seamonster": 180
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_udflow",
+      "name": "深巡证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_udflow",
+      "name": "基于咖啡的神经活性剂",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 38,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 47,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "细胞活性抑制剂",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 3,
+                "interval": 1,
+                "damage": 90,
+                "damage_seamonster": 180
+              }
+            },
+            {
+              "name": "细胞活性抑制剂",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 3,
+                "interval": 1,
+                "damage": 100,
+                "damage_seamonster": 200
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 52,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "细胞活性抑制剂",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 3,
+                "interval": 1,
+                "damage": 100,
+                "damage_seamonster": 200
+              }
+            },
+            {
+              "name": "细胞活性抑制剂",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 3,
+                "interval": 1,
+                "damage": 110,
+                "damage_seamonster": 220
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

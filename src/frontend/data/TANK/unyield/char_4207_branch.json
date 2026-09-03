@@ -1,0 +1,550 @@
+{
+  "id": "char_4207_branch",
+  "name": "折桠",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "unyield",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        363,
+        505
+      ],
+      "def": [
+        205,
+        311
+      ],
+      "maxHp": [
+        1600,
+        2106
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        505,
+        674
+      ],
+      "def": [
+        311,
+        415
+      ],
+      "maxHp": [
+        2106,
+        2736
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        674,
+        865
+      ],
+      "def": [
+        415,
+        540
+      ],
+      "maxHp": [
+        2736,
+        3748
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 50,
+    "maxHp": 400
+  },
+  "skills": [
+    {
+      "skillId": "skchr_branch_1",
+      "name": "绝境抵抗",
+      "levels": [
+        {
+          "def": 0.6,
+          "one_minus_status_resistance": -0.5,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.65,
+          "one_minus_status_resistance": -0.5,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.7,
+          "one_minus_status_resistance": -0.5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "one_minus_status_resistance": -0.5,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.8,
+          "one_minus_status_resistance": -0.5,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.85,
+          "one_minus_status_resistance": -0.5,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "one_minus_status_resistance": -0.5,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "one_minus_status_resistance": -0.5,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.1,
+          "one_minus_status_resistance": -0.5,
+          "level": 8,
+          "spCost": 18,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.2,
+          "one_minus_status_resistance": -0.5,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_branch_2",
+      "name": "生存决心",
+      "levels": [
+        {
+          "atk": 0.8,
+          "not_combat": 5,
+          "def": 0.3,
+          "level": 0,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "not_combat": 5,
+          "def": 0.3,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "not_combat": 5,
+          "def": 0.3,
+          "level": 2,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "not_combat": 5,
+          "def": 0.3,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "not_combat": 5,
+          "def": 0.4,
+          "level": 4,
+          "spCost": 22,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "not_combat": 5,
+          "def": 0.4,
+          "level": 5,
+          "spCost": 22,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "not_combat": 5,
+          "def": 0.4,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "not_combat": 5,
+          "def": 0.5,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "not_combat": 5,
+          "def": 0.5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "not_combat": 5,
+          "def": 0.5,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "简易包扎",
+          "description": "技能结束时恢复自身40%最大生命值",
+          "blackboard": {
+            "hp_ratio": 0.4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "简易包扎",
+          "description": "技能结束时恢复自身50%<@ba.talpu>（+10%）</>最大生命值",
+          "blackboard": {
+            "hp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "简易包扎",
+          "description": "技能结束时恢复自身50%最大生命值",
+          "blackboard": {
+            "hp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "简易包扎",
+          "description": "技能结束时恢复自身60%<@ba.talpu>（+10%）</>最大生命值",
+          "blackboard": {
+            "hp_ratio": 0.6
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+250",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_branch",
+      "name": "折桠证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_branch",
+      "name": "“时间的痕迹”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "def": 53
+          },
+          "talentEnhance": [
+            {
+              "name": "简易包扎",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.6
+              }
+            },
+            {
+              "name": "简易包扎",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.7
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 385,
+            "def": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "简易包扎",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.7
+              }
+            },
+            {
+              "name": "简易包扎",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.8
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.18
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,790 @@
+{
+  "id": "char_423_blemsh",
+  "name": "瑕光",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "guardian",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        207,
+        297
+      ],
+      "def": [
+        242,
+        357
+      ],
+      "maxHp": [
+        1346,
+        1820
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        297,
+        402
+      ],
+      "def": [
+        357,
+        476
+      ],
+      "maxHp": [
+        1820,
+        2334
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        402,
+        491
+      ],
+      "def": [
+        476,
+        581
+      ],
+      "maxHp": [
+        2334,
+        3242
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 20,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_blemsh_1",
+      "name": "光芒涌动",
+      "levels": [
+        {
+          "atk_scale": 1.8,
+          "heal_scale": 1,
+          "ct": 1,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "heal_scale": 1,
+          "ct": 1,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "heal_scale": 1,
+          "ct": 1,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "heal_scale": 1.1,
+          "ct": 1,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.05,
+          "heal_scale": 1.1,
+          "ct": 1,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "heal_scale": 1.1,
+          "ct": 1,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "heal_scale": 1.2,
+          "ct": 2,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "heal_scale": 1.3,
+          "ct": 2,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "heal_scale": 1.4,
+          "ct": 2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "heal_scale": 1.5,
+          "ct": 3,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blemsh_2",
+      "name": "慑敌辉光",
+      "levels": [
+        {
+          "atk": 0.4,
+          "attack@atk_to_hp_recovery_ratio": 0.15,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@atk_to_hp_recovery_ratio": 0.15,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@atk_to_hp_recovery_ratio": 0.15,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@atk_to_hp_recovery_ratio": 0.16,
+          "level": 3,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@atk_to_hp_recovery_ratio": 0.16,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@atk_to_hp_recovery_ratio": 0.16,
+          "level": 5,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@atk_to_hp_recovery_ratio": 0.17,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@atk_to_hp_recovery_ratio": 0.18,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@atk_to_hp_recovery_ratio": 0.19,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@atk_to_hp_recovery_ratio": 0.2,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blemsh_3",
+      "name": "先贤化身",
+      "levels": [
+        {
+          "atk": 0.5,
+          "def": 0.2,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.5,
+          "heal_scale": 0.6,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.2,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.5,
+          "heal_scale": 0.6,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.2,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.5,
+          "heal_scale": 0.6,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.25,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.6,
+          "heal_scale": 0.7,
+          "level": 3,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.25,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.6,
+          "heal_scale": 0.7,
+          "level": 4,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.25,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.6,
+          "heal_scale": 0.7,
+          "level": 5,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.3,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.7,
+          "heal_scale": 0.8,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.4,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.8,
+          "heal_scale": 0.9,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 0.5,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 0.9,
+          "heal_scale": 0.9,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "def": 0.6,
+          "attack@blemsh_s_3_extra_dmg[magic].atk_scale": 1,
+          "heal_scale": 1,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "剑盾骑士",
+          "description": "在场时所有受击回复的技能在干员攻击时也回复1点技力",
+          "blackboard": {
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "仁慈",
+          "description": "自身可以攻击并优先攻击<$ba.sleep>沉睡</>的目标且攻击力提升至120%",
+          "blackboard": {
+            "atk_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "仁慈",
+          "description": "自身可以攻击并优先攻击<$ba.sleep>沉睡</>的目标且攻击力提升至124%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "atk_scale": 1.24
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "仁慈",
+          "description": "自身可以攻击并优先攻击<$ba.sleep>沉睡</>的目标且攻击力提升至140%",
+          "blackboard": {
+            "atk_scale": 1.4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "仁慈",
+          "description": "自身可以攻击并优先攻击<$ba.sleep>沉睡</>的目标且攻击力提升至144%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "atk_scale": 1.44
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_blemsh",
+      "name": "瑕光证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_blemsh",
+      "name": "“长骑”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 53
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sleep_duration": 5
+              }
+            },
+            {
+              "name": "仁慈",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.5
+              }
+            },
+            {
+              "name": "仁慈",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.54
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 460,
+            "atk": 69
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sleep_duration": 8
+              }
+            },
+            {
+              "name": "仁慈",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            },
+            {
+              "name": "仁慈",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.64
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.15,
+                "hp_ratio": 0.5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_blemsh",
+      "name": "工匠团的回响",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 35,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 43,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": "剑盾骑士",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "blemsh_e_sp.sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 50,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "剑盾骑士",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "blemsh_e_sp.sp": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

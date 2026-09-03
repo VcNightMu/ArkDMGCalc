@@ -1,0 +1,900 @@
+{
+  "id": "char_416_zumama",
+  "name": "森蚺",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "duelist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        462,
+        651
+      ],
+      "def": [
+        247,
+        364
+      ],
+      "maxHp": [
+        1882,
+        2614
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        651,
+        835
+      ],
+      "def": [
+        364,
+        492
+      ],
+      "maxHp": [
+        2614,
+        3440
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        835,
+        1007
+      ],
+      "def": [
+        492,
+        615
+      ],
+      "maxHp": [
+        3440,
+        4468
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 70,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_zumama_1",
+      "name": "轻型挂斧",
+      "levels": [
+        {
+          "def": 0.1,
+          "atk": 0.1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.11,
+          "atk": 0.11,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.12,
+          "atk": 0.12,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.14,
+          "atk": 0.14,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.15,
+          "atk": 0.15,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.16,
+          "atk": 0.16,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.18,
+          "atk": 0.18,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.2,
+          "atk": 0.2,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.22,
+          "atk": 0.22,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.25,
+          "atk": 0.25,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_zumama_2",
+      "name": "震慑劈砍",
+      "levels": [
+        {
+          "atk": 0.7,
+          "base_attack_time": 0.4,
+          "level": 0,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "base_attack_time": 0.4,
+          "level": 1,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "base_attack_time": 0.4,
+          "level": 2,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "base_attack_time": 0.4,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "base_attack_time": 0.4,
+          "level": 4,
+          "spCost": 34,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "base_attack_time": 0.4,
+          "level": 5,
+          "spCost": 33,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "base_attack_time": 0.4,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.45,
+          "base_attack_time": 0.4,
+          "level": 7,
+          "spCost": 31,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "base_attack_time": 0.4,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "base_attack_time": 0.4,
+          "level": 9,
+          "spCost": 28,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_zumama_3",
+      "name": "钢铁意志",
+      "levels": [
+        {
+          "atk": 1.1,
+          "def": 0.6,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 0.7,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 1,
+          "spCost": 54,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "def": 0.8,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 2,
+          "spCost": 53,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "def": 0.9,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 3,
+          "spCost": 52,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "def": 1,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 4,
+          "spCost": 51,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "def": 1.1,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "def": 1.2,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+          "stun": 5,
+          "level": 6,
+          "spCost": 49,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.9,
+          "def": 1.3,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+          "stun": 5,
+          "level": 7,
+          "spCost": 48,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.1,
+          "def": 1.4,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+          "stun": 5,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.3,
+          "def": 1.6,
+          "block_cnt": 2,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.06,
+          "stun": 5,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "勇冠三军",
+          "description": "生命值高于一半时，攻击造成108%伤害；生命值不高于一半时，获得10%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "damage_resistance": 0.1,
+            "atk_scale": 1.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "勇冠三军",
+          "description": "生命值高于一半时，攻击造成110%<@ba.talpu>（+2%）</>伤害；生命值不高于一半时，获得12%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "damage_resistance": 0.12,
+            "atk_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "勇冠三军",
+          "description": "生命值高于一半时，攻击造成115%伤害；生命值不高于一半时，获得20%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "damage_resistance": 0.2,
+            "atk_scale": 1.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "勇冠三军",
+          "description": "生命值高于一半时，攻击造成117%<@ba.talpu>（+2%）</>伤害；生命值不高于一半时，获得22%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "damage_resistance": 0.22,
+            "atk_scale": 1.17
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "愈战愈勇",
+          "description": "阻挡敌人时技力回复速度+0.2/秒",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_zumama",
+      "name": "森蚺证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_zumama",
+      "name": "祖玛玛的工具箱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 80,
+            "def": 70
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 95,
+            "def": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "愈战愈勇",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 105,
+            "def": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "愈战愈勇",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.55
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_zumama",
+      "name": "“小小的丑东西”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 80
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.999,
+                "atk": 0.15,
+                "def": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 80,
+            "def": 95
+          },
+          "talentEnhance": [
+            {
+              "name": "勇冠三军",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.25,
+                "atk_scale": 1.2
+              }
+            },
+            {
+              "name": "勇冠三军",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.27,
+                "atk_scale": 1.22
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.999,
+                "atk": 0.15,
+                "def": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 110
+          },
+          "talentEnhance": [
+            {
+              "name": "勇冠三军",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.28,
+                "atk_scale": 1.23
+              }
+            },
+            {
+              "name": "勇冠三军",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.3,
+                "atk_scale": 1.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -0.999,
+                "atk": 0.15,
+                "def": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_zumama",
+      "name": "森蚺特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "range_radius": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 340,
+            "atk": 110
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "range_radius": 5,
+                "block_cnt": 1,
+                "attack@max_target": 128,
+                "damage_scale": 1.2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4
+              }
+            },
+            {
+              "name": "愈战愈勇",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 380,
+            "atk": 130
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "range_radius": 5,
+                "block_cnt": 2,
+                "attack@max_target": 128,
+                "damage_scale": 1.4
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4
+              }
+            },
+            {
+              "name": "愈战愈勇",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp_recover_ratio": -1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

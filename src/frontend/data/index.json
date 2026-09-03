@@ -45,11 +45,461 @@
     "ownerName": null
   },
   {
+    "id": "char_136_hsguma",
+    "name": "星熊",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_610_acfend",
+    "name": "Mechanist",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2014_nian",
+    "name": "年",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_201_moeshd",
+    "name": "可颂",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_325_bison",
+    "name": "拜松",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_304_zebra",
+    "name": "暴雨",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_199_yak",
+    "name": "角峰",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_150_snakek",
+    "name": "蛇屠箱",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_381_bubble",
+    "name": "泡泡",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_602_cdfend",
+    "name": "预备干员-重装",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_209_ardign",
+    "name": "卡缇",
+    "rarity": "TIER_3",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_122_beagle",
+    "name": "米格鲁",
+    "rarity": "TIER_3",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_514_rdfend",
+    "name": "预备干员-重装",
+    "rarity": "TIER_3",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_500_noirc",
+    "name": "黑角",
+    "rarity": "TIER_2",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4093_frston",
+    "name": "Friston-3",
+    "rarity": "TIER_1",
+    "profession": "TANK",
+    "subProfessionId": "protector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_202_demkni",
     "name": "塞雷娅",
     "rarity": "TIER_6",
     "profession": "TANK",
     "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_423_blemsh",
+    "name": "瑕光",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2025_shu",
+    "name": "黍",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_148_nearl",
+    "name": "临光",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_226_hmau",
+    "name": "吽",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4109_baslin",
+    "name": "深律",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4143_sensi",
+    "name": "森西",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_196_sunbr",
+    "name": "古米",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_284_spot",
+    "name": "斑点",
+    "rarity": "TIER_3",
+    "profession": "TANK",
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_311_mudrok",
+    "name": "泥岩",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "unyield",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4065_judge",
+    "name": "斥罪",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "unyield",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_163_hpsts",
+    "name": "火神",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "unyield",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4207_branch",
+    "name": "折桠",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "unyield",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4130_luton",
+    "name": "露托",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "unyield",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1044_hsgma2",
+    "name": "斩业星熊",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "artsprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_378_asbest",
+    "name": "石棉",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "artsprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4047_pianst",
+    "name": "车尔尼",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "artsprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4025_aprot2",
+    "name": "暮落",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "artsprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_260_durnar",
+    "name": "坚雷",
+    "rarity": "TIER_4",
+    "profession": "TANK",
+    "subProfessionId": "artsprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_416_zumama",
+    "name": "森蚺",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "duelist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_422_aurora",
+    "name": "极光",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "duelist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_464_cement",
+    "name": "洋灰",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "duelist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4039_horn",
+    "name": "号角",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "fortress",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_431_ashlok",
+    "name": "灰毫",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "fortress",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_493_firwhl",
+    "name": "火哨",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "fortress",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1034_jesca2",
+    "name": "涤火杰西卡",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4194_rmixer",
+    "name": "信仰搅拌机",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4230_mcnist",
+    "name": "机械师",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_107_liskam",
+    "name": "雷蛇",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4137_udflow",
+    "name": "深巡",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_457_blitz",
+    "name": "闪击",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "shotprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2026_yu",
+    "name": "余",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4235_thumpy",
+    "name": "珊比",
+    "rarity": "TIER_6",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4148_philae",
+    "name": "菲莱",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4225_tanya",
+    "name": "裂响",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4214_cairn",
+    "name": "响石",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
     "ownerOperatorId": null,
     "ownerName": null
   },

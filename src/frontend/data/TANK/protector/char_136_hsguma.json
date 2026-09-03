@@ -1,0 +1,775 @@
+{
+  "id": "char_136_hsguma",
+  "name": "星熊",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "protector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        221,
+        284
+      ],
+      "def": [
+        257,
+        384
+      ],
+      "maxHp": [
+        1602,
+        2165
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        284,
+        356
+      ],
+      "def": [
+        384,
+        527
+      ],
+      "maxHp": [
+        2165,
+        2849
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        356,
+        430
+      ],
+      "def": [
+        527,
+        723
+      ],
+      "maxHp": [
+        2849,
+        3850
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hsguma_1",
+      "name": "战意",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.35,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def": 0.4,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def": 0.45,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.5,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.55,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.6,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.65,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.7,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.75,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.8,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hsguma_2",
+      "name": "荆棘",
+      "levels": [
+        {
+          "atk_scale": 0.5,
+          "def": 0.05,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.55,
+          "def": 0.07,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.6,
+          "def": 0.09,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.65,
+          "def": 0.13,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.7,
+          "def": 0.15,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.75,
+          "def": 0.17,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.8,
+          "def": 0.21,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.85,
+          "def": 0.24,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "def": 0.27,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "def": 0.3,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hsguma_3",
+      "name": "力之锯",
+      "levels": [
+        {
+          "atk": 0.65,
+          "def": 0.4,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.4,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.4,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.5,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "def": 0.5,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.5,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "def": 0.6,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "def": 0.7,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "def": 0.8,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "def": 0.9,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战术装甲",
+          "description": "获得12%的伤害抵挡",
+          "blackboard": {
+            "prob": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "战术装甲",
+          "description": "获得15%<@ba.talpu>（+3%）</>的伤害抵挡",
+          "blackboard": {
+            "prob": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战术装甲",
+          "description": "获得25%的伤害抵挡",
+          "blackboard": {
+            "prob": 0.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "战术装甲",
+          "description": "获得28%<@ba.talpu>（+3%）</>的伤害抵挡",
+          "blackboard": {
+            "prob": 0.28
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "特种作战策略",
+          "description": "在场时所有友方【重装】职业干员的防御力提升6%",
+          "blackboard": {
+            "def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "特种作战策略",
+          "description": "在场时所有友方【重装】职业干员的防御力提升8%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "def": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "防御力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_hsguma",
+      "name": "星熊证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_hsguma",
+      "name": "护身符",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "def": 85
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "def": 115
+          },
+          "talentEnhance": [
+            {
+              "name": "特种作战策略",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.04
+              }
+            },
+            {
+              "name": "特种作战策略",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 0.04
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.09
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 0.11
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 140
+          },
+          "talentEnhance": [
+            {
+              "name": "特种作战策略",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.06
+              }
+            },
+            {
+              "name": "特种作战策略",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 0.06
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.11
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "def": 0.13
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_hsguma",
+      "name": "友人们的赠礼",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 70,
+            "block_cnt": 1
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 62,
+            "def": 90,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "战术装甲",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "atk": 0.2,
+                "duration": 3
+              }
+            },
+            {
+              "name": "战术装甲",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.33,
+                "atk": 0.2,
+                "duration": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 100,
+            "block_cnt": 1
+          },
+          "talentEnhance": [
+            {
+              "name": "战术装甲",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.32,
+                "atk": 0.35,
+                "duration": 5
+              }
+            },
+            {
+              "name": "战术装甲",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.35,
+                "atk": 0.35,
+                "duration": 5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

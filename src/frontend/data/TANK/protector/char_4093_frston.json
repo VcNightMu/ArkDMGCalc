@@ -1,0 +1,142 @@
+{
+  "id": "char_4093_frston",
+  "name": "Friston-3",
+  "rarity": "TIER_1",
+  "profession": "TANK",
+  "subProfessionId": "protector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        158,
+        198
+      ],
+      "def": [
+        188,
+        235
+      ],
+      "maxHp": [
+        921,
+        1152
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 70,
+    "maxHp": 100
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "存续·I",
+          "description": "部署后10秒内周围八格的所有友方单位获得50点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -50
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "存续·II",
+          "description": "部署后10秒内周围八格的所有友方单位获得55点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -55
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "存续·III",
+          "description": "部署后10秒内周围八格的所有友方单位获得60点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -60
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "存续·IV",
+          "description": "部署后10秒内周围八格的所有友方单位获得65点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -65
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "存续·V",
+          "description": "部署后10秒内周围八格的所有友方单位获得70点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -70
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "存续·VI",
+          "description": "部署后10秒内周围八格的所有友方单位获得75点<$ba.dmgresistance>伤害减免</>",
+          "blackboard": {
+            "duration": 10,
+            "damage_resistance": -75
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

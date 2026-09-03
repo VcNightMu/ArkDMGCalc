@@ -1,0 +1,554 @@
+{
+  "id": "char_4225_tanya",
+  "name": "裂响",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "primprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        252,
+        360
+      ],
+      "def": [
+        220,
+        324
+      ],
+      "maxHp": [
+        1276,
+        1725
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        360,
+        481
+      ],
+      "def": [
+        324,
+        439
+      ],
+      "maxHp": [
+        1725,
+        2300
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        481,
+        602
+      ],
+      "def": [
+        439,
+        549
+      ],
+      "maxHp": [
+        2300,
+        3195
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_tanya_1",
+      "name": "涤净",
+      "levels": [
+        {
+          "max_hp": 0.4,
+          "ep_heal": 30,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "ep_heal": 40,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.5,
+          "ep_heal": 50,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.55,
+          "ep_heal": 60,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "ep_heal": 70,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.65,
+          "ep_heal": 80,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.7,
+          "ep_heal": 90,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.8,
+          "ep_heal": 100,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.9,
+          "ep_heal": 110,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 1,
+          "ep_heal": 120,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_tanya_2",
+      "name": "溃决",
+      "levels": [
+        {
+          "def": 0.14,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.15,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.16,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.17,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 3,
+          "spCost": 31,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.18,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.19,
+          "ep_damage_ratio": 0.2,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 5,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.2,
+          "ep_damage_ratio": 0.3,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.2,
+          "ep_damage_ratio": 0.31,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.2,
+          "ep_damage_ratio": 0.33,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.2,
+          "ep_damage_ratio": 0.35,
+          "max_stack_cnt": 5,
+          "cnt": 5,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "劣质溶剂耐受",
+          "description": "自身受到的<$ba.dt.element>元素损伤</>-5%，受到的<$ba.dt.erosion>侵蚀损伤</>额外-5%",
+          "blackboard": {
+            "ep_damage_resistance[other]": 0.05,
+            "ep_damage_resistance[water]": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "劣质溶剂耐受",
+          "description": "自身受到的<$ba.dt.element>元素损伤</>-7%<@ba.talpu>（+2%）</>，受到的<$ba.dt.erosion>侵蚀损伤</>额外-7%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "ep_damage_resistance[other]": 0.07,
+            "ep_damage_resistance[water]": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "劣质溶剂耐受",
+          "description": "自身受到的<$ba.dt.element>元素损伤</>-10%，受到的<$ba.dt.erosion>侵蚀损伤</>额外-10%",
+          "blackboard": {
+            "ep_damage_resistance[other]": 0.1,
+            "ep_damage_resistance[water]": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "劣质溶剂耐受",
+          "description": "自身受到的<$ba.dt.element>元素损伤</>-12%<@ba.talpu>（+2%）</>，受到的<$ba.dt.erosion>侵蚀损伤</>额外-12%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "ep_damage_resistance[other]": 0.12,
+            "ep_damage_resistance[water]": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_tanya",
+      "name": "裂响证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_tanya",
+      "name": "“漂洗”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "劣质溶剂耐受",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_resistance[other]": 0.13,
+                "ep_damage_resistance[water]": 0.15
+              }
+            },
+            {
+              "name": "劣质溶剂耐受",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_resistance[other]": 0.15,
+                "ep_damage_resistance[water]": 0.17
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "def": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "劣质溶剂耐受",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_resistance[other]": 0.13,
+                "ep_damage_resistance[water]": 0.18
+              }
+            },
+            {
+              "name": "劣质溶剂耐受",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_resistance[other]": 0.15,
+                "ep_damage_resistance[water]": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

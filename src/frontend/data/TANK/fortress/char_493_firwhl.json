@@ -1,0 +1,564 @@
+{
+  "id": "char_493_firwhl",
+  "name": "火哨",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "fortress",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        456,
+        585
+      ],
+      "def": [
+        205,
+        306
+      ],
+      "maxHp": [
+        1203,
+        1605
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        585,
+        732
+      ],
+      "def": [
+        306,
+        414
+      ],
+      "maxHp": [
+        1605,
+        2140
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        732,
+        882
+      ],
+      "def": [
+        414,
+        568
+      ],
+      "maxHp": [
+        2140,
+        2983
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_firwhl_1",
+      "name": "野火",
+      "levels": [
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.3,
+          "atk_scale": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.3,
+          "atk_scale": 1.1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.3,
+          "atk_scale": 1.2,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.25,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.35,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 3,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.45,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 4,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.5,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 4,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.6,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 4,
+          "burn.atk_scale": 0.4,
+          "atk_scale": 1.75,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "burn_duration": 4,
+          "burn.atk_scale": 0.5,
+          "atk_scale": 1.85,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_firwhl_2",
+      "name": "焦土",
+      "levels": [
+        {
+          "projectile_life_time": 3,
+          "burn.atk_scale": 0.3,
+          "attack@projectile_delay_time": 3,
+          "attack@burn.atk_scale": 0.3,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 3,
+          "burn.atk_scale": 0.35,
+          "attack@projectile_delay_time": 3,
+          "attack@burn.atk_scale": 0.35,
+          "level": 1,
+          "spCost": 48,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 3,
+          "burn.atk_scale": 0.4,
+          "attack@projectile_delay_time": 3,
+          "attack@burn.atk_scale": 0.4,
+          "level": 2,
+          "spCost": 47,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 4,
+          "burn.atk_scale": 0.45,
+          "attack@projectile_delay_time": 4,
+          "attack@burn.atk_scale": 0.45,
+          "level": 3,
+          "spCost": 46,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 4,
+          "burn.atk_scale": 0.5,
+          "attack@projectile_delay_time": 4,
+          "attack@burn.atk_scale": 0.5,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 4,
+          "burn.atk_scale": 0.6,
+          "attack@projectile_delay_time": 4,
+          "attack@burn.atk_scale": 0.6,
+          "level": 5,
+          "spCost": 44,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 5,
+          "burn.atk_scale": 0.65,
+          "attack@projectile_delay_time": 5,
+          "attack@burn.atk_scale": 0.65,
+          "level": 6,
+          "spCost": 43,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 5,
+          "burn.atk_scale": 0.75,
+          "attack@projectile_delay_time": 5,
+          "attack@burn.atk_scale": 0.75,
+          "level": 7,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 5,
+          "burn.atk_scale": 0.8,
+          "attack@projectile_delay_time": 5,
+          "attack@burn.atk_scale": 0.8,
+          "level": 8,
+          "spCost": 41,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_life_time": 6,
+          "burn.atk_scale": 0.85,
+          "attack@projectile_delay_time": 6,
+          "attack@burn.atk_scale": 0.85,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "进退自如",
+          "description": "未阻挡敌人时攻击力+6%，阻挡敌人时防御力+6%",
+          "blackboard": {
+            "atk": 0.06,
+            "def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "进退自如",
+          "description": "未阻挡敌人时攻击力+8%<@ba.talpu>（+2%）</>，阻挡敌人时防御力+8%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.08,
+            "def": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "进退自如",
+          "description": "未阻挡敌人时攻击力+12%，阻挡敌人时防御力+12%",
+          "blackboard": {
+            "atk": 0.12,
+            "def": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "进退自如",
+          "description": "未阻挡敌人时攻击力+14%<@ba.talpu>（+2%）</>，阻挡敌人时防御力+14%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.14,
+            "def": 0.14
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+32",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_firwhl",
+      "name": "火哨证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_firwhl",
+      "name": "“成长的足迹”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 42,
+            "def": 42
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 52,
+            "def": 52
+          },
+          "talentEnhance": [
+            {
+              "name": "进退自如",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.16,
+                "def": 0.16
+              }
+            },
+            {
+              "name": "进退自如",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.18,
+                "def": 0.18
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 58,
+            "def": 58
+          },
+          "talentEnhance": [
+            {
+              "name": "进退自如",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.18,
+                "def": 0.18
+              }
+            },
+            {
+              "name": "进退自如",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.2,
+                "def": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "id": "char_226_hmau",
+  "name": "吽",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "guardian",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        182,
+        261
+      ],
+      "def": [
+        244,
+        359
+      ],
+      "maxHp": [
+        1172,
+        1584
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        261,
+        353
+      ],
+      "def": [
+        359,
+        479
+      ],
+      "maxHp": [
+        1584,
+        2032
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        353,
+        442
+      ],
+      "def": [
+        479,
+        585
+      ],
+      "maxHp": [
+        2032,
+        2823
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 60,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hmau_1",
+      "name": "反制治疗",
+      "levels": [
+        {
+          "heal_scale": 1,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.05,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.1,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.25,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.3,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.4,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hmau_2",
+      "name": "反制医疗模式",
+      "levels": [
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 4,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.55,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 5,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 6,
+          "spCost": 23,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.65,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 14,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "base_attack_time": 1.3,
+          "sp": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 18,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "门神",
+          "description": "防御力+6%",
+          "blackboard": {
+            "heal_scale": 1,
+            "def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "门神",
+          "description": "防御力+8%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "heal_scale": 1,
+            "def": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "门神",
+          "description": "防御力+6%，自身身后一格内如果是高台单位，自己对其的治疗效果提高75%",
+          "blackboard": {
+            "heal_scale": 1.75,
+            "def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "门神",
+          "description": "防御力+8%<@ba.talpu>（+2%）</>，自身身后一格内如果是高台单位，自己对其的治疗效果提高85%<@ba.talpu>（+10%）</>",
+          "blackboard": {
+            "heal_scale": 1.85,
+            "def": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_hmau",
+      "name": "吽证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_hmau",
+      "name": "八点档情景剧录像带",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "def": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "门神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 1.75,
+                "def": 0.1
+              }
+            },
+            {
+              "name": "门神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 1.85,
+                "def": 0.12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 330,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "门神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 1.75,
+                "def": 0.13
+              }
+            },
+            {
+              "name": "门神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 1.85,
+                "def": 0.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

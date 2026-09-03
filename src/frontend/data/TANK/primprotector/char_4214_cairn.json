@@ -1,0 +1,546 @@
+{
+  "id": "char_4214_cairn",
+  "name": "响石",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "primprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        228,
+        327
+      ],
+      "def": [
+        225,
+        331
+      ],
+      "maxHp": [
+        1391,
+        1880
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        327,
+        436
+      ],
+      "def": [
+        331,
+        448
+      ],
+      "maxHp": [
+        1880,
+        2507
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        436,
+        546
+      ],
+      "def": [
+        448,
+        560
+      ],
+      "maxHp": [
+        2507,
+        3483
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 150
+  },
+  "skills": [
+    {
+      "skillId": "skchr_cairn_1",
+      "name": "覆盖式休整",
+      "levels": [
+        {
+          "max_hp": 0.4,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.5,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "level": 2,
+          "spCost": 42,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.7,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.8,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.9,
+          "level": 5,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 1.1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 1.2,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 1.3,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cairn_2",
+      "name": "震撼型指路",
+      "levels": [
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.3,
+          "atk_scale": 0.2,
+          "ep_damage_ratio": 0.05,
+          "shield_hp_ratio": 0.3,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.4,
+          "atk_scale": 0.3,
+          "ep_damage_ratio": 0.05,
+          "shield_hp_ratio": 0.4,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.5,
+          "atk_scale": 0.3,
+          "ep_damage_ratio": 0.05,
+          "shield_hp_ratio": 0.5,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.6,
+          "atk_scale": 0.4,
+          "ep_damage_ratio": 0.07,
+          "shield_hp_ratio": 0.6,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.7,
+          "atk_scale": 0.5,
+          "ep_damage_ratio": 0.07,
+          "shield_hp_ratio": 0.7,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.8,
+          "atk_scale": 0.5,
+          "ep_damage_ratio": 0.07,
+          "shield_hp_ratio": 0.8,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.9,
+          "atk_scale": 0.6,
+          "ep_damage_ratio": 0.1,
+          "shield_hp_ratio": 0.9,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.9,
+          "atk_scale": 0.6,
+          "ep_damage_ratio": 0.1,
+          "shield_hp_ratio": 0.9,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.9,
+          "atk_scale": 0.7,
+          "ep_damage_ratio": 0.1,
+          "shield_hp_ratio": 0.9,
+          "level": 8,
+          "spCost": 23,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "buff_duration": 10,
+          "shield_max_hp_ratio": 0.9,
+          "atk_scale": 0.8,
+          "ep_damage_ratio": 0.1,
+          "shield_hp_ratio": 0.9,
+          "level": 9,
+          "spCost": 22,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "过饱和讲解",
+          "description": "对自身阻挡的敌人每秒造成相当于攻击力4%的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "ep_damage_ratio": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "过饱和讲解",
+          "description": "对自身阻挡的敌人每秒造成相当于攻击力5%<@ba.talpu>（+1%）</>的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "ep_damage_ratio": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "过饱和讲解",
+          "description": "对自身阻挡的敌人每秒造成相当于攻击力9%的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "ep_damage_ratio": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "过饱和讲解",
+          "description": "对自身阻挡的敌人每秒造成相当于攻击力10%<@ba.talpu>（+1%）</>的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "ep_damage_ratio": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_cairn",
+      "name": "响石证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_cairn",
+      "name": "“降落伞”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "过饱和讲解",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.1
+              }
+            },
+            {
+              "name": "过饱和讲解",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_ratio": 0.11
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "def": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "过饱和讲解",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.11
+              }
+            },
+            {
+              "name": "过饱和讲解",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_ratio": 0.12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

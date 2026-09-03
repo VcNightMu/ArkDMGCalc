@@ -17,12 +17,29 @@ async function fetchJSON(url) {
 }
 
 // 根据中文干员名解析头像真实图片 URL。召唤物（TOKEN）头像前缀为「头像_召唤物_」。
+// 精确名查不到时回退前缀搜索（活动形态等命名带后缀的干员，如 Mechanist → 头像_Mechanist(卫戍协议).png）：
+// 取前缀匹配中文件名最短且非皮肤（排除 _skin/_1+ 等）的候选（本体头像名最短）。
 async function getAvatarUrl(name, isSummon) {
   const prefix = isSummon ? '头像_召唤物_' : '头像_';
   const title = `文件:${prefix}${name}.png`;
   const url = `${API}?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json`;
   const j = await fetchJSON(url);
   for (const p of Object.values(j.query?.pages || {})) {
+    if (p.imageinfo?.[0]?.url) return p.imageinfo[0].url;
+  }
+  // 精确名不存在 → 前缀搜索兜底
+  const search = `${API}?action=query&list=allimages&aiprefix=${encodeURIComponent(prefix + name)}&ailimit=10&format=json`;
+  const sj = await fetchJSON(search);
+  const hits = ((sj.query?.allimages) || [])
+    .map(i => i.name)
+    .filter(n => n.startsWith(prefix + name))
+    .filter(n => !/_skin\d*|_\d\+/.test(n))   // 排除皮肤与潜能立绘
+    .sort((a, b) => a.length - b.length);        // 本体头像最短
+  if (hits.length === 0) return null;
+  const hit = `文件:${hits[0]}`;
+  const u = `${API}?action=query&titles=${encodeURIComponent(hit)}&prop=imageinfo&iiprop=url&format=json`;
+  const uj = await fetchJSON(u);
+  for (const p of Object.values(uj.query?.pages || {})) {
     if (p.imageinfo?.[0]?.url) return p.imageinfo[0].url;
   }
   return null;

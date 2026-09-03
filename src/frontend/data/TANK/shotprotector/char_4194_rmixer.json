@@ -1,0 +1,833 @@
+{
+  "id": "char_4194_rmixer",
+  "name": "信仰搅拌机",
+  "rarity": "TIER_6",
+  "profession": "TANK",
+  "subProfessionId": "shotprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        260,
+        334
+      ],
+      "def": [
+        253,
+        379
+      ],
+      "maxHp": [
+        1483,
+        1978
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        334,
+        418
+      ],
+      "def": [
+        379,
+        513
+      ],
+      "maxHp": [
+        1978,
+        2638
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        418,
+        504
+      ],
+      "def": [
+        513,
+        703
+      ],
+      "maxHp": [
+        2638,
+        3677
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_rmixer_1",
+      "name": "铳骑主考官",
+      "levels": [
+        {
+          "atk_scale": 1,
+          "charge": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "charge": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "charge": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "charge": 1,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "charge": 1,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "charge": 1,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "charge": 1,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "charge": 1,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "charge": 1,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "charge": 1,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_rmixer_2",
+      "name": "八臂电锯侠",
+      "levels": [
+        {
+          "atk": 0.6,
+          "def": 0.5,
+          "ammo_cost": 30,
+          "attack@trigger_time": 40,
+          "level": 0,
+          "spCost": 65,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.55,
+          "ammo_cost": 30,
+          "attack@trigger_time": 40,
+          "level": 1,
+          "spCost": 65,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.6,
+          "ammo_cost": 30,
+          "attack@trigger_time": 40,
+          "level": 2,
+          "spCost": 65,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.7,
+          "ammo_cost": 30,
+          "attack@trigger_time": 42,
+          "level": 3,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "def": 0.75,
+          "ammo_cost": 30,
+          "attack@trigger_time": 42,
+          "level": 4,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.8,
+          "ammo_cost": 30,
+          "attack@trigger_time": 42,
+          "level": 5,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "def": 0.9,
+          "ammo_cost": 25,
+          "attack@trigger_time": 45,
+          "level": 6,
+          "spCost": 55,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 1.05,
+          "ammo_cost": 25,
+          "attack@trigger_time": 47,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 34,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "def": 1.15,
+          "ammo_cost": 20,
+          "attack@trigger_time": 47,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 34,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "def": 1.3,
+          "ammo_cost": 20,
+          "attack@trigger_time": 50,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_rmixer_3",
+      "name": "退休前布道",
+      "levels": [
+        {
+          "atk": 1.1,
+          "def": 0.2,
+          "max_hp": 0.2,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 0.25,
+          "max_hp": 0.25,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 1,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "def": 0.3,
+          "max_hp": 0.3,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 1,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "def": 0.35,
+          "max_hp": 0.35,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.6,
+          "level": 3,
+          "spCost": 43,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "def": 0.4,
+          "max_hp": 0.4,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.6,
+          "level": 4,
+          "spCost": 43,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "def": 0.5,
+          "max_hp": 0.5,
+          "ammo": 2,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.6,
+          "level": 5,
+          "spCost": 43,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "def": 0.55,
+          "max_hp": 0.55,
+          "ammo": 3,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.3,
+          "level": 6,
+          "spCost": 41,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.85,
+          "def": 0.6,
+          "max_hp": 0.6,
+          "ammo": 3,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.3,
+          "level": 7,
+          "spCost": 39,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "def": 0.7,
+          "max_hp": 0.7,
+          "ammo": 3,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.1,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "def": 0.8,
+          "max_hp": 0.8,
+          "ammo": 4,
+          "attack@max_target": 3,
+          "attack@trigger_time": 30,
+          "base_attack_time": 0.1,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "扫射迎宾仪礼",
+          "description": "每次造成伤害使自身10秒内防御力+20，攻击速度+2，最多可叠加3层",
+          "blackboard": {
+            "def": 20,
+            "attack_speed": 2,
+            "max_stack_cnt": 3,
+            "duration": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "扫射迎宾仪礼",
+          "description": "每次造成伤害使自身10秒内防御力+30，攻击速度+3，最多可叠加3层",
+          "blackboard": {
+            "def": 30,
+            "attack_speed": 3,
+            "max_stack_cnt": 3,
+            "duration": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "架盾送客仪礼",
+          "description": "若8秒内未主动攻击，获得相当于生命上限15%的<$ba.barrier>屏障</>，失去屏障后重新计时",
+          "blackboard": {
+            "interval": 8,
+            "shield": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "架盾送客仪礼",
+          "description": "若8秒内未主动攻击，获得相当于生命上限18%<@ba.talpu>（+3%）</>的<$ba.barrier>屏障</>，失去屏障后重新计时",
+          "blackboard": {
+            "interval": 8,
+            "shield": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_rmixer",
+      "name": "信仰搅拌机证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_rmixer",
+      "name": "毛刷套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 40,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 48,
+            "def": 37
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "扫射迎宾仪礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 40,
+                "attack_speed": 4,
+                "max_stack_cnt": 3,
+                "duration": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 54,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "扫射迎宾仪礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 50,
+                "attack_speed": 5,
+                "max_stack_cnt": 3,
+                "duration": 10
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_rmixer",
+      "name": "“老朋友”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 68,
+            "def": 57
+          },
+          "talentEnhance": [
+            {
+              "name": "架盾送客仪礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 5,
+                "shield": 0.15
+              }
+            },
+            {
+              "name": "架盾送客仪礼",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 5,
+                "shield": 0.18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 74,
+            "def": 63
+          },
+          "talentEnhance": [
+            {
+              "name": "架盾送客仪礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 5,
+                "shield": 0.2
+              }
+            },
+            {
+              "name": "架盾送客仪礼",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 5,
+                "shield": 0.23
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ability_range_forward_extend": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

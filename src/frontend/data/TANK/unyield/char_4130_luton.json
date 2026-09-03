@@ -1,0 +1,546 @@
+{
+  "id": "char_4130_luton",
+  "name": "露托",
+  "rarity": "TIER_4",
+  "profession": "TANK",
+  "subProfessionId": "unyield",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        332,
+        462
+      ],
+      "def": [
+        188,
+        285
+      ],
+      "maxHp": [
+        1516,
+        1995
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        462,
+        616
+      ],
+      "def": [
+        285,
+        381
+      ],
+      "maxHp": [
+        1995,
+        2591
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        616,
+        790
+      ],
+      "def": [
+        381,
+        495
+      ],
+      "maxHp": [
+        2591,
+        3550
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 50,
+    "maxHp": 400
+  },
+  "skills": [
+    {
+      "skillId": "skchr_luton_1",
+      "name": "强力击·β型",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_luton_2",
+      "name": "强磁防卫",
+      "levels": [
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.45,
+          "magic_atk_scale": 0.3,
+          "interval": 2,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.5,
+          "magic_atk_scale": 0.35,
+          "interval": 2,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.55,
+          "magic_atk_scale": 0.4,
+          "interval": 2,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.7,
+          "magic_atk_scale": 0.5,
+          "interval": 2,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.75,
+          "magic_atk_scale": 0.55,
+          "interval": 2,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.8,
+          "magic_atk_scale": 0.6,
+          "interval": 2,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 0.95,
+          "magic_atk_scale": 0.7,
+          "interval": 2,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 1.05,
+          "magic_atk_scale": 0.8,
+          "interval": 2,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 1.15,
+          "magic_atk_scale": 0.9,
+          "interval": 2,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "p_force": 0,
+          "mode": 1,
+          "def": 1.3,
+          "magic_atk_scale": 1,
+          "interval": 2,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死里求生",
+          "description": "自身阻挡的敌方单位被击杀时，回复自身12%的生命",
+          "blackboard": {
+            "hp_ratio": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "死里求生",
+          "description": "自身阻挡的敌方单位被击杀时，回复自身14%<@ba.talpu>（+2%）</>的生命",
+          "blackboard": {
+            "hp_ratio": 0.14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死里求生",
+          "description": "自身阻挡的敌方单位被击杀时，回复自身16%的生命",
+          "blackboard": {
+            "hp_ratio": 0.16
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "死里求生",
+          "description": "自身阻挡的敌方单位被击杀时，回复自身18%<@ba.talpu>（+2%）</>的生命",
+          "blackboard": {
+            "hp_ratio": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_luton",
+      "name": "露托证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_luton",
+      "name": "生还的人与物",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "def": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "死里求生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.18
+              }
+            },
+            {
+              "name": "死里求生",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "死里求生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.2
+              }
+            },
+            {
+              "name": "死里求生",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.22
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 0.85
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
