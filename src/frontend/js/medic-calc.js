@@ -24,10 +24,11 @@ function calcMedical(params) {
 
   // 触发型治疗：嘉维尔「活力再生」持续增益（heal_scale+interval+duration）、
   // 末药/录武官「二重治疗/触类旁通」一次性额外治疗（heal_scale，无 interval）、
-  // 图耶「水流环」一次性普攻治疗（MANUAL + atk_scale 屏障标记，无 atk 加成）。
+  // 图耶「水流环」一次性普攻治疗（MANUAL + atk_scale 屏障标记，无 atk 加成）、
+  // 流明「沐雨」光环触发 HOT（aura.heal_scale，attack@ 之外的前缀键）、诺威尔「生命不息」挂持续 HOT。
   // 图耶强心剂/Touch 等带 atk 加成的技能机制不同，不在此列。
   const isTriggerHeal =
-    (levelData.heal_scale !== undefined && levelData.atk === undefined) ||
+    ((levelData.heal_scale !== undefined || levelData['aura.heal_scale'] !== undefined) && levelData.atk === undefined) ||
     (levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.atk === undefined);
   if (isTriggerHeal) {
     return calcTriggerHeal(params);
@@ -73,13 +74,15 @@ function calcMedical(params) {
 function calcTriggerHeal(params) {
   const { panelAtk, skillAtk, baseInterval, levelData } = params;
 
-  const healScale = levelData.heal_scale ?? 1;     // 治疗量比例；无 heal_scale 时默认 1（一次普攻治疗）
-  const interval = levelData.interval || 1;        // 回复间隔（秒），仅持续型有
-  const buffDuration = levelData.duration || 0;    // 增益持续秒数，仅持续型有
+  const healScale = levelData.heal_scale ?? levelData['aura.heal_scale'] ?? 1;  // aura.* 前缀：光环类触发型（流明沐雨），语义映射到同名字段
+  const hasInterval = levelData.interval !== undefined || levelData['aura.interval'] !== undefined;
+  const interval = hasInterval ? (levelData.interval ?? levelData['aura.interval'] ?? 1) : 1;  // 回复间隔（秒），仅持续型有
+  // 持续秒数：duration 优先；诺威尔「生命不息」时长由 status_resistance[limit]（12s 抵抗 = 12s HOT）给出；流明「沐雨」取 aura.projectile_life_time
+  const buffDuration = levelData.duration ?? levelData['aura.projectile_life_time'] ?? levelData['status_resistance[limit]'] ?? 0;
   const spCost = levelData.spCost || 0;
   const spType = levelData.spType || 'INCREASE_WITH_TIME';
   const skillType = levelData.skillType || 'MANUAL'; // AUTO=自动触发, MANUAL=手动触发
-  const isSustained = levelData.interval !== undefined; // true=持续增益型，false=一次性额外型
+  const isSustained = hasInterval; // true=持续增益型，false=一次性额外型
 
   const talentScale = params.talentHealScale ?? 1; // 常驻治疗倍率（天赋，如瑰盐）
   const normalHeal = panelAtk * 1.0 * talentScale; // 1 次常态治疗（医师 heal_ratio 默认 1.0）
@@ -90,13 +93,23 @@ function calcTriggerHeal(params) {
   if (isSustained) {
     const tickHeal = skillAtk * healScale * talentScale;                 // 每次回复量（技能 heal_scale × 天赋倍率）
     const tickCount = Math.floor(buffDuration / interval); // 回复次数
-    totalHeal = tickHeal * tickCount;                      // 总治疗量
+    totalHeal = tickHeal * tickCount;                      // HOT 总量
+    // aura.* 光环随普攻挂载（流明「沐雨」）：触发那下普攻治疗照常进行，总治疗量 = 普攻 + HOT 总量
+    if (levelData['aura.heal_scale'] !== undefined) totalHeal += normalHeal;
   } else {
-    totalHeal = skillAtk * healScale * talentScale;                      // 触发时一次性额外治疗
+    totalHeal = skillAtk * healScale * talentScale;                      // 触发时一次性治疗
   }
 
   let cycleHps = null;
-  if (spType === 'INCREASE_WITH_TIME' && spCost > 0) {
+  if (spCost > 0 && spType === 'INCREASE_WHEN_ATTACK') {
+    // 攻击回复触发型：充能 spCost 次攻击后触发一次。totalHeal 为触发那下的实际回复
+    // （含普通治疗部分，如絮雨「定向诊断」下次治疗提升至 X 倍），与常态普攻重叠需扣除，只叠加强化增量。
+    const increment = levelData.attackIncrement || levelData.increment || 1;
+    const attacksToCharge = Math.max(1, Math.ceil(spCost / increment));
+    const cycleTime = attacksToCharge * baseInterval;
+    const extra = totalHeal - normalHeal;
+    cycleHps = cycleTime > 0 ? (normalHps * cycleTime + Math.max(0, extra)) / cycleTime : 0;
+  } else if (spType === 'INCREASE_WITH_TIME' && spCost > 0) {
     // 自动触发：触发时机是 sp 蓄满后的下一次普攻，蓄满到下次普攻之间多攒的 sp 被吞（延迟）。
     // 手动触发：玩家卡普攻瞬间释放，无延迟。
     let delay = 0;
@@ -106,8 +119,10 @@ function calcTriggerHeal(params) {
     }
     // 持续型周期含增益持续；一次性型周期仅充能 + 延迟（触发即生效，无后续持续）
     const cycleTime = spCost + delay + (isSustained ? buffDuration : 0);
-    // 全程普攻治疗不中断（充能/延迟/增益期间都在普攻），额外治疗叠加
-    cycleHps = cycleTime > 0 ? (normalHps * cycleTime + totalHeal) / cycleTime : 0;
+    // 全程普攻治疗不中断（充能/延迟/增益期都在普攻），额外治疗叠加
+    // aura 型的 totalHeal 已含一次普攻，叠加时扣除避免与全程普攻重复计数
+    const overlap = levelData['aura.heal_scale'] !== undefined ? normalHeal : 0;
+    cycleHps = cycleTime > 0 ? (normalHps * cycleTime + totalHeal - overlap) / cycleTime : 0;
   }
 
   return {
@@ -116,6 +131,7 @@ function calcTriggerHeal(params) {
     normalHps, totalHeal, cycleHps
   };
 }
+
 
 /**
  * 最大生命百分比触发型治疗（华法琳「紧急包扎」）。

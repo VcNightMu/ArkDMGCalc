@@ -16,7 +16,8 @@ function getSkillLevelData(skill, level) {
 // key: 干员 id；value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」：精1 Lv1 起 +4%，Lv55 起 +8%
-  'char_4163_rosesa': 0 // 瑰盐：攻击 -5%（治疗代价换倍率，见 TALENT_HEAL_DRIVERS）
+  'char_4163_rosesa': 0, // 瑰盐：攻击 -5%（治疗代价换倍率，见 TALENT_HEAL_DRIVERS）
+  'char_348_ceylon': 0   // 锡兰「湖畔漫步者」：只取默认档 [common].atk（+3%~6% 随精化/潜能5 增强），水地形 [map] 档不计
 };
 
 // 常驻治疗倍率天赋驱动表（blackboard.heal_scale 为治疗量乘数）。
@@ -55,10 +56,18 @@ function calcTalentAtkBonus(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite;
   const level = slotData.level;
+  const pot = slotData.potentialRank || 0;
   let bonus = null;   // null=未匹配；负值天赋（如瑰盐 -5%）也必须采纳
   for (const cand of talent.candidates) {
-    if (cand.phase <= elite && level >= (cand.level || 1)) {
-      const atk = cand.blackboard && typeof cand.blackboard.atk === 'number' ? cand.blackboard.atk : 0;
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
+      let atk = 0;
+      if (cand.blackboard) {
+        // 特殊键天赋（锡兰「湖畔漫步者」ceylon_t_1[common].atk）：只取默认档，忽略 [map] 等环境档
+        const commonKey = Object.keys(cand.blackboard).find(k => k.endsWith('[common].atk'));
+        if (commonKey !== undefined) atk = cand.blackboard[commonKey];
+        else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
+      }
       if (bonus === null || atk > bonus) bonus = atk;
     }
   }
@@ -66,6 +75,12 @@ function calcTalentAtkBonus(op, slotData) {
 }
 
 const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resistance: 'magicResistance', attack_speed: 'attackSpeed' };
+
+// 视作永续开关的技能：数据 skillDuration=-1 是弹药/结束机制占位，按指定口径不建模该机制。
+// 流明「灯火不灭」：默认治疗单位无异常状态 → 耗弹强化（heal_scale×2）不计算，只留 atk+攻速 buff，技能无限持续（可手动关闭）。
+const PERMANENT_OVERRIDES = {
+  'char_4042_lumen': [2]
+};
 
 /**
  * 模组面板加成：按当前装配的模组 id+等级取该级 attributeBlackboard（数据为该等级生效后的最终加成）。
@@ -235,7 +250,14 @@ function calculateOperator(op, slotData) {
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
   if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + levelData.attack_speed);
-  if (levelData.base_attack_time) skillInterval = calcRealInterval(phase.baseAttackTime + levelData.base_attack_time, 100 + baseAspdBonus);
+  // base_attack_time：负值=加算秒（白面鸮脑啡肽 -2.1 等）；(0,1) 正小数=攻击间隔倍率（"间隔缩短至 x 倍"，
+  // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7），官方描述均为“间隔（极）大幅度缩短”。
+  if (levelData.base_attack_time) {
+    const bat = levelData.base_attack_time;
+    skillInterval = (bat > 0 && bat < 1)
+      ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus)
+      : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus);
+  }
   // attack@base_attack_time：守望者普攻间隔乘算系数（风絮1技能 0.2 → 间隔 ×0.2，区别于顶层 base_attack_time 的加算秒数）
   if (levelData['attack@base_attack_time']) skillInterval = skillInterval * levelData['attack@base_attack_time'];
 
@@ -252,7 +274,7 @@ function calculateOperator(op, slotData) {
 
   // ======== Dispatch ========
   const isToggle = levelData.isToggle || false;
-  const isPermanent = levelData.isPermanent || false;
+  const isPermanent = levelData.isPermanent === true || (PERMANENT_OVERRIDES[op.id] || []).includes(skillIndex);
   const skillRealInterval = skillInterval;
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   const isArts = op.damageType === 'arts';

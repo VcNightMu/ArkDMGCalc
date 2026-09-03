@@ -234,6 +234,51 @@
     "ownerName": null
   },
   {
+    "id": "char_385_finlpp",
+    "name": "清流",
+    "rarity": "TIER_4",
+    "profession": "MEDIC",
+    "subProfessionId": "healer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_348_ceylon",
+    "name": "锡兰",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "healer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_436_whispr",
+    "name": "絮雨",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "healer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4173_nowell",
+    "name": "诺威尔",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "healer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4042_lumen",
+    "name": "流明",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "healer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_1020_reed2",
     "name": "焰影苇草",
     "rarity": "TIER_6",

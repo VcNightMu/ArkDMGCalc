@@ -1,0 +1,522 @@
+{
+  "id": "char_348_ceylon",
+  "name": "锡兰",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "healer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        164,
+        269
+      ],
+      "def": [
+        55,
+        80
+      ],
+      "maxHp": [
+        798,
+        1050
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        269,
+        374
+      ],
+      "def": [
+        80,
+        100
+      ],
+      "maxHp": [
+        1050,
+        1251
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        374,
+        468
+      ],
+      "def": [
+        100,
+        126
+      ],
+      "maxHp": [
+        1251,
+        1455
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ceylon_1",
+      "name": "集中式水疗",
+      "levels": [
+        {
+          "heal_scale": 1.4,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.45,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.55,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.65,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "cnt": 2,
+          "level": 6,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "cnt": 2,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.9,
+          "cnt": 2,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2,
+          "cnt": 3,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ceylon_2",
+      "name": "水灵庇护",
+      "levels": [
+        {
+          "attack@max_target": 2,
+          "atk": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.3,
+          "one_minus_status_resistance": -0.5,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.4,
+          "one_minus_status_resistance": -0.5,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.5,
+          "one_minus_status_resistance": -0.5,
+          "level": 6,
+          "spCost": 80,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.53,
+          "one_minus_status_resistance": -0.5,
+          "level": 7,
+          "spCost": 80,
+          "initialSp": 34,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.56,
+          "one_minus_status_resistance": -0.5,
+          "level": 8,
+          "spCost": 80,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 2,
+          "atk": 0.6,
+          "one_minus_status_resistance": -0.5,
+          "level": 9,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "湖畔漫步者",
+          "description": "攻击力+3%，当场地中存在水地形时改为攻击力+9%",
+          "blackboard": {
+            "ceylon_t_1[common].atk": 0.03,
+            "celyon_t_1[map].atk": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "湖畔漫步者",
+          "description": "攻击力+4%<@ba.talpu>（+1%）</>，当场地中存在水地形时改为攻击力+15%<@ba.talpu>（+6%）</>",
+          "blackboard": {
+            "ceylon_t_1[common].atk": 0.04,
+            "celyon_t_1[map].atk": 0.11
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "湖畔漫步者",
+          "description": "攻击力+5%，当场地中存在水地形时改为攻击力+18%",
+          "blackboard": {
+            "ceylon_t_1[common].atk": 0.05,
+            "celyon_t_1[map].atk": 0.13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "湖畔漫步者",
+          "description": "攻击力+6%<@ba.talpu>（+1%）</>，当场地中存在水地形时改为攻击力+24%<@ba.talpu>（+6%）</>",
+          "blackboard": {
+            "ceylon_t_1[common].atk": 0.06,
+            "celyon_t_1[map].atk": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ceylon",
+      "name": "锡兰证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ceylon",
+      "name": "野外考察套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 25,
+            "magic_resistance": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 35,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "湖畔漫步者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ceylon_t_1[common].atk": 0.08,
+                "celyon_t_1[map].atk": 0.22
+              }
+            },
+            {
+              "name": "湖畔漫步者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ceylon_t_1[common].atk": 0.09,
+                "celyon_t_1[map].atk": 0.27
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 45,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "湖畔漫步者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ceylon_t_1[common].atk": 0.11,
+                "celyon_t_1[map].atk": 0.31
+              }
+            },
+            {
+              "name": "湖畔漫步者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ceylon_t_1[common].atk": 0.12,
+                "celyon_t_1[map].atk": 0.36
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

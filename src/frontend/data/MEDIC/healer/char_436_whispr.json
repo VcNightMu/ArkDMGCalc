@@ -1,0 +1,534 @@
+{
+  "id": "char_436_whispr",
+  "name": "絮雨",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "healer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        172,
+        282
+      ],
+      "def": [
+        52,
+        76
+      ],
+      "maxHp": [
+        785,
+        1034
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        282,
+        393
+      ],
+      "def": [
+        76,
+        95
+      ],
+      "maxHp": [
+        1034,
+        1231
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        393,
+        492
+      ],
+      "def": [
+        95,
+        119
+      ],
+      "maxHp": [
+        1231,
+        1432
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_whispr_1",
+      "name": "定向诊断",
+      "levels": [
+        {
+          "heal_scale": 1.05,
+          "status_resistance[limit]": 1,
+          "one_minus_status_resistance": -0.5,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.05,
+          "status_resistance[limit]": 2,
+          "one_minus_status_resistance": -0.5,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.1,
+          "status_resistance[limit]": 2,
+          "one_minus_status_resistance": -0.5,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.1,
+          "status_resistance[limit]": 3,
+          "one_minus_status_resistance": -0.5,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.15,
+          "status_resistance[limit]": 3,
+          "one_minus_status_resistance": -0.5,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.15,
+          "status_resistance[limit]": 4,
+          "one_minus_status_resistance": -0.5,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "status_resistance[limit]": 4,
+          "one_minus_status_resistance": -0.5,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "status_resistance[limit]": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 7,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.25,
+          "status_resistance[limit]": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 8,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.3,
+          "status_resistance[limit]": 5,
+          "one_minus_status_resistance": -0.5,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_whispr_2",
+      "name": "痛觉抑制",
+      "levels": [
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 1,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.1,
+          "level": 0,
+          "spCost": 65,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 1,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.2,
+          "level": 1,
+          "spCost": 64,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 1,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.3,
+          "level": 2,
+          "spCost": 63,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 2,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.4,
+          "level": 3,
+          "spCost": 62,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 2,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.5,
+          "level": 4,
+          "spCost": 61,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 2,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.6,
+          "level": 5,
+          "spCost": 60,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 3,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.7,
+          "level": 6,
+          "spCost": 59,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 3,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.8,
+          "level": 7,
+          "spCost": 58,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 3,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 1.9,
+          "level": 8,
+          "spCost": 57,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "base_attack_time": -0.2,
+          "attack@status_resistance[limit]": 4,
+          "attack@one_minus_status_resistance": -0.5,
+          "talent_scale": 2,
+          "level": 9,
+          "spCost": 55,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生命塔台",
+          "description": "攻击范围内拥有<$ba.buffres>抵抗</>的友方单位每秒恢复相当于絮雨攻击力3%的生命（不受特性影响）",
+          "blackboard": {
+            "atk_to_hp_recovery_ratio": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "生命塔台",
+          "description": "攻击范围内拥有<$ba.buffres>抵抗</>的友方单位每秒恢复相当于絮雨攻击力4%<@ba.talpu>（+1%）</>的生命（不受特性影响）",
+          "blackboard": {
+            "atk_to_hp_recovery_ratio": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生命塔台",
+          "description": "攻击范围内拥有<$ba.buffres>抵抗</>的友方单位每秒恢复相当于絮雨攻击力6%的生命（不受特性影响）",
+          "blackboard": {
+            "atk_to_hp_recovery_ratio": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "生命塔台",
+          "description": "攻击范围内拥有<$ba.buffres>抵抗</>的友方单位每秒恢复相当于絮雨攻击力7%<@ba.talpu>（+1%）</>的生命（不受特性影响）",
+          "blackboard": {
+            "atk_to_hp_recovery_ratio": 0.07
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_whispr",
+      "name": "絮雨证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_whispr",
+      "name": "古朴的急救箱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 25
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "生命塔台",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_to_hp_recovery_ratio": 0.08
+              }
+            },
+            {
+              "name": "生命塔台",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_to_hp_recovery_ratio": 0.09
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "生命塔台",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_to_hp_recovery_ratio": 0.09
+              }
+            },
+            {
+              "name": "生命塔台",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_to_hp_recovery_ratio": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

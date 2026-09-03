@@ -1,0 +1,736 @@
+{
+  "id": "char_4042_lumen",
+  "name": "流明",
+  "rarity": "TIER_6",
+  "profession": "MEDIC",
+  "subProfessionId": "healer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        189,
+        311
+      ],
+      "def": [
+        48,
+        70
+      ],
+      "maxHp": [
+        1000,
+        1317
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        311,
+        432
+      ],
+      "def": [
+        70,
+        88
+      ],
+      "maxHp": [
+        1317,
+        1569
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        432,
+        540
+      ],
+      "def": [
+        88,
+        111
+      ],
+      "maxHp": [
+        1569,
+        1825
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lumen_1",
+      "name": "沐雨",
+      "levels": [
+        {
+          "aura.heal_scale": 0.25,
+          "aura.projectile_life_time": 3,
+          "aura.interval": 1,
+          "level": 0,
+          "spCost": 13,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.27,
+          "aura.projectile_life_time": 3,
+          "aura.interval": 1,
+          "level": 1,
+          "spCost": 13,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.3,
+          "aura.projectile_life_time": 3,
+          "aura.interval": 1,
+          "level": 2,
+          "spCost": 13,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.32,
+          "aura.projectile_life_time": 4,
+          "aura.interval": 1,
+          "level": 3,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.35,
+          "aura.projectile_life_time": 4,
+          "aura.interval": 1,
+          "level": 4,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.37,
+          "aura.projectile_life_time": 4,
+          "aura.interval": 1,
+          "level": 5,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.4,
+          "aura.projectile_life_time": 5,
+          "aura.interval": 1,
+          "level": 6,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.45,
+          "aura.projectile_life_time": 5,
+          "aura.interval": 1,
+          "level": 7,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.5,
+          "aura.projectile_life_time": 5,
+          "aura.interval": 1,
+          "level": 8,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "aura.heal_scale": 0.55,
+          "aura.projectile_life_time": 5,
+          "aura.interval": 1,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lumen_2",
+      "name": "沛霖",
+      "levels": [
+        {
+          "heal_scale": 1.2,
+          "max_target": 2,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.3,
+          "max_target": 2,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.4,
+          "max_target": 2,
+          "level": 2,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "max_target": 2,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "max_target": 2,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "max_target": 2,
+          "level": 5,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2,
+          "max_target": 2,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.2,
+          "max_target": 3,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.4,
+          "max_target": 3,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.6,
+          "max_target": 3,
+          "level": 9,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lumen_3",
+      "name": "灯火不灭",
+      "levels": [
+        {
+          "attack_speed": 10,
+          "heal_scale": 1.2,
+          "attack@trigger_time": 3,
+          "atk": 0.2,
+          "level": 0,
+          "spCost": 65,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 10,
+          "heal_scale": 1.25,
+          "attack@trigger_time": 3,
+          "atk": 0.23,
+          "level": 1,
+          "spCost": 64,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 10,
+          "heal_scale": 1.3,
+          "attack@trigger_time": 4,
+          "atk": 0.26,
+          "level": 2,
+          "spCost": 63,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "heal_scale": 1.35,
+          "attack@trigger_time": 4,
+          "atk": 0.3,
+          "level": 3,
+          "spCost": 61,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "heal_scale": 1.4,
+          "attack@trigger_time": 5,
+          "atk": 0.33,
+          "level": 4,
+          "spCost": 60,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "heal_scale": 1.45,
+          "attack@trigger_time": 5,
+          "atk": 0.36,
+          "level": 5,
+          "spCost": 59,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "heal_scale": 1.5,
+          "attack@trigger_time": 6,
+          "atk": 0.4,
+          "level": 6,
+          "spCost": 57,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "heal_scale": 1.7,
+          "attack@trigger_time": 6,
+          "atk": 0.45,
+          "level": 7,
+          "spCost": 55,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "heal_scale": 1.85,
+          "attack@trigger_time": 7,
+          "atk": 0.5,
+          "level": 8,
+          "spCost": 53,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "heal_scale": 2,
+          "attack@trigger_time": 8,
+          "atk": 0.55,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "凡人之愿",
+          "description": "治疗的目标获得2秒<$ba.buffres>抵抗</>，若目标生命值高于75%则改为4秒<$ba.buffres>抵抗</>",
+          "blackboard": {
+            "status_resistance[limit]": 2,
+            "lumen_t_1[special].status_resistance[limit]": 4,
+            "one_minus_status_resistance": -0.5,
+            "lumen_t_1[special].one_minus_status_resistance": -0.5,
+            "hp_ratio": 0.75
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "凡人之愿",
+          "description": "治疗的目标获得4秒<$ba.buffres>抵抗</>，若目标生命值高于75%则改为6秒<$ba.buffres>抵抗</>",
+          "blackboard": {
+            "status_resistance[limit]": 4,
+            "lumen_t_1[special].status_resistance[limit]": 6,
+            "one_minus_status_resistance": -0.5,
+            "lumen_t_1[special].one_minus_status_resistance": -0.5,
+            "hp_ratio": 0.75
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "应急处理",
+          "description": "攻击范围内的友方受到异常状态时，立刻治疗目标相当于流明攻击力80%的生命，该效果有12秒冷却时间",
+          "blackboard": {
+            "heal_scale": 0.8,
+            "duration": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "应急处理",
+          "description": "攻击范围内的友方受到异常状态时，立刻治疗目标相当于流明攻击力80%的生命，该效果有10<@ba.talpu>（-2）</>秒冷却时间",
+          "blackboard": {
+            "heal_scale": 0.8,
+            "duration": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lumen",
+      "name": "流明证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lumen",
+      "name": "纯铜单筒望远镜",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 30
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "凡人之愿",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "status_resistance[limit]": 5,
+                "lumen_t_1[special].status_resistance[limit]": 7,
+                "one_minus_status_resistance": -0.5,
+                "lumen_t_1[special].one_minus_status_resistance": -0.5,
+                "hp_ratio": 0.75
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "凡人之愿",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "status_resistance[limit]": 5,
+                "lumen_t_1[special].status_resistance[limit]": 8,
+                "one_minus_status_resistance": -0.5,
+                "lumen_t_1[special].one_minus_status_resistance": -0.5,
+                "hp_ratio": 0.75
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_lumen",
+      "name": "“幸运”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "def": 20
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "应急处理",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 0.9,
+                "duration": 11
+              }
+            },
+            {
+              "name": "应急处理",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 0.9,
+                "duration": 9
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 28
+          },
+          "talentEnhance": [
+            {
+              "name": "应急处理",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 1,
+                "duration": 10
+              }
+            },
+            {
+              "name": "应急处理",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 1,
+                "duration": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
