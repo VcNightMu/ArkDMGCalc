@@ -395,7 +395,9 @@ async function updateResults() {
       const normDmgCls = dmgClass(result.normalDamageType);
       metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
-      metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + normDmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+      if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
+        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + normDmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+      }
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     }
