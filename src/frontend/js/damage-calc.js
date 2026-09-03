@@ -169,7 +169,8 @@ const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resista
 // 视作永续开关的技能:数据 skillDuration=-1 是弹药/结束机制占位,按指定口径不建模该机制。
 // 流明「灯火不灭」:默认治疗单位无异常状态 → 耗弹强化(heal_scale×2)不计算,只留 atk+攻速 buff,技能无限持续(可手动关闭)。
 const PERMANENT_OVERRIDES = {
-  'char_4042_lumen': [2]
+  'char_4042_lumen': [2],   // 流明 S3 灯火不灭：skillDuration=-1 弹药占位，实际永续
+  'char_4230_mcnist': [1],  // 机械师 S2 协防术式：弹药仅屏障被摧毁时消耗（爆盾机制无受击模型）→ 永续
 };
 
 // 单次攻击多重治疗的技能(连发全打同一目标/单目标模型):纯烬艾雅法拉「火山回响」治疗变 5 连发(每发 attack@heal_scale),全部计入。
@@ -210,6 +211,8 @@ const SKILL_ATK_KEY_OVERRIDES = {
 // 技能期每击按法术结算(吃敌方法抗),常态普攻仍为物理。
 const SKILL_ARTS_OVERRIDES = {
   'char_2014_nian': [0],   // 年 S1「锡灼」
+  'char_107_liskam': [1],  // 雷蛇 S2 反击电弧：攻击变为对最多 3 敌造成法术伤害（单目标=法伤）
+  'char_4230_mcnist': [2], // 机械师 S3 工程学十字星：攻击变为十字范围法术伤害（召唤物轮再校冲锋口径）
 };
 
 /**
@@ -402,6 +405,8 @@ const BAT_ADD_OVERRIDES = {
   'char_378_asbest': { 1: true },  // 石棉 S2 火电模式:攻击间隔增大(1.6+0.4=2.0s)
   'char_416_zumama': { 1: true },  // 森蚺 S2 震慑劈砍:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_422_aurora': { 1: true },  // 极光 S2 人工降雪:攻击间隔略微增大(1.6+0.25=1.85s)
+  'char_1034_jesca2': { 2: true }, // 涤火杰西卡 S3 饱和迸射:攻击间隔增大(1.2+0.6=1.8s)
+  'char_107_liskam': { 1: true },  // 雷蛇 S2 反击电弧:攻击间隔增大(1.2+0.7=1.9s)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -432,11 +437,13 @@ const PERIODIC_DOT = {
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
+  'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
 };
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
   'char_494_vendla': { 1: true },   // 刺玫 S2 荆藤庇荫：atk_scale 是受击反伤倍率（反伤不计），普攻只吃 atk 加攻
+  'char_4230_mcnist': { 1: true, 2: true }, // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
@@ -498,7 +505,35 @@ const STOP_ATTACK_SKILLS = {
   'char_150_snakek': [1],   // 蛇屠箱 S2「壳状防御」
   'char_381_bubble': [1],   // 泡泡 S2「挨打」
   'char_304_zebra': [1],    // 暴雨 S2「群体迷彩」
+  'char_4194_rmixer': [2],  // 信仰搅拌机 S3 退休前布道：停止主动攻击转受击反击（无受击模型，反击不计）
 };
+// 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
+const NORMAL_ATK_SKILLS = {
+  'char_107_liskam': [0],
+  'char_457_blitz': [0],
+};
+// 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
+// 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
+const TALENT_FLAT_DOT = {
+  'char_4137_udflow': { talentIndex: 0, key: 'damage', duration: 3 },
+};
+function calcTalentFlatDotDps(op, slotData) {
+  const cfg = TALENT_FLAT_DOT[op.id];
+  if (!cfg) return 0;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let dmg = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      if (v > dmg) dmg = v;
+    }
+  }
+  return dmg;
+}
 
 function calculateOperator(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
@@ -691,7 +726,19 @@ function calculateOperator(op, slotData) {
     (levelData.heal_scale !== undefined && (levelData.skillType === 'AUTO' || levelData.atk_scale !== undefined))
   );
   if (isSummon && !hasRealSkills) {
-    result = calcSummonHeal(params);
+    if (op.id === 'token_10069_mcnist_mcgraf') {
+      // 机械师·结构性原理：攻击型附带单位无技能（冲锋由持有者 S3 触发已计入本体）→ 常态物理普攻
+      const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
+      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      result = {
+        type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+        normalDps: normHit / normInt, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: normInt, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+      };
+    } else {
+      result = calcSummonHeal(params);
+    }
   } else if (isMedic) {
     result = calcMedical(params);
   } else if (isGuardianHealSkill) {
@@ -776,6 +823,72 @@ function calculateOperator(op, slotData) {
         physical: { skillDps: physTotal / skillDuration, skillTotalDamage: physTotal, cycleDps: null },
         arts: { skillDps: burnTotal / skillDuration, skillTotalDamage: burnTotal, cycleDps: null },
       },
+    };
+  } else if (op.id === 'char_1034_jesca2' && skillIndex === 2) {
+    // 涤火杰西卡 S3 饱和迸射（20发弹药打完即结束，间隔 1.2+0.6=1.8s）：
+    // 弹药=atk+X% 普攻（skillAtk 数据驱动）+ 首炮一发 attack@extrabomb.atk_scale×技能期攻击力（默认玩家放盾开炮）
+    const perHit = calcPhysicalDamage(skillAtk, state.enemy.def);
+    const firstShot = calcPhysicalDamage(skillAtk * (levelData['attack@extrabomb.atk_scale'] ?? 1), state.enemy.def);
+    const ammoN = levelData.trigger_time ?? levelData['attack@trigger_time'] ?? 20;
+    const total = perHit * ammoN + firstShot;
+    const ammoTime = ammoN * (skillRealInterval > 0 ? skillRealInterval : 1);
+    result = {
+      skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4230_mcnist' && skillIndex === 2) {
+    // 机械师 S3 工程学十字星（dur40，间隔 1.2+2.3=3.5s）：普攻改写为 attack@atk_scale×技能期攻击力法伤（11击）
+    // + 结构性原理冲锋一发 atk_scale×技能期攻击力物理（默认结构体在场命中；虚弱不计）
+    const artsHit = calcArtsDamage(skillAtk * (levelData['attack@atk_scale'] ?? 1), state.enemy.res);
+    const artsAttacks = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
+    const artsTotal = artsHit * artsAttacks;
+    const chargeHit = calcPhysicalDamage(skillAtk * (levelData.atk_scale ?? 1), state.enemy.def);
+    const total = artsTotal + chargeHit;
+    const dps = total / skillDuration;
+    result = {
+      skillDps: dps, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: skillRealInterval,
+      dmgTypes: {
+        arts: { skillDps: artsTotal / skillDuration, skillTotalDamage: artsTotal, cycleDps: null },
+        physical: { skillDps: chargeHit / skillDuration, skillTotalDamage: chargeHit, cycleDps: null },
+      },
+    };
+  } else if (op.id === 'char_4194_rmixer' && skillIndex === 1) {
+    // 信仰搅拌机 S2 八臂电锯侠（47发弹药打完即结束）：atk+120% 普攻弹药（致命伤耗弹抵挡不计）
+    const perHit = calcPhysicalDamage(panelAtk * (1 + 1.2), state.enemy.def);
+    const total = perHit * 47;
+    const ammoTime = 47 * (skillRealInterval > 0 ? skillRealInterval : 1);
+    result = {
+      skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_457_blitz' && skillIndex === 1) {
+    // 闪击 S2 突破防线：先手对阻挡敌 1.8×atk 物理+眩晕6s；攻速+200(间隔0.4s)期间攻击眩晕目标，天赋倍率×1.5 → 每击 160%×1.5=240%
+    // 0.4s×15击=6s 全在眩晕窗口 → 15 击全部 2.4 倍
+    const leadHit = calcPhysicalDamage(panelAtk * 1.8, state.enemy.def);
+    const stunHit = calcPhysicalDamage(panelAtk * 2.4, state.enemy.def);
+    const hitInt = calcRealInterval(phase.baseAttackTime, 100 + 200);
+    const stunAttacks = Math.floor(skillDuration / hitInt);
+    const total = leadHit + stunHit * stunAttacks;
+    result = {
+      skillDps: total / skillDuration, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: hitInt,
+      dmgTypes: { physical: { skillDps: total / skillDuration, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (!isSummon && (NORMAL_ATK_SKILLS[op.id] || []).includes(skillIndex)) {
+    // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）
+    const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    result = {
+      skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+      normalDps: normHit / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
     };
   } else if (!isSummon && levelData.heal_scale !== undefined && levelData.skillDuration === 0) {
     // 自愈型一次性技能(非医疗,如卡缇 S1「生命回复·α」skcom_heal_self):立即恢复最大生命 heal_scale 比例
@@ -915,6 +1028,28 @@ function calculateOperator(op, slotData) {
   const endHealRatio = calcTalentEndHealRatio(op, slotData);
   if (endHealRatio > 0 && skillDuration > 0 && !isMedic && !isSummon) {
     result = { ...result, totalHeal: (result.totalHeal ?? 0) + panelHp * endHealRatio };
+  }
+  // 附带固定 DOT 天赋(深巡「细胞活性抑制剂」:攻击使目标 3s 每秒受 80 法伤;攻击间隔 1.2s<3s 全覆盖 → 等效常驻秒伤)
+  // DOT 吃法抗、不吃攻击加成;常态(物理普攻+dot)与技能期(本体+dot 法伤档双色)均附加
+  const flatDotDmg = calcTalentFlatDotDps(op, slotData);
+  if (flatDotDmg > 0 && !isMedic && !isSummon) {
+    const dotDps = calcArtsDamage(flatDotDmg, state.enemy.res);
+    const dotDur = skillDuration > 0 ? skillDuration : (levelData.duration > 0 ? levelData.duration : 0);
+    const dotTotal = dotDps * dotDur;
+    result = {
+      ...result,
+      normalDps: (result.normalDps ?? 0) + dotDps,
+      skillDps: (result.skillDps ?? 0) + dotDps,
+      skillTotalDamage: (result.skillTotalDamage ?? 0) + dotTotal,
+      dmgTypes: result.dmgTypes ? {
+        ...result.dmgTypes,
+        arts: {
+          skillDps: (result.dmgTypes.arts?.skillDps ?? 0) + dotDps,
+          skillTotalDamage: (result.dmgTypes.arts?.skillTotalDamage ?? 0) + dotTotal,
+          cycleDps: null,
+        },
+      } : { arts: { skillDps: dotDps, skillTotalDamage: dotTotal, cycleDps: null } },
+    };
   }
 
   if (skill.type === SkillType.HEAL) {

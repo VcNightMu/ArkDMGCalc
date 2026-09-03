@@ -1,0 +1,118 @@
+{
+  "id": "token_10032_jesca2_jckshd",
+  "name": "机动盾牌",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_1034_jesca2",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        348,
+        465
+      ],
+      "maxHp": [
+        1731,
+        2249
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        480,
+        600
+      ],
+      "maxHp": [
+        2368,
+        2888
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        619,
+        755
+      ],
+      "maxHp": [
+        3041,
+        3802
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "更容易受到伤害",
+          "blackboard": {
+            "duration": 20,
+            "taunt_level": 1
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "更容易受到伤害",
+          "blackboard": {
+            "duration": 35,
+            "taunt_level": 1
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "更容易受到伤害",
+          "blackboard": {
+            "duration": 50,
+            "taunt_level": 1
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

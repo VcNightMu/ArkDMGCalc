@@ -127,7 +127,7 @@ const OPERATORS = {
     skywalker: [],                  // 巡空者
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理）
   },
 };
 
@@ -329,12 +329,18 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   const damageType = (artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical';
 
   const skills = [];
+  // 剔除召唤物自带的占位/联动技能（结构性原理的 sktok_mcgraf_1/2 空占位、sktok_mcgraf_3 冲锋被动由持有者 S3 触发，
+  // 独立查询时以常态普攻为准——与医疗探机同类无技能卡）；同时跳过持有者技能注入
+  // （机械师技能的 attack@ 前缀键是机械师自身普攻改写，非结构体加成）
+  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd'];
+  const dropNative = String(id).startsWith('token_') && tokenDropNativeSkills.includes(id);
   const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);
-  if (nativeRefs.length === 0 && ownerCharData) {
+  const nativeRefs2 = dropNative ? [] : nativeRefs;
+  if (!dropNative && nativeRefs2.length === 0 && ownerCharData) {
     // 召唤物无自身技能（skills 为 null 占位）→ 注入持有者技能（attack@ 前缀剥离）
     skills.push(...convertSkillsForToken(ownerCharData, skillTable));
   }
-  for (const skillRef of nativeRefs) {
+  for (const skillRef of nativeRefs2) {
     const sid = skillRef.skillId;
     const st = skillTable[sid];
     if (!st) continue;
@@ -407,6 +413,10 @@ async function main() {
       for (const c of (t.candidates || [])) {
         if (c.tokenKey) tokenOwners[c.tokenKey] = id;
       }
+    }
+    // 直接召唤（涤火杰西卡·机动盾牌 / 机械师·结构性原理：干员顶层 displayTokenDict 声明）
+    for (const tokenId of Object.keys(charData.displayTokenDict || {})) {
+      tokenOwners[tokenId] = id;
     }
   }
 

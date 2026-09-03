@@ -1,0 +1,149 @@
+{
+  "id": "token_10069_mcnist_mcgraf",
+  "name": "结构性原理",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4230_mcnist",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        242,
+        346
+      ],
+      "def": [
+        253,
+        338
+      ],
+      "maxHp": [
+        1594,
+        2071
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        357,
+        477
+      ],
+      "def": [
+        349,
+        437
+      ],
+      "maxHp": [
+        2181,
+        2660
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        492,
+        600
+      ],
+      "def": [
+        451,
+        550
+      ],
+      "maxHp": [
+        2800,
+        3500
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "结构性原理",
+          "description": "部署后持续20秒",
+          "blackboard": {
+            "skill@duration": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "结构性原理",
+          "description": "部署后持续30秒",
+          "blackboard": {
+            "skill@duration": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生命方程",
+          "description": "部署时获得最大生命30%的<$ba.barrier>屏障</>；来自自身的<$ba.barrier>屏障</>可以抵挡超额的伤害",
+          "blackboard": {
+            "hp_ratio": 0.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "生命方程",
+          "description": "部署时获得最大生命40%<@ba.talpu>（+10%）</>的<$ba.barrier>屏障</>；来自自身的<$ba.barrier>屏障</>可以抵挡超额的伤害",
+          "blackboard": {
+            "hp_ratio": 0.4
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "atk": -0.5,
+            "range_radius": 1.5,
+            "interval": 1,
+            "atk_interval": 0.025,
+            "atk_min": 0
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}
