@@ -5,6 +5,7 @@
   "profession": "SPECIAL",
   "subProfessionId": "executor",
   "damageType": "physical",
+  "ownerOperatorId": null,
   "phases": [
     {
       "eliteLevel": 0,
@@ -81,7 +82,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -92,7 +94,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -103,7 +106,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -114,7 +118,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -125,7 +130,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -136,7 +142,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -147,7 +154,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -158,7 +166,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -169,7 +178,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -180,7 +190,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         }
@@ -197,7 +208,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -208,7 +220,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -219,7 +232,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -230,7 +244,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -241,7 +256,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -252,7 +268,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -263,7 +280,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -274,7 +292,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -285,7 +304,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         },
@@ -296,7 +316,8 @@
           "spCost": 0,
           "initialSp": 0,
           "spType": 8,
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
           "isToggle": false,
           "isPermanent": false
         }

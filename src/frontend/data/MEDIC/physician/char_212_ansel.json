@@ -5,6 +5,7 @@
   "profession": "MEDIC",
   "subProfessionId": "physician",
   "damageType": "physical",
+  "ownerOperatorId": null,
   "phases": [
     {
       "eliteLevel": 0,
@@ -62,7 +63,8 @@
           "spCost": 45,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 19,
+          "skillDuration": 19,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -73,7 +75,8 @@
           "spCost": 44,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 20,
+          "skillDuration": 20,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -84,7 +87,8 @@
           "spCost": 43,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 21,
+          "skillDuration": 21,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -95,7 +99,8 @@
           "spCost": 40,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 22,
+          "skillDuration": 22,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -106,7 +111,8 @@
           "spCost": 39,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 23,
+          "skillDuration": 23,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -117,7 +123,8 @@
           "spCost": 38,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 24,
+          "skillDuration": 24,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -128,7 +135,8 @@
           "spCost": 35,
           "initialSp": 10,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 25,
+          "skillDuration": 25,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         }

@@ -3,6 +3,11 @@ import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfession
 import { state } from './state.js';
 import { calculateOperator, calcPanelStats } from './damage-calc.js';
 
+function dmgClass(damageType) {
+  const map = { physical: 'dmg-physical', arts: 'dmg-arts', true: 'dmg-true', element: 'dmg-element' };
+  return map[damageType] || 'dmg-physical';
+}
+
 function initEnemyPanel() {
   const inputs = {
     hp: document.getElementById('enemy-hp'),
@@ -89,9 +94,10 @@ async function showOperatorPicker(slotIndex) {
     listEl.innerHTML = '';
     if (!prof || !sub) return;
     for (const op of (profGroups[prof][sub] || [])) {
+      const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
       listEl.innerHTML += '<div class="picker-item" data-id="' + op.id + '">' +
         '<span class="rarity-' + op.rarity + '" style="font-size:13px;min-width:36px;">' + (rarityLabels[op.rarity] || '') + '</span>' +
-        '<span>' + op.name + '</span>' +
+        '<span>' + displayName + '</span>' +
         '</div>';
     }
   });
@@ -144,7 +150,8 @@ async function renderSlot(index) {
   slot.className = 'operator-slot';
   let html = '';
   html += '<div class="slot-header">';
-  html += '<img class="slot-avatar" src="assets/avatars/' + op.profession + '/' + op.subProfessionId + '/' + op.id + '.png" alt="' + op.name + '">';
+  html += '<img class="slot-avatar" src="assets/avatars/' + op.profession + '/' + op.subProfessionId + '/' + op.id + '.png" alt="' + op.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
+  html += '<div class="slot-avatar" style="display:none;align-items:center;justify-content:center;background:#0f3460;color:#a0a0b0;font-size:11px;">' + (op.profession === 'TOKEN' ? '召唤物' : (op.name || '').charAt(0)) + '</div>';
   html += '<div class="slot-info">';
   html += '<h3 class="rarity-' + rarityNum + '">' + op.name + '</h3>';
   html += '<span class="profession">' + getProfessionCN(op.profession) + ' · ' + subProfName + '</span>';
@@ -167,7 +174,10 @@ async function renderSlot(index) {
   html += '<div class="form-group"><label>信赖%</label>';
   html += '<input type="number" data-index="' + index + '" data-field="trustPercent" value="' + data.trustPercent + '" min="0" max="100">';
   html += '</div>';
-  if (op.skills.length > 0) {
+  // 技能选择器：有可选技能即显示（召唤物若只有 skcom_ 通用被动如医疗探机则不显示；
+  // 凯尔希·Mon3tr 这类带注入技能的攻击型召唤物正常显示 1/2/3 技能）
+  const hasSelectableSkills = op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_'));
+  if (hasSelectableSkills) {
     html += '<div class="form-group"><label>技能</label>';
     const maxSiForElite = data.elite === 0 ? 0 : data.elite === 1 ? 1 : 2;
     const skillCount = Math.min(op.skills.length, maxSiForElite + 1);
@@ -261,11 +271,13 @@ async function updateResults() {
     card.className = 'result-card';
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
+    const dmgCls = dmgClass(result.damageType);
 
     let metricsHtml = '';
     if (result.type === 'heal') {
+      const hpsLabel = op.profession === 'TOKEN' ? '治疗 HPS' : '常态 HPS';
       if (result.normalHps !== null && result.normalHps !== undefined) {
-        metricsHtml += '<div class="metric"><span class="label">常态 HPS</span><span class="value heal">' + result.normalHps.toFixed(0) + '</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">' + hpsLabel + '</span><span class="value heal">' + result.normalHps.toFixed(0) + '</span></div>';
       }
       if (result.skillHps !== null && result.skillHps !== undefined && result.skillHps > 0) {
         metricsHtml += '<div class="metric"><span class="label">技能期 HPS</span><span class="value heal">' + result.skillHps.toFixed(0) + '</span></div>';
@@ -273,26 +285,33 @@ async function updateResults() {
       if (result.totalHeal !== null && result.totalHeal !== undefined) {
         metricsHtml += '<div class="metric"><span class="label">总治疗量</span><span class="value heal">' + result.totalHeal.toFixed(0) + '</span></div>';
       }
-      if (result.skillDps > 0) {
-        metricsHtml += '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
+      if (result.cycleHps !== null && result.cycleHps !== undefined) {
+        metricsHtml += '<div class="metric"><span class="label">周期 HPS</span><span class="value heal">' + result.cycleHps.toFixed(0) + '</span></div>';
       }
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      if (result.skillDps > 0) {
+        metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
+      }
+      if (result.skillTotalDamage > 0) {
+        metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+      }
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.isToggle || result.isPermanent) {
-      metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.cycleDps !== null) {
-      metricsHtml = '<div class="metric"><span class="label">总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">循环 DPS</span><span class="value dps">' + result.cycleDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      metricsHtml = '<div class="metric"><span class="label">总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">循环 DPS</span><span class="value ' + dmgCls + '">' + result.cycleDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
-      metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span><span class="value dps">' + result.skillDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value damage">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value dps">' + result.normalDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value">' + result.panelAtk.toFixed(0) + '</span></div>';
+      const normDmgCls = dmgClass(result.normalDamageType);
+      metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + normDmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     }
 
     card.innerHTML = '<div class="result-header">' +
@@ -330,11 +349,11 @@ async function renderPanelStats() {
         '<span class="stats-config">' + phaseLabel + ' Lv' + slotData.level + ' · 信赖' + slotData.trustPercent + '%</span>' +
       '</div>' +
       '<div class="stats-list">' +
-        '<div class="metric"><span class="label">生命值</span><span class="value">' + ps.panelHp + '</span></div>' +
-        '<div class="metric"><span class="label">攻击力</span><span class="value">' + ps.panelAtk + '</span></div>' +
-        '<div class="metric"><span class="label">防御力</span><span class="value">' + ps.panelDef + '</span></div>' +
-        '<div class="metric"><span class="label">法术抗性</span><span class="value">' + ps.magicResistance + '</span></div>' +
-        '<div class="metric"><span class="label">攻击间隔</span><span class="value">' + ps.baseAttackTime.toFixed(2) + 's</span></div>' +
+        '<div class="metric"><span class="label">生命值</span><span class="value stat">' + ps.panelHp + '</span></div>' +
+        '<div class="metric"><span class="label">攻击力</span><span class="value stat">' + ps.panelAtk + '</span></div>' +
+        '<div class="metric"><span class="label">防御力</span><span class="value stat">' + ps.panelDef + '</span></div>' +
+        '<div class="metric"><span class="label">法术抗性</span><span class="value stat">' + ps.magicResistance + '</span></div>' +
+        '<div class="metric"><span class="label">攻击间隔</span><span class="value stat">' + ps.baseAttackTime.toFixed(2) + 's</span></div>' +
       '</div>';
     container.appendChild(card);
   }

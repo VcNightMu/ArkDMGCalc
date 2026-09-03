@@ -1,184 +1,254 @@
 [
   {
-    "id": "char_172_svrash",
-    "name": "银灰",
+    "id": "char_222_bpipe",
+    "name": "风笛",
     "rarity": "TIER_6",
-    "profession": "WARRIOR",
-    "subProfessionId": "lord"
-  },
-  {
-    "id": "char_010_chen",
-    "name": "陈",
-    "rarity": "TIER_6",
-    "profession": "WARRIOR",
-    "subProfessionId": "sword"
-  },
-  {
-    "id": "char_293_thorns",
-    "name": "棘刺",
-    "rarity": "TIER_6",
-    "profession": "WARRIOR",
-    "subProfessionId": "lord"
-  },
-  {
-    "id": "char_103_angel",
-    "name": "能天使",
-    "rarity": "TIER_6",
-    "profession": "SNIPER",
-    "subProfessionId": "fastshot"
-  },
-  {
-    "id": "char_180_amgoat",
-    "name": "艾雅法拉",
-    "rarity": "TIER_6",
-    "profession": "CASTER",
-    "subProfessionId": "corecaster"
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_350_surtr",
     "name": "史尔特尔",
     "rarity": "TIER_6",
     "profession": "WARRIOR",
-    "subProfessionId": "artsfghter"
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
-    "id": "char_222_bpipe",
-    "name": "风笛",
+    "id": "char_172_svrash",
+    "name": "银灰",
     "rarity": "TIER_6",
-    "profession": "PIONEER",
-    "subProfessionId": "charger"
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_293_thorns",
+    "name": "棘刺",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_010_chen",
+    "name": "陈",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_202_demkni",
     "name": "塞雷娅",
     "rarity": "TIER_6",
     "profession": "TANK",
-    "subProfessionId": "guardian"
+    "subProfessionId": "guardian",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_103_angel",
+    "name": "能天使",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_180_amgoat",
+    "name": "艾雅法拉",
+    "rarity": "TIER_6",
+    "profession": "CASTER",
+    "subProfessionId": "corecaster",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_147_shining",
     "name": "闪灵",
     "rarity": "TIER_6",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
-  },
-  {
-    "id": "char_291_aglina",
-    "name": "安洁莉娜",
-    "rarity": "TIER_6",
-    "profession": "SUPPORT",
-    "subProfessionId": "slower"
-  },
-  {
-    "id": "char_144_red",
-    "name": "红",
-    "rarity": "TIER_5",
-    "profession": "SPECIAL",
-    "subProfessionId": "executor"
-  },
-  {
-    "id": "char_128_plosis",
-    "name": "白面鸮",
-    "rarity": "TIER_5",
-    "profession": "MEDIC",
-    "subProfessionId": "ringhealer"
-  },
-  {
-    "id": "char_179_cgbird",
-    "name": "夜莺",
-    "rarity": "TIER_6",
-    "profession": "MEDIC",
-    "subProfessionId": "ringhealer"
-  },
-  {
-    "id": "char_1020_reed2",
-    "name": "焰影苇草",
-    "rarity": "TIER_6",
-    "profession": "MEDIC",
-    "subProfessionId": "incantationmedic"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_003_kalts",
     "name": "凯尔希",
     "rarity": "TIER_6",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_108_silent",
     "name": "赫默",
     "rarity": "TIER_5",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_171_bldsk",
     "name": "华法琳",
     "rarity": "TIER_5",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_345_folnic",
     "name": "亚叶",
     "rarity": "TIER_5",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_4196_reckpr",
     "name": "录武官",
     "rarity": "TIER_5",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_402_tuye",
     "name": "图耶",
     "rarity": "TIER_5",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_117_myrrh",
     "name": "末药",
     "rarity": "TIER_4",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_187_ccheal",
     "name": "嘉维尔",
     "rarity": "TIER_4",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_298_susuro",
     "name": "苏苏洛",
     "rarity": "TIER_4",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_120_hibisc",
     "name": "芙蓉",
     "rarity": "TIER_3",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_212_ansel",
     "name": "安赛尔",
     "rarity": "TIER_3",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
   },
   {
     "id": "char_285_medic2",
     "name": "Lancet-2",
     "rarity": "TIER_1",
     "profession": "MEDIC",
-    "subProfessionId": "physician"
+    "subProfessionId": "physician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_128_plosis",
+    "name": "白面鸮",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "ringhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_179_cgbird",
+    "name": "夜莺",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "ringhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1020_reed2",
+    "name": "焰影苇草",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "incantationmedic",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_291_aglina",
+    "name": "安洁莉娜",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_144_red",
+    "name": "红",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "token_10000_silent_healrb",
+    "name": "医疗探机",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_108_silent",
+    "ownerName": "赫默"
+  },
+  {
+    "id": "token_10002_kalts_mon3tr",
+    "name": "Mon3tr",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_003_kalts",
+    "ownerName": "凯尔希"
   }
 ]

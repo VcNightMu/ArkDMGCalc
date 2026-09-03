@@ -1,0 +1,109 @@
+{
+  "id": "token_10000_silent_healrb",
+  "name": "医疗探机",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_108_silent",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        30,
+        55
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        1000,
+        1000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        55,
+        90
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        1000,
+        1000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        90,
+        125
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        1000,
+        1000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_withdraw",
+      "name": "自我销毁",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skcom_withdraw",
+      "name": "自我销毁",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [],
+  "potentialRanks": []
+}

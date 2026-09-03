@@ -5,6 +5,7 @@
   "profession": "TANK",
   "subProfessionId": "guardian",
   "damageType": "physical",
+  "ownerOperatorId": null,
   "phases": [
     {
       "eliteLevel": 0,
@@ -81,7 +82,8 @@
           "spCost": 6,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -92,7 +94,8 @@
           "spCost": 6,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -103,7 +106,8 @@
           "spCost": 6,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -114,7 +118,8 @@
           "spCost": 5,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -125,7 +130,8 @@
           "spCost": 5,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -136,7 +142,8 @@
           "spCost": 5,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -147,7 +154,8 @@
           "spCost": 5,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -158,7 +166,8 @@
           "spCost": 4,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -169,7 +178,8 @@
           "spCost": 4,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -180,7 +190,8 @@
           "spCost": 4,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         }
@@ -196,7 +207,8 @@
           "spCost": 10,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -206,7 +218,8 @@
           "spCost": 10,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -216,7 +229,8 @@
           "spCost": 10,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -226,7 +240,8 @@
           "spCost": 9,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -236,7 +251,8 @@
           "spCost": 9,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -246,7 +262,8 @@
           "spCost": 9,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -256,7 +273,8 @@
           "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -266,7 +284,8 @@
           "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -276,7 +295,8 @@
           "spCost": 8,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         },
@@ -286,7 +306,8 @@
           "spCost": 7,
           "initialSp": 0,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 0,
+          "skillDuration": 0,
+          "skillType": "AUTO",
           "isToggle": false,
           "isPermanent": false
         }
@@ -305,7 +326,8 @@
           "spCost": 80,
           "initialSp": 45,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 10,
+          "skillDuration": 10,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -318,7 +340,8 @@
           "spCost": 80,
           "initialSp": 45,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 12,
+          "skillDuration": 12,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -331,7 +354,8 @@
           "spCost": 80,
           "initialSp": 45,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 14,
+          "skillDuration": 14,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -344,7 +368,8 @@
           "spCost": 80,
           "initialSp": 50,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 16,
+          "skillDuration": 16,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -357,7 +382,8 @@
           "spCost": 80,
           "initialSp": 50,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 18,
+          "skillDuration": 18,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -370,7 +396,8 @@
           "spCost": 80,
           "initialSp": 50,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 20,
+          "skillDuration": 20,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -383,7 +410,8 @@
           "spCost": 80,
           "initialSp": 55,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 22,
+          "skillDuration": 22,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -396,7 +424,8 @@
           "spCost": 80,
           "initialSp": 60,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 24,
+          "skillDuration": 24,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -409,7 +438,8 @@
           "spCost": 80,
           "initialSp": 65,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 27,
+          "skillDuration": 27,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         },
@@ -422,7 +452,8 @@
           "spCost": 80,
           "initialSp": 70,
           "spType": "INCREASE_WITH_TIME",
-          "duration": 30,
+          "skillDuration": 30,
+          "skillType": "MANUAL",
           "isToggle": false,
           "isPermanent": false
         }

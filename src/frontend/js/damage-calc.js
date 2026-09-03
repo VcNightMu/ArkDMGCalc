@@ -2,7 +2,7 @@
 import { calcPhysicalDamage, calcArtsDamage, calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
 import { SkillType } from './operators.js';
 import { state } from './state.js';
-import { calcMedical } from './medic-calc.js';
+import { calcMedical, calcSummonHeal } from './medic-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 
 function getSkillLevelData(skill, level) {
@@ -82,7 +82,7 @@ function calculateOperator(op, slotData) {
     }
     const isArts = op.damageType === 'arts';
     const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalDamageType: isArts ? 'arts' : 'physical' };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -90,12 +90,22 @@ function calculateOperator(op, slotData) {
   let skillAtk = panelAtk;
   let skillDef = panelDef;
   let skillInterval = phase.baseAttackTime;
-  let skillDuration = levelData.duration || 0;
+  let skillDuration = levelData.skillDuration || 0;
+  // 手动开启的限时增益（skillDuration=-1 + duration>0，自身必然获得，如华法琳「不稳定血浆」）：
+  // 视为持续型技能，技能期长度 = duration。
+  if (skillDuration === -1 && levelData.duration > 0 && levelData.atk !== undefined && levelData.skillType === 'MANUAL') {
+    skillDuration = levelData.duration;
+  }
 
   const modifiers = [];
   if (levelData.atk !== undefined) modifiers.push({ value: levelData.atk, operator: 'direct_mul' });
   if (levelData.def !== undefined) modifiers.push({ value: levelData.def, operator: 'final_mul' });
-  if (levelData.atk_scale !== undefined) skillAtk = panelAtk * levelData.atk_scale;
+  // atk_scale：输出技能的伤害/治疗倍率。图耶「水流环」的 atk_scale 是屏障吸收倍率，
+  // 其治疗部分无倍率（= 普攻治疗），故触发型一次性普攻治疗时不用 atk_scale 算 skillAtk。
+  // 限定：仅医疗、手动触发、带 blackboard 持续（duration）、无 atk 加成，
+  // 以区分陈「赤霄·拔刀/绝影」（近卫，伤害倍率）与焰影苇草「枯荣共息」（行医，火球伤害倍率）。
+  const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
+  if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + levelData.attack_speed);
   if (levelData.base_attack_time) skillInterval = phase.baseAttackTime + levelData.base_attack_time;
 
@@ -114,15 +124,21 @@ function calculateOperator(op, slotData) {
   const skillRealInterval = skillInterval;
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   const isArts = op.damageType === 'arts';
+  const isSummon = op.profession === 'TOKEN';
 
   const params = {
-    panelAtk, baseAtk, skillAtk, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
+    panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts,
     isIncantationMedic, enemy: state.enemy
   };
 
   let result;
-  if (isMedic) {
+  // 召唤物路由：带独立技能（非 skcom_ 通用被动）的召唤物按技能语义走伤害/治疗计算
+  // （如凯尔希·Mon3tr 攻击型召唤物，技能由持有者注入）；无独立技能的召唤物（如医疗探机）走治疗型 calcSummonHeal。
+  const hasRealSkills = (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_'));
+  if (isSummon && !hasRealSkills) {
+    result = calcSummonHeal(params);
+  } else if (isMedic) {
     result = calcMedical(params);
   } else {
     result = calcDamage(params);
@@ -134,7 +150,19 @@ function calculateOperator(op, slotData) {
     return { type: 'heal', hps, totalHeal: hps * (skillDuration || 1), panelAtk };
   }
 
-  return { ...result, type: isMedic ? 'heal' : 'damage', isToggle, isPermanent, realInterval: skillRealInterval, panelAtk: skillAtk };
+  // 伤害类型：技能内判定优先（calcDamage 对真实/物理/法术逐技能给出）。
+  // 医疗无普攻伤害，伤害由技能决定（咒愈师、亚叶复合弹片为法术）。
+  let damageType = result.damageType || null;
+  if (isMedic) {
+    if (!damageType && (isIncantationMedic || (levelData['attack@heal_scale'] !== undefined && levelData['attack@atk_scale'] !== undefined))) {
+      damageType = 'arts';
+    }
+  } else if (damageType === null && !isSummon) {
+    damageType = op.damageType || 'physical';
+  }
+
+  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined);
+  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: skillRealInterval, panelAtk: skillAtk };
 }
 
 /**

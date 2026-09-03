@@ -100,6 +100,9 @@ const OPERATORS = {
     alchemist: [],                  // 炼金师
     skywalker: [],                  // 巡空者
   },
+  TOKEN: { // 特殊（干员附带单位/召唤物）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr）
+  },
 };
 
 // 展平嵌套结构，得到所有待拉取的干员 id
@@ -141,7 +144,44 @@ function convertTalents(charData) {
   return talents;
 }
 
-function convertOperator(id, charData, skillTable) {
+/**
+ * 召唤物技能注入：召唤物自身无技能（skills 为 null 占位）时，将持有者干员的技能注入，
+ * 供攻击型召唤物使用（如凯尔希·Mon3tr：其 1/2/3 技能效果 = 凯尔希 1/2/3 技能）。
+ * 持有者技能 blackboard 中带 attack@ 前缀的 key 是作用于召唤物的加成（attack@atk → atk，
+ * 去前缀后作为召唤物自身的加成）；不带前缀的 key（自身防御/攻速/物格挡等）不注入。
+ * 额外识别：描述含「逐渐降低/减少」→ atkDecay（攻击力增幅线性衰减）；
+ * 含「伤害类型变为真实」→ trueDamage（真实伤害）。
+ */
+function convertSkillsForToken(ownerCharData, skillTable) {
+  const skills = [];
+  for (const skillRef of ownerCharData.skills || []) {
+    const sid = skillRef.skillId;
+    const st = skillTable[sid];
+    if (!st) continue;
+    const levels = [];
+    for (const [lk, lv] of Object.entries(st.levels || {})) {
+      const levelNum = parseInt(lk.replace('LEVEL_', ''));
+      const bb = {};
+      for (const b of lv.blackboard || []) {
+        if (String(b.key).startsWith('attack@')) bb[b.key.slice('attack@'.length)] = b.value;
+      }
+      if (Object.keys(bb).length === 0) continue; // 该技能对召唤物无效果，不注入
+      const desc = (lv.description || '').replace(/<[^>]+>/g, ''); // 剥离富文本标签后判断文案
+      const isToggle = desc.includes('可以在下列状态和初始状态间切换');
+      const isPermanent = !isToggle && desc.includes('持续时间无限');
+      if (desc.includes('逐渐降低') || desc.includes('逐渐减少')) bb.atkDecay = true;
+      if (desc.includes('伤害类型变为真实')) bb.trueDamage = true;
+      levels.push({ ...bb, level: levelNum, spCost: 0, initialSp: 0, spType: 'INCREASE_WITH_TIME', skillDuration: lv.duration ?? 0, skillType: lv.skillType, isToggle, isPermanent });
+    }
+    if (levels.length === 0) continue;
+    levels.sort((a, b) => a.level - b.level);
+    const firstLevel = Object.values(st.levels || {})[0];
+    skills.push({ skillId: sid, name: firstLevel?.name || sid, levels });
+  }
+  return skills;
+}
+
+function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharData) {
   const phases = [];
   for (const [, p] of Object.entries(charData.phases || {})) {
     const akf = p.attributesKeyFrames || [];
@@ -170,7 +210,12 @@ function convertOperator(id, charData, skillTable) {
   const damageType = artsSubs.includes(charData.subProfessionId) ? 'arts' : 'physical';
 
   const skills = [];
-  for (const skillRef of charData.skills || []) {
+  const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);
+  if (nativeRefs.length === 0 && ownerCharData) {
+    // 召唤物无自身技能（skills 为 null 占位）→ 注入持有者技能（attack@ 前缀剥离）
+    skills.push(...convertSkillsForToken(ownerCharData, skillTable));
+  }
+  for (const skillRef of nativeRefs) {
     const sid = skillRef.skillId;
     const st = skillTable[sid];
     if (!st) continue;
@@ -183,7 +228,7 @@ function convertOperator(id, charData, skillTable) {
       const desc = lv.description || '';
       const isToggle = desc.includes('可以在下列状态和初始状态间切换');
       const isPermanent = !isToggle && desc.includes('持续时间无限');
-      levels.push({ ...bb, level: levelNum, spCost: spData.spCost || 0, initialSp: spData.initSp || 0, spType: spData.spType || 'INCREASE_WITH_TIME', duration: lv.duration, isToggle, isPermanent });
+      levels.push({ ...bb, level: levelNum, spCost: spData.spCost || 0, initialSp: spData.initSp || 0, spType: spData.spType || 'INCREASE_WITH_TIME', skillDuration: lv.duration, skillType: lv.skillType, isToggle, isPermanent });
     }
     levels.sort((a, b) => a.level - b.level);
     const firstLevel = Object.values(st.levels || {})[0];
@@ -194,6 +239,7 @@ function convertOperator(id, charData, skillTable) {
     id, name: charData.name, rarity: charData.rarity,
     profession: charData.profession, subProfessionId: charData.subProfessionId,
     damageType,
+    ownerOperatorId: ownerOperatorId || null,
     phases, trustBonus, skills, talents: convertTalents(charData),
     potentialRanks: (charData.potentialRanks || []).map(p => ({
       description: p.description,
@@ -220,16 +266,36 @@ async function main() {
 
   const index = [];
 
-  for (const id of flattenOperators()) {
+  // 收集干员 → 召唤物关联（干员技能的 overrideTokenKey → 干员 id）
+  const allIds = flattenOperators();
+  const tokenOwners = {};
+  for (const id of allIds) {
+    const charData = charTable[id];
+    if (!charData) continue;
+    // 技能召唤（如赫默·医疗探机）
+    for (const sk of (charData.skills || [])) {
+      if (sk.overrideTokenKey) tokenOwners[sk.overrideTokenKey] = id;
+    }
+    // 天赋召唤（如凯尔希·Mon3tr：talent candidate 的 tokenKey）
+    for (const t of (charData.talents || [])) {
+      for (const c of (t.candidates || [])) {
+        if (c.tokenKey) tokenOwners[c.tokenKey] = id;
+      }
+    }
+  }
+
+  for (const id of allIds) {
     const charData = charTable[id];
     if (!charData) { console.log(`  [SKIP] ${id} not found`); continue; }
-    const converted = convertOperator(id, charData, skillTable);
+    const ownerId = tokenOwners[id];
+    const converted = convertOperator(id, charData, skillTable, ownerId, ownerId ? charTable[ownerId] : null);
     // Directory: profession/subProfessionId/
     const dir = path.join(BASE, converted.profession, converted.subProfessionId);
     fs.mkdirSync(dir, { recursive: true });
     const outPath = path.join(dir, `${id}.json`);
     fs.writeFileSync(outPath, JSON.stringify(converted, null, 2), 'utf8');
-    index.push({ id: converted.id, name: converted.name, rarity: converted.rarity, profession: converted.profession, subProfessionId: converted.subProfessionId });
+    const ownerName = ownerId ? (charTable[ownerId]?.name || '') : '';
+    index.push({ id: converted.id, name: converted.name, rarity: converted.rarity, profession: converted.profession, subProfessionId: converted.subProfessionId, ownerOperatorId: ownerId || null, ownerName: ownerName || null });
     console.log(`  [OK] ${converted.name}: ${converted.phases.length} phases, ${converted.skills.length} skills → ${converted.profession}/${converted.subProfessionId}/`);
   }
 

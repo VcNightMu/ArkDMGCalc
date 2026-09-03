@@ -5,6 +5,7 @@
   "profession": "MEDIC",
   "subProfessionId": "physician",
   "damageType": "physical",
+  "ownerOperatorId": null,
   "phases": [
     {
       "eliteLevel": 0,

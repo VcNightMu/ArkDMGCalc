@@ -23,7 +23,8 @@ export const Operator = {
 // 职业中文映射（主职业，固定8个）
 const PROFESSION_CN = {
   WARRIOR: '近卫', SNIPER: '狙击', CASTER: '术师', TANK: '重装',
-  PIONEER: '先锋', MEDIC: '医疗', SUPPORT: '辅助', SPECIAL: '特种'
+  PIONEER: '先锋', MEDIC: '医疗', SUPPORT: '辅助', SPECIAL: '特种',
+  TOKEN: '特殊'
 };
 
 // 缓存
@@ -69,7 +70,8 @@ export async function getPopularOperators() {
     name: op.name,
     rarity: parseRarity(op.rarity),
     profession: op.profession,
-    subProfessionId: op.subProfessionId
+    subProfessionId: op.subProfessionId,
+    ownerName: op.ownerName || null
   }));
 }
 

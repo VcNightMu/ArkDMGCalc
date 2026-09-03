@@ -1,6 +1,7 @@
 // 批量下载干员头像，按 主职业/子职业 分类存放（与干员 JSON 数据目录同构），已存在则跳过。
-// 头像文件在 PRTS wiki 上名为「文件:头像_<中文名>.png」，通过 MediaWiki API 解析真实图片 URL 后下载。
-// 用法：node scripts/fetch-avatars.js —— 会为 index.json 中所有干员补齐头像，已存在的不重复下载。
+// 头像文件在 PRTS wiki 上名为「文件:头像_<中文名>.png」；召唤物（TOKEN）名为「文件:头像_召唤物_<中文名>.png」。
+// 通过 MediaWiki API 解析真实图片 URL 后下载。
+// 用法：node scripts/fetch-avatars.js —— 会为 index.json 中所有干员（含召唤物）补齐头像，已存在的不重复下载。
 const fs = require('fs');
 const path = require('path');
 
@@ -15,9 +16,10 @@ async function fetchJSON(url) {
   return resp.json();
 }
 
-// 根据中文干员名解析头像真实图片 URL
-async function getAvatarUrl(name) {
-  const title = `文件:头像_${name}.png`;
+// 根据中文干员名解析头像真实图片 URL。召唤物（TOKEN）头像前缀为「头像_召唤物_」。
+async function getAvatarUrl(name, isSummon) {
+  const prefix = isSummon ? '头像_召唤物_' : '头像_';
+  const title = `文件:${prefix}${name}.png`;
   const url = `${API}?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json`;
   const j = await fetchJSON(url);
   for (const p of Object.values(j.query?.pages || {})) {
@@ -40,7 +42,7 @@ async function main() {
     if (fs.existsSync(out)) { console.log(`[SKIP] ${op.name} 已存在`); skip++; continue; }
 
     try {
-      const url = await getAvatarUrl(op.name);
+      const url = await getAvatarUrl(op.name, op.profession === 'TOKEN');
       if (!url) { console.log(`[SKIP] ${op.name} 无头像文件`); skip++; await sleep(200); continue; }
       const resp = await fetch(url, { headers: UA });
       if (!resp.ok) { console.log(`[FAIL] ${op.name} 下载失败 HTTP ${resp.status}`); fail++; await sleep(200); continue; }

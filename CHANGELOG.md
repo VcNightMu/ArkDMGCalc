@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.3.1 (2026-09-03)
+
+### feat: 华法琳特殊治疗处理
+- 1技能「紧急包扎」：攻击回复触发型（INCREASE_WHEN_ATTACK，每次攻击回 1 sp），额外回复目标最大生命值 hp_ratio 比例，计算器默认目标为自身（取干员自身 maxHp）；总治疗量 = 触发那一次的实际回复（普攻 + 额外），周期 HPS = 蓄满 spCost 次攻击的全程普攻 + 单次额外
+- 2技能「不稳定血浆」：手动开启自身必然获得的加攻 buff（atk 直接乘算），skillDuration=-1 + duration=15 映射为持续型技能，技能期 = duration，含技能期 HPS 与总治疗量
+
+### feat: 凯尔希召唤物 Mon3tr 入列表
+- 数据抓取支持天赋召唤物关联（talent candidate 的 tokenKey，区别于赫默医疗探机的技能 overrideTokenKey）；凯尔希「Mon3tr」天赋 tokenKey 指向 token_10002_kalts_mon3tr
+- 新增 TOKEN/notchar1/token_10002_kalts_mon3tr.json（近战物理召唤物，0 技能，随凯尔希精英化 50/80/90 三档成长）+ 头像（PRTS 文件:头像_召唤物Mon3tr.png，与链愈师干员 Mon3tr 的头像_前缀不冲突）
+- 与链愈师干员 Mon3tr（char_4179_monstr，MEDIC/chainhealer）区分：id 前缀、profession、技能结构均不同；链愈师 Mon3tr 待后续新增
+
+### feat: Mon3tr 技能注入与衰减真伤计算
+- 召唤物技能注入：无自身技能的召唤物注入持有者技能（attack@ 前缀 key 剥离为召唤物自身加成）；Mon3tr 1/2/3 技能 = 凯尔希「指令：结构加固/战术协同/熔毁」
+- 1技能防御型（输出=常态物理）、2技能加攻物理、3技能攻击力增幅线性衰减（+260%→+0%）+ 真实伤害：按每次攻击时刻（0/2/4…s）即时攻击力逐次结算技能期总伤与平均 DPS
+- calcDamage 支持真实伤害（calcTrueDamage）与 atkDecay 线性衰减分支；召唤物路由按是否有独立技能区分（攻击型召唤物走伤害计算，医疗探机仍走治疗）；技能选择器放开带注入技能的召唤物
+
 ## v0.3.0 (2026-09-02)
 
 ### feat: 医疗干员治疗计算
