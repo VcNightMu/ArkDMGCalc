@@ -1,0 +1,579 @@
+{
+  "id": "char_4139_papyrs",
+  "name": "莎草",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "chainhealer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        154,
+        253
+      ],
+      "def": [
+        70,
+        102
+      ],
+      "maxHp": [
+        940,
+        1238
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        253,
+        352
+      ],
+      "def": [
+        102,
+        128
+      ],
+      "maxHp": [
+        1238,
+        1474
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        352,
+        440
+      ],
+      "def": [
+        128,
+        160
+      ],
+      "maxHp": [
+        1474,
+        1715
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 150
+  },
+  "skills": [
+    {
+      "skillId": "skchr_papyrs_1",
+      "name": "巧思乍现",
+      "levels": [
+        {
+          "heal_scale": 1.4,
+          "shield_scale_skill": 1.5,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "shield_scale_skill": 1.5,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "shield_scale_skill": 1.5,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "shield_scale_skill": 1.5,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "shield_scale_skill": 2,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "shield_scale_skill": 2,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.75,
+          "shield_scale_skill": 2,
+          "level": 6,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "shield_scale_skill": 2,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.9,
+          "shield_scale_skill": 2,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2,
+          "shield_scale_skill": 2,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_papyrs_2",
+      "name": "临考发挥",
+      "levels": [
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.05,
+          "attack@chain.extra_value": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.1,
+          "attack@chain.extra_value": 1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.15,
+          "attack@chain.extra_value": 1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.2,
+          "attack@chain.extra_value": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.25,
+          "attack@chain.extra_value": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.3,
+          "attack@chain.extra_value": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.35,
+          "attack@chain.extra_value": 1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.4,
+          "attack@chain.extra_value": 1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.45,
+          "attack@chain.extra_value": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "atk": 0.5,
+          "attack@chain.extra_value": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身5%攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.05,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身7%<@ba.talpu>（+2%）</>攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.07,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身10%攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.1,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身12%<@ba.talpu>（+2%）</>攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.12,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身20%攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.2,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "博览古卷",
+          "description": "治疗会为目标干员附加相当于自身22%<@ba.talpu>（+2%）</>攻击力的<$ba.barrier>屏障</>，持续8秒",
+          "blackboard": {
+            "attack@scale": 0.22,
+            "attack@shield_duration": 8
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "恢复友方单位生命，且会在3个友方单位间跳跃，每次跳跃治疗量降低25%",
+    "blackboard": {
+      "attack@chain.max_target": 3,
+      "attack@chain.atk_scale": 0.75
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_papyrs",
+      "name": "莎草证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_papyrs",
+      "name": "小小的种子",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 38,
+            "def": 23
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 28
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "博览古卷",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@scale": 0.23,
+                "attack@shield_duration": 8
+              }
+            },
+            {
+              "name": "博览古卷",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@scale": 0.25,
+                "attack@shield_duration": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 33
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "博览古卷",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@scale": 0.27,
+                "attack@shield_duration": 10
+              }
+            },
+            {
+              "name": "博览古卷",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@scale": 0.29,
+                "attack@shield_duration": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

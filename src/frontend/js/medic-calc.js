@@ -2,6 +2,50 @@
 import { calcArtsDamage, calcTrueDamage } from './calculator.js';
 
 /**
+ * Mon3tr S3「策略：熔毁」（真伤输出 + 自疗）。
+ * 技能期攻击力 = 面板 ×(1+atk)（damage-calc 乘区已算）；攻击间隔 2.85-1.5=1.35s 再按常驻攻速（战术协同）折算；
+ * 普攻对阻挡敌人造成真实伤害（单目标模型×1）；每击攻击治疗自身 attack@heal_scale（0.5）×技能攻击力。
+ * 每秒自损 80（damage_per_second）不建模型。
+ */
+function calcMonstrS3(params) {
+  const { panelAtk, skillAtk, realInterval, baseInterval, skillDuration } = params;
+  const selfHealScale = params.levelData['attack@heal_scale'] ?? 0;
+  const normalHps = panelAtk / baseInterval;      // 常态（不开技能）普攻治疗
+  const attacks = Math.max(1, Math.floor(skillDuration / realInterval));
+  const hit = calcTrueDamage(skillAtk);           // 真实伤害，无视防御/法抗
+  const skillTotalDamage = hit * attacks;
+  const totalHeal = skillAtk * selfHealScale * attacks;   // 每击自疗
+  return {
+    skillDps: skillDuration > 0 ? skillTotalDamage / skillDuration : 0,
+    skillTotalDamage, cycleDps: null, normalDps: null,
+    skillHps: skillAtk * selfHealScale / realInterval, normalHps, totalHeal,
+    damageType: 'true'
+  };
+}
+
+/**
+ * 乌啾 S2「捉迷藏！」（触发型 HOT）。
+ * 手动释放：立即治疗一次（= 一次普攻治疗量 100%）+ 目标每秒受 heal_scale×攻击力 增益治疗 bonus_duration 秒；
+ * 技能无持续技能期，普攻照常（totalHeal 为单次触发的总治疗量，cycleHps 按 spCost 周期均摊）。
+ */
+function calcTurdusS2(params) {
+  const { panelAtk, skillAtk, baseInterval, levelData } = params;
+  const hotScale = levelData['turdus_s2[continues_heal].heal_scale'] || 0;
+  const hotSecs = levelData.bonus_duration || 0;
+  const immediate = skillAtk;                      // 立即治疗一次（普攻治疗量 100%）
+  const hotTotal = skillAtk * hotScale * hotSecs;  // HOT：每秒一跳 × 持续秒数
+  const totalHeal = immediate + hotTotal;
+  const normalHps = panelAtk / baseInterval;
+  const spCost = levelData.spCost || 0;
+  let cycleHps = null;
+  if (spCost > 0) cycleHps = (normalHps * spCost + totalHeal) / spCost;  // 手动释放周期均摊（普攻全程不中断）
+  return {
+    skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null,
+    skillHps: null, normalHps, totalHeal, cycleHps
+  };
+}
+
+/**
  * Calculate pure medical operator (physician/ringhealer/healer/wandermedic)
  * @returns {Object} healing metrics
  */
@@ -9,6 +53,18 @@ function calcMedical(params) {
   const { panelAtk, skillAtk, realInterval, baseInterval, skillDuration, isToggle, isPermanent, levelData, isIncantationMedic } = params;
 
   if (isIncantationMedic) return calcIncantationMedic(params);
+
+  // Mon3tr S3「策略：熔毁」：移至重构体位置（默认可放置，实际放置区域为整个攻击范围），技能期转为近战真伤输出，
+  // 攻击治疗自身 attack@heal_scale（0.5）×技能攻击力；每秒自损 damage_per_second 不计（模型无承伤概念）。
+  if (levelData.damage_per_second !== undefined && levelData.atk !== undefined) {
+    return calcMonstrS3(params);
+  }
+
+  // 乌啾 S2「捉迷藏！」：触发型（无持续技能期）：流失当前生命不计，立即治疗一次（普攻量）+
+  // 目标每秒受 turdus_s2[continues_heal].heal_scale×攻击力 增益治疗 bonus_duration 秒（单目标 1 份）
+  if (levelData['turdus_s2[continues_heal].heal_scale'] !== undefined) {
+    return calcTurdusS2(params);
+  }
 
   // 独立治疗 + 独立伤害（亚叶「复合型药物弹片」）：攻击变为弹片，
   // 每次攻击同时治疗（攻击力 × heal_scale）并造成法术伤害（攻击力 × atk_scale），两者完全独立。

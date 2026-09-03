@@ -1,0 +1,773 @@
+{
+  "id": "char_4179_monstr",
+  "name": "Mon3tr",
+  "rarity": "TIER_6",
+  "profession": "MEDIC",
+  "subProfessionId": "chainhealer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        184,
+        303
+      ],
+      "def": [
+        96,
+        140
+      ],
+      "maxHp": [
+        952,
+        1253
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        303,
+        422
+      ],
+      "def": [
+        140,
+        176
+      ],
+      "maxHp": [
+        1253,
+        1492
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        422,
+        528
+      ],
+      "def": [
+        176,
+        221
+      ],
+      "maxHp": [
+        1492,
+        1735
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skchr_monstr_1",
+      "name": "策略：超压链接",
+      "levels": [
+        {
+          "heal_scale": 1.1,
+          "chain.max_target": 4,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.2,
+          "chain.max_target": 4,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.25,
+          "chain.max_target": 4,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.35,
+          "chain.max_target": 4,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "chain.max_target": 4,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "chain.max_target": 4,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "chain.max_target": 4,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "chain.max_target": 4,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.9,
+          "chain.max_target": 4,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2,
+          "chain.max_target": 4,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_monstr_2",
+      "name": "策略：超负荷",
+      "levels": [
+        {
+          "talent_scale": 1.5,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 1.6,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 1.7,
+          "level": 2,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 1.8,
+          "level": 3,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2.1,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2.3,
+          "level": 6,
+          "spCost": 15,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2.5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 9,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2.6,
+          "level": 8,
+          "spCost": 15,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent_scale": 2.8,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 13,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_monstr_3",
+      "name": "策略：熔毁",
+      "levels": [
+        {
+          "atk": 2,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.3,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 2,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.5,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 3,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.6,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 4,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.7,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.8,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 6,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 3,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 3.1,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 8,
+          "spCost": 15,
+          "initialSp": 9,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 3.3,
+          "damage_per_second": 80,
+          "max_hp": 5000,
+          "block_cnt": 2,
+          "base_attack_time": -1.5,
+          "attack@heal_scale": 0.5,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 11,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+3%，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+8%<@ba.talpu>（+5%）</>，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+5%，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+10%<@ba.talpu>（+5%）</>，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+15%，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "自我修复",
+          "description": "可以在攻击范围内的地面使用一个仅可被自身治疗的重构体，重构体周围友方单位的攻击力+20%<@ba.talpu>（+5%）</>，重构体受到自身和Mon3tr治疗时，可额外进行一次不会衰减的治疗跳跃",
+          "blackboard": {
+            "cnt": 1,
+            "atk": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战术协同",
+          "description": "自身或重构体造成治疗时，使目标及自身的攻击速度+10，持续10秒（无法叠加）",
+          "blackboard": {
+            "buff_duration": 10,
+            "attack_speed": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "战术协同",
+          "description": "自身或重构体造成治疗时，使目标及自身的攻击速度+12<@ba.talpu>（+2）</>，持续10秒（无法叠加）",
+          "blackboard": {
+            "buff_duration": 10,
+            "attack_speed": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战术协同",
+          "description": "自身或重构体造成治疗时，使目标及自身的攻击速度+20，持续10秒（无法叠加）",
+          "blackboard": {
+            "buff_duration": 10,
+            "attack_speed": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "战术协同",
+          "description": "自身或重构体造成治疗时，使目标及自身的攻击速度+22<@ba.talpu>（+2）</>，持续10秒（无法叠加）",
+          "blackboard": {
+            "buff_duration": 10,
+            "attack_speed": 22
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "恢复友方单位生命，且会在3个友方单位间跳跃，每次跳跃治疗量降低25%",
+    "blackboard": {
+      "attack@chain.max_target": 3,
+      "attack@chain.atk_scale": 0.75
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_monstr",
+      "name": "Mon3tr证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_monstr",
+      "name": "记忆存档",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "自我修复",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "atk": 0.2
+              }
+            },
+            {
+              "name": "自我修复",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cnt": 1,
+                "atk": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "自我修复",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1,
+                "atk": 0.25,
+                "attack@chain.extra_cnt": 1
+              }
+            },
+            {
+              "name": "自我修复",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cnt": 1,
+                "atk": 0.3,
+                "attack@chain.extra_cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -369,6 +369,42 @@
     "ownerName": null
   },
   {
+    "id": "char_4179_monstr",
+    "name": "Mon3tr",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "chainhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4071_peper",
+    "name": "明椒",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "chainhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4139_papyrs",
+    "name": "莎草",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "chainhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4224_turdus",
+    "name": "乌啾",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "chainhealer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_4222_taraxa",
     "name": "风絮",
     "rarity": "TIER_5",

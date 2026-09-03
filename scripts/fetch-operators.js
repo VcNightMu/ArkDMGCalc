@@ -81,7 +81,7 @@ const OPERATORS = {
     healer: ['char_385_finlpp', 'char_348_ceylon', 'char_436_whispr', 'char_4173_nowell', 'char_4042_lumen'],                     // 疗养师
     wandermedic: ['char_4041_chnut', 'char_473_mberry', 'char_449_glider', 'char_4114_harold', 'char_1016_agoat2'],                // 行医
     incantationmedic: ['char_1024_hbisc2', 'char_494_vendla', 'char_1020_reed2', 'char_4056_titi', 'char_1037_amiya3'], // 咒愈师（阿米娅医疗形态走 patch 表）
-    chainhealer: [],                // 链愈师
+    chainhealer: ['char_4179_monstr', 'char_4071_peper', 'char_4139_papyrs', 'char_4224_turdus'], // 链愈师（Mon3tr干员本体/明椒/莎草/乌啾）
     watchman: ['char_4222_taraxa', 'char_1052_kalts2'],  // 守望者
   },
   SUPPORT: { // 辅助

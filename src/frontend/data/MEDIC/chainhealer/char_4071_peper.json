@@ -1,0 +1,545 @@
+{
+  "id": "char_4071_peper",
+  "name": "明椒",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "chainhealer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        153,
+        252
+      ],
+      "def": [
+        74,
+        108
+      ],
+      "maxHp": [
+        913,
+        1202
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        252,
+        351
+      ],
+      "def": [
+        108,
+        136
+      ],
+      "maxHp": [
+        1202,
+        1432
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        351,
+        439
+      ],
+      "def": [
+        136,
+        171
+      ],
+      "maxHp": [
+        1432,
+        1666
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skcom_heal_rage[3]",
+      "name": "掩护作战·γ型",
+      "levels": [
+        {
+          "attack_speed": 25,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 85,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_peper_2",
+      "name": "同伴意识",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.5,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.5,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.5,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.6,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.6,
+          "level": 4,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.6,
+          "level": 5,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.7,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.7,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.7,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@chain.extra_value": 1,
+          "talent@hp_ratio": 0.8,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重点关照",
+          "description": "治疗时，若目标生命少于40%则为其额外恢复80点生命",
+          "blackboard": {
+            "hp_ratio": 0.4,
+            "value": 80
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "重点关照",
+          "description": "治疗时，若目标生命少于40%则为其额外恢复90<@ba.talpu>（+10）</>点生命",
+          "blackboard": {
+            "hp_ratio": 0.4,
+            "value": 90
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重点关照",
+          "description": "治疗时，若目标生命少于40%则为其额外恢复140点生命",
+          "blackboard": {
+            "hp_ratio": 0.4,
+            "value": 140
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "重点关照",
+          "description": "治疗时，若目标生命少于40%则为其额外恢复150<@ba.talpu>（+10）</>点生命",
+          "blackboard": {
+            "hp_ratio": 0.4,
+            "value": 150
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "恢复友方单位生命，且会在3个友方单位间跳跃，每次跳跃治疗量降低25%",
+    "blackboard": {
+      "attack@chain.max_target": 3,
+      "attack@chain.atk_scale": 0.75
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_peper",
+      "name": "明椒证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_peper",
+      "name": "“多彩人生”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 36
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 51
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "重点关照",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.4,
+                "value": 170
+              }
+            },
+            {
+              "name": "重点关照",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.4,
+                "value": 180
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 61
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@chain.max_target": 3,
+                "attack@chain.atk_scale": 0.85
+              }
+            },
+            {
+              "name": "重点关照",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "value": 200
+              }
+            },
+            {
+              "name": "重点关照",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "value": 210
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

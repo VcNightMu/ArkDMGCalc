@@ -212,7 +212,9 @@ function calcModuleBonus(op, slotData) {
 const TALENT_SPD_DRIVERS = {
   'char_147_shining': 1,  // 闪灵「法典」：精二起 攻速+10，潜能3 起 +13
   'char_108_silent': 0,// 赫默「医疗支援」：在场全体医疗攻速+6/8（精一），+12/14（精二）；自身必得
-  'char_103_angel': 0     // 能天使「快速弹匣」：精一 Lv1 起攻速+6 自身常驻
+  'char_103_angel': 0,    // 能天使「快速弹匣」：精一 Lv1 起攻速+6 自身常驻
+  'char_4179_monstr': 1   // Mon3tr「战术协同」：自身/重构体造成治疗时攻速+10~22 持续10s无法叠加；
+                          // 自身每 2.85s 治疗一次持续刷新 → 等效常驻（重构体默认不放不影响自身触发）
 };
 
 // 查驱动表，返回常驻攻速天赋的攻速加算值（0 表示无此天赋或未解锁）。
@@ -396,9 +398,14 @@ function calculateOperator(op, slotData) {
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
 
+  // Mon3tr S2「超负荷」：第二天赋（战术协同）效果 ×talent_scale 放大——自身治疗持续刷新天赋 buff，
+  // 技能期等效攻速 = 常驻天赋攻速 × talent_scale（无重构体也不影响自身触发）
+  const skillAspdExtra = (levelData.talent_scale !== undefined && op.id === 'char_4179_monstr')
+    ? talentAspd * (levelData.talent_scale - 1) : 0;
+
   let skillAtk = panelAtk;
   let skillDef = panelDef;
-  let skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+  let skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra);
   let skillDuration = levelData.skillDuration || 0;
   // 手动开启的限时增益（skillDuration=-1 + duration>0，自身必然获得，如华法琳「不稳定血浆」）：
   // 视为持续型技能，技能期长度 = duration。
@@ -419,14 +426,14 @@ function calculateOperator(op, slotData) {
   // 以区分陈「赤霄·拔刀/绝影」（近卫，伤害倍率）与焰影苇草「枯荣共息」（行医，火球伤害倍率）。
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
   if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
-  if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + levelData.attack_speed);
+  if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
   // base_attack_time：负值=加算秒（白面鸮脑啡肽 -2.1 等）；(0,1) 正小数=攻击间隔倍率（"间隔缩短至 x 倍"，
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7），官方描述均为“间隔（极）大幅度缩短”。
   if (levelData.base_attack_time) {
     const bat = levelData.base_attack_time;
     skillInterval = (bat > 0 && bat < 1)
-      ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus)
-      : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus);
+      ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus + skillAspdExtra)
+      : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus + skillAspdExtra);
   }
   // attack@base_attack_time：守望者普攻间隔乘算系数（风絮1技能 0.2 → 间隔 ×0.2，区别于顶层 base_attack_time 的加算秒数）
   if (levelData['attack@base_attack_time']) skillInterval = skillInterval * levelData['attack@base_attack_time'];
