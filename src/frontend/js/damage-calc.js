@@ -84,7 +84,8 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_010_chen': 1,    // 陈「持刀格斗术」精二：防御 +5%~6%（攻击部分在 TALENT_ATK_DRIVERS）
   'char_103_angel': 1,    // 能天使「天使的祝福」精二：自身生命 +10%~13%（攻击部分在 TALENT_ATK_DRIVERS）
   'char_449_glider': 0,  // 蜜莓「集体意识」：攻击范围内远程干员最大生命+5%/7%(精1)→+10%/12%(精2 潜4)，自身为远程医疗必在范围（单目标模型默认奶自己）
-  'char_1016_agoat2': 1 // 纯烬艾雅法拉「火山灰疗愈」：攻击范围内友方生命上限+6%(E2)/+8%(E2 潜4)，自身必在范围（同前）；同天赋普攻层叠增益治疗(heal_scale)不入面板
+  'char_1016_agoat2': 1, // 纯烬艾雅法拉「火山灰疗愈」：攻击范围内友方生命上限+6%(E2)/+8%(E2 潜4)，自身必在范围（同前）；同天赋普攻层叠增益治疗(heal_scale)不入面板
+  'char_2014_nian': 0,   // 年「积甲成山」：编队时全体重装生命上限+8%~20%（自身为重装必得，编队光环先例同赫默/蜜莓）
 };
 
 // 查 HP/DEF 常驻百分比天赋，返回 { hpMul, defMul }（未解锁/无键为 0）
@@ -182,10 +183,17 @@ const INCANTATION_SPECIAL_MODES = {
   'char_4056_titi': { 1: 'standby', 2: 'slumber' },
 };
 
-// 技能攻击力增幅键别名：数据把增幅放在带 switch_mode 前缀的键里（焰影苇草S3 reed2_skil_3[switch_mode].atk），
-// 语义与顶层 atk 相同（直接乘算累加）；顶层 atk 缺省时查此别名。
+// 技能攻击力增幅键别名：数据把增幅放在带 switch_mode 前缀的键里（焰影苇草S3 reed2_skil_3[switch_mode].atk、
+// 年S3 nian_s_3[self].atk），语义与顶层 atk 相同（直接乘算累加）；顶层 atk 缺省时查此别名。
 const SKILL_ATK_KEY_OVERRIDES = {
   'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
+  'char_2014_nian': { 2: 'nian_s_3[self].atk' },   // 年 S3「铁御」：自身攻击力增幅（友方 def/阻挡 buff 不计）
+};
+
+// 技能期普攻切换为法术伤害（驭法铁卫类机制，如年 S1「锡灼」普通攻击造成法术伤害）：
+// 技能期每击按法术结算（吃敌方法抗），常态普攻仍为物理。
+const SKILL_ARTS_OVERRIDES = {
+  'char_2014_nian': [0],   // 年 S1「锡灼」
 };
 
 /**
@@ -328,10 +336,27 @@ function calcMagicFragileMul(op, slotData, talentIndex = INCANTATION_FRAGILE_DRI
   return mul === null ? 1 : mul;
 }
 
+// 停止攻击类防御技能（技能期转纯防御，普攻停止）：技能期伤害记 0，防御/面板变化仅展示。
+// key: 干员 id；value: 停止攻击的 skillIndex 列表。铁卫先行，其它子职业轮到时追加。
+const STOP_ATTACK_SKILLS = {
+  'char_2014_nian': [1],    // 年 S2「铜印」
+  'char_325_bison': [1],    // 拜松 S2「深化阵线」
+  'char_150_snakek': [1],   // 蛇屠箱 S2「壳状防御」
+  'char_381_bubble': [1],   // 泡泡 S2「挨打」
+  'char_304_zebra': [1],    // 暴雨 S2「群体迷彩」
+};
+
 function calculateOperator(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
   const mod = calcModuleBonus(op, slotData);
+  const skillIndex = slotData.skillIndex || 0;
+  const isSummon = op.profession === 'TOKEN';
+  const equippedSkill = op.skills[skillIndex];
+  // PASSIVE 被动技能（星熊「荆棘」def+24%、森蚺「轻型挂斧」atk/def+20%）：装备即常驻入面板（与天赋同乘区累加），无技能期
+  // （仅干员职业；召唤物的 skcom 被动型技能不在此列，走 summon 分支）
+  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE')
+    ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
 
   // ======== Panel Stats ========
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
@@ -355,8 +380,13 @@ function calculateOperator(op, slotData) {
 
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const rawDef = baseDef + trustDef + potDef + mod.def;
-  const talentAtk = calcTalentAtkBonus(op, slotData);
+  let talentAtk = calcTalentAtkBonus(op, slotData);
   const pctTalent = calcTalentHpDefMul(op, slotData);  // 常驻生命/防御百分比天赋
+  if (passiveLv) {  // 被动技能乘区与天赋同区累加（装备即生效）
+    if (passiveLv.atk !== undefined) talentAtk += passiveLv.atk;
+    if (passiveLv.def !== undefined) pctTalent.defMul += passiveLv.def;
+    if (passiveLv.max_hp !== undefined) pctTalent.hpMul += passiveLv.max_hp;
+  }
   // 模组天赋强化：X模组 L2 把「法典」攻速覆盖为 15/18；Y 模组走基础天赋（10/13）。
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
@@ -368,8 +398,7 @@ function calculateOperator(op, slotData) {
   const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
 
   // ======== Skill Modifiers ========
-  const skillIndex = slotData.skillIndex || 0;
-  const skill = op.skills[skillIndex];
+  const skill = passiveLv ? null : equippedSkill;   // PASSIVE 无技能期：走 no-skill 路径（面板已含被动加成）
   const isMedic = op.profession === 'MEDIC';
   // 攻速总加成 = 天赋攻速（含模组覆盖）+ 模组白值攻速（100 基准上加算），再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed;
@@ -454,8 +483,7 @@ function calculateOperator(op, slotData) {
   const isPermanent = levelData.isPermanent === true || (PERMANENT_OVERRIDES[op.id] || []).includes(skillIndex);
   const skillRealInterval = skillInterval;
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
-  const isArts = op.damageType === 'arts';
-  const isSummon = op.profession === 'TOKEN';
+  const isArts = op.damageType === 'arts' || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex));
   const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;
   // 法脆必触发增伤：芙蓉常驻（×damage_scale）；焰苇S3 灼痕 100% 触发（talent@prob=1）再乘灼痕档
   const fragileBase = calcMagicFragileMul(op, slotData);
@@ -481,8 +509,37 @@ function calculateOperator(op, slotData) {
     result = calcSummonHeal(params);
   } else if (isMedic) {
     result = calcMedical(params);
+  } else if (!isSummon && levelData.heal_scale !== undefined && levelData.skillDuration === 0) {
+    // 自愈型一次性技能（非医疗，如卡缇 S1「生命回复·α」skcom_heal_self）：立即恢复最大生命 heal_scale 比例
+    const healAmount = panelHp * levelData.heal_scale;
+    result = { skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: healAmount };
   } else {
     result = calcDamage(params);
+  }
+
+  // ======== 重装/防御通用修正 ========
+  // 停止攻击：技能期伤害记 0（普攻停止，防御/面板变化仅展示）
+  if ((STOP_ATTACK_SKILLS[op.id] || []).includes(skillIndex) && !isMedic && !isSummon) {
+    result = { ...result, skillDps: 0, skillTotalDamage: 0, cycleDps: null };
+  }
+  // 受击回复触发型技能（INCREASE_WHEN_TAKEN_DAMAGE，无自然充能周期）：不展示周期 DPS，仅保留单次技能总伤/总治疗
+  if (levelData.spType === 'INCREASE_WHEN_TAKEN_DAMAGE' && !isMedic && !isSummon) {
+    result = { ...result, cycleDps: null };
+  }
+  // 自回通道（hp_recovery_per_sec 固定值/秒；hp_recovery_per_sec_by_max_hp_ratio 最大生命百分比/秒）：
+  // 按治疗展示 skillHps 与总治疗（与普攻/技能伤害并存，或与停攻组合为纯治疗）
+  if (!isMedic && !isSummon && (levelData.hp_recovery_per_sec !== undefined || levelData.hp_recovery_per_sec_by_max_hp_ratio !== undefined)) {
+    const perSec = levelData.hp_recovery_per_sec !== undefined
+      ? levelData.hp_recovery_per_sec
+      : panelHp * levelData.hp_recovery_per_sec_by_max_hp_ratio;
+    const dur = skillDuration > 0 ? skillDuration : (levelData.duration > 0 ? levelData.duration : 0);
+    // AUTO 触发型自回（暴雨 S1「应急迷彩」：攻击触发给低血友方挂持续恢复）：
+    // 无技能期概念，输出归常态普攻（normalDps），治疗按单次触发量展示
+    if (levelData.skillType === 'AUTO') {
+      result = { ...result, skillDps: 0, skillTotalDamage: 0, skillHps: perSec, totalHeal: perSec * dur };
+    } else {
+      result = { ...result, skillHps: perSec, totalHeal: perSec * dur };
+    }
   }
 
   if (skill.type === SkillType.HEAL) {

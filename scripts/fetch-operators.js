@@ -39,10 +39,10 @@ const OPERATORS = {
   },
   TANK: { // 重装
     protector: [ // 铁卫
-      'char_136_hsguma', 'char_610_acfend', 'char_2014_nian',          // 星熊/Mechanist/年 6★
+      'char_136_hsguma', 'char_2014_nian',                              // 星熊/年 6★
       'char_201_moeshd', 'char_325_bison', 'char_304_zebra',           // 可颂/拜松/暴雨 5★
-      'char_199_yak', 'char_150_snakek', 'char_381_bubble', 'char_602_cdfend', // 角峰/蛇屠箱/泡泡/预备干员-重装 4★
-      'char_209_ardign', 'char_122_beagle', 'char_514_rdfend',         // 卡缇/米格鲁/预备干员-重装 3★
+      'char_199_yak', 'char_150_snakek', 'char_381_bubble',            // 角峰/蛇屠箱/泡泡 4★
+      'char_209_ardign', 'char_122_beagle',                            // 卡缇/米格鲁 3★
       'char_500_noirc', 'char_4093_frston',                            // 黑角 2★ / Friston-3 1★
     ],
     guardian: [ // 守护者
