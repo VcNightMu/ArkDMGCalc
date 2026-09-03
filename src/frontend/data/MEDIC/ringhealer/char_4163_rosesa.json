@@ -1,0 +1,583 @@
+{
+  "id": "char_4163_rosesa",
+  "name": "瑰盐",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "ringhealer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        120,
+        195
+      ],
+      "def": [
+        72,
+        96
+      ],
+      "maxHp": [
+        782,
+        1058
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        195,
+        264
+      ],
+      "def": [
+        96,
+        125
+      ],
+      "maxHp": [
+        1058,
+        1323
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        264,
+        330
+      ],
+      "def": [
+        125,
+        151
+      ],
+      "maxHp": [
+        1323,
+        1675
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_rosesa_1",
+      "name": "上佳的应急药呀",
+      "levels": [
+        {
+          "heal_scale": 1.4,
+          "ct": 1,
+          "level": 0,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.45,
+          "ct": 1,
+          "level": 1,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "ct": 1,
+          "level": 2,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.5,
+          "ct": 1,
+          "level": 3,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.55,
+          "ct": 1,
+          "level": 4,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.6,
+          "ct": 1,
+          "level": 5,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.65,
+          "ct": 1,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.7,
+          "ct": 2,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.8,
+          "ct": 2,
+          "level": 8,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 1.9,
+          "ct": 2,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_rosesa_2",
+      "name": "绝妙的长效药呀",
+      "levels": [
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -0.75,
+          "attack@damage_scale": 0.9,
+          "damage_reduce_scale_display": 0.1,
+          "level": 0,
+          "spCost": 46,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -0.75,
+          "attack@damage_scale": 0.85,
+          "damage_reduce_scale_display": 0.15,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -0.75,
+          "attack@damage_scale": 0.8,
+          "damage_reduce_scale_display": 0.2,
+          "level": 2,
+          "spCost": 44,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.05,
+          "attack@damage_scale": 0.8,
+          "damage_reduce_scale_display": 0.2,
+          "level": 3,
+          "spCost": 43,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.05,
+          "attack@damage_scale": 0.75,
+          "damage_reduce_scale_display": 0.25,
+          "level": 4,
+          "spCost": 42,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.05,
+          "attack@damage_scale": 0.7,
+          "damage_reduce_scale_display": 0.3,
+          "level": 5,
+          "spCost": 41,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.35,
+          "attack@damage_scale": 0.7,
+          "damage_reduce_scale_display": 0.3,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.35,
+          "attack@damage_scale": 0.65,
+          "damage_reduce_scale_display": 0.35,
+          "level": 7,
+          "spCost": 39,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.35,
+          "attack@damage_scale": 0.6,
+          "damage_reduce_scale_display": 0.4,
+          "level": 8,
+          "spCost": 38,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@interval": 1,
+          "attack@final_duration": 5,
+          "base_attack_time": -1.35,
+          "attack@damage_scale": 0.5,
+          "damage_reduce_scale_display": 0.5,
+          "level": 9,
+          "spCost": 36,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升5%",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升7%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升10%",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升12%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升15%",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "最好的草药医生",
+          "description": "自身攻击力-5%，但攻击范围内的友方干员受到的治疗效果提升17%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": -0.05,
+            "heal_scale": 1.17
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_rosesa",
+      "name": "瑰盐证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_rosesa",
+      "name": "多彩盐漠生活",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "atk": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 88,
+            "atk": 38
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "最好的草药医生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": -0.05,
+                "heal_scale": 1.18
+              }
+            },
+            {
+              "name": "最好的草药医生",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": -0.05,
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 47
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "最好的草药医生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": -0.05,
+                "heal_scale": 1.2
+              }
+            },
+            {
+              "name": "最好的草药医生",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": -0.05,
+                "heal_scale": 1.22
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

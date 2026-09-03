@@ -33,7 +33,10 @@ function calcMedical(params) {
     return calcTriggerHeal(params);
   }
 
-  const healRatio = levelData.heal_ratio || 1.0;
+  // 常驻治疗倍率（天赋，如瑰盐 ×1.05~1.17）作用于所有治疗量：
+  // 普攻治疗与技能期治疗（skillAtk 为面板或技能乘算后攻击力）同乘。
+  const healScale = params.talentHealScale ?? 1;
+  const healRatio = (levelData.heal_ratio || 1.0) * healScale;
   const singleHeal = skillAtk * healRatio;
   const normalHeal = panelAtk * healRatio;
 
@@ -75,17 +78,18 @@ function calcTriggerHeal(params) {
   const skillType = levelData.skillType || 'MANUAL'; // AUTO=自动触发, MANUAL=手动触发
   const isSustained = levelData.interval !== undefined; // true=持续增益型，false=一次性额外型
 
-  const normalHeal = panelAtk * 1.0;             // 1 次常态治疗（医师 heal_ratio 默认 1.0）
+  const talentScale = params.talentHealScale ?? 1; // 常驻治疗倍率（天赋，如瑰盐）
+  const normalHeal = panelAtk * 1.0 * talentScale; // 1 次常态治疗（医师 heal_ratio 默认 1.0）
   const normalHps = normalHeal / baseInterval;   // 常态 HPS
 
   // 技能额外提供的治疗量
   let totalHeal;
   if (isSustained) {
-    const tickHeal = skillAtk * healScale;                 // 每次回复量
+    const tickHeal = skillAtk * healScale * talentScale;                 // 每次回复量（技能 heal_scale × 天赋倍率）
     const tickCount = Math.floor(buffDuration / interval); // 回复次数
     totalHeal = tickHeal * tickCount;                      // 总治疗量
   } else {
-    totalHeal = skillAtk * healScale;                      // 触发时一次性额外治疗
+    totalHeal = skillAtk * healScale * talentScale;                      // 触发时一次性额外治疗
   }
 
   let cycleHps = null;

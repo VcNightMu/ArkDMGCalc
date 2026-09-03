@@ -71,7 +71,7 @@ const OPERATORS = {
       'char_187_ccheal', 'char_298_susuro', 'char_120_hibisc', 'char_212_ansel',
       'char_285_medic2',
     ], // 医师
-    ringhealer: ['char_128_plosis', 'char_179_cgbird'], // 群愈师
+    ringhealer: ['char_128_plosis', 'char_179_cgbird', 'char_181_flower', 'char_275_breeze', 'char_4163_rosesa'], // 群愈师/瑰盐
     healer: [],                     // 疗养师
     wandermedic: [],                // 行医
     incantationmedic: ['char_1020_reed2'], // 咒愈师
@@ -101,7 +101,7 @@ const OPERATORS = {
     skywalker: [],                  // 巡空者
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr）
   },
 };
 
@@ -263,7 +263,10 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   }
 
   const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx'];
-  const damageType = artsSubs.includes(charData.subProfessionId) ? 'arts' : 'physical';
+  // 无攻击能力的召唤物（如夜莺幻影/鸟笼 atk=0）按法术色展示，DPS 按 0 攻计算
+  const tokenArtsIds = ['token_10003_cgbird_bird'];
+  const isNoAtkToken = String(id).startsWith('token_') && tokenArtsIds.includes(id);
+  const damageType = (artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical';
 
   const skills = [];
   const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);

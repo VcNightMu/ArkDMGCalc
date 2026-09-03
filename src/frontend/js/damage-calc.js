@@ -15,8 +15,37 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期，随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id；value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
-  'char_120_hibisc': 0  // 芙蓉「治疗力提升」：精1 Lv1 起 +4%，Lv55 起 +8%
+  'char_120_hibisc': 0,  // 芙蓉「治疗力提升」：精1 Lv1 起 +4%，Lv55 起 +8%
+  'char_4163_rosesa': 0 // 瑰盐：攻击 -5%（治疗代价换倍率，见 TALENT_HEAL_DRIVERS）
 };
+
+// 常驻治疗倍率天赋驱动表（blackboard.heal_scale 为治疗量乘数）。
+// 治疗干员所有治疗量（普攻/技能期/触发）都乘此倍率；无天赋/未解锁 → 1。
+const TALENT_HEAL_DRIVERS = {
+  'char_4163_rosesa': 0 // 瑰盐：治疗量 +5%~+17%（随精化/潜能5 增强）
+};
+
+/**
+ * 常驻治疗倍率天赋：按精化阶段/潜能匹配候选，返回治疗量乘数（无天赋/未解锁 → 1）。
+ * 候选含潜能档（瑰盐每精化档 pot0/pot4 两条），需 requiredPotentialRank 过滤。
+ */
+function calcTalentHealScale(op, slotData) {
+  const talentIndex = TALENT_HEAL_DRIVERS[op.id];
+  if (talentIndex === undefined) return 1;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let scale = null;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const hs = cand.blackboard && typeof cand.blackboard.heal_scale === 'number' ? cand.blackboard.heal_scale : 0;
+      if (hs > 0 && (scale === null || hs > scale)) scale = hs;
+    }
+  }
+  return scale === null ? 1 : scale;
+}
 
 // 查驱动表，返回常驻加攻天赋在当前精英化/等级下的直接乘算加数（0 表示无此天赋或未生效）。
 function calcTalentAtkBonus(op, slotData) {
@@ -26,14 +55,14 @@ function calcTalentAtkBonus(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite;
   const level = slotData.level;
-  let bonus = 0;
+  let bonus = null;   // null=未匹配；负值天赋（如瑰盐 -5%）也必须采纳
   for (const cand of talent.candidates) {
     if (cand.phase <= elite && level >= (cand.level || 1)) {
       const atk = cand.blackboard && typeof cand.blackboard.atk === 'number' ? cand.blackboard.atk : 0;
-      if (atk > bonus) bonus = atk;
+      if (bonus === null || atk > bonus) bonus = atk;
     }
   }
-  return bonus;
+  return bonus === null ? 0 : bonus;
 }
 
 const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resistance: 'magicResistance', attack_speed: 'attackSpeed' };
@@ -100,21 +129,26 @@ function getModuleLevelData(op, slotData) {
  *   判定放调用侧（该乘算只对特定技能组合生效）。
  */
 function calcModuleTalentEnhance(op, slotData) {
-  const out = { attackSpeed: null, extraAtkMul: 0 };
+  const out = { attackSpeed: null, extraAtkMul: 0, healScale: 1 };
   const lv = getModuleLevelData(op, slotData);
   if (!lv || !lv.talentEnhance || lv.talentEnhance.length === 0) return out;
   const pot = slotData.potentialRank || 0;
   let bestAspd = null;
   let extraAtk = 0;
+  let healScale = 1;
   for (const cand of lv.talentEnhance) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (candPot > pot) continue;
     const bb = cand.blackboard || {};
     if (typeof bb.attack_speed === 'number' && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
+    // 天赋强化的治疗倍率（如夜莺 X 模组强化「白恶魔的庇护」：范围内友方受疗 +3%/+5%）。
+    // 治疗目标必在攻击范围内才能被治疗，故该光环直接放大自身治疗数值。
+    if (typeof bb.heal_scale === 'number' && bb.heal_scale > healScale) healScale = bb.heal_scale;
   }
   out.attackSpeed = bestAspd;
   out.extraAtkMul = extraAtk;
+  out.healScale = healScale;
   return out;
 }
 
@@ -166,14 +200,15 @@ function calculateOperator(op, slotData) {
 
   // No skill: return normal stats only
   if (!skill) {
+    const healScale = calcTalentHealScale(op, slotData) * (enh.healScale || 1);  // 无技能干员也乘常驻治疗倍率
     const healRatio = 1.0;
     if (isMedic) {
-      const normalHeal = panelAtk * healRatio;
+      const normalHeal = panelAtk * healRatio * healScale;
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
     const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalDamageType: isArts ? 'arts' : 'physical' };
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isArts ? 'arts' : 'physical', normalDamageType: isArts ? 'arts' : 'physical' };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -222,7 +257,8 @@ function calculateOperator(op, slotData) {
   const params = {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts,
-    isIncantationMedic, enemy: state.enemy
+    isIncantationMedic, enemy: state.enemy,
+    talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1)  // 常驻治疗倍率（天赋 × 模组天赋强化，如瑰盐/夜莺X模组）
   };
 
   let result;
@@ -303,4 +339,4 @@ function calcPanelStats(op, slotData) {
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcModuleTalentEnhance, TALENT_ATK_DRIVERS, TALENT_SPD_DRIVERS };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS };
