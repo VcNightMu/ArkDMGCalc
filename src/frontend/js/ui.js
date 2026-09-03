@@ -313,7 +313,9 @@ async function updateResults() {
   }
 
   container.innerHTML = '';
-  const notes = [];
+  const notes = [];      // 个人说明（按选择顺序）
+  const subNotes = [];  // 子职业通用说明（渲染在个人说明之前，每子职业仅一条）
+  const subShown = new Set();
 
   for (const slotData of filledSlots) {
     const op = await getOperatorData(slotData.operatorId);
@@ -326,6 +328,12 @@ async function updateResults() {
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
     const dmgCls = dmgClass(result.damageType);
 
+    const subId = op.subProfessionId;
+    if (subId && !subShown.has(subId)) {
+      subShown.add(subId);
+      const subText = await getNote('__subprof_' + subId);
+      if (subText) subNotes.push({ kind: 'sub', name: await getSubProfessionCN(subId), text: subText });
+    }
     const note = await getNote(op.id);
     if (note) notes.push({ name: op.name, rarity: rarityNum, text: note });
 
@@ -378,7 +386,7 @@ async function updateResults() {
     container.appendChild(card);
   }
 
-  renderNotes(notes);
+  renderNotes(subNotes.concat(notes));
 }
 
 function renderNotes(notes) {
@@ -391,8 +399,10 @@ function renderNotes(notes) {
   for (const n of notes) {
     const item = document.createElement('div');
     item.className = 'note-item';
-    item.innerHTML = '<div class="note-head"><span class="rarity-' + n.rarity + '" style="font-size:13px;">★' + n.rarity + '</span><span class="note-name">' + n.name + '</span></div>' +
-      '<p class="note-text">' + n.text + '</p>';
+    const headHtml = n.kind === 'sub'
+      ? '<div class="note-head"><span class="note-sub-tag">' + n.name + '</span></div>'
+      : '<div class="note-head"><span class="rarity-' + n.rarity + '" style="font-size:13px;">★' + n.rarity + '</span><span class="note-name">' + n.name + '</span></div>';
+    item.innerHTML = headHtml + '<p class="note-text">' + n.text + '</p>';
     container.appendChild(item);
   }
 }

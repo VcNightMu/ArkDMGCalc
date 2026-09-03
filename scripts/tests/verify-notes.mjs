@@ -49,5 +49,20 @@ check('头部含稀有度星标', html.includes('rarity-5'));
 check('闪灵说明不含示例占位', !html.includes('示例'));
 check('不含无说明干员名', !html.includes('末药') && !html.includes('塞雷娅'));
 
+// 3) 子职业通用说明：选锡兰+流明（两名疗养师）→ 通用说明只渲染一次，个人说明各一条
+state.slots = [
+  { operatorId: 'char_348_ceylon', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 },
+  { operatorId: 'char_4042_lumen', elite: 2, level: 90, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 },
+  null, null,
+];
+await ui.updateResults();
+const html2 = els['notes-list'].innerHTML;
+check('含疗养师通用说明（不考虑距离衰减）', html2.includes('疗养师不考虑治疗较远目标时的衰减'));
+check('通用说明带子职业标签', html2.includes('note-sub-tag'));
+check('通用说明仅出现一次', (html2.match(/不考虑治疗较远目标时的衰减/g) || []).length === 1);
+check('锡兰个人说明（湖畔漫步者）', html2.includes('湖畔漫步者'));
+check('流明个人说明（应急处理）', html2.includes('应急处理'));
+check('通用说明在个人说明之前', html2.indexOf('不考虑治疗较远目标时的衰减') < html2.indexOf('湖畔漫步者'));
+
 console.log(ok ? '✅ 全部通过' : '❌ 存在失败');
 process.exit(ok ? 0 : 1);

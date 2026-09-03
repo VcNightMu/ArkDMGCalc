@@ -406,3 +406,6 @@ body {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+/* 说明区：子职业通用说明标签 */
+.note-sub-tag { font-size:13px; font-weight:600; color:#7ec8ff; }
