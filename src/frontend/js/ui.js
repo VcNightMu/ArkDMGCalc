@@ -3,6 +3,14 @@ import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfession
 import { state } from './state.js';
 import { calculateOperator, calcPanelStats } from './damage-calc.js';
 
+function isModuleUnlocked(op, slotData) {
+  const m = slotData.module;
+  if (!m) return true; // 无模组恒可用
+  const mod = (op.modules || []).find(x => x.id === m.moduleId);
+  if (!mod || mod.type !== 'ADVANCED') return true; // 证章不受解锁限制
+  return slotData.elite >= 2 && slotData.level >= mod.unlockLevel;
+}
+
 function dmgClass(damageType) {
   const map = { physical: 'dmg-physical', arts: 'dmg-arts', true: 'dmg-true', element: 'dmg-element' };
   return map[damageType] || 'dmg-physical';
@@ -116,7 +124,8 @@ async function showOperatorPicker(slotIndex) {
         level: opData.phases[maxElite].maxLevel,
         trustPercent: 100,
         potentialRank: 0,
-        skillLevel: 9
+        skillLevel: 9,
+        module: null
       };
       await renderSlot(slotIndex);
       updateResults();
@@ -125,6 +134,34 @@ async function showOperatorPicker(slotIndex) {
   });
 
   overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+}
+
+/**
+ * 模组下拉选项构建：三星/无模组干员仅「无」；四星+ 恒有证章（INITIAL）；
+ * 效果模组（ADVANCED）需精二且等级达 unlockLevel 后逐级可选，未解锁显示禁用提示。
+ * value 编码 moduleId@level（证章 level=0，无模组 = ''）。
+ */
+function buildModuleSelect(op, data, index) {
+  const mods = op.modules || [];
+  let opts = '<option value="">无</option>';
+  for (const mod of mods) {
+    if (mod.type === 'INITIAL') {
+      const sel = data.module && data.module.moduleId === mod.id ? ' selected' : '';
+      opts += '<option value="' + mod.id + '@0"' + sel + '>' + mod.name + '</option>';
+    } else {
+      const unlocked = data.elite >= 2 && data.level >= mod.unlockLevel;
+      if (!unlocked) {
+        opts += '<option value="@" disabled>' + (mod.typeName2 || '') + '模组（精二' + mod.unlockLevel + '级解锁）</option>';
+        continue;
+      }
+      for (const lv of mod.levels) {
+        const v = mod.id + '@' + lv.level;
+        const sel = data.module && data.module.moduleId === mod.id && data.module.moduleLevel === lv.level ? ' selected' : '';
+        opts += '<option value="' + v + '"' + sel + '>' + (mod.typeName2 || '') + '模组' + lv.level + '级</option>';
+      }
+    }
+  }
+  return '<div class="form-group"><label>模组</label><select data-index="' + index + '" data-field="module">' + opts + '</select></div>';
 }
 
 async function renderSlot(index) {
@@ -208,6 +245,7 @@ async function renderSlot(index) {
   const selNone = data.potentialRank === 0 ? ' selected' : '';
   html += '<option value="0"' + selNone + '>无潜能</option>';
   html += '</select></div>';
+  html += buildModuleSelect(op, data, index);
   html += '</div>';
 
   slot.innerHTML = html;
@@ -223,6 +261,16 @@ async function renderSlot(index) {
   slot.querySelectorAll('select, input').forEach(el => {
     el.addEventListener('change', async (e) => {
       const field = e.target.dataset.field;
+      if (field === 'module') {
+        const raw = e.target.value;
+        if (!raw || raw === '@') state.slots[index].module = null;
+        else {
+          const parts = raw.split('@');
+          state.slots[index].module = { moduleId: parts[0], moduleLevel: Number(parts[1]) };
+        }
+        updateResults();
+        return;
+      }
       let value = e.target.type === 'number' ? Number(e.target.value) : Number(e.target.value);
       state.slots[index][field] = value;
       if (field === 'level') {
@@ -230,6 +278,8 @@ async function renderSlot(index) {
         value = Math.min(Math.max(1, value), phase.maxLevel);
         state.slots[index].level = value;
         e.target.value = value;
+        if (!isModuleUnlocked(op, state.slots[index])) state.slots[index].module = null;
+        await renderSlot(index);
       }
       if (field === 'trustPercent') {
         value = Math.min(Math.max(0, value), 100);
@@ -243,6 +293,7 @@ async function renderSlot(index) {
         if (state.slots[index].skillLevel > maxSl) state.slots[index].skillLevel = maxSl;
         const maxSi = value === 0 ? 0 : value === 1 ? 1 : 2;
         if (state.slots[index].skillIndex > maxSi) state.slots[index].skillIndex = maxSi;
+        if (!isModuleUnlocked(op, state.slots[index])) state.slots[index].module = null;
         await renderSlot(index);
       }
       updateResults();
@@ -376,7 +427,7 @@ async function renderPanelStats() {
         '<div class="metric"><span class="label">攻击力</span><span class="value stat">' + ps.panelAtk + '</span></div>' +
         '<div class="metric"><span class="label">防御力</span><span class="value stat">' + ps.panelDef + '</span></div>' +
         '<div class="metric"><span class="label">法术抗性</span><span class="value stat">' + ps.magicResistance + '</span></div>' +
-        '<div class="metric"><span class="label">攻击间隔</span><span class="value stat">' + ps.baseAttackTime.toFixed(2) + 's</span></div>' +
+        '<div class="metric"><span class="label">攻击间隔</span><span class="value stat">' + (ps.attackInterval !== undefined ? ps.attackInterval : ps.baseAttackTime).toFixed(2) + 's</span></div>' +
       '</div>';
     container.appendChild(card);
   }
