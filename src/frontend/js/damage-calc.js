@@ -404,21 +404,21 @@ const PERIODIC_DOT = {
 const MULTI_HIT = {
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
 };
-// atk_scale 不作为普攻倍率（技能结束爆炸等一次性伤害语义，如车尔尼 S2 结束时 2.1×atk 法伤）
+// atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
-  'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座:atk_scale 2.1 是技能结束爆炸,非普攻倍率
 };
-// 顶层 atk 不作为普攻加成（键值是受击叠层基值，默认不受击 0 层，如车尔尼 S2 每层 +26%）
+// 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
-  'char_4047_pianst': { 1: true },  // 车尔尼 S2：atk 0.26/层，默认不叠
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2:atk 0.26/层,默认不叠
 };
 // 技能结束爆炸伤害(结束后对周围敌人造成 atk_scale×atk 法伤单发,加入技能期总伤)
 const SKILL_END_ARTS_BURST = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2:结束时 2.1×atk 法伤
 };
-// 技能不计算(效果全在未建模机制上,展示常态普攻即可;如斩业星熊 S2 投盾系)
+// 技能不计算（效果全在未建模机制上，展示常态普攻即可）
 const SKIP_SKILLS = {
-  'char_1044_hsgma2': { 1: true },  // 斩业星熊 S2 无始无明:投盾伤害不建模型
+  // （暂空）斩业星熊 S2 曾整技能跳过，后改为只算三连击（见 dispatch 拦截）
 };
 // AUTO 触发附加法伤(下次攻击=普攻物理+额外 X×atk 法伤,自然回充能周期;斥罪 S1 蓄力分支永不触发)
 const TRIGGER_ARTS_ADD = {
@@ -570,7 +570,7 @@ function calculateOperator(op, slotData) {
   if (delayedSec) skillDuration = Math.max(0, skillDuration - delayedSec);
 
   const modifiers = [];
-  // 技能攻击力增幅：顶层 atk；缺省时查前缀别名键（焰苇S3 reed2_skil_3[switch_mode].atk）
+  // 技能攻击力增幅:顶层 atk;缺省时查前缀别名键(焰苇S3 reed2_skil_3[switch_mode].atk)
   const atkKey = (SKILL_ATK_KEY_OVERRIDES[op.id] || {})[skillIndex] || 'atk';
   const atkExcluded = (SKILL_ATK_EXCLUDE[op.id] || {})[skillIndex] === true;
   if (levelData[atkKey] !== undefined && !atkExcluded) modifiers.push({ value: levelData[atkKey], operator: 'direct_mul' });
@@ -705,6 +705,24 @@ function calculateOperator(op, slotData) {
       dmgTypes: {
         physical: { skillDps: 0, skillTotalDamage: triggerPhys, cycleDps: physCycle / cycleTime },
         arts: { skillDps: 0, skillTotalDamage: triggerArts, cycleDps: artsCycle / cycleTime },
+      },
+    };
+  } else if (op.id === 'char_1044_hsgma2' && skillIndex === 1) {
+    // 斩业星熊 S2 无始无明（AUTO 攻回 sp7 触发）：仅算本体三连击（0.75×atk 法伤×3），
+    // 盾牌环绕法伤/吸血/停顿不计；每 7 次普攻充能触发一次（cycle 口径同 calcCycleDps 攻回）
+    const trigPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const triggerHit = calcArtsDamage(panelAtk * 0.75, state.enemy.res) * 3;
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeAttacks = 7;                                // sp7 攻回
+    const cycleTime = (chargeAttacks + 1) * interval;
+    result = {
+      skillDps: 0, skillTotalDamage: triggerHit,
+      cycleDps: cycleTime > 0 ? (chargeAttacks * trigPhys + triggerHit) / cycleTime : 0,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: 'physical', realInterval: interval,
+      dmgTypes: {
+        physical: { skillDps: 0, skillTotalDamage: 0, cycleDps: chargeAttacks * trigPhys / cycleTime },
+        arts: { skillDps: 0, skillTotalDamage: triggerHit, cycleDps: triggerHit / cycleTime },
       },
     };
   } else if ((SKIP_SKILLS[op.id] || {})[skillIndex]) {
