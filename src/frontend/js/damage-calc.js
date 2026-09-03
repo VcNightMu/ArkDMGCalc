@@ -25,6 +25,9 @@ const TALENT_ATK_DRIVERS = {
   'char_180_amgoat': 0,   // 艾雅法拉「炎息」:在场全体术师攻+7%~16%,自身为术师必吃(同赫默光环先例)
   'char_202_demkni': 0,   // 塞雷娅「莱茵充能护服」:站场每20s叠1层×5(单层 atk+5~6%/def+4~5%),按满层处理 → atk+25~30%
   'char_260_durnar': 0,    // 坚雷「攻守兼备」:攻击力+7%(防御部分在 TALENT_HP_DEF_DRIVERS)
+  'char_4039_horn': 0,     // 号角「军事要塞」:在场所有重装干员攻击力+20%(自身为重装必得,同炎息先例)
+  'char_431_ashlok': 0,    // 灰毫「炮术研习」:攻击力+8%(周身四格地面改+16% 条件版不计,取无条件档)
+  'char_493_firwhl': 0,    // 火哨「进退自如」:未阻挡敌人时攻击力+12%(默认远程轰击位未阻挡;阻挡时 def+12% 承伤向不计)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -406,7 +409,8 @@ const MULTI_HIT = {
 };
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
-  'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座:atk_scale 2.1 是技能结束爆炸,非普攻倍率
+  'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
+  'char_494_vendla': { 1: true },   // 刺玫 S2 荆藤庇荫：atk_scale 是受击反伤倍率（反伤不计），普攻只吃 atk 加攻
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
@@ -416,9 +420,9 @@ const SKILL_ATK_EXCLUDE = {
 const SKILL_END_ARTS_BURST = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2:结束时 2.1×atk 法伤
 };
-// 技能不计算（效果全在未建模机制上，展示常态普攻即可）
+// 技能不计算(效果全在未建模机制上,展示常态普攻即可)
 const SKIP_SKILLS = {
-  // （暂空）斩业星熊 S2 曾整技能跳过，后改为只算三连击（见 dispatch 拦截）
+  // (暂空)斩业星熊 S2 曾整技能跳过,后改为只算三连击(见 dispatch 拦截)
 };
 // AUTO 触发附加法伤(下次攻击=普攻物理+额外 X×atk 法伤,自然回充能周期;斥罪 S1 蓄力分支永不触发)
 const TRIGGER_ARTS_ADD = {
@@ -584,7 +588,6 @@ function calculateOperator(op, slotData) {
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
   // atk_scale 排除:车尔尼 S2 的 2.1 是技能结束爆炸倍率,不作普攻倍率乘算
   const scaleExcluded = (SKILL_ATK_SCALE_EXCLUDE[op.id] || {})[skillIndex] === true;
-  if (levelData.atk_scale !== undefined && !isOneShotHeal && !scaleExcluded) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
   // base_attack_time:负值=加算秒(白面鸮脑啡肽 -2.1 等);(0,1) 正小数=攻击间隔倍率("间隔缩短至 x 倍",
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
@@ -609,6 +612,8 @@ function calculateOperator(op, slotData) {
     ]);
     skillDef = calcAttribute(rawDef, modifiers.filter(m => m.operator === 'final_mul'));
   }
+  // atk_scale 输出倍率:在天赋/atk 重算之后乘(atk_scale 技能同时带常驻加攻天赋时不被重算覆盖,如号角 S1 2.4×+军事要塞20%)
+  if (levelData.atk_scale !== undefined && !isOneShotHeal && !scaleExcluded) skillAtk = skillAtk * levelData.atk_scale;
 
   // ======== Dispatch ========
   const isToggle = levelData.isToggle || false;
@@ -663,6 +668,74 @@ function calculateOperator(op, slotData) {
     result = calcMedical(params);
   } else if (isGuardianHealSkill) {
     result = calcGuardian(params);
+  } else if (op.id === 'char_4039_horn' && skillIndex === 2) {
+    // 号角 S3 终极防线(dur24 过载两段):前12s atk+50% 间隔1.0s,后12s 过载 atk+100%(自损不计)
+    const frontHit = calcPhysicalDamage(panelAtk * 1.5, state.enemy.def);
+    const overloadHit = calcPhysicalDamage(panelAtk * 2.0, state.enemy.def);
+    const frontTotal = frontHit * 12;    // 前12击
+    const backTotal = overloadHit * 12;  // 后12击
+    const total = frontTotal + backTotal;
+    result = {
+      skillDps: total / 24, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: 1.0,
+      dmgTypes: { physical: { skillDps: total / 24, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4039_horn' && skillIndex === 1) {
+    // 号角 S2 暴风号令(10发弹药,不提前关闭):前5发=2×atk物理,后5发过载弹药=2×atk物理+0.5×atk法伤;
+    // 用时=10发×2.8s,DPS=总伤/用时
+    const physPer = calcPhysicalDamage(panelAtk * 2, state.enemy.def);
+    const artsPer = calcArtsDamage(panelAtk * 0.5, state.enemy.res);
+    const physTotal = physPer * 10;
+    const artsTotal = artsPer * 5;
+    const total = physTotal + artsTotal;
+    const ammoTime = 10 * (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1);
+    result = {
+      skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: {
+        physical: { skillDps: physTotal / ammoTime, skillTotalDamage: physTotal, cycleDps: null },
+        arts: { skillDps: artsTotal / ammoTime, skillTotalDamage: artsTotal, cycleDps: null },
+      },
+    };
+  } else if (op.id === 'char_493_firwhl' && skillIndex === 0) {
+    // 火哨 S1 野火（AUTO 自然回 sp8）：下次攻击 1.6×atk 物理 + 引燃 4s 每秒 0.4×atk 法伤（附带 DOT 计入，同流明先例）
+    const trigPhys = calcPhysicalDamage(skillAtk, state.enemy.def);       // skillAtk 已含 atk_scale 1.6
+    const dotHit = calcArtsDamage(panelAtk * 0.4, state.enemy.res);
+    const dotTotal = dotHit * 4;                                          // 4 秒 4 跳
+    const trigTotal = trigPhys + dotTotal;
+    const int = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeAttacks = Math.floor(8 / int);                            // 自然回充能期普攻数（sp8）
+    const cycleTime = 8;
+    const normPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    result = {
+      skillDps: 0, skillTotalDamage: trigTotal,
+      cycleDps: (chargeAttacks * normPhys + trigTotal) / cycleTime,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: int,
+      dmgTypes: {
+        physical: { skillDps: 0, skillTotalDamage: trigPhys, cycleDps: (chargeAttacks * normPhys + trigPhys) / cycleTime },
+        arts: { skillDps: 0, skillTotalDamage: dotTotal, cycleDps: dotTotal / cycleTime },
+      },
+    };
+  } else if (op.id === 'char_493_firwhl' && skillIndex === 1) {
+    // 火哨 S2 焦土:普攻照常(物理 6击)+ 燃烧区持续5s>攻击间隔2.8s 区域重叠常驻 → 全程每秒0.75×atk法伤×17s
+    const physHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const physAttacks = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
+    const physTotal = physHit * physAttacks;
+    const burnHit = calcArtsDamage(panelAtk * 0.75, state.enemy.res);
+    const burnTotal = burnHit * skillDuration;
+    const total = physTotal + burnTotal;
+    result = {
+      skillDps: total / skillDuration, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: {
+        physical: { skillDps: physTotal / skillDuration, skillTotalDamage: physTotal, cycleDps: null },
+        arts: { skillDps: burnTotal / skillDuration, skillTotalDamage: burnTotal, cycleDps: null },
+      },
+    };
   } else if (!isSummon && levelData.heal_scale !== undefined && levelData.skillDuration === 0) {
     // 自愈型一次性技能(非医疗,如卡缇 S1「生命回复·α」skcom_heal_self):立即恢复最大生命 heal_scale 比例
     const healAmount = panelHp * levelData.heal_scale;
@@ -708,8 +781,8 @@ function calculateOperator(op, slotData) {
       },
     };
   } else if (op.id === 'char_1044_hsgma2' && skillIndex === 1) {
-    // 斩业星熊 S2 无始无明（AUTO 攻回 sp7 触发）：仅算本体三连击（0.75×atk 法伤×3），
-    // 盾牌环绕法伤/吸血/停顿不计；每 7 次普攻充能触发一次（cycle 口径同 calcCycleDps 攻回）
+    // 斩业星熊 S2 无始无明(AUTO 攻回 sp7 触发):仅算本体三连击(0.75×atk 法伤×3),
+    // 盾牌环绕法伤/吸血/停顿不计;每 7 次普攻充能触发一次(cycle 口径同 calcCycleDps 攻回)
     const trigPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
     const triggerHit = calcArtsDamage(panelAtk * 0.75, state.enemy.res) * 3;
     const interval = skillRealInterval > 0 ? skillRealInterval : 1;
