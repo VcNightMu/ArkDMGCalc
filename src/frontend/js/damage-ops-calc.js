@@ -54,7 +54,11 @@ function calcDamage(params) {
     skillDps, skillTotalDamage, cycleDps, normalDps, skillHps: null, normalHps: null, totalHeal: null,
     damageType: isTrue ? 'true' : (isArts ? 'arts' : 'physical'),
     // 常态普攻伤害类型：真伤只作用于技能期，常态仍为职业普攻类型（物理/法术）
-    normalDamageType: skillDuration > 0 ? (isArts ? 'arts' : 'physical') : null
+    normalDamageType: skillDuration > 0 ? (isArts ? 'arts' : 'physical') : null,
+    // 伤害类型拆分（规范化混合伤害）：每种>0的类型一档，UI 逐类型渲染只显示有值的部分
+    dmgTypes: {
+      [isTrue ? 'true' : (isArts ? 'arts' : 'physical')]: { skillDps, skillTotalDamage, cycleDps },
+    },
   };
 }
 

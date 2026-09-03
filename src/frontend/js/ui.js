@@ -16,6 +16,25 @@ function dmgClass(damageType) {
   return map[damageType] || 'dmg-physical';
 }
 
+// 伤害数值片段：规范化混合伤害（result.dmgTypes = {类型: {skillDps, skillTotalDamage, cycleDps}}）——
+// 逐类型渲染各自色值（物理红/法术黄/真伤白/元素色），仅显示 >0 的档位，多档用 + 分隔；
+// 无 dmgTypes 时回退单类型整数值（兼容旧结果）。
+function dmgValHtml(result, field) {
+  const types = result.dmgTypes;
+  if (types) {
+    const segs = [];
+    for (const t of Object.keys(types)) {
+      const v = types[t][field];
+      if (typeof v === 'number' && v > 0) {
+        segs.push('<span class="value ' + dmgClass(t) + '">' + Math.round(v) + '</span>');
+      }
+    }
+    if (segs.length > 1) return segs.join('<span style="color:#888;margin:0 2px;">+</span>');
+    if (segs.length === 1) return segs[0];
+  }
+  return '<span class="value ' + dmgClass(result.damageType) + '">' + result[field].toFixed(0) + '</span>';
+}
+
 function initEnemyPanel() {
   const inputs = {
     hp: document.getElementById('enemy-hp'),
@@ -356,26 +375,26 @@ async function updateResults() {
         metricsHtml += '<div class="metric"><span class="label">周期 HPS</span><span class="value heal">' + result.cycleHps.toFixed(0) + '</span></div>';
       }
       if (result.skillDps > 0) {
-        metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
       }
       if (result.skillTotalDamage > 0) {
-        metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       }
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.isToggle || result.isPermanent) {
-      metricsHtml = '<div class="metric"><span class="label">DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
+      metricsHtml = '<div class="metric"><span class="label">DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else if (result.cycleDps !== null) {
-      metricsHtml = '<div class="metric"><span class="label">总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">循环 DPS</span><span class="value ' + dmgCls + '">' + result.cycleDps.toFixed(0) + '</span></div>';
+      metricsHtml = '<div class="metric"><span class="label">总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
+      metricsHtml += '<div class="metric"><span class="label">循环 DPS</span>' + dmgValHtml(result, 'cycleDps') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
       const normDmgCls = dmgClass(result.normalDamageType);
-      metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span><span class="value ' + dmgCls + '">' + result.skillDps.toFixed(0) + '</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期总伤</span><span class="value ' + dmgCls + '">' + result.skillTotalDamage.toFixed(0) + '</span></div>';
+      metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
+      metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + normDmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';

@@ -3,6 +3,7 @@ import { calcPhysicalDamage, calcArtsDamage, calcRealInterval, interpolateAttr, 
 import { SkillType } from './operators.js';
 import { state } from './state.js';
 import { calcMedical, calcSummonHeal } from './medic-calc.js';
+import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 
 function getSkillLevelData(skill, level) {
@@ -21,13 +22,16 @@ const TALENT_ATK_DRIVERS = {
   'char_172_svrash': 0,   // 银灰「领袖」：攻击+5%/7%（精1）→+10%/12%（精2 潜4），自身常驻（编队再部署-5% 忽略）
   'char_010_chen': 1,     // 陈「持刀格斗术」精二：攻击+5%~6%（防御部分在 TALENT_HP_DEF_DRIVERS）
   'char_103_angel': 1,    // 能天使「天使的祝福」精二：自身攻击+6%~8%（随机友方同效不计）
-  'char_180_amgoat': 0    // 艾雅法拉「炎息」：在场全体术师攻+7%~16%，自身为术师必吃（同赫默光环先例）
+  'char_180_amgoat': 0,   // 艾雅法拉「炎息」：在场全体术师攻+7%~16%，自身为术师必吃（同赫默光环先例）
+  'char_202_demkni': 0,   // 塞雷娅「莱茵充能护服」：站场每20s叠1层×5（单层 atk+5~6%/def+4~5%），按满层处理 → atk+25~30%
 };
 
 // 常驻治疗倍率天赋驱动表（blackboard.heal_scale 为治疗量乘数）。
 // 治疗干员所有治疗量（普攻/技能期/触发）都乘此倍率；无天赋/未解锁 → 1。
 const TALENT_HEAL_DRIVERS = {
-  'char_4163_rosesa': 0 // 瑰盐：治疗量 +5%~+17%（随精化/潜能5 增强）
+  'char_4163_rosesa': 0, // 瑰盐：治疗量 +5%~+17%（随精化/潜能5 增强）
+  'char_148_nearl': 0,   // 临光「天马光环」：全图友方医疗效果+10~12%（自身治疗为友方医疗，光环先例自身必得）
+  'char_4143_sensi': 0,  // 森西「十年魔物餐经验」：自身治疗量+10%（防御部分在 TALENT_HP_DEF_DRIVERS）
 };
 
 /**
@@ -71,6 +75,8 @@ function calcTalentAtkBonus(op, slotData) {
         const commonKey = Object.keys(cand.blackboard).find(k => k.endsWith('[common].atk'));
         if (commonKey !== undefined) atk = cand.blackboard[commonKey];
         else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
+        // 叠层天赋（塞雷娅「莱茵充能护服」每层值 × max_stack_cnt）：按满层取
+        if (typeof cand.blackboard.max_stack_cnt === 'number') atk = atk * cand.blackboard.max_stack_cnt;
       }
       if (bonus === null || atk > bonus) bonus = atk;
     }
@@ -78,7 +84,8 @@ function calcTalentAtkBonus(op, slotData) {
   return bonus === null ? 0 : bonus;
 }
 // 常驻生命/防御百分比天赋驱动（bb.max_hp / bb.def = 自身面板百分比乘区），仅收"必然生效于自身"类：
-// 范围友方光环（蜜莓/纯烬/夜莺白恶魔等，自身不在自身攻击范围内）与条件性/限时/叠层（桑葚双医疗、嘉维尔限时15s、塞雷娅叠层）不入表。
+// 范围友方光环（蜜莓/纯烬/夜莺白恶魔等，自身不在自身攻击范围内）与条件性/限时（桑葚双医疗、嘉维尔限时15s）不入表。
+// 叠层天赋按满层处理（塞雷娅「莱茵充能护服」单层 × max_stack_cnt）。
 const TALENT_HP_DEF_DRIVERS = {
   'char_1052_kalts2': 0, // 凯尔希·思衡托「遗尘守望」：生命与防御 +5%~30%（随精化/潜3 增强，阻挡等忽略）
   'char_010_chen': 1,    // 陈「持刀格斗术」精二：防御 +5%~6%（攻击部分在 TALENT_ATK_DRIVERS）
@@ -86,6 +93,9 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_449_glider': 0,  // 蜜莓「集体意识」：攻击范围内远程干员最大生命+5%/7%(精1)→+10%/12%(精2 潜4)，自身为远程医疗必在范围（单目标模型默认奶自己）
   'char_1016_agoat2': 1, // 纯烬艾雅法拉「火山灰疗愈」：攻击范围内友方生命上限+6%(E2)/+8%(E2 潜4)，自身必在范围（同前）；同天赋普攻层叠增益治疗(heal_scale)不入面板
   'char_2014_nian': 0,   // 年「积甲成山」：编队时全体重装生命上限+8%~20%（自身为重装必得，编队光环先例同赫默/蜜莓）
+  'char_4143_sensi': 0,  // 森西「十年魔物餐经验」：防御+10%（治疗部分在 TALENT_HEAL_DRIVERS）
+  'char_226_hmau': 0,    // 吽「门神」：防御+6~8% 无条件常驻（身后高台治疗+75% 为条件部分不计，单目标默认自身非高台）
+  'char_202_demkni': 0,  // 塞雷娅「莱茵充能护服」：防御叠层按满层 ×5（单层 def+4~5% → +20~25%），攻击部分在 TALENT_ATK_DRIVERS
 };
 
 // 查 HP/DEF 常驻百分比天赋，返回 { hpMul, defMul }（未解锁/无键为 0）
@@ -102,8 +112,9 @@ function calcTalentHpDefMul(op, slotData) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase > elite || level < (cand.level || 1) || candPot > pot) continue;
     const bb = cand.blackboard || {};
-    if (typeof bb.max_hp === 'number') out.hpMul = Math.max(out.hpMul, bb.max_hp);
-    if (typeof bb.def === 'number') out.defMul = Math.max(out.defMul, bb.def);
+    const stack = typeof bb.max_stack_cnt === 'number' ? bb.max_stack_cnt : 1;   // 叠层天赋按满层（塞雷娅）
+    if (typeof bb.max_hp === 'number') out.hpMul = Math.max(out.hpMul, bb.max_hp * stack);
+    if (typeof bb.def === 'number') out.defMul = Math.max(out.defMul, bb.def * stack);
   }
   return out;
 }
@@ -336,6 +347,24 @@ function calcMagicFragileMul(op, slotData, talentIndex = INCANTATION_FRAGILE_DRI
   return mul === null ? 1 : mul;
 }
 
+// 瑕光「仁慈」：攻击沉睡目标时攻击力提升至 atk_scale 倍（技能期必睡场景如 S2 启用）。
+// 返回满足当前精化/潜能的最高倍率（无 → 1）。
+function calcSleepAtkMul(op, slotData) {
+  const talent = (op.talents || [])[1];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let mul = null;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.atk_scale === 'number' ? cand.blackboard.atk_scale : 0;
+      if (v > 0 && (mul === null || v > mul)) mul = v;
+    }
+  }
+  return mul === null ? 1 : mul;
+}
+
 // 停止攻击类防御技能（技能期转纯防御，普攻停止）：技能期伤害记 0，防御/面板变化仅展示。
 // key: 干员 id；value: 停止攻击的 skillIndex 列表。铁卫先行，其它子职业轮到时追加。
 const STOP_ATTACK_SKILLS = {
@@ -498,17 +527,34 @@ function calculateOperator(op, slotData) {
     magicFragileMul: fragileBase * fragileExtra,
     isDotTick: (INCANTATION_DOT_OVERRIDES[op.id] || []).includes(skillIndex),
     healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
-    talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1)  // 常驻治疗倍率（天赋 × 模组天赋强化，如瑰盐/夜莺X模组）
+    talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率（天赋 × 模组天赋强化，如瑰盐/夜莺X模组）
+    sleepAtkMul: calcSleepAtkMul(op, slotData)  // 瑕光「仁慈」沉睡目标攻击倍率（仅 S2 必睡场景启用）
   };
 
   let result;
   // 召唤物路由：带独立技能（非 skcom_ 通用被动）的召唤物按技能语义走伤害/治疗计算
   // （如凯尔希·Mon3tr 攻击型召唤物，技能由持有者注入）；无独立技能的召唤物（如医疗探机）走治疗型 calcSummonHeal。
   const hasRealSkills = (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_'));
+  // 守护者治疗技能识别：治疗模式型（bb 带 base_attack_time，普攻转治疗）、
+  // 急救族 AUTO（heal_scale + AUTO 充能触发治疗）与特殊模式（塞雷娅S3 钙质化每秒HOT attack@heal_scale；
+  // 瑕光S1 双通道 atk_scale+heal_scale AUTO / S2 沉睡 attack@atk_to_hp_recovery_ratio / S3 物法双伤 attack@blemsh_s_3...；
+  // 黍S3 双轨 e_atk；森西S2 烹饪 HOT tick_heal_scale）
+  const isGuardianSkill = op.profession === 'TANK' && op.subProfessionId === 'guardian';
+  const isGuardianHealSkill = isGuardianSkill && (
+    levelData.base_attack_time !== undefined ||
+    levelData['attack@heal_scale'] !== undefined ||
+    levelData['attack@atk_to_hp_recovery_ratio'] !== undefined ||
+    levelData['attack@blemsh_s_3_extra_dmg[magic].atk_scale'] !== undefined ||
+    levelData.e_atk !== undefined ||
+    levelData.tick_heal_scale !== undefined ||
+    (levelData.heal_scale !== undefined && (levelData.skillType === 'AUTO' || levelData.atk_scale !== undefined))
+  );
   if (isSummon && !hasRealSkills) {
     result = calcSummonHeal(params);
   } else if (isMedic) {
     result = calcMedical(params);
+  } else if (isGuardianHealSkill) {
+    result = calcGuardian(params);
   } else if (!isSummon && levelData.heal_scale !== undefined && levelData.skillDuration === 0) {
     // 自愈型一次性技能（非医疗，如卡缇 S1「生命回复·α」skcom_heal_self）：立即恢复最大生命 heal_scale 比例
     const healAmount = panelHp * levelData.heal_scale;
@@ -559,7 +605,7 @@ function calculateOperator(op, slotData) {
     damageType = op.damageType || 'physical';
   }
 
-  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined);
+  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined);
   return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: skillAtk };
 }
 
