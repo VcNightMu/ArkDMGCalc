@@ -416,5 +416,49 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_folnic",
+      "name": "亚叶证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_folnic",
+      "name": "母亲的领巾",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "attack_speed": 6
+          }
+        }
+      ]
+    }
   ]
 }

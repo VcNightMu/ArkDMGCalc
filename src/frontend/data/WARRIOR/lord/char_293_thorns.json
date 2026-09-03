@@ -620,5 +620,87 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_thorns",
+      "name": "棘刺证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_thorns",
+      "name": "“盐与沙”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 39,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 215,
+            "atk": 48,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 55,
+            "attack_speed": 7
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_thorns",
+      "name": "沙蚀",
+      "type": "ADVANCED",
+      "typeName2": "D",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 3,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 60,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 69,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 75,
+            "attack_speed": 7
+          }
+        }
+      ]
+    }
   ]
 }

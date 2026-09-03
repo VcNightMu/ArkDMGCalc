@@ -594,5 +594,81 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bpipe",
+      "name": "风笛证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bpipe",
+      "name": "破城矛弹夹",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "atk": 64
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 73
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_bpipe",
+      "name": "“棍棒与口袋”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 13
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 17
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 20
+          }
+        }
+      ]
+    }
   ]
 }

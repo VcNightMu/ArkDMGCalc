@@ -567,5 +567,49 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_svrash",
+      "name": "银灰证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_svrash",
+      "name": "雪境羽兽护理套组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 45
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 60
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 330,
+            "atk": 70
+          }
+        }
+      ]
+    }
   ]
 }

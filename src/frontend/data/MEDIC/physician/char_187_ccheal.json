@@ -502,5 +502,49 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ccheal",
+      "name": "嘉维尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ccheal",
+      "name": "“请遵医嘱”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 30,
+            "atk": 25
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 50,
+            "atk": 30
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "atk": 35
+          }
+        }
+      ]
+    }
   ]
 }

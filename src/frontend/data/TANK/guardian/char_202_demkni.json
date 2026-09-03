@@ -587,5 +587,84 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_demkni",
+      "name": "塞雷娅证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_demkni",
+      "name": "闲置的拳击手套",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 60
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_demkni",
+      "name": "科技新星",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 35,
+            "def": 35
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 43,
+            "def": 43
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 50,
+            "def": 50
+          }
+        }
+      ]
+    }
   ]
 }

@@ -587,5 +587,113 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_kalts",
+      "name": "凯尔希证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_kalts",
+      "name": "Mon2tr",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 35,
+            "def": 15
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 20
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_kalts",
+      "name": "医者",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 115,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 155,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 195,
+            "attack_speed": 7
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_kalts",
+      "name": "凯尔希特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 24,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 38,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 7
+          }
+        }
+      ]
+    }
   ]
 }

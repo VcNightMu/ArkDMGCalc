@@ -430,5 +430,49 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bldsk",
+      "name": "华法琳证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bldsk",
+      "name": "应急储备",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 40,
+            "atk": 30
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 65,
+            "atk": 40
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 47
+          }
+        }
+      ]
+    }
   ]
 }

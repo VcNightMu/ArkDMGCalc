@@ -612,5 +612,81 @@
       "type": "CUSTOM",
       "modifiers": []
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_shining",
+      "name": "闪灵证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_shining",
+      "name": "“使徒”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 13
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 17
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 63,
+            "def": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_shining",
+      "name": "干枯剑鞘",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 35,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "attack_speed": 7
+          }
+        }
+      ]
+    }
   ]
 }

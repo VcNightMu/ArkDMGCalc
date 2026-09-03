@@ -632,5 +632,81 @@
       "type": "CUSTOM",
       "modifiers": []
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_amgoat",
+      "name": "艾雅法拉证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_amgoat",
+      "name": "“错过的声音”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 40
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 55
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 65
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_amgoat",
+      "name": "宠物大赛第一名",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 25
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 40
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 50
+          }
+        }
+      ]
+    }
   ]
 }

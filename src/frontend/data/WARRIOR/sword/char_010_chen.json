@@ -570,5 +570,81 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chen",
+      "name": "陈证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chen",
+      "name": "罗德岛制式剑",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 80,
+            "attack_speed": 7
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_chen",
+      "name": "往昔时光",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 52,
+            "def": 28
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 68,
+            "def": 36
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 42
+          }
+        }
+      ]
+    }
   ]
 }

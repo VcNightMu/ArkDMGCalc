@@ -424,5 +424,49 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_red",
+      "name": "红证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_red",
+      "name": "神秘的道具包",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 74,
+            "attack_speed": 4
+          }
+        }
+      ]
+    }
   ]
 }

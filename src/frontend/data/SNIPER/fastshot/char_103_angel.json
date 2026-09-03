@@ -582,5 +582,81 @@
       "type": "CUSTOM",
       "modifiers": []
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_angel",
+      "name": "能天使证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_angel",
+      "name": "能天使的杰作",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 27
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 35
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 41
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_angel",
+      "name": "欢迎光临，企鹅物流",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 26,
+            "def": 26
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 37,
+            "def": 37
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 43,
+            "def": 43
+          }
+        }
+      ]
+    }
   ]
 }

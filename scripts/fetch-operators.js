@@ -145,6 +145,43 @@ function convertTalents(charData) {
 }
 
 /**
+ * 干员模组挂载：从 uniequip_table（元数据）+ battle_equip_table（等级面板）组装。
+ * charEquip[charId] 给出该干员全部模组（含 INITIAL 基础证章，order=0），按 charEquipOrder 排序。
+ * 每个模组 levels 为 battle_equip phases（键 0/1/2 → 模组等级 1/2/3），
+ * attributeBlackboard 为该等级生效后的最终面板加成（非逐级累加）。
+ * 召唤物/三星干员无 charEquip 条目 → 不挂载。
+ */
+function attachModules(converted, charId, uniTable, battleTable) {
+  const eq = uniTable.equipDict || {};
+  const list = (uniTable.charEquip || {})[charId] || [];
+  if (list.length === 0) return;
+  const modules = list.map(eid => {
+    const meta = eq[eid];
+    if (!meta) return null;
+    const phases = battleTable[eid]?.phases || {};
+    const levels = Object.keys(phases).sort((a, b) => a - b).map(k => {
+      const p = phases[k];
+      const bb = {};
+      for (const b of p.attributeBlackboard || []) bb[b.key] = b.value;
+      return { level: parseInt(k) + 1, attributeBlackboard: bb };
+    });
+    return {
+      id: eid,
+      name: meta.uniEquipName,
+      type: meta.type,                    // INITIAL 基础证章 / ADVANCED 效果模组
+      typeName2: meta.typeName2 || null,  // 模组代号 X / Y / α 等，证章为 null
+      isSpecialEquip: !!meta.isSpecialEquip,
+      unlockLevel: meta.unlockLevel || 0, // 开启条件：精二后等级门槛（四星40/五星50/六星60）
+      order: meta.charEquipOrder ?? 0,
+      levels,
+    };
+  }).filter(Boolean);
+  modules.sort((a, b) => a.order - b.order);
+  converted.modules = modules;
+}
+
+
+/**
  * 召唤物技能注入：召唤物自身无技能（skills 为 null 占位）时，将持有者干员的技能注入，
  * 供攻击型召唤物使用（如凯尔希·Mon3tr：其 1/2/3 技能效果 = 凯尔希 1/2/3 技能）。
  * 持有者技能 blackboard 中带 attack@ 前缀的 key 是作用于召唤物的加成（attack@atk → atk，
@@ -258,6 +295,8 @@ async function main() {
   const skillTable = await fetchJSON(`${EXCEL}/skill_table.json`);
   console.log('拉取 uniequip_table.json ...');
   const uniequipTable = await fetchJSON(`${EXCEL}/uniequip_table.json`);
+  console.log('拉取 battle_equip_table.json ...');
+  const battleEquipTable = await fetchJSON(`${EXCEL}/battle_equip_table.json`);
 
   // Save sub-professions dictionary
   const subProfDict = uniequipTable.subProfDict || {};
@@ -289,6 +328,7 @@ async function main() {
     if (!charData) { console.log(`  [SKIP] ${id} not found`); continue; }
     const ownerId = tokenOwners[id];
     const converted = convertOperator(id, charData, skillTable, ownerId, ownerId ? charTable[ownerId] : null);
+    attachModules(converted, id, uniequipTable, battleEquipTable);
     // Directory: profession/subProfessionId/
     const dir = path.join(BASE, converted.profession, converted.subProfessionId);
     fs.mkdirSync(dir, { recursive: true });

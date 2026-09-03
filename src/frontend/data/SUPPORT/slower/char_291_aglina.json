@@ -560,5 +560,116 @@
       "type": "CUSTOM",
       "modifiers": []
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aglina",
+      "name": "安洁莉娜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_aglina",
+      "name": "实验用反重力模块",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 60,
+            "atk": 10,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 15,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 20,
+            "attack_speed": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_aglina",
+      "name": "重力校准模块",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 35
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 45
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_aglina",
+      "name": "安洁莉娜特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 35,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 51,
+            "attack_speed": 6
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 7
+          }
+        }
+      ]
+    }
   ]
 }

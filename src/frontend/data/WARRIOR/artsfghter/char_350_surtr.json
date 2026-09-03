@@ -652,5 +652,81 @@
         }
       ]
     }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_surtr",
+      "name": "史尔特尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_surtr",
+      "name": "萨米的不灭心脏碎片",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "magic_resistance": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 48,
+            "magic_resistance": 5
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "magic_resistance": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_surtr",
+      "name": "旅游必需品",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 42
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 56
+          }
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 65
+          }
+        }
+      ]
+    }
   ]
 }
