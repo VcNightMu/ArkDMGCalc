@@ -33,20 +33,21 @@ state.slots = [null, null, null, null];
 await ui.updateResults();
 check('空槽位显示占位', els['notes-list'].innerHTML.includes('placeholder-text'));
 
-// 2) 顺序 + 跳过：槽0=华法琳(无说明) 槽1=闪灵(有) 槽2=塞雷娅(无说明)
+// 2) 跳过无说明：槽0=录武官(有说明) 槽1=末药(无说明) 槽2=塞雷娅(无说明)
 state.slots = [
-  { operatorId: 'char_171_bldsk', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 1, skillLevel: 9 },
-  { operatorId: 'char_147_shining', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 1, skillLevel: 9 },
+  { operatorId: 'char_4196_reckpr', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 },
+  { operatorId: 'char_117_myrrh', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 },
   { operatorId: 'char_202_demkni', elite: 2, level: 80, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 },
 ];
 await ui.updateResults();
 const html = els['notes-list'].innerHTML;
 check('说明区渲染了说明条目', html.includes('note-text'));
-check('只含闪灵一条说明（跳过无说明干员）', (html.match(/note-text/g) || []).length === 1);
-check('说明内容为 notes.json 文本', html.includes('示例'));
-check('头部含干员名闪灵', html.includes('闪灵'));
-check('头部含稀有度星标', html.includes('rarity-6'));
-check('不含无说明干员名', !html.includes('华法琳') && !html.includes('塞雷娅'));
+check('只含录武官一条说明（跳过无说明干员）', (html.match(/note-text/g) || []).length === 1);
+check('说明内容为 notes.json 正式文本（学成于聚）', html.includes('学成于聚'));
+check('头部含干员名录武官', html.includes('录武官'));
+check('头部含稀有度星标', html.includes('rarity-5'));
+check('闪灵说明不含示例占位', !html.includes('示例'));
+check('不含无说明干员名', !html.includes('末药') && !html.includes('塞雷娅'));
 
 console.log(ok ? '✅ 全部通过' : '❌ 存在失败');
 process.exit(ok ? 0 : 1);
