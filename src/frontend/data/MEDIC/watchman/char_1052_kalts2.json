@@ -1,0 +1,690 @@
+{
+  "id": "char_1052_kalts2",
+  "name": "凯尔希·思衡托",
+  "rarity": "TIER_6",
+  "profession": "MEDIC",
+  "subProfessionId": "watchman",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        178,
+        293
+      ],
+      "def": [
+        121,
+        176
+      ],
+      "maxHp": [
+        889,
+        1170
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        293,
+        408
+      ],
+      "def": [
+        176,
+        220
+      ],
+      "maxHp": [
+        1170,
+        1393
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        408,
+        510
+      ],
+      "def": [
+        220,
+        276
+      ],
+      "maxHp": [
+        1393,
+        1620
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 30,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skchr_kalts2_1",
+      "name": "应急肃正防线",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 20,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 20,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 20,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 25,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 25,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 25,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 35,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 35,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 35,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@block_radius_scale": 0.23,
+          "attack_speed": 50,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_kalts2_2",
+      "name": "保护性拒止",
+      "levels": [
+        {
+          "atk": 0.8,
+          "attack@atk_scale": 2.8,
+          "attack@heal_scale": 1,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@atk_scale": 2.9,
+          "attack@heal_scale": 1.2,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@atk_scale": 3,
+          "attack@heal_scale": 1.3,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@atk_scale": 3.1,
+          "attack@heal_scale": 1.35,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "attack@atk_scale": 3.2,
+          "attack@heal_scale": 1.5,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@atk_scale": 3.3,
+          "attack@heal_scale": 1.6,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "attack@atk_scale": 3.5,
+          "attack@heal_scale": 1.7,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "attack@atk_scale": 3.6,
+          "attack@heal_scale": 1.8,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "attack@atk_scale": 3.7,
+          "attack@heal_scale": 1.9,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "attack@atk_scale": 3.8,
+          "attack@heal_scale": 2,
+          "attack@sluggish": 5,
+          "attack@trigger_time": 10,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_kalts2_3",
+      "name": "破梏重生",
+      "levels": [
+        {
+          "atk": 0.8,
+          "base_attack_time": -1.55,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "base_attack_time": -1.55,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "base_attack_time": -1.55,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "base_attack_time": -1.55,
+          "level": 3,
+          "spCost": 65,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "base_attack_time": -1.55,
+          "level": 4,
+          "spCost": 65,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "base_attack_time": -1.55,
+          "level": 5,
+          "spCost": 62,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "base_attack_time": -1.55,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "base_attack_time": -1.55,
+          "level": 7,
+          "spCost": 58,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "base_attack_time": -1.55,
+          "level": 8,
+          "spCost": 55,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "base_attack_time": -1.55,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+5%，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "def": 0.05,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+10%<@ba.talpu>（+5%）</>，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.1,
+            "def": 0.1,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+10%，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.1,
+            "def": 0.1,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+15%<@ba.talpu>（+5%）</>，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.15,
+            "def": 0.15,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+25%，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.25,
+            "def": 0.25,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "遗尘守望",
+          "description": "生命上限和防御力+30%<@ba.talpu>（+5%）</>，阻挡数+1，阻挡范围扩大，部署后生命修复单元升空，自身<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "max_hp": 0.3,
+            "def": 0.3,
+            "block_cnt": 1,
+            "block_radius_scale": 0.23
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "医者丰碑",
+          "description": "其他友方干员进入自身攻击范围时立刻获得1层<$ba.shield>护盾</>并额外获得一次每秒回复50点生命值的增益治疗，持续30秒（不可叠加），增益治疗对【罗德岛】干员的效果翻倍",
+          "blackboard": {
+            "buff_duration": 30,
+            "hp_recovery_per_sec": 50,
+            "rhodes_bonus": 2,
+            "attack@buff_duration": 30,
+            "attack@hp_recovery_per_sec": 50,
+            "attack@rhodes_bonus": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "医者丰碑",
+          "description": "其他友方干员进入自身攻击范围时立刻获得1层<$ba.shield>护盾</>并额外获得一次每秒回复60<@ba.talpu>（+10）</>点生命值的增益治疗，持续30秒（不可叠加），增益治疗对【罗德岛】干员的效果翻倍",
+          "blackboard": {
+            "buff_duration": 30,
+            "hp_recovery_per_sec": 60,
+            "rhodes_bonus": 2,
+            "attack@buff_duration": 30,
+            "attack@hp_recovery_per_sec": 60,
+            "attack@rhodes_bonus": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

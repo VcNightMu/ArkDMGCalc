@@ -243,6 +243,24 @@
     "ownerName": null
   },
   {
+    "id": "char_4222_taraxa",
+    "name": "风絮",
+    "rarity": "TIER_5",
+    "profession": "MEDIC",
+    "subProfessionId": "watchman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1052_kalts2",
+    "name": "凯尔希·思衡托",
+    "rarity": "TIER_6",
+    "profession": "MEDIC",
+    "subProfessionId": "watchman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
     "id": "char_291_aglina",
     "name": "安洁莉娜",
     "rarity": "TIER_6",

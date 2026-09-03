@@ -76,7 +76,7 @@ const OPERATORS = {
     wandermedic: [],                // 行医
     incantationmedic: ['char_1020_reed2'], // 咒愈师
     chainhealer: [],                // 链愈师
-    watchman: [],                   // 守望者
+    watchman: ['char_4222_taraxa', 'char_1052_kalts2'],  // 守望者
   },
   SUPPORT: { // 辅助
     slower: ['char_291_aglina'],    // 凝滞师

@@ -1,0 +1,536 @@
+{
+  "id": "char_4222_taraxa",
+  "name": "风絮",
+  "rarity": "TIER_5",
+  "profession": "MEDIC",
+  "subProfessionId": "watchman",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        161,
+        264
+      ],
+      "def": [
+        81,
+        118
+      ],
+      "maxHp": [
+        993,
+        1307
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        264,
+        368
+      ],
+      "def": [
+        118,
+        148
+      ],
+      "maxHp": [
+        1307,
+        1556
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        368,
+        460
+      ],
+      "def": [
+        148,
+        185
+      ],
+      "maxHp": [
+        1556,
+        1810
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 20,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_taraxa_1",
+      "name": "何处着",
+      "levels": [
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.4,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 0,
+          "spCost": 66,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.4,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 1,
+          "spCost": 65,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.4,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 2,
+          "spCost": 64,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.45,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 3,
+          "spCost": 63,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 43,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.45,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 4,
+          "spCost": 62,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 43,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.45,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 5,
+          "spCost": 61,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 43,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.5,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.53,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 7,
+          "spCost": 58,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.56,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 8,
+          "spCost": 56,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@base_attack_time": 0.2,
+          "attack@heal_scale": 0.6,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 9,
+          "spCost": 55,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_taraxa_2",
+      "name": "扶风起",
+      "levels": [
+        {
+          "attack@atk": 0.6,
+          "attack@splash_num": 1,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.2,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.6,
+          "attack@splash_num": 1,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.3,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 1,
+          "spCost": 48,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.8,
+          "attack@splash_num": 1,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.3,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.8,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.4,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.4,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 4,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.45,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1.05,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.5,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1.11,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.5,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 7,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1.16,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.5,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1.2,
+          "attack@splash_num": 2,
+          "attack@heal_scale": 1,
+          "attack@heal_scale_2": 0.5,
+          "attack@fly_height": 0.4,
+          "attack@fly_duration": 0.5,
+          "attack@fly_end_duration": 0.35,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得3%的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.03,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得5%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.05,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得7%的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.07,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得9%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.09,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得10%的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.1,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定风絮",
+          "description": "攻击范围内飞行的友方单位获得12%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>，阻挡数+1",
+          "blackboard": {
+            "damage_resistance": 0.12,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+20",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

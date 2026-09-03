@@ -225,6 +225,8 @@ function calculateOperator(op, slotData) {
 
   const modifiers = [];
   if (levelData.atk !== undefined) modifiers.push({ value: levelData.atk, operator: 'direct_mul' });
+  // attack@atk：守望者普攻攻击力加成（风絮2技能“起飞”攻击力+X%）与顶层 atk 同乘区累加
+  if (levelData['attack@atk'] !== undefined) modifiers.push({ value: levelData['attack@atk'], operator: 'direct_mul' });
   if (levelData.def !== undefined) modifiers.push({ value: levelData.def, operator: 'final_mul' });
   // atk_scale：输出技能的伤害/治疗倍率。图耶「水流环」的 atk_scale 是屏障吸收倍率，
   // 其治疗部分无倍率（= 普攻治疗），故触发型一次性普攻治疗时不用 atk_scale 算 skillAtk。
@@ -234,6 +236,8 @@ function calculateOperator(op, slotData) {
   if (levelData.atk_scale !== undefined && !isOneShotHeal) skillAtk = panelAtk * levelData.atk_scale;
   if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + levelData.attack_speed);
   if (levelData.base_attack_time) skillInterval = calcRealInterval(phase.baseAttackTime + levelData.base_attack_time, 100 + baseAspdBonus);
+  // attack@base_attack_time：守望者普攻间隔乘算系数（风絮1技能 0.2 → 间隔 ×0.2，区别于顶层 base_attack_time 的加算秒数）
+  if (levelData['attack@base_attack_time']) skillInterval = skillInterval * levelData['attack@base_attack_time'];
 
   if (modifiers.length > 0 || talentAtk > 0) {
     // 直接乘算累加：技能期攻击力 = 白值 × (1 + 天赋atk + 模组装备乘算 + 技能atk)

@@ -1,5 +1,5 @@
 // ArkDMGCalc - Medical Operator Calculations
-import { calcArtsDamage } from './calculator.js';
+import { calcArtsDamage, calcTrueDamage } from './calculator.js';
 
 /**
  * Calculate pure medical operator (physician/ringhealer/healer/wandermedic)
@@ -37,7 +37,10 @@ function calcMedical(params) {
   // 普攻治疗与技能期治疗（skillAtk 为面板或技能乘算后攻击力）同乘。
   const healScale = params.talentHealScale ?? 1;
   const healRatio = (levelData.heal_ratio || 1.0) * healScale;
-  const singleHeal = skillAtk * healRatio;
+  // attack@heal_scale：普攻治疗倍率替换（守望者起飞型技能，如风絮1技能每次回复攻击力 0.4~0.6 倍生命）
+  // 仅技能期单次生效；常态普攻维持 heal_ratio（100%）不受影响
+  const skillHealRatio = healRatio * (levelData['attack@heal_scale'] ?? 1);
+  const singleHeal = skillAtk * skillHealRatio;
   const normalHeal = panelAtk * healRatio;
 
   const normalHps = normalHeal / baseInterval;
@@ -161,10 +164,23 @@ function calcDualMedic(params) {
   const normalHps = normalHeal / baseInterval;
 
   const singleHeal = skillAtk * healScale;                   // 每次弹片治疗量
-  const singleDamage = calcArtsDamage(skillAtk * atkScale, enemy.res); // 每次弹片法术伤害
+  const ammo = levelData['attack@trigger_time'] || 0;
+  const isAmmo = skillDuration === -1 && ammo > 0;
+  // 弹药型（如凯尔希·思衡托2技能）为真实伤害；其余双轨医疗（亚叶）为法术伤害
+  const singleDamage = isAmmo ? calcTrueDamage(skillAtk * atkScale) : calcArtsDamage(skillAtk * atkScale, enemy.res);
 
   let skillHps, skillDps, totalHeal, skillTotalDamage;
-  if (isToggle || isPermanent) {
+  let damageType = null; // 弹药真伤标记（双轨医疗默认法伤由调用方兜底）
+  if (isAmmo) {
+    // 弹药机制：技能无持续时间，普攻消耗弹药（attack@trigger_time 发），打完后技能结束
+    // 总伤/总治疗 = 弹药数 × 单发；用时 = 弹药数 × 攻击间隔 → DPS/HPS = 总量/用时
+    const ammoTime = ammo * realInterval;
+    skillHps = ammoTime > 0 ? (singleHeal * ammo) / ammoTime : 0;
+    skillDps = ammoTime > 0 ? (singleDamage * ammo) / ammoTime : 0;
+    totalHeal = singleHeal * ammo;
+    skillTotalDamage = singleDamage * ammo;
+    damageType = 'true';
+  } else if (isToggle || isPermanent) {
     skillHps = singleHeal / realInterval;
     skillDps = singleDamage / realInterval;
     totalHeal = null;
@@ -184,7 +200,8 @@ function calcDualMedic(params) {
 
   return {
     skillDps, skillTotalDamage, cycleDps: null, normalDps: null,
-    skillHps, normalHps, totalHeal
+    skillHps, normalHps, totalHeal,
+    ...(damageType ? { damageType } : {})
   };
 }
 
