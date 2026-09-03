@@ -107,6 +107,46 @@ function calcTalentHpDefMul(op, slotData) {
   return out;
 }
 
+// 范围友方光环（防御/法抗绝对值）作用于自身：单目标模型默认奶自己，自身必在自身攻击范围内。
+// 闪灵「黑恶魔的庇护」（范围内友方防御+X）与夜莺「白恶魔的庇护」（范围内友方法抗+X）自加成；
+// 模组天赋强化（闪灵 Y 干枯剑鞘 def 80/85/100/105、夜莺 X 002 法抗+heal_scale）覆盖天赋基准值。
+const SELF_AURA_DRIVERS = {
+  'char_147_shining': 0, // 闪灵：def 光环 +20/25(精0) +40/45(精1) +60/65(精2 pot0/pot5)
+  'char_179_cgbird': 0   // 夜莺：magic_resistance 光环 +5/7(精0) +10/12(精1) +15/17(精2 pot0/pot4)
+};
+
+// 查范围光环绝对值加成（天赋基准 + 模组强化覆盖），返回 { defFlat, resFlat }
+function calcSelfAuraFlat(op, slotData) {
+  const out = { defFlat: 0, resFlat: 0 };
+  const ti = SELF_AURA_DRIVERS[op.id];
+  if (ti === undefined) return out;
+  const elite = slotData.elite;
+  const level = slotData.level || 0;
+  const pot = slotData.potentialRank || 0;
+  const take = (bb) => {
+    if (bb && typeof bb.def === 'number') out.defFlat = Math.max(out.defFlat, bb.def);
+    if (bb && typeof bb.magic_resistance === 'number') out.resFlat = Math.max(out.resFlat, bb.magic_resistance);
+  };
+  const talent = (op.talents || [])[ti];
+  if (talent) {
+    for (const cand of talent.candidates || []) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (cand.phase > elite || level < (cand.level || 1) || candPot > pot) continue;
+      take(cand.blackboard || {});
+    }
+  }
+  // 模组天赋强化覆盖（值更大者胜；夜莺 X L2/L3 法抗同基准值、heal_scale 走 calcModuleTalentEnhance）
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && lv.talentEnhance) {
+    for (const cand of lv.talentEnhance) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (candPot > pot) continue;
+      take(cand.blackboard || {});
+    }
+  }
+  return out;
+}
+
 const MODULE_ATTR_MAP = { max_hp: 'maxHp', atk: 'atk', def: 'def', magic_resistance: 'magicResistance', attack_speed: 'attackSpeed' };
 
 // 视作永续开关的技能：数据 skillDuration=-1 是弹药/结束机制占位，按指定口径不建模该机制。
@@ -391,6 +431,7 @@ function calcPanelStats(op, slotData) {
 
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const pctTalent = calcTalentHpDefMul(op, slotData);
+  const aura = calcSelfAuraFlat(op, slotData);  // 范围光环绝对值（自身必在范围）
   const talentAtk = calcTalentAtkBonus(op, slotData);
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
@@ -400,11 +441,11 @@ function calcPanelStats(op, slotData) {
   return {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul)),
-    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul)),
-    magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance,
+    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat),
+    magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat,
     baseAttackTime: phase.baseAttackTime,
     attackInterval
   };
 }
 
-export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS };
+export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, calcSelfAuraFlat, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS, SELF_AURA_DRIVERS };
