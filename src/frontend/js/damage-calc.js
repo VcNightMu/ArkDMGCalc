@@ -974,6 +974,18 @@ function calculateOperator(op, slotData, ctx) {
     // 樱桃三号 S1(渡桥遥控解体激活):自毁对周围4格敌人造成渡桥攻击力×3.7(M1)物理伤害,伤害源=渡桥(可受特性加成,
     // 基值=持有者满练面板×1.5,经 UI ctx.ownerOp 注入;爆炸后三号退场无常态)
     'token_10037_mitm_trshrb': { 0: { mode: 'owner-phys-burst', mul: 3.7, ownerId: 'char_4147_mitm' } },
+    // 流形双形态(缪尔赛思技能激活期,自身与流形攻击力+40% M1;S1 另攻速+40;形态效果:远程=法伤,近战=物伤):
+    // 远程 S2 生态耦合=普攻二连击;近战 S2=每秒回 5% 最大生命(自回);S3 控制类无输出增益(远程束缚/近战拖拽眩晕)
+    'token_10030_mlyss_wtrman': {
+      0: { mode: 'flow-buff', atkMul: 0.4, aspd: 40, dur: 15 },
+      1: { mode: 'flow-double', atkMul: 0.4, dur: 15 },
+      2: { mode: 'flow-buff', atkMul: 0.4, dur: 15 },
+    },
+    'token_10030_mlyss_melee': {
+      0: { mode: 'flow-buff', atkMul: 0.4, aspd: 40, dur: 15 },
+      1: { mode: 'flow-buff', atkMul: 0.4, dur: 15, regenRatio: 0.05 },
+      2: { mode: 'flow-buff', atkMul: 0.4, dur: 15 },
+    },
   };
   function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
@@ -1018,6 +1030,28 @@ function calculateOperator(op, slotData, ctx) {
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'physical', normalDamageType: 'physical',
         dmgTypes: { physical: { skillDps: 0, skillTotalDamage: burst, cycleDps: null } },
+      };
+    }
+    // 流形形态系列(缪尔赛思技能激活期):召唤物伤害类型按 op.damageType(流形·远程=法伤/近战=物伤)
+    if (cfg.mode === 'flow-buff' || cfg.mode === 'flow-double') {
+      const baseAT = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.5;
+      const interval = cfg.aspd ? calcRealInterval(baseAT, 100 + cfg.aspd) : baseAT;
+      const hits = Math.max(1, Math.floor(cfg.dur / interval));
+      const hitAtk = panelAtk * (1 + (cfg.atkMul || 0));
+      const isArtsForm = op.damageType === 'arts';
+      const perHit = isArtsForm ? calcArtsDamage(hitAtk, state.enemy.res) : calcPhysicalDamage(hitAtk, state.enemy.def);
+      const chain = cfg.mode === 'flow-double' ? 2 : 1;
+      const total = perHit * hits * chain;
+      const normHit = isArtsForm ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def);
+      // 近战 S2 每秒回血(自身最大生命比例)附加:damage 结果带 skillHps/totalHeal(UI 逐行渲染不互斥)
+      const regenHps = cfg.regenRatio ? ((phase.maxHp && phase.maxHp[phase.maxHp.length - 1]) || 0) * cfg.regenRatio : 0;
+      return {
+        type: 'damage', skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null,
+        normalDps: normHit / baseAT,
+        skillHps: regenHps > 0 ? regenHps : null, normalHps: null, totalHeal: regenHps > 0 ? regenHps * cfg.dur : null,
+        isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
+        damageType: isArtsForm ? 'arts' : 'physical', normalDamageType: isArtsForm ? 'arts' : 'physical',
+        dmgTypes: { [isArtsForm ? 'arts' : 'physical']: { skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null } },
       };
     }
     return null;
@@ -1112,12 +1146,13 @@ function calculateOperator(op, slotData, ctx) {
     const summonBaseAtk = (phase.atk && phase.atk[phase.atk.length - 1]) || 0;
     if (!HEAL_SUMMONS.includes(op.id) && summonBaseAtk > 0) {
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
-      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      const isArtsSummon = op.damageType === 'arts';  // 流形·远程默认法伤水炮
+      const normHit = isArtsSummon ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def);
       result = {
         type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
         normalDps: normHit / normInt, skillHps: null, normalHps: null, totalHeal: null,
         isToggle: false, isPermanent: false, realInterval: normInt, panelAtk,
-        damageType: 'physical', normalDamageType: 'physical',
+        damageType: isArtsSummon ? 'arts' : 'physical', normalDamageType: isArtsSummon ? 'arts' : 'physical',
       };
     } else {
       result = calcSummonHeal(params);

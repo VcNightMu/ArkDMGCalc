@@ -1,10 +1,10 @@
 {
-  "id": "token_10030_mlyss_wtrman",
-  "name": "流形·远程",
+  "id": "token_10030_mlyss_melee",
+  "name": "流形·近战",
   "rarity": "TIER_6",
   "profession": "TOKEN",
   "subProfessionId": "notchar1",
-  "damageType": "arts",
+  "damageType": "physical",
   "ownerOperatorId": "char_249_mlyss",
   "phases": [
     {
@@ -89,7 +89,7 @@
     },
     {
       "skillId": "sktok_mlyss_wtrman_2",
-      "name": "耦合·二连",
+      "name": "耦合·自回",
       "levels": [
         {
           "level": 0,
@@ -105,7 +105,7 @@
     },
     {
       "skillId": "sktok_mlyss_wtrman_3",
-      "name": "适应·束缚",
+      "name": "适应·拖拽",
       "levels": [
         {
           "interval": 25,

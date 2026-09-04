@@ -9,6 +9,8 @@ const TOKEN_FORM_SKILLS = {
   'token_10021_blkngt_hypnos': { 1: true },  // 眠兽 S2(食梦·安眠):5s 内普攻变群攻法伤,攻击沉睡目标×1.7
   'token_10028_vigil_wolf': { 1: true },     // 狼群 S2(狼群·馈赠):下次攻击×1.8 单发(伺夜 S2 激活)
   'token_10037_mitm_trshrb': { 0: true, 1: true }, // 樱桃三号 S1(遥控解体:自爆,伤害源渡桥)/ S2(承压功率:停攻,结束销毁)
+  'token_10030_mlyss_wtrman': { 0: true, 1: true, 2: true }, // 流形·远程(法伤):S1润化加速/S2耦合二连/S3适应束缚(缪尔赛思技能激活态)
+  'token_10030_mlyss_melee': { 0: true, 1: true, 2: true },  // 流形·近战(物伤):S2 耦合自回每秒5%最大生命
 };
 // 形态技能需持有者面板的召唤物(伤害源=持有者干员,如樱桃三号 S1 自爆=渡桥攻击力×3.7):UI 计算时联动加载持有者数据
 const TOKEN_SUMMON_OWNER_REF = {

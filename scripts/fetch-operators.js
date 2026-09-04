@@ -495,6 +495,33 @@ async function main() {
     index.push(...merged);
   }
 
+  // 静态虚构条目合并:游戏数据中不存在的派生查询条目(缪尔赛思流形·近战——由流形基础数据派生,远程为原 token_10030),
+  // 重跑抓取后需保持存在(数据文件由 setup 生成,若缺失则从远程形态复制派生)
+  const VIRTUAL_TOKENS = [
+    { id: 'token_10030_mlyss_melee', srcId: 'token_10030_mlyss_wtrman', name: '流形·近战', rarity: 'TIER_6', owner: 'char_249_mlyss', ownerName: '缪尔赛思' },
+  ];
+  for (const v of VIRTUAL_TOKENS) {
+    if (!index.some(e => e.id === v.id)) {
+      index.push({ id: v.id, name: v.name, rarity: v.rarity, profession: 'TOKEN', subProfessionId: 'notchar1', ownerOperatorId: v.owner, ownerName: v.ownerName });
+      const vDir = path.join(BASE, 'TOKEN', 'notchar1');
+      const vPath = path.join(vDir, v.id + '.json');
+      if (!fs.existsSync(vPath)) {
+        const srcPath = path.join(vDir, v.srcId + '.json');
+        if (fs.existsSync(srcPath)) {
+          const base = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+          const clone = JSON.parse(JSON.stringify(base));
+          clone.id = v.id;
+          clone.name = v.name;
+          clone.damageType = 'physical';
+          clone.skills[1].name = '耦合·自回';
+          clone.skills[2].name = '适应·拖拽';
+          fs.writeFileSync(vPath, JSON.stringify(clone, null, 2), 'utf8');
+          console.log('  [VIRTUAL] ' + v.name + ' → TOKEN/notchar1/' + v.id + '.json');
+        }
+      }
+    }
+  }
+
   // Save index
   fs.writeFileSync(path.join(BASE, 'index.json'), JSON.stringify(index, null, 2), 'utf8');
   console.log(`\n完成: ${index.length} 个干员 + sub-professions.json → ${BASE}`);

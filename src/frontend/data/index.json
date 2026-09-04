@@ -1438,5 +1438,14 @@
     "subProfessionId": "artsfghter",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10030_mlyss_melee",
+    "name": "流形·近战",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_249_mlyss",
+    "ownerName": "缪尔赛思"
   }
 ]

@@ -116,5 +116,35 @@ const html2 = container.innerHTML;
 const hasBurst = html2.indexOf('技能期总伤') >= 0 || html2.indexOf('总伤') >= 0;
 check('UI 樱桃S1 渲染技能期总伤', hasBurst, true);
 
+// ===== 流形双形态(缪尔赛思技能激活期,atk+40% M1) =====
+const wtrR = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10030_mlyss_wtrman.json', 'utf8'));
+const wtrM = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10030_mlyss_melee.json', 'utf8'));
+const arts302 = (a) => Math.max(a * 0.5, a * 0.05);
+for (const [w, nm] of [[wtrR, '流形·远程'], [wtrM, '流形·近战']]) {
+  const wph = w.phases[w.phases.length - 1];
+  const wslot = (si) => ({ elite: 2, level: wph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: si, skillLevel: 7 });
+  const none = calculateOperator(w, wslot(0));
+  const isArts = w.damageType === 'arts';
+  const hit302 = (a) => isArts ? arts302(a) : phys(a);
+  check(nm + ' 面板atk', none.panelAtk, 302);
+  check(nm + ' 常态DPS', none.normalDps, hit302(302) / 1.5, 0.01);
+  // S1:攻速+40(间隔1.5→1.0714),14击
+  const s1 = calculateOperator(w, wslot(0));
+  check(nm + ' S1 间隔', s1.realInterval, 1.0714, 0.001);
+  check(nm + ' S1 总伤=14击×atk1.4', s1.skillTotalDamage, hit302(302 * 1.4) * 14, 0.01);
+  // S2
+  const s2 = calculateOperator(w, wslot(1));
+  if (w.id.includes('melee')) {
+    check(nm + ' S2 总伤=10击×atk1.4(600防)', s2.skillTotalDamage, hit302(302 * 1.4) * 10, 0.01);
+    check(nm + ' S2 自回HPS=5%×2000', s2.skillHps, 100, 0.01);
+    check(nm + ' S2 总治疗=100×15', s2.totalHeal, 1500, 0.01);
+  } else {
+    check(nm + ' S2 总伤=二连击20hits', s2.skillTotalDamage, hit302(302 * 1.4) * 20, 0.01);
+  }
+  // S3:atk+40% 10击
+  const s3 = calculateOperator(w, wslot(2));
+  check(nm + ' S3 总伤=10击×atk1.4', s3.skillTotalDamage, hit302(302 * 1.4) * 10, 0.01);
+}
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);
