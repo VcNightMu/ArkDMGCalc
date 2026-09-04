@@ -8,6 +8,11 @@ import { calculateOperator, calcPanelStats } from './damage-calc.js';
 const TOKEN_FORM_SKILLS = {
   'token_10021_blkngt_hypnos': { 1: true },  // 眠兽 S2(食梦·安眠):5s 内普攻变群攻法伤,攻击沉睡目标×1.7
   'token_10028_vigil_wolf': { 1: true },     // 狼群 S2(狼群·馈赠):下次攻击×1.8 单发(伺夜 S2 激活)
+  'token_10037_mitm_trshrb': { 0: true, 1: true }, // 樱桃三号 S1(遥控解体:自爆,伤害源渡桥)/ S2(承压功率:停攻,结束销毁)
+};
+// 形态技能需持有者面板的召唤物(伤害源=持有者干员,如樱桃三号 S1 自爆=渡桥攻击力×3.7):UI 计算时联动加载持有者数据
+const TOKEN_SUMMON_OWNER_REF = {
+  'token_10037_mitm_trshrb': 'char_4147_mitm',
 };
 
 function isModuleUnlocked(op, slotData) {
@@ -381,7 +386,18 @@ async function updateResults() {
     const op = await getOperatorData(slotData.operatorId);
     if (!op) continue;
 
-    const result = calculateOperator(op, slotData);
+    // 召唤物形态技能持有者联动:伤害源=持有者的模式(樱桃三号 S1 自爆=渡桥攻击力×3.7)需注入持有者满练面板
+    const ctx = {};
+    const ownerRefId = TOKEN_SUMMON_OWNER_REF[op.id];
+    if (ownerRefId) {
+      const ownerOp = await getOperatorData(ownerRefId);
+      if (ownerOp) {
+        const oph = ownerOp.phases[ownerOp.phases.length - 1];
+        ctx.ownerOp = ownerOp;
+        ctx.ownerSlot = { elite: ownerOp.phases.length - 1, level: oph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 };
+      }
+    }
+    const result = calculateOperator(op, slotData, ctx);
     const card = document.createElement('div');
     card.className = 'result-card';
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');

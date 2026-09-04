@@ -90,5 +90,31 @@ check('伺夜S3 法伤档=0.35×atk×15轮', v3.dmgTypes.arts.skillTotalDamage, 
 check('伺夜S3 总伤', v3.skillTotalDamage, v3.dmgTypes.physical.skillTotalDamage + v3.dmgTypes.arts.skillTotalDamage, 0.01);
 check('伺夜S3 DPS', v3.skillDps, v3.skillTotalDamage / 15, 0.01);
 
+// ===== 樱桃三号 S1(渡桥遥控解体:自爆=渡桥攻击力×3.7,持有者联动) / S2(承压功率:停攻) =====
+const crab = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10037_mitm_trshrb.json', 'utf8'));
+const cph = crab.phases[crab.phases.length - 1];
+const mitm = JSON.parse(fs.readFileSync(BASE + '/PIONEER/tactician/char_4147_mitm.json', 'utf8'));
+const mph = mitm.phases[mitm.phases.length - 1];
+const ownerSlot = { elite: 2, level: mph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 };
+const ctx = { ownerOp: mitm, ownerSlot };
+const mAtk = calculateOperator(mitm, ownerSlot).panelAtk;  // 渡桥含特性×1.5
+check('渡桥面板atk(含特性1.5)', mAtk, 832.5, 0.01);
+const cslot = (si) => ({ elite: 2, level: cph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: si, skillLevel: 7 });
+const c1 = calculateOperator(crab, cslot(0), ctx);
+check('樱桃S1 自爆=P(渡桥面板取整833×3.7)', c1.skillTotalDamage, phys(833 * 3.7), 0.01);
+check('樱桃S1 无常态(自爆退场)', c1.normalDps, null);
+const c2 = calculateOperator(crab, cslot(1), ctx);
+check('樱桃S2 停攻无技能期伤害', c2.skillTotalDamage, 0);
+check('樱桃S2 常态DPS保留', c2.normalDps, phys(323) / 1.25, 0.01);
+
+// UI:樱桃 S1 渲染(含渡桥联动加载)
+state.slots = [null, null, null, null];
+state.slots[0] = { operatorId: 'token_10037_mitm_trshrb', elite: 2, level: cph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: 0, skillLevel: 7 };
+container.innerHTML = '';
+await ui.updateResults();
+const html2 = container.innerHTML;
+const hasBurst = html2.indexOf('技能期总伤') >= 0 || html2.indexOf('总伤') >= 0;
+check('UI 樱桃S1 渲染技能期总伤', hasBurst, true);
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

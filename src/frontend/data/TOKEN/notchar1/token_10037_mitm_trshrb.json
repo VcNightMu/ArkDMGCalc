@@ -73,7 +73,7 @@
   "skills": [
     {
       "skillId": "sktok_mitm_trshrb_1",
-      "name": "废品战车",
+      "name": "解体·自爆",
       "levels": [
         {
           "level": 0,
@@ -89,7 +89,7 @@
     },
     {
       "skillId": "sktok_mitm_trshrb_2",
-      "name": "废品战车",
+      "name": "承压·停攻",
       "levels": [
         {
           "level": 0,

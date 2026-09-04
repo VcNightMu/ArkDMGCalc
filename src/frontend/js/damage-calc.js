@@ -760,7 +760,7 @@ function calcTalentFlatDotDps(op, slotData) {
   return dmg;
 }
 
-function calculateOperator(op, slotData) {
+function calculateOperator(op, slotData, ctx) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
   const mod = calcModuleBonus(op, slotData);
@@ -971,8 +971,11 @@ function calculateOperator(op, slotData) {
   const SUMMON_FORM_MODES = {
     'token_10021_blkngt_hypnos': { 1: { mode: 'arts-sleep', mul: 1.7, dur: 5 } },
     'token_10028_vigil_wolf': { 1: { mode: 'attack-buff-single', mul: 1.8 } },
+    // 樱桃三号 S1(渡桥遥控解体激活):自毁对周围4格敌人造成渡桥攻击力×3.7(M1)物理伤害,伤害源=渡桥(可受特性加成,
+    // 基值=持有者满练面板×1.5,经 UI ctx.ownerOp 注入;爆炸后三号退场无常态)
+    'token_10037_mitm_trshrb': { 0: { mode: 'owner-phys-burst', mul: 3.7, ownerId: 'char_4147_mitm' } },
   };
-  function calcSummonFormMode(op, skillIndex, panelAtk, phase) {
+  function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
     if (!cfg) return null;
     if (cfg.mode === 'arts-sleep') {
@@ -998,6 +1001,23 @@ function calculateOperator(op, slotData) {
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'physical', normalDamageType: 'physical',
         dmgTypes: { physical: { skillDps: 0, skillTotalDamage: singleHit, cycleDps: null } },
+      };
+    }
+    if (cfg.mode === 'owner-phys-burst') {
+      // 持有者源物理爆发(樱桃三号 S1 自爆):伤害 = 持有者面板 atk(满练默认,含战术家特性×1.5)×mul(M1 3.7),
+      // 由 UI 注入 ctx.ownerOp/ownerSlot;自爆后召唤物退场 → 无常态普攻行
+      const interval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
+      let ownerAtk = panelAtk;
+      if (ctx && ctx.ownerOp && cfg.ownerId === ctx.ownerOp.id) {
+        ownerAtk = calcPanelStats(ctx.ownerOp, ctx.ownerSlot).panelAtk;
+      }
+      const burst = calcPhysicalDamage(ownerAtk * cfg.mul, state.enemy.def);
+      return {
+        type: 'damage', skillDps: 0, skillTotalDamage: burst, cycleDps: null,
+        normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+        dmgTypes: { physical: { skillDps: 0, skillTotalDamage: burst, cycleDps: null } },
       };
     }
     return null;
@@ -1081,7 +1101,7 @@ function calculateOperator(op, slotData) {
     };
   } else if (isSummon && !hasRealSkills) {
     // 战术家召唤物形态技能:技能位 = 持有者技能激活态对召唤物的输出影响(基值为召唤物自身面板,数值引用见 SUMMON_FORM_MODES)
-    const summonForm = calcSummonFormMode(op, skillIndex, panelAtk, phase);
+    const summonForm = calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx);
     if (summonForm) {
       result = summonForm;
     } else {
