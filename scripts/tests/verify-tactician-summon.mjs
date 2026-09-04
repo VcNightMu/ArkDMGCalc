@@ -69,5 +69,26 @@ check('UI 眠兽S2 保留常态DPS', hasNormal, true);
 const hasArtsCls = html.includes('dmg-arts');
 check('UI 眠兽S2 法伤色值档', hasArtsCls, true);
 
+// ===== 狼群 S2(伺夜 S2 领袖的馈赠激活:狼群下次攻击×1.8 单发) =====
+const wolf = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10028_vigil_wolf.json', 'utf8'));
+const wph = wolf.phases[wolf.phases.length - 1];
+const wslot = { elite: 2, level: wph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: 1, skillLevel: 7 };
+const w2 = calculateOperator(wolf, wslot);
+check('狼群面板atk(E2)', w2.panelAtk, 371);
+check('狼群S2 单发=P(atk×1.8)', w2.skillTotalDamage, phys(371 * 1.8), 0.01);
+check('狼群S2 无技能期DPS(触发单发)', w2.skillDps, 0);
+check('狼群S2 常态DPS', w2.normalDps, phys(371) / 1.25, 0.01);
+
+// ===== 伺夜 S3 本体(三连击+附加法伤) =====
+const vigil = JSON.parse(fs.readFileSync(BASE + '/PIONEER/tactician/char_427_vigil.json', 'utf8'));
+const vph = vigil.phases[2];
+const v3 = calculateOperator(vigil, { elite: 2, level: vph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7 });
+const vAtk = v3.panelAtk;  // (462+80)×1.5 战术家特性
+check('伺夜S3 面板atk含特性×1.5', vAtk, 813);
+check('伺夜S3 物理档=三连击×15轮', v3.dmgTypes.physical.skillTotalDamage, phys(813) * 3 * 15, 0.01);
+check('伺夜S3 法伤档=0.35×atk×15轮', v3.dmgTypes.arts.skillTotalDamage, arts(813 * 0.35) * 15, 0.01);
+check('伺夜S3 总伤', v3.skillTotalDamage, v3.dmgTypes.physical.skillTotalDamage + v3.dmgTypes.arts.skillTotalDamage, 0.01);
+check('伺夜S3 DPS', v3.skillDps, v3.skillTotalDamage / 15, 0.01);
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

@@ -7,6 +7,7 @@ import { calculateOperator, calcPanelStats } from './damage-calc.js';
 // UI 需显示技能选择与技能期(与 damage-calc.js 的 SUMMON_FORM_MODES 同步:眠兽 S2=夜半安眠期沉睡群攻法伤×1.7)
 const TOKEN_FORM_SKILLS = {
   'token_10021_blkngt_hypnos': { 1: true },  // 眠兽 S2(食梦·安眠):5s 内普攻变群攻法伤,攻击沉睡目标×1.7
+  'token_10028_vigil_wolf': { 1: true },     // 狼群 S2(狼群·馈赠):下次攻击×1.8 单发(伺夜 S2 激活)
 };
 
 function isModuleUnlocked(op, slotData) {

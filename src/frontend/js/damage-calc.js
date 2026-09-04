@@ -967,8 +967,10 @@ function calculateOperator(op, slotData) {
   // 战术家召唤物形态模式表:技能位 = 持有者技能激活期间召唤物输出的形态变化(用户口径,数值=M1 显示档)。
   // 仅收录基值为召唤物自身面板的效果;基值为持有者面板的联动(狼群S3附加/樱桃三号自爆,伤害源=干员)建模在持有者本体查询。
   // mode: arts-sleep 眠兽S2安眠——5s 沉睡窗口内普攻变群体法伤,攻击沉睡目标攻击力×mul(M1 1.7)
+  // mode: attack-buff-single 狼群S2领袖的馈赠——狼群下次攻击攻击力提升至 mul(M1 1.8) 单发(触发型,无周期)
   const SUMMON_FORM_MODES = {
     'token_10021_blkngt_hypnos': { 1: { mode: 'arts-sleep', mul: 1.7, dur: 5 } },
+    'token_10028_vigil_wolf': { 1: { mode: 'attack-buff-single', mul: 1.8 } },
   };
   function calcSummonFormMode(op, skillIndex, panelAtk, phase) {
     const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
@@ -984,6 +986,18 @@ function calculateOperator(op, slotData) {
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'arts', normalDamageType: 'physical',
         dmgTypes: { arts: { skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null } },
+      };
+    }
+    if (cfg.mode === 'attack-buff-single') {
+      // 狼群下次攻击强化:触发型单发(持有者 AUTO sp6 充能,召唤物无周期概念)→ 仅精确单发总伤+常态普攻
+      const interval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
+      const singleHit = calcPhysicalDamage(panelAtk * cfg.mul, state.enemy.def);
+      return {
+        type: 'damage', skillDps: 0, skillTotalDamage: singleHit, cycleDps: null,
+        normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+        dmgTypes: { physical: { skillDps: 0, skillTotalDamage: singleHit, cycleDps: null } },
       };
     }
     return null;
@@ -1042,6 +1056,28 @@ function calculateOperator(op, slotData) {
       normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'true', realInterval: interval,
       dmgTypes: { true: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_427_vigil' && skillIndex === 2) {
+    // 伺夜 S3 领袖的尊严(手动 15s):普攻变三连击(每次攻击 3 连物理,每连全额);
+    // 伺夜与狼群攻击被狼群阻挡单位造成伤害时额外附加 attack@vigil_s_3.atk_scale×伺夜攻击力 法伤(M1 0.35,
+    // PRTS 备注附加可受特性加成→基值为含战术家×1.5 的面板攻击);单目标模型默认目标被狼群阻挡 → 每轮三连物理+1 次附加。
+    // S3 无 atk 加成(回费在 value/interval 键),间隔保持 1.0s → 15 轮。
+    const triHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const triTotal = triHit * 3;
+    const extraArts = calcArtsDamage(panelAtk * (levelData['attack@vigil_s_3.atk_scale'] ?? 0.35), state.enemy.res);
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const rounds = Math.floor(skillDuration / interval);
+    const physTotal = triTotal * rounds;
+    const artsTotal = extraArts * rounds;
+    const total = physTotal + artsTotal;
+    result = {
+      skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: interval,
+      dmgTypes: {
+        physical: { skillDps: skillDuration > 0 ? physTotal / skillDuration : 0, skillTotalDamage: physTotal, cycleDps: null },
+        arts: { skillDps: skillDuration > 0 ? artsTotal / skillDuration : 0, skillTotalDamage: artsTotal, cycleDps: null },
+      },
     };
   } else if (isSummon && !hasRealSkills) {
     // 战术家召唤物形态技能:技能位 = 持有者技能激活态对召唤物的输出影响(基值为召唤物自身面板,数值引用见 SUMMON_FORM_MODES)
