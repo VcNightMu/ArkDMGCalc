@@ -234,9 +234,11 @@ const SKILL_HP_RECOVERY_KEY_OVERRIDES = {
   'char_4199_makiri': { 1: 'makiri_s_2[passive].hp_recovery_per_sec_by_max_hp_ratio' },
 };
 // 顶层自回键误触排除:技能 bb 的顶层 hp_recovery_* 实为召唤物/其他单位的效果,非持有者本体自回 → 跳过技能自回建模
-// (夜半 S1「半醒」hp_recovery_per_sec_by_max_hp_ratio 0.14 是眠兽休眠回血,本体只回费)
+// (夜半 S1「半醒」hp_recovery_per_sec_by_max_hp_ratio 0.14 是眠兽休眠回血,本体只回费;
+//  缪尔赛思 S2「流形复制」0.04 是流形形态的回血效果,归属召唤物侧建模)
 const SKILL_REGEN_IGNORE = {
   'char_476_blkngt': [0],
+  'char_249_mlyss': [1],
 };
 
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
@@ -732,6 +734,7 @@ const NORMAL_ATK_SKILLS = {
   'char_427_vigil': [0, 1],  // 伺夜 S1 领袖的呼唤:回 7 费+增加狼影;S2 领袖的馈赠:回 2 费+狼群下次攻击强化(vigil_wolf_s_2)
   'char_4228_closur': [0],   // 可露希尔 S1 紧急支援:回费+护盾(shield_cnt 承伤不计)
   'char_452_bstalk': [0, 1], // 豆苗 S1 磐蟹部署指令:回 8 费;S2 定向指令:磐蟹防御强化(attack@def 0.7,本体无输出增益)
+  'char_4147_mitm': [0],     // 渡桥 S1 出击指令:回 6 费+模様三号自爆(aoe_damage_scale 3.7 在召唤物侧建模),本体无输出
   'char_476_blkngt': [0, 1], // 夜半 S1 半醒:回费+眠兽休眠回血(bb 的 hp_recovery 是眠兽的,本体无输出);S2 安眠:沉睡+回费(控制无本体伤害)
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
@@ -806,7 +809,10 @@ function calculateOperator(op, slotData) {
   // 附加常态攻击乘算:闪灵 X模组≥2级 且装备 2技能(自动掩护)时,面板攻击 ×(1+0.15/0.25) 直接乘算。
   // 与携带技能的 atk 乘算互斥(带 atk 的信条/教条力场 ≠ 2技能),并入同乘区累加。
   const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
-  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul);
+  // 战术家分支特性:自身攻击援军(召唤物)阻挡的敌人时攻击力提升至150%——攻击力乘区(非伤害乘区,提高破甲线),
+  // 单目标模型默认召唤物在场并阻挡目标 → 本体攻击常驻 ×1.5(面板白值与伤害统一含;召唤物本体不享受)
+  const isTacticianOp = !isSummon && op.profession === 'PIONEER' && op.subProfessionId === 'tactician';
+  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1);
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   let panelDef = rawDef * (1 + pctTalent.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0);
   const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
@@ -916,7 +922,7 @@ function calculateOperator(op, slotData) {
       { value: talentAtk, operator: 'direct_mul' },
       { value: extraAtkMul, operator: 'direct_mul' },
       ...modifiers.filter(m => m.operator === 'direct_mul')
-    ]);
+    ]) * (isTacticianOp ? 1.5 : 1);  // 战术家特性攻击×1.5:技能期攻击力同样基于 rawAtk 重算,需与面板同乘
     skillDef = calcAttribute(rawDef, modifiers.filter(m => m.operator === 'final_mul'));
   }
   // atk_scale 输出倍率:在天赋/atk 重算之后乘(atk_scale 技能同时带常驻加攻天赋时不被重算覆盖,如号角 S1 2.4×+军事要塞20%)
@@ -1713,7 +1719,7 @@ function calcPanelStats(op, slotData) {
 
   return {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
-    panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul)),
+    panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
     panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat
       + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0)),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat,
