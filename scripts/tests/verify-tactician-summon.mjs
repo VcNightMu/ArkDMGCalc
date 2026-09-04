@@ -146,5 +146,25 @@ for (const [w, nm] of [[wtrR, '流形·远程'], [wtrM, '流形·近战']]) {
   check(nm + ' S3 总伤=10击×atk1.4', s3.skillTotalDamage, hit302(302 * 1.4) * 10, 0.01);
 }
 
+// ===== 眠兽 S1 休眠回血(夜半半醒激活,召唤物侧) =====
+const hypnos = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10021_blkngt_hypnos.json', 'utf8'));
+const hph = hypnos.phases[hypnos.phases.length - 1];
+const hslot = { elite: 2, level: hph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: 0, skillLevel: 7 };
+const h1 = calculateOperator(hypnos, hslot);
+check('眠兽S1 回血HPS=2582×14%', h1.skillHps, 2582 * 0.14, 0.01);
+check('眠兽S1 总治疗=HPS×10', h1.totalHeal, 2582 * 0.14 * 10, 0.01);
+check('眠兽S1 休眠停止攻击无技能期伤害', h1.skillTotalDamage, 0);
+
+// ===== 狼群 S3 领袖的尊严(附加法伤基值=伺夜面板,ctx 联动) =====
+const wolfT = JSON.parse(fs.readFileSync(BASE + '/TOKEN/notchar1/token_10028_vigil_wolf.json', 'utf8'));
+const wolfPh = wolfT.phases[wolfT.phases.length - 1];
+const vigilOp = JSON.parse(fs.readFileSync(BASE + '/PIONEER/tactician/char_427_vigil.json', 'utf8'));
+const wslot3 = { elite: 2, level: wolfPh.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: 2, skillLevel: 7 };
+const wctx = { ownerOp: vigilOp, ownerSlot: { elite: 2, level: vigilOp.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7 } };
+const w3 = calculateOperator(wolfT, wslot3, wctx);
+check('狼群S3 物理档=12击×P(371)', w3.dmgTypes.physical.skillTotalDamage, phys(371) * 12, 0.01);
+check('狼群S3 法伤档=12击×A(813×0.35)', w3.dmgTypes.arts.skillTotalDamage, arts(813 * 0.35) * 12, 0.01);
+check('狼群S3 总伤', w3.skillTotalDamage, (phys(371) + arts(813 * 0.35)) * 12, 0.01);
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

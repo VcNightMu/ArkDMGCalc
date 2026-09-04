@@ -965,12 +965,19 @@ function calculateOperator(op, slotData, ctx) {
 
   let result;
   // 战术家召唤物形态模式表:技能位 = 持有者技能激活期间召唤物输出的形态变化(用户口径,数值=M1 显示档)。
-  // 仅收录基值为召唤物自身面板的效果;基值为持有者面板的联动(狼群S3附加/樱桃三号自爆,伤害源=干员)建模在持有者本体查询。
   // mode: arts-sleep 眠兽S2安眠——5s 沉睡窗口内普攻变群体法伤,攻击沉睡目标攻击力×mul(M1 1.7)
   // mode: attack-buff-single 狼群S2领袖的馈赠——狼群下次攻击攻击力提升至 mul(M1 1.8) 单发(触发型,无周期)
+  // mode: sleep-regen 眠兽S1半醒休眠——10s 休眠期每秒恢复 maxHp×ratio(M1 0.14),停止攻击(heal 型)
+  // mode: owner-arts-add 狼群S3领袖的尊严——15s 内狼群每击自身物伤 + 伺夜面板atk×mul(M1 0.35)法伤(伤害源=持有者,ctx 注入)
   const SUMMON_FORM_MODES = {
-    'token_10021_blkngt_hypnos': { 1: { mode: 'arts-sleep', mul: 1.7, dur: 5 } },
-    'token_10028_vigil_wolf': { 1: { mode: 'attack-buff-single', mul: 1.8 } },
+    'token_10021_blkngt_hypnos': {
+      0: { mode: 'sleep-regen', ratio: 0.14, dur: 10 },
+      1: { mode: 'arts-sleep', mul: 1.7, dur: 5 },
+    },
+    'token_10028_vigil_wolf': {
+      1: { mode: 'attack-buff-single', mul: 1.8 },
+      2: { mode: 'owner-arts-add', mul: 0.35, dur: 15, ownerId: 'char_427_vigil' },
+    },
     // 樱桃三号 S1(渡桥遥控解体激活):自毁对周围4格敌人造成渡桥攻击力×3.7(M1)物理伤害,伤害源=渡桥(可受特性加成,
     // 基值=持有者满练面板×1.5,经 UI ctx.ownerOp 注入;爆炸后三号退场无常态)
     'token_10037_mitm_trshrb': { 0: { mode: 'owner-phys-burst', mul: 3.7, ownerId: 'char_4147_mitm' } },
@@ -1030,6 +1037,39 @@ function calculateOperator(op, slotData, ctx) {
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'physical', normalDamageType: 'physical',
         dmgTypes: { physical: { skillDps: 0, skillTotalDamage: burst, cycleDps: null } },
+      };
+    }
+    if (cfg.mode === 'sleep-regen') {
+      // 眠兽 S1 半醒:10s 休眠期每秒恢复最大生命×ratio(M1 14%),休眠停止攻击 → 纯治疗展示(常态普攻保留)
+      const baseAT = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
+      const maxHp = (phase.maxHp && phase.maxHp[phase.maxHp.length - 1]) || 0;
+      const hps = maxHp * cfg.ratio;
+      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      return {
+        type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+        normalDps: normHit / baseAT, skillHps: hps, normalHps: null, totalHeal: hps * cfg.dur,
+        isToggle: false, isPermanent: false, realInterval: baseAT, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+      };
+    }
+    if (cfg.mode === 'owner-arts-add') {
+      // 狼群 S3 领袖的尊严:15s 内每击 = 狼群自身物伤 + 伺夜面板 atk×0.35(M1)法伤(附加基值=持有者,经 ctx 注入)
+      const baseAT = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
+      const hits = Math.max(1, Math.floor(cfg.dur / baseAT));
+      const ownerAtk = (ctx && ctx.ownerOp && cfg.ownerId === ctx.ownerOp.id) ? calcPanelStats(ctx.ownerOp, ctx.ownerSlot).panelAtk : panelAtk;
+      const physHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      const artsHit = calcArtsDamage(ownerAtk * cfg.mul, state.enemy.res);
+      const total = (physHit + artsHit) * hits;
+      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      return {
+        type: 'damage', skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null,
+        normalDps: normHit / baseAT, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: baseAT, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+        dmgTypes: {
+          physical: { skillDps: (physHit * hits) / cfg.dur, skillTotalDamage: physHit * hits, cycleDps: null },
+          arts: { skillDps: (artsHit * hits) / cfg.dur, skillTotalDamage: artsHit * hits, cycleDps: null },
+        },
       };
     }
     // 流形形态系列(缪尔赛思技能激活期):召唤物伤害类型按 op.damageType(流形·远程=法伤/近战=物伤)

@@ -105,7 +105,7 @@
     },
     {
       "skillId": "sktok_vigil_wolf_3",
-      "name": "狼群",
+      "name": "狼群·领袖",
       "levels": [
         {
           "attack@vigil_wolf_s_3.atk_scale": 0.1,
