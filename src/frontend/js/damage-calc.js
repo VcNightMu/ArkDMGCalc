@@ -31,6 +31,10 @@ const TALENT_ATK_DRIVERS = {
   'char_431_ashlok': 0,    // 灰毫「炮术研习」:攻击力+8%(周身四格地面改+16% 条件版不计,取无条件档)
   'char_493_firwhl': 0,    // 火哨「进退自如」:未阻挡敌人时攻击力+12%(默认远程轰击位未阻挡;阻挡时 def+12% 承伤向不计)
   'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击力+8/11%(精1)→+13/16%(精2 潜4);同天赋攻速在 TALENT_SPD_DRIVERS,弱点伤害另设开关
+  // ---- 先锋(PIONEER) ----
+  'char_240_wyvern': 0,  // 香草「攻击提升」:攻击力+4%(精1 Lv1)→+8%(精1 Lv55),无无条件档
+  'char_149_scave': 0,   // 清道夫「单独行动者」:攻击+5~13%(精1 5%→精2 潜4 13%,周围四格无友军默认成立,防御在 TALENT_HP_DEF_DRIVERS)
+  'char_112_siege': 0,   // 推进之王「万兽之王」:编队所有先锋攻/防+4~10%,自身为先锋必得(同炎息先例),防御在 TALENT_HP_DEF_DRIVERS
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -105,6 +109,9 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_202_demkni': 0,  // 塞雷娅「莱茵充能护服」:防御叠层按满层 ×5(单层 def+4~5% → +20~25%),攻击部分在 TALENT_ATK_DRIVERS
   'char_260_durnar': 0,  // 坚雷「攻守兼备」:防御力+7%(攻击部分在 TALENT_ATK_DRIVERS)
   'char_136_hsguma': 1,  // 星熊「特种作战策略」(天赋2,精二解锁):全场重装防御+6~8%,自身为重装必得(编队光环先例);天赋1 战术装甲伤害抵挡不建模
+  // ---- 先锋(PIONEER) ----
+  'char_149_scave': 0,   // 清道夫「单独行动者」:防御+5~13%(周围四格无友军默认成立,攻击部分在 TALENT_ATK_DRIVERS)
+  'char_112_siege': 0,   // 推进之王「万兽之王」:防御+4~10%(先锋光环覆盖自身,攻击部分在 TALENT_ATK_DRIVERS)
 };
 
 // 查 HP/DEF 常驻百分比天赋,返回 { hpMul, defMul }(未解锁/无键为 0)
@@ -206,6 +213,11 @@ const INCANTATION_SPECIAL_MODES = {
 
 // 技能攻击力增幅键别名:数据把增幅放在带 switch_mode 前缀的键里(焰影苇草S3 reed2_skil_3[switch_mode].atk、
 // 年S3 nian_s_3[self].atk),语义与顶层 atk 相同(直接乘算累加);顶层 atk 缺省时查此别名。
+// 技能攻击速度键覆盖(数据为瞬时/非线性值时取等效口径):忍冬 S3「隐狐之艺」攻击速度从 +180 线性衰减至 +0
+// → 全程等效平均 +90(用户口径);引擎只支持固定攻速值。
+const SKILL_ATTACK_SPEED_OVERRIDES = {
+  'char_4026_vulpis': { 2: 90 },   // 忍冬 S3:平均 +90
+};
 const SKILL_ATK_KEY_OVERRIDES = {
   'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
   'char_2014_nian': { 2: 'nian_s_3[self].atk' },   // 年 S3「铁御」:自身攻击力增幅(友方 def/阻挡 buff 不计)
@@ -217,6 +229,10 @@ const SKILL_ARTS_OVERRIDES = {
   'char_2014_nian': [0],   // 年 S1「锡灼」
   'char_107_liskam': [1],  // 雷蛇 S2 反击电弧：攻击变为对最多 3 敌造成法术伤害（单目标=法伤）
   'char_4230_mcnist': [2], // 机械师 S3 工程学十字星：攻击变为十字范围法术伤害（召唤物轮再校冲锋口径）
+  // ---- 先锋(PIONEER) ----
+  'char_102_texas': [1],   // 德克萨斯 S2 剑雨:对周围敌人两次 1.7×atk 法术伤害(单目标全中)
+  'char_349_chiave': [1],  // 贾维 S2 火焰剥离:对周围敌人 3.5×atk 法术伤害
+  'char_4026_vulpis': [1], // 忍冬 S2 坠刃拷问:对周围最多6敌 3×atk 法术伤害
 };
 
 /**
@@ -455,6 +471,9 @@ const BAT_ADD_OVERRIDES = {
   'char_1034_jesca2': { 2: true }, // 涤火杰西卡 S3 饱和迸射:攻击间隔增大(1.2+0.6=1.8s)
   'char_107_liskam': { 1: true },  // 雷蛇 S2 反击电弧:攻击间隔增大(1.2+0.7=1.9s)
   'char_4098_vvana': { 2: true },  // 薇薇安娜 S3 明灭:攻击间隔延长 +0.5(1.25+0.5=1.75s,PRTS 备注:攻击间隔+0.5)
+  // ---- 先锋(PIONEER) ----
+  'char_362_saga': { 2: true },    // 嵯峨 S3 怒目:攻击间隔稍微增大(1.05+0.5=1.55s)
+  'char_112_siege': { 2: true },   // 推进之王 S3 碎颅击:攻击间隔增大(1.05+1=2.05s)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -488,6 +507,9 @@ const MULTI_HIT = {
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
   'char_1050_chen3': { 0: 2 },     // 赤刃明霄陈 S1 奔夜:攻击变为二连击(每击=技能期攻击力全额弱点,乘 2 连)
   'char_4098_vvana': { 0: 2, 2: 2 }, // 薇薇安娜 S1 光影迅捷剑:下次攻击连击两次(每击 atk_scale×atk);S3 明灭:攻击变为二连击(单目标 2 连全中)
+  // ---- 先锋(PIONEER) ----
+  'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
+  'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
 };
 // 仅攻击到一个敌人时的伤害倍率(单目标模型恒成立;读 attack@xxx[critical] 键,与 atk 加成相乘)
 const SINGLE_CRIT_MUL = {
@@ -514,6 +536,8 @@ const SKIP_SKILLS = {
 // AUTO 触发附加法伤(下次攻击=普攻物理+额外 X×atk 法伤,自然回充能周期;斥罪 S1 蓄力分支永不触发)
 const TRIGGER_ARTS_ADD = {
   'char_4065_judge': { 0: { scaleKey: 'atk_scale_2' } },  // 斥罪 S1 一锤定音:额外 1.9×atk 法伤
+  // ---- 先锋(PIONEER) ----
+  'char_4026_vulpis': { 0: { scaleKey: 'extra_damage_ratio' } }, // 忍冬 S1 小施惩戒(充能 ct3 不改变触发频率):下次攻击额外 2.9×atk 法伤(倍率键 extra_damage_ratio 非 atk_scale)
 };
 
 // 技能开启期天赋自回比例(读 candidates 的 hp_recovery_per_sec_by_max_hp_ratio 当前档,未解锁→0)
@@ -568,6 +592,18 @@ const NORMAL_ATK_SKILLS = {
   'char_457_blitz': [0],
   'char_4148_philae': [0],   // 菲莱 S1 灵河护佑：血上限+清损伤条+损伤屏障（屏障承伤不计）
   'char_4225_tanya': [0, 1], // 裂响 S1 涤净（血上限+自清损伤）/ S2 溃决（防御叠层，受击消耗挂侵蚀，受击无模型）
+  // ---- 先锋(PIONEER) 冲锋号令系(瞬发回费不影响普攻,技能期无输出增益→归常态展示) ----
+  'char_123_fang': [0],      // 芬 S1 冲锋号令·α:立即回 6 费
+  'char_149_scave': [0],     // 清道夫 S1 冲锋号令·β:立即回 9 费
+  'char_198_blackd': [0, 1], // 讯使 S1 冲锋号令·β(回9费) / S2 冲锋号令·防御(def+80% 周期回费,纯防御无输出增益)
+  'char_115_headbr': [0],    // 凛冬 S1 冲锋号令·γ:立即回 12 费
+  'char_102_texas': [0],     // 德克萨斯 S1 冲锋号令·γ
+  'char_112_siege': [0],     // 推进之王 S1 冲锋号令·γ
+  'char_349_chiave': [0],    // 贾维 S1 冲锋号令·γ
+  'char_362_saga': [0],      // 嵯峨 S1 冲锋号令·γ
+  'char_4023_rfalcn': [0],   // 红隼 S1 冲锋号令·γ
+  'char_488_buildr': [0],    // 青枳 S1 冲锋号令·γ
+  'char_420_flamtl': [0],    // 焰尾 S1 迅敏直觉:回6费+闪避下次物理攻击(闪避无伤害增益)
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -722,7 +758,9 @@ function calculateOperator(op, slotData) {
   const isOneShotHeal = isMedic && levelData.skillType === 'MANUAL' && levelData.atk_scale !== undefined && levelData.duration !== undefined && levelData.heal_scale === undefined && levelData.atk === undefined;
   // atk_scale 排除:车尔尼 S2 的 2.1 是技能结束爆炸倍率,不作普攻倍率乘算
   const scaleExcluded = (SKILL_ATK_SCALE_EXCLUDE[op.id] || {})[skillIndex] === true;
-  if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
+  const asOverride = (SKILL_ATTACK_SPEED_OVERRIDES[op.id] || {})[skillIndex];
+  if (asOverride !== undefined) { skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + asOverride); }
+  else if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
   // base_attack_time:负值=加算秒(白面鸮脑啡肽 -2.1 等);(0,1) 正小数=攻击间隔倍率("间隔缩短至 x 倍",
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
   // 描述为"间隔增大"却给正小数的技能(火神S2 +0.4s/斥罪S3 +0.9s)经 BAT_ADD_OVERRIDES 按加算秒处理。
@@ -961,6 +999,18 @@ function calculateOperator(op, slotData) {
       normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_112_siege' && skillIndex === 2) {
+    // 推进之王 S3 碎颅击(dur22~25):攻击间隔增大(1.05+1=2.05s,BAT_ADD),攻击时攻击力提高至 attack@atk_scale 倍(3.4→3.8 普攻改写),
+    // 40% 概率晕眩(控制不计)→ 每击 atk_scale×atk 物理
+    const perHit = calcPhysicalDamage(skillAtk * (levelData['attack@atk_scale'] ?? 1), state.enemy.def);
+    const hits = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
+    const total = perHit * hits;
+    result = {
+      skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (op.id === 'char_4230_mcnist' && skillIndex === 2) {
     // 机械师 S3 工程学十字星（dur40，间隔 1.2+2.3=3.5s）：普攻改写为 attack@atk_scale×技能期攻击力法伤（11击）
