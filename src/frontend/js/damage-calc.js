@@ -33,6 +33,8 @@ const TALENT_ATK_DRIVERS = {
   'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击力+8/11%(精1)→+13/16%(精2 潜4);同天赋攻速在 TALENT_SPD_DRIVERS,弱点伤害另设开关
   // ---- 先锋(PIONEER) ----
   'char_240_wyvern': 0,  // 香草「攻击提升」:攻击力+4%(精1 Lv1)→+8%(精1 Lv55),无无条件档
+  'char_192_falco': 0,   // 翎羽「攻击提升」:攻击力+8%(精1 Lv55,同香草模板)
+  // ---- 冲锋手 ----
   'char_149_scave': 0,   // 清道夫「单独行动者」:攻击+5~13%(精1 5%→精2 潜4 13%,周围四格无友军默认成立,防御在 TALENT_HP_DEF_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:编队所有先锋攻/防+4~10%,自身为先锋必得(同炎息先例),防御在 TALENT_HP_DEF_DRIVERS
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:全场友方攻/防+4%(精1)→+7%(精2),自身必得;技能开启期间效果加倍(见 SKILL_TALENT_ATK_MUL)
@@ -476,6 +478,9 @@ const BAT_ADD_OVERRIDES = {
   // ---- 先锋(PIONEER) ----
   'char_362_saga': { 2: true },    // 嵯峨 S3 怒目:攻击间隔稍微增大(1.05+0.5=1.55s)
   'char_112_siege': { 2: true },   // 推进之王 S3 碎颅击:攻击间隔增大(1.05+1=2.05s)
+  // ---- 冲锋手 ----
+  'char_222_bpipe': { 2: true },   // 风笛 S3 闭膛连发:攻击间隔增大(1.0+0.7=1.7s)
+  'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -513,6 +518,8 @@ const MULTI_HIT = {
   'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
   'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
   'char_1001_amiya2': { 0: 2 },  // 阿米娅(近卫) S1 影霄·奔夜:攻击变为二连击(dur28 法伤)
+  'char_1036_fang2': { 0: 2 },  // 历阵锐枪芬 S1 贯敌刺枪:下次攻击变二连击(1.8×atk×2,AUTO dur0 触发)
+  'char_222_bpipe': { 2: 3 },   // 风笛 S3 闭膛连发:攻击变三连击(dur20 间隔+0.7→1.7s,atk+100% 三连全中)
 };
 // 仅攻击到一个敌人时的伤害倍率(单目标模型恒成立;读 attack@xxx[critical] 键,与 atk 加成相乘)
 const SINGLE_CRIT_MUL = {
@@ -612,6 +619,8 @@ const NORMAL_ATK_SKILLS = {
   'char_4023_rfalcn': [0],   // 红隼 S1 冲锋号令·γ
   'char_488_buildr': [0],    // 青枳 S1 冲锋号令·γ
   'char_420_flamtl': [0],    // 焰尾 S1 迅敏直觉:回6费+闪避下次物理攻击(闪避无伤害增益)
+  // ---- 冲锋手 ----
+  'char_220_grani': [0],    // 格拉尼 S1 防御力强化·γ:防御+100% dur40 纯防御,普攻照常归常态展示
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -645,7 +654,9 @@ function calculateOperator(op, slotData) {
   const equippedSkill = op.skills[skillIndex];
   // PASSIVE 被动技能(星熊「荆棘」def+24%、森蚺「轻型挂斧」atk/def+20%):装备即常驻入面板(与天赋同乘区累加),无技能期
   // (仅干员职业;召唤物的 skcom 被动型技能不在此列,走 summon 分支)
-  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE')
+  // 限时被动(PASSIVE 且 duration>0,如芬 S2 执守阵线/野鬃 S1 骑枪刺击/红 S1 处决模式):部署后自动生效 N 秒的一次性强化,
+  // 不走被动常驻面板,按技能期=duration 的普通技能计算;永久被动(duration 0)仍常驻入面板。
+  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE' && !(getSkillLevelData(equippedSkill, slotData.skillLevel).skillDuration > 0))
     ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
 
   // ======== Panel Stats ========
@@ -1011,6 +1022,26 @@ function calculateOperator(op, slotData) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
     };
+  } else if (op.id === 'char_261_sddrag' && skillIndex === 1) {
+    // 苇草 S2 生灵火花(dur30):攻击力+X(物理普攻强化),每次攻击附加 atk×attack@skill.atk_scale 法术伤害
+    // (击杀回费不计);每击=物理+法伤混合,物法双档;附加法伤按技能期攻击力×0.35 结算
+    const addScale = levelData['attack@skill.atk_scale'] ?? 0;
+    const intWc = skillRealInterval > 0 ? skillRealInterval : 1;
+    const hitsWc = skillDuration > 0 ? Math.floor(skillDuration / intWc) : 0;
+    const physHitWc = calcPhysicalDamage(skillAtk, state.enemy.def);
+    const artsHitWc = calcArtsDamage(skillAtk * addScale, state.enemy.res);
+    const physTotalWc = physHitWc * hitsWc;
+    const artsTotalWc = artsHitWc * hitsWc;
+    const totalWc = physTotalWc + artsTotalWc;
+    result = {
+      skillDps: skillDuration > 0 ? totalWc / skillDuration : 0, skillTotalDamage: totalWc, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: intWc,
+      dmgTypes: {
+        physical: { skillDps: skillDuration > 0 ? physTotalWc / skillDuration : 0, skillTotalDamage: physTotalWc, cycleDps: null },
+        arts: { skillDps: skillDuration > 0 ? artsTotalWc / skillDuration : 0, skillTotalDamage: artsTotalWc, cycleDps: null },
+      },
+    };
   } else if (op.id === 'char_1001_amiya2' && skillIndex === 1) {
     // 阿米娅(近卫) S2 影霄·绝影(手动,整场一次):对前方生命最低目标 10 次斩击——前 9 次 atk_scale×atk 法伤,
     // 最后一击系数加倍(atk_scale_2)且为真实伤害;斩击期间每击败敌人叠 40%atk 与伤害变真——默认不击杀不触发(同烈焰魔剑口径)。
@@ -1359,7 +1390,7 @@ function calcPanelStats(op, slotData) {
   // 与 calculateOperator 同口径,使白值面板(renderPanelStats)也体现被动加成(星熊 S2 加防肉眼可查)
   const equippedSkill = op.skills[slotData.skillIndex || 0];
   const isSummon = op.profession === 'TOKEN';
-  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE')
+  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE' && !(getSkillLevelData(equippedSkill, slotData.skillLevel).skillDuration > 0))
     ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
 
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
