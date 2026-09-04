@@ -35,6 +35,7 @@ const TALENT_ATK_DRIVERS = {
   'char_240_wyvern': 0,  // 香草「攻击提升」:攻击力+4%(精1 Lv1)→+8%(精1 Lv55),无无条件档
   'char_149_scave': 0,   // 清道夫「单独行动者」:攻击+5~13%(精1 5%→精2 潜4 13%,周围四格无友军默认成立,防御在 TALENT_HP_DEF_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:编队所有先锋攻/防+4~10%,自身为先锋必得(同炎息先例),防御在 TALENT_HP_DEF_DRIVERS
+  'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:全场友方攻/防+4%(精1)→+7%(精2),自身必得;技能开启期间效果加倍(见 SKILL_TALENT_ATK_MUL)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -112,6 +113,7 @@ const TALENT_HP_DEF_DRIVERS = {
   // ---- 先锋(PIONEER) ----
   'char_149_scave': 0,   // 清道夫「单独行动者」:防御+5~13%(周围四格无友军默认成立,攻击部分在 TALENT_ATK_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:防御+4~10%(先锋光环覆盖自身,攻击部分在 TALENT_ATK_DRIVERS)
+  'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:防御+4~7%(同天赋攻击,技能期加倍部分同 atk 口径只计攻击侧)
 };
 
 // 查 HP/DEF 常驻百分比天赋,返回 { hpMul, defMul }(未解锁/无键为 0)
@@ -510,6 +512,7 @@ const MULTI_HIT = {
   // ---- 先锋(PIONEER) ----
   'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
   'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
+  'char_1001_amiya2': { 0: 2 },  // 阿米娅(近卫) S1 影霄·奔夜:攻击变为二连击(dur28 法伤)
 };
 // 仅攻击到一个敌人时的伤害倍率(单目标模型恒成立;读 attack@xxx[critical] 键,与 atk 加成相乘)
 const SINGLE_CRIT_MUL = {
@@ -524,6 +527,11 @@ const SKILL_ATK_SCALE_EXCLUDE = {
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2:atk 0.26/层,默认不叠
+};
+// 技能开启期间常驻光环天赋倍率(阿米娅(近卫)「青色怒火」:技能开启期间效果加倍 → 技能期 atk 额外加一份 talentAtk)
+// key: 干员id; value: { 技能index: 倍率 }
+const SKILL_TALENT_ATK_MUL = {
+  'char_1001_amiya2': { 0: 2, 1: 2 },  // 影霄·奔夜/影霄·绝影 开技天赋 ×2
 };
 // 技能结束爆炸伤害(结束后对周围敌人造成 atk_scale×atk 法伤单发,加入技能期总伤)
 const SKILL_END_ARTS_BURST = {
@@ -744,6 +752,9 @@ function calculateOperator(op, slotData) {
   if (delayedSec) skillDuration = Math.max(0, skillDuration - delayedSec);
 
   const modifiers = [];
+  // 技能开启期间常驻光环天赋加倍(阿米娅(近卫)「青色怒火」:青色怒火开技效果 ×2,补一份 talentAtk)
+  const talentAtkMul = (SKILL_TALENT_ATK_MUL[op.id] || {})[skillIndex];
+  if (talentAtkMul && talentAtk > 0) modifiers.push({ value: talentAtk * (talentAtkMul - 1), operator: 'direct_mul' });
   // 技能攻击力增幅:顶层 atk;缺省时查前缀别名键(焰苇S3 reed2_skil_3[switch_mode].atk)
   const atkKey = (SKILL_ATK_KEY_OVERRIDES[op.id] || {})[skillIndex] || 'atk';
   const atkExcluded = (SKILL_ATK_EXCLUDE[op.id] || {})[skillIndex] === true;
@@ -999,6 +1010,24 @@ function calculateOperator(op, slotData) {
       normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_1001_amiya2' && skillIndex === 1) {
+    // 阿米娅(近卫) S2 影霄·绝影(手动,整场一次):对前方生命最低目标 10 次斩击——前 9 次 atk_scale×atk 法伤,
+    // 最后一击系数加倍(atk_scale_2)且为真实伤害;斩击期间每击败敌人叠 40%atk 与伤害变真——默认不击杀不触发(同烈焰魔剑口径)。
+    // 斩击耗时无数据源 → skillDps=0 仅展示精确总伤,cycleDps=null(一次性技能无周期)。
+    const slashHit = calcArtsDamage(skillAtk, state.enemy.res);
+    const tailRatio = (levelData.atk_scale && levelData.atk_scale > 0) ? (levelData.atk_scale_2 / levelData.atk_scale) : 2;
+    const tailHit = calcTrueDamage(skillAtk * tailRatio);
+    const nSlash = levelData.times ?? 10;
+    const totalSlash = slashHit * Math.max(0, nSlash - 1) + tailHit;
+    result = {
+      skillDps: 0, skillTotalDamage: totalSlash, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: skillRealInterval,
+      dmgTypes: {
+        arts: { skillDps: 0, skillTotalDamage: slashHit * Math.max(0, nSlash - 1), cycleDps: null },
+        true: { skillDps: 0, skillTotalDamage: tailHit, cycleDps: null },
+      },
     };
   } else if (op.id === 'char_112_siege' && skillIndex === 2) {
     // 推进之王 S3 碎颅击(dur22~25):攻击间隔增大(1.05+1=2.05s,BAT_ADD),攻击时攻击力提高至 attack@atk_scale 倍(3.4→3.8 普攻改写),

@@ -149,7 +149,9 @@ async function showOperatorPicker(slotIndex) {
     const sub = subSelect.value;
     listEl.innerHTML = '';
     if (!prof || !sub) return;
-    for (const op of (profGroups[prof][sub] || [])) {
+    // 干员列表按星级降序(6→1)排列,同星级保持数据顺序
+    const subOps = (profGroups[prof][sub] || []).slice().sort((a, b) => (b.rarity || 0) - (a.rarity || 0));
+    for (const op of subOps) {
       const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
       listEl.innerHTML += '<div class="picker-item" data-id="' + op.id + '">' +
         '<span class="rarity-' + op.rarity + '" style="font-size:13px;min-width:36px;">' + (rarityLabels[op.rarity] || '') + '</span>' +

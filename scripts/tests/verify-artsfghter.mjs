@@ -164,5 +164,22 @@ const as = load('char_274_astesi');
 const asNone = calculateOperator(as, mkFor(as, -1, 7));
 check('星极常态间隔 攻速+25→1.0s', asNone.realInterval, 1.0, 0.01);
 
+// ===== 阿米娅(近卫)(char_1001_amiya2):青色怒火全场光环技能期加倍 + 奔夜二连 + 绝影10斩 =====
+const ay = load('char_1001_amiya2');
+const ayPs = calcPanelStats(ay, mkFor(ay, -1, 7));
+const ayRaw = ayPs.panelAtk / 1.07;   // 青色怒火 E2 +7%
+check('阿米娅(近卫) 面板atk×1.07(青色怒火)', ayPs.panelAtk, ayRaw * 1.07, 1);
+// S1 影霄·奔夜 dur28 atk+60%(7级) 天赋加倍(×2) 二连击(MULTI×2),间隔 1.25
+const ayS1 = calculateOperator(ay, mkFor(ay, 0, 7));
+const ayS1Atk = ayRaw * (1 + 0.07 * 2 + 0.6);   // 技能期:天赋加倍 + atk
+const ayS1Hits = Math.floor(28 / 1.25);
+check('阿米娅(近卫)S1 总伤=法伤(1.74atk)×2连×N击', ayS1.skillTotalDamage, arts(ayS1Atk) * 2 * ayS1Hits, 10);
+// S2 影霄·绝影:9×atk_scale法伤(1.8) + 尾击×2真伤,默认不击杀
+const ayS2 = calculateOperator(ay, mkFor(ay, 1, 7));
+const ayS2Atk = ayRaw * (1 + 0.07 * 2) * 1.8;   // 天赋加倍×atk_scale
+check('阿米娅(近卫)S2 法伤段=9斩', ayS2.dmgTypes.arts.skillTotalDamage, arts(ayS2Atk) * 9, 2);
+check('阿米娅(近卫)S2 真伤尾击=×2系数', ayS2.dmgTypes.true.skillTotalDamage, ayS2Atk * 2, 2);
+check('阿米娅(近卫)S2 damageType=arts', ayS2.damageType, 'arts');
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

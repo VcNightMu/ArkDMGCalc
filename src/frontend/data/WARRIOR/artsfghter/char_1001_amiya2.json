@@ -1,0 +1,560 @@
+{
+  "id": "char_1001_amiya2",
+  "name": "阿米娅(近卫)",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        282,
+        409
+      ],
+      "def": [
+        170,
+        243
+      ],
+      "maxHp": [
+        1199,
+        1578
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        409,
+        532
+      ],
+      "def": [
+        243,
+        312
+      ],
+      "maxHp": [
+        1578,
+        1998
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        532,
+        657
+      ],
+      "def": [
+        312,
+        376
+      ],
+      "maxHp": [
+        1998,
+        2629
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 45,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_amiya2_1",
+      "name": "影霄·奔夜",
+      "levels": [
+        {
+          "atk": 0.2,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "prob": 0.6,
+          "talent_scale": 2,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_amiya2_2",
+      "name": "影霄·绝影",
+      "levels": [
+        {
+          "times": 10,
+          "atk_scale": 1.2,
+          "atk_scale_2": 2.4,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.25,
+          "atk_scale_2": 2.5,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.3,
+          "atk_scale_2": 2.6,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.4,
+          "atk_scale_2": 2.8,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.45,
+          "atk_scale_2": 2.9,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.5,
+          "atk_scale_2": 3,
+          "amiya2_s_2[kill].atk": 0.2,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.6,
+          "atk_scale_2": 3.2,
+          "amiya2_s_2[kill].atk": 0.25,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 1.8,
+          "atk_scale_2": 3.6,
+          "amiya2_s_2[kill].atk": 0.3,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 2,
+          "atk_scale_2": 4,
+          "amiya2_s_2[kill].atk": 0.35,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk_scale": 2.2,
+          "atk_scale_2": 4.4,
+          "amiya2_s_2[kill].atk": 0.4,
+          "amiya2_s_2[kill].magic_resistance": 20,
+          "amiya2_s_2[kill].max_stack_cnt": 3,
+          "talent_scale": 2,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "青色怒火",
+          "description": "在场时所有友方单位的攻击力和防御力+4%，技能开启期间效果加倍",
+          "blackboard": {
+            "atk": 0.04,
+            "def": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "青色怒火",
+          "description": "在场时所有友方单位的攻击力和防御力+7%，技能开启期间效果加倍",
+          "blackboard": {
+            "atk": 0.07,
+            "def": 0.07
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "生命上限+200",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "防御力+22",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 22
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_amiya2",
+      "name": "阿米娅证章（近卫）",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_amiya2",
+      "name": "待调弦的怒火",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 26,
+            "magic_resistance": 3
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 38,
+            "magic_resistance": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "青色怒火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 45,
+            "magic_resistance": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "青色怒火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.09,
+                "def": 0.09
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

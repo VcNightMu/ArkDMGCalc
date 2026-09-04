@@ -1429,5 +1429,14 @@
     "subProfessionId": "notchar1",
     "ownerOperatorId": "char_4228_closur",
     "ownerName": "可露希尔"
+  },
+  {
+    "id": "char_1001_amiya2",
+    "name": "阿米娅(近卫)",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

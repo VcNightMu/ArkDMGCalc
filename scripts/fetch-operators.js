@@ -8,6 +8,7 @@ const BASE = path.join(__dirname, '..', 'src', 'frontend', 'data');
 // 显示名需与原型区分（半角括号与 prts 头像文件名一致，如「头像_阿米娅(医疗).png」）。
 const PATCH_CHARS = {
   'char_1037_amiya3': '阿米娅(医疗)',   // 阿米娅升变·医疗形态（咒愈师）
+  'char_1001_amiya2': '阿米娅(近卫)',   // 阿米娅升变·近卫形态（术战者，2技能：影霄·奔夜/绝影）
 };
 
 // 干员列表按 主职业 → 子职业 → 干员id 三层组织。
@@ -52,7 +53,7 @@ const OPERATORS = {
   WARRIOR: { // 近卫
     centurion: [],                  // 强攻手
     fighter: [],                    // 斗士
-    artsfghter: ['char_350_surtr', 'char_185_frncat', 'char_274_astesi', 'char_333_sidero', 'char_4098_vvana', 'char_1019_siege2', 'char_1050_chen3'], // 术战者：慕斯4/星极5/铸铁5/史尔特尔6/薇薇安娜6/维娜·维多利亚6(异格)/赤刃明霄陈6(异格)
+    artsfghter: ['char_350_surtr', 'char_185_frncat', 'char_274_astesi', 'char_333_sidero', 'char_4098_vvana', 'char_1019_siege2', 'char_1050_chen3', 'char_1001_amiya2'], // 术战者：慕斯4/星极5/铸铁5/史尔特尔6/薇薇安娜6/维娜·维多利亚6(异格)/赤刃明霄陈6(异格)/阿米娅(近卫)5(升变)
     instructor: [],                 // 教官
     lord: ['char_172_svrash', 'char_293_thorns'], // 领主
     sword: ['char_010_chen'],       // 剑豪
