@@ -268,6 +268,8 @@ const TALENT_SPD_DRIVERS = {
                           // 自身每 2.85s 治疗一次持续刷新 → 等效常驻(重构体默认不放不影响自身触发)
   'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击速度+8/11(精1)→+13/16(精2 潜4),同源天赋 atk 在 TALENT_ATK_DRIVERS
   'char_274_astesi': 0,   // 星极「天体仪」:在场每20s叠1层攻速+3/5,最多5层(100s叠满)→等效常驻满层+15/25(用户口径同塞雷娅叠满先例)
+  // ---- 执旗手(bearer) ----
+  'char_479_sleach': { talentIndex: 0, key: 'sleach_t_1[ally].attack_speed' }, // 琴柳「不退之旗」:军旗周围8格干员攻速+5(E1)→+10(E2),自身持旗必吃(敌人攻速-10 不计)
 };
 
 
@@ -300,10 +302,34 @@ const WEAKNESS_DAMAGE = {
   'char_1050_chen3': true,  // 赤刃明霄陈「形意洞照」:精1 起攻击变为弱点伤害;精0 无此天赋 → 全法术
 };
 
+// 常驻每秒生命回复天赋表(全场光环自身必吃):桃金娘「浮光跃金」在场所有先锋每秒回血(E2 25/s 潜5 28/s,自回不吃治疗加成)
+const TALENT_HPS_REGEN = {
+  'char_151_myrtle': 0,  // 桃金娘 浮光跃金:自身为先锋必吃(同炎息光环先例)
+};
+// 查常驻每秒自回:返回最高满足档 hp_recovery_per_sec(0 表示无此天赋或未解锁)
+function calcTalentHps(op, slotData) {
+  const idx = TALENT_HPS_REGEN[op.id];
+  if (idx === undefined) return 0;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 0;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.hp_recovery_per_sec === 'number' ? cand.blackboard.hp_recovery_per_sec : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
 // 查驱动表,返回常驻攻速天赋的攻速加算值(0 表示无此天赋或未解锁)。
 function calcTalentAttackSpeed(op, slotData) {
-  const talentIndex = TALENT_SPD_DRIVERS[op.id];
-  if (talentIndex === undefined) return 0;
+  const cfg = TALENT_SPD_DRIVERS[op.id];
+  if (cfg === undefined) return 0;
+  // 值为天赋索引(读 bb.attack_speed)或 {talentIndex, key}(bb 为前缀别名键,如琴柳 sleach_t_1[ally].attack_speed)
+  const talentIndex = typeof cfg === 'number' ? cfg : cfg.talentIndex;
+  const bbKey = typeof cfg === 'number' ? 'attack_speed' : (cfg.key || 'attack_speed');
   const talent = (op.talents || [])[talentIndex];
   if (!talent) return 0;
   const elite = slotData.elite;
@@ -312,7 +338,7 @@ function calcTalentAttackSpeed(op, slotData) {
   for (const cand of talent.candidates) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const aspd = cand.blackboard && typeof cand.blackboard.attack_speed === 'number' ? cand.blackboard.attack_speed : 0;
+      const aspd = cand.blackboard && typeof cand.blackboard[bbKey] === 'number' ? cand.blackboard[bbKey] : 0;
       // 叠层攻速天赋(星极「天体仪」每层+3/5、最多5层):按满层等效常驻(同塞雷娅 HP/DEF 叠层口径)
       const stack = (cand.blackboard && typeof cand.blackboard.max_stack_cnt === 'number') ? cand.blackboard.max_stack_cnt : 1;
       if (aspd * stack > best) best = aspd * stack;
@@ -592,6 +618,15 @@ function calcTalentEndHealRatio(op, slotData) {
 
 // 停止攻击类防御技能(技能期转纯防御,普攻停止):技能期伤害记 0,防御/面板变化仅展示。
 // key: 干员 id;value: 停止攻击的 skillIndex 列表。铁卫先行,其它子职业轮到时追加。
+// 执旗手(bearer) S2 治疗技能:技能期每秒 1 跳治疗(治疗=面板攻击力×ratio/秒,量不吃治疗加成/禁疗),
+// 目标=周围 1 名友方(桃金娘/嘉辛塔/琴柳生命最低者;万顷周围友方按单目标口径),治疗期停攻由 STOP_ATTACK 清零。
+// value: { skillIndex: ratio键 }
+const BEARER_HEAL_SKILLS = {
+  'char_151_myrtle': { 1: 'attack@heal_scale' },      // 桃金娘 S2 治愈之翼:atk×0.4(专一) dur16 每秒
+  'char_4119_wanqin': { 1: 'attack@heal_scale' },     // 万顷 S2 应东风:atk×0.2(专一) dur15 每秒
+  'char_4237_jcinta': { 1: 'attack@heal_scale' },     // 嘉辛塔 S2 伞下乘荫:atk×0.22(专一) dur30 每秒
+  'char_479_sleach': { 1: 'atk_to_hp_recovery_ratio' }, // 琴柳 S2 信仰传承:atk×0.4(专一) dur15 每秒(生命回复速度属性)
+};
 const STOP_ATTACK_SKILLS = {
   'char_2014_nian': [1],    // 年 S2「铜印」
   'char_325_bison': [1],    // 拜松 S2「深化阵线」
@@ -600,6 +635,12 @@ const STOP_ATTACK_SKILLS = {
   'char_304_zebra': [1],    // 暴雨 S2「群体迷彩」
   'char_4194_rmixer': [2],  // 信仰搅拌机 S3 退休前布道：停止主动攻击转受击反击（无受击模型，反击不计）
   'char_4148_philae': [1],  // 菲莱 S2 冥河诅咒：停止攻击转受击反伤挂凋亡（受击无模型，反伤/凋亡不计）
+  // ---- 执旗手(bearer) 技能开启期间停止攻击(持续回费/增益),技能期伤害记 0 ----
+  'char_151_myrtle': [0, 1],  // 桃金娘 S1 支援号令·β / S2 治愈之翼(治疗增益另议)
+  'char_401_elysm': [0, 1],   // 极境 S1 支援号令·γ / S2 聆听(减速减防反隐)
+  'char_4119_wanqin': [0, 1], // 万顷 S1 支援号令·γ / S2 应东风(攻速增益+治疗另议)
+  'char_4237_jcinta': [0, 1], // 嘉辛塔 S1 支援号令·γ / S2 伞下乘荫(治疗另议)
+  'char_479_sleach': [0, 1],  // 琴柳 S1 支援号令·γ / S2 信仰传承(def增益受击回血另议);S3 光辉旗帜见专用分支
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
@@ -1042,6 +1083,29 @@ function calculateOperator(op, slotData) {
         arts: { skillDps: skillDuration > 0 ? artsTotalWc / skillDuration : 0, skillTotalDamage: artsTotalWc, cycleDps: null },
       },
     };
+  } else if (BEARER_HEAL_SKILLS[op.id] && BEARER_HEAL_SKILLS[op.id][skillIndex] !== undefined) {
+    // 执旗手 S2 治疗:每秒 1 跳,治疗量=面板攻击力×ratio(不吃技能期攻击/治疗加成);停攻回费,普攻转治疗
+    const ratioKey = BEARER_HEAL_SKILLS[op.id][skillIndex];
+    const ratioVal = levelData[ratioKey] ?? 0;
+    const hpsBear = panelAtk * ratioVal;
+    const durBear = skillDuration > 0 ? skillDuration : 1;
+    const normIntB = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
+    result = {
+      type: 'heal', skillHps: hpsBear, totalHeal: hpsBear * durBear,
+      skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalHps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / normIntB,
+      realInterval: normIntB, panelAtk,
+    };
+  } else if (op.id === 'char_479_sleach' && skillIndex === 2) {
+    // 琴柳 S3 光辉旗帜(dur10 MANUAL):开启瞬间单发物理伤害(panelAtk×atk_scale 逐级),眩晕/易伤(damage_scale)/减攻(debuff)/回费不计
+    const flagHit = calcPhysicalDamage(panelAtk * (levelData.atk_scale ?? 1), state.enemy.def);
+    const flagInt = phase.baseAttackTime > 0 ? calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus) : 1;  // 常态间隔含天赋攻速(不退之旗+10)
+    result = {
+      skillDps: skillDuration > 0 ? flagHit / skillDuration : 0, skillTotalDamage: flagHit, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / flagInt, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: flagInt,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? flagHit / skillDuration : 0, skillTotalDamage: flagHit, cycleDps: null } },
+    };
   } else if (op.id === 'char_1001_amiya2' && skillIndex === 1) {
     // 阿米娅(近卫) S2 影霄·绝影(手动,整场一次):对前方生命最低目标 10 次斩击——前 9 次 atk_scale×atk 法伤,
     // 最后一击系数加倍(atk_scale_2)且为真实伤害;斩击期间每击败敌人叠 40%atk 与伤害变真——默认不击杀不触发(同烈焰魔剑口径)。
@@ -1271,6 +1335,12 @@ function calculateOperator(op, slotData) {
   // 停止攻击:技能期伤害记 0(普攻停止,防御/面板变化仅展示)
   if ((STOP_ATTACK_SKILLS[op.id] || []).includes(skillIndex) && !isMedic && !isSummon) {
     result = { ...result, skillDps: 0, skillTotalDamage: 0, cycleDps: null };
+    // 同步清内部档位(UI dmgValHtml 优先读 dmgTypes,不清则技能期残留非零)
+    if (result.dmgTypes) {
+      const clean = {};
+      for (const k of Object.keys(result.dmgTypes)) clean[k] = { skillDps: 0, skillTotalDamage: 0, cycleDps: null };
+      result = { ...result, dmgTypes: clean };
+    }
   }
   // 受击回复触发型技能(INCREASE_WHEN_TAKEN_DAMAGE,无自然充能周期):不展示周期 DPS,仅保留单次技能总伤/总治疗；
   // 常态普攻照常展示——这类技能不停止攻击(可颂 S2 磁爆锤/泥岩 S2 岩崩锤等单发触发型 dur=0 走 calcDamage
@@ -1374,6 +1444,11 @@ function calculateOperator(op, slotData) {
     damageType = op.damageType || 'physical';
   }
 
+  // 常驻每秒自回天赋注入(桃金娘浮光跃金 25/s):damage 型 normalHps 由 null 补值 → isHealType 归 heal 型,UI heal 分支显示常态 HPS
+  if (result.normalHps === null) {
+    const talentHps = calcTalentHps(op, slotData);
+    if (talentHps > 0) result = { ...result, normalHps: talentHps };
+  }
   const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined);
   return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: skillAtk };
 }
