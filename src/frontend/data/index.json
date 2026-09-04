@@ -961,5 +961,14 @@
     "subProfessionId": "artsfghter",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10040_siege2_vlion",
+    "name": "黄金盟誓",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1019_siege2",
+    "ownerName": "维娜·维多利亚"
   }
 ]

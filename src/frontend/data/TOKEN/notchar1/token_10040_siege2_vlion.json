@@ -1,0 +1,91 @@
+{
+  "id": "token_10040_siege2_vlion",
+  "name": "黄金盟誓",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "true",
+  "ownerOperatorId": "char_1019_siege2",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        247,
+        335
+      ],
+      "def": [
+        211,
+        211
+      ],
+      "maxHp": [
+        4000,
+        4000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        335,
+        425
+      ],
+      "def": [
+        211,
+        240
+      ],
+      "maxHp": [
+        4000,
+        4000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        425,
+        500
+      ],
+      "def": [
+        270,
+        300
+      ],
+      "maxHp": [
+        4000,
+        4000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "-",
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

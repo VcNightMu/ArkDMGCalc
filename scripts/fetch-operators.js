@@ -127,7 +127,7 @@ const OPERATORS = {
     skywalker: [],                  // 巡空者
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓）
   },
 };
 
@@ -327,14 +327,17 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   const artsSubs = ['artsfghter','corecaster','splashcaster','blastcaster','funnel','mystic','chain','primcaster','soulcaster','phalanx','incantationmedic'];
   // 无攻击能力的召唤物（如夜莺幻影/鸟笼 atk=0）按法术色展示，DPS 按 0 攻计算
   const tokenArtsIds = ['token_10003_cgbird_bird'];
+  // 真伤召唤物（如维娜·黄金盟誓：攻击造成真实伤害，无视防御法抗）
+  const tokenTrueIds = ['token_10040_siege2_vlion'];
   const isNoAtkToken = String(id).startsWith('token_') && tokenArtsIds.includes(id);
-  const damageType = (artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical';
+  const isTrueToken = String(id).startsWith('token_') && tokenTrueIds.includes(id);
+  const damageType = isTrueToken ? 'true' : ((artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical');
 
   const skills = [];
   // 剔除召唤物自带的占位/联动技能（结构性原理的 sktok_mcgraf_1/2 空占位、sktok_mcgraf_3 冲锋被动由持有者 S3 触发，
   // 独立查询时以常态普攻为准——与医疗探机同类无技能卡）；同时跳过持有者技能注入
   // （机械师技能的 attack@ 前缀键是机械师自身普攻改写，非结构体加成）
-  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd'];
+  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd', 'token_10040_siege2_vlion'];
   const dropNative = String(id).startsWith('token_') && tokenDropNativeSkills.includes(id);
   const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);
   const nativeRefs2 = dropNative ? [] : nativeRefs;
@@ -421,6 +424,14 @@ async function main() {
     for (const tokenId of Object.keys(charData.displayTokenDict || {})) {
       tokenOwners[tokenId] = id;
     }
+  }
+  // 静态兜底：subFilter 模式只拉 TOKEN 子职业时持有者不在本次 allIds，displayTokenDict 扫不到；
+  // 显式登记（黄金盟誓 ← 维娜·维多利亚异格）
+  const TOKEN_OWNER_FALLBACK = {
+    'token_10040_siege2_vlion': 'char_1019_siege2',  // 维娜·维多利亚 S3 召唤
+  };
+  for (const [tokenId, ownerId] of Object.entries(TOKEN_OWNER_FALLBACK)) {
+    tokenOwners[tokenId] = tokenOwners[tokenId] || ownerId;
   }
 
   for (const id of allIds) {
