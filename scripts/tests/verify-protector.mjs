@@ -45,6 +45,9 @@ const hsPs = calcPanelStats(hs, mk(hs, -1, 7));
 check('星熊S2(荆棘) 无技能期伤害(输出=常态普攻)', near(hsS2.normalDps, hsNone.normalDps));
 check('星熊S2(荆棘) skillDps=0', hsS2.skillDps === 0 || hsS2.skillDps === null);
 check('星熊S2(荆棘) 无总治疗(反伤不计)', hsS2.totalHeal === null || hsS2.totalHeal === undefined);
+// 回归:calcPanelStats 白值须含 天赋2(特种作战策略 def+6%)+PASSIVE荆棘(def+21%,Lv7) 同区累加——曾漏 PASSIVE 致白值不显示加防
+check('星熊 白值def含天赋2×1.06', near(hsPs.panelDef, (hs.phases[2].def[1] + hs.trustBonus.def) * 1.06, 1));
+check('星熊S2(荆棘) 白值def含天赋2+被动×1.30(专一24%)', near(calcPanelStats(hs, mk(hs, 1, 7)).panelDef, (hs.phases[2].def[1] + hs.trustBonus.def) * 1.30, 1));
 
 // ===== 常规技能：星熊 S1「战意」atk+30% def+70%（有普攻）=====
 const hsS1 = calculateOperator(hs, mk(hs, 0, 7));
@@ -94,6 +97,8 @@ const moeshdS2 = calculateOperator(moeshd, mk(moeshd, 1, 7));
 const moeAtk = calcPanelStats(moeshd, mk(moeshd, -1, 7)).panelAtk;
 check('可颂S2 无周期DPS(受击回复)', moeshdS2.cycleDps === null || moeshdS2.cycleDps === undefined);
 check('可颂S2 单次总伤=4×攻击力物理', near(moeshdS2.skillTotalDamage, phys(moeAtk * 4)));
+// 回归:受击回复单发型需保留常态普攻展示(同泥岩S2口径,曾漏补 normalDps=null)
+check('可颂S2 常态DPS保留=保底物伤/1.2s', moeshdS2.normalDps !== null && moeshdS2.normalDps !== undefined && near(moeshdS2.normalDps, Math.max(moeAtk - 600, moeAtk * 0.05) / 1.2, 0.01));
 
 // ===== 暴雨 S1「应急迷彩」：AUTO触发型自回（默认给到自身），55/s×4s，输出归常态 =====
 const zebraS1 = calculateOperator(zebra, mk(zebra, 0, 7));

@@ -103,6 +103,7 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_226_hmau': 0,    // 吽「门神」:防御+6~8% 无条件常驻(身后高台治疗+75% 为条件部分不计,单目标默认自身非高台)
   'char_202_demkni': 0,  // 塞雷娅「莱茵充能护服」:防御叠层按满层 ×5(单层 def+4~5% → +20~25%),攻击部分在 TALENT_ATK_DRIVERS
   'char_260_durnar': 0,  // 坚雷「攻守兼备」:防御力+7%(攻击部分在 TALENT_ATK_DRIVERS)
+  'char_136_hsguma': 1,  // 星熊「特种作战策略」(天赋2,精二解锁):全场重装防御+6~8%,自身为重装必得(编队光环先例);天赋1 战术装甲伤害抵挡不建模
 };
 
 // 查 HP/DEF 常驻百分比天赋,返回 { hpMul, defMul }(未解锁/无键为 0)
@@ -508,14 +509,14 @@ const STOP_ATTACK_SKILLS = {
   'char_381_bubble': [1],   // 泡泡 S2「挨打」
   'char_304_zebra': [1],    // 暴雨 S2「群体迷彩」
   'char_4194_rmixer': [2],  // 信仰搅拌机 S3 退休前布道：停止主动攻击转受击反击（无受击模型，反击不计）
-  'char_4148_philae': [1],  // 菲莱 S2 幽冥诅咒：停止攻击转受击反伤挂凋亡（受击无模型，反伤/凋亡不计）
+  'char_4148_philae': [1],  // 菲莱 S2 冥河诅咒：停止攻击转受击反伤挂凋亡（受击无模型，反伤/凋亡不计）
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
   'char_107_liskam': [0],
   'char_457_blitz': [0],
-  'char_4148_philae': [0],   // 菲莱 S1 灵河护网：生命上限+清除损伤条+损伤屏障（屏障承伤不计）
-  'char_4225_tanya': [0, 1], // 裂响 S1 涤净（生命上限+自清损伤）、S2 溃决（防御叠层，受击消耗挂侵蚀，受击无模型）
+  'char_4148_philae': [0],   // 菲莱 S1 灵河护佑：血上限+清损伤条+损伤屏障（屏障承伤不计）
+  'char_4225_tanya': [0, 1], // 裂响 S1 涤净（血上限+自清损伤）/ S2 溃决（防御叠层，受击消耗挂侵蚀，受击无模型）
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -994,18 +995,23 @@ function calculateOperator(op, slotData) {
   if ((STOP_ATTACK_SKILLS[op.id] || []).includes(skillIndex) && !isMedic && !isSummon) {
     result = { ...result, skillDps: 0, skillTotalDamage: 0, cycleDps: null };
   }
-  // 受击回复触发型技能(INCREASE_WHEN_TAKEN_DAMAGE,无自然充能周期):不展示周期 DPS,仅保留单次技能总伤/总治疗
+  // 受击回复触发型技能(INCREASE_WHEN_TAKEN_DAMAGE,无自然充能周期):不展示周期 DPS,仅保留单次技能总伤/总治疗；
+  // 常态普攻照常展示——这类技能不停止攻击(可颂 S2 磁爆锤/泥岩 S2 岩崩锤等单发触发型 dur=0 走 calcDamage
+  // else 分支 normalDps 为 null,此处统一按职业普攻口径补回;有持续时间的受击型(斥罪 S3)已有 normalDps 不覆盖)
   if (levelData.spType === 'INCREASE_WHEN_TAKEN_DAMAGE' && !isMedic && !isSummon) {
-    result = { ...result, cycleDps: null };
+    const normI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
+    const normTypeArts = op.damageType === 'arts';
+    const normalDps = (normTypeArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def)) / normI;
+    result = {
+      ...result,
+      cycleDps: null,
+      normalDps: result.normalDps ?? normalDps,
+      normalDamageType: normTypeArts ? 'arts' : 'physical',
+    };
   }
   // 受击回复触发时的自疗(泥岩 S2 岩崩锤:触发时回 maxHp×hp_ratio 单发;常态普攻保留展示)
   if ((TAKEN_SELF_HEAL[op.id] || {})[skillIndex] === true && typeof levelData.hp_ratio === 'number') {
-    const normI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
-    result = {
-      ...result,
-      totalHeal: panelHp * levelData.hp_ratio,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / normI,
-    };
+    result = { ...result, totalHeal: panelHp * levelData.hp_ratio };
   }
   // 攻击吸血(火神 S2 武力模式:每次攻击回 maxHp×hp_ratio,HPS=单次回复/攻击间隔)
   if ((LEECH_SKILLS[op.id] || {})[skillIndex] === true && skillDuration > 0 && typeof levelData.hp_ratio === 'number') {
@@ -1103,6 +1109,12 @@ function calcPanelStats(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
   const mod = calcModuleBonus(op, slotData);
+  // PASSIVE 被动技能(星熊「荆棘」def+24%、森蚺「轻型挂斧」atk/def+20%):装备即常驻入面板,无技能期——
+  // 与 calculateOperator 同口径,使白值面板(renderPanelStats)也体现被动加成(星熊 S2 加防肉眼可查)
+  const equippedSkill = op.skills[slotData.skillIndex || 0];
+  const isSummon = op.profession === 'TOKEN';
+  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE')
+    ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
 
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
   const baseDef = interpolateAttr(phase.def[0], phase.def[1], slotData.level, maxLevel);
@@ -1126,7 +1138,12 @@ function calcPanelStats(op, slotData) {
   const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
   const pctTalent = calcTalentHpDefMul(op, slotData);
   const aura = calcSelfAuraFlat(op, slotData);  // 范围光环绝对值(自身必在范围)
-  const talentAtk = calcTalentAtkBonus(op, slotData);
+  let talentAtk = calcTalentAtkBonus(op, slotData);
+  if (passiveLv) {  // 被动技能乘区与天赋同区累加(装备即生效)
+    if (passiveLv.atk !== undefined) talentAtk += passiveLv.atk;
+    if (passiveLv.def !== undefined) pctTalent.defMul += passiveLv.def;
+    if (passiveLv.max_hp !== undefined) pctTalent.hpMul += passiveLv.max_hp;
+  }
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
   const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;

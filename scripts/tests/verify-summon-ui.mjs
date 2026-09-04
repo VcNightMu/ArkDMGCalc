@@ -38,11 +38,15 @@ const get = (label) => html.match(new RegExp(label + '</span><span class="value[
 const healHps = get('治疗 HPS');
 const totalHeal = get('总治疗量');
 const hasNormalLabel = html.includes('常态 HPS');
+// 无技能干员（仅 skcom_ 通用被动）不得出现任何「技能期」限定条目
+const skillPhaseLabels = (html.match(/<span class="label">[^<]*技能期[^<]*<\/span>/g) || []);
+const hasSkillPhase = skillPhaseLabels.length > 0;
 
 console.log('治疗 HPS:', healHps, '(期望 250)');
 console.log('总治疗量:', totalHeal, '(期望 2500)');
 console.log('不应出现「常态 HPS」:', hasNormalLabel ? '出现(FAIL)' : '未出现(OK)');
+console.log('不应出现「技能期*」条目:', hasSkillPhase ? '出现(FAIL): ' + skillPhaseLabels.join(',') : '未出现(OK)');
 
-const ok = healHps === '250' && totalHeal === '2500' && !hasNormalLabel;
+const ok = healHps === '250' && totalHeal === '2500' && !hasNormalLabel && !hasSkillPhase;
 console.log('\n最终:', ok ? '通过' : '失败');
 process.exit(ok ? 0 : 1);

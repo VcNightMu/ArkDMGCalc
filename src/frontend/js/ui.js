@@ -69,7 +69,6 @@ function initEnemyPanel() {
       updateResults();
     });
   });
-  // 敌人类型（普通/精英/领袖）→ 决定元素损伤 EP 容量（1000/1000/2000）
   const gradeSel = document.getElementById('enemy-grade');
   if (gradeSel) {
     gradeSel.value = state.enemy.grade || 'normal';
@@ -375,6 +374,11 @@ async function updateResults() {
     card.className = 'result-card';
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
+    // 是否有技能期：当前槽位技能存在、非 skcom_ 通用被动、且非 PASSIVE 被动（引擎对 PASSIVE 无技能期概念，
+    // 星熊 S2「荆棘」等装备即常驻入面板，卡片只显示常态信息）。
+    const equipped = op.skills[slotData.skillIndex || 0];
+    const hasSkill = !!equipped && !!equipped.skillId && !String(equipped.skillId).startsWith('skcom_')
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE');
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;
@@ -410,8 +414,10 @@ async function updateResults() {
       if (result.skillTotalDamage > 0) {
         metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       }
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
+      if (hasSkill) {
+        metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
+      }
     } else if (result.isToggle || result.isPermanent) {
       metricsHtml = '<div class="metric"><span class="label">DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
@@ -422,13 +428,17 @@ async function updateResults() {
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
-      metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
+      if (hasSkill) {
+        metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
+        metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
+      }
       if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
         metricsHtml += '<div class="metric"><span class="label">常态 DPS</span>' + normValHtml(result) + '</div>';
       }
-      metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
-      metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
+      if (hasSkill) {
+        metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
+      }
     }
 
     card.innerHTML = '<div class="result-header">' +
