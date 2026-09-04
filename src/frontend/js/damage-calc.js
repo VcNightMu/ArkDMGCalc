@@ -5,6 +5,8 @@ import { state } from './state.js';
 import { calcMedical, calcSummonHeal } from './medic-calc.js';
 import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
+import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
+import { OPERATOR_ELEMENT } from './element-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -506,11 +508,14 @@ const STOP_ATTACK_SKILLS = {
   'char_381_bubble': [1],   // 泡泡 S2「挨打」
   'char_304_zebra': [1],    // 暴雨 S2「群体迷彩」
   'char_4194_rmixer': [2],  // 信仰搅拌机 S3 退休前布道：停止主动攻击转受击反击（无受击模型，反击不计）
+  'char_4148_philae': [1],  // 菲莱 S2 幽冥诅咒：停止攻击转受击反伤挂凋亡（受击无模型，反伤/凋亡不计）
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
   'char_107_liskam': [0],
   'char_457_blitz': [0],
+  'char_4148_philae': [0],   // 菲莱 S1 灵河护网：生命上限+清除损伤条+损伤屏障（屏障承伤不计）
+  'char_4225_tanya': [0, 1], // 裂响 S1 涤净（生命上限+自清损伤）、S2 溃决（防御叠层，受击消耗挂侵蚀，受击无模型）
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -610,6 +615,12 @@ function calculateOperator(op, slotData) {
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
+    // 本源铁卫 no-skill：天赋损伤源常驻（珊比每击侵蚀/余每秒灼燃+法伤/响石每秒神经），常态三档展示
+    if (op.profession === 'TANK' && op.subProfessionId === 'primprotector' && primNormalFields) {
+      const norm = primNormalFields(op, slotData, panelAtk, state.enemy);
+      const isMed = op.id === 'char_2026_yu' && norm.normalTypes.arts; // 余常态含每秒法伤
+      return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
+    }
     const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isArts ? 'arts' : 'physical', normalDamageType: isArts ? 'arts' : 'physical' };
@@ -743,6 +754,17 @@ function calculateOperator(op, slotData) {
     result = calcMedical(params);
   } else if (isGuardianHealSkill) {
     result = calcGuardian(params);
+  } else if (op.subProfessionId === 'primprotector' && skill && OPERATOR_ELEMENT[op.id]) {
+    // 本源铁卫元素系三人（余灼燃/珊比侵蚀/响石神经）：技能全部特殊（元素损伤时间轴），且 bb 的 atk_scale 为附加伤害倍率
+    // （余S2 瞬发群伤/珊比S2 胶、S3 传送带/响石S2 区域法伤）而非普攻倍率，不能走通用 skillAtk 计算。
+    // 内部以 panelAtk×(1+atk) 重算（本源铁卫无加攻天赋，panelAtk 未含天赋 atk 乘区）。
+    result = calcPrimSkill({
+      op, slotData: { ...slotData, skillIndex },
+      panelAtk, panelHp,
+      skillAtk: panelAtk * (1 + (levelData.atk || 0)),
+      skillDuration, realInterval: skillRealInterval,
+      levelData, enemy: state.enemy,
+    });
   } else if (op.id === 'char_4039_horn' && skillIndex === 2) {
     // 号角 S3 终极防线(dur24 过载两段):前12s atk+50% 间隔1.0s,后12s 过载 atk+100%(自损不计)
     const frontHit = calcPhysicalDamage(panelAtk * 1.5, state.enemy.def);

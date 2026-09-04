@@ -29,10 +29,31 @@ function dmgValHtml(result, field) {
         segs.push('<span class="value ' + dmgClass(t) + '">' + Math.round(v) + '</span>');
       }
     }
-    if (segs.length > 1) return segs.join('<span style="color:#888;margin:0 2px;">+</span>');
+    if (segs.length > 1) return '<span class="dmg-group">' + segs.join('<span style="color:#888;margin:0 2px;">+</span>') + '</span>';
     if (segs.length === 1) return segs[0];
   }
   return '<span class="value ' + dmgClass(result.damageType) + '">' + result[field].toFixed(0) + '</span>';
+}
+
+// 常态多档伤害（本源铁卫常态=物理普攻+天赋法伤+元素爆条均摊）：逐类型色值渲染
+function normValHtml(result) {
+  const types = result.normalTypes;
+  if (types) {
+    const segs = [];
+    for (const t of Object.keys(types)) {
+      const v = types[t].dps;
+      if (typeof v === 'number' && v > 0) {
+        segs.push('<span class="value ' + dmgClass(t) + '">' + Math.round(v) + '</span>');
+      }
+    }
+    if (segs.length > 1) return '<span class="dmg-group">' + segs.join('<span style="color:#888;margin:0 2px;">+</span>') + '</span>';
+    if (segs.length === 1) return segs[0];
+  }
+  if (result.normalDps !== null && result.normalDps !== undefined) {
+    const cls = result.normalDamageType || result.damageType || 'physical';
+    return '<span class="value ' + dmgClass(cls) + '">' + result.normalDps.toFixed(0) + '</span>';
+  }
+  return '';
 }
 
 function initEnemyPanel() {
@@ -48,6 +69,15 @@ function initEnemyPanel() {
       updateResults();
     });
   });
+  // 敌人类型（普通/精英/领袖）→ 决定元素损伤 EP 容量（1000/1000/2000）
+  const gradeSel = document.getElementById('enemy-grade');
+  if (gradeSel) {
+    gradeSel.value = state.enemy.grade || 'normal';
+    gradeSel.addEventListener('change', () => {
+      state.enemy.grade = gradeSel.value;
+      updateResults();
+    });
+  }
 }
 
 function initOperatorSlots() {
@@ -363,7 +393,7 @@ async function updateResults() {
         metricsHtml += '<div class="metric"><span class="label">' + hpsLabel + '</span><span class="value heal">' + result.normalHps.toFixed(0) + '</span></div>';
       }
       if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
-        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + dmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span>' + normValHtml(result) + '</div>';
       }
       if (result.skillHps !== null && result.skillHps !== undefined && result.skillHps > 0) {
         metricsHtml += '<div class="metric"><span class="label">技能期 HPS</span><span class="value heal">' + result.skillHps.toFixed(0) + '</span></div>';
@@ -392,11 +422,10 @@ async function updateResults() {
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
-      const normDmgCls = dmgClass(result.normalDamageType);
       metricsHtml = '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
       metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
-        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span><span class="value ' + normDmgCls + '">' + result.normalDps.toFixed(0) + '</span></div>';
+        metricsHtml += '<div class="metric"><span class="label">常态 DPS</span>' + normValHtml(result) + '</div>';
       }
       metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';

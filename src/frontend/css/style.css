@@ -322,6 +322,14 @@ body {
   font-weight: 600;
 }
 
+/* 多档伤害数值组（物理+法术+元素…）：整体作为 .metric 的右侧子项，内部紧凑排列避免被 space-between 拉开 */
+.metric .dmg-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+
 .metric .value.dmg-physical { color: var(--dmg-physical); }
 .metric .value.dmg-arts { color: var(--dmg-arts); }
 .metric .value.dmg-true { color: var(--dmg-true); }
