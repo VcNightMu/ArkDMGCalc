@@ -261,9 +261,12 @@ async function renderSlot(index) {
   html += '<div class="form-group"><label>信赖%</label>';
   html += '<input type="number" data-index="' + index + '" data-field="trustPercent" value="' + data.trustPercent + '" min="0" max="100">';
   html += '</div>';
-  // 技能选择器：有可选技能即显示（召唤物若只有 skcom_ 通用被动如医疗探机则不显示；
-  // 凯尔希·Mon3tr 这类带注入技能的攻击型召唤物正常显示 1/2/3 技能）
-  const hasSelectableSkills = op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_'));
+  // 技能选择器：干员有技能即显示（含 skcom_ 通用技能模板如迅捷打击/冲锋号令等主动技能）；
+  // 召唤物若只有 skcom_ 通用被动如医疗探机则不显示（凯尔希·Mon3tr 这类带注入技能的攻击型召唤物正常显示 1/2/3 技能）
+  const isTokenOp = op.profession === 'TOKEN';
+  const hasSelectableSkills = isTokenOp
+    ? op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_'))
+    : (op.skills || []).length > 0;
   if (hasSelectableSkills) {
     html += '<div class="form-group"><label>技能</label>';
     const maxSiForElite = data.elite === 0 ? 0 : data.elite === 1 ? 1 : 2;
@@ -376,11 +379,13 @@ async function updateResults() {
     card.className = 'result-card';
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
-    // 是否有技能期：当前槽位技能存在、非 skcom_ 通用被动、且非 PASSIVE 被动（引擎对 PASSIVE 无技能期概念，
-    // 星熊 S2「荆棘」等装备即常驻入面板，卡片只显示常态信息）。
+    // 是否有技能期：当前槽位技能存在；召唤物的 skcom_ 通用被动(医疗探机等)与干员 PASSIVE 永久被动(星熊 S2「荆棘」装备即常驻)无技能期只显常态，
+    // 干员 skcom_ 通用技能模板(迅捷打击/冲锋号令等)与限时被动(PASSIVE 且 duration>0，芬 S2 执守阵线：部署自动生效 N 秒)按正常技能处理——有技能期+有常态
     const equipped = op.skills[slotData.skillIndex || 0];
-    const hasSkill = !!equipped && !!equipped.skillId && !String(equipped.skillId).startsWith('skcom_')
-      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE');
+    const equippedLv = (equipped && equipped.levels) ? (equipped.levels[slotData.skillLevel || 0] || equipped.levels[equipped.levels.length - 1] || {}) : {};
+    const hasSkill = !!equipped && !!equipped.skillId
+      && !(op.profession === 'TOKEN' && String(equipped.skillId).startsWith('skcom_'))
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0));
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;
