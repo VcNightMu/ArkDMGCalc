@@ -1,0 +1,860 @@
+{
+  "id": "char_1019_siege2",
+  "name": "维娜·维多利亚",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        289,
+        420
+      ],
+      "def": [
+        189,
+        271
+      ],
+      "maxHp": [
+        1320,
+        1738
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        420,
+        546
+      ],
+      "def": [
+        271,
+        348
+      ],
+      "maxHp": [
+        1738,
+        2200
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        546,
+        675
+      ],
+      "def": [
+        348,
+        420
+      ],
+      "maxHp": [
+        2200,
+        2895
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_siege2_1",
+      "name": "重铸晖光",
+      "levels": [
+        {
+          "atk_scale": 0.6,
+          "level": 0,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.7,
+          "level": 1,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.8,
+          "level": 2,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_siege2_2",
+      "name": "进赴故土",
+      "levels": [
+        {
+          "sp_recovery_per_sec": 0.2,
+          "atk": 1.2,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 0,
+          "spCost": 90,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.2,
+          "atk": 1.25,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 1,
+          "spCost": 90,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.2,
+          "atk": 1.3,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 2,
+          "spCost": 90,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.3,
+          "atk": 1.35,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.3,
+          "atk": 1.4,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.3,
+          "atk": 1.45,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.5,
+          "atk": 1.5,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 6,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.5,
+          "atk": 1.6,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 7,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.5,
+          "atk": 1.7,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 8,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "sp_recovery_per_sec": 0.5,
+          "atk": 1.8,
+          "attack@max_target": 2,
+          "buff_stack_cnt": 2,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_siege2_3",
+      "name": "俱以我之名",
+      "levels": [
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.3,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.35,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.4,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.45,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 65,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.5,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 65,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.55,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 65,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.6,
+          "attack@max_target": 3,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.7,
+          "attack@max_target": 3,
+          "level": 7,
+          "spCost": 57,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.8,
+          "attack@max_target": 3,
+          "level": 8,
+          "spCost": 54,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.25,
+          "atk": 1.9,
+          "attack@max_target": 4,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "诸王的叹息",
+          "description": "自身与周围8格友方单位受到的物理伤害减少12%，且此范围内每个友方单位使维娜攻击力+3%",
+          "blackboard": {
+            "damage_resistance": 0.12,
+            "atk": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "诸王的叹息",
+          "description": "自身与周围8格友方单位受到的物理伤害减少14%<@ba.talpu>（+2%）</>，且此范围内每个友方单位使维娜攻击力+4%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "damage_resistance": 0.14,
+            "atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "诸王的叹息",
+          "description": "自身与周围8格友方单位受到的物理伤害减少20%，且此范围内每个友方单位使维娜攻击力+5%",
+          "blackboard": {
+            "damage_resistance": 0.2,
+            "atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "诸王的叹息",
+          "description": "自身与周围8格友方单位受到的物理伤害减少22%<@ba.talpu>（+2%）</>，且此范围内每个友方单位使维娜攻击力+6%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "damage_resistance": 0.22,
+            "atk": 0.06
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "无拘的锋芒",
+          "description": "对每个敌人首次造成伤害时，使其<$ba.tremble>战栗</>4秒",
+          "blackboard": {
+            "not_combat": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "无拘的锋芒",
+          "description": "对每个敌人首次造成伤害时，使其<$ba.tremble>战栗</>5<@ba.talpu>（+1）</>秒",
+          "blackboard": {
+            "not_combat": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_siege2",
+      "name": "维娜·维多利亚证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_siege2",
+      "name": "城主的冒险",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 28
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 360,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "诸王的叹息",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.24,
+                "atk": 0.06
+              }
+            },
+            {
+              "name": "诸王的叹息",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.26,
+                "atk": 0.07
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 440,
+            "atk": 56
+          },
+          "talentEnhance": [
+            {
+              "name": "诸王的叹息",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.26,
+                "atk": 0.07
+              }
+            },
+            {
+              "name": "诸王的叹息",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.28,
+                "atk": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_siege2",
+      "name": "秩序圣“球”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": "无拘的锋芒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "not_combat_normal": 4,
+                "not_combat_elite": 8
+              }
+            },
+            {
+              "name": "无拘的锋芒",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "not_combat_normal": 5,
+                "not_combat_elite": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.15
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1.15
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.15
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1.15
+              }
+            },
+            {
+              "name": "无拘的锋芒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "not_combat_normal": 6,
+                "not_combat_elite": 12
+              }
+            },
+            {
+              "name": "无拘的锋芒",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "not_combat_normal": 7,
+                "not_combat_elite": 12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

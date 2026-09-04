@@ -1,0 +1,721 @@
+{
+  "id": "char_1050_chen3",
+  "name": "赤刃明霄陈",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        287,
+        417
+      ],
+      "def": [
+        191,
+        274
+      ],
+      "maxHp": [
+        1326,
+        1746
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        417,
+        542
+      ],
+      "def": [
+        274,
+        352
+      ],
+      "maxHp": [
+        1746,
+        2211
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        542,
+        670
+      ],
+      "def": [
+        352,
+        425
+      ],
+      "maxHp": [
+        2211,
+        2910
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_chen3_1",
+      "name": "赤霄·奔夜",
+      "levels": [
+        {
+          "atk": 0.5,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen3_2",
+      "name": "赤霄·绝影-驰",
+      "levels": [
+        {
+          "atk_scale": 3.5,
+          "chen3_s2[respawn_buff].atk": 2,
+          "chen3_s2[respawn_buff].prob": 0.3,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "chen3_s2[respawn_buff].atk": 2.1,
+          "chen3_s2[respawn_buff].prob": 0.3,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.7,
+          "chen3_s2[respawn_buff].atk": 2.2,
+          "chen3_s2[respawn_buff].prob": 0.3,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.9,
+          "chen3_s2[respawn_buff].atk": 2.3,
+          "chen3_s2[respawn_buff].prob": 0.4,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "chen3_s2[respawn_buff].atk": 2.4,
+          "chen3_s2[respawn_buff].prob": 0.4,
+          "level": 4,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.1,
+          "chen3_s2[respawn_buff].atk": 2.5,
+          "chen3_s2[respawn_buff].prob": 0.4,
+          "level": 5,
+          "spCost": 24,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.3,
+          "chen3_s2[respawn_buff].atk": 2.6,
+          "chen3_s2[respawn_buff].prob": 0.5,
+          "level": 6,
+          "spCost": 23,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.5,
+          "chen3_s2[respawn_buff].atk": 2.7,
+          "chen3_s2[respawn_buff].prob": 0.5,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.6,
+          "chen3_s2[respawn_buff].atk": 2.8,
+          "chen3_s2[respawn_buff].prob": 0.5,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.8,
+          "chen3_s2[respawn_buff].atk": 3,
+          "chen3_s2[respawn_buff].prob": 0.6,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen3_3",
+      "name": "赤霄·天喟",
+      "levels": [
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5,
+          "attack@atk_scale": 1.5,
+          "attack@max_target": 3,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5,
+          "attack@atk_scale": 1.55,
+          "attack@max_target": 3,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5,
+          "attack@atk_scale": 1.6,
+          "attack@max_target": 3,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.3,
+          "attack@atk_scale": 1.65,
+          "attack@max_target": 3,
+          "level": 3,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.3,
+          "attack@atk_scale": 1.7,
+          "attack@max_target": 3,
+          "level": 4,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.3,
+          "attack@atk_scale": 1.75,
+          "attack@max_target": 3,
+          "level": 5,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.5,
+          "attack@atk_scale": 1.8,
+          "attack@max_target": 3,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.6,
+          "attack@atk_scale": 1.9,
+          "attack@max_target": 4,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.7,
+          "attack@atk_scale": 2,
+          "attack@max_target": 4,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "hp_ratio": 0.06,
+          "projectile_min_atk_scale": 5.8,
+          "attack@atk_scale": 2.1,
+          "attack@max_target": 4,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "形意洞照",
+          "description": "攻击力+8%，攻击速度+8，攻击变为<$ba.weaknessatk>弱点伤害</>",
+          "blackboard": {
+            "atk": 0.08,
+            "attack_speed": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "形意洞照",
+          "description": "攻击力+11%<@ba.talpu>（+3%）</>，攻击速度+11<@ba.talpu>（+3）</>，攻击变为<$ba.weaknessatk>弱点伤害</>",
+          "blackboard": {
+            "atk": 0.11,
+            "attack_speed": 11
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "形意洞照",
+          "description": "攻击力+13%，攻击速度+13，攻击变为<$ba.weaknessatk>弱点伤害</>",
+          "blackboard": {
+            "atk": 0.13,
+            "attack_speed": 13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "形意洞照",
+          "description": "攻击力+16%<@ba.talpu>（+3%）</>，攻击速度+16<@ba.talpu>（+3）</>，攻击变为<$ba.weaknessatk>弱点伤害</>",
+          "blackboard": {
+            "atk": 0.16,
+            "attack_speed": 16
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "寒暑觉知",
+          "description": "未受到伤害时，每7秒随机治疗自身一定（攻击力的30%~160%）生命值，并闪避下次物理与法术攻击",
+          "blackboard": {
+            "stack_time": 7,
+            "heal_atk_scale_min": 30,
+            "heal_atk_scale_max": 161
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "寒暑觉知",
+          "description": "未受到伤害时，每7秒随机治疗自身一定（攻击力的35%<@ba.talpu>（+5%）</>~165%<@ba.talpu>（+5%）</>）生命值，并闪避下次物理与法术攻击",
+          "blackboard": {
+            "stack_time": 7,
+            "heal_atk_scale_min": 35,
+            "heal_atk_scale_max": 166
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chen3",
+      "name": "赤刃明霄陈证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chen3",
+      "name": "记忆残页",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 340,
+            "atk": 48
+          },
+          "talentEnhance": [
+            {
+              "name": "寒暑觉知",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stack_time": 6,
+                "heal_atk_scale_min": 40,
+                "heal_atk_scale_max": 181
+              }
+            },
+            {
+              "name": "寒暑觉知",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "stack_time": 6,
+                "heal_atk_scale_min": 45,
+                "heal_atk_scale_max": 186
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 420,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "寒暑觉知",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stack_time": 6,
+                "heal_atk_scale_min": 50,
+                "heal_atk_scale_max": 201
+              }
+            },
+            {
+              "name": "寒暑觉知",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "stack_time": 6,
+                "heal_atk_scale_min": 55,
+                "heal_atk_scale_max": 206
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

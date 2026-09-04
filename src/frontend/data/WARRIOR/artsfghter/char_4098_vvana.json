@@ -1,0 +1,888 @@
+{
+  "id": "char_4098_vvana",
+  "name": "薇薇安娜",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        277,
+        402
+      ],
+      "def": [
+        202,
+        289
+      ],
+      "maxHp": [
+        1332,
+        1753
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        402,
+        523
+      ],
+      "def": [
+        289,
+        371
+      ],
+      "maxHp": [
+        1753,
+        2219
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        523,
+        646
+      ],
+      "def": [
+        371,
+        447
+      ],
+      "maxHp": [
+        2219,
+        2920
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_vvana_1",
+      "name": "光影迅捷剑",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_vvana_2",
+      "name": "烛燃影息",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.5,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.2,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 20,
+          "attack@steal_atk_speed_max": 20,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.13,
+          "def": 0.6,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.2,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 20,
+          "attack@steal_atk_speed_max": 20,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "def": 0.7,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.2,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 20,
+          "attack@steal_atk_speed_max": 20,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.8,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.3,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 25,
+          "attack@steal_atk_speed_max": 25,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "def": 0.9,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.3,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 25,
+          "attack@steal_atk_speed_max": 25,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "def": 1,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.3,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 25,
+          "attack@steal_atk_speed_max": 25,
+          "level": 5,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 1.1,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.4,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 30,
+          "attack@steal_atk_speed_max": 30,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "def": 1.3,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.4,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 33,
+          "attack@steal_atk_speed_max": 33,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "def": 1.45,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.4,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 36,
+          "attack@steal_atk_speed_max": 36,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 1.6,
+          "block_cnt": 1,
+          "attack@atk_scale_twice": 1.5,
+          "attack@prob_once": 0.8,
+          "attack@prob_twice": 0.2,
+          "attack@steal_atk_speed": 40,
+          "attack@steal_atk_speed_max": 40,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_vvana_3",
+      "name": "“明灭”",
+      "levels": [
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.35,
+          "def": 0.2,
+          "magic_resistance": 10,
+          "enhance_duration": 25,
+          "talent_scale": 1.6,
+          "duration_plus": 15,
+          "level": 0,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.4,
+          "def": 0.25,
+          "magic_resistance": 10,
+          "enhance_duration": 25,
+          "talent_scale": 1.6,
+          "duration_plus": 15,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.45,
+          "def": 0.3,
+          "magic_resistance": 10,
+          "enhance_duration": 25,
+          "talent_scale": 1.6,
+          "duration_plus": 15,
+          "level": 2,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.55,
+          "def": 0.4,
+          "magic_resistance": 15,
+          "enhance_duration": 25,
+          "talent_scale": 1.8,
+          "duration_plus": 15,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.6,
+          "def": 0.45,
+          "magic_resistance": 15,
+          "enhance_duration": 25,
+          "talent_scale": 1.8,
+          "duration_plus": 15,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.65,
+          "def": 0.5,
+          "magic_resistance": 15,
+          "enhance_duration": 25,
+          "talent_scale": 1.8,
+          "duration_plus": 15,
+          "level": 5,
+          "spCost": 32,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.75,
+          "def": 0.6,
+          "magic_resistance": 20,
+          "enhance_duration": 25,
+          "talent_scale": 2,
+          "duration_plus": 15,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.85,
+          "def": 0.7,
+          "magic_resistance": 25,
+          "enhance_duration": 25,
+          "talent_scale": 2.2,
+          "duration_plus": 15,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.95,
+          "def": 0.8,
+          "magic_resistance": 25,
+          "enhance_duration": 25,
+          "talent_scale": 2.3,
+          "duration_plus": 15,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 1.1,
+          "def": 0.9,
+          "magic_resistance": 25,
+          "enhance_duration": 25,
+          "talent_scale": 2.5,
+          "duration_plus": 15,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "燃烛施明",
+          "description": "造成的法术伤害+5%，受到的物理和法术伤害-5%。攻击范围内存在精英或领袖敌人时，该效果提升至2倍",
+          "blackboard": {
+            "damage_resistance_pm": 0.05,
+            "damage_scale_m": 0.05,
+            "super_scale": 2,
+            "ep_damage_ratio_m": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "燃烛施明",
+          "description": "造成的法术伤害+6%<@ba.talpu>（+1%）</>，受到的物理和法术伤害-6%<@ba.talpu>（-1%）</>。攻击范围内存在精英或领袖敌人时，该效果提升至2倍",
+          "blackboard": {
+            "damage_resistance_pm": 0.06,
+            "damage_scale_m": 0.06,
+            "super_scale": 2,
+            "ep_damage_ratio_m": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "燃烛施明",
+          "description": "造成的法术伤害+8%，受到的物理和法术伤害-8%。攻击范围内存在精英或领袖敌人时，该效果提升至2倍",
+          "blackboard": {
+            "damage_resistance_pm": 0.08,
+            "damage_scale_m": 0.08,
+            "super_scale": 2,
+            "ep_damage_ratio_m": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "燃烛施明",
+          "description": "造成的法术伤害+9%<@ba.talpu>（+1%）</>，受到的物理和法术伤害-9%<@ba.talpu>（-1%）</>。攻击范围内存在精英或领袖敌人时，该效果提升至2倍",
+          "blackboard": {
+            "damage_resistance_pm": 0.09,
+            "damage_scale_m": 0.09,
+            "super_scale": 2,
+            "ep_damage_ratio_m": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "散华",
+          "description": "攻击精英或领袖敌人时，有18%概率获得一层仅抵挡近战攻击的<$ba.shield>护盾</>（最多1层）",
+          "blackboard": {
+            "prob": 0.18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "散华",
+          "description": "攻击精英或领袖敌人时，有20%<@ba.talpu>（+2%）</>概率获得一层仅抵挡近战攻击的<$ba.shield>护盾</>（最多1层）",
+          "blackboard": {
+            "prob": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_vvana",
+      "name": "薇薇安娜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_vvana",
+      "name": "“最后一行”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 30,
+            "def": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 38,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "散华",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.23,
+                "max_stack_cnt": 1
+              }
+            },
+            {
+              "name": "散华",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.25,
+                "max_stack_cnt": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 45,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "散华",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.25,
+                "max_stack_cnt": 2
+              }
+            },
+            {
+              "name": "散华",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.27,
+                "max_stack_cnt": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_vvana",
+      "name": "目不能及之处",
+      "type": "ADVANCED",
+      "typeName2": "D",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 3,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_ratio": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 340,
+            "atk": 48
+          },
+          "talentEnhance": [
+            {
+              "name": "燃烛施明",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio_m": 0.05,
+                "damage_resistance_pm": 0.08,
+                "damage_scale_m": 0.08,
+                "super_scale": 2
+              }
+            },
+            {
+              "name": "燃烛施明",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_ratio_m": 0.05,
+                "damage_resistance_pm": 0.09,
+                "damage_scale_m": 0.09,
+                "super_scale": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_ratio": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 420,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "燃烛施明",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio_m": 0.09,
+                "damage_resistance_pm": 0.08,
+                "damage_scale_m": 0.08,
+                "super_scale": 2
+              }
+            },
+            {
+              "name": "燃烛施明",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_ratio_m": 0.09,
+                "damage_resistance_pm": 0.09,
+                "damage_scale_m": 0.09,
+                "super_scale": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_ratio": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

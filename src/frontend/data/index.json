@@ -907,5 +907,59 @@
     "subProfessionId": "notchar1",
     "ownerOperatorId": "char_4230_mcnist",
     "ownerName": "机械师"
+  },
+  {
+    "id": "char_185_frncat",
+    "name": "慕斯",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_274_astesi",
+    "name": "星极",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_333_sidero",
+    "name": "铸铁",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4098_vvana",
+    "name": "薇薇安娜",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1019_siege2",
+    "name": "维娜·维多利亚",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1050_chen3",
+    "name": "赤刃明霄陈",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "artsfghter",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

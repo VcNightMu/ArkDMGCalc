@@ -24,7 +24,7 @@ const OPERATORS = {
   WARRIOR: { // 近卫
     centurion: [],                  // 强攻手
     fighter: [],                    // 斗士
-    artsfghter: ['char_350_surtr'], // 术战者
+    artsfghter: ['char_350_surtr', 'char_185_frncat', 'char_274_astesi', 'char_333_sidero', 'char_4098_vvana', 'char_1019_siege2', 'char_1050_chen3'], // 术战者：慕斯4/星极5/铸铁5/史尔特尔6/薇薇安娜6/维娜·维多利亚6(异格)/赤刃明霄陈6(异格)
     instructor: [],                 // 教官
     lord: ['char_172_svrash', 'char_293_thorns'], // 领主
     sword: ['char_010_chen'],       // 剑豪
@@ -131,11 +131,13 @@ const OPERATORS = {
   },
 };
 
-// 展平嵌套结构，得到所有待拉取的干员 id
-function flattenOperators() {
+// 展平嵌套结构，得到所有待拉取的干员 id。
+// subFilter：可选子职业 id（如 'artsfghter'），传了则只返回该子职业下的干员。
+function flattenOperators(subFilter) {
   const ids = [];
   for (const prof of Object.values(OPERATORS)) {
-    for (const subList of Object.values(prof)) {
+    for (const [subId, subList] of Object.entries(prof)) {
+      if (subFilter && subId !== subFilter) continue;
       ids.push(...subList);
     }
   }
@@ -399,7 +401,8 @@ async function main() {
   const index = [];
 
   // 收集干员 → 召唤物关联（干员技能的 overrideTokenKey → 干员 id）
-  const allIds = flattenOperators();
+  const subFilter = process.argv[2] || null;  // 可选：只拉指定子职业（node fetch-operators.js artsfghter）
+  const allIds = flattenOperators(subFilter);
   const tokenOwners = {};
   for (const id of allIds) {
     const charData = charTable[id];
@@ -434,6 +437,19 @@ async function main() {
     const ownerName = ownerId ? (charTable[ownerId]?.name || '') : '';
     index.push({ id: converted.id, name: converted.name, rarity: converted.rarity, profession: converted.profession, subProfessionId: converted.subProfessionId, ownerOperatorId: ownerId || null, ownerName: ownerName || null });
     console.log(`  [OK] ${converted.name}: ${converted.phases.length} phases, ${converted.skills.length} skills → ${converted.profession}/${converted.subProfessionId}/`);
+  }
+
+  // 过滤模式（只拉单子职业）：index 与磁盘旧数据合并（本次条目 upsert，其余保留），避免覆盖全量索引
+  if (subFilter) {
+    const indexPath = path.join(BASE, 'index.json');
+    let merged = [];
+    try { merged = JSON.parse(fs.readFileSync(indexPath, 'utf8')); } catch { merged = []; }
+    for (const entry of index) {
+      const i = merged.findIndex(e => e.id === entry.id);
+      if (i >= 0) merged[i] = entry; else merged.push(entry);
+    }
+    index.length = 0;
+    index.push(...merged);
   }
 
   // Save index

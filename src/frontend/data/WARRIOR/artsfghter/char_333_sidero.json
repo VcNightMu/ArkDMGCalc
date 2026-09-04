@@ -1,0 +1,506 @@
+{
+  "id": "char_333_sidero",
+  "name": "铸铁",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        266,
+        386
+      ],
+      "def": [
+        166,
+        238
+      ],
+      "maxHp": [
+        1297,
+        1707
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        386,
+        502
+      ],
+      "def": [
+        238,
+        306
+      ],
+      "maxHp": [
+        1707,
+        2162
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        502,
+        620
+      ],
+      "def": [
+        306,
+        369
+      ],
+      "maxHp": [
+        2162,
+        2845
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skcom_heal_self[3]",
+      "name": "生命回复·γ型",
+      "levels": [
+        {
+          "heal_scale": 0.3,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.33,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.36,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.4,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.43,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.47,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.5,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.55,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.6,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 0.7,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_sidero_2",
+      "name": "破浪回神",
+      "levels": [
+        {
+          "atk": 0.4,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.05,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.06,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.06,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.06,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.07,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.07,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.07,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "hp_recovery_per_sec_by_max_hp_ratio": 0.08,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "佣兵之韧",
+          "description": "击杀7个敌人后获得攻击速度+15和<$ba.buffres>抵抗</>",
+          "blackboard": {
+            "times": 7,
+            "attack_speed": 15,
+            "one_minus_status_resistance": -0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "佣兵之韧",
+          "description": "击杀5<@ba.talpu>（-2）</>个敌人后获得攻击速度+15和<$ba.buffres>抵抗</>",
+          "blackboard": {
+            "times": 5,
+            "attack_speed": 15,
+            "one_minus_status_resistance": -0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_sidero",
+      "name": "铸铁证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_sidero",
+      "name": "漫游者的压舱石",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "佣兵之韧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "times": 6,
+                "attack_speed": 20,
+                "one_minus_status_resistance": -0.5
+              }
+            },
+            {
+              "name": "佣兵之韧",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "times": 4,
+                "attack_speed": 20,
+                "one_minus_status_resistance": -0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "佣兵之韧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "times": 5,
+                "attack_speed": 23,
+                "one_minus_status_resistance": -0.5
+              }
+            },
+            {
+              "name": "佣兵之韧",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "times": 3,
+                "attack_speed": 23,
+                "one_minus_status_resistance": -0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

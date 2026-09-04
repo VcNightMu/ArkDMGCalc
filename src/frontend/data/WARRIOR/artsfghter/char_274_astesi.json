@@ -1,0 +1,516 @@
+{
+  "id": "char_274_astesi",
+  "name": "星极",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "artsfghter",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        283,
+        411
+      ],
+      "def": [
+        177,
+        254
+      ],
+      "maxHp": [
+        1150,
+        1514
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        411,
+        534
+      ],
+      "def": [
+        254,
+        326
+      ],
+      "maxHp": [
+        1514,
+        1917
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        534,
+        660
+      ],
+      "def": [
+        326,
+        393
+      ],
+      "maxHp": [
+        1917,
+        2523
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 55,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_astesi_1",
+      "name": "星座守护",
+      "levels": [
+        {
+          "atk": 0.2,
+          "def": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.35,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.4,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.5,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.55,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.6,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.43,
+          "def": 0.65,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "def": 0.7,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.8,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_astesi_2",
+      "name": "星辉剑",
+      "levels": [
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "block_cnt": 1,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "block_cnt": 1,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "block_cnt": 1,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "block_cnt": 1,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "block_cnt": 1,
+          "level": 4,
+          "spCost": 27,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.55,
+          "block_cnt": 1,
+          "level": 5,
+          "spCost": 27,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "block_cnt": 1,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.65,
+          "block_cnt": 1,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "block_cnt": 1,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "block_cnt": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "天体仪",
+          "description": "每在场上停留20秒，攻击速度+3，最多可以叠加5次",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "interval": 20,
+            "attack_speed": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "天体仪",
+          "description": "每在场上停留20秒，攻击速度+5，最多可以叠加5次",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "interval": 20,
+            "attack_speed": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_astesi",
+      "name": "星极证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_astesi",
+      "name": "未卜星图",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 25,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 36,
+            "def": 36
+          },
+          "talentEnhance": [
+            {
+              "name": "天体仪",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 20,
+                "attack_speed": 6,
+                "def": 0.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 42,
+            "def": 42
+          },
+          "talentEnhance": [
+            {
+              "name": "天体仪",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "interval": 20,
+                "attack_speed": 7,
+                "def": 0.04
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
