@@ -270,6 +270,8 @@ const TALENT_SPD_DRIVERS = {
   'char_274_astesi': 0,   // 星极「天体仪」:在场每20s叠1层攻速+3/5,最多5层(100s叠满)→等效常驻满层+15/25(用户口径同塞雷娅叠满先例)
   // ---- 执旗手(bearer) ----
   'char_479_sleach': { talentIndex: 0, key: 'sleach_t_1[ally].attack_speed' }, // 琴柳「不退之旗」:军旗周围8格干员攻速+5(E1)→+10(E2),自身持旗必吃(敌人攻速-10 不计)
+  // ---- 情报官(agent) ----
+  'char_497_ctable': 0,   // 晓歌「万全」:未阻挡敌人时攻速+6/8(E1)→+12/14(E2 潜4),阻挡时改攻击力+12% 二选一(远程位默认未阻挡吃攻速档)
 };
 
 
@@ -306,6 +308,28 @@ const WEAKNESS_DAMAGE = {
 const TALENT_HPS_REGEN = {
   'char_151_myrtle': 0,  // 桃金娘 浮光跃金:自身为先锋必吃(同炎息光环先例)
 };
+// 偷取攻击力天赋(伊内丝「影织」):对每个敌人首次造成伤害后偷取(束缚控制不计),单目标持续输出首次命中即触发→全程生效。
+// 偷取值直接加在基础攻击(参与技能倍率乘算),但 calcPanelStats 白值不显示(用户口径:直接加但不显示白值)。
+const TALENT_STEAL_ATK = {
+  'char_4087_ines': 0,  // 伊内丝 影织:偷取 50(E1)→90(E2 潜4 100),持续至目标被击倒/离场
+};
+// 查偷取攻击力:返回最高满足档 bb.steal_atk(0 表示无或未解锁)
+function calcTalentStealAtk(op, slotData) {
+  const idx = TALENT_STEAL_ATK[op.id];
+  if (idx === undefined) return 0;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 0;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.steal_atk === 'number' ? cand.blackboard.steal_atk : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
 // 查常驻每秒自回:返回最高满足档 hp_recovery_per_sec(0 表示无此天赋或未解锁)
 function calcTalentHps(op, slotData) {
   const idx = TALENT_HPS_REGEN[op.id];
@@ -662,6 +686,8 @@ const NORMAL_ATK_SKILLS = {
   'char_420_flamtl': [0],    // 焰尾 S1 迅敏直觉:回6费+闪避下次物理攻击(闪避无伤害增益)
   // ---- 冲锋手 ----
   'char_220_grani': [0],    // 格拉尼 S1 防御力强化·γ:防御+100% dur40 纯防御,普攻照常归常态展示
+  // ---- 情报官(agent) ----
+  'char_4144_chilc': [0],   // 齐尔查克 S1 开锁工具:特殊回费机制(dur3 概率增减费用)无输出增益,普攻照常归常态展示
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -720,7 +746,7 @@ function calculateOperator(op, slotData) {
     }
   }
 
-  const rawAtk = baseAtk + trustAtk + potAtk + mod.atk;
+  const rawAtk = baseAtk + trustAtk + potAtk + mod.atk + calcTalentStealAtk(op, slotData);  // 伊内丝影织偷攻:平加基础攻击(白值面板不显示)
   const rawDef = baseDef + trustDef + potDef + mod.def;
   let talentAtk = calcTalentAtkBonus(op, slotData);
   const pctTalent = calcTalentHpDefMul(op, slotData);  // 常驻生命/防御百分比天赋
@@ -1105,6 +1131,120 @@ function calculateOperator(op, slotData) {
       normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / flagInt, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: flagInt,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? flagHit / skillDuration : 0, skillTotalDamage: flagHit, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4087_ines' && skillIndex === 0) {
+    // 伊内丝 S1 淬影突袭(攻回 AUTO sp3,触发当次普攻照常):下次攻击附带 3s 流血 DOT(每秒 0.65×atk 法伤 专一,不叠加)
+    const inesPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const bleedScale = levelData.bleed_atk_scale ?? 0;
+    const bleedSecs = Math.max(1, Math.round(levelData.bleed_duration ?? 3));
+    const bleedTotal = calcArtsDamage(panelAtk * bleedScale, state.enemy.res) * bleedSecs;
+    const spCostI1 = levelData.spCost > 0 ? levelData.spCost : 1;
+    const intI1 = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeI1 = Math.ceil(spCostI1 / (levelData.attackIncrement || 1));   // 攻回充能击数
+    const cycleTimeI1 = (chargeI1 + 1) * intI1;
+    const physCycleI1 = (chargeI1 + 1) * inesPhys;                             // 充能普攻+触发当次
+    result = {
+      skillDps: 0, skillTotalDamage: inesPhys + bleedTotal, cycleDps: cycleTimeI1 > 0 ? (physCycleI1 + bleedTotal) / cycleTimeI1 : 0,
+      normalDps: inesPhys / intI1, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: intI1,
+      dmgTypes: {
+        physical: { skillDps: 0, skillTotalDamage: inesPhys, cycleDps: physCycleI1 / cycleTimeI1 },
+        arts: { skillDps: 0, skillTotalDamage: bleedTotal, cycleDps: bleedTotal / cycleTimeI1 },
+      },
+    };
+  } else if (op.id === 'char_4087_ines' && skillIndex === 1) {
+    // 伊内丝 S2 暗夜无明(dur12 攻回):攻击力+90%(专一),每次攻击偷取 6 攻速(至多 60→10 击满),
+    // 线性模拟:攻速逐击爬升(100→160),击时刻=Σ 基础间隔×(100/当前攻速),直到超出持续时间
+    const inesAtk = skillAtk;  // 已含 atk+90%(无 atk_scale 污染)
+    let t2 = 0, aspd2 = 100, hits2 = 0;
+    while (t2 < skillDuration - 1e-9) {
+      hits2++;
+      aspd2 = Math.min(aspd2 + (levelData['attack@steal_atk_speed'] ?? 0), 100 + (levelData['attack@steal_atk_speed_max'] ?? 0));
+      t2 += calcRealInterval(phase.baseAttackTime, aspd2);
+    }
+    const inesTotal2 = calcPhysicalDamage(inesAtk, state.enemy.def) * hits2;
+    result = {
+      skillDps: skillDuration > 0 ? inesTotal2 / skillDuration : 0, skillTotalDamage: inesTotal2, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: phase.baseAttackTime > 0 ? phase.baseAttackTime : 1,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? inesTotal2 / skillDuration : 0, skillTotalDamage: inesTotal2, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4087_ines' && skillIndex === 2) {
+    // 伊内丝 S3 独影归途(被动 dur14):部署后攻击力+140%(专一)持续期间普攻照常(atk_scale 非普攻倍率,还原);
+    // 开启瞬间收回影哨对穿过敌人造成 atk_scale×当前攻击 单发物理(专一 1.6,多目标按单目标 1 次)
+    const inesAtk3 = skillAtk / (levelData.atk_scale ?? 1);   // 还原不含 atk_scale 的技能期攻击力
+    const inesInt3 = skillRealInterval > 0 ? skillRealInterval : 1;
+    const inesHits3 = Math.floor(skillDuration / inesInt3);
+    const inesNorm3 = calcPhysicalDamage(inesAtk3, state.enemy.def) * inesHits3;
+    const inesFlag3 = calcPhysicalDamage(inesAtk3 * (levelData.atk_scale ?? 1), state.enemy.def);
+    const inesTotal3 = inesNorm3 + inesFlag3;
+    result = {
+      skillDps: skillDuration > 0 ? inesTotal3 / skillDuration : 0, skillTotalDamage: inesTotal3, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / inesInt3, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: inesInt3,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? inesTotal3 / skillDuration : 0, skillTotalDamage: inesTotal3, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4052_surfer' && skillIndex === 1) {
+    // 寻澜 S2 洞悉(dur10 攻回 手动):攻击速度+47(专一),每次攻击偷取 45 防御(至多 225=5 层),
+    // 线性模拟:敌人防御逐击递减(600→555→...→375 第 6 击起),每击伤害按当时防御结算
+    const surferInt = calcRealInterval(phase.baseAttackTime, 100 + (levelData.attack_speed ?? 0));
+    const surferHits = Math.floor(skillDuration / surferInt);
+    const defSteal = levelData.def_steal ?? 0, defMax = levelData.def_steal_max ?? 0;
+    let surferTotal = 0;
+    for (let k = 0; k < surferHits; k++) {
+      const effDef = Math.max(0, state.enemy.def - Math.min(defMax, defSteal * k));
+      surferTotal += calcPhysicalDamage(panelAtk, effDef);
+    }
+    result = {
+      skillDps: skillDuration > 0 ? surferTotal / skillDuration : 0, skillTotalDamage: surferTotal, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: surferInt,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? surferTotal / skillDuration : 0, skillTotalDamage: surferTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4017_puzzle' && skillIndex === 1) {
+    // 谜图 S2 疑点追踪(dur8 攻回 手动):攻击速度+63(专一),每击使目标 16s 内每秒受 0.13×atk 法伤 DOT,
+    // 层数逐击递增至多 10 且刷新 16s(单 DOT 合并,层数=当前层);线性模拟:整秒跳伤害×当时层数
+    const puzzleInt = calcRealInterval(phase.baseAttackTime, 100 + (levelData.attack_speed ?? 0));
+    const puzzleHits = Math.floor(skillDuration / puzzleInt);
+    const tickScale = levelData['attack@atk_scale_2'] ?? 0;
+    const tickDur = levelData['attack@duration_2'] ?? 16;
+    const maxCnt = levelData['attack@max_cnt'] ?? 10;
+    // 击时刻表 t_i=(i-1)×interval
+    const tEnd = (puzzleHits - 1) * puzzleInt + tickDur;   // 最后一击 DOT 窗口结束
+    let dotTotal = 0;
+    for (let sec = 1; sec <= Math.ceil(tEnd); sec++) {
+      let layers = 0;
+      for (let i = 0; i < puzzleHits; i++) { if ((i) * puzzleInt < sec && sec <= (i) * puzzleInt + tickDur) layers = Math.min(maxCnt, i + 1); }
+      if (layers > 0) dotTotal += calcArtsDamage(panelAtk * tickScale * layers, state.enemy.res);
+    }
+    const puzzleNorm = calcPhysicalDamage(panelAtk, state.enemy.def) * puzzleHits;
+    const puzzleTotal = puzzleNorm + dotTotal;
+    result = {
+      skillDps: skillDuration > 0 ? puzzleTotal / skillDuration : 0, skillTotalDamage: puzzleTotal, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: puzzleInt,
+      dmgTypes: {
+        physical: { skillDps: puzzleNorm / skillDuration, skillTotalDamage: puzzleNorm, cycleDps: null },
+        arts: { skillDps: dotTotal / skillDuration, skillTotalDamage: dotTotal, cycleDps: null },
+      },
+    };
+  } else if (op.id === 'char_497_ctable' && skillIndex === 1) {
+    // 晓歌 S2 浮光(弹药型手动):攻击力+32% 攻速+38(专一),16 发弹药打完结束(弹药数=attack@trigger_time 键),
+    // 天赋万全攻速+12 已入面板基数;DPS=单发伤害/实际攻击间隔(等效普攻 dps)
+    const cantInt = calcRealInterval(phase.baseAttackTime, 100 + (levelData.attack_speed ?? 0) + calcTalentAttackSpeed(op, slotData));
+    const ammo = Math.round(levelData['attack@trigger_time'] ?? 16);
+    const cantHit = calcPhysicalDamage(skillAtk, state.enemy.def);   // skillAtk 已含 atk+32%
+    const cantTotal = cantHit * ammo;
+    const cantDur = cantInt * ammo;
+    result = {
+      skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: cantInt,
+      dmgTypes: { physical: { skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null } },
     };
   } else if (op.id === 'char_1001_amiya2' && skillIndex === 1) {
     // 阿米娅(近卫) S2 影霄·绝影(手动,整场一次):对前方生命最低目标 10 次斩击——前 9 次 atk_scale×atk 法伤,
