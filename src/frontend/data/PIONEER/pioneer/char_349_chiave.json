@@ -1,0 +1,554 @@
+{
+  "id": "char_349_chiave",
+  "name": "贾维",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        212,
+        312
+      ],
+      "def": [
+        138,
+        207
+      ],
+      "maxHp": [
+        679,
+        931
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        312,
+        428
+      ],
+      "def": [
+        207,
+        273
+      ],
+      "maxHp": [
+        931,
+        1276
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        428,
+        522
+      ],
+      "def": [
+        273,
+        342
+      ],
+      "maxHp": [
+        1276,
+        1824
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_charge_cost[3]",
+      "name": "冲锋号令·γ型",
+      "levels": [
+        {
+          "cost": 12,
+          "level": 0,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 2,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 3,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 6,
+          "spCost": 38,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chiave_2",
+      "name": "火焰剥离",
+      "levels": [
+        {
+          "cost": 10,
+          "atk_scale": 2.2,
+          "magic_resistance": -0.1,
+          "duration": 5,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "atk_scale": 2.3,
+          "magic_resistance": -0.1,
+          "duration": 5,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "atk_scale": 2.4,
+          "magic_resistance": -0.1,
+          "duration": 5,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.5,
+          "magic_resistance": -0.1,
+          "duration": 6,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.6,
+          "magic_resistance": -0.1,
+          "duration": 6,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.7,
+          "magic_resistance": -0.1,
+          "duration": 6,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "atk_scale": 2.8,
+          "magic_resistance": -0.1,
+          "duration": 7,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "atk_scale": 3,
+          "magic_resistance": -0.13,
+          "duration": 7,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "atk_scale": 3.2,
+          "magic_resistance": -0.16,
+          "duration": 7,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 13,
+          "atk_scale": 3.5,
+          "magic_resistance": -0.2,
+          "duration": 8,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技工专长",
+          "description": "在场时，所有【支援机械】干员的再部署时间-60%；场上每有一名【支援机械】干员，自身的攻击力和防御力+7%",
+          "blackboard": {
+            "respawn_time": 0.4,
+            "atk": 0.07,
+            "def": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "技工专长",
+          "description": "在场时，所有【支援机械】干员的再部署时间-60%；场上每有一名【支援机械】干员，自身的攻击力和防御力+9%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "respawn_time": 0.4,
+            "atk": 0.09,
+            "def": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技工专长",
+          "description": "在场时，所有【支援机械】干员的再部署时间-75%；场上每有一名【支援机械】干员，自身的攻击力和防御力+11%",
+          "blackboard": {
+            "respawn_time": 0.25,
+            "atk": 0.11,
+            "def": 0.11
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "技工专长",
+          "description": "在场时，所有【支援机械】干员的再部署时间-75%；场上每有一名【支援机械】干员，自身的攻击力和防御力+13%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "respawn_time": 0.25,
+            "atk": 0.13,
+            "def": 0.13
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chiave",
+      "name": "贾维证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chiave",
+      "name": "自制千斤顶",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 37,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 33
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            },
+            {
+              "name": "技工专长",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": 0.22,
+                "atk": 0.13,
+                "def": 0.13
+              }
+            },
+            {
+              "name": "技工专长",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "respawn_time": 0.22,
+                "atk": 0.15,
+                "def": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 42,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            },
+            {
+              "name": "技工专长",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": 0.2,
+                "atk": 0.15,
+                "def": 0.15
+              }
+            },
+            {
+              "name": "技工专长",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "respawn_time": 0.2,
+                "atk": 0.17,
+                "def": 0.17
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

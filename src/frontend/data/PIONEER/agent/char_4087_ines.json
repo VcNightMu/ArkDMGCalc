@@ -1,0 +1,771 @@
+{
+  "id": "char_4087_ines",
+  "name": "伊内丝",
+  "rarity": "TIER_6",
+  "profession": "PIONEER",
+  "subProfessionId": "agent",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        256,
+        366
+      ],
+      "def": [
+        106,
+        175
+      ],
+      "maxHp": [
+        1000,
+        1390
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        366,
+        482
+      ],
+      "def": [
+        175,
+        241
+      ],
+      "maxHp": [
+        1390,
+        1760
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        482,
+        589
+      ],
+      "def": [
+        241,
+        281
+      ],
+      "maxHp": [
+        1760,
+        2121
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ines_1",
+      "name": "淬影突袭",
+      "levels": [
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.25,
+          "bleed_duration": 3,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.3,
+          "bleed_duration": 3,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.35,
+          "bleed_duration": 3,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.4,
+          "bleed_duration": 3,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.45,
+          "bleed_duration": 3,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.5,
+          "bleed_duration": 3,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.55,
+          "bleed_duration": 3,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.65,
+          "bleed_duration": 3,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.7,
+          "bleed_duration": 3,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "bleed_atk_scale": 0.8,
+          "bleed_duration": 3,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ines_2",
+      "name": "暗夜无明",
+      "levels": [
+        {
+          "cost": 1,
+          "atk": 0.4,
+          "attack@steal_atk_speed": 4,
+          "attack@steal_atk_speed_max": 40,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.45,
+          "attack@steal_atk_speed": 4,
+          "attack@steal_atk_speed_max": 40,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.5,
+          "attack@steal_atk_speed": 4,
+          "attack@steal_atk_speed_max": 40,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.6,
+          "attack@steal_atk_speed": 5,
+          "attack@steal_atk_speed_max": 50,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.65,
+          "attack@steal_atk_speed": 5,
+          "attack@steal_atk_speed_max": 50,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.7,
+          "attack@steal_atk_speed": 5,
+          "attack@steal_atk_speed_max": 50,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.8,
+          "attack@steal_atk_speed": 6,
+          "attack@steal_atk_speed_max": 60,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.9,
+          "attack@steal_atk_speed": 6,
+          "attack@steal_atk_speed_max": 60,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1,
+          "attack@steal_atk_speed": 6,
+          "attack@steal_atk_speed_max": 60,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.1,
+          "attack@steal_atk_speed": 7,
+          "attack@steal_atk_speed_max": 70,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ines_3",
+      "name": "独影归途",
+      "levels": [
+        {
+          "cost": 1,
+          "atk": 0.6,
+          "atk_scale": 0.8,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 9,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.7,
+          "atk_scale": 0.9,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 9,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.8,
+          "atk_scale": 1,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 9,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 0.9,
+          "atk_scale": 1.1,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 11,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1,
+          "atk_scale": 1.2,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 11,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.1,
+          "atk_scale": 1.3,
+          "max_target": 4,
+          "projectile_range": 1.4,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 11,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.2,
+          "atk_scale": 1.4,
+          "max_target": 5,
+          "projectile_range": 1.4,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.4,
+          "atk_scale": 1.6,
+          "max_target": 5,
+          "projectile_range": 1.4,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 14,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.5,
+          "atk_scale": 1.8,
+          "max_target": 5,
+          "projectile_range": 1.4,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 1,
+          "atk": 1.6,
+          "atk_scale": 2,
+          "max_target": 6,
+          "projectile_range": 1.4,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "影织",
+          "description": "对每个敌人首次造成伤害后，使目标<$ba.root>束缚</>3秒并<$ba.steal>偷取</>其50点攻击力（持续至目标被击倒或伊内丝离场）",
+          "blackboard": {
+            "steal_atk": 50,
+            "steal_atk_max": 10000,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "影织",
+          "description": "对每个敌人首次造成伤害后，使目标<$ba.root>束缚</>3秒并<$ba.steal>偷取</>其60<@ba.talpu>（+10）</>点攻击力（持续至目标被击倒或伊内丝离场）",
+          "blackboard": {
+            "steal_atk": 60,
+            "steal_atk_max": 12000,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "影织",
+          "description": "对每个敌人首次造成伤害后，使目标<$ba.root>束缚</>5秒并<$ba.steal>偷取</>其90点攻击力（持续至目标被击倒或伊内丝离场）",
+          "blackboard": {
+            "steal_atk": 90,
+            "steal_atk_max": 18000,
+            "duration": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "影织",
+          "description": "对每个敌人首次造成伤害后，使目标<$ba.root>束缚</>5秒并<$ba.steal>偷取</>其100<@ba.talpu>（+10）</>点攻击力（持续至目标被击倒或伊内丝离场）",
+          "blackboard": {
+            "steal_atk": 100,
+            "steal_atk_max": 20000,
+            "duration": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "影哨",
+          "description": "攻击范围内敌人的<$ba.invisible>隐匿</>效果失效且移动速度-30%，撤退后留下一个影哨使该效果持续生效（最多1个）",
+          "blackboard": {
+            "move_speed": -0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "runtime_cost": -9999
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ines",
+      "name": "伊内丝证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ines",
+      "name": "角部“护理”套组",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -9999
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "影织",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "steal_atk": 100,
+                "steal_atk_max": 20000,
+                "duration": 5
+              }
+            },
+            {
+              "name": "影织",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "steal_atk": 110,
+                "steal_atk_max": 20000,
+                "duration": 5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -9999
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "影织",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "steal_atk": 110,
+                "steal_atk_max": 20000,
+                "duration": 5
+              }
+            },
+            {
+              "name": "影织",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "steal_atk": 120,
+                "steal_atk_max": 20000,
+                "duration": 5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -9999
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

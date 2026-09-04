@@ -1,0 +1,192 @@
+{
+  "id": "token_10030_mlyss_wtrman",
+  "name": "流形",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_249_mlyss",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        121,
+        173
+      ],
+      "def": [
+        117,
+        157
+      ],
+      "maxHp": [
+        910,
+        1183
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        179,
+        239
+      ],
+      "def": [
+        162,
+        203
+      ],
+      "maxHp": [
+        1246,
+        1520
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        247,
+        302
+      ],
+      "def": [
+        210,
+        257
+      ],
+      "maxHp": [
+        1600,
+        2000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "sktok_mlyss_wtrman_1",
+      "name": "流形",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 95,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_mlyss_wtrman_2",
+      "name": "流形",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 95,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_mlyss_wtrman_3",
+      "name": "流形",
+      "levels": [
+        {
+          "interval": 25,
+          "force": 0,
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 95,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "技能开启时复制目标50%的生命值、攻击力、防御力、法抗，以及阻挡数、攻击间隔、攻击范围、初始伤害类型（不攻击、治疗类型则不继承）",
+          "blackboard": {
+            "interval": 30,
+            "block_cnt": 1,
+            "scale": 0.5
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "技能开启时复制目标70%的生命值、攻击力、防御力、法抗，以及阻挡数、攻击间隔、攻击范围、初始伤害类型（不攻击、治疗类型则不继承）",
+          "blackboard": {
+            "interval": 28,
+            "block_cnt": 1,
+            "scale": 0.7
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "技能开启时复制目标90%的生命值、攻击力、防御力、法抗，以及阻挡数、攻击间隔、攻击范围、初始伤害类型（不攻击、治疗类型则不继承）",
+          "blackboard": {
+            "interval": 25,
+            "block_cnt": 1,
+            "scale": 0.9
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "steal_atk": 10,
+            "steal_atk_max": 250,
+            "steal_def": 10,
+            "steal_def_max": 250,
+            "mlyss_wtrman_t_2[range].max_stack_cnt": 10,
+            "interval": 25
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

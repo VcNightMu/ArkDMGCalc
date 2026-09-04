@@ -1,0 +1,589 @@
+{
+  "id": "char_4144_chilc",
+  "name": "齐尔查克",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "agent",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        236,
+        348
+      ],
+      "def": [
+        97,
+        163
+      ],
+      "maxHp": [
+        840,
+        1201
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        459
+      ],
+      "def": [
+        163,
+        233
+      ],
+      "maxHp": [
+        1201,
+        1541
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        459,
+        560
+      ],
+      "def": [
+        233,
+        277
+      ],
+      "maxHp": [
+        1541,
+        1880
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 40,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skchr_chilc_1",
+      "name": "开锁工具",
+      "levels": [
+        {
+          "mid_cost": 4,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 7,
+          "ground": 1,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 4,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 7,
+          "ground": 1,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 5,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 8,
+          "ground": 2,
+          "level": 2,
+          "spCost": 14,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 5,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 8,
+          "ground": 2,
+          "level": 3,
+          "spCost": 14,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 6,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 9,
+          "ground": 3,
+          "level": 4,
+          "spCost": 13,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 6,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 9,
+          "ground": 3,
+          "level": 5,
+          "spCost": 13,
+          "initialSp": 9,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 6,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 9,
+          "ground": 3,
+          "level": 6,
+          "spCost": 12,
+          "initialSp": 9,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 7,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 10,
+          "ground": 4,
+          "level": 7,
+          "spCost": 12,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 7,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 10,
+          "ground": 4,
+          "level": 8,
+          "spCost": 11,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "mid_cost": 7,
+          "step": 3,
+          "prob_add": 0.4,
+          "prob_stay": 0.2,
+          "prob_minus": 0.4,
+          "floor": 10,
+          "ground": 4,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 3,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chilc_2",
+      "name": "随机应变",
+      "levels": [
+        {
+          "attack_speed": 35,
+          "prob": 0.3,
+          "cost": 1,
+          "level": 0,
+          "spCost": 31,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 37,
+          "prob": 0.3,
+          "cost": 1,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 39,
+          "prob": 0.3,
+          "cost": 1,
+          "level": 2,
+          "spCost": 29,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 42,
+          "prob": 0.35,
+          "cost": 1,
+          "level": 3,
+          "spCost": 28,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 44,
+          "prob": 0.35,
+          "cost": 1,
+          "level": 4,
+          "spCost": 27,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 46,
+          "prob": 0.35,
+          "cost": 1,
+          "level": 5,
+          "spCost": 26,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "prob": 0.38,
+          "cost": 1,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 54,
+          "prob": 0.4,
+          "cost": 1,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 57,
+          "prob": 0.42,
+          "cost": 1,
+          "level": 8,
+          "spCost": 23,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "prob": 0.45,
+          "cost": 1,
+          "level": 9,
+          "spCost": 22,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "敏锐的五感",
+          "description": "部署后，使自身及攻击范围内的友方单位不会受到来自自然环境的伤害和<$ba.dt.element>元素损伤</>，持续35秒",
+          "blackboard": {
+            "immune_duration": 35
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "敏锐的五感",
+          "description": "部署后，使自身及攻击范围内的友方单位不会受到来自自然环境的伤害和<$ba.dt.element>元素损伤</>，持续40<@ba.talpu>（+5）</>秒",
+          "blackboard": {
+            "immune_duration": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "敏锐的五感",
+          "description": "部署后，使自身及攻击范围内的友方单位不会受到来自自然环境的伤害和<$ba.dt.element>元素损伤</>，持续45秒",
+          "blackboard": {
+            "immune_duration": 45
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "敏锐的五感",
+          "description": "部署后，使自身及攻击范围内的友方单位不会受到来自自然环境的伤害和<$ba.dt.element>元素损伤</>，持续50<@ba.talpu>（+5）</>秒",
+          "blackboard": {
+            "immune_duration": 50
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+5",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chilc",
+      "name": "齐尔查克证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chilc",
+      "name": "原版开锁工具",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 20,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 23,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "敏锐的五感",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "immune_duration": 53
+              }
+            },
+            {
+              "name": "敏锐的五感",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "immune_duration": 58
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "def": 25,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "敏锐的五感",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "immune_duration": 60
+              }
+            },
+            {
+              "name": "敏锐的五感",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "immune_duration": 65
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

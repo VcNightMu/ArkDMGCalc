@@ -1,0 +1,245 @@
+{
+  "id": "token_10014_bstalk_crab",
+  "name": "磐蟹护卫队",
+  "rarity": "TIER_4",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_452_bstalk",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        162,
+        232
+      ],
+      "def": [
+        187,
+        250
+      ],
+      "maxHp": [
+        863,
+        1121
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        240,
+        321
+      ],
+      "def": [
+        258,
+        323
+      ],
+      "maxHp": [
+        1180,
+        1440
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        331,
+        404
+      ],
+      "def": [
+        334,
+        408
+      ],
+      "maxHp": [
+        1516,
+        1895
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_bstalk_2",
+      "name": "“大家一起上”",
+      "levels": [
+        {
+          "def": 0.2,
+          "atk": 0,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.25,
+          "atk": 0,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.3,
+          "atk": 0,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.35,
+          "atk": 0,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.4,
+          "atk": 0,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.45,
+          "atk": 0,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.5,
+          "atk": 0,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.55,
+          "atk": 0,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.6,
+          "atk": 0,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.7,
+          "atk": 0,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "专业饲养员",
+          "description": "被击败后会在20秒后自动刷新",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "专业饲养员",
+          "description": "被击败后会在17秒后自动刷新",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "专业饲养员",
+          "description": "被击败后会在15秒后自动刷新",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 15
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

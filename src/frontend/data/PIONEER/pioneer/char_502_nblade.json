@@ -1,0 +1,111 @@
+{
+  "id": "char_502_nblade",
+  "name": "夜刀",
+  "rarity": "TIER_2",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        150,
+        232
+      ],
+      "def": [
+        134,
+        192
+      ],
+      "maxHp": [
+        721,
+        1030
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 30,
+          "potentialRank": 0,
+          "name": "快速重新部署",
+          "description": "再部署时间-30秒",
+          "blackboard": {
+            "respawn_time": -30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-5秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "description": "攻击力+9",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "description": "攻击力+9",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

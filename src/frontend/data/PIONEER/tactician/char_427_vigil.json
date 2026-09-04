@@ -1,0 +1,899 @@
+{
+  "id": "char_427_vigil",
+  "name": "伺夜",
+  "rarity": "TIER_6",
+  "profession": "PIONEER",
+  "subProfessionId": "tactician",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        195,
+        287
+      ],
+      "def": [
+        54,
+        91
+      ],
+      "maxHp": [
+        785,
+        1122
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        287,
+        378
+      ],
+      "def": [
+        91,
+        130
+      ],
+      "maxHp": [
+        1122,
+        1439
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        378,
+        462
+      ],
+      "def": [
+        130,
+        154
+      ],
+      "maxHp": [
+        1439,
+        1755
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_vigil_1",
+      "name": "领袖的呼唤",
+      "levels": [
+        {
+          "cost": 7,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 7,
+          "level": 9,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_vigil_2",
+      "name": "领袖的馈赠",
+      "levels": [
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.4,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.45,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.5,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.55,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.6,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.65,
+          "vigil_wolf_s_2.hp_ratio": 0.1,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.7,
+          "vigil_wolf_s_2.hp_ratio": 0.15,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.8,
+          "vigil_wolf_s_2.hp_ratio": 0.15,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 7,
+          "spCost": 6,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 1.9,
+          "vigil_wolf_s_2.hp_ratio": 0.15,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 2,
+          "vigil_wolf_s_2.atk_scale": 2,
+          "vigil_wolf_s_2.hp_ratio": 0.2,
+          "vigil_wolf_s_2.cost": 1,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_vigil_3",
+      "name": "领袖的尊严",
+      "levels": [
+        {
+          "attack@vigil_s_3.atk_scale": 0.1,
+          "value": 9,
+          "interval": 1.667,
+          "cost": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.13,
+          "value": 9,
+          "interval": 1.667,
+          "cost": 1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.16,
+          "value": 9,
+          "interval": 1.667,
+          "cost": 1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.2,
+          "value": 10,
+          "interval": 1.5,
+          "cost": 1,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.23,
+          "value": 10,
+          "interval": 1.5,
+          "cost": 1,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.26,
+          "value": 10,
+          "interval": 1.5,
+          "cost": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.3,
+          "value": 11,
+          "interval": 1.364,
+          "cost": 1,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.35,
+          "value": 11,
+          "interval": 1.364,
+          "cost": 1,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.4,
+          "value": 11,
+          "interval": 1.364,
+          "cost": 1,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_s_3.atk_scale": 0.5,
+          "value": 12,
+          "interval": 1.25,
+          "cost": 1,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "可以在战术点召唤由初始两只“狼影”构成的狼群协助作战，“狼影”的数量每30秒增加一只（至多3只；每只“狼影”使狼群阻挡数+1且攻击额外造成一次伤害）",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "可以在战术点召唤由初始两只“狼影”构成的狼群协助作战，“狼影”的数量每27秒增加一只（至多3只；每只“狼影”使狼群阻挡数+1且攻击额外造成一次伤害）",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "可以在战术点召唤由初始两只“狼影”构成的狼群协助作战，“狼影”的数量每25秒增加一只（至多3只；每只“狼影”使狼群阻挡数+1且攻击额外造成一次伤害）",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群天性",
+          "description": "敌人被狼群阻挡时，伺夜和狼群对其的攻击无视其175防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 175
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "狼群天性",
+          "description": "敌人被狼群阻挡时，伺夜和狼群对其的攻击无视其200<@ba.talpu>（+25）</>防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 200
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_vigil",
+      "name": "伺夜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_vigil",
+      "name": "叙拉古式入门礼",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 20,
+            "def": 15
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.85,
+                "evade_duration": 0,
+                "prob": 0
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 25,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.85,
+                "evade_duration": 7,
+                "prob": 0.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "狼群领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            },
+            {
+              "name": "狼群领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "block_cnt": 1,
+                "interval": 25,
+                "vigil_wolf_t_1_enhance[trigger].max_stack_cnt": 2,
+                "vigil_wolf_t_1_enhance[trigger].interval": 25,
+                "vigil_wolf_t_1_enhance[trigger].block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 30,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.85,
+                "evade_duration": 10,
+                "prob": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "狼群领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            },
+            {
+              "name": "狼群领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "block_cnt": 1,
+                "interval": 25,
+                "vigil_wolf_t_1_enhance[trigger].max_stack_cnt": 2,
+                "vigil_wolf_t_1_enhance[trigger].interval": 25,
+                "vigil_wolf_t_1_enhance[trigger].block_cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_vigil",
+      "name": "时光不再",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "taunt_level": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.65
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "taunt_level": 1
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 175
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 200
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 175
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 200
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "vigil_def": 15,
+                "vigil_def_max": 100
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "vigil_def": 15,
+                "vigil_def_max": 100
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.65
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "taunt_level": 1
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 225
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 250
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 225
+              }
+            },
+            {
+              "name": "狼群天性",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 250
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "vigil_def": 20,
+                "vigil_def_max": 100
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "vigil_def": 20,
+                "vigil_def_max": 100
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.65
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "id": "char_112_siege",
+  "name": "推进之王",
+  "rarity": "TIER_6",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        212,
+        308
+      ],
+      "def": [
+        154,
+        227
+      ],
+      "maxHp": [
+        911,
+        1199
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        308,
+        422
+      ],
+      "def": [
+        227,
+        307
+      ],
+      "maxHp": [
+        1199,
+        1643
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        422,
+        515
+      ],
+      "def": [
+        307,
+        384
+      ],
+      "maxHp": [
+        1643,
+        2251
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 25,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_charge_cost[3]",
+      "name": "冲锋号令·γ型",
+      "levels": [
+        {
+          "cost": 12,
+          "level": 0,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 2,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 3,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 6,
+          "spCost": 38,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_siege_2",
+      "name": "跃空锤",
+      "levels": [
+        {
+          "atk_scale": 2.2,
+          "cost": 3,
+          "ct": 1,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "cost": 3,
+          "ct": 1,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "cost": 3,
+          "ct": 1,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "cost": 3,
+          "ct": 2,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "cost": 3,
+          "ct": 2,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "cost": 3,
+          "ct": 2,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "cost": 3,
+          "ct": 3,
+          "level": 6,
+          "spCost": 11,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "cost": 3,
+          "ct": 3,
+          "level": 7,
+          "spCost": 10,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "cost": 3,
+          "ct": 3,
+          "level": 8,
+          "spCost": 10,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.4,
+          "cost": 3,
+          "ct": 3,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_siege_3",
+      "name": "碎颅击",
+      "levels": [
+        {
+          "attack@atk_scale": 2.6,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.5,
+          "base_attack_time": 1,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.7,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.5,
+          "base_attack_time": 1,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.8,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.5,
+          "base_attack_time": 1,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.9,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.8,
+          "base_attack_time": 1,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.8,
+          "base_attack_time": 1,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.1,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 0.8,
+          "base_attack_time": 1,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.2,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 1.1,
+          "base_attack_time": 1,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.4,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 1.2,
+          "base_attack_time": 1,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.6,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 1.3,
+          "base_attack_time": 1,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.8,
+          "attack@buff_prob": 0.4,
+          "attack@stun": 1.5,
+          "base_attack_time": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "万兽之王",
+          "description": "所有【先锋】职业干员的攻击力和防御力各+4%",
+          "blackboard": {
+            "atk": 0.04,
+            "def": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "万兽之王",
+          "description": "所有【先锋】职业干员的攻击力和防御力各+6%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.06,
+            "def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "万兽之王",
+          "description": "所有【先锋】职业干员的攻击力和防御力各+8%",
+          "blackboard": {
+            "atk": 0.08,
+            "def": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "万兽之王",
+          "description": "所有【先锋】职业干员的攻击力和防御力各+10%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.1,
+            "def": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "粉碎",
+          "description": "周围四格内有敌人倒下时获得1点技力",
+          "blackboard": {
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_siege",
+      "name": "推进之王证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_siege",
+      "name": "“糖果盒”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 68,
+            "def": 46
+          },
+          "talentEnhance": [
+            {
+              "name": "万兽之王",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.06,
+                "def": 0.06
+              }
+            },
+            {
+              "name": "万兽之王",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.06,
+                "def": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "万兽之王",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            },
+            {
+              "name": "万兽之王",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_siege",
+      "name": "“初诺”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 74
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            },
+            {
+              "name": "粉碎",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 82
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "runtime_cost": -4
+              }
+            },
+            {
+              "name": "粉碎",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

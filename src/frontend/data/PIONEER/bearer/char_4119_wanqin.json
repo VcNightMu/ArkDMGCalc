@@ -1,0 +1,574 @@
+{
+  "id": "char_4119_wanqin",
+  "name": "万顷",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "bearer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        228,
+        327
+      ],
+      "def": [
+        176,
+        245
+      ],
+      "maxHp": [
+        637,
+        873
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        327,
+        431
+      ],
+      "def": [
+        245,
+        323
+      ],
+      "maxHp": [
+        873,
+        1106
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        431,
+        514
+      ],
+      "def": [
+        323,
+        380
+      ],
+      "maxHp": [
+        1106,
+        1516
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 45,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skcom_assist_cost[3]",
+      "name": "支援号令·γ型",
+      "levels": [
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 9,
+          "spCost": 26,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_wanqin_2",
+      "name": "应东风",
+      "levels": [
+        {
+          "attack@attack_speed": 10,
+          "attack@heal_scale": 0.1,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 12,
+          "attack@heal_scale": 0.1,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 12,
+          "attack@heal_scale": 0.12,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 15,
+          "attack@heal_scale": 0.12,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 15,
+          "attack@heal_scale": 0.15,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 20,
+          "attack@heal_scale": 0.15,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 20,
+          "attack@heal_scale": 0.2,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 23,
+          "attack@heal_scale": 0.2,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 23,
+          "attack@heal_scale": 0.25,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 25,
+          "attack@heal_scale": 0.25,
+          "value": 20,
+          "wanqin_s_2[cost].interval": 0.75,
+          "wanqin_s_2[cost].cost": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "看天时",
+          "description": "周围8格的干员最大生命值+3%，若部署方向与万顷相同，改为+5%",
+          "blackboard": {
+            "wanqin_t_1[hp_common].max_hp": 0.03,
+            "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "看天时",
+          "description": "周围8格的干员最大生命值+4%<@ba.talpu>（+1%）</>，若部署方向与万顷相同，改为+6%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "wanqin_t_1[hp_common].max_hp": 0.04,
+            "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "看天时",
+          "description": "周围8格的干员最大生命值+5%，若部署方向与万顷相同，改为+9%",
+          "blackboard": {
+            "wanqin_t_1[hp_common].max_hp": 0.05,
+            "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "看天时",
+          "description": "周围8格的干员最大生命值+6%<@ba.talpu>（+1%）</>，若部署方向与万顷相同，改为+10%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "wanqin_t_1[hp_common].max_hp": 0.06,
+            "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_wanqin",
+      "name": "万顷证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_wanqin",
+      "name": "牵风",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 105,
+            "def": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "看天时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "wanqin_t_1[hp_common].max_hp": 0.07,
+                "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+              }
+            },
+            {
+              "name": "看天时",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "wanqin_t_1[hp_common].max_hp": 0.08,
+                "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 135,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "看天时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "wanqin_t_1[hp_common].max_hp": 0.09,
+                "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+              }
+            },
+            {
+              "name": "看天时",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "wanqin_t_1[hp_common].max_hp": 0.1,
+                "wanqin_t_1[hp_common].wanqin_t_1[hp_extra].max_hp": 0.04
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

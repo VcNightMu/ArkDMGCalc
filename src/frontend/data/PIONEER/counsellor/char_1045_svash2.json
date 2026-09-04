@@ -1,0 +1,841 @@
+{
+  "id": "char_1045_svash2",
+  "name": "凛御银灰",
+  "rarity": "TIER_6",
+  "profession": "PIONEER",
+  "subProfessionId": "counsellor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        251,
+        370
+      ],
+      "def": [
+        160,
+        240
+      ],
+      "maxHp": [
+        826,
+        1132
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        370,
+        507
+      ],
+      "def": [
+        240,
+        317
+      ],
+      "maxHp": [
+        1132,
+        1552
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        507,
+        618
+      ],
+      "def": [
+        317,
+        397
+      ],
+      "maxHp": [
+        1552,
+        2218
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 40,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skchr_svash2_1",
+      "name": "周旋的谋略",
+      "levels": [
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 0,
+          "spCost": 38,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 1,
+          "spCost": 37,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 2,
+          "spCost": 36,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 4,
+          "spCost": 34,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 5,
+          "spCost": 33,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 7,
+          "spCost": 31,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 10,
+          "svash2_s_1[deck].cost": 5,
+          "svash2_s_1[deck].shield": 0.5,
+          "token_cost_modify": 0,
+          "level": 9,
+          "spCost": 29,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_svash2_2",
+      "name": "御敌的锋锐",
+      "levels": [
+        {
+          "cost": 11,
+          "atk_scale": 2,
+          "cold": 3,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 0,
+          "spCost": 17,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.2,
+          "cold": 3,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 1,
+          "spCost": 17,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.4,
+          "cold": 3,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 2,
+          "spCost": 17,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.6,
+          "cold": 4,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 3,
+          "spCost": 17,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 2.8,
+          "cold": 4,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 4,
+          "spCost": 17,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 3,
+          "cold": 4,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 3.2,
+          "cold": 5,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 6,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 3.4,
+          "cold": 5,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 3.6,
+          "cold": 5,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 11,
+          "atk_scale": 3.8,
+          "cold": 6,
+          "max_target": 6,
+          "range_id": 0,
+          "cost_scale_display": 7,
+          "cnt": 1,
+          "max_stack_cnt": 2,
+          "token_cost_modify": 0,
+          "level": 9,
+          "spCost": 17,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_svash2_3",
+      "name": "变革已至",
+      "levels": [
+        {
+          "svash2_s_3[start_cost].cost": 4,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.2,
+          "damage_scale": 1.15,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.15,
+          "cost_reduce_max": 0,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 4,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.25,
+          "damage_scale": 1.15,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.15,
+          "cost_reduce_max": 0,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 37,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 4,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.3,
+          "damage_scale": 1.15,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.15,
+          "cost_reduce_max": 0,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 5,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.4,
+          "damage_scale": 1.2,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.2,
+          "cost_reduce_max": 0,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 5,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.5,
+          "damage_scale": 1.2,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.2,
+          "cost_reduce_max": 0,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 5,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.6,
+          "damage_scale": 1.2,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.2,
+          "cost_reduce_max": 0,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 41,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 6,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.7,
+          "damage_scale": 1.25,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.25,
+          "cost_reduce_max": 0,
+          "level": 6,
+          "spCost": 55,
+          "initialSp": 42,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 7,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.8,
+          "damage_scale": 1.25,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.25,
+          "cost_reduce_max": 0,
+          "level": 7,
+          "spCost": 55,
+          "initialSp": 43,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 8,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 1.9,
+          "damage_scale": 1.25,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.25,
+          "cost_reduce_max": 0,
+          "level": 8,
+          "spCost": 55,
+          "initialSp": 44,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "svash2_s_3[start_cost].cost": 9,
+          "svash2_s_3[cost].cost": 1,
+          "svash2_s_3[cost].interval": 2,
+          "change_cnt": 1,
+          "bird_atk_scale": 2,
+          "damage_scale": 1.3,
+          "cnt": 1,
+          "weak[limit]": 2,
+          "range_id": 0,
+          "damage_scale_display": 0.3,
+          "cost_reduce_max": 0,
+          "level": 9,
+          "spCost": 55,
+          "initialSp": 46,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 48,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "开放性开局",
+          "description": "在场时向待部署区中加入“风雪之眼”，且会使待部署区按照部署费用排列。位于“风雪之眼”左侧的干员与自身初始技力+2，下次再部署时间-10%",
+          "blackboard": {
+            "respawn_time": 0.9,
+            "sp": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "开放性开局",
+          "description": "在场时向待部署区中加入“风雪之眼”，且会使待部署区按照部署费用排列。位于“风雪之眼”左侧的干员与自身初始技力+3，下次再部署时间-15%",
+          "blackboard": {
+            "respawn_time": 0.85,
+            "sp": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "开放性开局",
+          "description": "在场时向待部署区中加入“风雪之眼”，且会使待部署区按照部署费用排列。位于“风雪之眼”左侧的干员与自身初始技力+4，下次再部署时间-20%",
+          "blackboard": {
+            "respawn_time": 0.8,
+            "sp": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "雪境先驱",
+          "description": "在场时，【谢拉格】干员免疫<$ba.frozen>冻结</>，防御力+60且每秒回复1.5%最大生命值；在场15秒后防御力和生命回复效果翻倍",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.015,
+            "interval": 15,
+            "def": 60
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "雪境先驱",
+          "description": "在场时，【谢拉格】干员免疫<$ba.frozen>冻结</>，防御力+80<@ba.talpu>（+20）</>且每秒回复2%<@ba.talpu>（+0.5%）</>最大生命值；凛御银灰在场15秒后，防御力和生命回复效果翻倍",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.02,
+            "interval": 15,
+            "def": 80
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "防御力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "最大生命值+180",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 180
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

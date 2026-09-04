@@ -1,0 +1,519 @@
+{
+  "id": "char_115_headbr",
+  "name": "凛冬",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        183,
+        274
+      ],
+      "def": [
+        147,
+        211
+      ],
+      "maxHp": [
+        812,
+        1128
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        274,
+        376
+      ],
+      "def": [
+        211,
+        290
+      ],
+      "maxHp": [
+        1128,
+        1505
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        376,
+        470
+      ],
+      "def": [
+        290,
+        350
+      ],
+      "maxHp": [
+        1505,
+        2150
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 70,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_charge_cost[3]",
+      "name": "冲锋号令·γ型",
+      "levels": [
+        {
+          "cost": 12,
+          "level": 0,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 2,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 3,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 6,
+          "spCost": 38,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_headbr_2",
+      "name": "乌萨斯战吼",
+      "levels": [
+        {
+          "value": 9,
+          "atk": 0.25,
+          "def": 0.25,
+          "interval": 1.11,
+          "cost": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 9,
+          "atk": 0.3,
+          "def": 0.3,
+          "interval": 1.11,
+          "cost": 1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 9,
+          "atk": 0.35,
+          "def": 0.35,
+          "interval": 1.11,
+          "cost": 1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 10,
+          "atk": 0.35,
+          "def": 0.35,
+          "interval": 1,
+          "cost": 1,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 10,
+          "atk": 0.4,
+          "def": 0.4,
+          "interval": 1,
+          "cost": 1,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 10,
+          "atk": 0.45,
+          "def": 0.45,
+          "interval": 1,
+          "cost": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 11,
+          "atk": 0.45,
+          "def": 0.45,
+          "interval": 0.905,
+          "cost": 1,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 11,
+          "atk": 0.5,
+          "def": 0.5,
+          "interval": 0.905,
+          "cost": 1,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 11,
+          "atk": 0.55,
+          "def": 0.55,
+          "interval": 0.905,
+          "cost": 1,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 12,
+          "atk": 0.6,
+          "def": 0.6,
+          "interval": 0.83,
+          "cost": 1,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "冲锋领袖",
+          "description": "自身部署费用-1",
+          "blackboard": {
+            "cost": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "冲锋领袖",
+          "description": "编入队伍时所有【先锋】职业干员的部署费用-1",
+          "blackboard": {
+            "cost": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_headbr",
+      "name": "凛冬证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_headbr",
+      "name": "冬将军的毕业礼物",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "def": 32
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 225,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "冲锋领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "def": 37
+          },
+          "talentEnhance": [
+            {
+              "name": "冲锋领袖",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

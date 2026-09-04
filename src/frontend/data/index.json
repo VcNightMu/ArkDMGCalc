@@ -970,5 +970,464 @@
     "subProfessionId": "notchar1",
     "ownerOperatorId": "char_1019_siege2",
     "ownerName": "维娜·维多利亚"
+  },
+  {
+    "id": "char_112_siege",
+    "name": "推进之王",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_362_saga",
+    "name": "嵯峨",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4026_vulpis",
+    "name": "忍冬",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_420_flamtl",
+    "name": "焰尾",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_115_headbr",
+    "name": "凛冬",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_102_texas",
+    "name": "德克萨斯",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_349_chiave",
+    "name": "贾维",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_488_buildr",
+    "name": "青枳",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4023_rfalcn",
+    "name": "红隼",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_198_blackd",
+    "name": "讯使",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_149_scave",
+    "name": "清道夫",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_123_fang",
+    "name": "芬",
+    "rarity": "TIER_3",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_240_wyvern",
+    "name": "香草",
+    "rarity": "TIER_3",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_502_nblade",
+    "name": "夜刀",
+    "rarity": "TIER_2",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4188_confes",
+    "name": "CONFESS-47",
+    "rarity": "TIER_1",
+    "profession": "PIONEER",
+    "subProfessionId": "pioneer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_261_sddrag",
+    "name": "苇草",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_496_wildmn",
+    "name": "野鬃",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1036_fang2",
+    "name": "历阵锐枪芬",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_220_grani",
+    "name": "格拉尼",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_290_vigna",
+    "name": "红豆",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_192_falco",
+    "name": "翎羽",
+    "rarity": "TIER_3",
+    "profession": "PIONEER",
+    "subProfessionId": "charger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_427_vigil",
+    "name": "伺夜",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_249_mlyss",
+    "name": "缪尔赛思",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4228_closur",
+    "name": "可露希尔",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_476_blkngt",
+    "name": "夜半",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4147_mitm",
+    "name": "渡桥",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_452_bstalk",
+    "name": "豆苗",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4215_buddy",
+    "name": "罗德岛隐秘队",
+    "rarity": "TIER_1",
+    "profession": "PIONEER",
+    "subProfessionId": "tactician",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_479_sleach",
+    "name": "琴柳",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "bearer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_401_elysm",
+    "name": "极境",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "bearer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4119_wanqin",
+    "name": "万顷",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "bearer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4237_jcinta",
+    "name": "嘉辛塔",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "bearer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_151_myrtle",
+    "name": "桃金娘",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "bearer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4087_ines",
+    "name": "伊内丝",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_497_ctable",
+    "name": "晓歌",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4017_puzzle",
+    "name": "谜图",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4144_chilc",
+    "name": "齐尔查克",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4052_surfer",
+    "name": "寻澜",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4208_wintim",
+    "name": "冬时",
+    "rarity": "TIER_4",
+    "profession": "PIONEER",
+    "subProfessionId": "agent",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1045_svash2",
+    "name": "凛御银灰",
+    "rarity": "TIER_6",
+    "profession": "PIONEER",
+    "subProfessionId": "counsellor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4199_makiri",
+    "name": "松桐",
+    "rarity": "TIER_5",
+    "profession": "PIONEER",
+    "subProfessionId": "counsellor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "token_10014_bstalk_crab",
+    "name": "磐蟹护卫队",
+    "rarity": "TIER_4",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_452_bstalk",
+    "ownerName": "豆苗"
+  },
+  {
+    "id": "token_10021_blkngt_hypnos",
+    "name": "眠兽",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_476_blkngt",
+    "ownerName": "夜半"
+  },
+  {
+    "id": "token_10028_vigil_wolf",
+    "name": "狼群",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_427_vigil",
+    "ownerName": "伺夜"
+  },
+  {
+    "id": "token_10030_mlyss_wtrman",
+    "name": "流形",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_249_mlyss",
+    "ownerName": "缪尔赛思"
+  },
+  {
+    "id": "token_10037_mitm_trshrb",
+    "name": "樱桃三号",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4147_mitm",
+    "ownerName": "渡桥"
+  },
+  {
+    "id": "token_10057_svash2_eagle1",
+    "name": "风雪之眼",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1045_svash2",
+    "ownerName": "凛御银灰"
+  },
+  {
+    "id": "token_10057_svash2_eagle2",
+    "name": "风雪之眼",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1045_svash2",
+    "ownerName": "凛御银灰"
+  },
+  {
+    "id": "token_10057_svash2_eagle3",
+    "name": "风雪之眼",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1045_svash2",
+    "ownerName": "凛御银灰"
+  },
+  {
+    "id": "token_10063_buddy_bddg",
+    "name": "牙猎犬",
+    "rarity": "TIER_1",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4215_buddy",
+    "ownerName": "罗德岛隐秘队"
+  },
+  {
+    "id": "token_10066_closur_ourbase",
+    "name": "指挥中心",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4228_closur",
+    "ownerName": "可露希尔"
   }
 ]

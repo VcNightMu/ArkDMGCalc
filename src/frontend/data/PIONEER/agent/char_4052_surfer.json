@@ -1,0 +1,564 @@
+{
+  "id": "char_4052_surfer",
+  "name": "寻澜",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "agent",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        236,
+        348
+      ],
+      "def": [
+        92,
+        154
+      ],
+      "maxHp": [
+        872,
+        1247
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        459
+      ],
+      "def": [
+        154,
+        220
+      ],
+      "maxHp": [
+        1247,
+        1599
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        459,
+        560
+      ],
+      "def": [
+        220,
+        261
+      ],
+      "maxHp": [
+        1599,
+        1950
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 20,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_surfer_1",
+      "name": "探寻",
+      "levels": [
+        {
+          "atk": 0.35,
+          "cost": 1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "cost": 1,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "cost": 1,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "cost": 1,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 14,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "cost": 1,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "cost": 1,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "cost": 1,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 17,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "cost": 1,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "cost": 1,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "cost": 1,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 20,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_surfer_2",
+      "name": "洞悉",
+      "levels": [
+        {
+          "attack_speed": 10,
+          "cost": 1,
+          "def_steal": 10,
+          "def_steal_max": 100,
+          "mode": 1,
+          "level": 0,
+          "spCost": 31,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 15,
+          "cost": 1,
+          "def_steal": 12,
+          "def_steal_max": 120,
+          "mode": 1,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "cost": 1,
+          "def_steal": 15,
+          "def_steal_max": 120,
+          "mode": 1,
+          "level": 2,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 25,
+          "cost": 1,
+          "def_steal": 20,
+          "def_steal_max": 140,
+          "mode": 1,
+          "level": 3,
+          "spCost": 28,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "cost": 1,
+          "def_steal": 25,
+          "def_steal_max": 150,
+          "mode": 1,
+          "level": 4,
+          "spCost": 27,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "cost": 1,
+          "def_steal": 30,
+          "def_steal_max": 180,
+          "mode": 1,
+          "level": 5,
+          "spCost": 26,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "cost": 1,
+          "def_steal": 40,
+          "def_steal_max": 200,
+          "mode": 1,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 47,
+          "cost": 1,
+          "def_steal": 45,
+          "def_steal_max": 225,
+          "mode": 1,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 54,
+          "cost": 1,
+          "def_steal": 50,
+          "def_steal_max": 250,
+          "mode": 1,
+          "level": 8,
+          "spCost": 23,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "cost": 1,
+          "def_steal": 55,
+          "def_steal_max": 275,
+          "mode": 1,
+          "level": 9,
+          "spCost": 22,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "独自远走",
+          "description": "部署时，若周围4格没有其他干员，获得1点部署费用",
+          "blackboard": {
+            "cost": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "独自远走",
+          "description": "部署时，若周围4格没有其他干员，获得2<@ba.talpu>（+1）</>点部署费用",
+          "blackboard": {
+            "cost": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "独自远走",
+          "description": "部署时，若周围4格没有其他干员，获得2点部署费用",
+          "blackboard": {
+            "cost": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "独自远走",
+          "description": "部署时，若周围4格没有其他干员，获得3<@ba.talpu>（+1）</>点部署费用",
+          "blackboard": {
+            "cost": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+5",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_surfer",
+      "name": "寻澜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_surfer",
+      "name": "佳肴",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 23
+          },
+          "talentEnhance": [
+            {
+              "name": "独自远走",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 2,
+                "attack_speed": 10,
+                "attack_speed_up_duration": 10
+              }
+            },
+            {
+              "name": "独自远走",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cost": 3,
+                "attack_speed": 10,
+                "attack_speed_up_duration": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "独自远走",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 2,
+                "attack_speed": 15,
+                "attack_speed_up_duration": 10
+              }
+            },
+            {
+              "name": "独自远走",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cost": 3,
+                "attack_speed": 15,
+                "attack_speed_up_duration": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "taunt_level": -1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

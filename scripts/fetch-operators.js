@@ -14,12 +14,40 @@ const PATCH_CHARS = {
 // 尚未拉取数据的子职业保留空列表，便于后续按职业补充。
 const OPERATORS = {
   PIONEER: { // 先锋
-    pioneer: [],                    // 尖兵
-    charger: ['char_222_bpipe'],    // 冲锋手
-    tactician: [],                  // 战术家
-    bearer: [],                     // 执旗手
-    agent: [],                      // 情报官
-    counsellor: [],                 // 策士
+    pioneer: [ // 尖兵
+      'char_112_siege', 'char_362_saga', 'char_4026_vulpis', 'char_420_flamtl',   // 推进之王/嵯峨/忍冬/焰尾 6★
+      'char_115_headbr', 'char_102_texas', 'char_349_chiave', 'char_488_buildr', 'char_4023_rfalcn', // 凛冬/德克萨斯/贾维/青枳/红隼 5★
+      'char_198_blackd', 'char_149_scave',                              // 讯使/清道夫 4★
+      'char_123_fang', 'char_240_wyvern',                               // 芬/香草 3★
+      'char_502_nblade',                                                // 夜刀 2★
+      'char_4188_confes',                                               // CONFESS-47 1★（拉特兰告解机器人，公招+签到可得）
+    ], // 尖兵（不录：预备干员-先锋/预备干员-近战、郁金香=卫戍协议活动干员同Mechanist口径不录）
+    charger: [ // 冲锋手
+      'char_222_bpipe',                                                 // 风笛 6★
+      'char_261_sddrag', 'char_496_wildmn', 'char_1036_fang2', 'char_220_grani', // 苇草/野鬃/历阵锐枪芬/格拉尼 5★
+      'char_290_vigna',                                                 // 红豆 4★
+      'char_192_falco',                                                 // 翎羽 3★
+    ],
+    tactician: [ // 战术家
+      'char_427_vigil', 'char_249_mlyss', 'char_4228_closur',           // 伺夜/缪尔赛思/可露希尔 6★
+      'char_476_blkngt', 'char_4147_mitm',                              // 夜半/渡桥 5★
+      'char_452_bstalk',                                                // 豆苗 4★
+      'char_4215_buddy',                                                // 罗德岛隐秘队 1★（怪猎联动活动赠送）
+    ],
+    bearer: [ // 执旗手
+      'char_479_sleach',                                                // 琴柳 6★
+      'char_401_elysm', 'char_4119_wanqin', 'char_4237_jcinta',         // 极境/万顷/嘉辛塔 5★
+      'char_151_myrtle',                                                // 桃金娘 4★
+    ],
+    agent: [ // 情报官
+      'char_4087_ines',                                                 // 伊内丝 6★
+      'char_497_ctable', 'char_4017_puzzle', 'char_4144_chilc', 'char_4052_surfer', // 晓歌/谜图/齐尔查克/寻澜 5★
+      'char_4208_wintim',                                               // 冬时 4★
+    ],
+    counsellor: [ // 策士
+      'char_1045_svash2',                                               // 凛御银灰 6★（银灰异格，召唤风雪之眼）
+      'char_4199_makiri',                                               // 松桐 5★
+    ],
   },
   WARRIOR: { // 近卫
     centurion: [],                  // 强攻手
@@ -127,7 +155,7 @@ const OPERATORS = {
     skywalker: [],                  // 巡空者
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心）
   },
 };
 
@@ -407,7 +435,10 @@ async function main() {
   const subFilter = process.argv[2] || null;  // 可选：只拉指定子职业（node fetch-operators.js artsfghter）
   const allIds = flattenOperators(subFilter);
   const tokenOwners = {};
-  for (const id of allIds) {
+  // notchar1 模式：持有者（各主职业干员）不在本次 allIds 内，需扫全量非 TOKEN 白名单干员收集关联；
+  // 否则重拉 TOKEN 会把 ownerOperatorId 清空并丢失持有者技能注入（Mon3tr 等）。
+  const ownerScanIds = subFilter === 'notchar1' ? flattenOperators(null).filter(id => !String(id).startsWith('token_')) : allIds;
+  for (const id of ownerScanIds) {
     const charData = charTable[id];
     if (!charData) continue;
     // 技能召唤（如赫默·医疗探机）

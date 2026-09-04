@@ -1,0 +1,309 @@
+{
+  "id": "token_10028_vigil_wolf",
+  "name": "狼群",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_427_vigil",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        149,
+        213
+      ],
+      "def": [
+        145,
+        194
+      ],
+      "maxHp": [
+        500,
+        650
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        220,
+        294
+      ],
+      "def": [
+        200,
+        251
+      ],
+      "maxHp": [
+        685,
+        836
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        304,
+        371
+      ],
+      "def": [
+        259,
+        317
+      ],
+      "maxHp": [
+        880,
+        1100
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "sktok_vigil_wolf_1",
+      "name": "狼群",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_vigil_wolf_2",
+      "name": "狼群",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_vigil_wolf_3",
+      "name": "狼群",
+      "levels": [
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.13,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.16,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.2,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.23,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.26,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.3,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.35,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.4,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@vigil_wolf_s_3.atk_scale": 0.5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "每30秒增加一只“狼影”（至多3只），每存在一只“狼影”，狼群阻挡数+1，每次攻击额外造成一次伤害；当存在多于1只“狼影”时，受到致命伤害时损失一只“狼影”但回复所有生命",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 30,
+            "vigil_wolf_t_1_enhance[trigger].max_stack_cnt": 2,
+            "vigil_wolf_t_1_enhance[trigger].interval": 30,
+            "vigil_wolf_t_1_enhance[trigger].block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "每27秒增加一只“狼影”（至多3只），每存在一只“狼影”，狼群阻挡数+1，每次攻击额外造成一次伤害；当存在多于1只“狼影”时，受到致命伤害时损失一只“狼影”但回复所有生命",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 27,
+            "vigil_wolf_t_1_enhance[trigger].max_stack_cnt": 2,
+            "vigil_wolf_t_1_enhance[trigger].interval": 27,
+            "vigil_wolf_t_1_enhance[trigger].block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群领袖",
+          "description": "每25秒增加一只“狼影”（至多3只），每存在一只“狼影”，狼群阻挡数+1，每次攻击额外造成一次伤害；当存在多于1只“狼影”时，受到致命伤害时损失一只“狼影”但回复所有生命",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 25,
+            "vigil_wolf_t_1_enhance[trigger].max_stack_cnt": 2,
+            "vigil_wolf_t_1_enhance[trigger].interval": 25,
+            "vigil_wolf_t_1_enhance[trigger].block_cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狼群天性",
+          "description": "攻击阻挡的目标时无视其175的防御力",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 25,
+            "def_penetrate_fixed": 175
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "狼群天性",
+          "description": "攻击阻挡的目标时无视其200<@ba.talpu>（+25）</>的防御力",
+          "blackboard": {
+            "block_cnt": 1,
+            "interval": 25,
+            "def_penetrate_fixed": 200
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "只能部署在召唤者攻击范围内",
+    "blackboard": {}
+  },
+  "potentialRanks": []
+}

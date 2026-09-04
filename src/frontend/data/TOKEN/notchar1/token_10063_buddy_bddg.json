@@ -1,0 +1,88 @@
+{
+  "id": "token_10063_buddy_bddg",
+  "name": "牙猎犬",
+  "rarity": "TIER_1",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4215_buddy",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        131,
+        175
+      ],
+      "def": [
+        135,
+        180
+      ],
+      "maxHp": [
+        865,
+        1095
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "疾如闪电",
+          "description": "部署时对周围8格的最多3个敌人进行相当于200%攻击力的斩击，并将其小力地拉向自身方向；被击倒后回到艾露猫身边休息，60秒后重新在战术点的位置部署",
+          "blackboard": {
+            "interval": 60,
+            "ability_name": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "duration": 60
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "atk_scale": 2,
+            "max_target": 3,
+            "force": 0
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

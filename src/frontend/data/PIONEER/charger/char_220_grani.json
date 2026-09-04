@@ -1,0 +1,554 @@
+{
+  "id": "char_220_grani",
+  "name": "格拉尼",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "charger",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        235,
+        347
+      ],
+      "def": [
+        166,
+        231
+      ],
+      "maxHp": [
+        877,
+        1219
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        347,
+        463
+      ],
+      "def": [
+        231,
+        300
+      ],
+      "maxHp": [
+        1219,
+        1564
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        463,
+        552
+      ],
+      "def": [
+        300,
+        367
+      ],
+      "maxHp": [
+        1564,
+        2235
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 70,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_def_up[3]",
+      "name": "防御力强化·γ型",
+      "levels": [
+        {
+          "def": 0.3,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.35,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.4,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.45,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.5,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.55,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_grani_2",
+      "name": "永不后退！",
+      "levels": [
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "block_cnt": 1,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "block_cnt": 1,
+          "level": 1,
+          "spCost": 79,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "block_cnt": 1,
+          "level": 2,
+          "spCost": 78,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "block_cnt": 1,
+          "level": 3,
+          "spCost": 77,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "block_cnt": 1,
+          "level": 4,
+          "spCost": 76,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.55,
+          "block_cnt": 1,
+          "level": 5,
+          "spCost": 75,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "block_cnt": 1,
+          "level": 6,
+          "spCost": 74,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.66,
+          "def": 0.66,
+          "block_cnt": 1,
+          "level": 7,
+          "spCost": 73,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.72,
+          "def": 0.72,
+          "block_cnt": 1,
+          "level": 8,
+          "spCost": 72,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "block_cnt": 1,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "骑警",
+          "description": "在场时，所有【先锋】职业干员获得10%的物理闪避",
+          "blackboard": {
+            "prob": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "骑警",
+          "description": "在场时，所有【先锋】职业干员获得15%<@ba.talpu>（+5%）</>的物理闪避",
+          "blackboard": {
+            "prob": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "骑警",
+          "description": "在场时，所有【先锋】职业干员获得20%的物理闪避",
+          "blackboard": {
+            "prob": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "骑警",
+          "description": "在场时，所有【先锋】职业干员获得25%<@ba.talpu>（+5%）</>的物理闪避",
+          "blackboard": {
+            "prob": 0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "cost": 1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_grani",
+      "name": "格拉尼证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_grani",
+      "name": "骑警套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            },
+            {
+              "name": "骑警",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.25
+              }
+            },
+            {
+              "name": "骑警",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 67
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 1
+              }
+            },
+            {
+              "name": "骑警",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3
+              }
+            },
+            {
+              "name": "骑警",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.35
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cost": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

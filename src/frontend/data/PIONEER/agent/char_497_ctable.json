@@ -1,0 +1,564 @@
+{
+  "id": "char_497_ctable",
+  "name": "晓歌",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "agent",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        236,
+        348
+      ],
+      "def": [
+        94,
+        157
+      ],
+      "maxHp": [
+        857,
+        1225
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        459
+      ],
+      "def": [
+        157,
+        225
+      ],
+      "maxHp": [
+        1225,
+        1571
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        459,
+        560
+      ],
+      "def": [
+        225,
+        267
+      ],
+      "maxHp": [
+        1571,
+        1917
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ctable_1",
+      "name": "观火",
+      "levels": [
+        {
+          "atk": 0.35,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 13,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 14,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 17,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack_speed": 0,
+          "cost": 1,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 20,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ctable_2",
+      "name": "浮光",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack_speed": 10,
+          "cost": 1,
+          "attack@trigger_time": 13,
+          "level": 0,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.13,
+          "attack_speed": 14,
+          "cost": 1,
+          "attack@trigger_time": 13,
+          "level": 1,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "attack_speed": 18,
+          "cost": 1,
+          "attack@trigger_time": 13,
+          "level": 2,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.19,
+          "attack_speed": 22,
+          "cost": 1,
+          "attack@trigger_time": 14,
+          "level": 3,
+          "spCost": 31,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 26,
+          "cost": 1,
+          "attack@trigger_time": 14,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "attack_speed": 30,
+          "cost": 1,
+          "attack@trigger_time": 14,
+          "level": 5,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "attack_speed": 34,
+          "cost": 1,
+          "attack@trigger_time": 15,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 38,
+          "cost": 1,
+          "attack@trigger_time": 16,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "attack_speed": 44,
+          "cost": 1,
+          "attack@trigger_time": 17,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 50,
+          "cost": 1,
+          "attack@trigger_time": 18,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "万全",
+          "description": "未阻挡敌人时攻击速度+6，阻挡敌人时攻击力+6%",
+          "blackboard": {
+            "attack_speed": 6,
+            "atk": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "万全",
+          "description": "未阻挡敌人时攻击速度+8<@ba.talpu>（+2）</>，阻挡敌人时攻击力+8%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "attack_speed": 8,
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "万全",
+          "description": "未阻挡敌人时攻击速度+12，阻挡敌人时攻击力+12%",
+          "blackboard": {
+            "attack_speed": 12,
+            "atk": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "万全",
+          "description": "未阻挡敌人时攻击速度+14<@ba.talpu>（+2）</>，阻挡敌人时攻击力+14%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "attack_speed": 14,
+            "atk": 0.14
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+5",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ctable",
+      "name": "晓歌证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ctable",
+      "name": "“不发声者”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 18
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 28
+          },
+          "talentEnhance": [
+            {
+              "name": "万全",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 15,
+                "atk": 0.15
+              }
+            },
+            {
+              "name": "万全",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 17,
+                "atk": 0.17
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 220,
+            "atk": 33
+          },
+          "talentEnhance": [
+            {
+              "name": "万全",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 18,
+                "atk": 0.18
+              }
+            },
+            {
+              "name": "万全",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 20,
+                "atk": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -0.35
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

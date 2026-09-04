@@ -1,0 +1,824 @@
+{
+  "id": "char_479_sleach",
+  "name": "琴柳",
+  "rarity": "TIER_6",
+  "profession": "PIONEER",
+  "subProfessionId": "bearer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        243,
+        348
+      ],
+      "def": [
+        169,
+        236
+      ],
+      "maxHp": [
+        771,
+        1057
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        348,
+        458
+      ],
+      "def": [
+        236,
+        311
+      ],
+      "maxHp": [
+        1057,
+        1339
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        458,
+        546
+      ],
+      "def": [
+        311,
+        367
+      ],
+      "maxHp": [
+        1339,
+        1835
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_assist_cost[3]",
+      "name": "支援号令·γ型",
+      "levels": [
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 9,
+          "spCost": 26,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_sleach_2",
+      "name": "信仰传承",
+      "levels": [
+        {
+          "def": 0.1,
+          "atk_to_hp_recovery_ratio": 0.1,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 0,
+          "spCost": 38,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.14,
+          "atk_to_hp_recovery_ratio": 0.14,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 1,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.18,
+          "atk_to_hp_recovery_ratio": 0.18,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 2,
+          "spCost": 36,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.22,
+          "atk_to_hp_recovery_ratio": 0.22,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.26,
+          "atk_to_hp_recovery_ratio": 0.26,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 4,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.3,
+          "atk_to_hp_recovery_ratio": 0.3,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 5,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.35,
+          "atk_to_hp_recovery_ratio": 0.35,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.4,
+          "atk_to_hp_recovery_ratio": 0.4,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 7,
+          "spCost": 31,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.45,
+          "atk_to_hp_recovery_ratio": 0.45,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.5,
+          "atk_to_hp_recovery_ratio": 0.5,
+          "value": 20,
+          "sleach_s_2[cost].interval": 0.75,
+          "sleach_s_2[cost].cost": 1,
+          "level": 9,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_sleach_3",
+      "name": "光辉旗帜",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "stun": 2.5,
+          "damage_scale": 1.15,
+          "cost": 10,
+          "debuff.damage_scale": 0.15,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "stun": 2.5,
+          "damage_scale": 1.15,
+          "cost": 10,
+          "debuff.damage_scale": 0.15,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "stun": 2.5,
+          "damage_scale": 1.15,
+          "cost": 10,
+          "debuff.damage_scale": 0.15,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "stun": 3,
+          "damage_scale": 1.2,
+          "cost": 10,
+          "debuff.damage_scale": 0.2,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "stun": 3,
+          "damage_scale": 1.2,
+          "cost": 10,
+          "debuff.damage_scale": 0.2,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "stun": 3,
+          "damage_scale": 1.2,
+          "cost": 10,
+          "debuff.damage_scale": 0.2,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "stun": 3,
+          "damage_scale": 1.25,
+          "cost": 10,
+          "debuff.damage_scale": 0.25,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "stun": 3.5,
+          "damage_scale": 1.25,
+          "cost": 10,
+          "debuff.damage_scale": 0.25,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "stun": 3.5,
+          "damage_scale": 1.27,
+          "cost": 10,
+          "debuff.damage_scale": 0.27,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "stun": 3.5,
+          "damage_scale": 1.3,
+          "cost": 10,
+          "debuff.damage_scale": 0.3,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不退之旗",
+          "description": "部署时自身持有军旗；军旗周围8格的干员攻击速度+5，敌人的攻击速度-5",
+          "blackboard": {
+            "sleach_t_1[ally].attack_speed": 5,
+            "sleach_t_1[enemy].attack_speed": -5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不退之旗",
+          "description": "部署时自身持有军旗；军旗周围8格的干员攻击速度+7<@ba.talpu>（+2）</>，敌人的攻击速度-7<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "sleach_t_1[ally].attack_speed": 7,
+            "sleach_t_1[enemy].attack_speed": -7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不退之旗",
+          "description": "部署时自身持有军旗；军旗周围8格的干员攻击速度+10，敌人的攻击速度-10",
+          "blackboard": {
+            "sleach_t_1[ally].attack_speed": 10,
+            "sleach_t_1[enemy].attack_speed": -10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不退之旗",
+          "description": "部署时自身持有军旗；军旗周围8格的干员攻击速度+12<@ba.talpu>（+2）</>，敌人的攻击速度-12<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "sleach_t_1[ally].attack_speed": 12,
+            "sleach_t_1[enemy].attack_speed": -12
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "精神感召",
+          "description": "部署后，下一名部署的干员费用-2",
+          "blackboard": {
+            "value": -2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_sleach",
+      "name": "琴柳证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_sleach",
+      "name": "牧人的歌",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 48
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "不退之旗",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sleach_t_1[ally].attack_speed": 12,
+                "sleach_t_1[enemy].attack_speed": -12
+              }
+            },
+            {
+              "name": "不退之旗",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sleach_t_1[ally].attack_speed": 14,
+                "sleach_t_1[enemy].attack_speed": -14
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "不退之旗",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sleach_t_1[ally].attack_speed": 13,
+                "sleach_t_1[enemy].attack_speed": -13
+              }
+            },
+            {
+              "name": "不退之旗",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sleach_t_1[ally].attack_speed": 15,
+                "sleach_t_1[enemy].attack_speed": -15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_sleach",
+      "name": "“友谊万岁”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "精神感召",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": -2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "精神感召",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": -2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

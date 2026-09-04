@@ -1,0 +1,584 @@
+{
+  "id": "char_401_elysm",
+  "name": "极境",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "bearer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        237,
+        339
+      ],
+      "def": [
+        154,
+        215
+      ],
+      "maxHp": [
+        702,
+        962
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        339,
+        447
+      ],
+      "def": [
+        215,
+        284
+      ],
+      "maxHp": [
+        962,
+        1218
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        447,
+        533
+      ],
+      "def": [
+        284,
+        335
+      ],
+      "maxHp": [
+        1218,
+        1669
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_assist_cost[3]",
+      "name": "支援号令·γ型",
+      "levels": [
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "value": 18,
+          "interval": 0.44,
+          "cost": 1,
+          "level": 9,
+          "spCost": 26,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_elysm_2",
+      "name": "聆听",
+      "levels": [
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.2,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.2,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.2,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.22,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.22,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "move_speed": -0.6,
+          "def": -0.22,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "move_speed": -0.6,
+          "def": -0.25,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "move_speed": -0.6,
+          "def": -0.28,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "move_speed": -0.6,
+          "def": -0.31,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "move_speed": -0.6,
+          "def": -0.35,
+          "value": 20,
+          "interval": 0.75,
+          "cost": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狙击支援",
+          "description": "在场时，所有【狙击】干员的部署费用-1，且技能开启时所有【狙击】干员的攻击速度+10",
+          "blackboard": {
+            "value": -1,
+            "attack_speed": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "狙击支援",
+          "description": "在场时，所有【狙击】干员的部署费用-1，且技能开启时所有【狙击】干员的攻击速度+13<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "value": -1,
+            "attack_speed": 13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "狙击支援",
+          "description": "在场时，所有【狙击】干员的部署费用-2，且技能开启时所有【狙击】干员的攻击速度+20",
+          "blackboard": {
+            "value": -2,
+            "attack_speed": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "狙击支援",
+          "description": "在场时，所有【狙击】干员的部署费用-2，且技能开启时所有【狙击】干员的攻击速度+23<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "value": -2,
+            "attack_speed": 23
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_elysm",
+      "name": "极境证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_elysm",
+      "name": "应急通讯指南",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "狙击支援",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": -2,
+                "attack_speed": 23
+              }
+            },
+            {
+              "name": "狙击支援",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": -2,
+                "attack_speed": 26
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "狙击支援",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": -2,
+                "attack_speed": 25
+              }
+            },
+            {
+              "name": "狙击支援",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": -2,
+                "attack_speed": 28
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "block_cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

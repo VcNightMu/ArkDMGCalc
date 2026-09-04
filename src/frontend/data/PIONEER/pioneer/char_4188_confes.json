@@ -1,0 +1,148 @@
+{
+  "id": "char_4188_confes",
+  "name": "CONFESS-47",
+  "rarity": "TIER_1",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        134,
+        192
+      ],
+      "def": [
+        123,
+        154
+      ],
+      "maxHp": [
+        577,
+        770
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 30,
+    "maxHp": 100
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "先付费，再告解·I",
+          "description": "首次阻挡敌人时立即获得2点部署费用，并使该敌人<$ba.sleep>沉睡</>5秒",
+          "blackboard": {
+            "cost": 2,
+            "cnt": 1,
+            "sleep": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "先付费，再告解·II",
+          "description": "首次阻挡敌人时立即获得2点部署费用，并使该敌人<$ba.sleep>沉睡</>6秒",
+          "blackboard": {
+            "cost": 2,
+            "cnt": 1,
+            "sleep": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "先付费，再告解·III",
+          "description": "首次阻挡敌人时立即获得3点部署费用，并使该敌人<$ba.sleep>沉睡</>6秒",
+          "blackboard": {
+            "cost": 3,
+            "cnt": 1,
+            "sleep": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "先付费，再告解·IV",
+          "description": "首次阻挡敌人时立即获得3点部署费用，并使该敌人<$ba.sleep>沉睡</>7秒",
+          "blackboard": {
+            "cost": 3,
+            "cnt": 1,
+            "sleep": 7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "先付费，再告解·V",
+          "description": "首次阻挡敌人时立即获得4点部署费用，并使该敌人<$ba.sleep>沉睡</>7秒",
+          "blackboard": {
+            "cost": 4,
+            "cnt": 1,
+            "sleep": 7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "先付费，再告解·VI",
+          "description": "首次阻挡敌人时立即获得4点部署费用，并使该敌人<$ba.sleep>沉睡</>8秒",
+          "blackboard": {
+            "cost": 4,
+            "cnt": 1,
+            "sleep": 8
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

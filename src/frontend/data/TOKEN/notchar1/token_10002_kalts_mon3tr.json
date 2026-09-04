@@ -481,7 +481,7 @@
           "level": 1,
           "potentialRank": 0,
           "name": "不毁重构",
-          "description": "被击倒后（不包括撤退）使周围8格内所有敌人晕眩3秒并对其造成1200点真实伤害",
+          "description": "被击倒后（不包括撤退）使周围8格内所有敌人<$ba.stun>晕眩</>3秒并对其造成1200点真实伤害",
           "blackboard": {
             "stun": 3,
             "value": 1200

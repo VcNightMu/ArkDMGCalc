@@ -1,0 +1,597 @@
+{
+  "id": "char_488_buildr",
+  "name": "青枳",
+  "rarity": "TIER_5",
+  "profession": "PIONEER",
+  "subProfessionId": "pioneer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        177,
+        265
+      ],
+      "def": [
+        151,
+        217
+      ],
+      "maxHp": [
+        836,
+        1162
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        265,
+        364
+      ],
+      "def": [
+        217,
+        298
+      ],
+      "maxHp": [
+        1162,
+        1550
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        364,
+        455
+      ],
+      "def": [
+        298,
+        360
+      ],
+      "maxHp": [
+        1550,
+        2215
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 20,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_charge_cost[3]",
+      "name": "冲锋号令·γ型",
+      "levels": [
+        {
+          "cost": 12,
+          "level": 0,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 2,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 3,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 6,
+          "spCost": 38,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cost": 12,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_buildr_2",
+      "name": "工程者之愿",
+      "levels": [
+        {
+          "cost": 9,
+          "duration": 15,
+          "atk": 0.1,
+          "def": 0.3,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.1,
+          "buildr_s_2[b].def": 0.3,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 5,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 9,
+          "duration": 15,
+          "atk": 0.1,
+          "def": 0.35,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.1,
+          "buildr_s_2[b].def": 0.35,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 5,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 9,
+          "duration": 15,
+          "atk": 0.1,
+          "def": 0.4,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.1,
+          "buildr_s_2[b].def": 0.4,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 5,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 10,
+          "duration": 15,
+          "atk": 0.1,
+          "def": 0.4,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.1,
+          "buildr_s_2[b].def": 0.4,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4.5,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 10,
+          "duration": 15,
+          "atk": 0.15,
+          "def": 0.45,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.15,
+          "buildr_s_2[b].def": 0.45,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4.5,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 10,
+          "duration": 15,
+          "atk": 0.2,
+          "def": 0.5,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.2,
+          "buildr_s_2[b].def": 0.5,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4.5,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 11,
+          "duration": 15,
+          "atk": 0.2,
+          "def": 0.5,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.2,
+          "buildr_s_2[b].def": 0.5,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 11,
+          "duration": 15,
+          "atk": 0.25,
+          "def": 0.55,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.25,
+          "buildr_s_2[b].def": 0.55,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 11,
+          "duration": 15,
+          "atk": 0.3,
+          "def": 0.6,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.3,
+          "buildr_s_2[b].def": 0.6,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "cost": 12,
+          "duration": 15,
+          "atk": 0.35,
+          "def": 0.65,
+          "buildr_s_2[b].duration": -1,
+          "buildr_s_2[b].atk": 0.35,
+          "buildr_s_2[b].def": 0.65,
+          "buildr_s_2[b].cost": 1,
+          "buildr_s_2[b].interval": 4,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拆迁队守则",
+          "description": "在战场停留30秒后，生命上限+8%",
+          "blackboard": {
+            "max_hp": 0.08,
+            "interval": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "拆迁队守则",
+          "description": "在战场停留30秒后，生命上限+11%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "max_hp": 0.11,
+            "interval": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拆迁队守则",
+          "description": "在战场停留30秒后，生命上限+15%",
+          "blackboard": {
+            "max_hp": 0.15,
+            "interval": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "拆迁队守则",
+          "description": "在战场停留30秒后，生命上限+18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "max_hp": 0.18,
+            "interval": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_buildr",
+      "name": "青枳证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_buildr",
+      "name": "寻乡人的启明星",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "def": 32
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 225,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "拆迁队守则",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 30,
+                "max_hp": 0.18
+              }
+            },
+            {
+              "name": "拆迁队守则",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 30,
+                "max_hp": 0.21
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "def": 37
+          },
+          "talentEnhance": [
+            {
+              "name": "拆迁队守则",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 30,
+                "max_hp": 0.2
+              }
+            },
+            {
+              "name": "拆迁队守则",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 30,
+                "max_hp": 0.23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08,
+                "def": 0.08
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
