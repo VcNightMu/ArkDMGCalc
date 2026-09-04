@@ -225,6 +225,13 @@ const SKILL_ATTACK_SPEED_OVERRIDES = {
 const SKILL_ATK_KEY_OVERRIDES = {
   'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
   'char_2014_nian': { 2: 'nian_s_3[self].atk' },   // 年 S3「铁御」:自身攻击力增幅(友方 def/阻挡 buff 不计)
+  'char_4199_makiri': { 1: 'makiri_s_2[passive].atk' },  // 松桐 S2 万手成局:攻击+X% 在 passive 前缀键
+};
+
+// 技能自回键别名(数据把每秒回血比例放带前缀的键,语义同顶层 hp_recovery_per_sec_by_max_hp_ratio):
+// 松桐 S2「万手成局」每秒恢复最大生命 X% 在 makiri_s_2[passive] 前缀键
+const SKILL_HP_RECOVERY_KEY_OVERRIDES = {
+  'char_4199_makiri': { 1: 'makiri_s_2[passive].hp_recovery_per_sec_by_max_hp_ratio' },
 };
 
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
@@ -347,6 +354,31 @@ function calcTalentHps(op, slotData) {
   }
   return best;
 }
+// 常驻固定防御+百分比自回天赋(满层口径):凛御银灰「雪境先驱」在场 15s 后防御与回血翻倍
+// → 直接取满足档×2(E2 潜0 def+60/回1.5% → 满层 def+120/回3%;潜4 def+80/回2% → def+160/回4%)。
+// def 固定值加面板白值(伤害计算不用防御);回血按每秒最大生命比例注入常态 HPS。
+const TALENT_FLAT_DEF_PCT_REGEN = {
+  'char_1045_svash2': { talentIndex: 1, defKey: 'def', ratioKey: 'hp_recovery_per_sec_by_max_hp_ratio', scale: 2 },
+};
+function calcTalentFlatDefPctRegen(op, slotData) {
+  const cfg = TALENT_FLAT_DEF_PCT_REGEN[op.id];
+  if (!cfg) return null;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return null;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let flatDef = 0, ratio = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const d = cand.blackboard && typeof cand.blackboard[cfg.defKey] === 'number' ? cand.blackboard[cfg.defKey] : 0;
+      const r = cand.blackboard && typeof cand.blackboard[cfg.ratioKey] === 'number' ? cand.blackboard[cfg.ratioKey] : 0;
+      if (d > flatDef) { flatDef = d; ratio = r; }
+    }
+  }
+  if (flatDef <= 0 && ratio <= 0) return null;
+  return { flatDef: flatDef * cfg.scale, ratio: ratio * cfg.scale };
+}
+
 // 查驱动表,返回常驻攻速天赋的攻速加算值(0 表示无此天赋或未解锁)。
 function calcTalentAttackSpeed(op, slotData) {
   const cfg = TALENT_SPD_DRIVERS[op.id];
@@ -688,6 +720,9 @@ const NORMAL_ATK_SKILLS = {
   'char_220_grani': [0],    // 格拉尼 S1 防御力强化·γ:防御+100% dur40 纯防御,普攻照常归常态展示
   // ---- 情报官(agent) ----
   'char_4144_chilc': [0],   // 齐尔查克 S1 开锁工具:特殊回费机制(dur3 概率增减费用)无输出增益,普攻照常归常态展示
+  // ---- 策士(counsellor) ----
+  'char_1045_svash2': [0],  // 凛御银灰 S1 周旋的谋略:立即回费+减费+屏障,纯部署区支援无输出
+  'char_4199_makiri': [0],  // 松桐 S1 入场安排:立即回 10 费+待部署区最右干员-4 费,纯回费无输出
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -762,7 +797,8 @@ function calculateOperator(op, slotData) {
   // 与携带技能的 atk 乘算互斥(带 atk 的信条/教条力场 ≠ 2技能),并入同乘区累加。
   const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
   let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul);
-  let panelDef = rawDef * (1 + pctTalent.defMul);
+  const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
+  let panelDef = rawDef * (1 + pctTalent.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0);
   const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
 
   // ======== Skill Modifiers ========
@@ -1088,6 +1124,20 @@ function calculateOperator(op, slotData) {
       normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: ammoTime > 0 ? total / ammoTime : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (op.id === 'char_1045_svash2' && skillIndex === 2) {
+    // 凛御银灰 S3 变革已至(dur48 手动):攻击范围扩大,攻击对直线范围敌人造成 atk×bird_atk_scale 物理伤害并施加脆弱
+    // (专一档 1.8×;damage_scale 脆弱为目标受伤害提升,单目标持续命中必然全程吃到→每击乘 1.25;
+    // 回费/换费/风雪之眼可部署为部署区机制不计)。
+    const s3Mul = (levelData.bird_atk_scale ?? 1.8) * (levelData.damage_scale ?? 1);
+    const perHit = calcPhysicalDamage(skillAtk * s3Mul, state.enemy.def);
+    const s3Hits = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
+    const s3Total = perHit * s3Hits;
+    result = {
+      skillDps: skillDuration > 0 ? s3Total / skillDuration : 0, skillTotalDamage: s3Total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? s3Total / skillDuration : 0, skillTotalDamage: s3Total, cycleDps: null } },
     };
   } else if (op.id === 'char_261_sddrag' && skillIndex === 1) {
     // 苇草 S2 生灵火花(dur30):攻击力+X(物理普攻强化),每次攻击附加 atk×attack@skill.atk_scale 法术伤害
@@ -1514,9 +1564,12 @@ function calculateOperator(op, slotData) {
   // 自回通道(hp_recovery_per_sec 固定值/秒;hp_recovery_per_sec_by_max_hp_ratio 最大生命百分比/秒):
   // 按治疗展示 skillHps 与总治疗;技能开启期天赋自回(火神「自我防护」)与技能自带键求和。
   const skillRecoverRatio = calcTalentSkillRecoverRatio(op, slotData);
-  const hasSkillRegen = levelData.hp_recovery_per_sec !== undefined || levelData.hp_recovery_per_sec_by_max_hp_ratio !== undefined;
+  // 自回键别名:数据把每秒回血比例放前缀键(松桐 S2 makiri_s_2[passive].hp_recovery_per_sec_by_max_hp_ratio),取到即生效
+  const hpRecKey = (SKILL_HP_RECOVERY_KEY_OVERRIDES[op.id] || {})[skillIndex];
+  const hpRecByMaxHp = hpRecKey ? levelData[hpRecKey] : levelData.hp_recovery_per_sec_by_max_hp_ratio;
+  const hasSkillRegen = levelData.hp_recovery_per_sec !== undefined || hpRecByMaxHp !== undefined;
   if (!isMedic && !isSummon && (hasSkillRegen || skillRecoverRatio > 0)) {
-    const perSec = (levelData.hp_recovery_per_sec ?? 0) + panelHp * ((levelData.hp_recovery_per_sec_by_max_hp_ratio ?? 0) + skillRecoverRatio);
+    const perSec = (levelData.hp_recovery_per_sec ?? 0) + panelHp * ((hpRecByMaxHp ?? 0) + skillRecoverRatio);
     const dur = skillDuration > 0 ? skillDuration : (levelData.duration > 0 ? levelData.duration : 0);
     // AUTO 触发型自回(暴雨 S1「应急迷彩」:攻击触发给低血友方挂持续恢复):
     // 无技能期概念,输出归常态普攻(normalDps),治疗按单次触发量展示
@@ -1584,10 +1637,13 @@ function calculateOperator(op, slotData) {
     damageType = op.damageType || 'physical';
   }
 
-  // 常驻每秒自回天赋注入(桃金娘浮光跃金 25/s):damage 型 normalHps 由 null 补值 → isHealType 归 heal 型,UI heal 分支显示常态 HPS
+  // 常驻每秒自回天赋注入:damage 型 normalHps 由 null 补值 → isHealType 归 heal 型,UI heal 分支显示常态 HPS
+  // (桃金娘「浮光跃金」固定 25/s;凛御银灰「雪境先驱」每秒最大生命比例,满层翻倍口径)
   if (result.normalHps === null) {
     const talentHps = calcTalentHps(op, slotData);
-    if (talentHps > 0) result = { ...result, normalHps: talentHps };
+    const pctRegen = calcTalentFlatDefPctRegen(op, slotData);
+    const hps = talentHps + (pctRegen ? panelHp * pctRegen.ratio : 0);
+    if (hps > 0) result = { ...result, normalHps: hps };
   }
   const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined);
   return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: skillAtk };
@@ -1644,7 +1700,8 @@ function calcPanelStats(op, slotData) {
   return {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul)),
-    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat),
+    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat
+      + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0)),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat,
     baseAttackTime: phase.baseAttackTime,
     attackInterval
