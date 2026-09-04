@@ -233,6 +233,11 @@ const SKILL_ATK_KEY_OVERRIDES = {
 const SKILL_HP_RECOVERY_KEY_OVERRIDES = {
   'char_4199_makiri': { 1: 'makiri_s_2[passive].hp_recovery_per_sec_by_max_hp_ratio' },
 };
+// 顶层自回键误触排除:技能 bb 的顶层 hp_recovery_* 实为召唤物/其他单位的效果,非持有者本体自回 → 跳过技能自回建模
+// (夜半 S1「半醒」hp_recovery_per_sec_by_max_hp_ratio 0.14 是眠兽休眠回血,本体只回费)
+const SKILL_REGEN_IGNORE = {
+  'char_476_blkngt': [0],
+};
 
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
 // 技能期每击按法术结算(吃敌方法抗),常态普攻仍为物理。
@@ -723,6 +728,11 @@ const NORMAL_ATK_SKILLS = {
   // ---- 策士(counsellor) ----
   'char_1045_svash2': [0],  // 凛御银灰 S1 周旋的谋略:立即回费+减费+屏障,纯部署区支援无输出
   'char_4199_makiri': [0],  // 松桐 S1 入场安排:立即回 10 费+待部署区最右干员-4 费,纯回费无输出
+  // ---- 战术家(tactician) 召唤物强化/纯回费技能(本体无输出增益→归常态;召唤物侧效果见持有者技能建模与说明) ----
+  'char_427_vigil': [0, 1],  // 伺夜 S1 领袖的呼唤:回 7 费+增加狼影;S2 领袖的馈赠:回 2 费+狼群下次攻击强化(vigil_wolf_s_2)
+  'char_4228_closur': [0],   // 可露希尔 S1 紧急支援:回费+护盾(shield_cnt 承伤不计)
+  'char_452_bstalk': [0, 1], // 豆苗 S1 磐蟹部署指令:回 8 费;S2 定向指令:磐蟹防御强化(attack@def 0.7,本体无输出增益)
+  'char_476_blkngt': [0, 1], // 夜半 S1 半醒:回费+眠兽休眠回血(bb 的 hp_recovery 是眠兽的,本体无输出);S2 安眠:沉睡+回费(控制无本体伤害)
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -948,9 +958,10 @@ function calculateOperator(op, slotData) {
   };
 
   let result;
-  // 召唤物路由:带独立技能(非 skcom_ 通用被动)的召唤物按技能语义走伤害/治疗计算
-  // (如凯尔希·Mon3tr 攻击型召唤物,技能由持有者注入);无独立技能的召唤物(如医疗探机)走治疗型 calcSummonHeal。
-  const hasRealSkills = (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_'));
+  // 召唤物路由:带独立技能(非 skcom_ 通用被动、非 sktok_ 召唤物原生占位)的召唤物按技能语义走伤害/治疗计算
+  // (如凯尔希·Mon3tr 攻击型召唤物,技能由持有者注入 skchr_);仅占位技能(战术家狼群/眠兽/流形/模様三号等 sktok_,
+  // 与医疗探机 skcom_)的召唤物无独立技能期 → 攻击型走常态普攻、非攻击型走 calcSummonHeal。
+  const hasRealSkills = (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'));
   // 守护者治疗技能识别:治疗模式型(bb 带 base_attack_time,普攻转治疗)、
   // 急救族 AUTO(heal_scale + AUTO 充能触发治疗)与特殊模式(塞雷娅S3 钙质化每秒HOT attack@heal_scale;
   // 瑕光S1 双通道 atk_scale+heal_scale AUTO / S2 沉睡 attack@atk_to_hp_recovery_ratio / S3 物法双伤 attack@blemsh_s_3...;
@@ -1002,8 +1013,10 @@ function calculateOperator(op, slotData) {
       dmgTypes: { true: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (isSummon && !hasRealSkills) {
-    if (op.id === 'token_10069_mcnist_mcgraf') {
-      // 机械师·结构性原理：攻击型附带单位无技能（冲锋由持有者 S3 触发已计入本体）→ 常态物理普攻
+    // 攻击型召唤物无独立技能(机械师·结构性原理、战术家狼群/眠兽/流形/模様三号/牙猎犬等,冲锋等行为由持有者技能触发已计入本体查询)
+    // → 常态物理普攻;非攻击型(atk 基础 0:医疗探机/幻影/指挥中心等)走治疗型/空视图 calcSummonHeal。
+    const summonBaseAtk = (phase.atk && phase.atk[phase.atk.length - 1]) || 0;
+    if (summonBaseAtk > 0) {
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
       const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
       result = {
@@ -1566,8 +1579,9 @@ function calculateOperator(op, slotData) {
   const skillRecoverRatio = calcTalentSkillRecoverRatio(op, slotData);
   // 自回键别名:数据把每秒回血比例放前缀键(松桐 S2 makiri_s_2[passive].hp_recovery_per_sec_by_max_hp_ratio),取到即生效
   const hpRecKey = (SKILL_HP_RECOVERY_KEY_OVERRIDES[op.id] || {})[skillIndex];
-  const hpRecByMaxHp = hpRecKey ? levelData[hpRecKey] : levelData.hp_recovery_per_sec_by_max_hp_ratio;
-  const hasSkillRegen = levelData.hp_recovery_per_sec !== undefined || hpRecByMaxHp !== undefined;
+  const regenIgnored = (SKILL_REGEN_IGNORE[op.id] || []).includes(skillIndex);
+  const hpRecByMaxHp = regenIgnored ? undefined : (hpRecKey ? levelData[hpRecKey] : levelData.hp_recovery_per_sec_by_max_hp_ratio);
+  const hasSkillRegen = !regenIgnored && (levelData.hp_recovery_per_sec !== undefined || hpRecByMaxHp !== undefined);
   if (!isMedic && !isSummon && (hasSkillRegen || skillRecoverRatio > 0)) {
     const perSec = (levelData.hp_recovery_per_sec ?? 0) + panelHp * ((hpRecByMaxHp ?? 0) + skillRecoverRatio);
     const dur = skillDuration > 0 ? skillDuration : (levelData.duration > 0 ? levelData.duration : 0);

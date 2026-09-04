@@ -265,7 +265,7 @@ async function renderSlot(index) {
   // 召唤物若只有 skcom_ 通用被动如医疗探机则不显示（凯尔希·Mon3tr 这类带注入技能的攻击型召唤物正常显示 1/2/3 技能）
   const isTokenOp = op.profession === 'TOKEN';
   const hasSelectableSkills = isTokenOp
-    ? op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_'))
+    ? op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'))
     : (op.skills || []).length > 0;
   if (hasSelectableSkills) {
     html += '<div class="form-group"><label>技能</label>';
@@ -384,7 +384,7 @@ async function updateResults() {
     const equipped = op.skills[slotData.skillIndex || 0];
     const equippedLv = (equipped && equipped.levels) ? (equipped.levels[slotData.skillLevel || 0] || equipped.levels[equipped.levels.length - 1] || {}) : {};
     const hasSkill = !!equipped && !!equipped.skillId
-      && !(op.profession === 'TOKEN' && String(equipped.skillId).startsWith('skcom_'))
+      && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')))
       && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0));
     const dmgCls = dmgClass(result.damageType);
 
