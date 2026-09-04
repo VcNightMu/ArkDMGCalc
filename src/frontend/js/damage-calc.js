@@ -30,6 +30,7 @@ const TALENT_ATK_DRIVERS = {
   'char_4039_horn': 0,     // 号角「军事要塞」:在场所有重装干员攻击力+20%(自身为重装必得,同炎息先例)
   'char_431_ashlok': 0,    // 灰毫「炮术研习」:攻击力+8%(周身四格地面改+16% 条件版不计,取无条件档)
   'char_493_firwhl': 0,    // 火哨「进退自如」:未阻挡敌人时攻击力+12%(默认远程轰击位未阻挡;阻挡时 def+12% 承伤向不计)
+  'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击力+8/11%(精1)→+13/16%(精2 潜4);同天赋攻速在 TALENT_SPD_DRIVERS,弱点伤害另设开关
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -243,8 +244,14 @@ const TALENT_SPD_DRIVERS = {
   'char_147_shining': 1,  // 闪灵「法典」:精二起 攻速+10,潜能3 起 +13
   'char_108_silent': 0,// 赫默「医疗支援」:在场全体医疗攻速+6/8(精一),+12/14(精二);自身必得
   'char_103_angel': 0,    // 能天使「快速弹匣」:精一 Lv1 起攻速+6 自身常驻
-  'char_4179_monstr': 1   // Mon3tr「战术协同」:自身/重构体造成治疗时攻速+10~22 持续10s无法叠加;
+  'char_4179_monstr': 1,  // Mon3tr「战术协同」:自身/重构体造成治疗时攻速+10~22 持续10s无法叠加;
                           // 自身每 2.85s 治疗一次持续刷新 → 等效常驻(重构体默认不放不影响自身触发)
+  'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击速度+8/11(精1)→+13/16(精2 潜4),同源天赋 atk 在 TALENT_ATK_DRIVERS
+};
+// 弱点伤害开关:天赋将造成的物理/法术伤害变为弱点伤害(物理/法伤各结算一次取高者,类型随赢家)。
+// 解锁条件与 TALENT_ATK_DRIVERS 同(精1 起),故用 calcTalentAtkBonus > 0 判定。
+const WEAKNESS_DAMAGE = {
+  'char_1050_chen3': true,  // 赤刃明霄陈「形意洞照」:精1 起攻击变为弱点伤害;精0 无此天赋 → 全法术
 };
 
 // 查驱动表,返回常驻攻速天赋的攻速加算值(0 表示无此天赋或未解锁)。
@@ -441,6 +448,7 @@ const PERIODIC_DOT = {
 const MULTI_HIT = {
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
+  'char_1050_chen3': { 0: 2 },     // 赤刃明霄陈 S1 奔夜:攻击变为二连击(每击=技能期攻击力全额弱点,乘 2 连)
 };
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
@@ -616,15 +624,21 @@ function calculateOperator(op, slotData) {
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
+    // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
+    const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
+    const normalDpsRaw = isWeaknessOn
+      ? Math.max(calcPhysicalDamage(panelAtk, state.enemy.def), calcArtsDamage(panelAtk, state.enemy.res))
+      : (isArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def));
     // 本源铁卫 no-skill：天赋损伤源常驻（珊比每击侵蚀/余每秒灼燃+法伤/响石每秒神经），常态三档展示
     if (op.profession === 'TANK' && op.subProfessionId === 'primprotector' && primNormalFields) {
       const norm = primNormalFields(op, slotData, panelAtk, state.enemy);
       const isMed = op.id === 'char_2026_yu' && norm.normalTypes.arts; // 余常态含每秒法伤
       return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
     }
-    const normalDps = isArts ? calcArtsDamage(panelAtk, state.enemy.res) / realInterval : calcPhysicalDamage(panelAtk, state.enemy.def) / realInterval;
+    const normalDps = normalDpsRaw / realInterval;
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isArts ? 'arts' : 'physical', normalDamageType: isArts ? 'arts' : 'physical' };
+    const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, state.enemy.def) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -697,6 +711,8 @@ function calculateOperator(op, slotData) {
   // 驭法铁卫特性:技能开启时普通攻击变为法术伤害(常态仍物理);技能期=有持续时间/常驻的技能
   const artsProtectorSkill = op.subProfessionId === 'artsprotector' && (skillDuration > 0 || isPermanent) && skillDuration !== 0;
   const isArts = op.damageType === 'arts' || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex)) || artsProtectorSkill;
+  // 弱点伤害:赤刃明霄陈「形意洞照」精1+ 所有物理/法术伤害逐击取物法更高(精0 无天赋全法术)
+  const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
   // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
   const hitMul = ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
     ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1);
@@ -716,7 +732,8 @@ function calculateOperator(op, slotData) {
     healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率(天赋 × 模组天赋强化,如瑰盐/夜莺X模组)
     talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
-    sleepAtkMul: calcSleepAtkMul(op, slotData)  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
+    sleepAtkMul: calcSleepAtkMul(op, slotData),  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
+    isWeakness: isWeaknessOn  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
   };
 
   let result;
@@ -975,6 +992,72 @@ function calculateOperator(op, slotData) {
         arts: { skillDps: 0, skillTotalDamage: triggerHit, cycleDps: triggerHit / cycleTime },
       },
     };
+  } else if (op.id === 'char_1050_chen3' && skillIndex === 1) {
+    // 赤刃明霄陈 S2 绝影-驰(手动 6s):开启瞬发 10 次斩击(每次面板攻击力×4.8 弱点,不吃 +300%),
+    // 默认打不死不转移;斩击结束移动后 +300% 攻击(×4)持续 6 秒,期间普攻照常(弱点)。
+    // 技能期总伤 = 10 斩 + 6s 加攻普攻;技能期时长口径 = 斩击演出 + 6s,斩击耗时无数据源
+    // → 按引擎惯例 skillDuration=6 折算 DPS(用户口径:斩击耗时不计入分母,但完整技能时间>6s,
+    //   此处 DPS 用总伤/6 近似会高估,故改用 cycleDps=null + skillTotalDamage 精确、skillDps 按总伤/6 仅供量级参考)
+    const weakHit2 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, state.enemy.def), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
+    const weakType2 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, state.enemy.def) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
+    const slashScale = levelData.atk_scale ?? 4.8;      // 斩击倍率(逐级取档 3.5→4.8)
+    const slashAtk = panelAtk * slashScale;             // 斩击:面板×倍率(技能无顶层 atk 加成)
+    const slashTotal = weakHit2(slashAtk) * 10;         // 10 斩
+    // 斩击后 +300%:respawn_buff.atk 乘算加数(逐级 2→3,×3~4),持续 6s(移动后状态),期间普攻间隔=面板攻速后间隔
+    const buffMul = (levelData['chen3_s2[respawn_buff].atk'] ?? 3) + 1;
+    const buffAtk = panelAtk * buffMul;
+    const buffHits = Math.floor(6 / skillRealInterval); // 6s 内普攻次数(向下取整)
+    const buffTotal = weakHit2(buffAtk) * buffHits;
+    const total = slashTotal + buffTotal;
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    // 弱点类型按主要贡献段(斩击)标;混合段类型拆分放 dmgTypes
+    const slashType = weakType2(slashAtk);
+    const buffType = weakType2(buffAtk);
+    result = {
+      skillDps: 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: slashType, normalDamageType: null, realInterval: interval,
+      dmgTypes: {
+        [slashType]: { skillDps: 0, skillTotalDamage: slashTotal, cycleDps: null },
+        [buffType]: { skillDps: 0, skillTotalDamage: buffTotal, cycleDps: null },
+      },
+    };
+    // 同类型合并展示(若斩击与加攻普攻同为物理/法伤,合并成单档)
+    if (slashType === buffType) {
+      result.dmgTypes = { [slashType]: { skillDps: 0, skillTotalDamage: total, cycleDps: null } };
+    }
+  } else if (op.id === 'char_1050_chen3' && skillIndex === 2) {
+    // 赤刃明霄陈 S3 天喟(手动 20s):开启释放剑气一次(对穿过的敌人造成当前生命 6% 法伤,
+    // 至少面板×projectile_min_atk_scale;剑气飞行无法控制 → 单目标默认只结算 1 次;6% 按敌人当前生命默认满血取 hp)。
+    // 技能期普攻:每次攻击对最多 4 名地面敌人造成 3 次面板×attack@atk_scale 伤害(前缀键
+    // → 单目标 = 每次攻击 3 连击×倍率弱点,攻击次数=floor(20/间隔) 向下取整)。
+    const weakHit3 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, state.enemy.def), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
+    const weakType3 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, state.enemy.def) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
+    const enemyHp = (state.enemy && state.enemy.hp) || 50000;
+    const swordScale = levelData.projectile_min_atk_scale ?? 5.8;  // 剑气保底倍率(逐级取档)
+    const atkScale3 = levelData['attack@atk_scale'] ?? 2.1;        // 普攻每击倍率(逐级取档)
+    const swordAtk = Math.max(enemyHp * 0.06, panelAtk * swordScale);  // 剑气当量(6% 当前生命 vs 保底倍率,取高)
+    const swordHit = weakHit3(swordAtk);                            // 剑气 1 次(弱点取优)
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const attacks = Math.floor(20 / interval);                      // 20s 内攻击次数(向下取整)
+    const perAtk = weakHit3(panelAtk * atkScale3) * 3;              // 每次攻击=3 连击×每击倍率
+    const atkTotal = perAtk * attacks;
+    const total = swordHit + atkTotal;
+    const swordType = weakType3(swordAtk);
+    const atkType = weakType3(panelAtk * 2.1);
+    const skillDps = total / 20;
+    result = {
+      skillDps, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: swordType, normalDamageType: null, realInterval: interval,
+      dmgTypes: {
+        [swordType]: { skillDps: swordHit / 20, skillTotalDamage: swordHit, cycleDps: null },
+        [atkType]: { skillDps: atkTotal / 20, skillTotalDamage: atkTotal, cycleDps: null },
+      },
+    };
+    if (swordType === atkType) {
+      result.dmgTypes = { [swordType]: { skillDps, skillTotalDamage: total, cycleDps: null } };
+    }
   } else if ((SKIP_SKILLS[op.id] || {})[skillIndex]) {
     // 技能不计算(斩业星熊 S2 无始无明:投盾系伤害不建模型)→ 技能期无增益,常态普攻照常展示
     const nI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
