@@ -3,6 +3,12 @@ import { getPopularOperators, getOperatorData, getProfessionCN, getSubProfession
 import { state } from './state.js';
 import { calculateOperator, calcPanelStats } from './damage-calc.js';
 
+// 形态技能位白名单:战术家召唤物 sktok_ 占位技能中带引擎形态结果的技能位(持有者技能激活态输出),
+// UI 需显示技能选择与技能期(与 damage-calc.js 的 SUMMON_FORM_MODES 同步:眠兽 S2=夜半安眠期沉睡群攻法伤×1.7)
+const TOKEN_FORM_SKILLS = {
+  'token_10021_blkngt_hypnos': { 1: true },  // 眠兽 S2(食梦·安眠):5s 内普攻变群攻法伤,攻击沉睡目标×1.7
+};
+
 function isModuleUnlocked(op, slotData) {
   const m = slotData.module;
   if (!m) return true; // 无模组恒可用
@@ -97,7 +103,7 @@ function initOperatorSlots() {
 
 async function showOperatorPicker(slotIndex) {
   const operators = await getPopularOperators();
-  const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
+const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
 
   // 按 主职业 → 子职业 分组（只包含有数据的子职业）
   const profGroups = {};
@@ -265,7 +271,7 @@ async function renderSlot(index) {
   // 召唤物若只有 skcom_ 通用被动如医疗探机则不显示（凯尔希·Mon3tr 这类带注入技能的攻击型召唤物正常显示 1/2/3 技能）
   const isTokenOp = op.profession === 'TOKEN';
   const hasSelectableSkills = isTokenOp
-    ? op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'))
+    ? op.skills.some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_')) || (TOKEN_FORM_SKILLS[op.id] && op.skills.length > 0)
     : (op.skills || []).length > 0;
   if (hasSelectableSkills) {
     html += '<div class="form-group"><label>技能</label>';
@@ -384,8 +390,8 @@ async function updateResults() {
     const equipped = op.skills[slotData.skillIndex || 0];
     const equippedLv = (equipped && equipped.levels) ? (equipped.levels[slotData.skillLevel || 0] || equipped.levels[equipped.levels.length - 1] || {}) : {};
     const hasSkill = !!equipped && !!equipped.skillId
-      && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')))
-      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0));
+      && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0])
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]);
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;

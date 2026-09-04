@@ -964,6 +964,31 @@ function calculateOperator(op, slotData) {
   };
 
   let result;
+  // 战术家召唤物形态模式表:技能位 = 持有者技能激活期间召唤物输出的形态变化(用户口径,数值=M1 显示档)。
+  // 仅收录基值为召唤物自身面板的效果;基值为持有者面板的联动(狼群S3附加/樱桃三号自爆,伤害源=干员)建模在持有者本体查询。
+  // mode: arts-sleep 眠兽S2安眠——5s 沉睡窗口内普攻变群体法伤,攻击沉睡目标攻击力×mul(M1 1.7)
+  const SUMMON_FORM_MODES = {
+    'token_10021_blkngt_hypnos': { 1: { mode: 'arts-sleep', mul: 1.7, dur: 5 } },
+  };
+  function calcSummonFormMode(op, skillIndex, panelAtk, phase) {
+    const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
+    if (!cfg) return null;
+    if (cfg.mode === 'arts-sleep') {
+      const interval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
+      const hits = Math.max(1, Math.floor(cfg.dur / interval));  // 5s/1.25 = 4 击
+      const perHit = calcArtsDamage(panelAtk * cfg.mul, state.enemy.res);  // 群体法术,单目标模型 1 目标
+      const total = perHit * hits;
+      return {
+        type: 'damage', skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null,
+        normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
+        damageType: 'arts', normalDamageType: 'physical',
+        dmgTypes: { arts: { skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null } },
+      };
+    }
+    return null;
+  }
+
   // 召唤物路由:带独立技能(非 skcom_ 通用被动、非 sktok_ 召唤物原生占位)的召唤物按技能语义走伤害/治疗计算
   // (如凯尔希·Mon3tr 攻击型召唤物,技能由持有者注入 skchr_);仅占位技能(战术家狼群/眠兽/流形/模様三号等 sktok_,
   // 与医疗探机 skcom_)的召唤物无独立技能期 → 攻击型走常态普攻、非攻击型走 calcSummonHeal。
@@ -1019,10 +1044,17 @@ function calculateOperator(op, slotData) {
       dmgTypes: { true: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (isSummon && !hasRealSkills) {
+    // 战术家召唤物形态技能:技能位 = 持有者技能激活态对召唤物的输出影响(基值为召唤物自身面板,数值引用见 SUMMON_FORM_MODES)
+    const summonForm = calcSummonFormMode(op, skillIndex, panelAtk, phase);
+    if (summonForm) {
+      result = summonForm;
+    } else {
     // 攻击型召唤物无独立技能(机械师·结构性原理、战术家狼群/眠兽/流形/模様三号/牙猎犬等,冲锋等行为由持有者技能触发已计入本体查询)
-    // → 常态物理普攻;非攻击型(atk 基础 0:医疗探机/幻影/指挥中心等)走治疗型/空视图 calcSummonHeal。
+    // → 常态物理普攻;非攻击型(治疗型召唤物与 atk 基础 0 单位:医疗探机/幻影/指挥中心等)走治疗型/空视图 calcSummonHeal。
+    // 注意医疗探机的 phases.atk 是治疗力(125>0),须显式按治疗型处理
+    const HEAL_SUMMONS = ['token_10000_silent_healrb', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd'];
     const summonBaseAtk = (phase.atk && phase.atk[phase.atk.length - 1]) || 0;
-    if (summonBaseAtk > 0) {
+    if (!HEAL_SUMMONS.includes(op.id) && summonBaseAtk > 0) {
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
       const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
       result = {
@@ -1033,6 +1065,7 @@ function calculateOperator(op, slotData) {
       };
     } else {
       result = calcSummonHeal(params);
+    }
     }
   } else if (isMedic) {
     result = calcMedical(params);
