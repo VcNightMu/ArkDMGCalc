@@ -7,24 +7,26 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0 } = params;
 
   const isTrue = levelData.trueDamage === true;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
+  // 固定法抗穿透（史尔特尔「熔火」无视 12~22 法抗）：法术结算用有效法抗
+  const effRes = Math.max(0, (enemy?.res ?? 0) - resPen);
 
   // 弱点伤害(赤刃明霄陈「形意洞照」):物理/法术各按目标防御/法抗结算一次,取伤害更高者,
   // 类型按实际赢家。注意 atk-def 与 atk×(100-res)/100 在攻击力跨阈值时会翻转(def600/res50 时 atk=1200 两式相等)。
   const weakPhys = (atk) => calcPhysicalDamage(atk, enemy.def);
-  const weakArts = (atk) => calcArtsDamage(atk, enemy.res);
+  const weakArts = (atk) => calcArtsDamage(atk, effRes);
   const weakHit = (atk) => Math.max(weakPhys(atk), weakArts(atk));
   const weakType = (atk) => (weakPhys(atk) >= weakArts(atk) ? 'physical' : 'arts');
 
   // 技能期单次命中伤害：真实伤害无减免(凯尔希·Mon3tr 3技能)；弱点伤害逐击取物法更高。
   // hitMul：技能期每击伤害乘子(暮落 S2 六连发 attack@atk_scale×attack@times；斩业星熊 S3 二连击 MULTI_HIT)。
   // talentDmgMul：常驻伤害乘区(勇冠三军等),物理/法术/真伤一律乘。
-  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, enemy.res) : calcPhysicalDamage(atk, enemy.def))); return h * hitMul * talentDmgMul; };
+  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, enemy.def))); return h * hitMul * talentDmgMul; };
   // 常态普攻类型由职业决定(normalTypeArts=op.damageType==='arts')；弱点常态同样逐击取优
-  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, enemy.res) : calcPhysicalDamage(panelAtk, enemy.def))) * talentDmgMul;
+  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, enemy.def))) * talentDmgMul;
   const singleHitDamage = skillHitDamage(skillAtk);
   // 弱点技能期伤害类型:按技能期攻击力实际赢家(攻击力恒定时逐击同型;衰减技能逐击翻转罕见,取首击口径)
   const skillDmgType = isTrue ? 'true' : (isWeakness ? weakType(skillAtk) : (isArts ? 'arts' : 'physical'));

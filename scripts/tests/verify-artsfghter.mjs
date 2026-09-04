@@ -1,10 +1,13 @@
-// 赤霄陈三技能引擎验证（弱点伤害）
+// 术战者(artsfighter)引擎验证:赤霄陈弱点 + 史尔特尔熔火/S2对单 + 薇薇安娜燃烛/明灭 + 维娜混伤/真伤 + 星极叠层
 import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const op = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/WARRIOR/artsfghter/char_1050_chen3.json', 'utf8'));
-const mk = (si, sl, elite = 2, pot = 0) => ({ elite, level: op.phases[elite].maxLevel, trustPercent: 100, potentialRank: pot, skillIndex: si, skillLevel: sl });
+const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/WARRIOR/artsfghter/';
+const load = n => JSON.parse(fs.readFileSync(B + n + '.json', 'utf8'));
+const op = load('char_1050_chen3');
+const mkFor = (o, si, sl, elite = 2, pot = 0) => ({ elite, level: o.phases[elite].maxLevel, trustPercent: 100, potentialRank: pot, skillIndex: si, skillLevel: sl });
+const mk = (si, sl, elite = 2, pot = 0) => mkFor(op, si, sl, elite, pot);
 const phys = (atk) => Math.max(atk - 600, atk * 0.05);
 const arts = (atk) => Math.max(atk * 0.5, atk * 0.05);
 const weak = (atk) => Math.max(phys(atk), arts(atk));
@@ -94,6 +97,72 @@ check('低防敌人常态弱点类型=physical', noneLowDef.normalDamageType, 'p
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
 const s1Back = calculateOperator(op, mk(0, 7));
 check('恢复默认敌人 S1 仍=physical', s1Back.damageType, 'physical');
+
+// ===== 史尔特尔(char_350_surtr):熔火穿透 + S2 对单 critical =====
+const surtr = load('char_350_surtr');
+const surtrRaw = surtr.phases[2].atk[1] + surtr.trustBonus.atk;   // 672+100=772,熔火精2 pot0=20 → 有效法抗 50-20=30
+const arts30 = (atk) => atk * 0.7;  // 熔火穿透后有效法抗30 → 法伤×(100-30)/100
+const sNone = calculateOperator(surtr, mkFor(surtr, -1, 7));
+// 常态法伤 = arts30(772)=540.4,间隔 1.25 → 432.32
+check('史尔特尔常态DPS含熔火穿透(法伤 res30)', sNone.normalDps, arts30(772) / 1.25, 0.01);
+check('史尔特尔常态伤害类型=arts', sNone.damageType, 'arts');
+// S1 烈焰魔剑:攻回 AUTO sp3 下次攻击 atk_scale 2.6(专一)→触发单发 arts30(772×2.6)
+const surtrS1 = calculateOperator(surtr, mkFor(surtr, 0, 7));
+const surtrS1Hit = arts30(772 * 2.6);
+// cycleDps:3 击充能+1 触发=(3×常态 + 触发)/4击时间
+const s1Int = 1.25;
+check('史尔特尔S1 触发单发=2.6×atk法伤', surtrS1.skillTotalDamage, surtrS1Hit, 0.01);
+check('史尔特尔S1 cycleDPS 口径', surtrS1.cycleDps, (3 * arts30(772) + surtrS1Hit) / (4 * s1Int), 0.01);
+// S2 熔核巨影:atk+90%(专一)×critical 1.5, dur17, 间隔1.25 → 13击
+const surtrS2 = calculateOperator(surtr, mkFor(surtr, 1, 7));
+const surtrS2Atk = 772 * (1 + 0.9) * 1.5;  // 用户口径:atk 加成与 critical 相乘
+const surtrS2Hit = arts30(surtrS2Atk);
+check('史尔特尔S2 每击=atk加成×critical×法伤', surtrS2.skillTotalDamage / Math.floor(17 / 1.25), surtrS2Hit, 1);
+check('史尔特尔S2 技能期总伤', surtrS2.skillTotalDamage, surtrS2Hit * Math.floor(17 / 1.25), 1);
+// S3 黄昏:永续 isPermanent, atk+270%(专一),间隔1.25 → skillDps=arts30(772×3.7)/1.25
+const surtrS3 = calculateOperator(surtr, mkFor(surtr, 2, 7));
+check('史尔特尔S3 永续DPS', surtrS3.skillDps, arts30(772 * 3.7) / 1.25, 1);
+check('史尔特尔S3 damageType=arts', surtrS3.damageType, 'arts');
+
+// ===== 薇薇安娜(char_4098_vvana):燃烛施明按敌人类型 + 明灭间隔 =====
+const vv = load('char_4098_vvana');
+const vvRaw = vv.phases[2].atk[1] + vv.trustBonus.atk;  // 646+100=746
+// 普通敌人:法伤×1.08(E2 pot0 燃烛 damage_scale_m 0.08);精英/领袖 ×1.16
+const vvNone = calculateOperator(vv, mkFor(vv, -1, 7));
+check('薇薇安娜常态DPS 普通敌×1.08', vvNone.normalDps, arts(746) * 1.08 / 1.25, 0.01);
+state.enemy.grade = 'elite';
+const vvNoneElite = calculateOperator(vv, mkFor(vv, -1, 7));
+check('薇薇安娜常态DPS 精英敌×1.16', vvNoneElite.normalDps, arts(746) * 1.16 / 1.25, 0.01);
+state.enemy.grade = 'normal';
+// S3 明灭:间隔 1.25+0.5=1.75,二连击×2, atk+85%(专一), dur15 → 8次×2连
+const vv3 = calculateOperator(vv, mkFor(vv, 2, 7));
+check('薇薇安娜S3 间隔1.75s', vv3.realInterval, 1.75, 0.01);
+const vv3Atk = 746 * 1.85 * 1.08;  // atk 加攻 × 燃烛法伤乘区
+check('薇薇安娜S3 二连击总伤(2连×8次)', vv3.skillTotalDamage, arts(vv3Atk) * 2 * Math.floor(15 / 1.75), 1);
+
+// ===== 维娜·维多利亚(char_1019_siege2):S1 附加真伤 / S3 转真伤 =====
+const sg = load('char_1019_siege2');
+const sgRaw = sg.phases[2].atk[1] + sg.trustBonus.atk;  // 675+70=745
+// 天赋1 诸王的叹息:atk+5% 需范围内友方单位(单目标默认无 → 不计,同条件天赋先例)
+const sgNone = calculateOperator(sg, mkFor(sg, -1, 7));
+check('维娜常态DPS(天赋不计)', sgNone.normalDps, arts(745) / 1.25, 0.01);
+// S1: AUTO sp5 触发=普攻法伤+1.4×atk真伤(专一);cycle=(充能4普攻+触发普攻+真伤)/5s
+const sg1 = calculateOperator(sg, mkFor(sg, 0, 7));
+const sg1Arts = arts(745), sg1True = 745 * 1.4;
+check('维娜S1 触发法伤=普攻', sg1.dmgTypes.arts.skillTotalDamage, sg1Arts);
+check('维娜S1 触发真伤=1.4×atk', sg1.dmgTypes.true.skillTotalDamage, sg1True);
+check('维娜S1 cycleDPS', sg1.cycleDps, ((Math.floor(5 / 1.25) + 1) * sg1Arts + sg1True) / 5, 0.01);
+// S3: dur25 atk+170%(专一) 间隔 1.25-0.25=1.0 → 真伤 25击
+const sg3 = calculateOperator(sg, mkFor(sg, 2, 7));
+check('维娜S3 间隔1.0s', sg3.realInterval, 1.0, 0.01);
+check('维娜S3 damageType=true', sg3.damageType, 'true');
+const sg3Hit = 745 * 2.7;
+check('维娜S3 总伤=真伤×25击', sg3.skillTotalDamage, sg3Hit * 25, 1);
+
+// ===== 星极(char_274_astesi):天体仪满层攻速(1.25×100/125=1.0) =====
+const as = load('char_274_astesi');
+const asNone = calculateOperator(as, mkFor(as, -1, 7));
+check('星极常态间隔 攻速+25→1.0s', asNone.realInterval, 1.0, 0.01);
 
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);

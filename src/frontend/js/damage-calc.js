@@ -1,5 +1,5 @@
 // ArkDMGCalc - Main Calculation Entry
-import { calcPhysicalDamage, calcArtsDamage, calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
+import { calcPhysicalDamage, calcArtsDamage, calcTrueDamage, calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
 import { SkillType } from './operators.js';
 import { state } from './state.js';
 import { calcMedical, calcSummonHeal } from './medic-calc.js';
@@ -247,7 +247,33 @@ const TALENT_SPD_DRIVERS = {
   'char_4179_monstr': 1,  // Mon3tr「战术协同」:自身/重构体造成治疗时攻速+10~22 持续10s无法叠加;
                           // 自身每 2.85s 治疗一次持续刷新 → 等效常驻(重构体默认不放不影响自身触发)
   'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击速度+8/11(精1)→+13/16(精2 潜4),同源天赋 atk 在 TALENT_ATK_DRIVERS
+  'char_274_astesi': 0,   // 星极「天体仪」:在场每20s叠1层攻速+3/5,最多5层(100s叠满)→等效常驻满层+15/25(用户口径同塞雷娅叠满先例)
 };
+
+
+// 固定法抗穿透(无视目标 X 法抗,法术伤害结算时敌人法抗直减;史尔特尔「熔火」12~22)
+const TALENT_RES_PEN_DRIVERS = {
+  'char_350_surtr': { talentIndex: 0, key: 'magic_resist_penetrate_fixed' },  // 熔火:精1 无视12/14(潜5)→精2 20/22(潜5),全法伤结算生效
+};
+// 查固定法抗穿透值(0 表示无或未解锁)
+function calcTalentResPen(op, slotData) {
+  const cfg = TALENT_RES_PEN_DRIVERS[op.id];
+  if (!cfg) return 0;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
+
 // 弱点伤害开关:天赋将造成的物理/法术伤害变为弱点伤害(物理/法伤各结算一次取高者,类型随赢家)。
 // 解锁条件与 TALENT_ATK_DRIVERS 同(精1 起),故用 calcTalentAtkBonus > 0 判定。
 const WEAKNESS_DAMAGE = {
@@ -267,7 +293,9 @@ function calcTalentAttackSpeed(op, slotData) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const aspd = cand.blackboard && typeof cand.blackboard.attack_speed === 'number' ? cand.blackboard.attack_speed : 0;
-      if (aspd > best) best = aspd;
+      // 叠层攻速天赋(星极「天体仪」每层+3/5、最多5层):按满层等效常驻(同塞雷娅 HP/DEF 叠层口径)
+      const stack = (cand.blackboard && typeof cand.blackboard.max_stack_cnt === 'number') ? cand.blackboard.max_stack_cnt : 1;
+      if (aspd * stack > best) best = aspd * stack;
     }
   }
   return best;
@@ -387,6 +415,9 @@ function calcSleepAtkMul(op, slotData) {
 // 值：干员 id → { talentIndex, key }（blackboard 中伤害倍率所在键，各干员键名不一：damage_scale/atk_scale…）
 const TALENT_DMG_MUL_DRIVERS = {
   'char_416_zumama': { talentIndex: 0, key: 'atk_scale' },  // 森蚺「勇冠三军」：hp>50% 时攻击伤害 ×1.15/1.17（默认满血必触发；≤50% 的庇护向不计）
+  // 薇薇安娜「燃烛施明」:法术伤害加成 additive(damage_scale_m 0.05~0.09),攻击范围内有精英/领袖敌人时 super_scale 翻倍
+  // (damage_resistance_pm 受击减伤为承伤向不计)——superGrades 按 state.enemy.grade 判定
+  'char_4098_vvana': { talentIndex: 0, key: 'damage_scale_m', additive: true, superKey: 'super_scale', superGrades: ['elite', 'leader'] },
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
 function calcTalentDmgMul(op, slotData) {
@@ -400,8 +431,14 @@ function calcTalentDmgMul(op, slotData) {
   for (const cand of talent.candidates) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
-      if (v > 0 && (mul === null || v > mul)) mul = v;
+      const bb = cand.blackboard || {};
+      let v = typeof bb[cfg.key] === 'number' ? bb[cfg.key] : 0;
+      // 条件翻倍:薇薇安娜攻击范围内存在精英/领袖敌人时法伤加成 ×super_scale
+      if (v > 0 && cfg.superKey && typeof bb[cfg.superKey] === 'number' && (cfg.superGrades || []).includes(state.enemy?.grade)) {
+        v = v * bb[cfg.superKey];
+      }
+      const use = cfg.additive ? (1 + v) : v;  // additive:键值是加成比例(0.05→×1.05);否则键值即完整乘子
+      if (mul === null || use > mul) mul = use;
     }
   }
   return mul === null ? 1 : mul;
@@ -417,6 +454,7 @@ const BAT_ADD_OVERRIDES = {
   'char_422_aurora': { 1: true },  // 极光 S2 人工降雪:攻击间隔略微增大(1.6+0.25=1.85s)
   'char_1034_jesca2': { 2: true }, // 涤火杰西卡 S3 饱和迸射:攻击间隔增大(1.2+0.6=1.8s)
   'char_107_liskam': { 1: true },  // 雷蛇 S2 反击电弧:攻击间隔增大(1.2+0.7=1.9s)
+  'char_4098_vvana': { 2: true },  // 薇薇安娜 S3 明灭:攻击间隔延长 +0.5(1.25+0.5=1.75s,PRTS 备注:攻击间隔+0.5)
 };
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
@@ -449,6 +487,11 @@ const MULTI_HIT = {
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
   'char_1050_chen3': { 0: 2 },     // 赤刃明霄陈 S1 奔夜:攻击变为二连击(每击=技能期攻击力全额弱点,乘 2 连)
+  'char_4098_vvana': { 0: 2, 2: 2 }, // 薇薇安娜 S1 光影迅捷剑:下次攻击连击两次(每击 atk_scale×atk);S3 明灭:攻击变为二连击(单目标 2 连全中)
+};
+// 仅攻击到一个敌人时的伤害倍率(单目标模型恒成立;读 attack@xxx[critical] 键,与 atk 加成相乘)
+const SINGLE_CRIT_MUL = {
+  'char_350_surtr': { 1: true },   // 史尔特尔 S2 熔核巨影:仅攻击到一个敌人时攻击力提升至 1.4~1.6
 };
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
@@ -603,6 +646,9 @@ function calculateOperator(op, slotData) {
   // ======== Skill Modifiers ========
   const skill = passiveLv ? null : equippedSkill;   // PASSIVE 无技能期:走 no-skill 路径(面板已含被动加成)
   const isMedic = op.profession === 'MEDIC';
+  // 固定法抗穿透(史尔特尔「熔火」):常态与技能期法伤结算统一吃有效法抗
+  const resPen = calcTalentResPen(op, slotData);
+  const effRes = Math.max(0, (state.enemy.res || 0) - resPen);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed;
   const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
@@ -627,8 +673,8 @@ function calculateOperator(op, slotData) {
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
     const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
     const normalDpsRaw = isWeaknessOn
-      ? Math.max(calcPhysicalDamage(panelAtk, state.enemy.def), calcArtsDamage(panelAtk, state.enemy.res))
-      : (isArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def));
+      ? Math.max(calcPhysicalDamage(panelAtk, state.enemy.def), calcArtsDamage(panelAtk, effRes))
+      : (isArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, state.enemy.def));
     // 本源铁卫 no-skill：天赋损伤源常驻（珊比每击侵蚀/余每秒灼燃+法伤/响石每秒神经），常态三档展示
     if (op.profession === 'TANK' && op.subProfessionId === 'primprotector' && primNormalFields) {
       const norm = primNormalFields(op, slotData, panelAtk, state.enemy);
@@ -715,7 +761,8 @@ function calculateOperator(op, slotData) {
   const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
   // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
   const hitMul = ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
-    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1);
+    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1)
+    * (((SINGLE_CRIT_MUL[op.id] || {})[skillIndex] && levelData['attack@surtr_s_2[critical].atk_scale']) || 1);
   const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;
   // 法脆必触发增伤:芙蓉常驻(×damage_scale);焰苇S3 灼痕 100% 触发(talent@prob=1)再乘灼痕档
   const fragileBase = calcMagicFragileMul(op, slotData);
@@ -733,6 +780,7 @@ function calculateOperator(op, slotData) {
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率(天赋 × 模组天赋强化,如瑰盐/夜莺X模组)
     talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
     sleepAtkMul: calcSleepAtkMul(op, slotData),  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
+    resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
     isWeakness: isWeaknessOn  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
   };
 
@@ -754,7 +802,43 @@ function calculateOperator(op, slotData) {
     levelData.tick_heal_scale !== undefined ||
     (levelData.heal_scale !== undefined && (levelData.skillType === 'AUTO' || levelData.atk_scale !== undefined))
   );
-  if (isSummon && !hasRealSkills) {
+  // ===== 术战者(artsfighter)特殊拦截:置于通用分支链最前,命中即结算 =====
+  // 维娜·维多利亚 S1(AUTO 自然回 sp5):下次攻击对四周地面敌人额外造成 atk_scale×atk 真伤 + 普攻法伤照常
+  // (斥罪 S1 同构但附加为真伤;普攻为术战者法伤),cycleDps 按自然回充能折算。
+  if (op.id === 'char_1019_siege2' && skillIndex === 0) {
+    const trigArts = calcArtsDamage(panelAtk, effRes);                                  // 触发当次普攻法伤
+    const trigTrue = calcTrueDamage(panelAtk * (levelData.atk_scale ?? 1));              // 附加真伤(atk_scale 逐级)
+    const spCost = levelData.spCost > 0 ? levelData.spCost : 1;
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeAttacks = Math.floor(spCost / interval);                                 // 充能期普攻数(自然回)
+    const cycleTime = spCost;
+    const artsCycle = ((chargeAttacks + 1) * trigArts);                                  // 法伤:充能普攻+触发当次
+    const trueCycle = trigTrue;
+    const normDps = trigArts / interval;
+    result = {
+      skillDps: 0, skillTotalDamage: trigArts + trigTrue,
+      cycleDps: cycleTime > 0 ? (artsCycle + trueCycle) / cycleTime : 0,
+      normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: interval,
+      dmgTypes: {
+        arts: { skillDps: 0, skillTotalDamage: trigArts, cycleDps: artsCycle / cycleTime },
+        true: { skillDps: 0, skillTotalDamage: trigTrue, cycleDps: trueCycle / cycleTime },
+      },
+    };
+  } else if (op.id === 'char_1019_siege2' && skillIndex === 2) {
+    // 维娜·维多利亚 S3(手动 25s):技能期伤害类型变真实(普攻转真伤),atk+X%、间隔 -0.25s(→1.0s)。
+    // (黄金盟誓召唤物已单独入库,本体只算转真伤普攻)
+    const trueHit = calcTrueDamage(panelAtk * (1 + (levelData.atk || 0)));
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const hits = Math.floor(skillDuration / interval);
+    const total = trueHit * hits;
+    result = {
+      skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'true', realInterval: interval,
+      dmgTypes: { true: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  } else if (isSummon && !hasRealSkills) {
     if (op.id === 'token_10069_mcnist_mcgraf') {
       // 机械师·结构性原理：攻击型附带单位无技能（冲锋由持有者 S3 触发已计入本体）→ 常态物理普攻
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
