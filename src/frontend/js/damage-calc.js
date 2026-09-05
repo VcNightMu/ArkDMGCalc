@@ -566,14 +566,16 @@ function getModuleLevelData(op, slotData) {
  */
 function getTalentEnhBB(op, slotData, talentIndex) {
   const talent = (op.talents || [])[talentIndex];
-  const tName = talent && talent.candidates && talent.candidates[0] && talent.candidates[0].name;
-  if (!tName) return null;
+  // 天赋名集合取全部候选(同一天赋可随精化改名:临光 t0 精1「医疗效果大提升」→精2「天马光环」,
+  // 模组增强名对应精英化后的名字,只取 candidates[0].name 会漏接)
+  const tNames = new Set((talent && talent.candidates || []).map(c => c && c.name).filter(Boolean));
+  if (tNames.size === 0) return null;
   const lv = getModuleLevelData(op, slotData);
   if (!lv || !Array.isArray(lv.talentEnhance) || lv.talentEnhance.length === 0) return null;
   const pot = slotData.potentialRank || 0;
   let bestPot = -1, best = null;
   for (const c of lv.talentEnhance) {
-    if (!c || c.name !== tName) continue;
+    if (!c || !tNames.has(c.name)) continue;
     const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
     if (cPot > pot || cPot < bestPot) continue;
     bestPot = cPot;

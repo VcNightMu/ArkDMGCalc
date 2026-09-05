@@ -57,10 +57,15 @@ const r0 = calculateOperator(shining, { ...base0, skillIndex: 1, module: null })
 const rx2 = calculateOperator(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 2 } });
 const rx3 = calculateOperator(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 3 } });
 console.log(`\n装备技能2: 无模组面板ATK=${r0.panelAtk.toFixed(1)} X L2=${rx2.panelAtk.toFixed(1)}(×1.15) X L3=${rx3.panelAtk.toFixed(1)}(×1.25)`);
-check('X模组L2+技能2 攻击×1.15', near(rx2.panelAtk, (r0.panelAtk + 55) * 1.15));
-check('X模组L3+技能2 攻击×1.25', near(rx3.panelAtk, (r0.panelAtk + 63) * 1.25));
-const rx1 = calculateOperator(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 1 } });
-check('X模组L1+技能2 无攻击乘算(仅白值+45)', near(rx1.panelAtk, r0.panelAtk + 45));
+// calculateOperator 的 panelAtk 对医疗 AUTO 治疗技能 = 单次治疗量(面板攻击 × atk_scale0.5),非面板;
+// 攻击乘算验证改用 calcPanelStats 面板值(基础 610 + 白值 45/55/63, ×(1+0/0.15/0.25) 仅装备技能2时生效)
+const psx1 = calcPanelStats(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 1 } });
+const psx2 = calcPanelStats(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 2 } });
+const psx3 = calcPanelStats(shining, { ...base0, skillIndex: 1, module: { moduleId: modX.id, moduleLevel: 3 } });
+check('X模组L1+技能2 无攻击乘算(仅白值+45)', near(psx1.panelAtk, (610 + 45) * 1.0, 0.51));
+check('X模组L2+技能2 攻击×1.15', near(psx2.panelAtk, (610 + 55) * 1.15, 0.51));
+check('X模组L3+技能2 攻击×1.25', near(psx3.panelAtk, (610 + 63) * 1.25, 0.51));
+check('X模组L2+技能2 单次治疗=面板×0.5(atk_scale)', near(rx2.panelAtk, (610 + 55) * 1.15 * 0.5, 0.51));
 
 // ===== Y 模组（强化天赋1黑恶魔=友方防御光环，不影响自身面板/计算；白值 atk+aspd）=====
 const yL1 = calcPanelStats(shining, { ...base0, module: { moduleId: modY.id, moduleLevel: 1 } });
