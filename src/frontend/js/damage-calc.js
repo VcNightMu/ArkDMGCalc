@@ -62,7 +62,7 @@ function calcTalentHealScale(op, slotData) {
   const elite = slotData.elite;
   const pot = slotData.potentialRank || 0;
   let scale = null;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const hs = cand.blackboard && typeof cand.blackboard.heal_scale === 'number' ? cand.blackboard.heal_scale : 0;
@@ -85,7 +85,7 @@ function calcTalentAtkBonus(op, slotData) {
   const level = slotData.level;
   const pot = slotData.potentialRank || 0;
   let bonus = null;   // null=未匹配;负值天赋(如瑰盐 -5%)也必须采纳
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
       let atk = 0;
@@ -133,7 +133,7 @@ function calcTalentHpDefMul(op, slotData) {
   const elite = slotData.elite;
   const level = slotData.level;
   const pot = slotData.potentialRank || 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase > elite || level < (cand.level || 1) || candPot > pot) continue;
     const bb = cand.blackboard || {};
@@ -309,7 +309,7 @@ function calcTalentResPen(op, slotData) {
   const elite = slotData.elite;
   const pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
@@ -414,7 +414,7 @@ function calcTalentHitMrMul(op, slotData) {
   if (!talent) return 1;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let best = 0;  // 最负值(减抗最多)
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard.magic_resistance === 'number' ? cand.blackboard.magic_resistance : 0;
@@ -475,7 +475,7 @@ function calcTalentStealAtk(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard.steal_atk === 'number' ? cand.blackboard.steal_atk : 0;
@@ -514,7 +514,7 @@ function calcTalentFlatDefPctRegen(op, slotData) {
   if (!talent) return null;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let flatDef = 0, ratio = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const d = cand.blackboard && typeof cand.blackboard[cfg.defKey] === 'number' ? cand.blackboard[cfg.defKey] : 0;
@@ -538,7 +538,7 @@ function calcTalentAttackSpeed(op, slotData) {
   const elite = slotData.elite;
   const pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const aspd = cand.blackboard && typeof cand.blackboard[bbKey] === 'number' ? cand.blackboard[bbKey] : 0;
@@ -557,6 +557,35 @@ function getModuleLevelData(op, slotData) {
   const mod = (op.modules || []).find(x => x.id === m.moduleId);
   if (!mod) return null;
   return (mod.levels || []).find(l => l.level === m.moduleLevel) || null;
+}
+
+/**
+ * 模组天赋同名增强查询(覆盖层):效果模组(ADVANCED)档内 talentEnhance 存在与基础天赋同名
+ * (以 candidates[0].name 为准)的强化候选时,装备该模组即天赋整体被模组改写(数值替换/参数更新)。
+ * 返回按潜能匹配的最高档 blackboard;无同名增强/未装备模组返回 null。phase 无意义(模组本身有解锁门槛)。
+ */
+function getTalentEnhBB(op, slotData, talentIndex) {
+  const talent = (op.talents || [])[talentIndex];
+  const tName = talent && talent.candidates && talent.candidates[0] && talent.candidates[0].name;
+  if (!tName) return null;
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !Array.isArray(lv.talentEnhance) || lv.talentEnhance.length === 0) return null;
+  const pot = slotData.potentialRank || 0;
+  let bestPot = -1, best = null;
+  for (const c of lv.talentEnhance) {
+    if (!c || c.name !== tName) continue;
+    const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+    if (cPot > pot || cPot < bestPot) continue;
+    bestPot = cPot;
+    best = c.blackboard || {};
+  }
+  return best;
+}
+
+// 候选源包装:增强档以 {blackboard, phase:0, level:1, potentialRank:0} 参与既有过滤(phase<=elite 恒真)
+function talentCandSource(op, slotData, talentIndex, cands) {
+  const enh = getTalentEnhBB(op, slotData, talentIndex);
+  return enh ? [{ blackboard: enh, phase: 0, level: 1, potentialRank: 0 }] : cands;
 }
 
 /**
@@ -677,7 +706,7 @@ function calcTalentDmgMul(op, slotData) {
   const elite = slotData.elite;
   const pot = slotData.potentialRank || 0;
   let mul = null;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const bb = cand.blackboard || {};
@@ -792,7 +821,7 @@ function calcTalentSkillRecoverRatio(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let v = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const r = cand.blackboard && typeof cand.blackboard.hp_recovery_per_sec_by_max_hp_ratio === 'number' ? cand.blackboard.hp_recovery_per_sec_by_max_hp_ratio : 0;
@@ -892,7 +921,7 @@ function calcTalentFlatDotDps(op, slotData) {
   const elite = slotData.elite;
   const pot = slotData.potentialRank || 0;
   let dmg = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
