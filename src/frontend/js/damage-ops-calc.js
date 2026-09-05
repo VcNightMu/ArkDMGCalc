@@ -7,7 +7,7 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0 } = params;
 
   const isTrue = levelData.trueDamage === true || isTrueOverride;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
@@ -24,11 +24,13 @@ function calcDamage(params) {
   const defPen = levelData.def_penetrate || 0;
   // 剥壳类每击附加法伤(按敌方防御结算后数值,不吃倍率/乘区):仅法术主档并入(物理主档走专用分支独立档)
   const flatOn = isArts ? flatArtsHit : 0;
-  const effDef = defPen > 0 ? Math.max(0, (enemy?.def ?? 0) * (1 - defPen)) : (enemy?.def ?? 0);
+  // 固定物理穿防(伺夜狼群天性等,天赋级):先减固定值再乘百分比(defPen 为技能级无视防御比例)
+  const effDefRaw = Math.max(0, (enemy?.def ?? 0) - defPenFixed);
+  const effDef = defPen > 0 ? effDefRaw * (1 - defPen) : effDefRaw;
 
   // 弱点伤害(赤刃明霄陈「形意洞照」):物理/法术各按目标防御/法抗结算一次,取伤害更高者,
   // 类型按实际赢家。注意 atk-def 与 atk×(100-res)/100 在攻击力跨阈值时会翻转(def600/res50 时 atk=1200 两式相等)。
-  const weakPhys = (atk) => calcPhysicalDamage(atk, enemy.def);
+  const weakPhys = (atk) => calcPhysicalDamage(atk, effDef);
   const weakArts = (atk) => calcArtsDamage(atk, effRes);
   const weakHit = (atk) => Math.max(weakPhys(atk), weakArts(atk));
   const weakType = (atk) => (weakPhys(atk) >= weakArts(atk) ? 'physical' : 'arts');
@@ -38,7 +40,7 @@ function calcDamage(params) {
   // talentDmgMul：常驻伤害乘区(勇冠三军等),物理/法术/真伤一律乘。
   const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, effDef))); return h * hitMul * talentDmgMul; };
   // 常态普攻类型由职业决定(normalTypeArts=op.damageType==='arts')；弱点常态同样逐击取优
-  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, enemy.def))) * talentDmgMul;
+  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef))) * talentDmgMul;
   const singleHitDamage = skillHitDamage(skillAtk);
   // 弱点技能期伤害类型:按技能期攻击力实际赢家(攻击力恒定时逐击同型;衰减技能逐击翻转罕见,取首击口径)
   const skillDmgType = isTrue ? 'true' : (isWeakness ? weakType(skillAtk) : (isArts ? 'arts' : 'physical'));

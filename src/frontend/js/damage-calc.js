@@ -380,6 +380,30 @@ const TALENT_SPD_DRIVERS = {
 const TALENT_RES_PEN_DRIVERS = {
   'char_350_surtr': { talentIndex: 0, key: 'magic_resist_penetrate_fixed' },  // 熔火:精1 无视12/14(潜5)→精2 20/22(潜5),全法伤结算生效
 };
+// 固定物理穿防天赋表(敌人被 X 阻挡时攻击无视其 N 防御):伺夜「狼群天性」——单目标模型默认战术点狼群在场阻挡
+// (阻挡条件默认成立同满层先例);Y模组「时光不再」同名增强 te 覆盖(Y3: 225/250)
+const TALENT_DEF_PEN_FIXED = {
+  'char_427_vigil': 1,   // 伺夜 狼群天性(天赋2):无视 175(精2 潜5 200)
+};
+
+// 查固定物理穿防:返回最高满足档 def_penetrate_fixed(0 表示无或未解锁)
+function calcTalentDefPenFixed(op, slotData) {
+  const idx = TALENT_DEF_PEN_FIXED[op.id];
+  if (idx === undefined) return 0;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 0;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.def_penetrate_fixed === 'number' ? cand.blackboard.def_penetrate_fixed : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
+
 // 查固定法抗穿透值(0 表示无或未解锁)
 function calcTalentResPen(op, slotData) {
   const cfg = TALENT_RES_PEN_DRIVERS[op.id];
@@ -1081,6 +1105,10 @@ function calculateOperator(op, slotData, ctx) {
   // 命中减抗天赋(夜烟黑色迷雾):每击先减抗再结算 → 等效法抗 ×(1+mr)
   const hitMrMul = calcTalentHitMrMul(op, slotData);
   const effRes = Math.max(0, (state.enemy.res || 0) - resPen) * hitMrMul;
+  // 固定物理穿防(伺夜「狼群天性」):常态与技能期物理结算统一减有效防御(同 resPen 模式)
+  const defPenFixed = calcTalentDefPenFixed(op, slotData);
+  // 有效防御:固定穿防直接减(defPenFixed=0 干员与 enemy.def 等价,函数内物理结算统一引用)
+  const effDef = Math.max(0, state.enemy.def - defPenFixed);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed;
   const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
@@ -1105,8 +1133,8 @@ function calculateOperator(op, slotData, ctx) {
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
     const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
     const normalDpsRaw = isWeaknessOn
-      ? Math.max(calcPhysicalDamage(panelAtk, state.enemy.def), calcArtsDamage(panelAtk, effRes))
-      : (isArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, state.enemy.def));
+      ? Math.max(calcPhysicalDamage(panelAtk, effDef), calcArtsDamage(panelAtk, effRes))
+      : (isArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef));
     // 本源铁卫 no-skill：天赋损伤源常驻（珊比每击侵蚀/余每秒灼燃+法伤/响石每秒神经），常态三档展示
     if (op.profession === 'TANK' && op.subProfessionId === 'primprotector' && primNormalFields) {
       const norm = primNormalFields(op, slotData, panelAtk, state.enemy);
@@ -1115,7 +1143,7 @@ function calculateOperator(op, slotData, ctx) {
     }
     const normalDps = normalDpsRaw / realInterval;
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
-    const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, state.enemy.def) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
+    const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
     const normFlat = defHitArtsMax(op, slotData);
     return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
@@ -1275,7 +1303,7 @@ function calculateOperator(op, slotData, ctx) {
       const total = perHit * hits;
       return {
         type: 'damage', skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null,
-        normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+        normalDps: calcPhysicalDamage(panelAtk, effDef) / interval, skillHps: null, normalHps: null, totalHeal: null,
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'arts', normalDamageType: 'physical',
         dmgTypes: { arts: { skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null } },
@@ -1284,10 +1312,10 @@ function calculateOperator(op, slotData, ctx) {
     if (cfg.mode === 'attack-buff-single') {
       // 狼群下次攻击强化:触发型单发(持有者 AUTO sp6 充能,召唤物无周期概念)→ 仅精确单发总伤+常态普攻
       const interval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
-      const singleHit = calcPhysicalDamage(panelAtk * cfg.mul, state.enemy.def);
+      const singleHit = calcPhysicalDamage(panelAtk * cfg.mul, effDef);
       return {
         type: 'damage', skillDps: 0, skillTotalDamage: singleHit, cycleDps: null,
-        normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+        normalDps: calcPhysicalDamage(panelAtk, effDef) / interval, skillHps: null, normalHps: null, totalHeal: null,
         isToggle: false, isPermanent: false, realInterval: interval, panelAtk,
         damageType: 'physical', normalDamageType: 'physical',
         dmgTypes: { physical: { skillDps: 0, skillTotalDamage: singleHit, cycleDps: null } },
@@ -1301,7 +1329,7 @@ function calculateOperator(op, slotData, ctx) {
       if (ctx && ctx.ownerOp && cfg.ownerId === ctx.ownerOp.id) {
         ownerAtk = calcPanelStats(ctx.ownerOp, ctx.ownerSlot).panelAtk;
       }
-      const burst = calcPhysicalDamage(ownerAtk * cfg.mul, state.enemy.def);
+      const burst = calcPhysicalDamage(ownerAtk * cfg.mul, effDef);
       return {
         type: 'damage', skillDps: 0, skillTotalDamage: burst, cycleDps: null,
         normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
@@ -1315,7 +1343,7 @@ function calculateOperator(op, slotData, ctx) {
       const baseAT = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
       const maxHp = (phase.maxHp && phase.maxHp[phase.maxHp.length - 1]) || 0;
       const hps = maxHp * cfg.ratio;
-      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      const normHit = calcPhysicalDamage(panelAtk, effDef);
       return {
         type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
         normalDps: normHit / baseAT, skillHps: hps, normalHps: null, totalHeal: hps * cfg.dur,
@@ -1328,10 +1356,10 @@ function calculateOperator(op, slotData, ctx) {
       const baseAT = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
       const hits = Math.max(1, Math.floor(cfg.dur / baseAT));
       const ownerAtk = (ctx && ctx.ownerOp && cfg.ownerId === ctx.ownerOp.id) ? calcPanelStats(ctx.ownerOp, ctx.ownerSlot).panelAtk : panelAtk;
-      const physHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      const physHit = calcPhysicalDamage(panelAtk, effDef);
       const artsHit = calcArtsDamage(ownerAtk * cfg.mul, state.enemy.res);
       const total = (physHit + artsHit) * hits;
-      const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+      const normHit = calcPhysicalDamage(panelAtk, effDef);
       return {
         type: 'damage', skillDps: total / cfg.dur, skillTotalDamage: total, cycleDps: null,
         normalDps: normHit / baseAT, skillHps: null, normalHps: null, totalHeal: null,
@@ -1350,10 +1378,10 @@ function calculateOperator(op, slotData, ctx) {
       const hits = Math.max(1, Math.floor(cfg.dur / interval));
       const hitAtk = panelAtk * (1 + (cfg.atkMul || 0));
       const isArtsForm = op.damageType === 'arts';
-      const perHit = isArtsForm ? calcArtsDamage(hitAtk, state.enemy.res) : calcPhysicalDamage(hitAtk, state.enemy.def);
+      const perHit = isArtsForm ? calcArtsDamage(hitAtk, state.enemy.res) : calcPhysicalDamage(hitAtk, effDef);
       const chain = cfg.mode === 'flow-double' ? 2 : 1;
       const total = perHit * hits * chain;
-      const normHit = isArtsForm ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def);
+      const normHit = isArtsForm ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef);
       // 近战 S2 每秒回血(自身最大生命比例)附加:damage 结果带 skillHps/totalHeal(UI 逐行渲染不互斥)
       const regenHps = cfg.regenRatio ? ((phase.maxHp && phase.maxHp[phase.maxHp.length - 1]) || 0) * cfg.regenRatio : 0;
       return {
@@ -1427,7 +1455,7 @@ function calculateOperator(op, slotData, ctx) {
     // (单目标模型目标=面板假想敌)——通用 isArts 按职业法伤,故专用拦截走物理结算;
     // 天赋剥壳(按敌方防御附加法伤)对物理攻击照常生效 → 独立 arts 档,物法双档展示。
     const heavyHits = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / skillRealInterval)) : 1;  // 58/1.6=36
-    const heavyHit = calcPhysicalDamage(skillAtk, state.enemy.def);
+    const heavyHit = calcPhysicalDamage(skillAtk, effDef);
     const physTot = heavyHit * heavyHits;
     let artsTot = 0;
     for (let k = 0; k < heavyHits; k++) artsTot += defHitArtsAt(op, slotData, k);  // 剥壳逐击(X模组递增)
@@ -1553,7 +1581,7 @@ function calculateOperator(op, slotData, ctx) {
     // 伺夜与狼群攻击被狼群阻挡单位造成伤害时额外附加 attack@vigil_s_3.atk_scale×伺夜攻击力 法伤(M1 0.35,
     // PRTS 备注附加可受特性加成→基值为含战术家×1.5 的面板攻击);单目标模型默认目标被狼群阻挡 → 每轮三连物理+1 次附加。
     // S3 无 atk 加成(回费在 value/interval 键),间隔保持 1.0s → 15 轮。
-    const triHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const triHit = calcPhysicalDamage(panelAtk, effDef);
     const triTotal = triHit * 3;
     const extraArts = calcArtsDamage(panelAtk * (levelData['attack@vigil_s_3.atk_scale'] ?? 0.35), state.enemy.res);
     const interval = skillRealInterval > 0 ? skillRealInterval : 1;
@@ -1563,7 +1591,7 @@ function calculateOperator(op, slotData, ctx) {
     const total = physTotal + artsTotal;
     result = {
       skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / interval, skillHps: null, normalHps: null, totalHeal: null,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / interval, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: interval,
       dmgTypes: {
         physical: { skillDps: skillDuration > 0 ? physTotal / skillDuration : 0, skillTotalDamage: physTotal, cycleDps: null },
@@ -1584,7 +1612,7 @@ function calculateOperator(op, slotData, ctx) {
     if (!HEAL_SUMMONS.includes(op.id) && summonBaseAtk > 0) {
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
       const isArtsSummon = op.damageType === 'arts';  // 流形·远程默认法伤水炮
-      const normHit = isArtsSummon ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def);
+      const normHit = isArtsSummon ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef);
       result = {
         type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
         normalDps: normHit / normInt, skillHps: null, normalHps: null, totalHeal: null,
@@ -1612,8 +1640,8 @@ function calculateOperator(op, slotData, ctx) {
     });
   } else if (op.id === 'char_4039_horn' && skillIndex === 2) {
     // 号角 S3 终极防线(dur24 过载两段):前12s atk+50% 间隔1.0s,后12s 过载 atk+100%(自损不计)
-    const frontHit = calcPhysicalDamage(panelAtk * 1.5, state.enemy.def);
-    const overloadHit = calcPhysicalDamage(panelAtk * 2.0, state.enemy.def);
+    const frontHit = calcPhysicalDamage(panelAtk * 1.5, effDef);
+    const overloadHit = calcPhysicalDamage(panelAtk * 2.0, effDef);
     const frontTotal = frontHit * 12;    // 前12击
     const backTotal = overloadHit * 12;  // 后12击
     const total = frontTotal + backTotal;
@@ -1626,7 +1654,7 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_4039_horn' && skillIndex === 1) {
     // 号角 S2 暴风号令(10发弹药,不提前关闭):前5发=2×atk物理,后5发过载弹药=2×atk物理+0.5×atk法伤;
     // 用时=10发×2.8s,DPS=总伤/用时
-    const physPer = calcPhysicalDamage(panelAtk * 2, state.enemy.def);
+    const physPer = calcPhysicalDamage(panelAtk * 2, effDef);
     const artsPer = calcArtsDamage(panelAtk * 0.5, state.enemy.res);
     const physTotal = physPer * 10;
     const artsTotal = artsPer * 5;
@@ -1643,14 +1671,14 @@ function calculateOperator(op, slotData, ctx) {
     };
   } else if (op.id === 'char_493_firwhl' && skillIndex === 0) {
     // 火哨 S1 野火（AUTO 自然回 sp8）：下次攻击 1.6×atk 物理 + 引燃 4s 每秒 0.4×atk 法伤（附带 DOT 计入，同流明先例）
-    const trigPhys = calcPhysicalDamage(skillAtk, state.enemy.def);       // skillAtk 已含 atk_scale 1.6
+    const trigPhys = calcPhysicalDamage(skillAtk, effDef);       // skillAtk 已含 atk_scale 1.6
     const dotHit = calcArtsDamage(panelAtk * 0.4, state.enemy.res);
     const dotTotal = dotHit * 4;                                          // 4 秒 4 跳
     const trigTotal = trigPhys + dotTotal;
     const int = skillRealInterval > 0 ? skillRealInterval : 1;
     const chargeAttacks = Math.floor(8 / int);                            // 自然回充能期普攻数（sp8）
     const cycleTime = 8;
-    const normPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const normPhys = calcPhysicalDamage(panelAtk, effDef);
     result = {
       skillDps: 0, skillTotalDamage: trigTotal,
       cycleDps: (chargeAttacks * normPhys + trigTotal) / cycleTime,
@@ -1664,8 +1692,8 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_422_aurora' && skillIndex === 1) {
     // 极光 S2 人工降雪（9发弹药制，打完即结束，间隔 1.6+0.25=1.85s）：每3发一循环——第1发进寒冷、第2发叠层冻结、第3发暴击（冻结目标攻击力提高至 310%）。
     // 默认单目标：9发=普通发(atk+65%)×6 + 暴击发(×3.1)×3（寒冷/冻结状态本身无伤害）
-    const normHit = calcPhysicalDamage(panelAtk * (1 + 0.65), state.enemy.def);   // 普通发：atk 0.65 加攻
-    const critHit = calcPhysicalDamage(panelAtk * 3.1, state.enemy.def);           // 暴击发：提高至 310%（替换非叠加）
+    const normHit = calcPhysicalDamage(panelAtk * (1 + 0.65), effDef);   // 普通发：atk 0.65 加攻
+    const critHit = calcPhysicalDamage(panelAtk * 3.1, effDef);           // 暴击发：提高至 310%（替换非叠加）
     const total = normHit * 6 + critHit * 3;
     const ammoTime = 9 * (skillRealInterval > 0 ? skillRealInterval : 1);   // 打完总用时 9×1.85s
     result = {
@@ -1676,7 +1704,7 @@ function calculateOperator(op, slotData, ctx) {
     };
   } else if (op.id === 'char_493_firwhl' && skillIndex === 1) {
     // 火哨 S2 焦土:普攻照常(物理 6击)+ 燃烧区持续5s>攻击间隔2.8s 区域重叠常驻 → 全程每秒0.75×atk法伤×17s
-    const physHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const physHit = calcPhysicalDamage(panelAtk, effDef);
     const physAttacks = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
     const physTotal = physHit * physAttacks;
     const burnHit = calcArtsDamage(panelAtk * 0.75, state.enemy.res);
@@ -1694,8 +1722,8 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_1034_jesca2' && skillIndex === 2) {
     // 涤火杰西卡 S3 饱和迸射（20发弹药打完即结束，间隔 1.2+0.6=1.8s）：
     // 弹药=atk+X% 普攻（skillAtk 数据驱动）+ 首炮一发 attack@extrabomb.atk_scale×技能期攻击力（默认玩家放盾开炮）
-    const perHit = calcPhysicalDamage(skillAtk, state.enemy.def);
-    const firstShot = calcPhysicalDamage(skillAtk * (levelData['attack@extrabomb.atk_scale'] ?? 1), state.enemy.def);
+    const perHit = calcPhysicalDamage(skillAtk, effDef);
+    const firstShot = calcPhysicalDamage(skillAtk * (levelData['attack@extrabomb.atk_scale'] ?? 1), effDef);
     const ammoN = levelData.trigger_time ?? levelData['attack@trigger_time'] ?? 20;
     const total = perHit * ammoN + firstShot;
     const ammoTime = ammoN * (skillRealInterval > 0 ? skillRealInterval : 1);
@@ -1710,7 +1738,7 @@ function calculateOperator(op, slotData, ctx) {
     // (专一档 1.8×;damage_scale 脆弱为目标受伤害提升,单目标持续命中必然全程吃到→每击乘 1.25;
     // 回费/换费/风雪之眼可部署为部署区机制不计)。
     const s3Mul = (levelData.bird_atk_scale ?? 1.8) * (levelData.damage_scale ?? 1);
-    const perHit = calcPhysicalDamage(skillAtk * s3Mul, state.enemy.def);
+    const perHit = calcPhysicalDamage(skillAtk * s3Mul, effDef);
     const s3Hits = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
     const s3Total = perHit * s3Hits;
     result = {
@@ -1725,7 +1753,7 @@ function calculateOperator(op, slotData, ctx) {
     const addScale = levelData['attack@skill.atk_scale'] ?? 0;
     const intWc = skillRealInterval > 0 ? skillRealInterval : 1;
     const hitsWc = skillDuration > 0 ? Math.floor(skillDuration / intWc) : 0;
-    const physHitWc = calcPhysicalDamage(skillAtk, state.enemy.def);
+    const physHitWc = calcPhysicalDamage(skillAtk, effDef);
     const artsHitWc = calcArtsDamage(skillAtk * addScale, state.enemy.res);
     const physTotalWc = physHitWc * hitsWc;
     const artsTotalWc = artsHitWc * hitsWc;
@@ -1749,22 +1777,22 @@ function calculateOperator(op, slotData, ctx) {
     result = {
       type: 'heal', skillHps: hpsBear, totalHeal: hpsBear * durBear,
       skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalHps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / normIntB,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / normIntB,
       realInterval: normIntB, panelAtk,
     };
   } else if (op.id === 'char_479_sleach' && skillIndex === 2) {
     // 琴柳 S3 光辉旗帜(dur10 MANUAL):开启瞬间单发物理伤害(panelAtk×atk_scale 逐级),眩晕/易伤(damage_scale)/减攻(debuff)/回费不计
-    const flagHit = calcPhysicalDamage(panelAtk * (levelData.atk_scale ?? 1), state.enemy.def);
+    const flagHit = calcPhysicalDamage(panelAtk * (levelData.atk_scale ?? 1), effDef);
     const flagInt = phase.baseAttackTime > 0 ? calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus) : 1;  // 常态间隔含天赋攻速(不退之旗+10)
     result = {
       skillDps: skillDuration > 0 ? flagHit / skillDuration : 0, skillTotalDamage: flagHit, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / flagInt, skillHps: null, normalHps: null, totalHeal: null,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / flagInt, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: flagInt,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? flagHit / skillDuration : 0, skillTotalDamage: flagHit, cycleDps: null } },
     };
   } else if (op.id === 'char_4087_ines' && skillIndex === 0) {
     // 伊内丝 S1 淬影突袭(攻回 AUTO sp3,触发当次普攻照常):下次攻击附带 3s 流血 DOT(每秒 0.65×atk 法伤 专一,不叠加)
-    const inesPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const inesPhys = calcPhysicalDamage(panelAtk, effDef);
     const bleedScale = levelData.bleed_atk_scale ?? 0;
     const bleedSecs = Math.max(1, Math.round(levelData.bleed_duration ?? 3));
     const bleedTotal = calcArtsDamage(panelAtk * bleedScale, state.enemy.res) * bleedSecs;
@@ -1792,10 +1820,10 @@ function calculateOperator(op, slotData, ctx) {
       aspd2 = Math.min(aspd2 + (levelData['attack@steal_atk_speed'] ?? 0), 100 + (levelData['attack@steal_atk_speed_max'] ?? 0));
       t2 += calcRealInterval(phase.baseAttackTime, aspd2);
     }
-    const inesTotal2 = calcPhysicalDamage(inesAtk, state.enemy.def) * hits2;
+    const inesTotal2 = calcPhysicalDamage(inesAtk, effDef) * hits2;
     result = {
       skillDps: skillDuration > 0 ? inesTotal2 / skillDuration : 0, skillTotalDamage: inesTotal2, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: phase.baseAttackTime > 0 ? phase.baseAttackTime : 1,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? inesTotal2 / skillDuration : 0, skillTotalDamage: inesTotal2, cycleDps: null } },
@@ -1806,12 +1834,12 @@ function calculateOperator(op, slotData, ctx) {
     const inesAtk3 = skillAtk / (levelData.atk_scale ?? 1);   // 还原不含 atk_scale 的技能期攻击力
     const inesInt3 = skillRealInterval > 0 ? skillRealInterval : 1;
     const inesHits3 = Math.floor(skillDuration / inesInt3);
-    const inesNorm3 = calcPhysicalDamage(inesAtk3, state.enemy.def) * inesHits3;
-    const inesFlag3 = calcPhysicalDamage(inesAtk3 * (levelData.atk_scale ?? 1), state.enemy.def);
+    const inesNorm3 = calcPhysicalDamage(inesAtk3, effDef) * inesHits3;
+    const inesFlag3 = calcPhysicalDamage(inesAtk3 * (levelData.atk_scale ?? 1), effDef);
     const inesTotal3 = inesNorm3 + inesFlag3;
     result = {
       skillDps: skillDuration > 0 ? inesTotal3 / skillDuration : 0, skillTotalDamage: inesTotal3, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / inesInt3, skillHps: null, normalHps: null, totalHeal: null,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / inesInt3, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: inesInt3,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? inesTotal3 / skillDuration : 0, skillTotalDamage: inesTotal3, cycleDps: null } },
     };
@@ -1823,12 +1851,12 @@ function calculateOperator(op, slotData, ctx) {
     const defSteal = levelData.def_steal ?? 0, defMax = levelData.def_steal_max ?? 0;
     let surferTotal = 0;
     for (let k = 0; k < surferHits; k++) {
-      const effDef = Math.max(0, state.enemy.def - Math.min(defMax, defSteal * k));
-      surferTotal += calcPhysicalDamage(panelAtk, effDef);
+      const effDefL = Math.max(0, effDef - Math.min(defMax, defSteal * k));
+      surferTotal += calcPhysicalDamage(panelAtk, effDefL);
     }
     result = {
       skillDps: skillDuration > 0 ? surferTotal / skillDuration : 0, skillTotalDamage: surferTotal, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: surferInt,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? surferTotal / skillDuration : 0, skillTotalDamage: surferTotal, cycleDps: null } },
@@ -1849,11 +1877,11 @@ function calculateOperator(op, slotData, ctx) {
       for (let i = 0; i < puzzleHits; i++) { if ((i) * puzzleInt < sec && sec <= (i) * puzzleInt + tickDur) layers = Math.min(maxCnt, i + 1); }
       if (layers > 0) dotTotal += calcArtsDamage(panelAtk * tickScale * layers, state.enemy.res);
     }
-    const puzzleNorm = calcPhysicalDamage(panelAtk, state.enemy.def) * puzzleHits;
+    const puzzleNorm = calcPhysicalDamage(panelAtk, effDef) * puzzleHits;
     const puzzleTotal = puzzleNorm + dotTotal;
     result = {
       skillDps: skillDuration > 0 ? puzzleTotal / skillDuration : 0, skillTotalDamage: puzzleTotal, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: puzzleInt,
       dmgTypes: {
@@ -1866,12 +1894,12 @@ function calculateOperator(op, slotData, ctx) {
     // 天赋万全攻速+12 已入面板基数;DPS=单发伤害/实际攻击间隔(等效普攻 dps)
     const cantInt = calcRealInterval(phase.baseAttackTime, 100 + (levelData.attack_speed ?? 0) + calcTalentAttackSpeed(op, slotData));
     const ammo = Math.round(levelData['attack@trigger_time'] ?? 16);
-    const cantHit = calcPhysicalDamage(skillAtk, state.enemy.def);   // skillAtk 已含 atk+32%
+    const cantHit = calcPhysicalDamage(skillAtk, effDef);   // skillAtk 已含 atk+32%
     const cantTotal = cantHit * ammo;
     const cantDur = cantInt * ammo;
     result = {
       skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, state.enemy.def) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: cantInt,
       dmgTypes: { physical: { skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null } },
@@ -1897,7 +1925,7 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_112_siege' && skillIndex === 2) {
     // 推进之王 S3 碎颅击(dur22~25):攻击间隔增大(1.05+1=2.05s,BAT_ADD),攻击时攻击力提高至 attack@atk_scale 倍(3.4→3.8 普攻改写),
     // 40% 概率晕眩(控制不计)→ 每击 atk_scale×atk 物理
-    const perHit = calcPhysicalDamage(skillAtk * (levelData['attack@atk_scale'] ?? 1), state.enemy.def);
+    const perHit = calcPhysicalDamage(skillAtk * (levelData['attack@atk_scale'] ?? 1), effDef);
     const hits = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
     const total = perHit * hits;
     result = {
@@ -1912,7 +1940,7 @@ function calculateOperator(op, slotData, ctx) {
     const artsHit = calcArtsDamage(skillAtk * (levelData['attack@atk_scale'] ?? 1), state.enemy.res);
     const artsAttacks = Math.floor(skillDuration / (skillRealInterval > 0 ? skillRealInterval : 1));
     const artsTotal = artsHit * artsAttacks;
-    const chargeHit = calcPhysicalDamage(skillAtk * (levelData.atk_scale ?? 1), state.enemy.def);
+    const chargeHit = calcPhysicalDamage(skillAtk * (levelData.atk_scale ?? 1), effDef);
     const total = artsTotal + chargeHit;
     const dps = total / skillDuration;
     result = {
@@ -1926,7 +1954,7 @@ function calculateOperator(op, slotData, ctx) {
     };
   } else if (op.id === 'char_4194_rmixer' && skillIndex === 1) {
     // 信仰搅拌机 S2 八臂电锯侠（47发弹药打完即结束）：atk+120% 普攻弹药（致命伤耗弹抵挡不计）
-    const perHit = calcPhysicalDamage(panelAtk * (1 + 1.2), state.enemy.def);
+    const perHit = calcPhysicalDamage(panelAtk * (1 + 1.2), effDef);
     const total = perHit * 47;
     const ammoTime = 47 * (skillRealInterval > 0 ? skillRealInterval : 1);
     result = {
@@ -1938,8 +1966,8 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_457_blitz' && skillIndex === 1) {
     // 闪击 S2 突破防线：先手对阻挡敌 1.8×atk 物理+眩晕6s；攻速+200(间隔0.4s)期间攻击眩晕目标，天赋倍率×1.5 → 每击 160%×1.5=240%
     // 0.4s×15击=6s 全在眩晕窗口 → 15 击全部 2.4 倍
-    const leadHit = calcPhysicalDamage(panelAtk * 1.8, state.enemy.def);
-    const stunHit = calcPhysicalDamage(panelAtk * 2.4, state.enemy.def);
+    const leadHit = calcPhysicalDamage(panelAtk * 1.8, effDef);
+    const stunHit = calcPhysicalDamage(panelAtk * 2.4, effDef);
     const hitInt = calcRealInterval(phase.baseAttackTime, 100 + 200);
     const stunAttacks = Math.floor(skillDuration / hitInt);
     const total = leadHit + stunHit * stunAttacks;
@@ -1953,7 +1981,7 @@ function calculateOperator(op, slotData, ctx) {
     // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）；
     // 伤害类型按职业(法伤干员如夜魔 S2 归常态=术师法伤普攻,含减抗/穿透后的有效法抗)
     const naArts = op.damageType === 'arts';
-    const normHit = naArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, state.enemy.def);
+    const normHit = naArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
     result = {
       skillDps: 0, skillTotalDamage: 0, cycleDps: null,
       normalDps: normHit / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
@@ -1973,7 +2001,7 @@ function calculateOperator(op, slotData, ctx) {
     const jumps = Math.floor(skillDuration / dotInterval);
     const dotTotal = dotHit * jumps;
     const normInterval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
-    const normDps = calcPhysicalDamage(panelAtk, state.enemy.def) / normInterval;
+    const normDps = calcPhysicalDamage(panelAtk, effDef) / normInterval;
     result = {
       skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal,
       cycleDps: null, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
@@ -1985,7 +2013,7 @@ function calculateOperator(op, slotData, ctx) {
     // 混合单发(蓄力分支 judge_s_1_enhance_checker 设计上持续输出永远无法蓄力,不计)
     const trigCfg = (TRIGGER_ARTS_ADD[op.id] || {})[skillIndex];
     const artsScale = levelData[trigCfg.scaleKey] ?? 1;
-    const triggerPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const triggerPhys = calcPhysicalDamage(panelAtk, effDef);
     const triggerArts = calcArtsDamage(panelAtk * artsScale, state.enemy.res);
     const spCost = levelData.spCost > 0 ? levelData.spCost : 1;
     const interval = skillRealInterval > 0 ? skillRealInterval : 1;
@@ -2007,7 +2035,7 @@ function calculateOperator(op, slotData, ctx) {
   } else if (op.id === 'char_1044_hsgma2' && skillIndex === 1) {
     // 斩业星熊 S2 无始无明(AUTO 攻回 sp7 触发):仅算本体三连击(0.75×atk 法伤×3),
     // 盾牌环绕法伤/吸血/停顿不计;每 7 次普攻充能触发一次(cycle 口径同 calcCycleDps 攻回)
-    const trigPhys = calcPhysicalDamage(panelAtk, state.enemy.def);
+    const trigPhys = calcPhysicalDamage(panelAtk, effDef);
     const triggerHit = calcArtsDamage(panelAtk * 0.75, state.enemy.res) * 3;
     const interval = skillRealInterval > 0 ? skillRealInterval : 1;
     const chargeAttacks = 7;                                // sp7 攻回
@@ -2028,8 +2056,8 @@ function calculateOperator(op, slotData, ctx) {
     // 技能期总伤 = 10 斩 + 6s 加攻普攻;技能期时长口径 = 斩击演出 + 6s,斩击耗时无数据源
     // → 按引擎惯例 skillDuration=6 折算 DPS(用户口径:斩击耗时不计入分母,但完整技能时间>6s,
     //   此处 DPS 用总伤/6 近似会高估,故改用 cycleDps=null + skillTotalDamage 精确、skillDps 按总伤/6 仅供量级参考)
-    const weakHit2 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, state.enemy.def), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
-    const weakType2 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, state.enemy.def) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
+    const weakHit2 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, effDef), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
+    const weakType2 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, effDef) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
     const slashScale = levelData.atk_scale ?? 4.8;      // 斩击倍率(逐级取档 3.5→4.8)
     const slashAtk = panelAtk * slashScale;             // 斩击:面板×倍率(技能无顶层 atk 加成)
     const slashTotal = weakHit2(slashAtk) * 10;         // 10 斩
@@ -2061,8 +2089,8 @@ function calculateOperator(op, slotData, ctx) {
     // 至少面板×projectile_min_atk_scale;剑气飞行无法控制 → 单目标默认只结算 1 次;6% 按敌人当前生命默认满血取 hp)。
     // 技能期普攻:每次攻击对最多 4 名地面敌人造成 3 次面板×attack@atk_scale 伤害(前缀键
     // → 单目标 = 每次攻击 3 连击×倍率弱点,攻击次数=floor(20/间隔) 向下取整)。
-    const weakHit3 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, state.enemy.def), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
-    const weakType3 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, state.enemy.def) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
+    const weakHit3 = (atk) => isWeaknessOn ? Math.max(calcPhysicalDamage(atk, effDef), calcArtsDamage(atk, state.enemy.res)) : calcArtsDamage(atk, state.enemy.res);
+    const weakType3 = (atk) => (!isWeaknessOn || calcPhysicalDamage(atk, effDef) >= calcArtsDamage(atk, state.enemy.res)) ? 'physical' : 'arts';
     const enemyHp = (state.enemy && state.enemy.hp) || 50000;
     const swordScale = levelData.projectile_min_atk_scale ?? 5.8;  // 剑气保底倍率(逐级取档)
     const atkScale3 = levelData['attack@atk_scale'] ?? 2.1;        // 普攻每击倍率(逐级取档)
@@ -2094,7 +2122,7 @@ function calculateOperator(op, slotData, ctx) {
     const isArtsOp = op.damageType === 'arts';
     result = {
       skillDps: 0, skillTotalDamage: 0, cycleDps: null,
-      normalDps: isArtsOp ? calcArtsDamage(panelAtk, state.enemy.res) / nI : calcPhysicalDamage(panelAtk, state.enemy.def) / nI,
+      normalDps: isArtsOp ? calcArtsDamage(panelAtk, state.enemy.res) / nI : calcPhysicalDamage(panelAtk, effDef) / nI,
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: isArtsOp ? 'arts' : 'physical', normalDamageType: isArtsOp ? 'arts' : 'physical',
       type: 'damage', realInterval: skillRealInterval,
@@ -2124,7 +2152,7 @@ function calculateOperator(op, slotData, ctx) {
   if (levelData.spType === 'INCREASE_WHEN_TAKEN_DAMAGE' && !isMedic && !isSummon) {
     const normI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
     const normTypeArts = op.damageType === 'arts';
-    const normalDps = (normTypeArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, state.enemy.def)) / normI;
+    const normalDps = (normTypeArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef)) / normI;
     result = {
       ...result,
       cycleDps: null,

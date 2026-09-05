@@ -31,6 +31,7 @@ const ph = tok.phases[tok.phases.length - 1];
 const mk = (si) => ({ elite: 2, level: ph.maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: si, skillLevel: 7 });
 const arts = (atk) => Math.max(atk * (1 - 50 / 100), atk * 0.05);
 const phys = (atk) => Math.max(atk - 600, atk * 0.05);
+const phys2 = (atk, def) => Math.max(atk - def, atk * 0.05);
 
 let pass = 0, fail = 0;
 const check = (name, actual, expect, eps = 0.5) => {
@@ -85,7 +86,14 @@ const vph = vigil.phases[2];
 const v3 = calculateOperator(vigil, { elite: 2, level: vph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7 });
 const vAtk = v3.panelAtk;  // (462+80)×1.5 战术家特性
 check('伺夜S3 面板atk含特性×1.5', vAtk, 813);
-check('伺夜S3 物理档=三连击×15轮', v3.dmgTypes.physical.skillTotalDamage, phys(813) * 3 * 15, 0.01);
+// 狼群天性:敌人被狼群阻挡(默认成立)时伺夜攻击无视 175 防 → 有效防御 600-175=425
+check('伺夜S3 物理档=三连击×15轮(狼群天性穿防175)', v3.dmgTypes.physical.skillTotalDamage, phys2(813, 600 - 175) * 3 * 15, 0.01);
+const vY = vigil.modules.find(x => x.typeName2 === 'Y');
+const vY3 = calculateOperator(vigil, { elite: 2, level: vph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7, module: { moduleId: vY.id, moduleLevel: 3 } });
+// Y3 时光不再:穿防 225 + 面板 atk 白值+50(经战术家特性×1.5 → +75)
+check('伺夜S3 Y3 面板atk含白值×1.5', vY3.panelAtk, 888);
+check('伺夜S3 Y3 物理档=穿防225', vY3.dmgTypes.physical.skillTotalDamage, phys2(888, 600 - 225) * 3 * 15, 0.01);
+
 check('伺夜S3 法伤档=0.35×atk×15轮', v3.dmgTypes.arts.skillTotalDamage, arts(813 * 0.35) * 15, 0.01);
 check('伺夜S3 总伤', v3.skillTotalDamage, v3.dmgTypes.physical.skillTotalDamage + v3.dmgTypes.arts.skillTotalDamage, 0.01);
 check('伺夜S3 DPS', v3.skillDps, v3.skillTotalDamage / 15, 0.01);
