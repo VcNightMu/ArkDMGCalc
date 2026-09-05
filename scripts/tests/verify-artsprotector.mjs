@@ -84,5 +84,20 @@ const hS3 = sk(hs, 2);
 check('斩业S3 总伤=2.9atk法伤×2连击×20攻击', near(hS3.skillTotalDamage, A(hS3.panelAtk) * 2 * Math.floor(32 / 1.6)));
 check('斩业S3 技能期法术', hS3.damageType === 'arts');
 
+
+// ===== 无条件常驻固定属性天赋:石棉/车尔尼 法抗入面板 =====
+// 石棉「湿润皮肤」:法抗+10(X 模组 12)
+const abFlatPs = calcPanelStats(ab, mk(ab, -1, 7));
+const abFlatX = ab.modules.find(x => x.typeName2 === 'X');
+const abFlatX3 = calcPanelStats(ab, { ...mk(ab, -1, 7), module: { moduleId: abFlatX.id, moduleLevel: 3 } });
+check('石棉 精2法抗含湿润皮肤+10', abFlatPs.magicResistance === 15 + 10);
+check('石棉 X3 法抗覆盖+12', abFlatX3.magicResistance === 15 + 12);
+// 车尔尼「回声」:法抗+10(X 模组维持 10,增强为反伤侧不建模)
+const pnRes = calcPanelStats(pn, mk(pn, -1, 7)).magicResistance;
+const pnX = pn.modules.find(x => x.typeName2 === 'X');
+const pnX3 = calcPanelStats(pn, { ...mk(pn, -1, 7), module: { moduleId: pnX.id, moduleLevel: 3 } });
+check('车尔尼 精2法抗含回声+10', pnRes === 15 + 10);
+check('车尔尼 X3 法抗维持+10(反伤增强不计)', pnX3.magicResistance === 15 + 10);
+
 console.log(`\n驭法铁卫验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

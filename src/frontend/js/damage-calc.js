@@ -121,6 +121,7 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_149_scave': 0,   // 清道夫「单独行动者」:防御+5~13%(周围四格无友军默认成立,攻击部分在 TALENT_ATK_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:防御+4~10%(先锋光环覆盖自身,攻击部分在 TALENT_ATK_DRIVERS)
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:防御+4~7%(同天赋攻击,技能期加倍部分同 atk 口径只计攻击侧)
+  'char_150_snakek': 0,  // 蛇屠箱「防御专精」:防御力+6%(精1)→+12%(精2) 无条件常驻(此前漏入引擎)
 };
 
 // 光环拆分特例表:模组把光环类天赋拆为 name=null(全场新值,自身在受益职业内也吃)与同名(自身额外)两部分,
@@ -194,6 +195,48 @@ function calcSelfAuraFlat(op, slotData) {
     }
   }
   // 模组天赋强化覆盖(值更大者胜;夜莺 X L2/L3 法抗同基准值、heal_scale 走 calcModuleTalentEnhance)
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && lv.talentEnhance) {
+    for (const cand of lv.talentEnhance) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (candPot > pot) continue;
+      take(cand.blackboard || {});
+    }
+  }
+  return out;
+}
+
+// 自身固定值属性天赋(无条件常驻,直接加面板):拜松「交叉掩护」def+25/50(X模组60/80/100)、
+// 角峰「雪原卫士」法抗+7/15(Y 18/20)、石棉「湿润皮肤」法抗+5/10(X 12;受击回技力不计)、
+// 车尔尼「回声」法抗+5/10(X 维持10;受击反伤不建模)。
+// 与范围光环(SELF_AURA_DRIVERS)同构:基础候选与模组 te 取满足档最大值(天然防模组削弱)。
+const TALENT_FLAT_ATTR_DRIVERS = {
+  'char_325_bison': 0,    // 拜松 交叉掩护:自身防御+X(身后先锋/近卫同享不影响自身口径)
+  'char_199_yak': 0,      // 角峰 雪原卫士:法术抗性+X
+  'char_378_asbest': 0,   // 石棉 湿润皮肤:法术抗性+X(受法伤回技力 sp 不计)
+  'char_4047_pianst': 0,  // 车尔尼 回声:法术抗性+X(受击反伤 atk_scale 不建模,同泡泡反伤口径)
+};
+
+// 查自身固定值属性天赋,返回 { defFlat, resFlat }(0 表示无此天赋或未解锁)
+function calcTalentFlatAttr(op, slotData) {
+  const out = { defFlat: 0, resFlat: 0 };
+  const ti = TALENT_FLAT_ATTR_DRIVERS[op.id];
+  if (ti === undefined) return out;
+  const elite = slotData.elite;
+  const level = slotData.level || 0;
+  const pot = slotData.potentialRank || 0;
+  const take = (bb) => {
+    if (bb && typeof bb.def === 'number') out.defFlat = Math.max(out.defFlat, bb.def);
+    if (bb && typeof bb.magic_resistance === 'number') out.resFlat = Math.max(out.resFlat, bb.magic_resistance);
+  };
+  const talent = (op.talents || [])[ti];
+  if (talent) {
+    for (const cand of talent.candidates || []) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (cand.phase > elite || level < (cand.level || 1) || candPot > pot) continue;
+      take(cand.blackboard || {});
+    }
+  }
   const lv = getModuleLevelData(op, slotData);
   if (lv && lv.talentEnhance) {
     for (const cand of lv.talentEnhance) {
@@ -1008,7 +1051,8 @@ function calculateOperator(op, slotData, ctx) {
   const isTacticianOp = !isSummon && op.profession === 'PIONEER' && op.subProfessionId === 'tactician';
   let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1);
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
-  let panelDef = rawDef * (1 + pctTalent.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0);
+  const flatAttr = calcTalentFlatAttr(op, slotData);
+  let panelDef = rawDef * (1 + pctTalent.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0) + flatAttr.defFlat;
   const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
 
   // ======== Skill Modifiers ========
@@ -2226,8 +2270,8 @@ function calcPanelStats(op, slotData) {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
     panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat
-      + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0)),
-    magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat,
+      + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0) + calcTalentFlatAttr(op, slotData).defFlat),
+    magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat + calcTalentFlatAttr(op, slotData).resFlat,
     baseAttackTime: phase.baseAttackTime,
     attackInterval
   };

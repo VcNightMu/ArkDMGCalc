@@ -112,5 +112,29 @@ const ktHp = calcPanelStats(ardign, mk(ardign, -1, 6)).panelHp;
 check('卡缇S1 自愈=最大生命×0.4', near(ktS1.totalHeal, ktHp * 0.4));
 check('卡缇S1 无伤害', ktS1.skillDps === 0 && ktS1.skillTotalDamage === 0);
 
+
+// ===== 无条件常驻固定属性天赋入面板(重装公共通道) =====
+// 拜松「交叉掩护」:自身防御+X 无条件(X 模组覆盖 60/80/100)
+const bisonF = load('char_325_bison');
+const yakF = load('char_199_yak');
+const snakekF = load('char_150_snakek');
+const bisonFPs = calcPanelStats(bisonF, mk(bisonF, -1, 7));
+const bisonFX = bisonF.modules.find(x => x.typeName2 === 'X');
+const bisonFX3 = calcPanelStats(bisonF, { ...mk(bisonF, -1, 7), module: { moduleId: bisonFX.id, moduleLevel: 3 } });
+check('拜松 精2面板含交叉掩护+50', bisonFPs.panelDef === 831);
+check('拜松 X3 模组覆盖+80(白值+85)', bisonFX3.panelDef === 946);
+// 角峰「雪原卫士」:法抗+15(Y 模组 18/20)
+const yakFPs = calcPanelStats(yakF, mk(yakF, -1, 7));
+const yakFY = yakF.modules.find(x => x.typeName2 === 'Y');
+const yakFY3 = calcPanelStats(yakF, { ...mk(yakF, -1, 7), module: { moduleId: yakFY.id, moduleLevel: 3 } });
+check('角峰 精2法抗含雪原卫士+15', yakFPs.magicResistance === 20);
+check('角峰 Y3 法抗覆盖+20', yakFY3.magicResistance === 25);
+// 蛇屠箱「防御专精」:def+12%(X 模组 15%/18%)
+const snakeFPs = calcPanelStats(snakekF, mk(snakekF, -1, 7));
+const snakeFX = snakekF.modules.find(x => x.typeName2 === 'X');
+const snakeFX3 = calcPanelStats(snakekF, { ...mk(snakekF, -1, 7), module: { moduleId: snakeFX.id, moduleLevel: 3 } });
+check('蛇屠箱 精2面板含防御专精12%', near(snakeFPs.panelDef, 857, 0.5));
+check('蛇屠箱 X3 防御专精覆盖18%', near(snakeFX3.panelDef, 997, 0.5));
+
 console.log(`\n铁卫验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);
