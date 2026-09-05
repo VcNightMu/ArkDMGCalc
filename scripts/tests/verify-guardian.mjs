@@ -141,6 +141,15 @@ check('森西S2 停攻无伤害', seS2.skillDps === 0 && seS2.skillTotalDamage =
 check('森西S2 HOT每秒=0.4×atk×1.1', near(seS2.skillHps, seAtk * 0.4 * 1.1));
 check('森西S2 总治疗=(0.4×10+1.6)×atk×1.1', near(seS2.totalHeal, (0.4 * 10 + 1.6) * seAtk * 1.1));
 
+
+// ===== 深律「威权教诲」:前缀键自身法抗(无条件)+周围8格友方条件默认成立,入面板 =====
+const baslinFlat = load('char_4109_baslin');
+const baslinFlatPs = calcPanelStats(baslinFlat, mk(baslinFlat, -1, 7));
+const baslinFlatY = baslinFlat.modules.find(x => x.typeName2 === 'Y');
+const baslinFlatY3 = calcPanelStats(baslinFlat, { ...mk(baslinFlat, -1, 7), module: { moduleId: baslinFlatY.id, moduleLevel: 3 } });
+check('深律 精2法抗=10基础+12自身+4友方条件', baslinFlatPs.magicResistance === 26);
+check('深律 Y3 威权教诲覆盖(14自身+5条件)', baslinFlatY3.magicResistance === 29);
+
 console.log(`\n守护者特殊验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);
 

@@ -215,19 +215,34 @@ const TALENT_FLAT_ATTR_DRIVERS = {
   'char_199_yak': 0,      // 角峰 雪原卫士:法术抗性+X
   'char_378_asbest': 0,   // 石棉 湿润皮肤:法术抗性+X(受法伤回技力 sp 不计)
   'char_4047_pianst': 0,  // 车尔尼 回声:法术抗性+X(受击反伤 atk_scale 不建模,同泡泡反伤口径)
+  'char_4109_baslin': { talentIndex: 0, resSelf: 'baslin_t[self].magic_resistance', resCond: 'baslin_t[ally].magic_resistance' },
+  // 深律 威权教诲:前缀键自身法抗+X(无条件,精2 12)+周围8格有友方时额外+Y(Y 模组后 14+5,条件默认成立同满层先例);null te 为友方侧增益不计自身
 };
 
 // 查自身固定值属性天赋,返回 { defFlat, resFlat }(0 表示无此天赋或未解锁)
 function calcTalentFlatAttr(op, slotData) {
   const out = { defFlat: 0, resFlat: 0 };
-  const ti = TALENT_FLAT_ATTR_DRIVERS[op.id];
-  if (ti === undefined) return out;
+  const cfg = TALENT_FLAT_ATTR_DRIVERS[op.id];
+  if (cfg === undefined) return out;
+  const ti = typeof cfg === 'number' ? cfg : cfg.talentIndex;
   const elite = slotData.elite;
   const level = slotData.level || 0;
   const pot = slotData.potentialRank || 0;
+  // 前缀键配置(深律):每档自身值=无条件 self 键 + 条件 cond 键(默认成立),te 同名整体参与竞争
+  const prefixMode = typeof cfg === 'object';
+  const candScore = (bb) => {
+    bb = bb || {};
+    if (prefixMode) {
+      const selfV = typeof bb[cfg.resSelf] === 'number' ? bb[cfg.resSelf] : 0;
+      const condV = typeof bb[cfg.resCond] === 'number' ? bb[cfg.resCond] : 0;
+      return { resFlat: selfV + condV };
+    }
+    return { defFlat: typeof bb.def === 'number' ? bb.def : 0, resFlat: typeof bb.magic_resistance === 'number' ? bb.magic_resistance : 0 };
+  };
   const take = (bb) => {
-    if (bb && typeof bb.def === 'number') out.defFlat = Math.max(out.defFlat, bb.def);
-    if (bb && typeof bb.magic_resistance === 'number') out.resFlat = Math.max(out.resFlat, bb.magic_resistance);
+    const sc = candScore(bb);
+    out.defFlat = Math.max(out.defFlat, sc.defFlat || 0);
+    out.resFlat = Math.max(out.resFlat, sc.resFlat || 0);
   };
   const talent = (op.talents || [])[ti];
   if (talent) {
@@ -241,7 +256,7 @@ function calcTalentFlatAttr(op, slotData) {
   if (lv && lv.talentEnhance) {
     for (const cand of lv.talentEnhance) {
       const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
-      if (candPot > pot) continue;
+      if (candPot > pot || cand.name === null || cand.name === undefined) continue;
       take(cand.blackboard || {});
     }
   }
