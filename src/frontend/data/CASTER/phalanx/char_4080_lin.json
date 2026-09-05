@@ -1,0 +1,817 @@
+{
+  "id": "char_4080_lin",
+  "name": "林",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "phalanx",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        421,
+        569
+      ],
+      "def": [
+        158,
+        184
+      ],
+      "maxHp": [
+        1074,
+        1343
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        569,
+        730
+      ],
+      "def": [
+        184,
+        212
+      ],
+      "maxHp": [
+        1343,
+        1679
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        730,
+        849
+      ],
+      "def": [
+        212,
+        242
+      ],
+      "maxHp": [
+        1679,
+        2048
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lin_1",
+      "name": "玲珑",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@sluggish": 0.7,
+          "base_attack_time": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "attack@sluggish": 0.7,
+          "base_attack_time": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@sluggish": 0.7,
+          "base_attack_time": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "attack@sluggish": 0.8,
+          "base_attack_time": 1,
+          "level": 3,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@sluggish": 0.8,
+          "base_attack_time": 1,
+          "level": 4,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@sluggish": 0.8,
+          "base_attack_time": 1,
+          "level": 5,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@sluggish": 0.9,
+          "base_attack_time": 1,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@sluggish": 0.9,
+          "base_attack_time": 1,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@sluggish": 1,
+          "base_attack_time": 1,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@sluggish": 1,
+          "base_attack_time": 1,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lin_2",
+      "name": "荫庇",
+      "levels": [
+        {
+          "attack_speed": 10,
+          "taunt_level": -1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "taunt_level": -1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "taunt_level": -1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "taunt_level": -1,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "taunt_level": -1,
+          "level": 4,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "taunt_level": -1,
+          "level": 5,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "taunt_level": -1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "taunt_level": -1,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "taunt_level": -1,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 130,
+          "taunt_level": -1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lin_3",
+      "name": "流光乍裂",
+      "levels": [
+        {
+          "atk": 0.9,
+          "talent_scale": 1.5,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "talent_scale": 1.5,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "talent_scale": 1.5,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "talent_scale": 2,
+          "level": 3,
+          "spCost": 56,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.45,
+          "talent_scale": 2,
+          "level": 5,
+          "spCost": 54,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "talent_scale": 2.5,
+          "level": 6,
+          "spCost": 52,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.75,
+          "talent_scale": 2.5,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.85,
+          "talent_scale": 2.5,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "talent_scale": 3,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "计出万全",
+          "description": "拥有可以抵挡所有伤害的琉璃璧；琉璃璧在受到单次超过150点伤害时破碎，对周围所有敌人造成相当于林攻击力60%的法术伤害、使其<$ba.stun>晕眩</>1秒，并在12秒后再次生成",
+          "blackboard": {
+            "value": 150,
+            "atk_scale": 0.6,
+            "stun": 1,
+            "interval": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "计出万全",
+          "description": "拥有可以抵挡所有伤害的琉璃璧；琉璃璧在受到单次超过150点伤害时破碎，对周围所有敌人造成相当于林攻击力70%<@ba.talpu>（+10%）</>的法术伤害、使其<$ba.stun>晕眩</>1秒，并在12秒后再次生成",
+          "blackboard": {
+            "value": 150,
+            "atk_scale": 0.7,
+            "stun": 1,
+            "interval": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "计出万全",
+          "description": "拥有可以抵挡所有伤害的琉璃璧；琉璃璧在受到单次超过200点伤害时破碎，对周围所有敌人造成相当于林攻击力100%的法术伤害、使其<$ba.stun>晕眩</>1秒，并在8秒后再次生成",
+          "blackboard": {
+            "value": 200,
+            "atk_scale": 1,
+            "stun": 1,
+            "interval": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "计出万全",
+          "description": "拥有可以抵挡所有伤害的琉璃璧；琉璃璧在受到单次超过200点伤害时破碎，对周围所有敌人造成相当于林攻击力110%<@ba.talpu>（+10%）</>的法术伤害、使其<$ba.stun>晕眩</>1秒，并在8秒后再次生成",
+          "blackboard": {
+            "value": 200,
+            "atk_scale": 1.1,
+            "stun": 1,
+            "interval": 8
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "韬光",
+          "description": "受到攻击时，有50%几率回复1点技力",
+          "blackboard": {
+            "prob": 0.5,
+            "sp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "韬光",
+          "description": "受到攻击时，有55%<@ba.talpu>（+5%）</>几率回复1点技力",
+          "blackboard": {
+            "prob": 0.55,
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "def": 2,
+      "magic_resistance": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lin",
+      "name": "林证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lin",
+      "name": "“七窍玲珑”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 62,
+            "def": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "lin_e_002[buff].def": 1,
+                "lin_e_002[buff].magic_resistance": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "韬光",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "sp": 2
+              }
+            },
+            {
+              "name": "韬光",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.55,
+                "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "lin_e_002[buff].def": 1,
+                "lin_e_002[buff].magic_resistance": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 77,
+            "def": 53
+          },
+          "talentEnhance": [
+            {
+              "name": "韬光",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.75,
+                "sp": 2
+              }
+            },
+            {
+              "name": "韬光",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.8,
+                "sp": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "lin_e_002[buff].def": 1,
+                "lin_e_002[buff].magic_resistance": 10
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_lin",
+      "name": "“情与义”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 62,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            },
+            {
+              "name": "计出万全",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 200,
+                "atk_scale": 1.05,
+                "stun": 1,
+                "interval": 7
+              }
+            },
+            {
+              "name": "计出万全",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 200,
+                "atk_scale": 1.15,
+                "stun": 1,
+                "interval": 7
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 73,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            },
+            {
+              "name": "计出万全",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 200,
+                "atk_scale": 1.1,
+                "stun": 1,
+                "interval": 6
+              }
+            },
+            {
+              "name": "计出万全",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 200,
+                "atk_scale": 1.2,
+                "stun": 1,
+                "interval": 6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "id": "char_338_iris",
+  "name": "爱丽丝",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "mystic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        548,
+        784
+      ],
+      "def": [
+        48,
+        81
+      ],
+      "maxHp": [
+        669,
+        957
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        784,
+        1019
+      ],
+      "def": [
+        81,
+        112
+      ],
+      "maxHp": [
+        957,
+        1243
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        1019,
+        1259
+      ],
+      "def": [
+        112,
+        125
+      ],
+      "maxHp": [
+        1243,
+        1535
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 130,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_iris_1",
+      "name": "童话守卫者",
+      "levels": [
+        {
+          "attack@atk_scale": 0.3,
+          "base_attack_time": 0.2,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.31,
+          "base_attack_time": 0.2,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.32,
+          "base_attack_time": 0.2,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.35,
+          "base_attack_time": 0.2,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.36,
+          "base_attack_time": 0.2,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.37,
+          "base_attack_time": 0.2,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.4,
+          "base_attack_time": 0.2,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.43,
+          "base_attack_time": 0.2,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.46,
+          "base_attack_time": 0.2,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.5,
+          "base_attack_time": 0.2,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_iris_2",
+      "name": "梦乡摇篮",
+      "levels": [
+        {
+          "max_target": 2,
+          "atk_scale": 1.7,
+          "sleep": 7,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 1.8,
+          "sleep": 7,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 1.9,
+          "sleep": 7,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2,
+          "sleep": 7,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2.1,
+          "sleep": 7,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2.2,
+          "sleep": 7,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2.3,
+          "sleep": 7,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2.5,
+          "sleep": 7,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 2.7,
+          "sleep": 7,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "atk_scale": 3,
+          "sleep": 7,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "封印的宝盒",
+          "description": "储存的攻击能量造成的伤害提升至115%",
+          "blackboard": {
+            "atk_scale": 1.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "封印的宝盒",
+          "description": "储存的攻击能量造成的伤害提升至119%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "atk_scale": 1.19
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "封印的宝盒",
+          "description": "储存的攻击能量造成的伤害提升至130%",
+          "blackboard": {
+            "atk_scale": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "封印的宝盒",
+          "description": "储存的攻击能量造成的伤害提升至134%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "atk_scale": 1.34
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "times": 3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+45",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 45
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_iris",
+      "name": "爱丽丝证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_iris",
+      "name": "梦之城堡立体书",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "magic_resistance": 3
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 68,
+            "magic_resistance": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "封印的宝盒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.35
+              }
+            },
+            {
+              "name": "封印的宝盒",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.39
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 82,
+            "magic_resistance": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "封印的宝盒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.38
+              }
+            },
+            {
+              "name": "封印的宝盒",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.42
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

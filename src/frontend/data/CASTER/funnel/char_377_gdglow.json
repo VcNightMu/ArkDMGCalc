@@ -1,0 +1,819 @@
+{
+  "id": "char_377_gdglow",
+  "name": "澄闪",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "funnel",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        153,
+        216
+      ],
+      "def": [
+        50,
+        76
+      ],
+      "maxHp": [
+        605,
+        865
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        216,
+        278
+      ],
+      "def": [
+        76,
+        105
+      ],
+      "maxHp": [
+        865,
+        1124
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        278,
+        331
+      ],
+      "def": [
+        105,
+        125
+      ],
+      "maxHp": [
+        1124,
+        1480
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_gdglow_1",
+      "name": "火花四溅",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "attack@cnt": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 23,
+          "attack@cnt": 1,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.24,
+          "attack_speed": 26,
+          "attack@cnt": 1,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "attack_speed": 29,
+          "attack@cnt": 1,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "attack_speed": 32,
+          "attack@cnt": 1,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack_speed": 35,
+          "attack@cnt": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 38,
+          "attack@cnt": 1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "attack_speed": 42,
+          "attack@cnt": 1,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "attack_speed": 46,
+          "attack@cnt": 1,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 50,
+          "attack@cnt": 1,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_gdglow_2",
+      "name": "电流翻涌",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack@cnt": 1,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.24,
+          "attack@cnt": 1,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.28,
+          "attack@cnt": 1,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.32,
+          "attack@cnt": 1,
+          "level": 3,
+          "spCost": 75,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.36,
+          "attack@cnt": 1,
+          "level": 4,
+          "spCost": 75,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack@cnt": 1,
+          "level": 5,
+          "spCost": 75,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.45,
+          "attack@cnt": 1,
+          "level": 6,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "attack@cnt": 1,
+          "level": 7,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.55,
+          "attack@cnt": 1,
+          "level": 8,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "attack@cnt": 1,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_gdglow_3",
+      "name": "澄净闪耀",
+      "levels": [
+        {
+          "atk": 0.25,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@cnt": 2,
+          "attack@sluggish": 0.5,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "信标的愤怒",
+          "description": "技能开启后浮游单元攻击时有10%概率自爆（回到干员身边）对小范围敌人造成澄闪200%攻击力的法术伤害",
+          "blackboard": {
+            "attack@prob": 0.015,
+            "attack@atk_scale_2": 2,
+            "attack@max_stack_cnt": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "信标的愤怒",
+          "description": "技能开启后浮游单元攻击时有10%概率自爆（回到干员身边）对小范围敌人造成澄闪215%<@ba.talpu>（+15%）</>攻击力的法术伤害",
+          "blackboard": {
+            "attack@prob": 0.015,
+            "attack@atk_scale_2": 2.15,
+            "attack@max_stack_cnt": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "信标的愤怒",
+          "description": "技能开启后浮游单元攻击时有10%概率自爆（回到干员身边）对小范围敌人造成澄闪300%攻击力的法术伤害",
+          "blackboard": {
+            "attack@prob": 0.015,
+            "attack@atk_scale_2": 3,
+            "attack@max_stack_cnt": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "信标的愤怒",
+          "description": "技能开启后浮游单元攻击时有10%概率自爆（回到干员身边）对小范围敌人造成澄闪315%<@ba.talpu>（+15%）</>攻击力的法术伤害",
+          "blackboard": {
+            "attack@prob": 0.015,
+            "attack@atk_scale_2": 3.15,
+            "attack@max_stack_cnt": 40
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "精准导流",
+          "description": "自身与浮游单元无视敌人15点法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "精准导流",
+          "description": "自身与浮游单元无视敌人18<@ba.talpu>（+3）</>点法术抗性",
+          "blackboard": {
+            "magic_resist_penetrate_fixed": 18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "操作浮游单元造成法术伤害\\n单元攻击同一敌人伤害提升（最高造成干员110%攻击力的伤害）",
+    "blackboard": {
+      "init_atk_scale": 0.2,
+      "delta_atk_scale": 0.15,
+      "max_atk_scale": 1.1,
+      "max_stack_cnt": 6
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_gdglow",
+      "name": "澄闪证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_gdglow",
+      "name": "“辛劳之翼”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 22
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.35,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.1,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 32
+          },
+          "talentEnhance": [
+            {
+              "name": "信标的愤怒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@prob": 0.015,
+                "attack@atk_scale_2": 3.4,
+                "attack@max_stack_cnt": 40
+              }
+            },
+            {
+              "name": "信标的愤怒",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack@prob": 0.015,
+                "attack@atk_scale_2": 3.55,
+                "attack@max_stack_cnt": 40
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.35,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.1,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "信标的愤怒",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@prob": 0.015,
+                "attack@atk_scale_2": 3.6,
+                "attack@max_stack_cnt": 40
+              }
+            },
+            {
+              "name": "信标的愤怒",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack@prob": 0.015,
+                "attack@atk_scale_2": 3.75,
+                "attack@max_stack_cnt": 40
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.35,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.1,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_gdglow",
+      "name": "梦想终将实现",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.2,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.2,
+                "max_stack_cnt": 7
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 40,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "精准导流",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 18
+              }
+            },
+            {
+              "name": "精准导流",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 21
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.2,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.2,
+                "max_stack_cnt": 7
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 45,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "精准导流",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 20
+              }
+            },
+            {
+              "name": "精准导流",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "magic_resist_penetrate_fixed": 23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "init_atk_scale": 0.2,
+                "delta_atk_scale": 0.15,
+                "max_atk_scale": 1.2,
+                "max_stack_cnt": 7
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

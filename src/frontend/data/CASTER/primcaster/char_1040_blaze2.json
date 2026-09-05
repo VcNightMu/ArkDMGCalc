@@ -1,0 +1,987 @@
+{
+  "id": "char_1040_blaze2",
+  "name": "烛煌",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "primcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        324,
+        444
+      ],
+      "def": [
+        52,
+        79
+      ],
+      "maxHp": [
+        668,
+        928
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        444,
+        556
+      ],
+      "def": [
+        79,
+        108
+      ],
+      "maxHp": [
+        928,
+        1206
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        556,
+        662
+      ],
+      "def": [
+        108,
+        131
+      ],
+      "maxHp": [
+        1206,
+        1608
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_blaze2_1",
+      "name": "炙手之援",
+      "levels": [
+        {
+          "atk_scale": 0.35,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.4,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.43,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.46,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.49,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.52,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.55,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.6,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.65,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.7,
+          "element_multiplier": 0.3,
+          "max_duration": 20,
+          "range_radius": 1.5,
+          "interval": 1,
+          "level": 9,
+          "spCost": 16,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blaze2_2",
+      "name": "沸血燎原",
+      "levels": [
+        {
+          "atk": 0.6,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "base_attack_time": 0.9,
+          "atk_scale": 0.35,
+          "attack@max_target": 3,
+          "attack@hp_ratio": 0.05,
+          "element_damage_scale": 0.3,
+          "move_speed": -0.5,
+          "level": 9,
+          "spCost": 36,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blaze2_3",
+      "name": "众恶的焚场",
+      "levels": [
+        {
+          "atk": 0.55,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 15,
+          "attack@atk_scale": 0.5,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 16,
+          "attack@atk_scale": 0.5,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 17,
+          "attack@atk_scale": 0.5,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 18,
+          "attack@atk_scale": 0.6,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 19,
+          "attack@atk_scale": 0.6,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 20,
+          "attack@atk_scale": 0.6,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 21,
+          "attack@atk_scale": 0.7,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 23,
+          "attack@atk_scale": 0.7,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 25,
+          "attack@atk_scale": 0.7,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "base_attack_time": -1.3,
+          "attack@trigger_time": 25,
+          "attack@atk_scale": 0.8,
+          "lose_hp_scale": 0.03,
+          "ammo_recover": 2,
+          "skill_max_trigger_time": -1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熔点引爆",
+          "description": "全场有敌人<$ba.dt.burning2>灼燃损伤</>爆发开始时，立即对其造成相当于攻击力250%的元素伤害并回复6%最大生命",
+          "blackboard": {
+            "ep_damage_scale": 2.5,
+            "hp_ratio": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "熔点引爆",
+          "description": "全场有敌人<$ba.dt.burning2>灼燃损伤</>爆发开始时，立即对其造成相当于攻击力280%<@ba.talpu>（+30%）</>的元素伤害并回复9%<@ba.talpu>（+3%）</>最大生命",
+          "blackboard": {
+            "ep_damage_scale": 2.8,
+            "hp_ratio": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熔点引爆",
+          "description": "全场有敌人<$ba.dt.burning2>灼燃损伤</>爆发开始时，立即对其造成相当于攻击力350%的元素伤害并回复12%最大生命",
+          "blackboard": {
+            "ep_damage_scale": 3.5,
+            "hp_ratio": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "熔点引爆",
+          "description": "全场有敌人<$ba.dt.burning2>灼燃损伤</>爆发开始时，立即对其造成相当于攻击力380%<@ba.talpu>（+30%）</>的元素伤害并回复15%<@ba.talpu>（+3%）</>最大生命",
+          "blackboard": {
+            "ep_damage_scale": 3.8,
+            "hp_ratio": 0.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "绝处重燃",
+          "description": "被击倒时倒地并获得6000点<$ba.barrier>屏障</>，倒地期间不能攻击，无法被治疗，每秒回复3%生命；生命回满后复活并使附近的敌人<$ba.stun>晕眩</>5秒",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.03,
+            "stun": 5,
+            "dynamic": 6000
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "绝处重燃",
+          "description": "被击倒时倒地并获得6000点<$ba.barrier>屏障</>，倒地期间不能攻击，无法被治疗，每秒回复3.5%<@ba.talpu>（+0.5%）</>生命，生命回满后复活并使附近的敌人<$ba.stun>晕眩</>5秒",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+            "stun": 5,
+            "dynamic": 6000
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+31",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_blaze2",
+      "name": "烛煌证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_blaze2",
+      "name": "热切的期盼",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 52,
+            "def": 10
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 66,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": "熔点引爆",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_scale": 3.9,
+                "hp_ratio": 0.12
+              }
+            },
+            {
+              "name": "熔点引爆",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_scale": 4.2,
+                "hp_ratio": 0.15
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 10,
+                "atk": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 82,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "熔点引爆",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_scale": 4.2,
+                "hp_ratio": 0.15
+              }
+            },
+            {
+              "name": "熔点引爆",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "ep_damage_scale": 4.5,
+                "hp_ratio": 0.18
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 10,
+                "atk": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_blaze2",
+      "name": "沟通小助手",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 58
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 105,
+            "atk": 72
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "绝处重燃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "stun": 5,
+                "dynamic": 6000
+              }
+            },
+            {
+              "name": "绝处重燃",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.045,
+                "stun": 5,
+                "dynamic": 6000
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1,
+                "ep_damage_ratio": 0.2,
+                "sp": 4
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1,
+                "ep_damage_ratio": 0.2,
+                "sp": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 87
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "绝处重燃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "stun": 5,
+                "dynamic": 6000
+              }
+            },
+            {
+              "name": "绝处重燃",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.045,
+                "stun": 5,
+                "dynamic": 6000
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.2,
+                "ep_damage_ratio": 0.3,
+                "sp": 8
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "damage_scale": 1.2,
+                "ep_damage_ratio": 0.3,
+                "sp": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

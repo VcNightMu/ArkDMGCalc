@@ -1,0 +1,540 @@
+{
+  "id": "char_1011_lava2",
+  "name": "炎狱炎熔",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        370,
+        522
+      ],
+      "def": [
+        46,
+        70
+      ],
+      "maxHp": [
+        692,
+        962
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        522,
+        670
+      ],
+      "def": [
+        70,
+        96
+      ],
+      "maxHp": [
+        962,
+        1203
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        670,
+        798
+      ],
+      "def": [
+        96,
+        115
+      ],
+      "maxHp": [
+        1203,
+        1543
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lava2_1",
+      "name": "焰淬匕首",
+      "levels": [
+        {
+          "atk": 0.02,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.04,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.06,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.08,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.12,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.14,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.18,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "ability_range_forward_extend": 1,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lava2_2",
+      "name": "狱火之环",
+      "levels": [
+        {
+          "atk_scale": 0.3,
+          "interval": 1,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.3,
+          "interval": 1,
+          "level": 1,
+          "spCost": 79,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.3,
+          "interval": 1,
+          "level": 2,
+          "spCost": 78,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.35,
+          "interval": 1,
+          "level": 3,
+          "spCost": 77,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.35,
+          "interval": 1,
+          "level": 4,
+          "spCost": 76,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.35,
+          "interval": 1,
+          "level": 5,
+          "spCost": 75,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.4,
+          "interval": 1,
+          "level": 6,
+          "spCost": 74,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.4,
+          "interval": 1,
+          "level": 7,
+          "spCost": 73,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 37,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.4,
+          "interval": 1,
+          "level": 8,
+          "spCost": 72,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.5,
+          "interval": 1,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "咒术阵线",
+          "description": "首次部署后立即获得15点技力，每次部署时使在场术师干员技力+2，在场时其余友方术师干员初始技力+2",
+          "blackboard": {
+            "lava2_t_1[ally].sp": 2,
+            "lava2_t_1[self].sp": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "咒术阵线",
+          "description": "首次部署后立即获得20<@ba.talpu>（+5）</>点技力，每次部署时使在场术师干员技力+3<@ba.talpu>（+1）</>，在场时其余友方术师干员初始技力+3<@ba.talpu>（+1）</>",
+          "blackboard": {
+            "lava2_t_1[ally].sp": 3,
+            "lava2_t_1[self].sp": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "咒术阵线",
+          "description": "首次部署后立即获得30点技力，每次部署时使在场术师干员技力+4，在场时其余友方术师干员初始技力+4",
+          "blackboard": {
+            "lava2_t_1[ally].sp": 4,
+            "lava2_t_1[self].sp": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "咒术阵线",
+          "description": "首次部署后立即获得35<@ba.talpu>（+5）</>点技力，每次部署时使在场术师干员技力+5<@ba.talpu>（+1）</>，在场时其余友方术师干员初始技力+5<@ba.talpu>（+1）</>",
+          "blackboard": {
+            "lava2_t_1[ally].sp": 5,
+            "lava2_t_1[self].sp": 35
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lava2",
+      "name": "炎狱炎熔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lava2",
+      "name": "萨卡兹的刀",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 43
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "咒术阵线",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "lava2_t_1[ally].sp": 4,
+                "lava2_t_1[self].sp": 33
+              }
+            },
+            {
+              "name": "咒术阵线",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "lava2_t_1[ally].sp": 5,
+                "lava2_t_1[self].sp": 38
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "atk": 62
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "咒术阵线",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "lava2_t_1[ally].sp": 4,
+                "lava2_t_1[self].sp": 35
+              }
+            },
+            {
+              "name": "咒术阵线",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "lava2_t_1[ally].sp": 5,
+                "lava2_t_1[self].sp": 40
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

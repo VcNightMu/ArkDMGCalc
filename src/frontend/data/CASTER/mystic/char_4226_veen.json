@@ -1,0 +1,721 @@
+{
+  "id": "char_4226_veen",
+  "name": "维伊",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "mystic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        615,
+        879
+      ],
+      "def": [
+        46,
+        78
+      ],
+      "maxHp": [
+        654,
+        935
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        879,
+        1142
+      ],
+      "def": [
+        78,
+        108
+      ],
+      "maxHp": [
+        935,
+        1215
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1142,
+        1410
+      ],
+      "def": [
+        108,
+        121
+      ],
+      "maxHp": [
+        1215,
+        1500
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 280
+  },
+  "skills": [
+    {
+      "skillId": "skchr_veen_1",
+      "name": "“自呼号生发”",
+      "levels": [
+        {
+          "attack_speed": 50,
+          "level": 0,
+          "spCost": 32,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 1,
+          "spCost": 32,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 2,
+          "spCost": 31,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "level": 3,
+          "spCost": 31,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_veen_2",
+      "name": "“以鲜血洗去”",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.06,
+          "attack@veen_s_2_buff[stack].attack_speed": 5,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 7,
+          "level": 0,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.07,
+          "attack@veen_s_2_buff[stack].attack_speed": 5,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 7,
+          "level": 1,
+          "spCost": 38,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.07,
+          "attack@veen_s_2_buff[stack].attack_speed": 6,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 7,
+          "level": 2,
+          "spCost": 37,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.09,
+          "attack@veen_s_2_buff[stack].attack_speed": 6,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 8,
+          "level": 3,
+          "spCost": 36,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.09,
+          "attack@veen_s_2_buff[stack].attack_speed": 6,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 8,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.09,
+          "attack@veen_s_2_buff[stack].attack_speed": 7,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 8,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.11,
+          "attack@veen_s_2_buff[stack].attack_speed": 7,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 9,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.13,
+          "attack@veen_s_2_buff[stack].attack_speed": 7,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 9,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.13,
+          "attack@veen_s_2_buff[stack].attack_speed": 8,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@veen_s_2_buff[stack].atk": 0.15,
+          "attack@veen_s_2_buff[stack].attack_speed": 8,
+          "attack@veen_s_2_buff[stack].max_stack_cnt": 9,
+          "level": 9,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_veen_3",
+      "name": "“用赤铁铭记”",
+      "levels": [
+        {
+          "attack_speed": 80,
+          "attack@bounce_atk_scale": 1.1,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 15,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 0,
+          "spCost": 63,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "attack@bounce_atk_scale": 1.1,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 15,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 1,
+          "spCost": 61,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@bounce_atk_scale": 1.2,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 15,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 2,
+          "spCost": 59,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "attack@bounce_atk_scale": 1.3,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 18,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 120,
+          "attack@bounce_atk_scale": 1.3,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 18,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 130,
+          "attack@bounce_atk_scale": 1.3,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 18,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 5,
+          "spCost": 53,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 140,
+          "attack@bounce_atk_scale": 1.4,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 21,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 6,
+          "spCost": 51,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 150,
+          "attack@bounce_atk_scale": 1.5,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 24,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 7,
+          "spCost": 49,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 160,
+          "attack@bounce_atk_scale": 1.5,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 24,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 180,
+          "attack@bounce_atk_scale": 1.65,
+          "attack@delay": 0.4,
+          "attack@trigger_time": 27,
+          "merge_hit_cnt": 3,
+          "attack@base_atk_scale": 1,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“在挥刀之前”",
+          "description": "特性储存的能量达到3个时，合成为1个转置能量（至多储存等同于9倍的能量），拥有转置能量时攻击力+2%，未拥有转置能量时攻击速度+5",
+          "blackboard": {
+            "atk": 0.02,
+            "attack_speed": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“在挥刀之前”",
+          "description": "特性储存的能量达到3个时，合成为1个转置能量（至多储存等同于9倍的能量），拥有转置能量时攻击力+4%<@ba.talpu>（+2%）</>，未拥有转置能量时攻击速度+5",
+          "blackboard": {
+            "atk": 0.04,
+            "attack_speed": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“在挥刀之前”",
+          "description": "特性储存的能量达到3个时，合成为1个转置能量（至多储存等同于9倍的能量），拥有转置能量时攻击力+10%，未拥有转置能量时攻击速度+15",
+          "blackboard": {
+            "atk": 0.1,
+            "attack_speed": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“在挥刀之前”",
+          "description": "特性储存的能量达到3个时，合成为1个转置能量（至多储存等同于9倍的能量），拥有转置能量时攻击力+12%<@ba.talpu>（+2%）</>，未拥有转置能量时攻击速度+15",
+          "blackboard": {
+            "atk": 0.12,
+            "attack_speed": 15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战争技艺",
+          "description": "攻击和储存的能量使目标在5秒内每秒受到90点法术伤害（至多叠加3次，发射转置能量可以叠加3次），维伊不以该效果影响的敌人为攻击目标",
+          "blackboard": {
+            "attack@duration": 5,
+            "attack@value": 90,
+            "attack@max_stack_cnt": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "times": 9,
+      "merge_cnt": 3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_veen",
+      "name": "维伊证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_veen",
+      "name": "军械库",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 112
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "战争技艺",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@duration": 5,
+                "attack@value": 100,
+                "attack@max_stack_cnt": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 120
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "战争技艺",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@duration": 5,
+                "attack@value": 120,
+                "attack@max_stack_cnt": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

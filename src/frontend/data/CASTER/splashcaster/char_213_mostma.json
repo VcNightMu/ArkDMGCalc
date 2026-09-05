@@ -1,0 +1,711 @@
+{
+  "id": "char_213_mostma",
+  "name": "莫斯提马",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        387,
+        546
+      ],
+      "def": [
+        52,
+        80
+      ],
+      "maxHp": [
+        822,
+        1142
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        546,
+        700
+      ],
+      "def": [
+        80,
+        110
+      ],
+      "maxHp": [
+        1142,
+        1428
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        700,
+        834
+      ],
+      "def": [
+        110,
+        132
+      ],
+      "maxHp": [
+        1428,
+        1831
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 105,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mostma_2",
+      "name": "荒时之锁",
+      "levels": [
+        {
+          "atk_scale": 0.8,
+          "level": 0,
+          "spCost": 65,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "level": 1,
+          "spCost": 64,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "level": 2,
+          "spCost": 63,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "level": 3,
+          "spCost": 61,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "level": 4,
+          "spCost": 59,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 5,
+          "spCost": 58,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 6,
+          "spCost": 56,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 7,
+          "spCost": 54,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mostma_3",
+      "name": "序时之匙",
+      "levels": [
+        {
+          "atk": 0.6,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 0,
+          "spCost": 110,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 1,
+          "spCost": 110,
+          "initialSp": 52,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 2,
+          "spCost": 110,
+          "initialSp": 54,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 3,
+          "spCost": 110,
+          "initialSp": 56,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 4,
+          "spCost": 110,
+          "initialSp": 58,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 5,
+          "spCost": 110,
+          "initialSp": 60,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 6,
+          "spCost": 110,
+          "initialSp": 62,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 7,
+          "spCost": 110,
+          "initialSp": 68,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 8,
+          "spCost": 110,
+          "initialSp": 74,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "attack@force": 0,
+          "talent_scale": 3,
+          "base_attack_time": 0,
+          "level": 9,
+          "spCost": 110,
+          "initialSp": 80,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环·术师",
+          "description": "在场时所有【术师】干员的技力自然回复速度+0.2/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环·术师",
+          "description": "在场时所有【术师】干员的技力自然回复速度+0.4/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.4
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "主观缓时",
+          "description": "攻击范围内的敌人移动速度-15%",
+          "blackboard": {
+            "move_speed": -0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "主观缓时",
+          "description": "攻击范围内的敌人移动速度-18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "move_speed": -0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mostma",
+      "name": "莫斯提马证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_mostma",
+      "name": "资深万国信使定制斗篷",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "技力光环·术师",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.5,
+                "mostma_003_t[self].sp_recovery_per_sec": 0.7
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "技力光环·术师",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.6,
+                "mostma_003_t[self].sp_recovery_per_sec": 0.9
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_mostma",
+      "name": "锁与匙之家",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 51,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 68,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "主观缓时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.25,
+                "mostma_e_t_2[global].move_speed": -0.1
+              }
+            },
+            {
+              "name": "主观缓时",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "move_speed": -0.28,
+                "mostma_e_t_2[global].move_speed": -0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 82,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "主观缓时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.3,
+                "mostma_e_t_2[global].move_speed": -0.18
+              }
+            },
+            {
+              "name": "主观缓时",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "move_speed": -0.33,
+                "mostma_e_t_2[global].move_speed": -0.18
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

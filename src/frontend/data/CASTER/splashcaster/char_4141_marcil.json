@@ -1,0 +1,851 @@
+{
+  "id": "char_4141_marcil",
+  "name": "玛露西尔",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        424,
+        598
+      ],
+      "def": [
+        52,
+        79
+      ],
+      "maxHp": [
+        810,
+        1125
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        598,
+        767
+      ],
+      "def": [
+        79,
+        109
+      ],
+      "maxHp": [
+        1125,
+        1407
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        767,
+        914
+      ],
+      "def": [
+        109,
+        130
+      ],
+      "maxHp": [
+        1407,
+        1805
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 110,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_marcil_1",
+      "name": "才女的实力",
+      "levels": [
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.4,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.45,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.5,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.55,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.6,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.7,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 0.85,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 6,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 1,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 7,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 1.2,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 8,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 1.5,
+          "skill_cost_min_sp": 2,
+          "mana_init": 25,
+          "atk": 1.4,
+          "sp_cost": 2,
+          "mana_max": 80,
+          "level": 9,
+          "spCost": 80,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_marcil_2",
+      "name": "召唤使魔",
+      "levels": [
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.4,
+          "attack@sluggish": 0.5,
+          "attack_speed": 30,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.45,
+          "attack@sluggish": 0.5,
+          "attack_speed": 30,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.5,
+          "attack@sluggish": 0.5,
+          "attack_speed": 30,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.55,
+          "attack@sluggish": 0.5,
+          "attack_speed": 35,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.6,
+          "attack@sluggish": 0.5,
+          "attack_speed": 35,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.65,
+          "attack@sluggish": 0.5,
+          "attack_speed": 35,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.7,
+          "attack@sluggish": 0.5,
+          "attack_speed": 45,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 6,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.8,
+          "attack@sluggish": 0.5,
+          "attack_speed": 50,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 7,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 0.9,
+          "attack@sluggish": 0.5,
+          "attack_speed": 55,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 8,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "chant_duration": 11,
+          "skill_cost_min_sp": 35,
+          "mana_init": 10,
+          "atk": 1,
+          "attack@sluggish": 0.5,
+          "attack_speed": 60,
+          "attack@stun": 0.5,
+          "sp_cost": 35,
+          "mana_max": 80,
+          "level": 9,
+          "spCost": 80,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_marcil_3",
+      "name": "爆破魔法",
+      "levels": [
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 2.8,
+          "interval": 0.45,
+          "stun": 2,
+          "trig_cnt": 49,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 2.9,
+          "interval": 0.45,
+          "stun": 2,
+          "trig_cnt": 49,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3,
+          "interval": 0.45,
+          "stun": 2,
+          "trig_cnt": 49,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.1,
+          "interval": 0.45,
+          "stun": 3,
+          "trig_cnt": 49,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.2,
+          "interval": 0.45,
+          "stun": 3,
+          "trig_cnt": 49,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.3,
+          "interval": 0.45,
+          "stun": 3,
+          "trig_cnt": 49,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.4,
+          "interval": 0.45,
+          "stun": 3,
+          "trig_cnt": 49,
+          "level": 6,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.5,
+          "interval": 0.45,
+          "stun": 3.5,
+          "trig_cnt": 49,
+          "level": 7,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.7,
+          "interval": 0.45,
+          "stun": 3.5,
+          "trig_cnt": 49,
+          "level": 8,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "chant_duration": 5,
+          "extra_chant_duration": 10,
+          "skill_cost_min_sp": 8,
+          "mana_max": 80,
+          "mana_init": 40,
+          "sp_cost_extra": 8,
+          "atk_scale": 3.9,
+          "interval": 0.45,
+          "stun": 4,
+          "trig_cnt": 49,
+          "level": 9,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "建校以来第一才女",
+          "description": "技能消耗<$ba.magicpoint>魔力</>且可随时开启，<$ba.magicpoint>魔力</>不自然回复，不在场时每秒回复1点；有<$ba.magicpoint>魔力</>时，攻击力+10%，攻击溅射范围扩大",
+          "blackboard": {
+            "interval": 1,
+            "mana_add": 1,
+            "mana_max": 100,
+            "mana_init": 0,
+            "sp": 1,
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "建校以来第一才女",
+          "description": "技能消耗<$ba.magicpoint>魔力</>且可随时开启，<$ba.magicpoint>魔力</>不自然回复，不在场时每秒回复1点；有<$ba.magicpoint>魔力</>时，攻击力+15%<@ba.talpu>（+5%）</>，攻击溅射范围扩大",
+          "blackboard": {
+            "interval": 1,
+            "mana_add": 1,
+            "mana_max": 100,
+            "mana_init": 0,
+            "sp": 1,
+            "atk": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "建校以来第一才女",
+          "description": "技能消耗<$ba.magicpoint>魔力</>且可随时开启，<$ba.magicpoint>魔力</>不自然回复，不在场时每秒回复1点；有<$ba.magicpoint>魔力</>时，攻击力+20%，攻击溅射范围扩大",
+          "blackboard": {
+            "interval": 1,
+            "mana_add": 1,
+            "mana_max": 100,
+            "mana_init": 0,
+            "sp": 1,
+            "atk": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "建校以来第一才女",
+          "description": "技能消耗<$ba.magicpoint>魔力</>且可随时开启，<$ba.magicpoint>魔力</>不自然回复，不在场时每秒回复1点；有<$ba.magicpoint>魔力</>时，攻击力+25%<@ba.talpu>（+5%）</>，攻击溅射范围扩大",
+          "blackboard": {
+            "interval": 1,
+            "mana_add": 1,
+            "mana_max": 100,
+            "mana_init": 0,
+            "sp": 1,
+            "atk": 0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "可靠的同伴",
+          "description": "初始<$ba.magicpoint>魔力</>+25，编队中有4名<$ba.laiosteam>【莱欧斯小队】</>干员时，所有<$ba.laiosteam>【莱欧斯小队】</>干员攻击速度+25，防御力+35%",
+          "blackboard": {
+            "mana_init": 25,
+            "attack_speed": 25,
+            "def": 0.35
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_marcil",
+      "name": "玛露西尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_marcil",
+      "name": "才女的藏书",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 51,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 68,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "可靠的同伴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "mana_init": 35,
+                "attack_speed": 25,
+                "def": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 82,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "可靠的同伴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "mana_init": 40,
+                "attack_speed": 25,
+                "def": 0.35
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

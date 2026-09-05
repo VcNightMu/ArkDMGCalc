@@ -1,0 +1,588 @@
+{
+  "id": "char_4110_delphn",
+  "name": "戴菲恩",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "mystic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        541,
+        773
+      ],
+      "def": [
+        48,
+        82
+      ],
+      "maxHp": [
+        667,
+        954
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        773,
+        1004
+      ],
+      "def": [
+        82,
+        114
+      ],
+      "maxHp": [
+        954,
+        1240
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        1004,
+        1240
+      ],
+      "def": [
+        114,
+        128
+      ],
+      "maxHp": [
+        1240,
+        1532
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 130,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_delphn_1",
+      "name": "“贯注”",
+      "levels": [
+        {
+          "attack@atk_scale": 0.3,
+          "base_attack_time": 0.2,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.31,
+          "base_attack_time": 0.2,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.32,
+          "base_attack_time": 0.2,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.35,
+          "base_attack_time": 0.2,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.36,
+          "base_attack_time": 0.2,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.37,
+          "base_attack_time": 0.2,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.4,
+          "base_attack_time": 0.2,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.43,
+          "base_attack_time": 0.2,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.46,
+          "base_attack_time": 0.2,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.5,
+          "base_attack_time": 0.2,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_delphn_2",
+      "name": "“抢攻”",
+      "levels": [
+        {
+          "atk": 0.3,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "max_cnt": 0.24,
+          "attack@max_cnt": 0.24,
+          "damage_addition": 0.06,
+          "attack@damage_addition": 0.06,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "濯洗剑锋",
+          "description": "攻击生命值高于80%的敌人时造成的伤害提高10%",
+          "blackboard": {
+            "hp_ratio": 0.8,
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "濯洗剑锋",
+          "description": "攻击生命值高于80%的敌人时造成的伤害提高12%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "hp_ratio": 0.8,
+            "damage_scale": 1.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "濯洗剑锋",
+          "description": "攻击生命值高于80%的敌人时造成的伤害提高18%",
+          "blackboard": {
+            "hp_ratio": 0.8,
+            "damage_scale": 1.18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "濯洗剑锋",
+          "description": "攻击生命值高于80%的敌人时造成的伤害提高20%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "hp_ratio": 0.8,
+            "damage_scale": 1.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "挥斩敌愁",
+          "description": "在【恶兆湍流】中，攻击【萨卡兹】敌人时攻击力提升至120%，且可额外储存一个仅用于攻击【萨卡兹】敌人的攻击能量",
+          "blackboard": {
+            "atk_scale": 1.2,
+            "times_2": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "times": 3,
+      "times_2": 0
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_delphn",
+      "name": "戴菲恩证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_delphn",
+      "name": "正义黯淡",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 95,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "濯洗剑锋",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.8,
+                "damage_scale": 1.21
+              }
+            },
+            {
+              "name": "濯洗剑锋",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.8,
+                "damage_scale": 1.23
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 92
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "濯洗剑锋",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.8,
+                "damage_scale": 1.23
+              }
+            },
+            {
+              "name": "濯洗剑锋",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_ratio": 0.8,
+                "damage_scale": 1.25
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,873 @@
+{
+  "id": "char_4046_ebnhlz",
+  "name": "黑键",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "mystic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        611,
+        873
+      ],
+      "def": [
+        51,
+        87
+      ],
+      "maxHp": [
+        732,
+        1046
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        873,
+        1134
+      ],
+      "def": [
+        87,
+        120
+      ],
+      "maxHp": [
+        1046,
+        1359
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1134,
+        1400
+      ],
+      "def": [
+        120,
+        135
+      ],
+      "maxHp": [
+        1359,
+        1678
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 150,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ebnhlz_1",
+      "name": "渐快急板",
+      "levels": [
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.3,
+          "attack@cnt": 1,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.31,
+          "attack@cnt": 1,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.32,
+          "attack@cnt": 1,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.35,
+          "attack@cnt": 1,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.36,
+          "attack@cnt": 1,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.37,
+          "attack@cnt": 1,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.2,
+          "attack@atk_scale": 0.4,
+          "attack@cnt": 1,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.17,
+          "attack@atk_scale": 0.43,
+          "attack@cnt": 1,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.17,
+          "attack@atk_scale": 0.46,
+          "attack@cnt": 1,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.17,
+          "attack@atk_scale": 0.5,
+          "attack@cnt": 1,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ebnhlz_2",
+      "name": "荒芜回响",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "force": 1,
+          "level": 0,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "force": 1,
+          "level": 1,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "force": 1,
+          "level": 2,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "force": 1,
+          "level": 3,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "force": 1,
+          "level": 4,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "force": 1,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "force": 1,
+          "level": 6,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.15,
+          "force": 1,
+          "level": 7,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "force": 1,
+          "level": 8,
+          "spCost": 13,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.45,
+          "force": 1,
+          "level": 9,
+          "spCost": 13,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ebnhlz_3",
+      "name": "寂静之声",
+      "levels": [
+        {
+          "attack_speed": 40,
+          "atk": 0.35,
+          "talent_scale_multiplier": 1.15,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "atk": 0.38,
+          "talent_scale_multiplier": 1.18,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "atk": 0.4,
+          "talent_scale_multiplier": 1.2,
+          "level": 2,
+          "spCost": 24,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "atk": 0.43,
+          "talent_scale_multiplier": 1.23,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "atk": 0.45,
+          "talent_scale_multiplier": 1.25,
+          "level": 4,
+          "spCost": 23,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "atk": 0.48,
+          "talent_scale_multiplier": 1.28,
+          "level": 5,
+          "spCost": 23,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "atk": 0.5,
+          "talent_scale_multiplier": 1.3,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "atk": 0.55,
+          "talent_scale_multiplier": 1.33,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "atk": 0.6,
+          "talent_scale_multiplier": 1.36,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "atk": 0.65,
+          "talent_scale_multiplier": 1.4,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "强弱法",
+          "description": "储存的攻击能量造成的伤害提升至120%，可额外储存1份只用于攻击精英或领袖敌人的攻击能量",
+          "blackboard": {
+            "atk_scale": 1.2,
+            "times_2": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "强弱法",
+          "description": "储存的攻击能量造成的伤害提升至135%，可额外储存1份只用于攻击精英或领袖敌人的攻击能量",
+          "blackboard": {
+            "atk_scale": 1.35,
+            "times_2": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "倚音",
+          "description": "若攻击目标周围没有其他敌人，攻击对其额外造成相当于攻击力15%的法术伤害",
+          "blackboard": {
+            "atk_scale": 0.15,
+            "cnt": 0,
+            "range_radius": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "倚音",
+          "description": "若攻击目标周围没有其他敌人，攻击对其额外造成相当于攻击力17%<@ba.talpu>（+2%）</>的法术伤害",
+          "blackboard": {
+            "atk_scale": 0.17,
+            "cnt": 0,
+            "range_radius": 1.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "times": 3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+52",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 52
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ebnhlz",
+      "name": "黑键证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ebnhlz",
+      "name": "源石骰子收纳盒",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 58,
+            "attack_speed": 3
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 75,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "强弱法",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.4,
+                "times_2": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 90,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "强弱法",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.43,
+                "times_2": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_ebnhlz",
+      "name": "“乐理阐释者”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 88
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 112
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.18,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "atk_scale_2": 0.25
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.2,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "atk_scale_2": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "atk": 135
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.2,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "atk_scale_2": 0.36
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.22,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "atk_scale_2": 0.36
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_ebnhlz",
+      "name": "朽坏传承",
+      "type": "ADVANCED",
+      "typeName2": "D",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 3,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 76,
+            "magic_resistance": 4
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 102,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.24,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "element_atk_scale": 0.2
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.26,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "element_atk_scale": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 124,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.3,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "element_atk_scale": 0.3
+              }
+            },
+            {
+              "name": "倚音",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.32,
+                "cnt": 0,
+                "range_radius": 1.1,
+                "element_atk_scale": 0.3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

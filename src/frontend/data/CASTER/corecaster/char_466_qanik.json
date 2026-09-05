@@ -1,0 +1,556 @@
+{
+  "id": "char_466_qanik",
+  "name": "雪绒",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "corecaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        283,
+        399
+      ],
+      "def": [
+        45,
+        76
+      ],
+      "maxHp": [
+        654,
+        935
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        399,
+        525
+      ],
+      "def": [
+        76,
+        106
+      ],
+      "maxHp": [
+        935,
+        1215
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        525,
+        625
+      ],
+      "def": [
+        106,
+        119
+      ],
+      "maxHp": [
+        1215,
+        1500
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_qanik_1",
+      "name": "冻风",
+      "levels": [
+        {
+          "attack_speed": 30,
+          "mode": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "mode": 1,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "mode": 1,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "mode": 1,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "mode": 1,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "mode": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "mode": 1,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "mode": 1,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "mode": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "mode": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_qanik_2",
+      "name": "坠雪",
+      "levels": [
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.3,
+          "critical_damage_scale": 1.7,
+          "levitate_duration": 7,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.35,
+          "critical_damage_scale": 1.8,
+          "levitate_duration": 7,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.4,
+          "critical_damage_scale": 1.9,
+          "levitate_duration": 7,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.45,
+          "critical_damage_scale": 2,
+          "levitate_duration": 7,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.5,
+          "critical_damage_scale": 2.1,
+          "levitate_duration": 7,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.55,
+          "critical_damage_scale": 2.2,
+          "levitate_duration": 7,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.6,
+          "critical_damage_scale": 2.3,
+          "levitate_duration": 7,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.65,
+          "critical_damage_scale": 2.5,
+          "levitate_duration": 7,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.7,
+          "critical_damage_scale": 2.7,
+          "levitate_duration": 7,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 2,
+          "interval": 0.5,
+          "trigger_atk_scale": 0.75,
+          "critical_damage_scale": 3,
+          "levitate_duration": 7,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "冰原生存",
+          "description": "攻击范围内的所有空中单位获得10%的<$ba.magicfragile>【法术脆弱】</>效果",
+          "blackboard": {
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "冰原生存",
+          "description": "攻击范围内的所有空中单位获得12%<@ba.talpu>（+2%）</>的<$ba.magicfragile>【法术脆弱】</>效果",
+          "blackboard": {
+            "damage_scale": 1.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "冰原生存",
+          "description": "攻击范围内的所有空中单位获得20%的<$ba.magicfragile>【法术脆弱】</>效果",
+          "blackboard": {
+            "damage_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "冰原生存",
+          "description": "攻击范围内的所有空中单位获得22%<@ba.talpu>（+2%）</>的<$ba.magicfragile>【法术脆弱】</>效果",
+          "blackboard": {
+            "damage_scale": 1.22
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_qanik",
+      "name": "雪绒证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_qanik",
+      "name": "自制登山杖",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "冰原生存",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.25
+              }
+            },
+            {
+              "name": "冰原生存",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.27
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "冰原生存",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.28
+              }
+            },
+            {
+              "name": "冰原生存",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

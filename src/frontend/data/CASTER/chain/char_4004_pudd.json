@@ -1,0 +1,498 @@
+{
+  "id": "char_4004_pudd",
+  "name": "布丁",
+  "rarity": "TIER_4",
+  "profession": "CASTER",
+  "subProfessionId": "chain",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        241,
+        345
+      ],
+      "def": [
+        39,
+        66
+      ],
+      "maxHp": [
+        542,
+        775
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        345,
+        449
+      ],
+      "def": [
+        66,
+        91
+      ],
+      "maxHp": [
+        775,
+        1007
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        449,
+        542
+      ],
+      "def": [
+        91,
+        108
+      ],
+      "maxHp": [
+        1007,
+        1326
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_magic_rage[2]",
+      "name": "战术咏唱·β型",
+      "levels": [
+        {
+          "attack_speed": 15,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 25,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "level": 6,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_pudd_2",
+      "name": "扩散电流",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack@max_target": 4,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@max_target": 4,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 4,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@max_target": 4,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@max_target": 4,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@max_target": 4,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@max_target": 4,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@max_target": 4,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@max_target": 4,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@max_target": 4,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "电磁波",
+          "description": "攻击力+8%",
+          "blackboard": {
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "电磁波",
+          "description": "攻击力+10%",
+          "blackboard": {
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击造成法术伤害，且会在{attack@max_target}个敌人间跳跃，每次跳跃伤害降低15%并造成短暂停顿（精英2后更新）",
+    "blackboard": {
+      "attack@max_target": 3,
+      "attack@sluggish": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_pudd",
+      "name": "布丁证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_pudd",
+      "name": "便携测电设备",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "attack_speed": 4
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 4,
+                "attack@sluggish": 0.5,
+                "attack@chain.atk_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "电磁波",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.13
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 4,
+                "attack@sluggish": 0.5,
+                "attack@chain.atk_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "电磁波",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.16
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 4,
+                "attack@sluggish": 0.5,
+                "attack@chain.atk_scale": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

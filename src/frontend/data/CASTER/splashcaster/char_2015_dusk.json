@@ -1,0 +1,864 @@
+{
+  "id": "char_2015_dusk",
+  "name": "夕",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        426,
+        601
+      ],
+      "def": [
+        50,
+        77
+      ],
+      "maxHp": [
+        808,
+        1123
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        601,
+        771
+      ],
+      "def": [
+        77,
+        106
+      ],
+      "maxHp": [
+        1123,
+        1404
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        771,
+        918
+      ],
+      "def": [
+        106,
+        127
+      ],
+      "maxHp": [
+        1404,
+        1801
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 110,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_dusk_1",
+      "name": "工笔入化",
+      "levels": [
+        {
+          "atk_scale": 1.5,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "cnt": 2,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "cnt": 2,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "cnt": 2,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "cnt": 2,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "cnt": 3,
+          "level": 7,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.35,
+          "cnt": 3,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "cnt": 3,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dusk_2",
+      "name": "泼墨淋漓",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.15,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "attack_speed": 23,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.15,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "attack_speed": 26,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.15,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 29,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.2,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 32,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.2,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack_speed": 35,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.2,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 40,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.25,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.3,
+          "level": 7,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 50,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.3,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 55,
+          "hp_ratio": 0.5,
+          "damage_scale": 1.3,
+          "level": 9,
+          "spCost": 38,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dusk_3",
+      "name": "写意胜形",
+      "levels": [
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.4,
+          "level": 0,
+          "spCost": 110,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.5,
+          "level": 1,
+          "spCost": 109,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.6,
+          "level": 2,
+          "spCost": 108,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.7,
+          "level": 3,
+          "spCost": 107,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.8,
+          "level": 4,
+          "spCost": 106,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 0.9,
+          "level": 5,
+          "spCost": 105,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 1,
+          "level": 6,
+          "spCost": 104,
+          "initialSp": 55,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 1.1,
+          "level": 7,
+          "spCost": 103,
+          "initialSp": 60,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 1.15,
+          "level": 8,
+          "spCost": 102,
+          "initialSp": 65,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.4,
+          "atk": 1.2,
+          "level": 9,
+          "spCost": 100,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "化境",
+          "description": "击杀一名敌人获得2%攻击力，最多可叠加10层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "化境",
+          "description": "击杀一名敌人获得2%攻击力，最多可叠加13<@ba.talpu>（+3）</>层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "化境",
+          "description": "夕与\"小自在\"击杀一名敌人时，夕获得2%攻击力，最多可叠加15层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "化境",
+          "description": "夕与\"小自在\"击杀一名敌人时，夕获得2%攻击力，最多可叠加18<@ba.talpu>（+3）</>层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 18
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "点睛",
+          "description": "部署后首次攻击敌人时，在目标位置（可部署地面）召唤一个“小自在”（持续25秒）",
+          "blackboard": {
+            "attack@tokenduration": 25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_dusk",
+      "name": "夕证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_dusk",
+      "name": "无题长卷",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "化境",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 20
+              }
+            },
+            {
+              "name": "化境",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 23
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "化境",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 21
+              }
+            },
+            {
+              "name": "化境",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 24
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_dusk",
+      "name": "“终夜无寐”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 51,
+            "attack_speed": 5
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 68,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "点睛",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@tokenduration": 25
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 2.5,
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 82,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "点睛",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@tokenduration": 25
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 1.5,
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_dusk",
+      "name": "夕特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 48,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "点睛",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@tokenduration": 25,
+                "attack@times": 2,
+                "skill@times": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 62,
+            "attack_speed": 8
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@tokenduration": 25,
+                "attack@times": 2,
+                "skill@times": 2
+              }
+            },
+            {
+              "name": "点睛",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 74,
+            "attack_speed": 10
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@tokenduration": 25,
+                "attack@times": 2,
+                "skill@times": 2
+              }
+            },
+            {
+              "name": "点睛",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

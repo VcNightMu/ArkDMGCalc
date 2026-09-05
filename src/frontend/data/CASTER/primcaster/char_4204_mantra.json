@@ -1,0 +1,793 @@
+{
+  "id": "char_4204_mantra",
+  "name": "真言",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "primcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        340,
+        466
+      ],
+      "def": [
+        52,
+        79
+      ],
+      "maxHp": [
+        593,
+        824
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        466,
+        583
+      ],
+      "def": [
+        79,
+        107
+      ],
+      "maxHp": [
+        824,
+        1071
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        583,
+        695
+      ],
+      "def": [
+        107,
+        130
+      ],
+      "maxHp": [
+        1071,
+        1428
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 180
+  },
+  "skills": [
+    {
+      "skillId": "skchr_mantra_1",
+      "name": "共鸣溃缩",
+      "levels": [
+        {
+          "atk_scale": 1.9,
+          "ep_damage_ratio": 0.1,
+          "element_atk_scale": 1.5,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "ep_damage_ratio": 0.1,
+          "element_atk_scale": 1.5,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "ep_damage_ratio": 0.1,
+          "element_atk_scale": 1.5,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "ep_damage_ratio": 0.15,
+          "element_atk_scale": 1.5,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "ep_damage_ratio": 0.15,
+          "element_atk_scale": 1.6,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "ep_damage_ratio": 0.2,
+          "element_atk_scale": 1.6,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.75,
+          "ep_damage_ratio": 0.2,
+          "element_atk_scale": 1.6,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.75,
+          "ep_damage_ratio": 0.25,
+          "element_atk_scale": 1.8,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "ep_damage_ratio": 0.3,
+          "element_atk_scale": 1.8,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.25,
+          "ep_damage_ratio": 0.3,
+          "element_atk_scale": 2,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mantra_2",
+      "name": "意识联协",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "attack@atk_scale": 1.6,
+          "attack@chain.atk_scale": 0.9,
+          "attack@ep_damage_ratio": 0.12,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.16,
+          "level": 0,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@atk_scale": 1.6,
+          "attack@chain.atk_scale": 0.9,
+          "attack@ep_damage_ratio": 0.12,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.16,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "attack@atk_scale": 1.6,
+          "attack@chain.atk_scale": 1,
+          "attack@ep_damage_ratio": 0.12,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.16,
+          "level": 2,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@atk_scale": 1.7,
+          "attack@chain.atk_scale": 1,
+          "attack@ep_damage_ratio": 0.13,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.18,
+          "level": 3,
+          "spCost": 33,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@atk_scale": 1.7,
+          "attack@chain.atk_scale": 1,
+          "attack@ep_damage_ratio": 0.13,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.18,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@atk_scale": 1.9,
+          "attack@chain.atk_scale": 1,
+          "attack@ep_damage_ratio": 0.13,
+          "attack@times": 3,
+          "chain_times": 2,
+          "attack@element_atk_scale": 0.18,
+          "level": 5,
+          "spCost": 31,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "attack@atk_scale": 2.1,
+          "attack@chain.atk_scale": 1.1,
+          "attack@ep_damage_ratio": 0.15,
+          "attack@times": 4,
+          "chain_times": 3,
+          "attack@element_atk_scale": 0.2,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "attack@atk_scale": 2.1,
+          "attack@chain.atk_scale": 1.2,
+          "attack@ep_damage_ratio": 0.15,
+          "attack@times": 4,
+          "chain_times": 3,
+          "attack@element_atk_scale": 0.22,
+          "level": 7,
+          "spCost": 29,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "attack@atk_scale": 2.1,
+          "attack@chain.atk_scale": 1.2,
+          "attack@ep_damage_ratio": 0.18,
+          "attack@times": 4,
+          "chain_times": 3,
+          "attack@element_atk_scale": 0.25,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.8,
+          "attack@atk_scale": 2.4,
+          "attack@chain.atk_scale": 1.2,
+          "attack@ep_damage_ratio": 0.18,
+          "attack@times": 4,
+          "chain_times": 3,
+          "attack@element_atk_scale": 0.25,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mantra_3",
+      "name": "无言为真",
+      "levels": [
+        {
+          "atk": 1.45,
+          "attack@max_target": 2,
+          "atk_scale": 0.8,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "attack@max_target": 2,
+          "atk_scale": 0.9,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 1,
+          "spCost": 54,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "attack@max_target": 2,
+          "atk_scale": 1,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 2,
+          "spCost": 53,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "attack@max_target": 2,
+          "atk_scale": 1.1,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 3,
+          "spCost": 52,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "attack@max_target": 2,
+          "atk_scale": 1.2,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.9,
+          "attack@max_target": 2,
+          "atk_scale": 1.3,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 5,
+          "spCost": 48,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.1,
+          "attack@max_target": 2,
+          "atk_scale": 1.45,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 6,
+          "spCost": 46,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.3,
+          "attack@max_target": 2,
+          "atk_scale": 1.65,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 7,
+          "spCost": 44,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.5,
+          "attack@max_target": 2,
+          "atk_scale": 1.65,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.75,
+          "attack@max_target": 2,
+          "atk_scale": 1.85,
+          "max_target": 2,
+          "chain_times": 1,
+          "max_trigger_cnt": 3,
+          "interval_projectile_trigger": 1.5,
+          "per_active": 2,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "噤声限域",
+          "description": "场上敌人触发<$ba.palsy>麻痹</>效果时立即受到相当于真言攻击力100%的元素伤害，且触发<$ba.palsy>麻痹</>时有8%概率不消耗<$ba.palsy>麻痹</>层数",
+          "blackboard": {
+            "atk_scale": 1,
+            "prob": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "噤声限域",
+          "description": "场上敌人触发<$ba.palsy>麻痹</>效果时立即受到相当于真言攻击力110%<@ba.talpu>（+10%）</>的元素伤害，且触发<$ba.palsy>麻痹</>时有11%<@ba.talpu>（+3%）</>概率不消耗<$ba.palsy>麻痹</>层数",
+          "blackboard": {
+            "atk_scale": 1.1,
+            "prob": 0.11
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "噤声限域",
+          "description": "场上敌人触发<$ba.palsy>麻痹</>效果时立即受到相当于真言攻击力135%的元素伤害，且触发<$ba.palsy>麻痹</>时有10%概率不消耗<$ba.palsy>麻痹</>层数",
+          "blackboard": {
+            "atk_scale": 1.35,
+            "prob": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "噤声限域",
+          "description": "场上敌人触发<$ba.palsy>麻痹</>效果时立即受到相当于真言攻击力145%<@ba.talpu>（+10%）</>的元素伤害，且触发<$ba.palsy>麻痹</>时有13%<@ba.talpu>（+3%）</>概率不消耗<$ba.palsy>麻痹</>层数",
+          "blackboard": {
+            "atk_scale": 1.45,
+            "prob": 0.13
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "全局洞悉",
+          "description": "距离真言最近的一个侵入点出场的敌人出现时立刻获得1层<$ba.palsy>麻痹</>",
+          "blackboard": {},
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "攻击力+31",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mantra",
+      "name": "真言证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_mantra",
+      "name": "中枢神经探测模块",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 43
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 69
+          },
+          "talentEnhance": [
+            {
+              "name": "噤声限域",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.55,
+                "prob": 0.1
+              }
+            },
+            {
+              "name": "噤声限域",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.65,
+                "prob": 0.13
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "atk": 87
+          },
+          "talentEnhance": [
+            {
+              "name": "噤声限域",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.6,
+                "prob": 0.15
+              }
+            },
+            {
+              "name": "噤声限域",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.7,
+                "prob": 0.18
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+{
+  "id": "char_002_amiya",
+  "name": "阿米娅",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "corecaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        276,
+        390
+      ],
+      "def": [
+        48,
+        81
+      ],
+      "maxHp": [
+        699,
+        958
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        390,
+        514
+      ],
+      "def": [
+        81,
+        110
+      ],
+      "maxHp": [
+        958,
+        1198
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        514,
+        612
+      ],
+      "def": [
+        110,
+        121
+      ],
+      "maxHp": [
+        1198,
+        1480
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skcom_magic_rage[3]",
+      "name": "战术咏唱·γ型",
+      "levels": [
+        {
+          "attack_speed": 30,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_amiya_2",
+      "name": "精神爆发",
+      "levels": [
+        {
+          "attack@atk_scale": 0.33,
+          "attack@times": 6,
+          "stun": 10,
+          "level": 0,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.35,
+          "attack@times": 6,
+          "stun": 10,
+          "level": 1,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.37,
+          "attack@times": 6,
+          "stun": 10,
+          "level": 2,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.39,
+          "attack@times": 7,
+          "stun": 10,
+          "level": 3,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.41,
+          "attack@times": 7,
+          "stun": 10,
+          "level": 4,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.43,
+          "attack@times": 7,
+          "stun": 10,
+          "level": 5,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.45,
+          "attack@times": 7,
+          "stun": 10,
+          "level": 6,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.5,
+          "attack@times": 8,
+          "stun": 10,
+          "level": 7,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.55,
+          "attack@times": 8,
+          "stun": 10,
+          "level": 8,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.6,
+          "attack@times": 8,
+          "stun": 10,
+          "level": 9,
+          "spCost": 100,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_amiya_3",
+      "name": "奇美拉",
+      "levels": [
+        {
+          "atk": 1,
+          "max_hp": 0.25,
+          "level": 0,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "max_hp": 0.25,
+          "level": 1,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "max_hp": 0.25,
+          "level": 2,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "max_hp": 0.5,
+          "level": 3,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "max_hp": 0.5,
+          "level": 4,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "max_hp": 0.5,
+          "level": 5,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "max_hp": 0.75,
+          "level": 6,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "max_hp": 0.75,
+          "level": 7,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "max_hp": 0.75,
+          "level": 8,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.3,
+          "max_hp": 1,
+          "level": 9,
+          "spCost": 120,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "？？？",
+          "description": "？？？？？",
+          "blackboard": {},
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "情绪吸收",
+          "description": "攻击敌人时额外回复2点技力，消灭敌人后额外获得8点技力",
+          "blackboard": {
+            "amiya_t_1[atk].sp": 2,
+            "amiya_t_1[kill].sp": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "情绪吸收",
+          "description": "攻击敌人时额外回复3<@ba.talpu>（+1）</>点技力，消灭敌人后额外获得10<@ba.talpu>（+2）</>点技力",
+          "blackboard": {
+            "amiya_t_1[atk].sp": 3,
+            "amiya_t_1[kill].sp": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "生命上限+200",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_amiya",
+      "name": "阿米娅证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_amiya",
+      "name": "DWDB-221E",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "情绪吸收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "amiya_t_1[atk].sp": 3,
+                "amiya_t_1[kill].sp": 8
+              }
+            },
+            {
+              "name": "情绪吸收",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "amiya_t_1[atk].sp": 4,
+                "amiya_t_1[kill].sp": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "情绪吸收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "amiya_t_1[atk].sp": 3,
+                "amiya_t_1[kill].sp": 10
+              }
+            },
+            {
+              "name": "情绪吸收",
+              "requiredPotentialRank": 5,
+              "blackboard": {
+                "amiya_t_1[atk].sp": 4,
+                "amiya_t_1[kill].sp": 12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

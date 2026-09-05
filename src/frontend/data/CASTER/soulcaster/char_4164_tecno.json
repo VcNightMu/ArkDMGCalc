@@ -1,0 +1,547 @@
+{
+  "id": "char_4164_tecno",
+  "name": "特克诺",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "soulcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        254,
+        348
+      ],
+      "def": [
+        28,
+        42
+      ],
+      "maxHp": [
+        687,
+        955
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        435
+      ],
+      "def": [
+        42,
+        58
+      ],
+      "maxHp": [
+        955,
+        1241
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        435,
+        519
+      ],
+      "def": [
+        58,
+        70
+      ],
+      "maxHp": [
+        1241,
+        1655
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 35,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_tecno_1",
+      "name": "关节锁定",
+      "levels": [
+        {
+          "atk": 0.2,
+          "max_hp": 0.2,
+          "def": 0.7,
+          "block_cnt": 1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "max_hp": 0.23,
+          "def": 0.7,
+          "block_cnt": 1,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "max_hp": 0.26,
+          "def": 0.7,
+          "block_cnt": 1,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "max_hp": 0.3,
+          "def": 0.8,
+          "block_cnt": 1,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "max_hp": 0.33,
+          "def": 0.8,
+          "block_cnt": 1,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "max_hp": 0.36,
+          "def": 0.8,
+          "block_cnt": 1,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "max_hp": 0.4,
+          "def": 0.9,
+          "block_cnt": 1,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.43,
+          "max_hp": 0.43,
+          "def": 0.9,
+          "block_cnt": 1,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "max_hp": 0.46,
+          "def": 0.9,
+          "block_cnt": 1,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "max_hp": 0.5,
+          "def": 1,
+          "block_cnt": 1,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_tecno_2",
+      "name": "恣意挥洒",
+      "levels": [
+        {
+          "attack_speed": 40,
+          "tecno_s_2[token][mode].attack_speed": 40,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "tecno_s_2[token][mode].attack_speed": 45,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "tecno_s_2[token][mode].attack_speed": 50,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "tecno_s_2[token][mode].attack_speed": 55,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "tecno_s_2[token][mode].attack_speed": 60,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "tecno_s_2[token][mode].attack_speed": 65,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "tecno_s_2[token][mode].attack_speed": 70,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "tecno_s_2[token][mode].attack_speed": 80,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "tecno_s_2[token][mode].attack_speed": 90,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "tecno_s_2[token][mode].attack_speed": 100,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "即兴制偶",
+          "description": "攻击范围内的地面敌人被击倒时原地生成一个木偶舞者（最多存在2个），木偶舞者攻击造成法术伤害",
+          "blackboard": {
+            "max_token_cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "即兴制偶",
+          "description": "攻击范围内的地面敌人被击倒时原地生成一个木偶舞者（最多存在3个），木偶舞者攻击造成法术伤害",
+          "blackboard": {
+            "max_token_cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "即兴制偶",
+          "description": "攻击范围内的地面敌人被击倒时原地生成一个木偶舞者（最多存在5个），木偶舞者攻击造成法术伤害",
+          "blackboard": {
+            "max_token_cnt": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_tecno",
+      "name": "特克诺证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_tecno",
+      "name": "烧烤店官方优惠章",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 25,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 35,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "即兴制偶",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 42,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "即兴制偶",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

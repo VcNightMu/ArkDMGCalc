@@ -1,0 +1,241 @@
+{
+  "id": "char_121_lava",
+  "name": "炎熔",
+  "rarity": "TIER_3",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 40,
+      "atk": [
+        321,
+        453
+      ],
+      "def": [
+        41,
+        69
+      ],
+      "maxHp": [
+        614,
+        878
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 55,
+      "atk": [
+        453,
+        582
+      ],
+      "def": [
+        69,
+        95
+      ],
+      "maxHp": [
+        878,
+        1141
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_magic_rage[1]",
+      "name": "战术咏唱·α型",
+      "levels": [
+        {
+          "attack_speed": 10,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 15,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 20,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "快速技能使用",
+          "description": "部署后立即获得15点技力",
+          "blackboard": {
+            "sp": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "快速技能使用",
+          "description": "部署后立即获得20<@ba.talpu>（+5）</>点技力",
+          "blackboard": {
+            "sp": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 55,
+          "potentialRank": 0,
+          "name": "快速技能使用",
+          "description": "部署后立即获得30点技力",
+          "blackboard": {
+            "sp": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 55,
+          "potentialRank": 4,
+          "name": "快速技能使用",
+          "description": "部署后立即获得35<@ba.talpu>（+5）</>点技力",
+          "blackboard": {
+            "sp": 35
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

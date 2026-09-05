@@ -1,0 +1,508 @@
+{
+  "id": "char_166_skfire",
+  "name": "天火",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "splashcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        364,
+        513
+      ],
+      "def": [
+        48,
+        74
+      ],
+      "maxHp": [
+        727,
+        1010
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        513,
+        658
+      ],
+      "def": [
+        74,
+        102
+      ],
+      "maxHp": [
+        1010,
+        1263
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        658,
+        784
+      ],
+      "def": [
+        102,
+        122
+      ],
+      "maxHp": [
+        1263,
+        1620
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_skfire_2",
+      "name": "天坠之火",
+      "levels": [
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 1.7,
+          "attack@stun": 0.1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 1.75,
+          "attack@stun": 0.1,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 1.8,
+          "attack@stun": 0.1,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 1.9,
+          "attack@stun": 0.15,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 1.95,
+          "attack@stun": 0.15,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 2,
+          "attack@stun": 0.15,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 2.1,
+          "attack@stun": 0.2,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 2.2,
+          "attack@stun": 0.4,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 2.3,
+          "attack@stun": 0.6,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "attack@atk_scale": 2.4,
+          "attack@stun": 1,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "法术狙击",
+          "description": "在场时，所有被阻挡的敌人受到法术伤害时提升7%",
+          "blackboard": {
+            "damage_scale": 1.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "法术狙击",
+          "description": "在场时，所有被阻挡的敌人受到法术伤害时提升10%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "法术狙击",
+          "description": "在场时，所有被阻挡的敌人受到法术伤害时伤害提升15%",
+          "blackboard": {
+            "damage_scale": 1.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "法术狙击",
+          "description": "在场时，所有被阻挡的敌人受到法术伤害时伤害提升18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "damage_scale": 1.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_skfire",
+      "name": "天火证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_skfire",
+      "name": "阻燃处理方案",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 40,
+            "attack_speed": 4
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 58,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "法术狙击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.2
+              }
+            },
+            {
+              "name": "法术狙击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.23
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "cost": -8,
+            "atk": 70,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "法术狙击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.23
+              }
+            },
+            {
+              "name": "法术狙击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.26
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

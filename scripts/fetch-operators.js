@@ -109,15 +109,52 @@ const OPERATORS = {
     skybreaker: [],                 // 裂空炮手
   },
   CASTER: { // 术师
-    corecaster: ['char_180_amgoat'], // 中坚术师
-    splashcaster: [],               // 扩散术师
-    funnel: [],                     // 驭械术师
-    phalanx: [],                    // 阵法术师
-    mystic: [],                     // 秘术师
-    chain: [],                      // 链术师
-    blastcaster: [],                // 轰击术师
-    primcaster: [],                 // 本源术师
-    soulcaster: [],                 // 塑灵术师
+    corecaster: [ // 中坚术师
+      'char_4133_logos', 'char_4027_heyak', 'char_2013_cerber', 'char_180_amgoat', // 逻各斯/霍尔海雅/刻俄柏/艾雅法拉 6★
+      'char_002_amiya', 'char_164_nightm', 'char_466_qanik', 'char_411_tomimi', 'char_405_absin', // 阿米娅/夜魔/雪绒/特米米/苦艾 5★
+      'char_141_nights',                                                         // 夜烟 4★
+      'char_210_stward',                                                         // 史都华德 3★
+      'char_501_durin',                                                          // 杜林 2★
+      'char_4227_gallus',                                                        // GALLUS² 1★（公招+七周年签到，同CONFESS-47口径）
+    ], // 不录：预备干员-术师（505_rcast/604_ccast）
+    splashcaster: [ // 扩散术师
+      'char_4141_marcil', 'char_2015_dusk', 'char_213_mostma',                   // 玛露西尔(迷宫饭联动)/夕/莫斯提马 6★
+      'char_1011_lava2', 'char_4031_liesel', 'char_341_sntlla', 'char_373_lionhd', 'char_166_skfire', // 炎狱炎熔/复奏/寒檀/莱恩哈特/天火 5★
+      'char_253_greyy', 'char_109_fmout',                                        // 格雷伊/远山 4★
+      'char_121_lava', 'char_009_12fce',                                         // 炎熔 3★ / 12F 2★
+    ], // 不录：Pith×2（509_acast=集成战略临时招募专属/612_accast=卫戍协议模式专属，同Mechanist/郁金香口径）
+    funnel: [ // 驭械术师
+      'char_1038_whitw2', 'char_377_gdglow',                                     // 荒芜拉普兰德/澄闪 6★
+      'char_4236_tmslot', 'char_4054_malist', 'char_4040_rockr', 'char_4013_kjera', // 时隙/至简/洛洛/耶拉 5★
+      'char_328_cammou',                                                         // 卡达 4★
+    ],
+    phalanx: [ // 阵法术师
+      'char_1046_sbell2', 'char_4080_lin', 'char_426_billro',                    // 圣聆初雪(异格)/林/卡涅利安 6★
+      'char_388_mint', 'char_344_beewax',                                        // 薄绿/蜜蜡 5★
+    ],
+    mystic: [ // 秘术师
+      'char_4226_veen', 'char_4046_ebnhlz',                                      // 维伊/黑键 6★
+      'char_4110_delphn', 'char_297_hamoni', 'char_338_iris',                    // 戴菲恩/和弦/爱丽丝 5★
+      'char_469_indigo',                                                         // 深靛 4★
+    ],
+    chain: [ // 链术师
+      'char_472_pasngr',                                                         // 异客 6★
+      'char_135_halo', 'char_306_leizi',                                         // 星源/惊蛰 5★
+      'char_4004_pudd',                                                          // 布丁 4★
+    ],
+    blastcaster: [ // 轰击术师
+      'char_4229_aphris', 'char_134_ifrit',                                      // 谬因/伊芙利特 6★
+      'char_446_aroma', 'char_489_serum',                                        // 阿罗玛/蚀清 5★
+      'char_4051_akkord',                                                        // 协律 4★
+    ],
+    primcaster: [ // 本源术师
+      'char_4204_mantra', 'char_1040_blaze2', 'char_4146_nymph',                 // 真言/烛煌(异格)/妮芙 6★
+      'char_4198_christ', 'char_4081_warmy', 'char_499_kaitou',                  // Miss.Christine/温米/折光 5★
+    ],
+    soulcaster: [ // 塑灵术师
+      'char_450_necras',                                                         // 死芒 6★
+      'char_4164_tecno',                                                         // 特克诺 5★
+    ],
   },
   MEDIC: { // 医疗
     physician: [

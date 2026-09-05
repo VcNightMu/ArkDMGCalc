@@ -1,0 +1,148 @@
+{
+  "id": "char_4227_gallus",
+  "name": "GALLUS²",
+  "rarity": "TIER_1",
+  "profession": "CASTER",
+  "subProfessionId": "corecaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        182,
+        261
+      ],
+      "def": [
+        41,
+        52
+      ],
+      "maxHp": [
+        393,
+        525
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“来抓我啊”·I",
+          "description": "部署后20秒内，攻击使敌人法术抗性-15%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "“来抓我啊”·II",
+          "description": "部署后20秒内，攻击使敌人法术抗性-17%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "“来抓我啊”·III",
+          "description": "部署后20秒内，攻击使敌人法术抗性-19%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.19
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "“来抓我啊”·IV",
+          "description": "部署后20秒内，攻击使敌人法术抗性-21%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.21
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“来抓我啊”·V",
+          "description": "部署后20秒内，攻击使敌人法术抗性-23%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "“来抓我啊”·VI",
+          "description": "部署后20秒内，攻击使敌人法术抗性-25%（持续10秒），且优先攻击未获得此效果的敌人",
+          "blackboard": {
+            "duration": 20,
+            "buff_duration": 10,
+            "magic_resistance": -0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

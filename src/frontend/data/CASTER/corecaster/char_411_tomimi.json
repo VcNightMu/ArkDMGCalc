@@ -1,0 +1,578 @@
+{
+  "id": "char_411_tomimi",
+  "name": "特米米",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "corecaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        271,
+        383
+      ],
+      "def": [
+        45,
+        76
+      ],
+      "maxHp": [
+        837,
+        1197
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        383,
+        504
+      ],
+      "def": [
+        76,
+        106
+      ],
+      "maxHp": [
+        1197,
+        1555
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        504,
+        600
+      ],
+      "def": [
+        106,
+        119
+      ],
+      "maxHp": [
+        1555,
+        1920
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_tomimi_1",
+      "name": "部族技艺",
+      "levels": [
+        {
+          "attack_speed": 30,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_tomimi_2",
+      "name": "嘉维尔保护方案",
+      "levels": [
+        {
+          "attack@tomimi_s_2.stun": 0.6,
+          "attack@tomimi_s_2.atk_scale": 1.7,
+          "attack@tomimi_s_2.prob": 0.5,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 0.6,
+          "attack@tomimi_s_2.atk_scale": 1.7,
+          "attack@tomimi_s_2.prob": 0.5,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 0.6,
+          "attack@tomimi_s_2.atk_scale": 1.7,
+          "attack@tomimi_s_2.prob": 0.5,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 0.9,
+          "attack@tomimi_s_2.atk_scale": 1.8,
+          "attack@tomimi_s_2.prob": 0.6,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 0.9,
+          "attack@tomimi_s_2.atk_scale": 1.8,
+          "attack@tomimi_s_2.prob": 0.6,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 0.9,
+          "attack@tomimi_s_2.atk_scale": 1.8,
+          "attack@tomimi_s_2.prob": 0.6,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 1.2,
+          "attack@tomimi_s_2.atk_scale": 1.9,
+          "attack@tomimi_s_2.prob": 0.7,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 1.2,
+          "attack@tomimi_s_2.atk_scale": 2.05,
+          "attack@tomimi_s_2.prob": 0.8,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 1.2,
+          "attack@tomimi_s_2.atk_scale": 2.2,
+          "attack@tomimi_s_2.prob": 0.9,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@tomimi_s_2.stun": 1.6,
+          "attack@tomimi_s_2.atk_scale": 2.2,
+          "attack@tomimi_s_2.prob": 1,
+          "base_attack_time": 0,
+          "atk": 0,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+50%",
+          "blackboard": {
+            "atk": 0.5,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+70%<@ba.talpu>（+20%）</>",
+          "blackboard": {
+            "atk": 0.7,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+75%",
+          "blackboard": {
+            "atk": 0.75,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+95%<@ba.talpu>（+20%）</>",
+          "blackboard": {
+            "atk": 0.95,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+100%",
+          "blackboard": {
+            "atk": 1,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "荒野法术",
+          "description": "技能开启时，攻击范围缩小，攻击变为物理伤害（只攻击地面敌人），攻击力+120%<@ba.talpu>（+20%）</>",
+          "blackboard": {
+            "atk": 1.2,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_tomimi",
+      "name": "特米米证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_tomimi",
+      "name": "损坏的尾尾佳",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "def": 15
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": "荒野法术",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 1.05,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "荒野法术",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 1.25,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "荒野法术",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 1.1,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "荒野法术",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 1.3,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

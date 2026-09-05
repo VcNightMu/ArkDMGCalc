@@ -1,0 +1,804 @@
+{
+  "id": "char_426_billro",
+  "name": "卡涅利安",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "phalanx",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        435,
+        581
+      ],
+      "def": [
+        146,
+        170
+      ],
+      "maxHp": [
+        1104,
+        1380
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        581,
+        727
+      ],
+      "def": [
+        170,
+        198
+      ],
+      "maxHp": [
+        1380,
+        1726
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        727,
+        846
+      ],
+      "def": [
+        198,
+        228
+      ],
+      "maxHp": [
+        1726,
+        2106
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_billro_1",
+      "name": "沙暴守卫",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.1,
+          "level": 0,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "def": 0.2,
+          "level": 1,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.3,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "def": 0.4,
+          "level": 3,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.5,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.6,
+          "level": 5,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.7,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.8,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.9,
+          "level": 8,
+          "spCost": 18,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 1,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_billro_2",
+      "name": "沙缚镣锁",
+      "levels": [
+        {
+          "base_attack_time": -0.4,
+          "attack@sluggish": 0.3,
+          "atk": 0.05,
+          "attack@root": 0.2,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.4,
+          "attack@sluggish": 0.3,
+          "atk": 0.05,
+          "attack@root": 0.3,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.4,
+          "attack@sluggish": 0.3,
+          "atk": 0.1,
+          "attack@root": 0.3,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@sluggish": 0.3,
+          "atk": 0.1,
+          "attack@root": 0.3,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@sluggish": 0.3,
+          "atk": 0.1,
+          "attack@root": 0.4,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "attack@sluggish": 0.3,
+          "atk": 0.15,
+          "attack@root": 0.4,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.8,
+          "attack@sluggish": 0.3,
+          "atk": 0.15,
+          "attack@root": 0.4,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.8,
+          "attack@sluggish": 0.3,
+          "atk": 0.15,
+          "attack@root": 0.5,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.8,
+          "attack@sluggish": 0.3,
+          "atk": 0.2,
+          "attack@root": 0.5,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.1,
+          "attack@sluggish": 0.3,
+          "atk": 0.2,
+          "attack@root": 0.6,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_billro_3",
+      "name": "食噬之印",
+      "levels": [
+        {
+          "atk": 0.8,
+          "attack@damage_scale": 0.2,
+          "level": 0,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@damage_scale": 0.2,
+          "level": 1,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@damage_scale": 0.2,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "attack@damage_scale": 0.2,
+          "level": 3,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "attack@damage_scale": 0.2,
+          "level": 4,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "attack@damage_scale": 0.2,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "attack@damage_scale": 0.2,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "attack@damage_scale": 0.2,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.4,
+          "attack@damage_scale": 0.2,
+          "level": 8,
+          "spCost": 28,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.8,
+          "attack@damage_scale": 0.2,
+          "level": 9,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生命之餐",
+          "description": "开启技能时立即恢复30%最大生命值；\\n<$ba.charged>蓄力</>时效果翻倍",
+          "blackboard": {
+            "heal_scale": 0.3,
+            "billro_t_1[enhance].heal_scale": 0.6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "生命之餐",
+          "description": "开启技能时立即恢复35%<@ba.talpu>（+5%）</>最大生命值；\\n<$ba.charged>蓄力</>时效果翻倍",
+          "blackboard": {
+            "heal_scale": 0.35,
+            "billro_t_1[enhance].heal_scale": 0.7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生命之餐",
+          "description": "开启技能时立即恢复40%最大生命值；\\n<$ba.charged>蓄力</>时效果翻倍",
+          "blackboard": {
+            "heal_scale": 0.4,
+            "billro_t_1[enhance].heal_scale": 0.8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "生命之餐",
+          "description": "开启技能时立即恢复45%<@ba.talpu>（+5%）</>最大生命值；\\n<$ba.charged>蓄力</>时效果翻倍",
+          "blackboard": {
+            "heal_scale": 0.45,
+            "billro_t_1[enhance].heal_scale": 0.9
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "蓄势待发",
+          "description": "技力超过上限时，技力自然回复速度+0.6/秒",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.6
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "def": 2,
+      "magic_resistance": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_billro",
+      "name": "卡涅利安证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_billro",
+      "name": "风信子与匕首",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 66
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "billro_e_002[buff].def": 1,
+                "billro_e_002[buff].magic_resistance": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 76
+          },
+          "talentEnhance": [
+            {
+              "name": "生命之餐",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 0.4,
+                "billro_t_1[enhance].heal_scale": 0.8
+              }
+            },
+            {
+              "name": "生命之餐",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 0.45,
+                "billro_t_1[enhance].heal_scale": 0.9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "billro_e_002[buff].def": 1,
+                "billro_e_002[buff].magic_resistance": 10,
+                "billro_e_002[max_hp_buff].max_hp": 0.3,
+                "billro_e_002[max_hp_enhance_buff].max_hp": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "生命之餐",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale": 0.45,
+                "billro_t_1[enhance].heal_scale": 0.9
+              }
+            },
+            {
+              "name": "生命之餐",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale": 0.5,
+                "billro_t_1[enhance].heal_scale": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": 2.15,
+                "magic_resistance": 25,
+                "billro_e_002[buff].def": 1,
+                "billro_e_002[buff].magic_resistance": 10,
+                "billro_e_002[max_hp_buff].max_hp": 0.45,
+                "billro_e_002[max_hp_enhance_buff].max_hp": 0.9
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_billro",
+      "name": "乡音",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "taunt_level": -1
+              }
+            },
+            {
+              "name": "蓄势待发",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 95,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.03,
+                "max_valid_stack_cnt": 5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "taunt_level": -1
+              }
+            },
+            {
+              "name": "蓄势待发",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

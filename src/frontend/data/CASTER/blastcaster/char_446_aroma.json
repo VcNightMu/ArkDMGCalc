@@ -1,0 +1,550 @@
+{
+  "id": "char_446_aroma",
+  "name": "阿罗玛",
+  "rarity": "TIER_5",
+  "profession": "CASTER",
+  "subProfessionId": "blastcaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        343,
+        484
+      ],
+      "def": [
+        43,
+        74
+      ],
+      "maxHp": [
+        693,
+        991
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        484,
+        638
+      ],
+      "def": [
+        74,
+        103
+      ],
+      "maxHp": [
+        991,
+        1288
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        638,
+        760
+      ],
+      "def": [
+        103,
+        115
+      ],
+      "maxHp": [
+        1288,
+        1591
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 60
+  },
+  "skills": [
+    {
+      "skillId": "skchr_aroma_1",
+      "name": "强效清洁",
+      "levels": [
+        {
+          "atk_scale": 1.2,
+          "atk_scale_to_fly": 0.4,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "atk_scale_to_fly": 0.45,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "atk_scale_to_fly": 0.5,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "atk_scale_to_fly": 0.55,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "atk_scale_to_fly": 0.6,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "atk_scale_to_fly": 0.65,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "atk_scale_to_fly": 0.7,
+          "level": 6,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "atk_scale_to_fly": 0.75,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "atk_scale_to_fly": 0.8,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "atk_scale_to_fly": 0.9,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aroma_2",
+      "name": "小心地滑",
+      "levels": [
+        {
+          "atk": 0.5,
+          "attack@atk_scale_when_fly_finish": 0.5,
+          "attack@duration": 15,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@atk_scale_when_fly_finish": 0.55,
+          "attack@duration": 15,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@atk_scale_when_fly_finish": 0.6,
+          "attack@duration": 15,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@atk_scale_when_fly_finish": 0.65,
+          "attack@duration": 15,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@atk_scale_when_fly_finish": 0.7,
+          "attack@duration": 15,
+          "level": 4,
+          "spCost": 52,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "attack@atk_scale_when_fly_finish": 0.75,
+          "attack@duration": 15,
+          "level": 5,
+          "spCost": 52,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@atk_scale_when_fly_finish": 0.8,
+          "attack@duration": 15,
+          "level": 6,
+          "spCost": 48,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@atk_scale_when_fly_finish": 0.9,
+          "attack@duration": 15,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "attack@atk_scale_when_fly_finish": 1,
+          "attack@duration": 15,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@atk_scale_when_fly_finish": 1.1,
+          "attack@duration": 15,
+          "level": 9,
+          "spCost": 42,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "起泡性能测试",
+          "description": "对每个敌人首次进行攻击时攻击力提升至105%，并使目标<$ba.levitate>浮空</>2.5秒",
+          "blackboard": {
+            "levitate_duration": 2.5,
+            "damage_scale": 1.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "起泡性能测试",
+          "description": "对每个敌人首次进行攻击时攻击力提升至110%<@ba.talpu>（+5%）</>，并使目标<$ba.levitate>浮空</>2.5秒",
+          "blackboard": {
+            "levitate_duration": 2.5,
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "起泡性能测试",
+          "description": "对每个敌人首次进行攻击时攻击力提升至110%，并使目标<$ba.levitate>浮空</>2.5秒",
+          "blackboard": {
+            "levitate_duration": 2.5,
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "起泡性能测试",
+          "description": "对每个敌人首次进行攻击时攻击力提升至115%<@ba.talpu>（+5%）</>，并使目标<$ba.levitate>浮空</>2.5秒",
+          "blackboard": {
+            "levitate_duration": 2.5,
+            "damage_scale": 1.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aroma",
+      "name": "阿罗玛证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_aroma",
+      "name": "柠檬味的童年",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 49
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "min_dist": 0,
+                "max_dist": 4,
+                "damage_scale": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "起泡性能测试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.15,
+                "levitate_duration": 2.5
+              }
+            },
+            {
+              "name": "起泡性能测试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.2,
+                "levitate_duration": 2.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "min_dist": 0,
+                "max_dist": 4,
+                "damage_scale": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "起泡性能测试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.2,
+                "levitate_duration": 2.5
+              }
+            },
+            {
+              "name": "起泡性能测试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.25,
+                "levitate_duration": 2.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "min_dist": 0,
+                "max_dist": 4,
+                "damage_scale": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

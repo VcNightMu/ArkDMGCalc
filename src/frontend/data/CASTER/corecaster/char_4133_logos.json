@@ -1,0 +1,855 @@
+{
+  "id": "char_4133_logos",
+  "name": "逻各斯",
+  "rarity": "TIER_6",
+  "profession": "CASTER",
+  "subProfessionId": "corecaster",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        303,
+        422
+      ],
+      "def": [
+        45,
+        76
+      ],
+      "maxHp": [
+        698,
+        998
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        422,
+        556
+      ],
+      "def": [
+        76,
+        106
+      ],
+      "maxHp": [
+        998,
+        1297
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        556,
+        671
+      ],
+      "def": [
+        106,
+        119
+      ],
+      "maxHp": [
+        1297,
+        1663
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_logos_1",
+      "name": "殁亡",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@kill_atk_scale": 0.6,
+          "attack@kill_damage": 9999999,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.2,
+          "attack@kill_atk_scale": 0.7,
+          "attack@kill_damage": 9999999,
+          "level": 1,
+          "spCost": 78,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack@kill_atk_scale": 0.8,
+          "attack@kill_damage": 9999999,
+          "level": 2,
+          "spCost": 76,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack@kill_atk_scale": 0.9,
+          "attack@kill_damage": 9999999,
+          "level": 3,
+          "spCost": 74,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "attack@kill_atk_scale": 1,
+          "attack@kill_damage": 9999999,
+          "level": 4,
+          "spCost": 72,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "attack@kill_atk_scale": 1.1,
+          "attack@kill_damage": 9999999,
+          "level": 5,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.7,
+          "attack@kill_atk_scale": 1.2,
+          "attack@kill_damage": 9999999,
+          "level": 6,
+          "spCost": 68,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.8,
+          "attack@kill_atk_scale": 1.3,
+          "attack@kill_damage": 9999999,
+          "level": 7,
+          "spCost": 64,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.9,
+          "attack@kill_atk_scale": 1.4,
+          "attack@kill_damage": 9999999,
+          "level": 8,
+          "spCost": 62,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 1,
+          "attack@kill_atk_scale": 1.5,
+          "attack@kill_damage": 9999999,
+          "level": 9,
+          "spCost": 60,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_logos_2",
+      "name": "提喻",
+      "levels": [
+        {
+          "magic_resistance": 30,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.2,
+          "attack@atk_scale_delta": 0.04,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 0,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 30,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.25,
+          "attack@atk_scale_delta": 0.05,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 1,
+          "spCost": 41,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 30,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.3,
+          "attack@atk_scale_delta": 0.06,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 40,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.35,
+          "attack@atk_scale_delta": 0.07,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 3,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 40,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.4,
+          "attack@atk_scale_delta": 0.08,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 40,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.45,
+          "attack@atk_scale_delta": 0.09,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 50,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.5,
+          "attack@atk_scale_delta": 0.1,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 60,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.6,
+          "attack@atk_scale_delta": 0.12,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 60,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.65,
+          "attack@atk_scale_delta": 0.13,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "magic_resistance": 70,
+          "attack@cooldown": 0.5,
+          "attack@atk_scale_base": 0.75,
+          "attack@atk_scale_delta": 0.15,
+          "attack@move_speed": -0.06,
+          "attack@max_stack_cnt": 10,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_logos_3",
+      "name": "延异视阈",
+      "levels": [
+        {
+          "atk": 1,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "attack@max_target": 3,
+          "projectile_move_scale": 0.05,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.4,
+          "attack@max_target": 4,
+          "projectile_move_scale": 0.05,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.6,
+          "attack@max_target": 4,
+          "projectile_move_scale": 0.05,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 3,
+          "attack@max_target": 4,
+          "projectile_move_scale": 0.05,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "语汇演化",
+          "description": "对一个目标发起攻击时，有40%几率额外对攻击范围内一个随机目标造成相当于攻击力40%的法术伤害",
+          "blackboard": {
+            "prob": 0.4,
+            "atk_scale": 0.4,
+            "sluggish": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "语汇演化",
+          "description": "对一个目标发起攻击时，有40%几率额外对攻击范围内一个随机目标造成相当于攻击力45%<@ba.talpu>（+5%）</>的法术伤害",
+          "blackboard": {
+            "prob": 0.4,
+            "atk_scale": 0.45,
+            "sluggish": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "语汇演化",
+          "description": "对一个目标发起攻击时，有40%几率额外对攻击范围内一个随机目标造成相当于攻击力60%的法术伤害并使其<$ba.sluggish>停顿</>0.8秒",
+          "blackboard": {
+            "prob": 0.4,
+            "atk_scale": 0.6,
+            "sluggish": 0.8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "语汇演化",
+          "description": "对一个目标发起攻击时，有40%几率额外对攻击范围内一个随机目标造成相当于攻击力65%<@ba.talpu>（+5%）</>的法术伤害并使其<$ba.sluggish>停顿</>0.8秒",
+          "blackboard": {
+            "prob": 0.4,
+            "atk_scale": 0.65,
+            "sluggish": 0.8
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "剜魂具辞",
+          "description": "攻击使目标在5秒内法术抗性-10且受到的法术伤害提高150点",
+          "blackboard": {
+            "duration": 5,
+            "magic_resistance": -10,
+            "atk_addition": 150
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "剜魂具辞",
+          "description": "攻击使目标在5秒内法术抗性-10且受到的法术伤害提高165<@ba.talpu>（+15）</>点",
+          "blackboard": {
+            "duration": 5,
+            "magic_resistance": -10,
+            "atk_addition": 165
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_logos",
+      "name": "逻各斯证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_logos",
+      "name": "《语义范式百科》",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 35,
+            "magic_resistance": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 0.63,
+                "sluggish": 0.8,
+                "emit_count": 2
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 0.68,
+                "sluggish": 0.8,
+                "emit_count": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "magic_resistance": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 0.65,
+                "sluggish": 0.8,
+                "emit_count": 2
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 0.7,
+                "sluggish": 0.8,
+                "emit_count": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_logos",
+      "name": "来自河谷的笔盒",
+      "type": "ADVANCED",
+      "typeName2": "D",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 3,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 36
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 54
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "atk_scale": 0.6,
+                "sluggish": 0.8,
+                "element_atk_scale": 0.4
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.5,
+                "atk_scale": 0.65,
+                "sluggish": 0.8,
+                "element_atk_scale": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 67
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "ep_damage_ratio": 0.08
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.6,
+                "atk_scale": 0.6,
+                "sluggish": 0.8,
+                "element_atk_scale": 0.6
+              }
+            },
+            {
+              "name": "语汇演化",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.6,
+                "atk_scale": 0.65,
+                "sluggish": 0.8,
+                "element_atk_scale": 0.6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

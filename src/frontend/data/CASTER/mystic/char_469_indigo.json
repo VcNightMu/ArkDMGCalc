@@ -1,0 +1,559 @@
+{
+  "id": "char_469_indigo",
+  "name": "深靛",
+  "rarity": "TIER_4",
+  "profession": "CASTER",
+  "subProfessionId": "mystic",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        486,
+        695
+      ],
+      "def": [
+        44,
+        75
+      ],
+      "maxHp": [
+        625,
+        894
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        695,
+        903
+      ],
+      "def": [
+        75,
+        104
+      ],
+      "maxHp": [
+        894,
+        1162
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        903,
+        1116
+      ],
+      "def": [
+        104,
+        117
+      ],
+      "maxHp": [
+        1162,
+        1435
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_indigo_1",
+      "name": "灯塔守卫者",
+      "levels": [
+        {
+          "attack@atk_scale": 0.3,
+          "base_attack_time": -0.8,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.31,
+          "base_attack_time": -0.8,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.32,
+          "base_attack_time": -0.8,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.35,
+          "base_attack_time": -0.8,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.36,
+          "base_attack_time": -0.8,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.37,
+          "base_attack_time": -0.8,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.4,
+          "base_attack_time": -0.8,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.43,
+          "base_attack_time": -0.8,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.46,
+          "base_attack_time": -0.8,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 0.5,
+          "base_attack_time": -0.8,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_indigo_2",
+      "name": "光影迷宫",
+      "levels": [
+        {
+          "base_attack_time": 0.8,
+          "talent_scale": 1.5,
+          "indigo_s_2[damage].atk_scale": 0.1,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.8,
+          "talent_scale": 1.5,
+          "indigo_s_2[damage].atk_scale": 0.1,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.8,
+          "talent_scale": 1.5,
+          "indigo_s_2[damage].atk_scale": 0.1,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "talent_scale": 2,
+          "indigo_s_2[damage].atk_scale": 0.12,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "talent_scale": 2,
+          "indigo_s_2[damage].atk_scale": 0.12,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.7,
+          "talent_scale": 2,
+          "indigo_s_2[damage].atk_scale": 0.12,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.65,
+          "talent_scale": 2.5,
+          "indigo_s_2[damage].atk_scale": 0.15,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.65,
+          "talent_scale": 2.5,
+          "indigo_s_2[damage].atk_scale": 0.17,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.65,
+          "talent_scale": 3,
+          "indigo_s_2[damage].atk_scale": 0.17,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.6,
+          "talent_scale": 3,
+          "indigo_s_2[damage].atk_scale": 0.2,
+          "indigo_s_2[damage].interval": 0.5,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "柔光缚目",
+          "description": "攻击时有12%的几率使目标<$ba.root>束缚</>4秒，不以束缚状态的敌人为攻击目标",
+          "blackboard": {
+            "prob": 0.12,
+            "duration": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "柔光缚目",
+          "description": "攻击时有14%<@ba.talpu>（+2%）</>的几率使目标<$ba.root>束缚</>4秒，不以束缚状态的敌人为攻击目标",
+          "blackboard": {
+            "prob": 0.14,
+            "duration": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "柔光缚目",
+          "description": "攻击时有18%的几率使目标<$ba.root>束缚</>4秒，不以束缚状态的敌人为攻击目标",
+          "blackboard": {
+            "prob": 0.18,
+            "duration": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "柔光缚目",
+          "description": "攻击时有20%<@ba.talpu>（+2%）</>的几率使目标<$ba.root>束缚</>4秒，不以束缚状态的敌人为攻击目标",
+          "blackboard": {
+            "prob": 0.2,
+            "duration": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "times": 3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+36",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 36
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_indigo",
+      "name": "深靛证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_indigo",
+      "name": "法杖保养套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "attack_speed": 3
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 59,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "柔光缚目",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.23,
+                "duration": 4
+              }
+            },
+            {
+              "name": "柔光缚目",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.25,
+                "duration": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 70,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "柔光缚目",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.25,
+                "duration": 4
+              }
+            },
+            {
+              "name": "柔光缚目",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.27,
+                "duration": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "times": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
