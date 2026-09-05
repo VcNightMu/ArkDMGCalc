@@ -200,5 +200,14 @@ check('苇草S3 总治疗=普攻治疗（DOT不治疗）', near(r3.totalHeal, r3
 check('苇草S3 技能期HPS', near(r3.skillHps, r3Hit * 0.5 / 1.6));
 check('苇草S3 技能期ATK含前缀加攻键', near(r3.panelAtk, r3Atk, 1));
 
+
+// ===== 刺玫「土壤基肥改良」:治疗天赋 heal_scale(单目标=自身=范围内生命最高) =====
+const vendlaOp = load('char_494_vendla.json');
+const vendlaMod = vendlaOp.modules.find(x => x.typeName2 === 'X');
+const vendlaNone = calculateOperator(vendlaOp, mk(vendlaOp, -1, 7));
+const vendlaX3 = calculateOperator(vendlaOp, { ...mk(vendlaOp, -1, 7), module: { moduleId: vendlaMod.id, moduleLevel: 3 } });
+check('刺玫 常态HPS含heal_scale×1.15', near(vendlaNone.normalHps, vendlaNone.normalDps * 0.5 * 1.15, 0.1));
+check('刺玫 X3 常态HPS=trait0.6×te1.23单乘', near(vendlaX3.normalHps, vendlaX3.normalDps * 0.6 * 1.23, 0.1));
+
 console.log(`\n咒愈师验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail === 0 ? 0 : 1);
