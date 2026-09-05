@@ -40,6 +40,8 @@ const TALENT_ATK_DRIVERS = {
   'char_112_siege': 0,   // 推进之王「万兽之王」:编队所有先锋攻/防+4~10%,自身为先锋必得(同炎息先例),防御在 TALENT_HP_DEF_DRIVERS
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:全场友方攻/防+4%(精1)→+7%(精2),自身必得;技能开启期间效果加倍(见 SKILL_TALENT_ATK_MUL)
   'char_164_nightm': { talentIndex: 0, skillIndex: 1 },  // 夜魔「表里人格」:装备 2 技能(夜魇魔影)时攻击+X%(精1 9%/12%潜4→精2 15%/18%潜4);装 1 技能为闪避向不计
+  // ---- 战术家 ----
+  'char_4228_closur': 1,  // 可露希尔「极限调度」:携带时【罗德岛】干员攻击+4%(精2,潜能只改费用不改atk);自身罗德岛必得(携带即生效同编队光环先例);X模组同名te覆盖至6/8%
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -386,6 +388,12 @@ const TALENT_DEF_PEN_FIXED = {
   'char_427_vigil': 1,   // 伺夜 狼群天性(天赋2):无视 175(精2 潜5 200)
 };
 
+// 技能期攻速 buff(模组给部署触发天赋附加的限时攻速窗口):寻澜 X「佳肴」独自远走增强——部署时回费且
+// 攻速+X 持续 10s(attack_speed_up_duration)。level → {atkSpeed, duration};engine 在技能期窗口内分两段模拟。
+const SKILL_MODULE_SPD_BUFF = {
+  'char_4052_surfer': { 2: { atkSpeed: 10, duration: 10 }, 3: { atkSpeed: 15, duration: 10 } },  // 寻澜 X 佳肴 L2/L3
+};
+
 // 查固定物理穿防:返回最高满足档 def_penetrate_fixed(0 表示无或未解锁)
 function calcTalentDefPenFixed(op, slotData) {
   const idx = TALENT_DEF_PEN_FIXED[op.id];
@@ -400,6 +408,20 @@ function calcTalentDefPenFixed(op, slotData) {
       const v = cand.blackboard && typeof cand.blackboard.def_penetrate_fixed === 'number' ? cand.blackboard.def_penetrate_fixed : 0;
       if (v > best) best = v;
     }
+  }
+  return best;
+}
+
+// 偷取防御稳态(伺夜 Y 模组「时光不再」:攻击被狼群阻挡敌人时偷取其防御,逐击 15/20 至目标减防上限)。
+// 用户口径:站场常态按叠满算 → 目标防御最终减 vigil_def_max(100);读取模组 te 中 name=null 的 vigil_def 条目。
+function calcTalentDefStealSteady(op, slotData) {
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !Array.isArray(lv.talentEnhance)) return 0;
+  let best = 0;
+  for (const c of lv.talentEnhance) {
+    if (!c || c.name !== null) continue;
+    const v = c.blackboard && typeof c.blackboard.vigil_def_max === 'number' ? c.blackboard.vigil_def_max : 0;
+    if (v > best) best = v;
   }
   return best;
 }
@@ -713,7 +735,10 @@ function calcModuleTalentEnhance(op, slotData) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (candPot > pot) continue;
     const bb = cand.blackboard || {};
-    if (typeof bb.attack_speed === 'number' && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
+    // 限时攻速窗口(带 attack_speed_up_duration 的部署触发型,如寻澜 X「独自远走」增强:部署时攻速+X 持续 10s)
+    // 不是常驻攻速强化,不参与 attackSpeed 拾取——由 SKILL_MODULE_SPD_BUFF 专用通道在技能窗口内分两段模拟。
+    const isTimedAspd = typeof bb.attack_speed_up_duration === 'number' && bb.attack_speed_up_duration > 0;
+    if (typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
@@ -1108,7 +1133,9 @@ function calculateOperator(op, slotData, ctx) {
   // 固定物理穿防(伺夜「狼群天性」):常态与技能期物理结算统一减有效防御(同 resPen 模式)
   const defPenFixed = calcTalentDefPenFixed(op, slotData);
   // 有效防御:固定穿防直接减(defPenFixed=0 干员与 enemy.def 等价,函数内物理结算统一引用)
-  const effDef = Math.max(0, state.enemy.def - defPenFixed);
+  // 偷取防御稳态(伺夜 Y 模组叠满:目标减防至上限,无模组为 0)
+  const defStealSteady = calcTalentDefStealSteady(op, slotData);
+  const effDef = Math.max(0, state.enemy.def - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed;
   const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
@@ -1842,6 +1869,26 @@ function calculateOperator(op, slotData, ctx) {
       normalDps: calcPhysicalDamage(panelAtk, effDef) / inesInt3, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: inesInt3,
       dmgTypes: { physical: { skillDps: skillDuration > 0 ? inesTotal3 / skillDuration : 0, skillTotalDamage: inesTotal3, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4052_surfer' && skillIndex === 0 && getModuleLevelData(op, slotData) && (SKILL_MODULE_SPD_BUFF[op.id] || {})[getModuleLevelData(op, slotData).level]) {
+    // 寻澜 S1 探寻(限时被动 dur18s atk+X%)+ X 模组「佳肴」攻速 buff:部署时若周围4格无干员(默认成立)
+    // 回费并攻击速度+10/15 持续 10s(attack_speed_up_duration)。用户口径:落地生效技能分两部分计算——
+    // 前 10s 按 buff 攻速间隔打,后 8s 按常态间隔,两段击数求和(伤害每击恒定 atk 加成)。
+    const spdCfg = (SKILL_MODULE_SPD_BUFF[op.id] || {})[getModuleLevelData(op, slotData).level];
+    const buffDur = Math.min(skillDuration || 0, spdCfg.duration);
+    const buffInt = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + spdCfg.atkSpeed);
+    // buff 结束后模组白值攻速仍在(baseAspdBonus 含 mod.attackSpeed),后段用无 buff 间隔
+    const normInt = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    const hitsA = buffDur > 0 ? Math.floor(buffDur / buffInt + 1e-9) : 0;
+    const hitsB = (skillDuration - buffDur) > 0 ? Math.floor((skillDuration - buffDur) / normInt + 1e-9) : 0;
+    const perHit = calcPhysicalDamage(panelAtk * (1 + (levelData.atk || 0)), effDef) * calcTalentDmgMul(op, slotData);
+    const total = perHit * (hitsA + hitsB);
+    result = {
+      skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) * calcTalentDmgMul(op, slotData) / normInt,
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: buffInt,
+      dmgTypes: { physical: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (op.id === 'char_4052_surfer' && skillIndex === 1) {
     // 寻澜 S2 洞悉(dur10 攻回 手动):攻击速度+47(专一),每次攻击偷取 45 防御(至多 225=5 层),

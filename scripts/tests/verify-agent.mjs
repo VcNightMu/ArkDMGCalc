@@ -89,5 +89,20 @@ const qz2 = calculateOperator(qz, mk(qz, 1));
 const qz2Int = calcRealInterval(1.0, 154);
 check('齐尔查克S2 攻速+54 dur10 普攻', Math.abs(qz2.skillTotalDamage - P(560) * Math.floor(10 / qz2Int)) <= 1, String(qz2.skillTotalDamage));
 
+
+
+// ===== 寻澜 X「佳肴」攻速限时窗口(部署后 10s 攻速+15,用户口径:落地生效技能分两部分计算) =====
+// 寻澜 S1 探寻(dur18s 限时被动 atk+80%):前 10s 攻速 buff(间隔 1.0×100/115=0.8696→11 击),后 8s 常态(8 击)=19 击
+const xunl = load('char_4052_surfer');
+const xunX = xunl.modules.find(x => x.typeName2 === 'X');
+const xunS1 = calculateOperator(xunl, { ...mk(xunl, 0), module: { moduleId: xunX.id, moduleLevel: 3 } });
+// calculateOperator 返回的 panelAtk 为技能期面板(已含 atk+80%),每击=P(1080)=480
+const xunHit = P(xunS1.panelAtk);
+check('寻澜S1 X3 总伤=19击(11+8)×P(atk×1.8)', Math.abs(xunS1.skillTotalDamage - xunHit * 19) <= 1, String(xunS1.skillTotalDamage));
+check('寻澜S1 X3 buff期间隔0.8696', Math.abs(xunS1.realInterval - 1.0 * 100 / 115) < 0.001, String(xunS1.realInterval));
+const xunS1n = calculateOperator(xunl, mk(xunl, 0));
+check('寻澜S1 无模组仍18击(限时攻速不常驻)', Math.abs(xunS1n.skillTotalDamage - xunHit * 18) <= 1, String(xunS1n.skillTotalDamage));
+check('寻澜S1 无模组间隔1.0(无常驻攻速)', Math.abs(xunS1n.realInterval - 1.0) < 0.001, String(xunS1n.realInterval));
+
 console.log(`情报官验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

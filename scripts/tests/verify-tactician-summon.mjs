@@ -90,9 +90,14 @@ check('伺夜S3 面板atk含特性×1.5', vAtk, 813);
 check('伺夜S3 物理档=三连击×15轮(狼群天性穿防175)', v3.dmgTypes.physical.skillTotalDamage, phys2(813, 600 - 175) * 3 * 15, 0.01);
 const vY = vigil.modules.find(x => x.typeName2 === 'Y');
 const vY3 = calculateOperator(vigil, { elite: 2, level: vph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7, module: { moduleId: vY.id, moduleLevel: 3 } });
-// Y3 时光不再:穿防 225 + 面板 atk 白值+50(经战术家特性×1.5 → +75)
+// Y3 时光不再:穿防 225 + 偷取防御叠满(用户口径:站场常态按叠满算,目标减防至上限 100) + 面板 atk 白值+50(经战术家特性×1.5 → +75)
+// 有效防御 = 600 - 225(穿防) - 100(偷取叠满) = 275
 check('伺夜S3 Y3 面板atk含白值×1.5', vY3.panelAtk, 888);
-check('伺夜S3 Y3 物理档=穿防225', vY3.dmgTypes.physical.skillTotalDamage, phys2(888, 600 - 225) * 3 * 15, 0.01);
+check('伺夜S3 Y3 物理档=穿防225+偷取叠满100', vY3.dmgTypes.physical.skillTotalDamage, phys2(888, 600 - 225 - 100) * 3 * 15, 0.01);
+const vY1 = calculateOperator(vigil, { elite: 2, level: vph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 2, skillLevel: 7, module: { moduleId: vY.id, moduleLevel: 1 } });
+// Y1:只穿防 175(无偷取),白值 atk+30×1.5=+45
+check('伺夜S3 Y1 面板atk含白值×1.5', vY1.panelAtk, 858);
+check('伺夜S3 Y1 物理档=穿防175(无偷取)', vY1.dmgTypes.physical.skillTotalDamage, phys2(858, 600 - 175) * 3 * 15, 0.01);
 
 check('伺夜S3 法伤档=0.35×atk×15轮', v3.dmgTypes.arts.skillTotalDamage, arts(813 * 0.35) * 15, 0.01);
 check('伺夜S3 总伤', v3.skillTotalDamage, v3.dmgTypes.physical.skillTotalDamage + v3.dmgTypes.arts.skillTotalDamage, 0.01);
