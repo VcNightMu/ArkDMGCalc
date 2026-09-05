@@ -495,6 +495,12 @@ async function main() {
     index.push(...merged);
   }
 
+  // 显示名覆盖:数据文件手改的形态命名(index 由游戏原名构建,需对齐 json 内 name,防重跑回退)
+  const NAME_OVERRIDES = {
+    'token_10030_mlyss_wtrman': '流形·远程',  // 流形(游戏原名)→流形·远程:与派生条目流形·近战对称命名
+  };
+  for (const e of index) { if (NAME_OVERRIDES[e.id]) e.name = NAME_OVERRIDES[e.id]; }
+
   // 静态虚构条目合并:游戏数据中不存在的派生查询条目(缪尔赛思流形·近战——由流形基础数据派生,远程为原 token_10030),
   // 重跑抓取后需保持存在(数据文件由 setup 生成,若缺失则从远程形态复制派生)
   const VIRTUAL_TOKENS = [

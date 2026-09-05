@@ -49,6 +49,18 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 async function main() {
   const index = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'index.json'), 'utf8'));
+  // 静态头像复制:派生查询条目无独立美术(流形·近战=远程同款外观),从源条目复制防重跑丢失
+  const VIRTUAL_AVATAR_COPY = [
+    { id: 'token_10030_mlyss_melee', srcId: 'token_10030_mlyss_wtrman' },
+  ];
+  for (const v of VIRTUAL_AVATAR_COPY) {
+    const s = path.join(AVATAR_ROOT, 'TOKEN', 'notchar1', v.srcId + '.png');
+    const o = path.join(AVATAR_ROOT, 'TOKEN', 'notchar1', v.id + '.png');
+    if (fs.existsSync(s) && !fs.existsSync(o)) {
+      fs.copyFileSync(s, o);
+      console.log('[COPY] ' + v.id + ' <- ' + v.srcId);
+    }
+  }
   let ok = 0, skip = 0, fail = 0;
 
   for (const op of index) {
