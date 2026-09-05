@@ -508,7 +508,11 @@ async function main() {
   ];
   for (const v of VIRTUAL_TOKENS) {
     if (!index.some(e => e.id === v.id)) {
-      index.push({ id: v.id, name: v.name, rarity: v.rarity, profession: 'TOKEN', subProfessionId: 'notchar1', ownerOperatorId: v.owner, ownerName: v.ownerName });
+      const entry = { id: v.id, name: v.name, rarity: v.rarity, profession: 'TOKEN', subProfessionId: 'notchar1', ownerOperatorId: v.owner, ownerName: v.ownerName };
+      // 派生条目紧随源条目之后插入(形态条目相邻,选择器同星级按数据序排时不被其他召唤物隔开)
+      const srcIdx = index.findIndex(e => e.id === v.srcId);
+      if (srcIdx >= 0) index.splice(srcIdx + 1, 0, entry);
+      else index.push(entry);
       const vDir = path.join(BASE, 'TOKEN', 'notchar1');
       const vPath = path.join(vDir, v.id + '.json');
       if (!fs.existsSync(vPath)) {
