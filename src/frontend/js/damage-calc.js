@@ -123,6 +123,12 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:防御+4~7%(同天赋攻击,技能期加倍部分同 atk 口径只计攻击侧)
 };
 
+// 光环拆分特例表:模组把光环类天赋拆为 name=null(全场新值,自身在受益职业内也吃)与同名(自身额外)两部分,
+// 数值相加而非覆盖(星熊 X 护身符 L2:全场重装 9%+自身额外 4% → 自身 13%;L3:11%+6% → 17%,潜5 13%+6% → 19%)
+const AURA_SPLIT_ADD = {
+  'char_136_hsguma': 1, // 星熊「特种作战策略」(t1):模组 X L2/L3 te null def 0.09/0.11/0.13 + 同名 def 0.04/0.06
+};
+
 // 查 HP/DEF 常驻百分比天赋,返回 { hpMul, defMul }(未解锁/无键为 0)
 function calcTalentHpDefMul(op, slotData) {
   const talentIndex = TALENT_HP_DEF_DRIVERS[op.id];
@@ -140,6 +146,21 @@ function calcTalentHpDefMul(op, slotData) {
     const stack = typeof bb.max_stack_cnt === 'number' ? bb.max_stack_cnt : 1;   // 叠层天赋按满层(塞雷娅)
     if (typeof bb.max_hp === 'number') out.hpMul = Math.max(out.hpMul, bb.max_hp * stack);
     if (typeof bb.def === 'number') out.defMul = Math.max(out.defMul, bb.def * stack);
+  }
+  // 光环拆分特例(星熊 X 护身符):模组 te 把光环拆为「name=null 全场新值(自身作为友方重装也吃)」+
+  // 「同名自身额外值」两部分 → 相加。te 同名若被整体覆盖会错误削弱(0.06→0.04)。
+  const split = AURA_SPLIT_ADD[op.id];
+  if (split !== undefined && slotData.module) {
+    const lv = getModuleLevelData(op, slotData);
+    const teArr = lv && Array.isArray(lv.talentEnhance) ? lv.talentEnhance : [];
+    const selfCands = teArr.filter(c => c && c.name !== null && c.requiredPotentialRank <= pot);
+    const auraCands = teArr.filter(c => c && c.name === null && c.requiredPotentialRank <= pot);
+    if (selfCands.length && auraCands.length) {
+      let self = null, aura = null;
+      for (const c of selfCands) { const v = c.blackboard && c.blackboard.def; if (typeof v === 'number' && (self === null || v > self)) self = v; }
+      for (const c of auraCands) { const v = c.blackboard && c.blackboard.def; if (typeof v === 'number' && (aura === null || v > aura)) aura = v; }
+      if (self !== null && aura !== null) out.defMul = aura + self;
+    }
   }
   return out;
 }
