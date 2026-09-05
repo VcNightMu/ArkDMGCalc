@@ -48,6 +48,7 @@ const TALENT_HEAL_DRIVERS = {
   'char_4163_rosesa': 0, // 瑰盐:治疗量 +5%~+17%(随精化/潜能5 增强)
   'char_148_nearl': 0,   // 临光「天马光环」:全图友方医疗效果+10~12%(自身治疗为友方医疗,光环先例自身必得)
   'char_4143_sensi': 0,  // 森西「十年魔物餐经验」:自身治疗量+10%(防御部分在 TALENT_HP_DEF_DRIVERS)
+  'char_494_vendla': 0,  // 刺玫「土壤基肥改良」:攻击范围内生命上限最高友方受疗+8~18%(精1→精2 潜5),单目标默认治疗目标=自身=范围内生命最高
 };
 
 /**
@@ -692,7 +693,9 @@ function calcModuleTalentEnhance(op, slotData) {
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
-    if (typeof bb.heal_scale === 'number' && bb.heal_scale > healScale) healScale = bb.heal_scale;
+    // 注意:自身治疗天赋入表干员(临光/森西/瑰盐/刺玫 TALENT_HEAL_DRIVERS)的 te.heal_scale
+    // 已由 calcTalentHealScale(talentCandSource 覆盖)消费,此处排除避免双重乘算(刺玫 X3 曾 1.23²)。
+    if (typeof bb.heal_scale === 'number' && bb.heal_scale > healScale && TALENT_HEAL_DRIVERS[op.id] === undefined) healScale = bb.heal_scale;
   }
   out.attackSpeed = bestAspd;
   out.extraAtkMul = extraAtk;
@@ -1092,7 +1095,7 @@ function calculateOperator(op, slotData, ctx) {
         const traitScale = calcTraitScale(op, slotData) ?? 0.5;
         const fragileMul = calcMagicFragileMul(op, slotData);  // 法脆必触发增伤(芙蓉:伤害×1.06~1.14)
         const normalHit = calcArtsDamage(panelAtk, state.enemy.res) * fragileMul;
-        const hpsPerSec = normalHit * traitScale / realInterval;
+        const hpsPerSec = normalHit * traitScale * healScale / realInterval;
         return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalHit / realInterval, skillHps: null, normalHps: hpsPerSec, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: 'arts', normalDamageType: 'arts' };
       }
       const normalHeal = panelAtk * healRatio * healScale;

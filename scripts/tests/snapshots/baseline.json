@@ -2524,7 +2524,7 @@
     "cDps": null,
     "nDps": 23.417,
     "sHps": null,
-    "nHps": 297.298,
+    "nHps": 258.52,
     "tHeal": null,
     "dmg": null,
     "nm": null
@@ -2538,9 +2538,9 @@
     "sTot": 0,
     "cDps": null,
     "nDps": 23.417,
-    "sHps": 475.677,
+    "sHps": 413.632,
     "nHps": null,
-    "tHeal": 19027.072,
+    "tHeal": 16545.28,
     "dmg": null,
     "nm": null
    }
@@ -2821,7 +2821,7 @@
     "cDps": null,
     "nDps": 21.25,
     "sHps": null,
-    "nHps": 292.273,
+    "nHps": 254.15,
     "tHeal": null,
     "dmg": null,
     "nm": null
@@ -2835,9 +2835,9 @@
     "sTot": 0,
     "cDps": null,
     "nDps": 21.25,
-    "sHps": 269.79,
+    "sHps": 234.6,
     "nHps": null,
-    "tHeal": 3777.06,
+    "tHeal": 3284.4,
     "dmg": null,
     "nm": null
    }
@@ -8960,7 +8960,7 @@
     "cDps": null,
     "nDps": null,
     "sHps": null,
-    "nHps": 195.36,
+    "nHps": 162.8,
     "tHeal": null,
     "dmg": null,
     "nm": null
@@ -8975,8 +8975,8 @@
     "cDps": null,
     "nDps": null,
     "sHps": null,
-    "nHps": 195.36,
-    "tHeal": 946.519,
+    "nHps": 162.8,
+    "tHeal": 788.766,
     "dmg": null,
     "nm": null
    },
@@ -8989,9 +8989,9 @@
     "sTot": 0,
     "cDps": null,
     "nDps": null,
-    "sHps": 371.184,
-    "nHps": 195.36,
-    "tHeal": 10021.968,
+    "sHps": 309.32,
+    "nHps": 162.8,
+    "tHeal": 8351.64,
     "dmg": null,
     "nm": null
    }
@@ -10145,7 +10145,7 @@
     "cDps": null,
     "nDps": 181.25,
     "sHps": null,
-    "nHps": 90.625,
+    "nHps": 104.219,
     "tHeal": null,
     "dmg": null,
     "nm": null
@@ -10190,7 +10190,7 @@
     "cDps": null,
     "nDps": 193.125,
     "sHps": null,
-    "nHps": 115.875,
+    "nHps": 142.526,
     "tHeal": null,
     "dmg": null,
     "nm": null
