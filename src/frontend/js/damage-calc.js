@@ -492,7 +492,7 @@ function calcTalentHps(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard.hp_recovery_per_sec === 'number' ? cand.blackboard.hp_recovery_per_sec : 0;
