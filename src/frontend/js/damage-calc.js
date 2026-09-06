@@ -738,7 +738,9 @@ function calcModuleTalentEnhance(op, slotData) {
     // 限时攻速窗口(带 attack_speed_up_duration 的部署触发型,如寻澜 X「独自远走」增强:部署时攻速+X 持续 10s)
     // 不是常驻攻速强化,不参与 attackSpeed 拾取——由 SKILL_MODULE_SPD_BUFF 专用通道在技能窗口内分两段模拟。
     const isTimedAspd = typeof bb.attack_speed_up_duration === 'number' && bb.attack_speed_up_duration > 0;
-    if (typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
+    // 仅常驻攻速天赋入表干员(闪灵法典/琴柳不退之旗/晓歌万全等)允许攻速拾取;表外干员的 te 攻速为条件/触发型(冬时疾笔撰录/录武官学成于聚)不计
+    const spdOk = TALENT_SPD_DRIVERS[op.id] !== undefined;
+    if (spdOk && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
@@ -1110,9 +1112,9 @@ function calculateOperator(op, slotData, ctx) {
   // 模组天赋强化:X模组 L2 把「法典」攻速覆盖为 15/18;Y 模组走基础天赋(10/13)。
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
-  // 附加常态攻击乘算:闪灵 X模组≥2级 且装备 2技能(自动掩护)时,面板攻击 ×(1+0.15/0.25) 直接乘算。
-  // 与携带技能的 atk 乘算互斥(带 atk 的信条/教条力场 ≠ 2技能),并入同乘区累加。
-  const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
+  // 附加常态攻击乘算:仅闪灵 X模组≥2级 且装备 2技能(自动掩护)时,面板攻击 ×(1+0.15/0.25) 直接乘算。
+  // (白名单限定:其他干员 te 的 atk 同名增强已由 calcTalentAtkBonus 消费,不可走此通道——可露希尔 X3 曾双吃 ×1.76)
+  const extraAtkMul = (op.id === 'char_147_shining' && enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
   // 战术家分支特性:自身攻击援军(召唤物)阻挡的敌人时攻击力提升至150%——攻击力乘区(非伤害乘区,提高破甲线),
   // 单目标模型默认召唤物在场并阻挡目标 → 本体攻击常驻 ×1.5(面板白值与伤害统一含;召唤物本体不享受)
   const isTacticianOp = !isSummon && op.profession === 'PIONEER' && op.subProfessionId === 'tactician';

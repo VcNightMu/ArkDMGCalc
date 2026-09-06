@@ -104,5 +104,12 @@ const xunS1n = calculateOperator(xunl, mk(xunl, 0));
 check('寻澜S1 无模组仍18击(限时攻速不常驻)', Math.abs(xunS1n.skillTotalDamage - xunHit * 18) <= 1, String(xunS1n.skillTotalDamage));
 check('寻澜S1 无模组间隔1.0(无常驻攻速)', Math.abs(xunS1n.realInterval - 1.0) < 0.001, String(xunS1n.realInterval));
 
+
+// ===== 冬时 X「疾笔撰录」条件攻速不计(覆盖层修复:表外干员 te 攻速不再拾取成常驻) =====
+const wX = ds.modules.find(x => x.typeName2 === 'X');
+const w0 = calculateOperator(ds, mk(ds, 1));
+const wx3 = calculateOperator(ds, { ...mk(ds, 1), module: { moduleId: wX.id, moduleLevel: 3 } });
+check('冬时S2 X3 间隔不变(疾笔撰录攻速不计)', Math.abs(wx3.realInterval - w0.realInterval) < 0.001, String(wx3.realInterval));
+
 console.log(`情报官验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

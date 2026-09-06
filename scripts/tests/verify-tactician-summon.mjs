@@ -193,5 +193,17 @@ const blkX3 = calculateOperator(blk, bslot(0, { moduleId: blkX.id, moduleLevel: 
 check('夜半 无模组面板(442+60信頼)×1.5', blk0.panelAtk, 753, 0.5);
 check('夜半 X3 点梦不计(仅白值+20)', blkX3.panelAtk, (442 + 60 + 20) * 1.5, 0.5);
 
+
+// ===== 可露希尔 X「极限调度」无双吃(覆盖层修复:extraAtkMul 白名单仅闪灵) =====
+// S2 技能期 panelAtk = raw(atk480+trust60+白值30=570)×1.5特性×(1+0.6技能+0.08天赋)=855×1.68=1436.4
+const closur = JSON.parse(fs.readFileSync(BASE + '/PIONEER/tactician/char_4228_closur.json', 'utf8'));
+const cph2 = closur.phases[closur.phases.length - 1];
+const cX = closur.modules.find(x => x.typeName2 === 'X');
+const clSlot = (mod) => ({ elite: 2, level: cph2.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 1, skillLevel: 7, module: mod });
+const cX3 = calculateOperator(closur, clSlot({ moduleId: cX.id, moduleLevel: 3 }));
+check('可露希尔S2 X3 panelAtk 无双吃', cX3.panelAtk, 855 * 1.68, 0.5);
+const cX1 = calculateOperator(closur, clSlot({ moduleId: cX.id, moduleLevel: 1 }));
+check('可露希尔S2 X1 无天赋增强(仅白值+20)', cX1.panelAtk, ((480 + 60 + 20) * 1.5) * (1 + 0.6 + 0.04), 0.5);
+
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);
