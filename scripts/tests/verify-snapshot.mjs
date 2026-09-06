@@ -40,21 +40,24 @@ function calcEntry(e) {
       dmg: snapTypes(r.dmgTypes), nm: snapTypes(r.normalTypes),
     };
   }
-  // 效果模组 L3(若有)挂 m3 前缀键
+  // 效果模组全档(L1/L2/L3 均有机制引入点:特性追加在 traitEnhance、天赋增强在 talentEnhance,
+  // L1 即有特性追加/白值、L2 起常含天赋增强)——每模组每档独立分键防多模组互覆(X+Y 干员曾只存后一个):
+  // 键格式 m<typeName2>L<档>s<技能位>,如 mXL3s1 = X 模组 L3 技能1、mYL2s0 = Y 模组 L2 无技能态。
   for (const mod of (o.modules || [])) {
     if (mod.type !== 'ADVANCED') continue;
-    const lv = (mod.levels || []).find(l => l.level === 3);
-    if (!lv) continue;
-    const slotMod = { moduleId: mod.id, moduleLevel: 3 };
-    for (let si = -1; si < skills.length; si++) {
-      const r = calculateOperator(o, mk(si, slotMod));
-      const mKey = 'm' + (si + 1);
-      entries[mKey] = {
-        type: r.type, dt: r.damageType, atk: R3(r.panelAtk), int: R3(r.realInterval),
-        sDps: R3(r.skillDps), sTot: R3(r.skillTotalDamage), cDps: R3(r.cycleDps),
-        nDps: R3(r.normalDps), sHps: R3(r.skillHps), nHps: R3(r.normalHps), tHeal: R3(r.totalHeal),
-        dmg: snapTypes(r.dmgTypes), nm: snapTypes(r.normalTypes),
-      };
+    const tag = mod.typeName2 || 'M';
+    for (const lv of (mod.levels || [])) {
+      const slotMod = { moduleId: mod.id, moduleLevel: lv.level };
+      for (let si = -1; si < skills.length; si++) {
+        const r = calculateOperator(o, mk(si, slotMod));
+        const mKey = 'm' + tag + 'L' + lv.level + 's' + (si + 1);
+        entries[mKey] = {
+          type: r.type, dt: r.damageType, atk: R3(r.panelAtk), int: R3(r.realInterval),
+          sDps: R3(r.skillDps), sTot: R3(r.skillTotalDamage), cDps: R3(r.cycleDps),
+          nDps: R3(r.normalDps), sHps: R3(r.skillHps), nHps: R3(r.normalHps), tHeal: R3(r.totalHeal),
+          dmg: snapTypes(r.dmgTypes), nm: snapTypes(r.normalTypes),
+        };
+      }
     }
   }
   return { name: o.name, skills: skills.map(s => s.name), entries };

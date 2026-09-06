@@ -79,25 +79,73 @@ function calcTalentHealScale(op, slotData) {
 function calcTalentAtkBonus(op, slotData) {
   const cfg = TALENT_ATK_DRIVERS[op.id];
   if (cfg === undefined) return 0;
+  // 推进之王 X「万兽之王」:te(自身额外 6/8%)叠加到基础最佳档(全场 8/10%),非整体替换(覆盖层特判,同星熊X)
+  if (op.id === 'char_112_siege') {
+    const lv = getModuleLevelData(op, slotData);
+    if (lv && Array.isArray(lv.talentEnhance) && lv.talentEnhance.length > 0) {
+      const pot = slotData.potentialRank || 0;
+      let extra = 0;
+      for (const c of lv.talentEnhance) {
+        if (!c || c.name !== '万兽之王') continue;
+        const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+        if (cPot > pot) continue;
+        const v = (c.blackboard || {}).atk;
+        if (typeof v === 'number') extra = Math.max(extra, v);
+      }
+      if (extra > 0) {
+        const base = calcTalentAtkBonusRaw(op, slotData);  // 原始候选最佳档(不含 te)
+        return base + extra;
+      }
+    }
+  }
   // 携带技能条件天赋(夜魔「表里人格」:装备 2 技能时攻击+X%,装 1 技能为闪避向不计):cfg = {talentIndex, skillIndex}
   if (typeof cfg === 'object' && cfg.skillIndex !== undefined && (slotData.skillIndex ?? -1) !== cfg.skillIndex) return 0;
+  const talentIndex = typeof cfg === 'number' ? cfg : cfg.talentIndex;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 0;
+  // 正常路径走 talentCandSource(覆盖层增强感知);推进之王 X 特判在上面已早退
+  return calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex);
+}
+
+// 原始候选最佳档(不含任何模组 te,防特判叠加时 te 被当基础):推进之王 X 特判专用。
+function calcTalentAtkBonusRaw(op, slotData) {
+  const cfg = TALENT_ATK_DRIVERS[op.id];
   const talentIndex = typeof cfg === 'number' ? cfg : cfg.talentIndex;
   const talent = (op.talents || [])[talentIndex];
   if (!talent) return 0;
   const elite = slotData.elite;
   const level = slotData.level;
   const pot = slotData.potentialRank || 0;
-  let bonus = null;   // null=未匹配;负值天赋(如瑰盐 -5%)也必须采纳
+  let bonus = null;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
+      let atk = 0;
+      if (cand.blackboard) {
+        const commonKey = Object.keys(cand.blackboard).find(k => k.endsWith('[common].atk'));
+        if (commonKey !== undefined) atk = cand.blackboard[commonKey];
+        else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
+        if (typeof cand.blackboard.max_stack_cnt === 'number') atk = atk * cand.blackboard.max_stack_cnt;
+      }
+      if (bonus === null || atk > bonus) bonus = atk;
+    }
+  }
+  return bonus === null ? 0 : bonus;
+}
+
+function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
+  const elite = slotData.elite;
+  const level = slotData.level;
+  const pot = slotData.potentialRank || 0;
+  let bonus = null;
   for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
       let atk = 0;
       if (cand.blackboard) {
-        // 特殊键天赋(锡兰「湖畔漫步者」ceylon_t_1[common].atk):只取默认档,忽略 [map] 等环境档
         const commonKey = Object.keys(cand.blackboard).find(k => k.endsWith('[common].atk'));
         if (commonKey !== undefined) atk = cand.blackboard[commonKey];
         else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
-        // 叠层天赋(塞雷娅「莱茵充能护服」每层值 × max_stack_cnt):按满层取
         if (typeof cand.blackboard.max_stack_cnt === 'number') atk = atk * cand.blackboard.max_stack_cnt;
       }
       if (bonus === null || atk > bonus) bonus = atk;
@@ -139,6 +187,35 @@ function calcTalentHpDefMul(op, slotData) {
   const talentIndex = TALENT_HP_DEF_DRIVERS[op.id];
   const out = { hpMul: 0, defMul: 0 };
   if (talentIndex === undefined) return out;
+  // 推进之王 X「万兽之王」:te(自身额外 6/8%)叠加到基础最佳档,非整体替换(PRTS 文本:全场+8% 不变,自身额外+X%)
+  if (op.id === 'char_112_siege') {
+    const lv = getModuleLevelData(op, slotData);
+    if (lv && Array.isArray(lv.talentEnhance) && lv.talentEnhance.length > 0) {
+      const pot = slotData.potentialRank || 0;
+      let extra = 0;
+      for (const c of lv.talentEnhance) {
+        if (!c || c.name !== '万兽之王') continue;
+        const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+        if (cPot > pot) continue;
+        const v = (c.blackboard || {}).def;
+        if (typeof v === 'number') extra = Math.max(extra, v);
+      }
+      if (extra > 0) {
+        const talent = (op.talents || [])[talentIndex];
+        let base = 0;
+        if (talent) {
+          for (const cand of talent.candidates) {  // 原始候选,不含 te
+            const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+            if (cand.phase > slotData.elite || slotData.level < (cand.level || 1) || candPot > pot) continue;
+            const bd = (cand.blackboard || {}).def;
+            if (typeof bd === 'number') base = Math.max(base, bd);
+          }
+        }
+        out.defMul = base + extra;
+        return out;
+      }
+    }
+  }
   // 星熊 X「护身符」特种作战策略增强拆两条 te:同名=自身额外 def(4%/6%)、name=null=全场重装光环(9/11/13% 含潜能)。
   // 自身最终 = 全场(null) + 额外(同名),覆盖层单槽同名替换只取 4/6% 会丢全场部分 → 特判合并。
   if (op.id === 'char_136_hsguma') {
