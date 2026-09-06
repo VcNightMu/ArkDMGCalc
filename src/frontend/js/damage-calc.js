@@ -124,6 +124,7 @@ const TALENT_HP_DEF_DRIVERS = {
   'char_149_scave': 0,   // 清道夫「单独行动者」:防御+5~13%(周围四格无友军默认成立,攻击部分在 TALENT_ATK_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:防御+4~10%(先锋光环覆盖自身,攻击部分在 TALENT_ATK_DRIVERS)
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:防御+4~7%(同天赋攻击,技能期加倍部分同 atk 口径只计攻击侧)
+  'char_1037_amiya3': 0,  // 阿米娅(医疗)「诚挚期许」:自身生命上限+5%(精1)/+8%(精2)无条件(X 模组同名覆盖 9%/10%);自回(1.5%~3.5%maxHp/s)为生存展示与咒愈治疗 normalHps 通道冲突,不建模
   'char_150_snakek': 0,  // 蛇屠箱「防御专精」:防御力+6%(精1)→+12%(精2) 无条件常驻(此前漏入引擎)
 };
 
@@ -138,6 +139,28 @@ function calcTalentHpDefMul(op, slotData) {
   const talentIndex = TALENT_HP_DEF_DRIVERS[op.id];
   const out = { hpMul: 0, defMul: 0 };
   if (talentIndex === undefined) return out;
+  // 星熊 X「护身符」特种作战策略增强拆两条 te:同名=自身额外 def(4%/6%)、name=null=全场重装光环(9/11/13% 含潜能)。
+  // 自身最终 = 全场(null) + 额外(同名),覆盖层单槽同名替换只取 4/6% 会丢全场部分 → 特判合并。
+  if (op.id === 'char_136_hsguma') {
+    const lv = getModuleLevelData(op, slotData);
+    if (lv && Array.isArray(lv.talentEnhance) && lv.talentEnhance.length > 0) {
+      const pot = slotData.potentialRank || 0;
+      let sameDef = 0, nullDef = 0;
+      for (const c of lv.talentEnhance) {
+        if (!c) continue;
+        const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+        if (cPot > pot) continue;
+        const v = (c.blackboard || {}).def;
+        if (typeof v !== 'number') continue;
+        if (c.name === '特种作战策略') sameDef = Math.max(sameDef, v);
+        else if (!c.name) nullDef = Math.max(nullDef, v);
+      }
+      if (nullDef > 0 || sameDef > 0) {
+        out.defMul = nullDef + sameDef;  // 自身 = 全场光环 + 自身额外(X2 9+4=13%,X3 11+6=17%;潜能档更高)
+        return out;
+      }
+    }
+  }
   const talent = (op.talents || [])[talentIndex];
   if (!talent) return out;
   const elite = slotData.elite;
@@ -623,12 +646,13 @@ function calcTalentHitMrMul(op, slotData) {
 }
 // 空中法脆(雪绒「冰原生存」:攻击范围内所有空中单位受法伤 +10~22%,自身坠雪使目标浮空必触发 → 跳伤 ×damage_scale)
 function calcAirFragileMul(op, slotData) {
-  const idx = 0;  // 雪绒第一天赋
+  const idx = 0;  // 雪绒第一天赋(冰原生存:攻击范围空中单位法脆)
   const talent = (op.talents || [])[idx];
   if (!talent) return 1;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  // talentCandSource:Y 模组同名增强(damage_scale 1.2→1.25/1.3)覆盖基础档
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard.damage_scale === 'number' ? cand.blackboard.damage_scale : 0;
@@ -646,7 +670,8 @@ function calcSkillTalentAtkOnly(op, slotData) {
   if (!talent) return 0;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
   let best = 0;
-  for (const cand of talent.candidates) {
+  // talentCandSource:Y 模组同名荒野法术增强(atk +100%→+105/110% 或 +125/130%)覆盖基础档
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const v = cand.blackboard && typeof cand.blackboard.atk === 'number' ? cand.blackboard.atk : 0;

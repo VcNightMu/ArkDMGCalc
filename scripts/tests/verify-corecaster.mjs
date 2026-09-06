@@ -171,6 +171,17 @@ check('霍尔海雅 S3 间隔=1.6+1.4=3.0', hyS3.realInterval, 3.0, 0.001);
 check('霍尔海雅 S3 总伤=15击×A(2.67×atk)', hyS3.skillTotalDamage, 15 * A(723 * 2.67), 0.01);
 check('霍尔海雅 S3 DPS=总伤/45', hyS3.skillDps, 15 * A(723 * 2.67) / 45, 0.01);
 
+
+// ===== 雪绒 Y3 冰原生存法脆 1.2→1.28(pot0档,技能期攻击含白值+50=745) =====
+const qY3 = calculateOperator(qa, { ...mkFor(qa, 1), module: { moduleId: qa.modules.find(x => x.typeName2 === 'Y').id, moduleLevel: 3 } });
+check('雪绒S2 Y3 技能期攻击=745(白值+50)', qY3.panelAtk, 745, 0.01);
+// 14跳×A(0.65×745)×1.28 + 落地A(2.5×745)不吃法脆
+check('雪绒S2 Y3 总伤=14跳法脆1.28+落地', qY3.skillTotalDamage, 14 * A(0.65 * 745) * 1.28 + A(2.5 * 745), 0.5);
+const toY3 = calculateOperator(to, { ...mkFor(to, 0), module: { moduleId: to.modules.find(x => x.typeName2 === 'Y').id, moduleLevel: 3 } });
+// 荒野法术 atk+100%(pot0 精2)→Y3 te +110%(1.1),面板685(白值+50):skillAtk=685×2.1=1438.5
+check('特米米S1 Y3 技能期攻击=685×2.1', toY3.panelAtk, 685 * 2.1, 0.5);
+check('特米米S1 Y3 总伤=31击×P(1438.5)', toY3.skillTotalDamage, 31 * Math.max(1438.5 - 600, 1438.5 * 0.05), 1);
+
 // ===== 雪绒 S2 坠雪(char_466_qanik):停攻,每0.5s 0.65×atk(M1)法伤×14跳(浮空吃冰原生存法脆×1.2)+浮空结束坠落一次2.5×atk(不吃) =====
 const qkS2 = calculateOperator(qa, mkFor(qa, 1));
 const qkPer = A(695 * 0.65) * 1.2;   // E2 法脆 1.2

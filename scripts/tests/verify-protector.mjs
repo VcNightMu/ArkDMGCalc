@@ -113,6 +113,15 @@ check('卡缇S1 自愈=最大生命×0.4', near(ktS1.totalHeal, ktHp * 0.4));
 check('卡缇S1 无伤害', ktS1.skillDps === 0 && ktS1.skillTotalDamage === 0);
 
 
+
+// ===== 星熊 X「护身符」特种作战策略增强:自身=全场(null te)+额外(同名 te) =====
+const hsgX = hs.modules.find(x => x.typeName2 === 'X');
+const hsgX2 = calcPanelStats(hs, { ...mk(hs, -1, 7), module: { moduleId: hsgX.id, moduleLevel: 2 } });
+const hsgX3 = calcPanelStats(hs, { ...mk(hs, -1, 7), module: { moduleId: hsgX.id, moduleLevel: 3 } });
+// E2 def base723+信赖60=783;X2 白值+115 → 898×1.13(9+4);X3 白值+140 → 923×1.17(11+6)
+check('星熊 X2 def=×1.13(全场9+额外4)', Math.abs(hsgX2.panelDef - Math.round(898 * 1.13)) <= 1);
+check('星熊 X3 def=×1.17(全场11+额外6)', Math.abs(hsgX3.panelDef - Math.round(923 * 1.17)) <= 1);
+
 // ===== 无条件常驻固定属性天赋入面板(重装公共通道) =====
 // 拜松「交叉掩护」:自身防御+X 无条件(X 模组覆盖 60/80/100)
 const bisonF = load('char_325_bison');

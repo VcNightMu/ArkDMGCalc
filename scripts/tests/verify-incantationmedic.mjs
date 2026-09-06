@@ -164,6 +164,14 @@ check('阿米娅S1 技能期HPS=特性治疗+额外群疗', near(a1.skillHps, (h
 check('阿米娅S1 总治疗含额外', near(a1.totalHeal, (hit(aPs.panelAtk) * 0.5 + am1Extra) * Math.floor(50 / am1Int)));
 check('阿米娅S1 技能期DPS=普攻法伤', near(a1.skillDps, hit(aPs.panelAtk) * Math.floor(50 / am1Int) / 50));
 
+
+// ===== 阿米娅(医疗) X3 诚挚期许 maxHp+8%→+10%(X 同名覆盖;E2 白值1416+信赖120) =====
+const amX = amiya.modules.find(x => x.typeName2 === 'X');
+const amPs0 = calcPanelStats(amiya, mk(amiya, 0, 7, null));
+const amPsX3 = calcPanelStats(amiya, mk(amiya, 0, 7, { moduleId: amX.id, moduleLevel: 3 }));
+check('阿米娅医疗 E2 maxHp 诚挚期许+8%', Math.abs(amPs0.panelHp - Math.round((1416 + 120) * 1.08)) <= 1);
+check('阿米娅医疗 X3 maxHp 覆盖 10%+白值150', Math.abs(amPsX3.panelHp - Math.round((1416 + 120 + 150) * 1.10)) <= 1);
+
 // ===== 阿米娅(医疗) S2「慈悲愿景」：开启一击0命中→0叠层；后续普攻真伤（面板攻击力），持续32s =====
 const a2 = calculateOperator(amiya, mk(amiya, 1, 7, null));
 const am2Attacks = Math.floor(32 / 1.6);
