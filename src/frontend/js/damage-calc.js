@@ -346,6 +346,55 @@ const SKILL_ARTS_OVERRIDES = {
  * 模组面板加成:按当前装配的模组 id+等级取该级 attributeBlackboard(数据为该等级生效后的最终加成)。
  * 证章(INITIAL 无 levels)/无模组返回全 0;attackSpeed 为攻速值增量(100 基准上加算)。
  */
+// ===== 模组技能伤害提升(仅技能期伤害乘,常态普攻不乘) =====
+// 德克萨斯 Y「外勤私人补给包」(Y2/Y3):天赋「战术快递」增强为"技能造成的伤害提高10%/15%"
+// (编入无条件生效)→ 读 te 同名条目的 damage_scale,calcDamage 技能期每击乘。
+const MODULE_SKILL_DMG_MUL = {
+  'char_102_texas': { talentIndex: 0 },  // 德克萨斯 Y:战术快递增强 damage_scale 1.1(Y2)/1.15(Y3)
+};
+function calcModuleSkillDmgMul(op, slotData) {
+  const cfg = MODULE_SKILL_DMG_MUL[op.id];
+  if (!cfg) return 1;
+  const bb = getTalentEnhBB(op, slotData, cfg.talentIndex);
+  return (bb && typeof bb.damage_scale === 'number') ? bb.damage_scale : 1;
+}
+
+// ===== 模组特性追加/增强常驻段的无条件面板属性(仅读 name=null 条目,同名条件条目天然排除) =====
+// 号角 Y「旧日新装」:L1 起特性追加"不阻挡敌人时…攻击速度+10"(要塞常态远程,同火哨默认未阻挡口径);
+// Y2/Y3 血战增强新增常驻段 horn_e_003_t[attr](攻速+5/8%、def+5/8%)——同名"血战"条目是被击倒后段
+// (攻速20~25/def20~25%,hp_ratio 条件)不读 null 规则排除;基础血战维持"不计"口径。
+const MODULE_UNCOND_ATTR = {
+  'char_4039_horn': {  // 号角 Y:攻速两来源累加(特性+10 + 血战常驻5/8);def 乘算 5/8%
+    adds: [
+      { key: 'attack_speed', dst: 'aspd' },
+      { key: 'horn_e_003_t[attr].attack_speed', dst: 'aspd' },
+      { key: 'horn_e_003_t[attr].def', dst: 'defMul' },
+    ],
+  },
+};
+function calcModuleUncondAttr(op, slotData) {
+  const out = { aspd: 0, defMul: 0 };
+  const cfg = MODULE_UNCOND_ATTR[op.id];
+  if (!cfg) return out;
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !Array.isArray(lv.talentEnhance)) return out;
+  // 每个 adds 源独立取该档最高值后累加(号角:特性攻速+10 与血战常驻攻速 5/8 叠加=Y3 总 18)
+  const acc = { aspd: 0, defMul: 0 };
+  for (const a of cfg.adds) {
+    let best = 0;
+    for (const c of lv.talentEnhance) {
+      if (!c || c.name !== null) continue;   // 仅 null 条目:同名=条件/倒地段,绝不消费
+      const v = (c.blackboard || {})[a.key];
+      if (typeof v === 'number' && v > best) best = v;
+    }
+    acc[a.dst] += best;
+  }
+  out.aspd = acc.aspd;
+  out.defMul = acc.defMul;
+  return out;
+}
+
+
 function calcModuleBonus(op, slotData) {
   const bonus = { maxHp: 0, atk: 0, def: 0, magicResistance: 0, attackSpeed: 0 };
   const m = slotData.module;
@@ -1121,7 +1170,8 @@ function calculateOperator(op, slotData, ctx) {
   let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1);
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   const flatAttr = calcTalentFlatAttr(op, slotData);
-  let panelDef = rawDef * (1 + pctTalent.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0) + flatAttr.defFlat;
+  const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
+  let panelDef = rawDef * (1 + pctTalent.defMul + modUncond.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0) + flatAttr.defFlat;
   const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
 
   // ======== Skill Modifiers ========
@@ -1139,7 +1189,7 @@ function calculateOperator(op, slotData, ctx) {
   const defStealSteady = calcTalentDefStealSteady(op, slotData);
   const effDef = Math.max(0, state.enemy.def - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
-  const baseAspdBonus = talentAspd + mod.attackSpeed;
+  const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
   const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
 
   // No skill: return normal stats only
@@ -1283,6 +1333,7 @@ function calculateOperator(op, slotData, ctx) {
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率(天赋 × 模组天赋强化,如瑰盐/夜莺X模组)
     talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
     sleepAtkMul: calcSleepAtkMul(op, slotData),  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
+    skillDmgMul: calcModuleSkillDmgMul(op, slotData),  // 模组技能伤害提升(德克萨斯 Y 战术快递:技能期伤害 ×1.1/1.15,常态不乘)
     resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
     hitMrMul,  // 命中减抗乘数(夜烟黑色迷雾:先效果再命中,技能期同吃)
     isTrueOverride: (SKILL_TRUE_DAMAGE[op.id] || []).includes(skillIndex),  // 技能期强制真伤(阿米娅S3奇美拉)
@@ -2359,12 +2410,13 @@ function calcPanelStats(op, slotData) {
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);
   const extraAtkMul = (enh.extraAtkMul && slotData.skillIndex === 1) ? enh.extraAtkMul : 0;
-  const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + talentAspd + mod.attackSpeed);
+  const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
+  const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + talentAspd + mod.attackSpeed + modUncond.aspd);
 
   return {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
-    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul) + aura.defFlat
+    panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul + modUncond.defMul) + aura.defFlat
       + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0) + calcTalentFlatAttr(op, slotData).defFlat),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat + calcTalentFlatAttr(op, slotData).resFlat,
     baseAttackTime: phase.baseAttackTime,

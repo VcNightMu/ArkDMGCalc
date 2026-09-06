@@ -148,5 +148,16 @@ for (const id of ['char_502_nblade', 'char_4188_confes']) {
   check(`${ops[id].name} 常态DPS正常`, (r.normalDps || 0) > 0 && r.skillTotalDamage === 0);
 }
 
+
+// ===== 德克萨斯 Y「外勤私人补给包」:战术快递增强 技能造成的伤害×1.1/1.15(仅技能期,常态白值提升除外) =====
+const txY = ops['char_102_texas'].modules.find(x => x.typeName2 === 'Y');
+const txY3 = calculateOperator(ops['char_102_texas'], { ...mk(ops['char_102_texas'], 1), module: { moduleId: txY.id, moduleLevel: 3 } });
+const tx0 = calculateOperator(ops['char_102_texas'], mk(ops['char_102_texas'], 1));
+// Y3: 白值 atk+42(570→612,法伤 res50 线性) × 技能伤害 1.15
+check('德克萨斯 S2 Y3 总伤=×1.15技能增伤(含白值)', near(txY3.skillTotalDamage, tx0.skillTotalDamage * (612 / 570) * 1.15, 1));
+const txN3 = calculateOperator(ops['char_102_texas'], { ...mk(ops['char_102_texas'], -1), module: { moduleId: txY.id, moduleLevel: 3 } });
+const txN0 = calculateOperator(ops['char_102_texas'], mk(ops['char_102_texas'], -1));
+check('德克萨斯常态 Y3 仅白值提升(技能增伤不乘常态)', near(txN3.normalDps, txN0.normalDps * (612 / 570), 0.01));
+
 console.log(`尖兵验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

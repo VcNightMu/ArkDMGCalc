@@ -7,7 +7,7 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0 } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1 } = params;
 
   const isTrue = levelData.trueDamage === true || isTrueOverride;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
@@ -38,7 +38,7 @@ function calcDamage(params) {
   // 技能期单次命中伤害：真实伤害无减免(凯尔希·Mon3tr 3技能)；弱点伤害逐击取物法更高。
   // hitMul：技能期每击伤害乘子(暮落 S2 六连发 attack@atk_scale×attack@times；斩业星熊 S3 二连击 MULTI_HIT)。
   // talentDmgMul：常驻伤害乘区(勇冠三军等),物理/法术/真伤一律乘。
-  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, effDef))); return h * hitMul * talentDmgMul; };
+  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, effDef))); return h * hitMul * talentDmgMul * skillDmgMul; };
   // 常态普攻类型由职业决定(normalTypeArts=op.damageType==='arts')；弱点常态同样逐击取优
   const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef))) * talentDmgMul;
   const singleHitDamage = skillHitDamage(skillAtk);

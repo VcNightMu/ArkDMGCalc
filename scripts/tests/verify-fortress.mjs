@@ -77,5 +77,15 @@ check('火哨S2 物理总伤=普攻6击', near(fS2.dmgTypes.physical.skillTotalD
 check('火哨S2 燃烧法伤=0.75atk×17跳', near(fS2.dmgTypes.arts.skillTotalDamage, fBurnTotal));
 check('火哨S2 DPS=总伤/17s', near(fS2.skillDps, (fPhysTotal + fBurnTotal) / 17));
 
+
+// ===== 号角 Y「旧日新装」模组:特性攻速+10(全档) + 血战增强常驻段攻速 5/8% 与 def 5/8%(同名倒地段不计) =====
+const hornY = horn.modules.find(x => x.typeName2 === 'Y');
+const hornPs = (L) => calcPanelStats(horn, { ...mk(horn, 0), module: { moduleId: hornY.id, moduleLevel: L } });
+const hPs0 = calcPanelStats(horn, mk(horn, 0));
+check('号角 Y1 间隔 攻速+10', near(hornPs(1).attackInterval, 2.8 * 100 / 110, 0.01));
+check('号角 Y2 间隔 攻速+15(特性10+血战5)', near(hornPs(2).attackInterval, 2.8 * 100 / 115, 0.01));
+check('号角 Y3 间隔 攻速+18(特性10+血战8)', near(hornPs(3).attackInterval, 2.8 * 100 / 118, 0.01));
+check('号角 Y3 def 含血战常驻+8%', near(hornPs(3).panelDef, hPs0.panelDef * 1.08, 1));
+
 console.log(`\n要塞验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);
