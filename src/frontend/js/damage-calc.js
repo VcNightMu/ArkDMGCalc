@@ -17,29 +17,6 @@ function getSkillLevelData(skill, level) {
 // 此类天赋的 blackboard.atk 为「直接乘算」加数(与技能的直接乘算累加,不连乘),
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
-// 模组新增天赋-攻击力(基础天赋表中不存在、由效果模组 L>=2 新增的条件天赋,按用户口径默认条件成立):
-// 夜半 X「星星与瞌睡虫」新增天赋「点梦」:攻击范围内存在沉睡敌人时自身和眠兽攻击力+X%(默认沉睡成立)。
-// key: 干员 id;value: talentEnhance 条目名。读 getModuleLevelData().talentEnhance 匹配,pot 过滤取最高 atk。
-const MODULE_ADD_TALENT_ATK = {
-  'char_476_blkngt': '点梦',  // 夜半 X 模组 L2 +5% / L3 +10%(攻击范围含沉睡敌人默认成立,眠兽侧不含)
-};
-function calcModuleAddTalentAtk(op, slotData) {
-  const teName = MODULE_ADD_TALENT_ATK[op.id];
-  if (!teName) return 0;
-  const lv = getModuleLevelData(op, slotData);
-  if (!lv || !Array.isArray(lv.talentEnhance)) return 0;
-  const pot = slotData.potentialRank || 0;
-  let best = 0;
-  for (const c of lv.talentEnhance) {
-    if (!c || c.name !== teName) continue;
-    const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
-    if (cPot > pot) continue;
-    const v = c.blackboard && typeof c.blackboard.atk === 'number' ? c.blackboard.atk : 0;
-    if (v > best) best = v;
-  }
-  return best;
-}
-
 const TALENT_ATK_DRIVERS = {
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」:精1 Lv1 起 +4%,Lv55 起 +8%
   'char_4163_rosesa': 0, // 瑰盐:攻击 -5%(治疗代价换倍率,见 TALENT_HEAL_DRIVERS)
@@ -101,9 +78,7 @@ function calcTalentHealScale(op, slotData) {
 // 查驱动表,返回常驻加攻天赋在当前精英化/等级下的直接乘算加数(0 表示无此天赋或未生效)。
 function calcTalentAtkBonus(op, slotData) {
   const cfg = TALENT_ATK_DRIVERS[op.id];
-  // 模组新增天赋攻击(夜半点梦):不在驱动表,独立查模块 te(条件默认成立)
-  const modAddAtk = calcModuleAddTalentAtk(op, slotData);
-  if (cfg === undefined) return modAddAtk;
+  if (cfg === undefined) return 0;
   // 携带技能条件天赋(夜魔「表里人格」:装备 2 技能时攻击+X%,装 1 技能为闪避向不计):cfg = {talentIndex, skillIndex}
   if (typeof cfg === 'object' && cfg.skillIndex !== undefined && (slotData.skillIndex ?? -1) !== cfg.skillIndex) return 0;
   const talentIndex = typeof cfg === 'number' ? cfg : cfg.talentIndex;
@@ -128,7 +103,7 @@ function calcTalentAtkBonus(op, slotData) {
       if (bonus === null || atk > bonus) bonus = atk;
     }
   }
-  return (bonus === null ? 0 : bonus) + modAddAtk;
+  return bonus === null ? 0 : bonus;
 }
 // 常驻生命/防御百分比天赋驱动(bb.max_hp / bb.def = 自身面板百分比乘区),仅收"必然生效于自身"类:
 // 范围友方光环(蜜莓/纯烬/夜莺白恶魔等,自身不在自身攻击范围内)与条件性/限时(桑葚双医疗、嘉维尔限时15s)不入表。

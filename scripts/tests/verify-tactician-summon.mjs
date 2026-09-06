@@ -182,20 +182,16 @@ check('狼群S3 总伤', w3.skillTotalDamage, (phys(371) + arts(813 * 0.35)) * 1
 
 // ===== 夜半 X「星星与瞌睡虫」新增天赋点梦(用户口径:默认沉睡成立) =====
 // 点梦 X2 atk+5% / X3 +10%:战术家特性×1.5 后 X2=(442+60+17)×1.5×1.05、X3=(442+60+20)×1.5×1.1
-// ===== 夜半 X「星星与瞌睡虫」新增天赋点梦(用户口径:默认沉睡成立) =====
-// 点梦 X2 atk+5% / X3 +10%(战术家特性×1.5 乘区,与基础白值并行)
+// ===== 夜半 X「星星与瞌睡虫」点梦(用户口径修订:默认不成立) =====
+// 点梦需攻击范围内存在沉睡敌人,敌人可能持有沉睡抗性 → 默认不触发,X 模组只加白值(点梦 atk 加成不计)
 const blk = JSON.parse(fs.readFileSync(BASE + '/PIONEER/tactician/char_476_blkngt.json', 'utf8'));
 const bph = blk.phases[blk.phases.length - 1];
 const bslot = (si, mod) => ({ elite: 2, level: bph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: 7, module: mod });
 const blkX = blk.modules.find(x => x.typeName2 === 'X');
 const blk0 = calculateOperator(blk, bslot(0));
-const blkX1 = calculateOperator(blk, bslot(0, { moduleId: blkX.id, moduleLevel: 1 }));
-const blkX2 = calculateOperator(blk, bslot(0, { moduleId: blkX.id, moduleLevel: 2 }));
 const blkX3 = calculateOperator(blk, bslot(0, { moduleId: blkX.id, moduleLevel: 3 }));
 check('夜半 无模组面板(442+60信頼)×1.5', blk0.panelAtk, 753, 0.5);
-check('夜半 X1 白值+15 无点梦', blkX1.panelAtk, (442 + 60 + 15) * 1.5, 0.5);
-check('夜半 X2 点梦+5%', blkX2.panelAtk, (442 + 60 + 17) * 1.5 * 1.05, 0.5);
-check('夜半 X3 点梦+10%', blkX3.panelAtk, (442 + 60 + 20) * 1.5 * 1.1, 0.5);
+check('夜半 X3 点梦不计(仅白值+20)', blkX3.panelAtk, (442 + 60 + 20) * 1.5, 0.5);
 
 console.log(`\n${pass} 通过, ${fail} 失败`);
 process.exit(fail ? 1 : 0);
