@@ -22,6 +22,17 @@ check('清流S2 间隔 = 2.85×0.12 = 0.342s（乘算）', near(f2.realInterval,
 check('清流S2 每次治疗 = 面板×0.5', near(f2.skillHps * f2.realInterval, fPs.panelAtk * 0.5));
 check('清流S2 总治疗 = 0.5面板×floor(25/0.342)', near(f2.totalHeal, fPs.panelAtk * 0.5 * Math.floor(25 / 0.342)));
 
+
+// ===== 清流 Y「江河之韵」细水长流:技能治疗×1.1/1.2(仅技能期,普攻只吃白值) =====
+const finY = fin.modules.find(x => x.typeName2 === 'Y');
+const fY3 = calculateOperator(fin, { ...fBase, module: { moduleId: finY.id, moduleLevel: 3 }, skillIndex: 0, skillLevel: 9 });
+const finAtk3 = 454 + 35 + 32; // E2白值454+信赖35+Y3白值32
+check('清流S1 Y3 技能总治疗 = 面板×3.5×1.2（细水长流）', near(fY3.totalHeal, finAtk3 * 3.5 * 1.2, 1));
+const fY3n = calculateOperator(fin, { ...fBase, module: { moduleId: finY.id, moduleLevel: 3 }, skillIndex: -1 });
+check('清流 Y3 常态HPS仅白值提升(细水长流不乘普攻)', near(fY3n.normalHps, finAtk3 / 2.85, 1));
+const f2Y3 = calculateOperator(fin, { ...fBase, module: { moduleId: finY.id, moduleLevel: 3 }, skillIndex: 1, skillLevel: 9 });
+check('清流S2 Y3 技能HPS = 面板×0.5×1.2/0.342', near(f2Y3.skillHps, finAtk3 * 0.5 * 1.2 / 0.342, 1));
+
 // ===== 锡兰 E2 满级（天赋默认档 +5%）=====
 const cey = load('char_348_ceylon.json');
 const cBase = { elite: 2, level: 80, trustPercent: 100, potentialRank: 0, module: null };

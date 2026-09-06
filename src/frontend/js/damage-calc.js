@@ -359,6 +359,29 @@ function calcModuleSkillDmgMul(op, slotData) {
   return (bb && typeof bb.damage_scale === 'number') ? bb.damage_scale : 1;
 }
 
+// ===== 模组新增天赋:技能治疗量提升(仅技能期治疗乘,常态普攻不乘) =====
+// 清流 Y「江河之韵」(Y2/Y3):新增天赋「细水长流」=技能的治疗效果提高10%/20%
+// (te name=细水长流,基础天赋名是快速愈合故同名覆盖接不到;Y2 heal_scale 1.1 / Y3 1.2 无条件必生效)。
+const MODULE_SKILL_HEAL_MUL = {
+  'char_385_finlpp': { teName: '细水长流' },  // 清流 Y2/Y3:技能治疗量 ×1.1/×1.2
+};
+function calcModuleSkillHealMul(op, slotData) {
+  const cfg = MODULE_SKILL_HEAL_MUL[op.id];
+  if (!cfg) return 1;
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !Array.isArray(lv.talentEnhance)) return 1;
+  const pot = slotData.potentialRank || 0;
+  let best = null;
+  for (const c of lv.talentEnhance) {
+    if (!c || c.name !== cfg.teName) continue;
+    const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+    if (cPot > pot) continue;
+    const v = (c.blackboard || {}).heal_scale;
+    if (typeof v === 'number' && (best === null || v > best)) best = v;
+  }
+  return best ?? 1;
+}
+
 // ===== 模组特性追加/增强常驻段的无条件面板属性(仅读 name=null 条目,同名条件条目天然排除) =====
 // 号角 Y「旧日新装」:L1 起特性追加"不阻挡敌人时…攻击速度+10"(要塞常态远程,同火哨默认未阻挡口径);
 // Y2/Y3 血战增强新增常驻段 horn_e_003_t[attr](攻速+5/8%、def+5/8%)——同名"血战"条目是被击倒后段
@@ -794,8 +817,10 @@ function calcModuleTalentEnhance(op, slotData) {
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
     // 注意:自身治疗天赋入表干员(临光/森西/瑰盐/刺玫 TALENT_HEAL_DRIVERS)的 te.heal_scale
-    // 已由 calcTalentHealScale(talentCandSource 覆盖)消费,此处排除避免双重乘算(刺玫 X3 曾 1.23²)。
-    if (typeof bb.heal_scale === 'number' && bb.heal_scale > healScale && TALENT_HEAL_DRIVERS[op.id] === undefined) healScale = bb.heal_scale;
+    // 已由 calcTalentHealScale(talentCandSource 覆盖)消费,此处排除避免双重乘算(刺玫 X3 曾 1.23²);
+    // MODULE_SKILL_HEAL_MUL 干员(清流 Y 细水长流)的 heal_scale 是技能治疗提升,由 calcModuleSkillHealMul
+    // 专用消费(仅技能期),排除避免误当全治疗倍率拾取(清流曾普攻治疗也被 ×1.2)。
+    if (typeof bb.heal_scale === 'number' && bb.heal_scale > healScale && TALENT_HEAL_DRIVERS[op.id] === undefined && MODULE_SKILL_HEAL_MUL[op.id] === undefined) healScale = bb.heal_scale;
   }
   out.attackSpeed = bestAspd;
   out.extraAtkMul = extraAtk;
@@ -1334,6 +1359,7 @@ function calculateOperator(op, slotData, ctx) {
     talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
     sleepAtkMul: calcSleepAtkMul(op, slotData),  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
     skillDmgMul: calcModuleSkillDmgMul(op, slotData),  // 模组技能伤害提升(德克萨斯 Y 战术快递:技能期伤害 ×1.1/1.15,常态不乘)
+    skillHealMul: calcModuleSkillHealMul(op, slotData),  // 模组新增天赋技能治疗提升(清流 Y 细水长流:技能期治疗 ×1.1/1.2,常态普攻不乘)
     resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
     hitMrMul,  // 命中减抗乘数(夜烟黑色迷雾:先效果再命中,技能期同吃)
     isTrueOverride: (SKILL_TRUE_DAMAGE[op.id] || []).includes(skillIndex),  // 技能期强制真伤(阿米娅S3奇美拉)

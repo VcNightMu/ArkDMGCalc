@@ -97,7 +97,8 @@ function calcMedical(params) {
   // attack@heal_scale：普攻治疗倍率替换（守望者起飞型技能，如风絮1技能每次回复攻击力 0.4~0.6 倍生命）
   // 仅技能期单次生效；常态普攻维持 heal_ratio（100%）不受影响
   const skillHealRatio = healRatio * (levelData['attack@heal_scale'] ?? 1) * (params.healChain || 1);  // healChain：单次攻击多重治疗（纯烬 S3 五连发）
-  const singleHeal = skillAtk * skillHealRatio;
+  const skillHealRatioMod = skillHealRatio * (params.skillHealMul ?? 1);  // 模组新增天赋技能治疗提升(清流 Y 细水长流):仅技能期,普攻 healRatio 不受影响
+  const singleHeal = skillAtk * skillHealRatioMod;
   const normalHeal = panelAtk * healRatio;
 
   const normalHps = normalHeal / baseInterval;
@@ -146,14 +147,15 @@ function calcTriggerHeal(params) {
 
   // 技能额外提供的治疗量
   let totalHeal;
+  const skillHealMul = params.skillHealMul ?? 1; // 模组新增天赋技能治疗提升(清流 Y 细水长流):仅技能产生治疗,普攻 normalHeal 不乘
   if (isSustained) {
-    const tickHeal = skillAtk * healScale * talentScale;                 // 每次回复量（技能 heal_scale × 天赋倍率）
+    const tickHeal = skillAtk * healScale * talentScale * skillHealMul;  // 每次回复量（技能 heal_scale × 天赋倍率）
     const tickCount = Math.floor(buffDuration / interval); // 回复次数
     totalHeal = tickHeal * tickCount;                      // HOT 总量
     // aura.* 光环随普攻挂载（流明「沐雨」）：触发那下普攻治疗照常进行，总治疗量 = 普攻 + HOT 总量
     if (levelData['aura.heal_scale'] !== undefined) totalHeal += normalHeal;
   } else {
-    totalHeal = skillAtk * healScale * talentScale;                      // 触发时一次性治疗
+    totalHeal = skillAtk * healScale * talentScale * skillHealMul;       // 触发时一次性治疗
   }
 
   let cycleHps = null;
