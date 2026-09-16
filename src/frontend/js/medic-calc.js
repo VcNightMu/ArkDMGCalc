@@ -289,9 +289,12 @@ function calcIncantationMedic(params) {
 
   // 特性治疗比例 scale：技能级覆盖优先（未来技能若改比例），否则取特性/模组（traitScale，0.5→模组 0.6）
   const healScale = levelData.scale ?? (params.traitScale ?? 0.5);
-  const fragileMul = params.magicFragileMul ?? 1;  // 法脆必触发增伤（芙蓉常驻 / 焰苇S3灼痕），实际造成伤害 ×damage_scale
+  const fragileMul = params.magicFragileMul ?? 1;  // 技能期法脆必触发增伤（芙蓉常驻 / 焰苇S3灼痕），实际造成伤害 ×damage_scale
+  // 常态法脆只取常驻部分(芙蓉),不含技能期才必触发的(+焰苇S3灼痕)——常态=无技能状态
+  const normalFragileMul = params.normalMagicFragileMul ?? fragileMul;
   const artsHit = (atk) => calcArtsDamage(atk, enemy.res) * fragileMul;
-  const normalHitDamage = artsHit(panelAtk);
+  const normalArtsHit = (atk) => calcArtsDamage(atk, enemy.res) * normalFragileMul;
+  const normalHitDamage = normalArtsHit(panelAtk);
   const normalHealFromDamage = normalHitDamage * healScale;
 
   const normalHps = normalHealFromDamage / baseInterval;

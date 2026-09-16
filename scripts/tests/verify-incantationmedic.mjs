@@ -207,6 +207,9 @@ check('苇草S3 总伤=普攻+灼痕秒伤(含法脆)×30s', near(r3.skillTotalD
 check('苇草S3 总治疗=普攻治疗（DOT不治疗）', near(r3.totalHeal, r3Hit * 0.5 * r3Attacks));
 check('苇草S3 技能期HPS', near(r3.skillHps, r3Hit * 0.5 / 1.6));
 check('苇草S3 技能期ATK含前缀加攻键', near(r3.panelAtk, r3Atk, 1));
+// 常态行不得计入技能期才必触发的灼痕法脆(常态=无技能状态)
+check('苇草S3 常态DPS=无技能态(不含灼痕法脆)', near(r3.normalDps, r0.normalDps));
+check('苇草S3 常态HPS=无技能态', near(r3.normalHps, r0.normalHps));
 
 
 // ===== 刺玫「土壤基肥改良」:治疗天赋 heal_scale(单目标=自身=范围内生命最高) =====

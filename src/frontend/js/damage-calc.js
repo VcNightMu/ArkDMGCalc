@@ -1426,7 +1426,8 @@ function calculateOperator(op, slotData, ctx) {
     isIncantationMedic, enemy: state.enemy,
     incantMode,
     traitScale: calcTraitScale(op, slotData),
-    magicFragileMul: fragileBase * fragileExtra,
+    magicFragileMul: fragileBase * fragileExtra,          // 技能期法脆(含技能期才必触发的部分)
+    normalMagicFragileMul: fragileBase,                    // 常态法脆:仅常驻(芙蓉),不含技能期才生效的(焰苇S3灼痕)
     isDotTick: (INCANTATION_DOT_OVERRIDES[op.id] || []).includes(skillIndex),
     healChain: (SKILL_HEAL_CHAIN[op.id] || {})[skillIndex] || 1,
     talentHealScale: calcTalentHealScale(op, slotData) * (enh.healScale || 1),  // 常驻治疗倍率(天赋 × 模组天赋强化,如瑰盐/夜莺X模组)
