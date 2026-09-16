@@ -22,6 +22,9 @@ const TALENT_ATK_DRIVERS = {
   'char_4013_kjera': 0,   // 耶拉「低眉」:攻击力+10%(E2);攻击范围内≥2格地面地形改+16%(地形条件默认不计,取无条件档)
   'char_4040_rockr': 0,   // 洛洛「立于磐石」:每15s+4%(E2 pot0),最多4层(时间累积长线默认满层,×max_stack_cnt=+16%)
   'char_4236_tmslot': 0,  // 时隙「新产品测评」:攻击力+8%(浮游单元攻击15%概率停顿为概率控制类,不计)
+  // ---- 链术师(chain) ----
+  // 异客「孤卒」(周围4格无敌人时 +8%/+10%)与「机理分析」(敌方血量>80%)均为条件型,用户口径默认不生效 → 不入表(见 notes.json)
+  'char_4004_pudd': 0,    // 布丁「电磁波」:攻击力+8%(E1)/+10%(E2);Y 模组同名 te 覆盖至 13%/16%
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」:精1 Lv1 起 +4%,Lv55 起 +8%
   'char_4163_rosesa': 0, // 瑰盐:攻击 -5%(治疗代价换倍率,见 TALENT_HEAL_DRIVERS)
   'char_348_ceylon': 0,// 锡兰「湖畔漫步者」:只取默认档 [common].atk(+3%~6% 随精化/潜能5 增强),水地形 [map] 档不计
@@ -595,10 +598,24 @@ const TALENT_SPD_DRIVERS = {
   // ---- 秘术师(mystic) ----
   'char_4226_veen': 0,    // 维伊「在挥刀之前」:有转置能量时攻击力+2%~10%,无转置时攻速+5~15;持续打人模型下无储存能量(故无转置)→取攻速档
   'char_497_ctable': 0,   // 晓歌「万全」:未阻挡敌人时攻速+6/8(E1)→+12/14(E2 潜4),阻挡时改攻击力+12% 二选一(远程位默认未阻挡吃攻速档)
+  // ---- 链术师(chain) ----
+  'char_135_halo': 0,     // 星源「科研热忱」:每在场上停留15s攻速+3(E1)/+4(E2),最多5层 → 时间累积默认满层(×max_stack_cnt,同星极「天体仪」先例)=+15/+20;Y 模组改 10s/6~7层 → +24/+28
 };
 
 
 // 模组 te 攻速跳过表(条件型:仅在"拥有储存能量"等前提下生效的 te 攻速,持续打人模型下不成立)
+// 模组 te 攻速按满层叠乘的干员(其天赋本身是叠层攻速型,模组同步改叠层上限/间隔)。
+// 默认不叠乘:洛洛 X L3「叠满后攻击速度+5」是固定加算值(×max_stack_cnt 会误算成 +20)。
+const MODULE_TE_ASPD_STACK = {
+  'char_135_halo': true,   // 星源「科研热忱」:Y 模组改 10s/6~7 层、每层 +4 → +24/+28
+};
+
+// 模组 te 与基础天赋"合并而非替换"表:部分模组 te 只写变更部分(如异客 X 模组「孤卒」te 仅给 sp_recovery_per_sec),
+// 整体替换会丢失未写出的基础数值(攻击力+8%/10%)。
+const MODULE_TE_TALENT_MERGE = {
+  // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
+};
+
 const MODULE_TE_SPD_SKIP = {
   'char_4226_veen': true,   // X 模组「在挥刀之前」增强:拥有已储存的攻击能量时攻速+30(本模型无储存能量→不适用)
 };
@@ -935,6 +952,15 @@ function getTalentEnhBB(op, slotData, talentIndex) {
     bestPot = cPot;
     best = c.blackboard || {};
   }
+  if (!best) return null;
+  if ((MODULE_TE_TALENT_MERGE[op.id] || []).includes(talentIndex)) {
+    let base = null, basePot = -1;
+    for (const cand of (talent.candidates || [])) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (cand.phase <= slotData.elite && candPot <= pot && candPot >= basePot) { basePot = candPot; base = cand.blackboard || {}; }
+    }
+    return { ...(base || {}), ...best };
+  }
   return best;
 }
 
@@ -969,7 +995,8 @@ function calcModuleTalentEnhance(op, slotData) {
     // 仅常驻攻速天赋入表干员(闪灵法典/琴柳不退之旗/晓歌万全等)允许攻速拾取;表外干员的 te 攻速为条件/触发型(冬时疾笔撰录/录武官学成于聚)不计
     const spdOk = TALENT_SPD_DRIVERS[op.id] !== undefined;
     const spdTeSkip = (MODULE_TE_SPD_SKIP[op.id] || false) === true;
-    if (spdOk && !spdTeSkip && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
+    const aspStack = (MODULE_TE_ASPD_STACK[op.id] === true && typeof bb.max_stack_cnt === 'number') ? bb.max_stack_cnt : 1;
+    if (spdOk && !spdTeSkip && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed * aspStack > bestAspd)) bestAspd = bb.attack_speed * aspStack;
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
@@ -1111,6 +1138,7 @@ const BAT_ADD_OVERRIDES = {
 // 与 BAT_ADD_OVERRIDES 相反:默认负数=加算秒(白面鸮脑啡肽 -2.1、卡涅利安 S2 -0.8 官方描述"攻击间隔-0.8秒")。
 const BAT_PCT_OVERRIDES = {
   'char_469_indigo': { 0: true },   // 深靛 S1 灯塔守卫者:攻击间隔大幅度缩短(-80%) → 3.0×0.2=0.6s
+  'char_472_pasngr': { 1: true },   // 异客 S2 聚焦指令:攻击间隔缩短(-40%) → 2.3×0.6=1.38s(同深靛口径,官方文案为百分比)
 };
 
 // 间隔"增大(+X%)"型:描述为"攻击间隔增大(+70%/+40%)"的 base_attack_time 正小数,
@@ -1149,6 +1177,14 @@ const PHALANX_EXTRA = {
   'char_388_mint': { endBurst: { 1: 'atk_scale' } },            // S2 技能结束时对范围内敌人造成 atk_scale×攻击力 法伤(一次性)
   'char_344_beewax': { endBurst: { 1: 'atk_scale' } },           // S2 技能开启召唤方尖塔时对附近敌人造成 atk_scale×攻击力 法伤(一次性;时点在技能开始,计入总伤)
 };
+// 链术师(chain) AUTO「下次攻击强化」型(自然回技力触发,仅强化一次普攻):
+// 周期=spCost 自然回,期间普攻照常 → cycleDps=(周期内普攻数×普攻伤害+强化击)/spCost(同艾雅法拉 S2 点燃口径);
+// 技能框内"同时攻击 N 个目标/最多跳跃 N 次"属多目标模型不计(单目标)。
+const AUTO_BOOST_SKILLS = {
+  'char_472_pasngr': { 0: 'pasngr_s_1.atk_scale' },   // 电能之触:下次攻击 210%(L7档)/220%(专一)
+  'char_135_halo': { 0: 'atk_scale' },                // 双端导流:下次攻击 110%(L7档)/115%(专一)
+};
+
 // 秘术师(mystic)技能期必然生效的 DoT(描述为"每秒受到 X 伤害",不含概率/条件):
 // dpsKey = 每秒固定法伤键(固定值);atkScaleKey = 每秒按技能期攻击力的比例键
 const MYSTIC_SKILL_DOT = {
@@ -2581,6 +2617,39 @@ function calculateOperator(op, slotData, ctx) {
       normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'arts', normalDamageType: op.damageType, realInterval: vIv,
       dmgTypes: { arts: { skillDps: vWin > 0 ? vTot / vWin : 0, skillTotalDamage: vTot, cycleDps: null } },
+    };
+  } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
+    // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
+    const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
+    const abInt = skillRealInterval > 0 ? skillRealInterval : 1;
+    const abSp = levelData.spCost > 0 ? levelData.spCost : 8;
+    const abHit = calcArtsDamage(panelAtk * levelData[abKey], state.enemy.res);
+    const abNorm = calcArtsDamage(panelAtk, state.enemy.res);
+    const abCycle = Math.floor(abSp / abInt) * abNorm + abHit;
+    result = {
+      skillDps: 0, skillTotalDamage: abHit, cycleDps: abSp > 0 ? abCycle / abSp : 0,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: op.damageType, realInterval: abInt,
+      dmgTypes: { arts: { skillDps: 0, skillTotalDamage: abHit, cycleDps: abSp > 0 ? abCycle / abSp : 0 } },
+    };
+  } else if (op.id === 'char_472_pasngr' && skillIndex === 2) {
+    // 异客 S3 辉煌裂片(手动,可充能2次):在生命值最高目标处生成持续 duration=4s 的雷暴区域,
+    // 每 interval=0.5s 以 atk_scale(130% L7档/135% 专一)对该区域敌人追加一次攻击 —— 与本体攻击独立并行 → 8 跳;
+    // 充能按"一次释放一次"口径(同圣聆初雪 S1),长期量以 cycleDps=(周期普攻+8跳)/spCost 展示,常态行照常。
+    const ffTicks = Math.max(1, Math.floor((levelData.duration || 0) / (levelData.interval || 0.5)));
+    const ffHit = calcArtsDamage(panelAtk * levelData.atk_scale, state.enemy.res);
+    const ffTotal = ffHit * ffTicks;
+    const ffField = levelData.duration || 4;
+    const ffInt = skillRealInterval > 0 ? skillRealInterval : 1;
+    const ffSp = levelData.spCost > 0 ? levelData.spCost : 30;
+    const ffCycle = Math.floor(ffSp / ffInt) * calcArtsDamage(panelAtk, state.enemy.res) + ffTotal;
+    const ffNormInt = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    result = {
+      skillDps: ffTotal / ffField, skillTotalDamage: ffTotal, cycleDps: ffSp > 0 ? ffCycle / ffSp : 0,
+      normalDps: op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) / ffNormInt : calcPhysicalDamage(panelAtk, effDef) / ffNormInt,
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: op.damageType, realInterval: ffInt,
+      dmgTypes: { arts: { skillDps: ffTotal / ffField, skillTotalDamage: ffTotal, cycleDps: ffSp > 0 ? ffCycle / ffSp : 0 } },
     };
   } else if ((SKIP_SKILLS[op.id] || {})[skillIndex]) {
     // 技能不计算(斩业星熊 S2 无始无明:投盾系伤害不建模型)→ 技能期无增益,常态普攻照常展示
