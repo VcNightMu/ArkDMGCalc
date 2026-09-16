@@ -542,6 +542,8 @@ async function main() {
   // 重跑抓取后需保持存在(数据文件由 setup 生成,若缺失则从远程形态复制派生)
   const VIRTUAL_TOKENS = [
     { id: 'token_10030_mlyss_melee', srcId: 'token_10030_mlyss_wtrman', name: '流形·近战', rarity: 'TIER_6', owner: 'char_249_mlyss', ownerName: '缪尔赛思' },
+    // 小自在(夕的召唤物):游戏 token_10015 phases 为空(属性由持有者技能注入,非独立面板) → 静态代表档面板(E2 atk398/1.9s 法伤)
+    { id: 'token_10015_dusk_drgn', name: '小自在', rarity: 'TIER_6', owner: 'char_2015_dusk', ownerName: '夕', panel: { maxHp: 1997, atk: 398, def: 302, magicResistance: 50, baseAttackTime: 1.9 } },
   ];
   for (const v of VIRTUAL_TOKENS) {
     if (!index.some(e => e.id === v.id)) {
@@ -553,17 +555,24 @@ async function main() {
       const vDir = path.join(BASE, 'TOKEN', 'notchar1');
       const vPath = path.join(vDir, v.id + '.json');
       if (!fs.existsSync(vPath)) {
-        const srcPath = path.join(vDir, v.srcId + '.json');
-        if (fs.existsSync(srcPath)) {
-          const base = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
-          const clone = JSON.parse(JSON.stringify(base));
-          clone.id = v.id;
-          clone.name = v.name;
-          clone.damageType = 'physical';
-          clone.skills[1].name = '耦合·自回';
-          clone.skills[2].name = '适应·拖拽';
+        if (v.panel) {
+          const clone = { id: v.id, name: v.name, rarity: v.rarity, profession: 'TOKEN', subProfessionId: 'notchar1', damageType: 'arts', ownerOperatorId: v.owner, trustBonus: { atk: 0, def: 0, maxHp: 0 }, skills: [], talents: [], trait: null, potentialRanks: [] };
+          clone.phases = [0, 1, 2].map(el => ({ eliteLevel: el, maxLevel: 90, atk: [v.panel.atk, v.panel.atk], def: [v.panel.def, v.panel.def], maxHp: [v.panel.maxHp, v.panel.maxHp], magicResistance: v.panel.magicResistance, baseAttackTime: v.panel.baseAttackTime, attackSpeed: 100 }));
           fs.writeFileSync(vPath, JSON.stringify(clone, null, 2), 'utf8');
-          console.log('  [VIRTUAL] ' + v.name + ' → TOKEN/notchar1/' + v.id + '.json');
+          console.log('  [VIRTUAL-STATIC] ' + v.name + ' → TOKEN/notchar1/' + v.id + '.json');
+        } else {
+          const srcPath = path.join(vDir, v.srcId + '.json');
+          if (fs.existsSync(srcPath)) {
+            const base = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+            const clone = JSON.parse(JSON.stringify(base));
+            clone.id = v.id;
+            clone.name = v.name;
+            clone.damageType = 'physical';
+            clone.skills[1].name = '耦合·自回';
+            clone.skills[2].name = '适应·拖拽';
+            fs.writeFileSync(vPath, JSON.stringify(clone, null, 2), 'utf8');
+            console.log('  [VIRTUAL] ' + v.name + ' → TOKEN/notchar1/' + v.id + '.json');
+          }
         }
       }
     }

@@ -16,10 +16,16 @@ async function fetchJSON(url) {
   return resp.json();
 }
 
+// 头像文件名别名:index 显示名 → prts 实际文件名差异(召唤物名带弯引号,如小自在 prts 为「头像_召唤物_“小自在”.png」)
+const AVATAR_NAME_ALIAS = {
+  '小自在': '“小自在”',
+};
+
 // 根据中文干员名解析头像真实图片 URL。召唤物（TOKEN）头像前缀为「头像_召唤物_」。
 // 精确名查不到时回退前缀搜索（活动形态等命名带后缀的干员，如 Mechanist → 头像_Mechanist(卫戍协议).png）：
 // 取前缀匹配中文件名最短且非皮肤（排除 _skin/_1+ 等）的候选（本体头像名最短）。
 async function getAvatarUrl(name, isSummon) {
+  name = AVATAR_NAME_ALIAS[name] || name;
   const prefix = isSummon ? '头像_召唤物_' : '头像_';
   const title = `文件:${prefix}${name}.png`;
   const url = `${API}?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json`;

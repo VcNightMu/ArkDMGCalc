@@ -1,0 +1,77 @@
+{
+  "id": "token_10015_dusk_drgn",
+  "name": "小自在",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "arts",
+  "ownerOperatorId": "char_2015_dusk",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 90,
+      "atk": [
+        398,
+        398
+      ],
+      "def": [
+        302,
+        302
+      ],
+      "maxHp": [
+        1997,
+        1997
+      ],
+      "magicResistance": 50,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 90,
+      "atk": [
+        398,
+        398
+      ],
+      "def": [
+        302,
+        302
+      ],
+      "maxHp": [
+        1997,
+        1997
+      ],
+      "magicResistance": 50,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        398,
+        398
+      ],
+      "def": [
+        302,
+        302
+      ],
+      "maxHp": [
+        1997,
+        1997
+      ],
+      "magicResistance": 50,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [],
+  "trait": null,
+  "potentialRanks": []
+}

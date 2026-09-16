@@ -41,7 +41,11 @@ const TALENT_ATK_DRIVERS = {
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:全场友方攻/防+4%(精1)→+7%(精2),自身必得;技能开启期间效果加倍(见 SKILL_TALENT_ATK_MUL)
   'char_164_nightm': { talentIndex: 0, skillIndex: 1 },  // 夜魔「表里人格」:装备 2 技能(夜魇魔影)时攻击+X%(精1 9%/12%潜4→精2 15%/18%潜4);装 1 技能为闪避向不计
   // ---- 战术家 ----
-  'char_4228_closur': 1,  // 可露希尔「极限调度」:携带时【罗德岛】干员攻击+4%(精2,潜能只改费用不改atk);自身罗德岛必得(携带即生效同编队光环先例);X模组同名te覆盖至6/8%
+  'char_4228_closur': 1,  // 可露希尔「极限调度」:携带时【罗德岛】干员攻击+4%
+  // ---- 扩散术士(splashcaster) ----
+  'char_341_sntlla': 0,   // 寒檀「生于冰寒」:战场停留 20s 后攻击+15%(E2)且获得抵抗——时间条件长线必达成默认触发(同凛御雪境先驱 15s 翻倍先例);Y 模组缩短至 15s 且 +18/20%
+  'char_373_lionhd': 0,   // 莱恩哈特「碎片杀伤」:攻击范围内每有一个敌人攻击+X%(E2 4%)——键 max_valid_stack_cnt(非 max_stack_cnt)不进叠层乘,天然=单目标 1 层(用户口径);X 模组每层 5%
+  'char_4141_marcil': 0,  // 玛露西尔「建校以来第一才女」:有魔力时攻击+25%(E2)且溅射扩大——魔力为常驻资源默认持有(简化口径),技能消耗魔力另计(精2,潜能只改费用不改atk);自身罗德岛必得(携带即生效同编队光环先例);X模组同名te覆盖至6/8%
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -993,6 +997,20 @@ const BAT_ADD_OVERRIDES = {
   'char_222_bpipe': { 2: true },   // 风笛 S3 闭膛连发:攻击间隔增大(1.0+0.7=1.7s)
   'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
 };
+
+// 间隔"增大(+X%)"型:描述为"攻击间隔增大(+70%/+40%)"的 base_attack_time 正小数,
+// 语义=攻击间隔 ×(1+val)(区别于 (0,1) 乘算缩短与 BAT_ADD 加算秒——天火 S2 2.9×1.7=4.93/夕 S3 2.9×1.4=4.06)
+const INTERVAL_GROW_OVERRIDES = {
+  'char_166_skfire': { 1: true },  // 天火 S2 天坠之火:攻击间隔增大(+70%)
+  'char_2015_dusk': { 2: true },   // 夕 S3 写意胜形:攻击间隔增大(+40%)
+};
+
+// 普攻改写注册表(attack@atk_scale 无 attack@times 的持续型,值=技能期每击伤害倍率):
+// 天火 S2 天坠之火(间隔+70% 陨石 2.2×atk)/寒檀 S2 女巫之泪(间隔 0.5s 冰凌 0.8×atk)
+const ATK_SCALE_REWRITE = {
+  'char_166_skfire': [1],
+  'char_341_sntlla': [1],
+};
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
   'char_163_hpsts': 0,  // 火神:技能开启时每秒恢复 4~5% 最大生命(与 S1 自带 4% 叠加,S2 亦生效)
@@ -1018,6 +1036,9 @@ const DELAYED_OUTPUT = {
 const PERIODIC_DOT = {
   'char_4130_luton': { 1: { interval: 2, atkScaleKey: 'magic_atk_scale' } },  // 露托 S2 强磁防卫:每2s 0.8×atk
   'char_4065_judge': { 1: { interval: 1, atkScaleKey: null } },               // 斥罪 S2 坚心苦修:每秒 1.2×atk(skillAtk 已含)
+  // ---- 扩散术士(splashcaster) ----
+  'char_213_mostma': { 1: { interval: 1, atkScaleKey: null } },  // 莫斯提马 S2 荒时之锁:范围内敌人全晕眩,每秒受 1.3×atk 法伤(晕眩不计)
+  'char_1011_lava2': { 1: { interval: 1, atkScaleKey: null } },  // 炎狱炎熔 S2 狱火之环:停止攻击,火环每秒对周围敌人造成 0.4×atk 法伤(默认自身环,友方环不计)
 };
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
@@ -1343,10 +1364,15 @@ function calculateOperator(op, slotData, ctx) {
   // 描述为"间隔增大"却给正小数的技能(火神S2 +0.4s/斥罪S3 +0.9s)经 BAT_ADD_OVERRIDES 按加算秒处理。
   if (levelData.base_attack_time) {
     const bat = levelData.base_attack_time;
-    const isAdd = (BAT_ADD_OVERRIDES[op.id] || {})[skillIndex] === true;
-    skillInterval = (bat > 0 && bat < 1 && !isAdd)
-      ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus + skillAspdExtra)
-      : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus + skillAspdExtra);
+    if ((INTERVAL_GROW_OVERRIDES[op.id] || {})[skillIndex]) {
+      // 间隔增大(+X%):base_attack_time 为增幅 → 间隔 ×(1+X)(天火 S2 +70%、夕 S3 +40%)
+      skillInterval = calcRealInterval(phase.baseAttackTime * (1 + bat), 100 + baseAspdBonus + skillAspdExtra);
+    } else {
+      const isAdd = (BAT_ADD_OVERRIDES[op.id] || {})[skillIndex] === true;
+      skillInterval = (bat > 0 && bat < 1 && !isAdd)
+        ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus + skillAspdExtra)
+        : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus + skillAspdExtra);
+    }
   }
   // attack@base_attack_time:守望者普攻间隔乘算系数(风絮1技能 0.2 → 间隔 ×0.2,区别于顶层 base_attack_time 的加算秒数)
   if (levelData['attack@base_attack_time']) skillInterval = skillInterval * levelData['attack@base_attack_time'];
@@ -1363,6 +1389,10 @@ function calculateOperator(op, slotData, ctx) {
   }
   // atk_scale 输出倍率:在天赋/atk 重算之后乘(atk_scale 技能同时带常驻加攻天赋时不被重算覆盖,如号角 S1 2.4×+军事要塞20%)
   if (levelData.atk_scale !== undefined && !isOneShotHeal && !scaleExcluded) skillAtk = skillAtk * levelData.atk_scale;
+  // attack@atk_scale 普攻改写(注册表驱动):技能期每次攻击伤害倍率改写为该值——仅扩散术士 T2 无顶层 atk 的改写型
+  // (天火 S2 天坠之火每击 2.2×atk、寒檀 S2 女巫之泪每击 0.8×atk)。其余带 attack@atk_scale 的技能
+  // (暮落S2 times 连发/推进之王S3/机师S3/霍尔海雅S2 等)均已有专用分支消费,不得通用乘以免双倍
+  if (((ATK_SCALE_REWRITE[op.id] || []).includes(skillIndex)) && levelData['attack@atk_scale'] !== undefined && skillDuration > 0) skillAtk = skillAtk * levelData['attack@atk_scale'];
   // 技能开启期天赋攻击(特米米「荒野法术」+50~100%):常态无加成,开启期与面板同乘区
   if (SKILL_TALENT_ATK_ONLY[op.id] !== undefined && skill) {
     const tOnly = calcSkillTalentAtkOnly(op, slotData);
@@ -2177,6 +2207,56 @@ function calculateOperator(op, slotData, ctx) {
       cycleDps: null, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'arts', realInterval: dotInterval,
       dmgTypes: { arts: { skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4141_marcil' && skillIndex === 0) {
+    // 玛露西尔 S1 才女的实力(魔力弹药口径):短暂吟唱 1.5s 后开启,每次攻击消耗 sp_cost 魔力使攻击+X%(L8 +100%)——
+    // 满魔(mana_max 80)共 floor(80/2)=40 下弹药,打完自动结束(非永续,用户口径);弹药总时长 40×2.9≈116s,
+    // 期间无常态普攻(攻击即耗弹强化);找不到目标转治疗、魔力不自然回复不计
+    const mInterval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const mManaMax = levelData.mana_max ?? 80;
+    const mCostPerHit = levelData.sp_cost ?? 2;
+    const mAmmo = Math.max(1, Math.floor(mManaMax / mCostPerHit));   // 40 击
+    const mHit = calcArtsDamage(skillAtk, state.enemy.res);          // skillAtk 含天赋 20%+技能 atk+100%(乘区累加 2.2×raw)
+    const mTotal = mHit * mAmmo;
+    const mWindow = mAmmo * mInterval;
+    result = {
+      skillDps: mWindow > 0 ? mTotal / mWindow : 0, skillTotalDamage: mTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: mInterval,
+      dmgTypes: { arts: { skillDps: mWindow > 0 ? mTotal / mWindow : 0, skillTotalDamage: mTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4141_marcil' && skillIndex === 2) {
+    // 玛露西尔 S3 爆破魔法(魔力系统简化口径):吟唱 5s 后对正前方范围造成 atk_scale×atk 法伤(基础 1 爆,耗 8 魔),
+    // 追加吟唱 10s 每额外 8 魔力追加 1 爆——满魔(mana_max 80)折算 1+(80-8)/8=10 爆全中(单目标模型),
+    // 每爆间隔 interval 0.45s;魔力自然回复/吟唱前摇/眩晕不计
+    const mBurstHit = calcArtsDamage(skillAtk, state.enemy.res);  // skillAtk 已含 atk_scale 3.5
+    const mManaMax = levelData.mana_max ?? 80;
+    const mBaseCost = levelData.skill_cost_min_sp ?? 8;
+    const mPerCost = levelData.sp_cost_extra ?? 8;
+    const mExtra = Math.max(0, Math.floor((mManaMax - mBaseCost) / mPerCost));
+    const mTotal = mBurstHit * (1 + mExtra);
+    result = {
+      skillDps: 0, skillTotalDamage: mTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: (levelData.interval ?? 0.45) > 0 ? levelData.interval : 1,
+      dmgTypes: { arts: { skillDps: 0, skillTotalDamage: mTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4031_liesel' && skillIndex === 1) {
+    // 复奏 S2 直到终曲(手动,单发):立即对攻击范围内最多 3 个目标造成 atk_scale×atk 法伤(单目标模型=1 目标全额),
+    // 命中敌人 6s 内每秒受 liesel_s_2[dot].atk_scale×atk 法伤(DOT 每秒一跳,6 跳全中)
+    const burstHit = calcArtsDamage(skillAtk, state.enemy.res);   // skillAtk 已含顶层 atk_scale 1.7
+    const dotScale = levelData['liesel_s_2[dot].atk_scale'] ?? 0.3;
+    const dotSecs = Math.floor(levelData['liesel_s_2[dot].duration'] ?? 6);
+    const dotTotal = calcArtsDamage(panelAtk * dotScale, state.enemy.res) * dotSecs;
+    const spCost = levelData.spCost > 0 ? levelData.spCost : 1;
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeAttacks = Math.floor(spCost / interval);
+    const cycleTotal = chargeAttacks * calcArtsDamage(panelAtk, state.enemy.res) + burstHit + dotTotal;
+    result = {
+      skillDps: 0, skillTotalDamage: burstHit + dotTotal, cycleDps: cycleTotal / spCost,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: interval,
+      dmgTypes: { arts: { skillDps: 0, skillTotalDamage: burstHit + dotTotal, cycleDps: cycleTotal / spCost } },
     };
   } else if (!isSummon && (TRIGGER_ARTS_ADD[op.id] || {})[skillIndex]) {
     // AUTO 触发附加法伤(斥罪 S1 一锤定音,sp4 自然回):下次攻击=普攻物理+额外 atk_scale_2×atk 法伤,
