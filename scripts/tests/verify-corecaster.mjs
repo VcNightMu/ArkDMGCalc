@@ -62,7 +62,13 @@ const toS1 = calculateOperator(to, mkFor(to, 0));
 check('特米米 S1 damageType=physical(技能期切物理)', toS1.damageType, 'physical');
 check('特米米 S1 总伤=31击×P(635×2.0)', toS1.skillTotalDamage, 31 * P2(635 * 2.0, 600), 0.01);
 check('特米米 S1 技能期ATK=×2.0', toS1.panelAtk, 635 * 2.0, 0.01);
-check('特米米 S1 无常态行(普攻改写)', toS1.normalDps, null);
+// 常态不改:非技能期仍是职业法术普攻(荒野法术仅技能开启时生效);间隔随技能期攻速(与雪绒/阿米娅同口径)
+check('特米米 S1 常态DPS=A(635)/0.941(法术)', toS1.normalDps, A(635) / (1.6 * 100 / 170), 0.01);
+check('特米米 S1 常态类型=arts', toS1.normalDamageType, 'arts');
+const toS2 = calculateOperator(to, mkFor(to, 1));
+check('特米米 S2 damageType=physical(技能期切物理)', toS2.damageType, 'physical');
+check('特米米 S2 常态DPS=A(635)/1.6(法术)', toS2.normalDps, A(635) / 1.6, 0.01);
+check('特米米 S2 常态类型=arts', toS2.normalDamageType, 'arts');
 const am = load('char_002_amiya');
 check('阿米娅 S1 间隔 0.941', calculateOperator(am, mkFor(am, 0)).realInterval, 0.941176, 0.001);
 

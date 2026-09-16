@@ -2382,10 +2382,8 @@ function calculateOperator(op, slotData, ctx) {
   }
 
   // ======== 重装/防御通用修正 ========
-  // 技能期普攻改写型(特米米荒野法术:普攻整体变为强化物理,无独立常态成分):常态行置空避免误导
-  if (physSkillOn && skillDuration > 0) {
-    result = { ...result, normalDps: null, normalHps: null };
-  }
+  // 技能期切物理(特米米荒野法术)只作用于技能期:非技能期仍是职业法术普攻,常态行照常展示
+  // (与驭法铁卫镜像口径一致——那边技能期切法术,常态物理照常显示;此处曾误置空)
   // 停止攻击:技能期伤害记 0(普攻停止,防御/面板变化仅展示)
   if ((STOP_ATTACK_SKILLS[op.id] || []).includes(skillIndex) && !isMedic && !isSummon) {
     result = { ...result, skillDps: 0, skillTotalDamage: 0, cycleDps: null };
