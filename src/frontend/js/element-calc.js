@@ -29,6 +29,7 @@ export const OPERATOR_ELEMENT = {
   'char_2026_yu': 'fire',      // 余：灼燃
   'char_4235_thumpy': 'water', // 珊比：侵蚀
   'char_4214_cairn': 'sanity', // 响石：神经
+  'char_134_ifrit': 'fire',    // 伊芙利特(Δ/D 模组「灼燃损伤」)：灼燃
 };
 
 /**
@@ -83,6 +84,35 @@ export function resWithFireDebuff(res, t, breaks) {
     }
   }
   return res;
+}
+
+/**
+ * 灼燃爆条窗口增益与爆条总量（事件驱动，含"灼烧持续伤害同样造成损伤"口径，用户 2026-09-16）。
+ * 事件流按时间序推进 EP；冷却期锁条（免疫）；爆条后 debuffDur 秒内敌方法抗 -20（直接加算）。
+ * 直伤事件在窗口内按 res-20 计算 → 返回加权平均修正系数（法伤对法抗线性，故加权平均精确）。
+ * @param {{grade:string, res:number, events:Array<{t:number, atk:number, ep:number}>}} p
+ * @returns {{factor:number, element:number, breaks:number}}
+ */
+export function fireWindowBenefit(p) {
+  const def = ELEMENT_BREAK.fire;
+  const capacity = EP_CAPACITY[p.grade] || 1000;
+  const events = [...(p.events || [])].sort((a, b) => a.t - b.t);
+  let ep = capacity, cdUntil = -Infinity;
+  const windows = [];
+  for (const e of events) {
+    if (!(e.ep > 0) || e.t < cdUntil) continue;
+    ep -= e.ep;
+    if (ep <= 0) { ep = capacity; cdUntil = e.t + def.cd; windows.push([e.t, e.t + def.debuffDur]); }
+  }
+  const inWindow = (t) => windows.some(w => t >= w[0] && t < w[1]);
+  let num = 0, den = 0;
+  for (const e of events) {
+    if (!(e.atk > 0)) continue;
+    const r = inWindow(e.t) ? p.res + def.resDebuff : p.res;
+    num += e.atk * (1 - r / 100);
+    den += e.atk * (1 - p.res / 100);
+  }
+  return { factor: den > 0 ? num / den : 1, element: breakTotalDmg('fire') * windows.length, breaks: windows.length };
 }
 
 /**

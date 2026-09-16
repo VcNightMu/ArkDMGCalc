@@ -25,12 +25,14 @@ const IDS = [
   'char_1020_reed2', // 咒愈师(焰苇S3灼痕:技能期才必触发法脆,常态不得计入)
   'char_4226_veen', 'char_4110_delphn', 'char_297_hamoni', 'char_338_iris', // 秘术师(维伊/戴菲恩/和弦/爱丽丝;黑键/深靛已在上方)
   'char_472_pasngr', 'char_135_halo', 'char_306_leizi', // 链术师(异客/星源/惊蛰;布丁已在上方)
+  'char_4229_aphris', 'char_134_ifrit', 'char_446_aroma', 'char_489_serum', 'char_4051_akkord', // 轰击术师(谬因/伊芙利特/阿罗玛/蚀清/协律)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量
 const NORMAL_EXCEPT = {
   'char_4040_rockr': { 1: 1 },    // 洛洛 S2「自负此轭」:携带时技能后过载 20s/40s 无输出,常态按 0.5 计
   'char_1038_whitw2': { 0: 1 },   // 荒芜拉普兰德 S1「慵怠者悲鸣」被动:浮游单元+1 装备即常驻(含常态)
+  'char_489_serum': { 0: 1 },     // 蚀清 S1「专注力超载」:技能结束眩晕 10s(技能 30s)→ 常态按 2/3 计
 };
 let pass = 0, fail = 0, excl = 0;
 const check = (name, ok, extra = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + name + (extra ? ' => ' + extra : '')); } };

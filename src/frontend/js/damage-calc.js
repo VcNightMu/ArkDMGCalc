@@ -6,7 +6,7 @@ import { calcMedical, calcSummonHeal } from './medic-calc.js';
 import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
-import { OPERATOR_ELEMENT } from './element-calc.js';
+import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit } from './element-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -25,6 +25,8 @@ const TALENT_ATK_DRIVERS = {
   // ---- 链术师(chain) ----
   // 异客「孤卒」(周围4格无敌人时 +8%/+10%)与「机理分析」(敌方血量>80%)均为条件型,用户口径默认不生效 → 不入表(见 notes.json)
   'char_4004_pudd': 0,    // 布丁「电磁波」:攻击力+8%(E1)/+10%(E2);Y 模组同名 te 覆盖至 13%/16%
+  // ---- 轰击术师(blastcaster) ----
+  // 协律「律脉同构」加成对象为"友方干员"(不含自身) → 自身输出不吃,不入表(用户口径 2026-09-16)
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」:精1 Lv1 起 +4%,Lv55 起 +8%
   'char_4163_rosesa': 0, // 瑰盐:攻击 -5%(治疗代价换倍率,见 TALENT_HEAL_DRIVERS)
   'char_348_ceylon': 0,// 锡兰「湖畔漫步者」:只取默认档 [common].atk(+3%~6% 随精化/潜能5 增强),水地形 [map] 档不计
@@ -624,12 +626,32 @@ const MODULE_TE_SPD_SKIP = {
 const TALENT_RES_PEN_DRIVERS = {
   'char_377_gdglow': { talentIndex: 1, key: 'magic_resist_penetrate_fixed' },  // 精准导流:自身与浮游单元无视15(潜5 18)法抗
   'char_350_surtr': { talentIndex: 0, key: 'magic_resist_penetrate_fixed' },  // 熔火:精1 无视12/14(潜5)→精2 20/22(潜5),全法伤结算生效
+  'char_4229_aphris': { talentIndex: 1, key: 'magic_resist_penetrate_fixed' },  // 取样优化:攻击范围内友军(含自身)攻击时无视10(潜6 13)法抗
 };
 // 固定物理穿防天赋表(敌人被 X 阻挡时攻击无视其 N 防御):伺夜「狼群天性」——单目标模型默认战术点狼群在场阻挡
 // (阻挡条件默认成立同满层先例);Y模组「时光不再」同名增强 te 覆盖(Y3: 225/250)
 const TALENT_DEF_PEN_FIXED = {
   'char_427_vigil': 1,   // 伺夜 狼群天性(天赋2):无视 175(精2 潜5 200)
 };
+// 天赋级"敌方减抗"乘数表(键值 = 比例,如 -0.4 表示范围内敌军法抗 -40%):作用于自身全部法伤结算,含常态行
+const TALENT_MR_DEBUFF_MUL = {
+  'char_134_ifrit': { talentIndex: 0, key: 'magic_resistance' },  // 精神融解:攻击范围内敌军法抗 -15%(E0)/-27%(E1)/-40%(E2)
+};
+function calcTalentMrDebuffMul(op, slotData) {
+  const cfg = TALENT_MR_DEBUFF_MUL[op.id];
+  if (!cfg) return 1;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return 1;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= slotData.elite && candPot <= (slotData.potentialRank || 0)) {
+      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      if (v < best) best = v;
+    }
+  }
+  return best < 0 && best > -1 ? 1 + best : 1;
+}
 
 // 技能期攻速 buff(模组给部署触发天赋附加的限时攻速窗口):寻澜 X「佳肴」独自远走增强——部署时回费且
 // 攻速+X 持续 10s(attack_speed_up_duration)。level → {atkSpeed, duration};engine 在技能期窗口内分两段模拟。
@@ -707,6 +729,7 @@ const SKILL_PHYSICAL_OVERRIDES = {
 // 技能开启期才生效的天赋攻击加成(特米米「荒野法术」atk+50/75/100% 随精化,常态无加成不能走 TALENT_ATK_DRIVERS 常驻通道)
 const SKILL_TALENT_ATK_ONLY = {
   'char_411_tomimi': 0,
+  'char_4229_aphris': 0,  // 谬因「链路协议」:中继器在场时自身攻击力+15%(E1)/+25%(E2) → 用户口径"按技能期才生效"算(X 模组 te 覆盖至 30%/35%)
 };
 
 // 每击按敌方防御附加法伤天赋(刻俄柏「剥壳」):攻击时对目标额外造成相当于其防御力 X% 的法术伤害——
@@ -1185,6 +1208,76 @@ const AUTO_BOOST_SKILLS = {
   'char_135_halo': { 0: 'atk_scale' },                // 双端导流:下次攻击 110%(L7档)/115%(专一)
 };
 
+// 轰击术师(blastcaster)技能期每击附带 DoT(必触发,非概率;key=每跳倍率键(相对面板攻击力),durKey=持续秒数键)
+const BLASTCASTER_HIT_DOT = {
+  'char_134_ifrit': { 1: { key: 'burn.atk_scale', durKey: 'duration' } },  // 炎爆:命中目标 3s 内每秒受面板攻击力 33% 法伤
+};
+// 伊芙利特 Δ/D 模组「灼燃损伤」:攻击附带元素损伤(EP),EP 满 1000(领袖 2000) → 爆条 7000 元素伤害,
+// 爆条后 10s 内敌方法抗 -20(冷却期锁条)。倍率取模组内 name=null 的 talentEnhance.element_atk_scale
+// (L2 0.4 / L3 0.5)优先,无该键时退回特性 traitEnhance.ep_damage_ratio(L1 0.08);未装备模组返回 0。
+function ifritEpScale(op, slotData) {
+  if (op.id !== 'char_134_ifrit') return 0;
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv) return 0;
+  let scale = 0;
+  for (const te of (lv.talentEnhance || [])) {
+    const bb = te.blackboard || {};
+    if ((te.name === null || te.name === undefined) && typeof bb.element_atk_scale === 'number') {
+      scale = Math.max(scale, bb.element_atk_scale);
+    }
+  }
+  if (scale <= 0) {
+    for (const te of (lv.traitEnhance || [])) {
+      const bb = te.blackboard || {};
+      if (typeof bb.ep_damage_ratio === 'number') scale = Math.max(scale, bb.ep_damage_ratio);
+    }
+  }
+  return scale;
+}
+// 常态稳态(面板间隔逐击):每击 EP = 当前攻击力 × 模组倍率 → 爆条;返回常态行修正
+//   factor = 爆条窗口(法抗-20)对常态法伤的平均修正;elementDps = 稳态爆条平均元素 DPS
+function ifritNormalFields(op, slotData, panelAtk, normInterval, effResN) {
+  const scale = ifritEpScale(op, slotData);
+  if (!(scale > 0) || !(normInterval > 0)) return { factor: 1, elementDps: 0 };
+  const grade = (state.enemy && state.enemy.grade) || 'normal';
+  const epPerHit = panelAtk * scale;
+  const n = Math.ceil(1000 / epPerHit);
+  const count = 2 * n + Math.ceil(40 / normInterval);   // 覆盖 ≥2 个爆条周期
+  const events = [];
+  for (let i = 1; i <= count; i++) events.push({ t: i * normInterval, atk: panelAtk, ep: epPerHit });
+  const fb = fireWindowBenefit({ grade, res: effResN, events });
+  const elDps = steadyElementDps(grade, 'fire', epPerHit, normInterval).avgDps;
+  return { factor: fb.factor, elementDps: elDps };
+}
+// 技能期损伤/伤害事件流:狂热逐击 / 炎爆(强化击 + 灼烧跳伤,灼烧同样造成损伤) / 灼地每秒领域跳伤
+function ifritSlotEvents(levelData, c) {
+  const { skillAtk, panelAtk, skillRealInterval, skillDuration, effRes, epScale, skillIndex } = c;
+  const skillMr = (typeof levelData.magic_resistance === 'number' && levelData.magic_resistance <= -1) ? levelData.magic_resistance : 0;
+  const res = Math.max(0, effRes + skillMr);
+  // EP 基准 = 当前"攻击力"(仅吃技能攻击力加成,不吃 atk_scale 类伤害倍率)
+  const epBase = panelAtk * (1 + (typeof levelData.atk === 'number' ? levelData.atk : 0));
+  const events = [];
+  if (skillIndex === 0) {
+    const iv = skillRealInterval > 0 ? skillRealInterval : 1;
+    const n = Math.floor(skillDuration / iv);
+    for (let i = 1; i <= n; i++) events.push({ t: i * iv, atk: skillAtk, ep: epBase * epScale });
+  } else if (skillIndex === 1) {
+    events.push({ t: 0, atk: skillAtk, ep: epBase * epScale });
+    const bdAtk = panelAtk * (typeof levelData['burn.atk_scale'] === 'number' ? levelData['burn.atk_scale'] : 0);
+    const ticks = Math.max(1, Math.floor(typeof levelData.duration === 'number' ? levelData.duration : 3));
+    for (let i = 1; i <= ticks; i++) events.push({ t: i, atk: bdAtk, ep: epBase * epScale });
+  } else if (skillIndex === 2) {
+    const n = Math.floor(skillDuration / 1);
+    for (let i = 1; i <= n; i++) events.push({ t: i, atk: skillAtk, ep: epBase * epScale });
+  }
+  return { res, events };
+}
+
+// 常态行比例扣减(技能结束后自身失能:该槽常态输出 = 无技能态 × 系数;用户口径 2026-09-16)
+const NORMAL_ROW_MUL = {
+  'char_489_serum': { 0: 2 / 3 },  // 蚀清 S1「专注力超载」:技能结束眩晕 10s(技能 30s)→ 常态 ×(1-10/30)
+};
+
 // 秘术师(mystic)技能期必然生效的 DoT(描述为"每秒受到 X 伤害",不含概率/条件):
 // dpsKey = 每秒固定法伤键(固定值);atkScaleKey = 每秒按技能期攻击力的比例键
 const MYSTIC_SKILL_DOT = {
@@ -1220,6 +1313,8 @@ const PERIODIC_DOT = {
   // ---- 扩散术士(splashcaster) ----
   'char_213_mostma': { 1: { interval: 1, atkScaleKey: null } },  // 莫斯提马 S2 荒时之锁:范围内敌人全晕眩,每秒受 1.3×atk 法伤(晕眩不计)
   'char_1011_lava2': { 1: { interval: 1, atkScaleKey: null } },  // 炎狱炎熔 S2 狱火之环:停止攻击,火环每秒对周围敌人造成 0.4×atk 法伤(默认自身环,友方环不计)
+  // ---- 轰击术师(blastcaster) ----
+  'char_134_ifrit': { 2: { interval: 1, atkScaleKey: null } },  // 灼地:20s 内对范围内地面敌人每秒造成 1.2×atk(skillAtk 已含 atk_scale)法伤,命中目标法抗-13(技能级,见 dotRes)
 };
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
@@ -1460,7 +1555,7 @@ function calculateOperator(op, slotData, ctx) {
   const resPen = calcTalentResPen(op, slotData);
   // 命中减抗天赋(夜烟黑色迷雾):每击先减抗再结算 → 等效法抗 ×(1+mr)
   const hitMrMul = calcTalentHitMrMul(op, slotData);
-  const effRes = Math.max(0, (state.enemy.res || 0) - resPen) * hitMrMul;
+  const effRes = Math.max(0, (state.enemy.res || 0) - resPen) * hitMrMul * calcTalentMrDebuffMul(op, slotData);  // 含天赋级敌方减抗(伊芙利特精神融解)
   // 固定物理穿防(伺夜「狼群天性」):常态与技能期物理结算统一减有效防御(同 resPen 模式)
   const defPenFixed = calcTalentDefPenFixed(op, slotData);
   // 有效防御:固定穿防直接减(defPenFixed=0 干员与 enemy.def 等价,函数内物理结算统一引用)
@@ -1502,7 +1597,9 @@ function calculateOperator(op, slotData, ctx) {
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
     const normalDps = op.subProfessionId === 'phalanx' ? 0
       : normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
-        + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res);  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
+        * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
+        + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
+        + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps;  // Δ/D 模组:常态化元素爆条平均 DPS
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -1637,6 +1734,7 @@ function calculateOperator(op, slotData, ctx) {
     skillDmgMul: calcModuleSkillDmgMul(op, slotData),  // 模组技能伤害提升(德克萨斯 Y 战术快递:技能期伤害 ×1.1/1.15,常态不乘)
     skillHealMul: calcModuleSkillHealMul(op, slotData),  // 模组新增天赋技能治疗提升(清流 Y 细水长流:技能期治疗 ×1.1/1.2,常态普攻不乘)
     resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
+    mrDebuffMul: calcTalentMrDebuffMul(op, slotData),  // 天赋级敌方减抗乘数(伊芙利特精神融解:E2 -40%)
     hitMrMul,  // 命中减抗乘数(夜烟黑色迷雾:先效果再命中,技能期同吃)
     isTrueOverride: (SKILL_TRUE_DAMAGE[op.id] || []).includes(skillIndex),  // 技能期强制真伤(阿米娅S3奇美拉)
     isWeakness: isWeaknessOn,
@@ -2398,20 +2496,57 @@ function calculateOperator(op, slotData, ctx) {
     // 自愈型一次性技能(非医疗,如卡缇 S1「生命回复·α」skcom_heal_self):立即恢复最大生命 heal_scale 比例
     const healAmount = panelHp * levelData.heal_scale;
     result = { skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: healAmount };
+  } else if (op.id === 'char_4229_aphris' && skillIndex === 1) {
+    // 谬因 S2「临界瞬爆」:向前一条持续 8s 的光束,每 0.5s 对直线上敌人造成 1.3×atk(专一)法伤 = 16 跳;
+    // 技能期间本体不再普攻(用户口径:二技能期间没有普攻);常态行按无技能态照常展示
+    const beamTicks = Math.floor(skillDuration / 0.5);
+    const beamHit = calcArtsDamage(skillAtk, effRes);
+    const beamTotal = beamHit * beamTicks;
+    const normI = realInterval > 0 ? realInterval : 1;
+    const normHit = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
+    result = {
+      skillDps: skillDuration > 0 ? beamTotal / skillDuration : 0, skillTotalDamage: beamTotal,
+      cycleDps: null, normalDps: normHit / normI, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: op.damageType, realInterval: 0.5,
+      dmgTypes: { arts: { skillDps: skillDuration > 0 ? beamTotal / skillDuration : 0, skillTotalDamage: beamTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4229_aphris' && skillIndex === 2) {
+    // 谬因 S3「混沌的本质」:弹药 20 发(attack@trigger_time),开启停攻 3s 后以 1.8s 间隔逐发打出;
+    // 每发 1.7×atk(专一)法伤,弹道经中继器额外造成 0.3×atk 法伤(用户口径:中继器吃满 → 每发都算);
+    // 弹药槽口径:技能期即耗弹出击,常态行保持 null(同玛露西尔/维伊 S3)
+    const ammo = typeof levelData['attack@trigger_time'] === 'number' ? levelData['attack@trigger_time'] : 20;
+    const shotBase = skillAtk;   // 含技能 atk+125% 与「链路协议」技能期 +25% 的攻击力
+    const shotHit = calcArtsDamage(shotBase * 1.7, effRes);
+    const shotExtra = calcArtsDamage(shotBase * 0.3, effRes);
+    const shotTotal = (shotHit + shotExtra) * ammo;
+    const ammoWindow = ammo * (skillRealInterval > 0 ? skillRealInterval : 1);
+    result = {
+      skillDps: ammoWindow > 0 ? shotTotal / ammoWindow : 0, skillTotalDamage: shotTotal,
+      cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: null, realInterval: skillRealInterval,
+      dmgTypes: { arts: { skillDps: ammoWindow > 0 ? shotTotal / ammoWindow : 0, skillTotalDamage: shotTotal, cycleDps: null } },
+    };
   } else if (!isSummon && (PERIODIC_DOT[op.id] || {})[skillIndex]) {
     // 停攻 + 周期法术 DOT(把正常攻击改为周期性范围法伤):
     // 露托 S2 强磁防卫每2s 0.8×atk(magic_atk_scale 键);斥罪 S2 坚心苦修每秒 1.2×atk(skillAtk 已含 atk_scale)
     const dotCfg = (PERIODIC_DOT[op.id] || {})[skillIndex];
     const dotInterval = dotCfg.interval > 0 ? dotCfg.interval : 1;
-    const dotHit = calcArtsDamage(dotCfg.atkScaleKey ? skillAtk * levelData[dotCfg.atkScaleKey] : skillAtk, state.enemy.res);
+    // 有效法抗:天赋法穿(resPen)/天赋减抗(mrDebuffMul) → 技能级减抗(命中效果先于结算);
+    // 常态行只含天赋部分,不含技能级减抗(技能期才生效的效果不得污染常态行)
+    const dotTalentRes = Math.max(0, ((state.enemy.res || 0) - (resPen || 0)) * calcTalentMrDebuffMul(op, slotData) * (hitMrMul || 1));
+    const dotMrRaw = levelData.magic_resistance;
+    let dotRes = dotTalentRes;
+    if (typeof dotMrRaw === 'number' && dotMrRaw < 0 && dotMrRaw > -1) dotRes = Math.max(0, dotRes * (1 + dotMrRaw));
+    if (typeof dotMrRaw === 'number' && dotMrRaw <= -1) dotRes = Math.max(0, dotRes + dotMrRaw);
+    const dotHit = calcArtsDamage(dotCfg.atkScaleKey ? skillAtk * levelData[dotCfg.atkScaleKey] : skillAtk, dotRes);
     const jumps = Math.floor(skillDuration / dotInterval);
     const dotTotal = dotHit * jumps;
     const normInterval = realInterval;   // 常态间隔=面板间隔
-    const normDps = (op.damageType === 'arts' ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef)) / normInterval;
+    const normDps = (op.damageType === 'arts' ? calcArtsDamage(panelAtk, dotTalentRes) : calcPhysicalDamage(panelAtk, effDef)) / normInterval;
     result = {
       skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal,
       cycleDps: null, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
-      damageType: 'arts', realInterval: dotInterval,
+      damageType: 'arts', realInterval: dotInterval, normalDamageType: op.damageType,
       dmgTypes: { arts: { skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal, cycleDps: null } },
     };
   } else if (op.id === 'char_4141_marcil' && skillIndex === 0) {
@@ -2798,6 +2933,89 @@ function calculateOperator(op, slotData, ctx) {
     const mNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
     const mNorm = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
     result = { ...result, normalDps: mNormI > 0 ? mNorm / mNormI : 0, normalDamageType: op.damageType };
+  }
+
+  // 轰击术师(blastcaster)技能期每击附带 DoT(伊芙利特 炎爆:命中目标 3s 内每秒受面板攻击力 33% 法伤):
+  // 每跳吃法抗与天赋减抗;按充能周期计入技能期总伤与 cycleDps(与单次强化击同周期)
+  if (op.subProfessionId === 'blastcaster' && skillIndex >= 0) {
+    const bdCfg = (BLASTCASTER_HIT_DOT[op.id] || {})[skillIndex];
+    if (bdCfg && typeof levelData[bdCfg.key] === 'number') {
+      const bdRes = Math.max(0, ((state.enemy.res || 0) - (resPen || 0)) * calcTalentMrDebuffMul(op, slotData) * (hitMrMul || 1));
+      const bdPerSec = calcArtsDamage(panelAtk * levelData[bdCfg.key], bdRes);
+      const bdTotal = bdPerSec * (levelData[bdCfg.durKey] ?? 3);
+      const bdSp = levelData.spCost > 0 ? levelData.spCost : 0;
+      result = {
+        ...result,
+        skillTotalDamage: (result.skillTotalDamage ?? 0) + bdTotal,
+        cycleDps: bdSp > 0 ? (result.cycleDps ?? 0) + bdTotal / bdSp : result.cycleDps,
+        dmgTypes: result.dmgTypes ? {
+          ...result.dmgTypes,
+          arts: {
+            ...(result.dmgTypes.arts || {}),
+            skillTotalDamage: (result.dmgTypes.arts?.skillTotalDamage ?? 0) + bdTotal,
+            cycleDps: result.dmgTypes.arts && result.dmgTypes.arts.cycleDps !== null && result.dmgTypes.arts.cycleDps !== undefined && bdSp > 0
+              ? result.dmgTypes.arts.cycleDps + bdTotal / bdSp : (result.dmgTypes.arts?.cycleDps ?? null),
+          },
+        } : { arts: { skillDps: 0, skillTotalDamage: bdTotal, cycleDps: bdSp > 0 ? bdTotal / bdSp : null } },
+      };
+    }
+  }
+
+  // 轰击术师(blastcaster)瞬间/AUTO 型技能(伊芙利特 S2 炎爆、阿罗玛 S1 强效清洁、协律 S1 反拍重音等 dur≤0 点燃类):
+  // 技能期外照常普攻 → 常态行按无技能态展示(与秘术师同类修正;谬因 S3 为弹药槽,技能期即耗弹出击 → 保持 null)
+  if (op.subProfessionId === 'blastcaster' && skillIndex >= 0 && (result.normalDps === null || result.normalDps === undefined)
+      && !(op.id === 'char_4229_aphris' && skillIndex === 2)) {
+    const bNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    const bNorm = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
+    result = { ...result, normalDps: bNormI > 0 ? bNorm / bNormI : 0, normalDamageType: op.damageType };
+  }
+
+  // 伊芙利特 Δ/D 模组「灼燃损伤」:①常态元素爆条平均 DPS 并入该槽常态行(与无技能态口径一致,
+  // 否则破坏"槽常态 DPS = 无技能态 DPS"不变量);②技能期损伤事件流模拟 EP 爆条,元素伤害并入技能期档
+  if (op.id === 'char_134_ifrit') {
+    // ①常态行:法伤按爆条窗口(法抗-20)平均修正,并并入常态化元素爆条平均 DPS(与无技能态口径一致)
+    if (result.normalDps !== null && result.normalDps !== undefined) {
+      const nf = ifritNormalFields(op, slotData, panelAtk, calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus), effRes);
+      result = { ...result, normalDps: result.normalDps * nf.factor + nf.elementDps };
+    }
+    if (skillIndex >= 0) {
+      const epScale = ifritEpScale(op, slotData);
+      if (epScale > 0) {
+        const slot = ifritSlotEvents(levelData, { skillAtk, panelAtk, skillRealInterval, skillDuration, effRes, epScale, skillIndex });
+        if (slot.events.length) {
+          const fb = fireWindowBenefit({ grade: (state.enemy && state.enemy.grade) || 'normal', res: slot.res, events: slot.events });
+          const dur = skillDuration > 0 ? skillDuration : 1;
+          // 技能期法伤按爆条窗口平均法抗修正(用户口径:爆条降抗期间按降低后的法抗计算)
+          const artsScale = (o) => (typeof o === 'number' ? o * fb.factor : o);
+          result = {
+            ...result,
+            skillTotalDamage: artsScale(result.skillTotalDamage ?? 0) + fb.element,
+            // 无持续时长的 AUTO 型技能(炎爆):元素爆条计入单次技能总伤,技能期 DPS 仍按 0(周期由 cycleDps 表达)
+            skillDps: artsScale(result.skillDps ?? 0) + (skillDuration > 0 ? fb.element / dur : 0),
+            cycleDps: result.cycleDps !== null && result.cycleDps !== undefined ? result.cycleDps * fb.factor : result.cycleDps,
+            dmgTypes: {
+              ...(result.dmgTypes || {}),
+              ...(result.dmgTypes && result.dmgTypes.arts ? {
+                arts: {
+                  ...result.dmgTypes.arts,
+                  skillTotalDamage: artsScale(result.dmgTypes.arts.skillTotalDamage ?? 0),
+                  skillDps: artsScale(result.dmgTypes.arts.skillDps ?? 0),
+                  cycleDps: result.dmgTypes.arts.cycleDps !== null && result.dmgTypes.arts.cycleDps !== undefined
+                    ? result.dmgTypes.arts.cycleDps * fb.factor : result.dmgTypes.arts.cycleDps,
+                },
+              } : {}),
+              ...(fb.element > 0 ? { element: { skillDps: skillDuration > 0 ? fb.element / dur : 0, skillTotalDamage: fb.element, cycleDps: null } } : {}),
+            },
+          };
+        }
+      }
+    }
+  }
+
+  // 常态行比例扣减(技能结束后自身失能:按"失能时长/技能时长"折算常态输出,同 洛洛 S2 过载口径)
+  const bNormMul = (NORMAL_ROW_MUL[op.id] || {})[skillIndex];
+  if (bNormMul !== undefined && result.normalDps !== null && result.normalDps !== undefined) {
+    result = { ...result, normalDps: result.normalDps * bNormMul };
   }
 
   // 秘术师(mystic)技能期必然生效的 DoT(每秒固定/比例法伤):只进技能期档,不动常态行
