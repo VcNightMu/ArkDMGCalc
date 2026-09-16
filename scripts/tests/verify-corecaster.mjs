@@ -140,10 +140,10 @@ const amS3 = calculateOperator(am, mkFor(am, 2));
 check('阿米娅 S3 damageType=true', amS3.damageType, 'true');
 check('阿米娅 S3 总伤=18击×2.8×atk真伤', amS3.skillTotalDamage, 18 * 682 * 2.8, 0.01);
 
-// ===== GALLUS² 天赋落地被动(虚拟 PASSIVE dur20:部署后20s内攻击使目标法抗-15%→技能期 res42.5) =====
+// ===== GALLUS² 天赋落地被动(虚拟 PASSIVE dur30:部署后20s内攻击使目标法抗-15%,buff持续10s覆盖到第30s,窗口30s→res42.5) =====
 const gaS = calculateOperator(ga, mkFor(ga, 0));
-check('GALLUS² 天赋技能位 总伤=12击×A(296,42.5)', gaS.skillTotalDamage, 12 * A2(296, 42.5), 0.01);
-check('GALLUS² 天赋技能期DPS=总伤/20s', gaS.skillDps, 12 * A2(296, 42.5) / 20, 0.01);
+check('GALLUS² 天赋技能位 总伤=18击×A(296,42.5)', gaS.skillTotalDamage, 18 * A2(296, 42.5), 0.01);
+check('GALLUS² 天赋技能期DPS=总伤/30s', gaS.skillDps, 18 * A2(296, 42.5) / 30, 0.01);
 
 // ===== 逻各斯 S2 提喻(char_4133_logos):锁定单体每0.5s一跳,线性递增 base0.6+0.12/跳至10层1.8封顶 =====
 const lg2 = load('char_4133_logos');

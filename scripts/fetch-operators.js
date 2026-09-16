@@ -578,14 +578,14 @@ async function main() {
     }
   }
 
-  // 虚拟技能注入:无技能干员的天赋按"落地触发被动"建模(GALLUS²「来抓我啊」:部署后20s内攻击降低目标法抗15%,
+  // 虚拟技能注入:无技能干员的天赋按"落地触发被动"建模(GALLUS²「来抓我啊」:部署后20s内攻击降低目标法抗15%(buff持续10s,覆盖窗口=20+10=30s,用户口径),
   // 游戏数据 skills 为空,引擎以 PASSIVE+duration20 限时被动技能位承载,技能期法伤按 ×0.85 抗性结算)。
   // 重跑抓取会重建 skills(空),此处对磁盘 json 补注入(levels 10 档同构,skillLevel 索引安全回退)。
   const VIRTUAL_SKILL_INJECT = {
     'char_4227_gallus': {
       skillId: 'skpas_gallus2_t',
       name: '“来抓我啊”',
-      levels: (() => { const base = { skillType: 'PASSIVE', skillDuration: 20, magic_resistance: -0.15, level: 1 }; return Array.from({ length: 10 }, () => JSON.parse(JSON.stringify(base))); })(),
+      levels: (() => { const base = { skillType: 'PASSIVE', skillDuration: 30, magic_resistance: -0.15, level: 1 }; return Array.from({ length: 10 }, () => JSON.parse(JSON.stringify(base))); })(),
     },
   };
   for (const e of index) {
