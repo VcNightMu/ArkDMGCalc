@@ -21,6 +21,7 @@ const IDS = [
   'char_479_sleach', 'char_497_ctable', // 执旗手/情报官
   'char_249_mlyss', 'char_4228_closur', // 战术家
   'char_4080_lin', 'char_426_billro', 'char_4046_ebnhlz', 'char_469_indigo', 'char_4004_pudd', 'char_134_ifrit', 'char_4204_mantra', 'char_4081_warmy', 'char_4164_tecno', // 术师其余子职业
+  'char_1040_blaze2', 'char_4146_nymph', 'char_4198_christ', 'char_499_kaitou', // 本源术师(补:烛煌/妮芙/Christine/折光;真言/温米已在上行)
   'char_4026_vulpis', 'char_420_flamtl', // 尖兵/冲锋手(其他)
   'char_1020_reed2', // 咒愈师(焰苇S3灼痕:技能期才必触发法脆,常态不得计入)
   'char_4226_veen', 'char_4110_delphn', 'char_297_hamoni', 'char_338_iris', // 秘术师(维伊/戴菲恩/和弦/爱丽丝;黑键/深靛已在上方)

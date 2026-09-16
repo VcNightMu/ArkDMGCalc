@@ -30,6 +30,13 @@ export const OPERATOR_ELEMENT = {
   'char_4235_thumpy': 'water', // 珊比：侵蚀
   'char_4214_cairn': 'sanity', // 响石：神经
   'char_134_ifrit': 'fire',    // 伊芙利特(Δ/D 模组「灼燃损伤」)：灼燃
+  // ---- 本源术师(primcaster) 六人(2026-09-16) ----
+  'char_4204_mantra': 'sanity',  // 真言：神经损伤
+  'char_1040_blaze2': 'fire',    // 烛煌：灼燃损伤
+  'char_4146_nymph': 'dark',     // 妮芙：凋亡损伤
+  'char_4198_christ': 'sanity',  // Miss.Christine：神经损伤
+  'char_4081_warmy': 'fire',     // 温米：灼燃损伤
+  'char_499_kaitou': 'dark',     // 折光：凋亡损伤
 };
 
 /**
@@ -229,3 +236,103 @@ export function simulateSkillTimeline(p) {
   }
   return out;
 }
+
+/**
+ * 元素爆发窗口时长(秒):火=减抗窗口(debuffDur,与爆发期同长)、凋亡=持续伤害段(dur)、
+ * 神经/侵蚀=爆发冷却(cd)。用于"目标处于元素爆发期间"类条件(本源术师额外元素伤害/条件天赋)。
+ */
+export function elementBurstDur(el) {
+  const def = ELEMENT_BREAK[el];
+  if (!def) return 0;
+  if (def.debuffDur !== undefined) return def.debuffDur;
+  if (def.dur !== undefined) return def.dur;
+  return def.cd;
+}
+
+/**
+ * 本源术师(primcaster)统一元素时间轴模拟(用户口径 2026-09-16,与伊芙利特窗口口径同源):
+ *  - 损伤基数 = 该次攻击"实际造成的伤害"×比例(即吃法抗后的法伤,不是攻击力)。epBase='damage' 时
+ *    EP 值 = 本事件实际法伤 × epMul;epBase='atk' 时为 攻击力 × epMul(本源铁卫口径,兜底)。
+ *  - 灼燃爆条→后续事件法抗 -20(窗口内先降抗再结算,含对后续 EP 的放大);神经/凋亡无降抗。
+ *  - 条件性额外元素伤害:事件时刻若目标处于该元素爆发窗口内(严格晚于爆条时刻),额外 atk×condScale。
+ *  - 窗口内攻击力加成(windowAtkEl/windowAtkMul):折光「预先告知」等自身在爆发窗口内 +攻击力。
+ * 事件流可给 times(显式时刻数组)或 interval/count/firstAt。
+ * 可选 p.breakDot={el,atk,scale,interval}:爆条窗口内天赋"持续秒伤型"元素 DoT(每窗口 floor(窗口时长/interval) 跳 ×atk×scale)。
+ * @returns {{arts:number, element:number, breakDmg:number, condDmg:number, dotDmg:number, dotCount:number, condCount:number,
+ *            breaks:Object, breakCount:number, artsInWindow:number}}
+ */
+export function simulateElementTimeline(p) {
+  const grade = p.grade || 'normal';
+  const duration = p.duration > 0 ? p.duration : 0;
+  const baseRes = (p.enemy && p.enemy.res) || 0;
+  const cap = EP_CAPACITY[grade] || 1000;
+  const eps = {}, cdUntil = {}, wins = {}, brk = {};
+  const ensure = (el) => { if (eps[el] === undefined) { eps[el] = cap; cdUntil[el] = -Infinity; wins[el] = []; brk[el] = []; } };
+  const inWin = (el, t) => {
+    const w = wins[el];
+    if (!w) return false;
+    for (const x of w) if (t > x[0] + 1e-9 && t < x[1] - 1e-9) return true;
+    return false;
+  };
+  const evs = [];
+  for (const s of (p.streams || [])) {
+    if (Array.isArray(s.times)) {
+      for (const t of s.times) if (t <= duration + 1e-9) evs.push({ t, s });
+    } else {
+      const iv = s.interval > 0 ? s.interval : 1;
+      const n = s.count !== undefined ? s.count : Math.floor(duration / iv);
+      const first = s.firstAt !== undefined ? s.firstAt : iv;
+      for (let i = 0; i < n; i++) {
+        const t = first + i * iv;
+        if (t > duration + 1e-9) break;
+        evs.push({ t, s });
+      }
+    }
+  }
+  evs.sort((a, b) => a.t - b.t);
+  let arts = 0, breakDmg = 0, condDmg = 0, condCount = 0, artsInWindow = 0;
+  for (const e of evs) {
+    const s = e.s;
+    let atk = s.atk;
+    if (s.windowAtkEl && s.windowAtkMul && inWin(s.windowAtkEl, e.t)) atk = atk * (1 + s.windowAtkMul);
+    let r = baseRes;
+    const inFire = ELEMENT_BREAK.fire.resDebuff ? inWin('fire', e.t) : false;
+    if (inFire) r = baseRes + ELEMENT_BREAK.fire.resDebuff;
+    r = Math.max(0, r);
+    const dmg = (s.dmgMul ? atk * s.dmgMul : 0) * (100 - r) / 100;
+    arts += dmg;
+    if (inFire && dmg > 0) artsInWindow += dmg;
+    if (s.condScale && s.condEl !== undefined && inWin(s.condEl, e.t)) { condDmg += atk * s.condScale; condCount++; }
+    if (s.el && s.epMul) {
+      ensure(s.el);
+      if (!(e.t < cdUntil[s.el])) {
+        const epAmt = (s.epBase === 'atk' ? atk : dmg) * s.epMul;
+        eps[s.el] -= epAmt;
+        if (eps[s.el] <= 0) {
+          const def = ELEMENT_BREAK[s.el];
+          const bd = breakTotalDmg(s.el);
+          brk[s.el].push({ t: e.t, dmg: bd });
+          wins[s.el].push([e.t, e.t + elementBurstDur(s.el)]);
+          breakDmg += bd;
+          eps[s.el] = cap;
+          cdUntil[s.el] = e.t + def.cd;
+        }
+      }
+    }
+  }
+  // 爆条窗口内天赋"持续秒伤型"元素 DoT(如妮芙第一天赋「失魂」:爆发期间每秒受到 攻击力×倍率 元素伤害)。
+  // 每个爆条窗口独立计:窗口时长 = elementBurstDur(el),跳数 = floor(窗口/间隔),每跳 = atk×scale;
+  // 窗口随冷却不重叠(cd≥dur),故总计 = 爆条次数 × 跳数 × 每跳。
+  let dotDmg = 0, dotCount = 0;
+  if (p.breakDot && p.breakDot.el) {
+    const bd = p.breakDot;
+    const iv = bd.interval > 0 ? bd.interval : 1;
+    const ticks = Math.max(0, Math.floor(elementBurstDur(bd.el) / iv));
+    const list = brk[bd.el] || [];
+    for (let i = 0; i < list.length; i++) { dotDmg += ticks * bd.atk * bd.scale; dotCount++; }
+  }
+  let breakCount = 0;
+  for (const k of Object.keys(brk)) breakCount += brk[k].length;
+  return { arts, element: breakDmg + condDmg + dotDmg, breakDmg, condDmg, dotDmg, dotCount, condCount, breaks: brk, breakCount, artsInWindow };
+}
+

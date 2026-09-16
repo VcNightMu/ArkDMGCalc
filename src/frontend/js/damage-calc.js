@@ -7,6 +7,7 @@ import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
 import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit } from './element-calc.js';
+import { calcPrimCasterSkill } from './primcaster-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -1156,6 +1157,9 @@ const BAT_ADD_OVERRIDES = {
   // ---- 冲锋手 ----
   'char_222_bpipe': { 2: true },   // 风笛 S3 闭膛连发:攻击间隔增大(1.0+0.7=1.7s)
   'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
+  // ---- 本源术师(primcaster) ----
+  'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
+  'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
 };
 
 // base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
@@ -3057,6 +3061,16 @@ function calculateOperator(op, slotData, ctx) {
   }
 
   // 常态行比例扣减(技能结束后自身失能:按"失能时长/技能时长"折算常态输出,同 洛洛 S2 过载口径)
+  // 本源术师(primcaster)元素损伤建模(用户口径 2026-09-16):损伤基数 = 该次攻击"实际造成的伤害"×比例
+  // (吃法抗后的法伤,不是攻击力);统一爆条窗口口径(损伤事件流推进 EP→爆条→窗口内降抗/条件元素伤害按时间加权摊算,
+  // 与伊芙利特 Δ/D 模组同源,见 primcaster-calc.js)。常态(无技能)不含元素(普攻不移交损伤)→ 常态行不变;仅自供槽位产生爆条。
+  if (op.subProfessionId === 'primcaster') {
+    result = calcPrimCasterSkill({
+      op, slotData, levelData, panelAtk, skillAtk, skillRealInterval, skillDuration, effRes, skillIndex,
+      grade: (state.enemy && state.enemy.grade) || 'normal', result,
+    });
+  }
+
   const bNormMul = (NORMAL_ROW_MUL[op.id] || {})[skillIndex];
   if (bNormMul !== undefined && result.normalDps !== null && result.normalDps !== undefined) {
     result = { ...result, normalDps: result.normalDps * bNormMul };
