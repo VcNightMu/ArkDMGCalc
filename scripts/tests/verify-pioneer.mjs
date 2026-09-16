@@ -12,6 +12,7 @@ const mk = (op, si) => {
 };
 const near = (a, b, eps = 6) => Math.abs(a - b) <= eps;
 const A = atk => calcArtsDamage(atk, 50);
+const AR = (atk, r) => calcArtsDamage(atk, r);
 const P = atk => calcPhysicalDamage(atk, 600);
 let pass = 0, fail = 0;
 const check = (name, ok) => { if (ok) { pass++; } else { fail++; console.log('FAIL: ' + name); } };
@@ -90,7 +91,8 @@ check('乌萨斯战吼 总伤=P(skillAtk)×9击', near(hbS2.skillTotalDamage, P(
 const cv = ops['char_349_chiave'];
 const cvPs = psOf(cv, 1);
 const cvS2 = calculateOperator(cv, mk(cv, 1));
-check('火焰剥离 单发=A(atk×倍率)', near(cvS2.skillTotalDamage, A(cvPs.panelAtk * L7(cv, 1).atk_scale)));
+// 命中减抗(-13% L7)先于命中结算(用户通用口径):单发按 res50×0.87 结算
+check('火焰剥离 单发=A(atk×倍率,res43.5)', near(cvS2.skillTotalDamage, AR(cvPs.panelAtk * L7(cv, 1).atk_scale, 50 * (1 + L7(cv, 1).magic_resistance))));
 check('火焰剥离 类型=arts', cvS2.damageType === 'arts');
 
 // ===== 嵯峨 =====

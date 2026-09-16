@@ -32,7 +32,74 @@
     "def": 0,
     "maxHp": 100
   },
-  "skills": [],
+  "skills": [
+    {
+      "skillId": "skpas_gallus2_t",
+      "name": "“来抓我啊”",
+      "levels": [
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        },
+        {
+          "skillType": "PASSIVE",
+          "skillDuration": 20,
+          "magic_resistance": -0.15,
+          "level": 1
+        }
+      ]
+    }
+  ],
   "talents": [
     {
       "candidates": [

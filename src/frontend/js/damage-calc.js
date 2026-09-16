@@ -31,6 +31,7 @@ const TALENT_ATK_DRIVERS = {
   'char_431_ashlok': 0,    // 灰毫「炮术研习」:攻击力+8%(周身四格地面改+16% 条件版不计,取无条件档)
   'char_493_firwhl': 0,    // 火哨「进退自如」:未阻挡敌人时攻击力+12%(默认远程轰击位未阻挡;阻挡时 def+12% 承伤向不计)
   'char_1050_chen3': 0,   // 赤刃明霄陈「形意洞照」:攻击力+8/11%(精1)→+13/16%(精2 潜4);同天赋攻速在 TALENT_SPD_DRIVERS,弱点伤害另设开关
+  'char_210_stward': 0,   // 史都华德「铠甲突破」:攻击力+3%(精1 Lv1 起)→+6%(精1 Lv55 起),优先攻击防御最高目标(索敌不计)
   // ---- 先锋(PIONEER) ----
   'char_240_wyvern': 0,  // 香草「攻击提升」:攻击力+4%(精1 Lv1)→+8%(精1 Lv55),无无条件档
   'char_192_falco': 0,   // 翎羽「攻击提升」:攻击力+8%(精1 Lv55,同香草模板)
@@ -38,6 +39,7 @@ const TALENT_ATK_DRIVERS = {
   'char_149_scave': 0,   // 清道夫「单独行动者」:攻击+5~13%(精1 5%→精2 潜4 13%,周围四格无友军默认成立,防御在 TALENT_HP_DEF_DRIVERS)
   'char_112_siege': 0,   // 推进之王「万兽之王」:编队所有先锋攻/防+4~10%,自身为先锋必得(同炎息先例),防御在 TALENT_HP_DEF_DRIVERS
   'char_1001_amiya2': 0, // 阿米娅(近卫)「青色怒火」:全场友方攻/防+4%(精1)→+7%(精2),自身必得;技能开启期间效果加倍(见 SKILL_TALENT_ATK_MUL)
+  'char_164_nightm': { talentIndex: 0, skillIndex: 1 },  // 夜魔「表里人格」:装备 2 技能(夜魇魔影)时攻击+X%(精1 9%/12%潜4→精2 15%/18%潜4);装 1 技能为闪避向不计
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -72,8 +74,11 @@ function calcTalentHealScale(op, slotData) {
 
 // 查驱动表,返回常驻加攻天赋在当前精英化/等级下的直接乘算加数(0 表示无此天赋或未生效)。
 function calcTalentAtkBonus(op, slotData) {
-  const talentIndex = TALENT_ATK_DRIVERS[op.id];
-  if (talentIndex === undefined) return 0;
+  const cfg = TALENT_ATK_DRIVERS[op.id];
+  if (cfg === undefined) return 0;
+  // 携带技能条件天赋(夜魔「表里人格」:装备 2 技能时攻击+X%,装 1 技能为闪避向不计):cfg = {talentIndex, skillIndex}
+  if (typeof cfg === 'object' && cfg.skillIndex !== undefined && (slotData.skillIndex ?? -1) !== cfg.skillIndex) return 0;
+  const talentIndex = typeof cfg === 'number' ? cfg : cfg.talentIndex;
   const talent = (op.talents || [])[talentIndex];
   if (!talent) return 0;
   const elite = slotData.elite;
@@ -221,11 +226,13 @@ const INCANTATION_SPECIAL_MODES = {
 // → 全程等效平均 +90(用户口径);引擎只支持固定攻速值。
 const SKILL_ATTACK_SPEED_OVERRIDES = {
   'char_4026_vulpis': { 2: 90 },   // 忍冬 S3:平均 +90
+  'char_180_amgoat': { 0: 50 },    // 艾雅法拉 S1 二重咏唱:攻速+50(M1)
 };
 const SKILL_ATK_KEY_OVERRIDES = {
   'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
   'char_2014_nian': { 2: 'nian_s_3[self].atk' },   // 年 S3「铁御」:自身攻击力增幅(友方 def/阻挡 buff 不计)
   'char_4199_makiri': { 1: 'makiri_s_2[passive].atk' },  // 松桐 S2 万手成局:攻击+X% 在 passive 前缀键
+  'char_180_amgoat': { 0: 'amgoat_s_1[b].atk' },  // 艾雅法拉 S1 二重咏唱:默认第二次开启口径(追加攻击力+50% M1,[a] 首启只有攻速)
 };
 
 // 技能自回键别名(数据把每秒回血比例放带前缀的键,语义同顶层 hp_recovery_per_sec_by_max_hp_ratio):
@@ -317,6 +324,139 @@ function calcTalentResPen(op, slotData) {
 const WEAKNESS_DAMAGE = {
   'char_1050_chen3': true,  // 赤刃明霄陈「形意洞照」:精1 起攻击变为弱点伤害;精0 无此天赋 → 全法术
 };
+
+// 技能期伤害强制真实:数据缺 trueDamage 标记的技能(阿米娅 S3 奇美拉:攻击造成真实伤害,数据仅 atk/max_hp 键)
+const SKILL_TRUE_DAMAGE = {
+  'char_002_amiya': [2],  // 阿米娅(术师) S3 奇美拉:30s 攻击力+X% 且伤害变真伤(自损/生命上限提升生存向不计)
+};
+
+// 技能开启期普攻切物理(特米米「荒野法术」:技能开启时攻击范围缩小、攻击变物理且只打地面——单目标模型范围不计)
+const SKILL_PHYSICAL_OVERRIDES = {
+  'char_411_tomimi': [0, 1],  // 特米米 S1 部族技艺/S2 嘉维尔保护方案:开启即物理
+};
+
+// 技能开启期才生效的天赋攻击加成(特米米「荒野法术」atk+50/75/100% 随精化,常态无加成不能走 TALENT_ATK_DRIVERS 常驻通道)
+const SKILL_TALENT_ATK_ONLY = {
+  'char_411_tomimi': 0,
+};
+
+// 每击按敌方防御附加法伤天赋(刻俄柏「剥壳」):攻击时对目标额外造成相当于其防御力 X% 的法术伤害——
+// 100% 无条件触发(目标防御为 0 时无伤害),不吃攻击力/技能倍率,吃目标法抗;每次攻击动作附加一次(常态/技能期同)。
+const TALENT_DEF_HIT_ARTS = {
+  'char_2013_cerber': 0,  // 刻俄柏:精1 25%(潜5 +4%)→精2 40%(潜5 +4%)
+};
+// 查每击附加法伤配置(剥壳族):基础档来自天赋 atk_scale;装备带 basic_atk_scale/max_atk_scale/delta_atk_scale 的
+// X 效果模组(如刻俄柏「很干的面包」L2+)后按模组档覆盖——连续攻击同一目标逐击递增(单目标模型=恒同一目标)。
+// 返回 { scale }(无递增)或 { base, basic, max, delta }(模组递增);null = 无此天赋或未解锁。
+function calcDefHitArtsCfg(op, slotData) {
+  const idx = TALENT_DEF_HIT_ARTS[op.id];
+  if (idx === undefined) return null;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return null;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let base = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.atk_scale === 'number' ? cand.blackboard.atk_scale : 0;
+      if (v > base) base = v;
+    }
+  }
+  if (base <= 0) return null;
+  // X 效果模组天赋强化(剥壳递增参数)
+  const lv = getModuleLevelData(op, slotData);
+  let modCfg = null;
+  if (lv && lv.talentEnhance) {
+    for (const cand of lv.talentEnhance) {
+      const candPot = cand.requiredPotentialRank ?? cand.potentialRank ?? 0;
+      if (candPot > pot) continue;
+      const bb = cand.blackboard || {};
+      if (typeof bb.basic_atk_scale === 'number' && typeof bb.max_atk_scale === 'number') {
+        if (!modCfg || bb.max_atk_scale > modCfg.max) {
+          modCfg = { basic: bb.basic_atk_scale, max: bb.max_atk_scale, delta: typeof bb.delta_atk_scale === 'number' ? bb.delta_atk_scale : 0 };
+        }
+      }
+    }
+  }
+  return modCfg ? { base, ...modCfg } : { scale: base };
+}
+// 第 i 击(0 起)的比例:基础档恒定;模组递增档第 1 击=basic,每击 +delta 至 max 封顶
+function defHitArtsScaleAt(cfg, i) {
+  if (!cfg) return 0;
+  if (cfg.scale !== undefined) return cfg.scale;
+  return Math.min(cfg.basic + cfg.delta * i, cfg.max);
+}
+// 逐击附加结算伤害(技能期按攻击序逐击递增)
+function defHitArtsAt(op, slotData, i) {
+  const cfg = calcDefHitArtsCfg(op, slotData);
+  if (!cfg) return 0;
+  const def = (state.enemy && typeof state.enemy.def === 'number') ? state.enemy.def : 0;
+  return calcArtsDamage(def * defHitArtsScaleAt(cfg, i), state.enemy.res ?? 0);
+}
+// 稳态档(常态/无界/循环展示):基础档恒值;模组递增档取上限(连续攻击长期稳定后)
+function defHitArtsMax(op, slotData) {
+  const cfg = calcDefHitArtsCfg(op, slotData);
+  if (!cfg) return 0;
+  const def = (state.enemy && typeof state.enemy.def === 'number') ? state.enemy.def : 0;
+  return calcArtsDamage(def * defHitArtsScaleAt(cfg, 999), state.enemy.res ?? 0);
+}
+
+// 命中减抗天赋(夜烟「黑色迷雾」:攻击命中使目标 1s 法抗-X%;命中效果先于命中结算(用户口径),
+// 故每次攻击的伤害都吃减抗后的法抗 → 等效常驻乘算;间隔>减抗时长也无碍)
+const TALENT_HIT_MR_DEBUFF = {
+  'char_141_nights': 0,  // 夜烟:精1 -10%(潜4 -12%)→精2 -13%(潜4 -15%)
+};
+// 查命中减抗乘数:返回最高满足档 (1+magic_resistance)(1 表示无或未解锁)
+function calcTalentHitMrMul(op, slotData) {
+  const idx = TALENT_HIT_MR_DEBUFF[op.id];
+  if (idx === undefined) return 1;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 1;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;  // 最负值(减抗最多)
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.magic_resistance === 'number' ? cand.blackboard.magic_resistance : 0;
+      if (v < best) best = v;
+    }
+  }
+  return best < 0 ? 1 + best : 1;
+}
+// 空中法脆(雪绒「冰原生存」:攻击范围内所有空中单位受法伤 +10~22%,自身坠雪使目标浮空必触发 → 跳伤 ×damage_scale)
+function calcAirFragileMul(op, slotData) {
+  const idx = 0;  // 雪绒第一天赋
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 1;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.damage_scale === 'number' ? cand.blackboard.damage_scale : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best > 0 ? best : 1;
+}
+// 查技能开启期才生效的天赋攻击加成(特米米「荒野法术」atk+50/75/100% 随精英化,p0 即解锁):
+// 独立读 SKILL_TALENT_ATK_ONLY 表指向的天赋(不能走 TALENT_ATK_DRIVERS,否则常态也吃)
+function calcSkillTalentAtkOnly(op, slotData) {
+  const idx = SKILL_TALENT_ATK_ONLY[op.id];
+  if (idx === undefined) return 0;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 0;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.atk === 'number' ? cand.blackboard.atk : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
 
 // 常驻每秒生命回复天赋表(全场光环自身必吃):桃金娘「浮光跃金」在场所有先锋每秒回血(E2 25/s 潜5 28/s,自回不吃治疗加成)
 const TALENT_HPS_REGEN = {
@@ -730,6 +870,8 @@ const NORMAL_ATK_SKILLS = {
   // ---- 策士(counsellor) ----
   'char_1045_svash2': [0],  // 凛御银灰 S1 周旋的谋略:立即回费+减费+屏障,纯部署区支援无输出
   'char_4199_makiri': [0],  // 松桐 S1 入场安排:立即回 10 费+待部署区最右干员-4 费,纯回费无输出
+  // ---- 中坚术师(corecaster) ----
+  'char_164_nightm': [1],  // 夜魔 S2 夜魇魔影:AUTO 施加梦魇 debuff(减速+移动真伤),移动增伤不考虑(用户口径)无输出 → 归常态
   // ---- 战术家(tactician) 召唤物强化/纯回费技能(本体无输出增益→归常态;召唤物侧效果见持有者技能建模与说明) ----
   'char_427_vigil': [0, 1],  // 伺夜 S1 领袖的呼唤:回 7 费+增加狼影;S2 领袖的馈赠:回 2 费+狼群下次攻击强化(vigil_wolf_s_2)
   'char_4228_closur': [0],   // 可露希尔 S1 紧急支援:回费+护盾(shield_cnt 承伤不计)
@@ -822,7 +964,9 @@ function calculateOperator(op, slotData, ctx) {
   const isMedic = op.profession === 'MEDIC';
   // 固定法抗穿透(史尔特尔「熔火」):常态与技能期法伤结算统一吃有效法抗
   const resPen = calcTalentResPen(op, slotData);
-  const effRes = Math.max(0, (state.enemy.res || 0) - resPen);
+  // 命中减抗天赋(夜烟黑色迷雾):每击先减抗再结算 → 等效法抗 ×(1+mr)
+  const hitMrMul = calcTalentHitMrMul(op, slotData);
+  const effRes = Math.max(0, (state.enemy.res || 0) - resPen) * hitMrMul;
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed;
   const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
@@ -858,7 +1002,9 @@ function calculateOperator(op, slotData, ctx) {
     const normalDps = normalDpsRaw / realInterval;
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, state.enemy.def) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
+    // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
+    const normFlat = defHitArtsMax(op, slotData);
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -927,6 +1073,11 @@ function calculateOperator(op, slotData, ctx) {
   }
   // atk_scale 输出倍率:在天赋/atk 重算之后乘(atk_scale 技能同时带常驻加攻天赋时不被重算覆盖,如号角 S1 2.4×+军事要塞20%)
   if (levelData.atk_scale !== undefined && !isOneShotHeal && !scaleExcluded) skillAtk = skillAtk * levelData.atk_scale;
+  // 技能开启期天赋攻击(特米米「荒野法术」+50~100%):常态无加成,开启期与面板同乘区
+  if (SKILL_TALENT_ATK_ONLY[op.id] !== undefined && skill) {
+    const tOnly = calcSkillTalentAtkOnly(op, slotData);
+    if (tOnly > 0) skillAtk = skillAtk * (1 + tOnly);
+  }
 
   // ======== Dispatch ========
   const isToggle = levelData.isToggle || false;
@@ -935,7 +1086,9 @@ function calculateOperator(op, slotData, ctx) {
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   // 驭法铁卫特性:技能开启时普通攻击变为法术伤害(常态仍物理);技能期=有持续时间/常驻的技能
   const artsProtectorSkill = op.subProfessionId === 'artsprotector' && (skillDuration > 0 || isPermanent) && skillDuration !== 0;
-  const isArts = op.damageType === 'arts' || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex)) || artsProtectorSkill;
+  // 技能期切物理(特米米荒野法术):覆盖职业法术
+  const physSkillOn = (SKILL_PHYSICAL_OVERRIDES[op.id] || []).includes(skillIndex);
+  const isArts = (op.damageType === 'arts' && !physSkillOn) || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex)) || artsProtectorSkill;
   // 弱点伤害:赤刃明霄陈「形意洞照」精1+ 所有物理/法术伤害逐击取物法更高(精0 无天赋全法术)
   const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
   // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
@@ -960,7 +1113,11 @@ function calculateOperator(op, slotData, ctx) {
     talentDmgMul: calcTalentDmgMul(op, slotData),  // 常驻伤害乘区(勇冠三军满血×1.15 等,calcDamage 内乘)
     sleepAtkMul: calcSleepAtkMul(op, slotData),  // 瑕光「仁慈」沉睡目标攻击倍率(仅 S2 必睡场景启用)
     resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
-    isWeakness: isWeaknessOn  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
+    hitMrMul,  // 命中减抗乘数(夜烟黑色迷雾:先效果再命中,技能期同吃)
+    isTrueOverride: (SKILL_TRUE_DAMAGE[op.id] || []).includes(skillIndex),  // 技能期强制真伤(阿米娅S3奇美拉)
+    isWeakness: isWeaknessOn,  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
+    flatArtsHit: defHitArtsMax(op, slotData),  // 每击敌方防御附加法伤稳态档(刻俄柏剥壳:不吃倍率吃法抗;常态/循环用)
+    flatAt: defHitArtsMax(op, slotData) > 0 ? (i => defHitArtsAt(op, slotData, i)) : null,  // 逐击档(X模组剥壳递增:技能期按攻击序爬升)
   };
 
   let result;
@@ -1118,7 +1275,133 @@ function calculateOperator(op, slotData, ctx) {
   // ===== 术战者(artsfighter)特殊拦截:置于通用分支链最前,命中即结算 =====
   // 维娜·维多利亚 S1(AUTO 自然回 sp5):下次攻击对四周地面敌人额外造成 atk_scale×atk 真伤 + 普攻法伤照常
   // (斥罪 S1 同构但附加为真伤;普攻为术战者法伤),cycleDps 按自然回充能折算。
-  if (op.id === 'char_1019_siege2' && skillIndex === 0) {
+  if (op.id === 'char_180_amgoat' && skillIndex === 1) {
+    // 艾雅法拉 S2 点燃(AUTO sp6 触发):下次攻击变为点燃,命中造成 fk×atk 法伤(M1 fk=3.3=330%,PRTS 专一档一致),
+    // 并令目标 6s 法抗-20%(duration 窗口)。点燃周期 sp6 ≈ 减抗 6s 全覆盖 → 等效全程目标法抗×0.8(用户口径)。
+    // cycle=自然回 6s:充能期普攻与点燃均按有效法抗 mrRes 结算;命中目标周围半伤爆炸(单目标模型不计)。
+    const mrRes = Math.max(0, (state.enemy.res || 0) * 0.8);
+    const igMul = levelData.fk ?? 0;   // 主倍率键(M1 3.3);atk_scale/atk_scale_2 为双段拆分不重复乘(dispatch 前 skillAtk 已乘过 atk_scale,故用 panelAtk)
+    const igHit = calcArtsDamage(panelAtk * igMul, mrRes);
+    const spCost = levelData.spCost > 0 ? levelData.spCost : 6;
+    const interval = skillRealInterval > 0 ? skillRealInterval : 1;
+    const chargeAttacks = Math.floor(spCost / interval);
+    const cycleTime = spCost;
+    const artsCycle = chargeAttacks * calcArtsDamage(panelAtk, mrRes) + igHit;
+    result = {
+      skillDps: 0, skillTotalDamage: igHit, cycleDps: cycleTime > 0 ? artsCycle / cycleTime : 0,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: interval,
+      dmgTypes: { arts: { skillDps: 0, skillTotalDamage: igHit, cycleDps: cycleTime > 0 ? artsCycle / cycleTime : 0 } },
+    };
+  } else if (op.id === 'char_164_nightm' && skillIndex === 0) {
+    // 夜魔 S1 灵魂汲取(手动 60s):技能期普攻法伤照常,每击对攻击范围内友方恢复生命
+    // (治疗基值 = 面板攻击力 × 0.8(M1),非伤害量、不吃法抗——用户口径;至多2名友方按单目标模型默认1名)
+    const intv = skillRealInterval > 0 ? skillRealInterval : 1;
+    const hits = Math.max(1, Math.floor(skillDuration / intv));
+    const dmgPerHit = calcArtsDamage(skillAtk, state.enemy.res);
+    const healPerHit = 0.8 * panelAtk;
+    const dmgTot = dmgPerHit * hits, healTot = healPerHit * hits;
+    const dmgDps = skillDuration > 0 ? dmgTot / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: dmgDps, skillTotalDamage: dmgTot, cycleDps: null,
+      normalDps: null, skillHps: healPerHit / intv, normalHps: null, totalHeal: healTot,
+      damageType: 'arts', realInterval: intv, panelAtk,
+      dmgTypes: { arts: { skillDps: dmgDps, skillTotalDamage: dmgTot, cycleDps: null } },
+    };
+  } else if (op.id === 'char_2013_cerber' && skillIndex === 2) {
+    // 刻俄柏 S3 很重的枪(手动 58s):攻击力+175%(M1,skillAtk 已含)且伤害类型变为物理、优先攻击防御最低目标
+    // (单目标模型目标=面板假想敌)——通用 isArts 按职业法伤,故专用拦截走物理结算;
+    // 天赋剥壳(按敌方防御附加法伤)对物理攻击照常生效 → 独立 arts 档,物法双档展示。
+    const heavyHits = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / skillRealInterval)) : 1;  // 58/1.6=36
+    const heavyHit = calcPhysicalDamage(skillAtk, state.enemy.def);
+    const physTot = heavyHit * heavyHits;
+    let artsTot = 0;
+    for (let k = 0; k < heavyHits; k++) artsTot += defHitArtsAt(op, slotData, k);  // 剥壳逐击(X模组递增)
+    const heavyDps = skillDuration > 0 ? (physTot + artsTot) / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: heavyDps, skillTotalDamage: physTot + artsTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval, panelAtk,
+      dmgTypes: {
+        physical: { skillDps: physTot / skillDuration, skillTotalDamage: physTot, cycleDps: null },
+        arts: { skillDps: artsTot / skillDuration, skillTotalDamage: artsTot, cycleDps: null },
+      },
+    };
+  } else if (op.id === 'char_4027_heyak' && skillIndex === 1) {
+    // 霍尔海雅 S2 群星逶迤(手动 16s):普通攻击变为 attack@atk_scale(M1 0.38)的 9 连发随机攻击范围内目标,
+    // 每发 13% 概率浮空——用户口径:默认全部不浮空(概率不计);单目标模型=9 发全中同一目标,
+    // 技能期攻击次数 = dur/间隔(10 次) × 9 连发 = 90 发(同剑雨 AOE 单目标全中先例)。
+    const hyMul = levelData['attack@atk_scale'] ?? 0.38;
+    const hyVolley = 9;  // 每次普攻动作 9 连发
+    const hyActions = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / skillRealInterval)) : 1;
+    const hyHits = hyActions * hyVolley;
+    const hyPer = calcArtsDamage(skillAtk * hyMul, effRes);
+    const hyTot = hyPer * hyHits;
+    const hyDps = skillDuration > 0 ? hyTot / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: hyDps, skillTotalDamage: hyTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: skillRealInterval, panelAtk,
+      dmgTypes: { arts: { skillDps: hyDps, skillTotalDamage: hyTot, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4027_heyak' && skillIndex === 2) {
+    // 霍尔海雅 S3 博览者的狂语(手动 45s):攻击间隔延长 +1.4 → 3.0s(通用 BAT 已消费 base_attack_time),
+    // 普攻变为向前吹出的旋风,伤害随行进距离 0~3 格自 min_atk_scale 线性增强至 max_atk_scale
+    // (M1 2.67→4.0)。单目标模型距离不可知 → 取最低档 2.67(用户口径);传承终焉需空中/失重目标,
+    // 曾有羽翼为满血条件可能失效 + S3 自浮空 2s < 攻击间隔 3s 后续击打不到 → 不建模走说明。
+    const cycMul = levelData['attack@min_atk_scale'] ?? 2.67;
+    const cycHit = calcArtsDamage(skillAtk * cycMul, effRes);
+    const cycHits = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / skillRealInterval)) : 1;
+    const cycTot = cycHit * cycHits;
+    const cycDps = skillDuration > 0 ? cycTot / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: cycDps, skillTotalDamage: cycTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: skillRealInterval, panelAtk,
+      dmgTypes: { arts: { skillDps: cycDps, skillTotalDamage: cycTot, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4133_logos' && skillIndex === 1) {
+    // 逻各斯 S2 提喻(手动 20s):法抗+X% 自身生存向不计;攻击改为锁定一个目标,每 attack@cooldown 0.5s
+    // 造成一次攻击力 attack@atk_scale_base(M1 0.6)法伤,对相同目标伤害线性递增——每跳 +attack@atk_scale_delta
+    // (0.12),至 attack@max_stack_cnt(10) 层封顶 = base×3(0.6→1.8,文本"逐渐提高至3倍");减速/被打断重索敌不计。
+    // 用户口径:线性递增模式。首跳 base,第 n 跳 = base+delta×min(n-1,max),约 5.5s 后满层。
+    const tJumpCd = levelData['attack@cooldown'] ?? 0.5;
+    const tBase = levelData['attack@atk_scale_base'] ?? 0.6;
+    const tDelta = levelData['attack@atk_scale_delta'] ?? 0.12;
+    const tMax = levelData['attack@max_stack_cnt'] ?? 10;
+    const tJumps = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / tJumpCd)) : 1;  // 20/0.5=40
+    let tTot = 0;
+    for (let j = 0; j < tJumps; j++) {
+      const mul = tBase + tDelta * Math.min(j, tMax);  // 第1跳=base,第11跳起=0.6+0.12×10=1.8
+      tTot += calcArtsDamage(skillAtk * mul, effRes);
+    }
+    const tDps = skillDuration > 0 ? tTot / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: tDps, skillTotalDamage: tTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: tJumpCd, panelAtk,
+      dmgTypes: { arts: { skillDps: tDps, skillTotalDamage: tTot, cycleDps: null } },
+    };
+  } else if (op.id === 'char_466_qanik' && skillIndex === 1) {
+    // 雪绒 S2 坠雪(手动 7s):技能期停止攻击,对范围内至多 2 名地面敌人(单目标模型=1)每 0.5s 造成
+    // trigger_atk_scale×atk(M1 0.65)法伤并浮空 7 秒,浮空结束时(坠地)一次 critical_damage_scale×atk(M1 2.5)坠落伤害。
+    // 浮空期间目标为空中单位 → 每跳吃冰原生存法脆(×1.2 E2);坠落伤于落地瞬间造成,不吃(用户口径:非暴击);
+    // 坠落 AOE 溅射周围敌人不计(单目标模型)。
+    const jumpMul = levelData.trigger_atk_scale ?? 0.65;
+    const endMul = levelData.critical_damage_scale ?? 2.5;
+    const airMul = calcAirFragileMul(op, slotData);
+    const perJump = calcArtsDamage(skillAtk * jumpMul, effRes) * airMul;
+    const endHit = calcArtsDamage(skillAtk * endMul, effRes);
+    const jumpCnt = skillDuration > 0 ? Math.max(1, Math.floor(skillDuration / 0.5)) : 1;  // 7s/0.5s=14 跳
+    const qkTot = perJump * jumpCnt + endHit;
+    const qkDps = skillDuration > 0 ? qkTot / skillDuration : 0;
+    result = {
+      type: 'damage', skillDps: qkDps, skillTotalDamage: qkTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', realInterval: 0.5, panelAtk,
+      dmgTypes: { arts: { skillDps: qkDps, skillTotalDamage: qkTot, cycleDps: null } },
+    };
+  } else if (op.id === 'char_1019_siege2' && skillIndex === 0) {
     const trigArts = calcArtsDamage(panelAtk, effRes);                                  // 触发当次普攻法伤
     const trigTrue = calcTrueDamage(panelAtk * (levelData.atk_scale ?? 1));              // 附加真伤(atk_scale 逐级)
     const spCost = levelData.spCost > 0 ? levelData.spCost : 1;
@@ -1553,13 +1836,15 @@ function calculateOperator(op, slotData, ctx) {
       dmgTypes: { physical: { skillDps: total / skillDuration, skillTotalDamage: total, cycleDps: null } },
     };
   } else if (!isSummon && (NORMAL_ATK_SKILLS[op.id] || []).includes(skillIndex)) {
-    // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）
-    const normHit = calcPhysicalDamage(panelAtk, state.enemy.def);
+    // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）；
+    // 伤害类型按职业(法伤干员如夜魔 S2 归常态=术师法伤普攻,含减抗/穿透后的有效法抗)
+    const naArts = op.damageType === 'arts';
+    const normHit = naArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, state.enemy.def);
     result = {
       skillDps: 0, skillTotalDamage: 0, cycleDps: null,
       normalDps: normHit / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
       skillHps: null, normalHps: null, totalHeal: null,
-      damageType: 'physical', realInterval: skillRealInterval,
+      damageType: naArts ? 'arts' : 'physical', realInterval: skillRealInterval,
     };
   } else if (!isSummon && levelData.heal_scale !== undefined && levelData.skillDuration === 0) {
     // 自愈型一次性技能(非医疗,如卡缇 S1「生命回复·α」skcom_heal_self):立即恢复最大生命 heal_scale 比例
@@ -1705,6 +1990,10 @@ function calculateOperator(op, slotData, ctx) {
   }
 
   // ======== 重装/防御通用修正 ========
+  // 技能期普攻改写型(特米米荒野法术:普攻整体变为强化物理,无独立常态成分):常态行置空避免误导
+  if (physSkillOn && skillDuration > 0) {
+    result = { ...result, normalDps: null, normalHps: null };
+  }
   // 停止攻击:技能期伤害记 0(普攻停止,防御/面板变化仅展示)
   if ((STOP_ATTACK_SKILLS[op.id] || []).includes(skillIndex) && !isMedic && !isSummon) {
     result = { ...result, skillDps: 0, skillTotalDamage: 0, cycleDps: null };
