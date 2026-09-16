@@ -7,7 +7,7 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, normalInterval = realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1 } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, normalInterval = realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1, funnelNormalMul = 1, funnelSkillMul = 1 } = params;
 
   const isTrue = levelData.trueDamage === true || isTrueOverride;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
@@ -38,9 +38,9 @@ function calcDamage(params) {
   // 技能期单次命中伤害：真实伤害无减免(凯尔希·Mon3tr 3技能)；弱点伤害逐击取物法更高。
   // hitMul：技能期每击伤害乘子(暮落 S2 六连发 attack@atk_scale×attack@times；斩业星熊 S3 二连击 MULTI_HIT)。
   // talentDmgMul：常驻伤害乘区(勇冠三军等),物理/法术/真伤一律乘。
-  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, effDef))); return h * hitMul * talentDmgMul * skillDmgMul; };
+  const skillHitDamage = (atk) => { const h = isTrue ? calcTrueDamage(atk) : (isWeakness ? weakHit(atk) : (isArts ? calcArtsDamage(atk, effRes) : calcPhysicalDamage(atk, effDef))); return h * hitMul * talentDmgMul * skillDmgMul * funnelSkillMul; };
   // 常态普攻类型由职业决定(normalTypeArts=op.damageType==='arts')；弱点常态同样逐击取优
-  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef))) * talentDmgMul;
+  const normalHitDamage = (isWeakness ? weakHit(panelAtk) : (normalTypeArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef))) * talentDmgMul * funnelNormalMul;
   const singleHitDamage = skillHitDamage(skillAtk);
   // 弱点技能期伤害类型:按技能期攻击力实际赢家(攻击力恒定时逐击同型;衰减技能逐击翻转罕见,取首击口径)
   const skillDmgType = isTrue ? 'true' : (isWeakness ? weakType(skillAtk) : (isArts ? 'arts' : 'physical'));
@@ -53,6 +53,8 @@ function calcDamage(params) {
     skillAttacks = 0;
     skillTotalDamage = 0;
     skillDps = (singleHitDamage + flatOn) / realInterval;
+    // 驭械术师永续/切换技能:常态行照常展示(本体+既有单元满层);其它职业保持 null 口径不变
+    if (funnelNormalMul !== 1) normalDps = (normalHitDamage + flatOn) / normalInterval;
   } else if (skillDuration > 0 && isDecay) {
     // 攻击力增幅随时间线性衰减(从 levelData.atk 衰减至 0,衰减到面板攻击力)。
     // 按每次攻击时刻(第 0 秒、第 interval 秒、第 2×interval 秒......)的即时攻击力逐次结算总伤与平均 DPS。
@@ -83,13 +85,15 @@ function calcDamage(params) {
     skillTotalDamage = singleHitDamage + flatOn;
     skillDps = 0;
     cycleDps = calcCycleDps(levelData, realInterval, normalHitDamage + flatOn, singleHitDamage + flatOn);
+    // 驭械术师点燃类(持续0,如至简 S2):常态行照常展示
+    if (funnelNormalMul !== 1) normalDps = (normalHitDamage + flatOn) / normalInterval;
   }
 
   return {
     skillDps, skillTotalDamage, cycleDps, normalDps, skillHps: null, normalHps: null, totalHeal: null,
     damageType: skillDmgType,
     // 常态普攻伤害类型:真伤只作用于技能期,常态仍为职业普攻类型(物理/法术)
-    normalDamageType: skillDuration > 0 ? normalDmgType : null,
+    normalDamageType: (skillDuration > 0 || funnelNormalMul !== 1) ? normalDmgType : null,
     // 伤害类型拆分(规范化混合伤害):每种>0的类型一档,UI 逐类型渲染只显示有值的部分
     dmgTypes: {
       [skillDmgType]: { skillDps, skillTotalDamage, cycleDps },

@@ -17,7 +17,7 @@ const IDS = [
   'char_222_bpipe', 'char_261_sddrag', 'char_290_vigna', 'char_192_falco', // 冲锋手
   'char_411_tomimi', 'char_466_qanik', 'char_002_amiya', 'char_141_nights', 'char_180_amgoat', // 中坚术师
   'char_2015_dusk', 'char_166_skfire', 'char_253_greyy', 'char_109_fmout', 'char_121_lava', 'char_341_sntlla', 'char_213_mostma', 'char_1011_lava2', // 扩散术师
-  'char_377_gdglow', 'char_4236_tmslot', 'char_4054_malist', 'char_4040_rockr', // 驭械术师
+  'char_377_gdglow', 'char_4236_tmslot', 'char_4054_malist', 'char_4040_rockr', 'char_1038_whitw2', 'char_4013_kjera', 'char_328_cammou', // 驭械术师
   'char_479_sleach', 'char_497_ctable', // 执旗手/情报官
   'char_249_mlyss', 'char_4228_closur', // 战术家
   'char_4080_lin', 'char_426_billro', 'char_4046_ebnhlz', 'char_469_indigo', 'char_4004_pudd', 'char_134_ifrit', 'char_4204_mantra', 'char_4081_warmy', 'char_4164_tecno', // 术师其余子职业
@@ -25,7 +25,12 @@ const IDS = [
   'char_1020_reed2', // 咒愈师(焰苇S3灼痕:技能期才必触发法脆,常态不得计入)
 ];
 
-let pass = 0, fail = 0;
+// 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量
+const NORMAL_EXCEPT = {
+  'char_4040_rockr': { 1: 1 },    // 洛洛 S2「自负此轭」:携带时技能后过载 20s/40s 无输出,常态按 0.5 计
+  'char_1038_whitw2': { 0: 1 },   // 荒芜拉普兰德 S1「慵怠者悲鸣」被动:浮游单元+1 装备即常驻(含常态)
+};
+let pass = 0, fail = 0, excl = 0;
 const check = (name, ok, extra = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + name + (extra ? ' => ' + extra : '')); } };
 
 for (const id of IDS) {
@@ -44,6 +49,7 @@ for (const id of IDS) {
     const n0 = calculateOperator(o, mk(-1, mod)).normalDps;
     if (n0 === null || n0 === undefined) continue;
     (o.skills || []).forEach((s, si) => {
+      if ((NORMAL_EXCEPT[id] || {})[si]) { excl++; return; }
       const r = calculateOperator(o, mk(si, mod));
       if (r.normalDps === null || r.normalDps === undefined) return; // 停攻归常态为 null 的技能另行断言
       check(`${o.name}(${id})${tag} S${si + 1} 常态=无技能态(${n0.toFixed(2)})`, Math.abs(r.normalDps - n0) <= 0.02, `got ${r.normalDps}`);
@@ -51,5 +57,5 @@ for (const id of IDS) {
   }
 }
 
-console.log(`${pass} 通过, ${fail} 失败`);
+console.log(`${pass} 通过, ${excl} 设计例外跳过, ${fail} 失败`);
 process.exit(fail === 0 ? 0 : 1);

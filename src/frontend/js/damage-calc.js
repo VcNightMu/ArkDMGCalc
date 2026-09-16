@@ -18,6 +18,10 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  // ---- 驭械术师(funnel) ----
+  'char_4013_kjera': 0,   // 耶拉「低眉」:攻击力+10%(E2);攻击范围内≥2格地面地形改+16%(地形条件默认不计,取无条件档)
+  'char_4040_rockr': 0,   // 洛洛「立于磐石」:每15s+4%(E2 pot0),最多4层(时间累积长线默认满层,×max_stack_cnt=+16%)
+  'char_4236_tmslot': 0,  // 时隙「新产品测评」:攻击力+8%(浮游单元攻击15%概率停顿为概率控制类,不计)
   'char_120_hibisc': 0,  // 芙蓉「治疗力提升」:精1 Lv1 起 +4%,Lv55 起 +8%
   'char_4163_rosesa': 0, // 瑰盐:攻击 -5%(治疗代价换倍率,见 TALENT_HEAL_DRIVERS)
   'char_348_ceylon': 0,// 锡兰「湖畔漫步者」:只取默认档 [common].atk(+3%~6% 随精化/潜能5 增强),水地形 [map] 档不计
@@ -98,6 +102,99 @@ function calcTalentAtkBonus(op, slotData) {
 }
 
 
+// ===== 驭械术师(funnel):本体普攻 + 浮游单元(叠层) =====
+// 单元伤害 = 干员攻击力 × scale;scale 首击 init_atk_scale,每次命中同一目标 +delta_atk_scale,上限 max_atk_scale。
+// 单目标模型:已存在的单元默认满层(max);技能期新增单元从 0(init)起叠,按其技能期攻击次数取平均。
+// levelData['attack@cnt'] = 技能期新增单元数;FUNNEL_PASSIVE_UNITS = 装备即常驻的新增(技能被动,如荒芜 S1 +1);
+// FUNNEL_STOP_BODY = 技能期本体停止攻击、仅单元输出(澄闪 S3「澄净闪耀」:停止攻击,浮游单元+2)。
+// 干员级特例配置:
+//   talentUnits  常驻天赋带来的浮游单元数量(荒芜「头狼」为时间序列天赋,口径=默认全部获得)
+//   talentCap    常驻天赋对「单元伤害上限」的乘数(读该天赋 blackboard[key])
+//   skillCap     技能对「单元伤害上限」的乘数(读 levelData['scale'])
+//   passiveUnits 技能被动新增单元(装备即常驻,含常态)
+//   stopBody     技能期本体停止攻击、仅单元输出
+//   normalHalf   常态减半(洛洛 S2 携带时技能后过载 20s/40s,该段无输出)
+//   selfDestruct 技能期每击额外伤害(澄闪「信标的愤怒」:每击 概率×自爆倍率×攻击力)
+const FUNNEL_OPS = {
+  'char_1038_whitw2': { talentUnits: 1, talentCap: { talentIndex: 0, key: 'scale' }, passiveUnits: { 0: 1 } },
+  'char_377_gdglow': { selfDestruct: { talentIndex: 0, prob: 0.1, key: 'attack@atk_scale_2' }, stopBody: [2] },
+  'char_4040_rockr': { skillCap: { 1: true }, normalHalf: [1], phases: { 1: { dur1: 20, dur2: 20, ph1SkillSpd: true } } },
+  // 分段技能(两段计量槽,后段=过载):
+  //   时隙「科技与传统仪式」:40s;锁定敌人离开自身攻击范围时立刻过载并把剩余时长改写为 20s
+  //     前 20s 未过载(本体+既有单元+新增单元按前半段叠层,不吃技能攻击力/攻速),后 20s 过载(本体停攻,单元叠满并吃 +40%/+55)
+  //   洛洛「自负此轭」:40s,技能进行到一半触发过载
+  //     前 20s 只有攻速(+65 全段生效),后 20s 过载(特性上限 ×1.8、攻击力+50%,本体照打)
+  'char_4236_tmslot': { phases: { 1: { dur1: 20, dur2: 20, stopBody2: true } } },
+};
+// 读天赋指定 blackboard 键在当前精英/等级/潜能下的最大可用值(含模组 te 覆盖层)
+function funnelTalentValue(op, slotData, talentIndex, key) {
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 0;
+  const elite = slotData.elite, level = slotData.level, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard[key] === 'number' ? cand.blackboard[key] : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
+function calcFunnelTraitCfg(op, slotData) {
+  const bb = Object.assign({}, (op.trait && op.trait.blackboard) || {});
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && Array.isArray(lv.traitEnhance) && lv.traitEnhance[0] && lv.traitEnhance[0].blackboard) Object.assign(bb, lv.traitEnhance[0].blackboard);
+  return { init: bb.init_atk_scale ?? 0.2, delta: bb.delta_atk_scale ?? 0.15, max: bb.max_atk_scale ?? 1.1 };
+}
+function funnelAvgNewScale(cfg, skillDuration, interval) {
+  if (!(skillDuration > 0) || !(interval > 0)) return cfg.max;   // 永续/切换技能:长线叠满
+  const n = Math.max(1, Math.floor(skillDuration / interval));
+  let sum = 0;
+  for (let k = 0; k < n; k++) sum += Math.min(cfg.init + k * cfg.delta, cfg.max);
+  return sum / n;
+}
+function calcFunnelMuls(op, slotData, skillIndex, levelData, skillDuration, skillInterval, ctx) {
+  const cfg = FUNNEL_OPS[op.id] || {};
+  const t = calcFunnelTraitCfg(op, slotData);
+  const hasSkill = typeof skillIndex === 'number' && skillIndex >= 0;
+  let tCap = 1;
+  if (cfg.talentCap) { const v = funnelTalentValue(op, slotData, cfg.talentCap.talentIndex, cfg.talentCap.key); if (v > 0) tCap = v; }
+  const capNormal = t.max * tCap;                                      // 常态单元满层 scale
+  const units0 = 1 + (cfg.talentUnits || 0) + (((cfg.passiveUnits || {})[skillIndex]) || 0);
+  let normalMul = 1 + units0 * capNormal;                              // 本体 100% + 各单元满层
+  if (hasSkill && (cfg.normalHalf || []).includes(skillIndex)) normalMul *= 0.5;
+  if (!hasSkill) return { normalMul, skillMul: normalMul };
+  let sCap = capNormal;
+  if (cfg.skillCap && cfg.skillCap[skillIndex] && typeof levelData['scale'] === 'number') sCap = capNormal * levelData['scale'];
+  const added = typeof levelData['attack@cnt'] === 'number' ? levelData['attack@cnt'] : 0;
+  const avgNew = added > 0 ? funnelAvgNewScale({ init: t.init, delta: t.delta, max: sCap }, skillDuration, skillInterval) : 0;
+  // 分段技能(时隙 S2):当量为「前半段 + 过载段」按各自击数加权后折算回技能期单次攻击
+  const ph = (cfg.phases || {})[skillIndex];
+  if (ph && ctx && ctx.panelAtk > 0 && ctx.skillAtk > 0) {
+    const I1 = ph.ph1SkillSpd ? skillInterval : (ctx.baseInterval > 0 ? ctx.baseInterval : skillInterval);
+    const n1 = Math.max(1, Math.floor(ph.dur1 / I1));
+    const n2 = Math.max(1, Math.floor(ph.dur2 / skillInterval));
+    const x1 = 1 + units0 * capNormal + added * funnelAvgNewScale({ init: t.init, delta: t.delta, max: capNormal }, ph.dur1, I1);
+    const x2 = (ph.stopBody2 ? 0 : 1) + (units0 + added) * sCap;
+    const denom = Math.max(1, Math.floor((ph.dur1 + ph.dur2) / skillInterval));
+    return { normalMul, skillMul: (x1 * n1 * (ctx.panelAtk / ctx.skillAtk) + x2 * n2) / denom };
+  }
+  const stop = ((cfg.stopBody || []).includes(skillIndex)) ? 0 : 1;
+  let skillMul = stop + units0 * sCap + added * avgNew;
+  // 技能期每击额外伤害(澄闪自爆简化:每击 概率×自爆倍率×攻击力)
+  if (cfg.selfDestruct) {
+    const v = funnelTalentValue(op, slotData, cfg.selfDestruct.talentIndex, cfg.selfDestruct.key);
+    if (v > 0) skillMul += cfg.selfDestruct.prob * v;
+  }
+  // 浮游单元光环(荒芜 S3):每个单元每 attack@times 秒造成 attack@magic_atk_scale×攻击力 法伤
+  const auraScale = levelData['attack@magic_atk_scale'];
+  if (typeof auraScale === 'number' && auraScale > 0) {
+    const times = typeof levelData['attack@times'] === 'number' && levelData['attack@times'] > 0 ? levelData['attack@times'] : 1;
+    skillMul += (units0 + added) * auraScale * (skillInterval / times);
+  }
+  return { normalMul, skillMul };
+}
 function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
   const elite = slotData.elite;
   const level = slotData.level;
@@ -482,6 +579,9 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  'char_328_cammou': 0,   // 卡达「协调一致」:自身与浮游单元攻速+6(精1)/+12(精2)
+  'char_4040_rockr': 0,       // 洛洛「立于磐石」:本体无攻速;X 模组 L3 追加「叠满后攻击速度+5」(te 为 name=null 条目)
+  'char_1038_whitw2': 1,      // 荒芜拉普兰德「叙拉古的荣幸」:本体无攻速;X 模组 L2/L3 追加「首次触发技能后攻速+6/+10」
   'char_147_shining': 1,  // 闪灵「法典」:精二起 攻速+10,潜能3 起 +13
   'char_108_silent': 0,// 赫默「医疗支援」:在场全体医疗攻速+6/8(精一),+12/14(精二);自身必得
   'char_103_angel': 0,    // 能天使「快速弹匣」:精一 Lv1 起攻速+6 自身常驻
@@ -498,6 +598,7 @@ const TALENT_SPD_DRIVERS = {
 
 // 固定法抗穿透(无视目标 X 法抗,法术伤害结算时敌人法抗直减;史尔特尔「熔火」12~22)
 const TALENT_RES_PEN_DRIVERS = {
+  'char_377_gdglow': { talentIndex: 1, key: 'magic_resist_penetrate_fixed' },  // 精准导流:自身与浮游单元无视15(潜5 18)法抗
   'char_350_surtr': { talentIndex: 0, key: 'magic_resist_penetrate_fixed' },  // 熔火:精1 无视12/14(潜5)→精2 20/22(潜5),全法伤结算生效
 };
 // 固定物理穿防天赋表(敌人被 X 阻挡时攻击无视其 N 防御):伺夜「狼群天性」——单目标模型默认战术点狼群在场阻挡
@@ -1042,6 +1143,7 @@ const PERIODIC_DOT = {
 };
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
+  'char_4054_malist': { 1: 2 },   // 至简 S2「神工意匠」:下次攻击造成 1.7×atk 法伤并连续攻击两次(点燃类,可充能3次)
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
   'char_1050_chen3': { 0: 2 },     // 赤刃明霄陈 S1 奔夜:攻击变为二连击(每击=技能期攻击力全额弱点,乘 2 连)
@@ -1310,7 +1412,7 @@ function calculateOperator(op, slotData, ctx) {
       const isMed = op.id === 'char_2026_yu' && norm.normalTypes.arts; // 余常态含每秒法伤
       return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
     }
-    const normalDps = normalDpsRaw / realInterval;
+    const normalDps = normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1);  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -1420,6 +1522,10 @@ function calculateOperator(op, slotData, ctx) {
   const fragileBase = calcMagicFragileMul(op, slotData);
   const fragileExtra = (incantMode === 'burning' && levelData['talent@prob'] === 1) ? calcMagicFragileMul(op, slotData, 0) : 1;
 
+  const funnelMuls = op.subProfessionId === 'funnel'
+    ? calcFunnelMuls(op, slotData, skillIndex, levelData, skillDuration, skillRealInterval, { panelAtk, skillAtk, baseInterval: realInterval })
+    : { normalMul: 1, skillMul: 1 };
+
   const params = {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, normalInterval: realInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul,
@@ -1438,7 +1544,9 @@ function calculateOperator(op, slotData, ctx) {
     resPen,  // 固定法抗穿透(史尔特尔熔火:法术结算时敌人法抗直减)
     hitMrMul,  // 命中减抗乘数(夜烟黑色迷雾:先效果再命中,技能期同吃)
     isTrueOverride: (SKILL_TRUE_DAMAGE[op.id] || []).includes(skillIndex),  // 技能期强制真伤(阿米娅S3奇美拉)
-    isWeakness: isWeaknessOn,  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
+    isWeakness: isWeaknessOn,
+    funnelNormalMul: funnelMuls.normalMul,  // 驭械术师:本体+浮游单元(常态)攻击力当量倍数
+    funnelSkillMul: funnelMuls.skillMul,    // 驭械术师:技能期当量倍数(技能期新增单元按叠层取平均)  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
     flatArtsHit: defHitArtsMax(op, slotData),  // 每击敌方防御附加法伤稳态档(刻俄柏剥壳:不吃倍率吃法抗;常态/循环用)
     flatAt: defHitArtsMax(op, slotData) > 0 ? (i => defHitArtsAt(op, slotData, i)) : null,  // 逐击档(X模组剥壳递增:技能期按攻击序爬升)
   };
