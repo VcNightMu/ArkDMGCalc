@@ -592,9 +592,16 @@ const TALENT_SPD_DRIVERS = {
   // ---- 执旗手(bearer) ----
   'char_479_sleach': { talentIndex: 0, key: 'sleach_t_1[ally].attack_speed' }, // 琴柳「不退之旗」:军旗周围8格干员攻速+5(E1)→+10(E2),自身持旗必吃(敌人攻速-10 不计)
   // ---- 情报官(agent) ----
+  // ---- 秘术师(mystic) ----
+  'char_4226_veen': 0,    // 维伊「在挥刀之前」:有转置能量时攻击力+2%~10%,无转置时攻速+5~15;持续打人模型下无储存能量(故无转置)→取攻速档
   'char_497_ctable': 0,   // 晓歌「万全」:未阻挡敌人时攻速+6/8(E1)→+12/14(E2 潜4),阻挡时改攻击力+12% 二选一(远程位默认未阻挡吃攻速档)
 };
 
+
+// 模组 te 攻速跳过表(条件型:仅在"拥有储存能量"等前提下生效的 te 攻速,持续打人模型下不成立)
+const MODULE_TE_SPD_SKIP = {
+  'char_4226_veen': true,   // X 模组「在挥刀之前」增强:拥有已储存的攻击能量时攻速+30(本模型无储存能量→不适用)
+};
 
 // 固定法抗穿透(无视目标 X 法抗,法术伤害结算时敌人法抗直减;史尔特尔「熔火」12~22)
 const TALENT_RES_PEN_DRIVERS = {
@@ -961,7 +968,8 @@ function calcModuleTalentEnhance(op, slotData) {
     const isTimedAspd = typeof bb.attack_speed_up_duration === 'number' && bb.attack_speed_up_duration > 0;
     // 仅常驻攻速天赋入表干员(闪灵法典/琴柳不退之旗/晓歌万全等)允许攻速拾取;表外干员的 te 攻速为条件/触发型(冬时疾笔撰录/录武官学成于聚)不计
     const spdOk = TALENT_SPD_DRIVERS[op.id] !== undefined;
-    if (spdOk && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
+    const spdTeSkip = (MODULE_TE_SPD_SKIP[op.id] || false) === true;
+    if (spdOk && !spdTeSkip && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed > bestAspd)) bestAspd = bb.attack_speed;
     if (typeof bb.atk === 'number' && bb.atk > extraAtk) extraAtk = bb.atk;
     // 天赋强化的治疗倍率(如夜莺 X 模组强化「白恶魔的庇护」:范围内友方受疗 +3%/+5%)。
     // 治疗目标必在攻击范围内才能被治疗,故该光环直接放大自身治疗数值。
@@ -1099,6 +1107,12 @@ const BAT_ADD_OVERRIDES = {
   'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
 };
 
+// base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
+// 与 BAT_ADD_OVERRIDES 相反:默认负数=加算秒(白面鸮脑啡肽 -2.1、卡涅利安 S2 -0.8 官方描述"攻击间隔-0.8秒")。
+const BAT_PCT_OVERRIDES = {
+  'char_469_indigo': { 0: true },   // 深靛 S1 灯塔守卫者:攻击间隔大幅度缩短(-80%) → 3.0×0.2=0.6s
+};
+
 // 间隔"增大(+X%)"型:描述为"攻击间隔增大(+70%/+40%)"的 base_attack_time 正小数,
 // 语义=攻击间隔 ×(1+val)(区别于 (0,1) 乘算缩短与 BAT_ADD 加算秒——天火 S2 2.9×1.7=4.93/夕 S3 2.9×1.4=4.06)
 const INTERVAL_GROW_OVERRIDES = {
@@ -1111,6 +1125,12 @@ const INTERVAL_GROW_OVERRIDES = {
 const ATK_SCALE_REWRITE = {
   'char_166_skfire': [1],
   'char_341_sntlla': [1],
+  // ---- 秘术师(mystic) ----
+  'char_4046_ebnhlz': [0],  // 黑键 S1 渐快急板:间隔×0.17,每次攻击 43%(L7)/50%(专三)
+  'char_297_hamoni': [0],   // 和弦 S1 轻巧舞步:间隔×0.2,每次攻击 40/43/50%
+  'char_338_iris': [0],     // 爱丽丝 S1 童话守卫者:间隔×0.2,每次攻击 40/43/50%
+  'char_4110_delphn': [0],  // 戴菲恩 S1「贯注」:间隔×0.2,每次攻击 40/43/50%
+  'char_469_indigo': [0],   // 深靛 S1 灯塔守卫者:每次攻击 40/43/50%(间隔键 -0.8 语义待定,见口径清单)
 };
 // 阵法术师技能改造①:技能「每次攻击造成相当于攻击力 X% 的法术伤害」→ 把该值作为技能期每击最终倍率
 // (键名多为 attack@atk_scale_s2/_s3 或 attack@atk_scale;伤害对攻击力线性,等价于最终乘算倍率;永续槽同样生效故不设时长门槛)
@@ -1129,6 +1149,13 @@ const PHALANX_EXTRA = {
   'char_388_mint': { endBurst: { 1: 'atk_scale' } },            // S2 技能结束时对范围内敌人造成 atk_scale×攻击力 法伤(一次性)
   'char_344_beewax': { endBurst: { 1: 'atk_scale' } },           // S2 技能开启召唤方尖塔时对附近敌人造成 atk_scale×攻击力 法伤(一次性;时点在技能开始,计入总伤)
 };
+// 秘术师(mystic)技能期必然生效的 DoT(描述为"每秒受到 X 伤害",不含概率/条件):
+// dpsKey = 每秒固定法伤键(固定值);atkScaleKey = 每秒按技能期攻击力的比例键
+const MYSTIC_SKILL_DOT = {
+  'char_297_hamoni': { 1: { dpsKey: 'damage_value' } },          // 和弦 S2 沉溺之灾:水域内地面敌人每秒受 180/250 固定法伤
+  'char_4110_delphn': { 1: { atkScaleKey: 'attack@max_cnt' } },  // 戴菲恩 S2 抢攻:目标每秒受 6%×最多4层=24% 攻击力法伤(持续至技能结束)
+};
+
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
   'char_163_hpsts': 0,  // 火神:技能开启时每秒恢复 4~5% 最大生命(与 S1 自带 4% 叠加,S2 亦生效)
@@ -1307,6 +1334,9 @@ const NORMAL_ATK_SKILLS = {
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
 const TALENT_FLAT_DOT = {
   'char_4137_udflow': { talentIndex: 0, key: 'damage', duration: 3 },
+  // 维伊「战争技艺」:攻击/能量命中后 5s 内每秒受 attack@value 法伤,最多叠 attack@max_stack_cnt 层;
+  // 攻击间隔 2.5s < 5s 全覆盖 → 等效常驻 value×层数 秒伤(模组 Y L2/L3 的 100×4 / 120×4 经同名 te 自动生效)
+  'char_4226_veen': { talentIndex: 1, key: 'attack@value', stackKey: 'attack@max_stack_cnt', duration: 5 },
 };
 function calcTalentFlatDotDps(op, slotData) {
   const cfg = TALENT_FLAT_DOT[op.id];
@@ -1319,7 +1349,9 @@ function calcTalentFlatDotDps(op, slotData) {
   for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const v = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      const raw = cand.blackboard && typeof cand.blackboard[cfg.key] === 'number' ? cand.blackboard[cfg.key] : 0;
+      const stack = (cfg.stackKey && cand.blackboard && typeof cand.blackboard[cfg.stackKey] === 'number') ? cand.blackboard[cfg.stackKey] : 1;
+      const v = raw * stack;
       if (v > dmg) dmg = v;
     }
   }
@@ -1433,7 +1465,8 @@ function calculateOperator(op, slotData, ctx) {
     }
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
     const normalDps = op.subProfessionId === 'phalanx' ? 0
-      : normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1);  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+      : normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+        + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res);  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -1492,8 +1525,9 @@ function calculateOperator(op, slotData, ctx) {
       skillInterval = calcRealInterval(phase.baseAttackTime * (1 + bat), 100 + baseAspdBonus + skillAspdExtra);
     } else {
       const isAdd = (BAT_ADD_OVERRIDES[op.id] || {})[skillIndex] === true;
-      skillInterval = (bat > 0 && bat < 1 && !isAdd)
-        ? calcRealInterval(phase.baseAttackTime * bat, 100 + baseAspdBonus + skillAspdExtra)
+      const isPct = (BAT_PCT_OVERRIDES[op.id] || {})[skillIndex] === true;   // 负数按"缩短 X%"解释 → ×(1+bat)
+      skillInterval = (isPct || (bat > 0 && bat < 1 && !isAdd))
+        ? calcRealInterval(phase.baseAttackTime * (isPct ? 1 + bat : bat), 100 + baseAspdBonus + skillAspdExtra)
         : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus + skillAspdExtra);
     }
   }
@@ -2502,6 +2536,52 @@ function calculateOperator(op, slotData, ctx) {
     if (swordType === atkType) {
       result.dmgTypes = { [swordType]: { skillDps, skillTotalDamage: total, cycleDps: null } };
     }
+  } else if (op.id === 'char_4226_veen' && skillIndex === 1) {
+    // 维伊 S2「以鲜血洗去」(手动 28s):攻击间隔小幅缩短(键 -0.5 = 加算秒 → 3.0-0.5=2.5s,再算攻速);
+    // 每次攻击或发射储存能量后使自身后续攻击力 +attack@veen_s_2_buff[stack].atk、攻击速度 +...attack_speed,
+    // 至多 ...max_stack_cnt 层,持续至技能结束(发射转置能量可叠 3 层,本模型无转置能量) → 用户口径:整个技能线性计算。
+    // 逐击模拟:第 i 击前层数 = min(i, 上限),命中按当前层数结算、下一击间隔按当前层数重算;单目标模型全中。
+    const vSt = 'attack@veen_s_2_buff[stack]';
+    const vMax = levelData[vSt + '.max_stack_cnt'] ?? 9;
+    const vAtk = levelData[vSt + '.atk'] ?? 0;
+    const vSpd = levelData[vSt + '.attack_speed'] ?? 0;
+    const vBase = phase.baseAttackTime + (levelData.base_attack_time || 0);
+    const vNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    let vT = 0, vStacks = 0, vTotal = 0, vHits = 0;
+    while (vHits < 500) {
+      const iv = calcRealInterval(vBase, 100 + baseAspdBonus + vSpd * Math.min(vStacks, vMax));
+      if (iv <= 0) break;
+      if (vT + iv > skillDuration + 1e-9 && vHits > 0) break;
+      vTotal += calcArtsDamage(panelAtk * (1 + vAtk * Math.min(vStacks, vMax)), state.enemy.res);
+      vHits++;
+      vStacks = Math.min(vMax, vStacks + 1);
+      vT += iv;
+    }
+    const vDps = skillDuration > 0 ? vTotal / skillDuration : 0;
+    result = {
+      skillDps: vDps, skillTotalDamage: vTotal, cycleDps: null,
+      normalDps: op.damageType === 'arts' ? calcArtsDamage(panelAtk, state.enemy.res) / vNormI : calcPhysicalDamage(panelAtk, effDef) / vNormI,
+      skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: op.damageType,
+      realInterval: calcRealInterval(vBase, 100 + baseAspdBonus),
+      dmgTypes: { arts: { skillDps: vDps, skillTotalDamage: vTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_4226_veen' && skillIndex === 2) {
+    // 维伊 S3「用赤铁铭记」(手动,弹药型):攻击速度 +150;攻击装有 attack@trigger_time 发弹药(24),
+    // 每发 = 一次攻击(发射储存能量)造成攻击力 attack@base_atk_scale(=100%) 法伤;
+    // 弹射(attack@bounce_atk_scale,优先不同目标)在单目标模型下无第二目标 → 不计;
+    // 弹药打完结束 → 技能窗口 = 弹药数×间隔,期间无常态普攻(攻击即耗弹) → 常态行 null。
+    const vAmmo = Math.max(1, Math.round(levelData['attack@trigger_time'] ?? 1));
+    const vIv = skillRealInterval > 0 ? skillRealInterval : 1;
+    const vHit = calcArtsDamage(panelAtk * (levelData['attack@base_atk_scale'] ?? 1), state.enemy.res);
+    const vTot = vHit * vAmmo;
+    const vWin = vAmmo * vIv;
+    result = {
+      skillDps: vWin > 0 ? vTot / vWin : 0, skillTotalDamage: vTot, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'arts', normalDamageType: op.damageType, realInterval: vIv,
+      dmgTypes: { arts: { skillDps: vWin > 0 ? vTot / vWin : 0, skillTotalDamage: vTot, cycleDps: null } },
+    };
   } else if ((SKIP_SKILLS[op.id] || {})[skillIndex]) {
     // 技能不计算(斩业星熊 S2 无始无明:投盾系伤害不建模型)→ 技能期无增益,常态普攻照常展示
     const nI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
@@ -2640,6 +2720,53 @@ function calculateOperator(op, slotData, ctx) {
         },
       } : { arts: { skillDps: dotDps, skillTotalDamage: dotTotal, cycleDps: null } },
     };
+  }
+
+  // 秘术师(mystic)瞬间型技能(爱丽丝 S2/黑键 S2 等 dur 0 或 -1 一次性):技能期外照常普攻 →
+  // 常态行按无技能态展示(与"特米米曾误置空"同类修正;维伊 S3 为弹药槽,按弹药口径保持 null)
+  if (op.subProfessionId === 'mystic' && skillIndex >= 0 && (result.normalDps === null || result.normalDps === undefined)
+      && !(op.id === 'char_4226_veen' && skillIndex === 2)) {
+    const mNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    const mNorm = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
+    result = { ...result, normalDps: mNormI > 0 ? mNorm / mNormI : 0, normalDamageType: op.damageType };
+  }
+
+  // 秘术师(mystic)技能期必然生效的 DoT(每秒固定/比例法伤):只进技能期档,不动常态行
+  // (保持"各技能槽常态 DPS = 无技能态常态 DPS"不变量)
+  if (op.subProfessionId === 'mystic' && skillIndex >= 0) {
+    const mDot = (MYSTIC_SKILL_DOT[op.id] || {})[skillIndex];
+    if (mDot) {
+      const perSec = mDot.dpsKey !== undefined ? levelData[mDot.dpsKey] : skillAtk * levelData[mDot.atkScaleKey];
+      if (typeof perSec === 'number' && perSec > 0) {
+        const mDps = calcArtsDamage(perSec, state.enemy.res);
+        const mTot = skillDuration > 0 ? mDps * skillDuration : 0;
+        result = {
+          ...result,
+          skillDps: (result.skillDps ?? 0) + mDps,
+          skillTotalDamage: (result.skillTotalDamage ?? 0) + mTot,
+          dmgTypes: result.dmgTypes ? {
+            ...result.dmgTypes,
+            arts: {
+              skillDps: (result.dmgTypes.arts?.skillDps ?? 0) + mDps,
+              skillTotalDamage: (result.dmgTypes.arts?.skillTotalDamage ?? 0) + mTot,
+              cycleDps: null,
+            },
+          } : { arts: { skillDps: mDps, skillTotalDamage: mTot, cycleDps: null } },
+        };
+      }
+    }
+  }
+  // 维伊 S3 弹药槽(dur -1):天赋 DOT 秒伤已由 TALENT_FLAT_DOT 附加,但总伤按 dur 0 计 → 按弹药窗口补回
+  // (该槽无常态普攻展示:技能期即耗弹发射 → 常态行回置 null,与玛露西尔 S1 弹药口径一致)
+  if (op.id === 'char_4226_veen' && skillIndex === 2) result = { ...result, normalDps: null };
+  if (op.id === 'char_4226_veen' && skillIndex === 2 && flatDotDmg > 0) {
+    const vIv2 = skillRealInterval > 0 ? skillRealInterval : 1;
+    const vAmmo2 = Math.max(1, Math.round(levelData['attack@trigger_time'] ?? 1));
+    const addTotal = calcArtsDamage(flatDotDmg, state.enemy.res) * vAmmo2 * vIv2;
+    result = { ...result, skillTotalDamage: (result.skillTotalDamage ?? 0) + addTotal };
+    if (result.dmgTypes && result.dmgTypes.arts) {
+      result = { ...result, dmgTypes: { ...result.dmgTypes, arts: { ...result.dmgTypes.arts, skillTotalDamage: (result.dmgTypes.arts.skillTotalDamage ?? 0) + addTotal } } };
+    }
   }
 
   if (skill.type === SkillType.HEAL) {
