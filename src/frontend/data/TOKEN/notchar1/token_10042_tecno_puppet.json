@@ -1,0 +1,77 @@
+{
+  "id": "token_10042_tecno_puppet",
+  "name": "木偶舞者",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4164_tecno",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        126,
+        178
+      ],
+      "def": [
+        124,
+        175
+      ],
+      "maxHp": [
+        567,
+        709
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        184,
+        236
+      ],
+      "def": [
+        181,
+        233
+      ],
+      "maxHp": [
+        747,
+        901
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        244,
+        298
+      ],
+      "def": [
+        241,
+        295
+      ],
+      "maxHp": [
+        949,
+        1144
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [],
+  "trait": null,
+  "potentialRanks": []
+}

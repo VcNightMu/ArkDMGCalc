@@ -455,6 +455,7 @@ const INCANTATION_SPECIAL_MODES = {
 // 技能攻击速度键覆盖(数据为瞬时/非线性值时取等效口径):忍冬 S3「隐狐之艺」攻击速度从 +180 线性衰减至 +0
 // → 全程等效平均 +90(用户口径);引擎只支持固定攻速值。
 const SKILL_ATTACK_SPEED_OVERRIDES = {
+  'char_4164_tecno': { 0: 0, 1: 0 },  // 特克诺 S2 恣意挥洒:attack_speed 为召唤物攻速(自身不吃)
   'char_4026_vulpis': { 2: 90 },   // 忍冬 S3:平均 +90
   'char_180_amgoat': { 0: 50 },    // 艾雅法拉 S1 二重咏唱:攻速+50(M1)
 };
@@ -1340,11 +1341,13 @@ const SKILL_ATK_SCALE_EXCLUDE = {
   'char_494_vendla': { 1: true },   // 刺玫 S2 荆藤庇荫：atk_scale 是受击反伤倍率（反伤不计），普攻只吃 atk 加攻
   'char_4230_mcnist': { 1: true, 2: true },
   'char_388_mint': { 1: true },    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2)
-  'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
+  'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)
+  'char_450_necras': { 1: true },   // 死芒 S2 折朽:atk_scale 是沉睡目标每 0.5s 的 DoT 倍率,不作普攻倍率   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2:atk 0.26/层,默认不叠
+  'char_4164_tecno': { 0: true, 1: true },  // 特克诺 S1 关节锁定/S2 恣意挥洒:atk/max_hp/def 均为召唤物加成(用户口径:召唤物增幅只在召唤物侧体现)
 };
 // 技能开启期间常驻光环天赋倍率(阿米娅(近卫)「青色怒火」:技能开启期间效果加倍 → 技能期 atk 额外加一份 talentAtk)
 // key: 干员id; value: { 技能index: 倍率 }
@@ -2968,6 +2971,47 @@ function calculateOperator(op, slotData, ctx) {
     const bNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
     const bNorm = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
     result = { ...result, normalDps: bNormI > 0 ? bNorm / bNormI : 0, normalDamageType: op.damageType };
+  }
+
+  // 塑灵术师(soulcaster):死芒「噩愿/折朽/冠死以冕」技能期伤害;召唤物增幅不在干员侧体现(用户口径)
+  if (op.subProfessionId === 'soulcaster' && skillIndex >= 0 && op.id === 'char_450_necras') {
+    const scRes = Math.max(0, ((state.enemy.res || 0) - (resPen || 0)) * calcTalentMrDebuffMul(op, slotData) * (hitMrMul || 1));
+    if (skillIndex === 2) {
+      // S3 冠死以冕:总伤 = 单次爆发(attack@atk_scale×攻击力) × 重复次数(attack@necras_s_3[attack_cnt].max_stack_cnt)
+      const rep = levelData['attack@necras_s_3[attack_cnt].max_stack_cnt'] ?? 1;
+      const one = calcArtsDamage(panelAtk * (levelData['attack@atk_scale'] ?? 1), scRes);
+      const tot = one * rep;
+      const delta = tot - (result.skillTotalDamage ?? 0);
+      result = {
+        ...result,
+        skillTotalDamage: tot,
+        skillDps: 0,
+        cycleDps: (result.cycleDps === null || result.cycleDps === undefined) ? result.cycleDps : result.cycleDps + delta / (levelData.spCost > 0 ? levelData.spCost : 1),
+        dmgTypes: result.dmgTypes ? { ...result.dmgTypes, arts: { ...(result.dmgTypes.arts || {}), skillTotalDamage: tot, skillDps: 0 } } : result.dmgTypes,
+      };
+    } else if (skillIndex === 1) {
+      // S2 折朽:技能持续期间本体不普攻(用户口径 2026-09-16);沉睡目标每 interval 秒受 attack@atk_scale×攻击力 法伤,至多 max_target 名,持续 hit_duration
+      const ticks = Math.floor((levelData.hit_duration ?? 0) / (levelData.interval || 1));
+      const dt = ticks * (levelData.max_target ?? 1) * calcArtsDamage(panelAtk * (levelData.atk_scale ?? 1), scRes);
+      const sp = levelData.spCost > 0 ? levelData.spCost : 0;
+      result = {
+        ...result,
+        skillTotalDamage: dt,
+        skillDps: skillDuration > 0 ? dt / skillDuration : result.skillDps,
+        dmgTypes: result.dmgTypes ? {
+          ...result.dmgTypes,
+          arts: { ...(result.dmgTypes.arts || {}), skillTotalDamage: dt, skillDps: skillDuration > 0 ? dt / skillDuration : (result.dmgTypes.arts?.skillDps ?? 0) },
+        } : result.dmgTypes,
+      };
+    }
+  }
+  // 塑灵术师:瞬间/永续型技能槽常态行——死芒噩愿/冠死以冕属「手动版点燃类」(无持续时间),
+  // 按点燃类惯例常态行留空(null),总伤记单次爆发、技能期 DPS 为 0、周期 DPS 照算(用户口径 2026-09-16)
+  if (op.subProfessionId === 'soulcaster' && skillIndex >= 0 && op.id !== 'char_450_necras'
+      && (result.normalDps === null || result.normalDps === undefined)) {
+    const sNormI = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+    const sNorm = op.damageType === 'arts' ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
+    result = { ...result, normalDps: sNormI > 0 ? sNorm / sNormI : 0, normalDamageType: op.damageType };
   }
 
   // 伊芙利特 Δ/D 模组「灼燃损伤」:①常态元素爆条平均 DPS 并入该槽常态行(与无技能态口径一致,

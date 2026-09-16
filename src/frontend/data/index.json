@@ -1987,5 +1987,23 @@
     "subProfessionId": "soulcaster",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10043_necras_skeltn",
+    "name": "悲叹的仆役",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_450_necras",
+    "ownerName": "死芒"
+  },
+  {
+    "id": "token_10042_tecno_puppet",
+    "name": "木偶舞者",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4164_tecno",
+    "ownerName": "特克诺"
   }
 ]

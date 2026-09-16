@@ -1,10 +1,10 @@
 {
   "id": "token_10030_mlyss_wtrman",
-  "name": "流形·远程",
+  "name": "流形",
   "rarity": "TIER_6",
   "profession": "TOKEN",
   "subProfessionId": "notchar1",
-  "damageType": "arts",
+  "damageType": "physical",
   "ownerOperatorId": "char_249_mlyss",
   "phases": [
     {
@@ -73,7 +73,7 @@
   "skills": [
     {
       "skillId": "sktok_mlyss_wtrman_1",
-      "name": "润化·加速",
+      "name": "流形",
       "levels": [
         {
           "level": 0,
@@ -89,7 +89,7 @@
     },
     {
       "skillId": "sktok_mlyss_wtrman_2",
-      "name": "耦合·二连",
+      "name": "流形",
       "levels": [
         {
           "level": 0,
@@ -105,7 +105,7 @@
     },
     {
       "skillId": "sktok_mlyss_wtrman_3",
-      "name": "适应·束缚",
+      "name": "流形",
       "levels": [
         {
           "interval": 25,

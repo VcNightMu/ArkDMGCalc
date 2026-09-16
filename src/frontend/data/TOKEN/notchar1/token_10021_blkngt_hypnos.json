@@ -73,7 +73,7 @@
   "skills": [
     {
       "skillId": "sktok_blkngt_hypnos_s_1",
-      "name": "食梦·休眠",
+      "name": "食梦",
       "levels": [
         {
           "level": 0,
@@ -89,7 +89,7 @@
     },
     {
       "skillId": "sktok_blkngt_hypnos_s_2",
-      "name": "食梦·安眠",
+      "name": "食梦",
       "levels": [
         {
           "level": 0,

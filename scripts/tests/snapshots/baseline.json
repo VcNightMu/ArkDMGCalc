@@ -39639,8 +39639,8 @@
  "token_10021_blkngt_hypnos": {
   "name": "眠兽",
   "skills": [
-   "食梦·休眠",
-   "食梦·安眠"
+   "食梦",
+   "食梦"
   ],
   "entries": {
    "s0": {
@@ -39700,8 +39700,8 @@
   "name": "狼群",
   "skills": [
    "狼群",
-   "狼群·馈赠",
-   "狼群·领袖"
+   "狼群",
+   "狼群"
   ],
   "entries": {
    "s0": {
@@ -39784,22 +39784,22 @@
   }
  },
  "token_10030_mlyss_wtrman": {
-  "name": "流形·远程",
+  "name": "流形",
   "skills": [
-   "润化·加速",
-   "耦合·二连",
-   "适应·束缚"
+   "流形",
+   "流形",
+   "流形"
   ],
   "entries": {
    "s0": {
     "type": "damage",
-    "dt": "arts",
+    "dt": "physical",
     "atk": 302,
     "int": 1.5,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 100.667,
+    "nDps": 10.067,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -39808,20 +39808,20 @@
    },
    "s1": {
     "type": "damage",
-    "dt": "arts",
+    "dt": "physical",
     "atk": 302,
     "int": 1.071,
-    "sDps": 197.307,
-    "sTot": 2959.6,
+    "sDps": 19.731,
+    "sTot": 295.96,
     "cDps": null,
-    "nDps": 100.667,
+    "nDps": 10.067,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "arts": {
-      "sd": 197.307,
-      "st": 2959.6,
+     "physical": {
+      "sd": 19.731,
+      "st": 295.96,
       "cd": null
      }
     },
@@ -39829,20 +39829,20 @@
    },
    "s2": {
     "type": "damage",
-    "dt": "arts",
+    "dt": "physical",
     "atk": 302,
     "int": 1.5,
-    "sDps": 281.867,
-    "sTot": 4228,
+    "sDps": 28.187,
+    "sTot": 422.8,
     "cDps": null,
-    "nDps": 100.667,
+    "nDps": 10.067,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "arts": {
-      "sd": 281.867,
-      "st": 4228,
+     "physical": {
+      "sd": 28.187,
+      "st": 422.8,
       "cd": null
      }
     },
@@ -39850,20 +39850,20 @@
    },
    "s3": {
     "type": "damage",
-    "dt": "arts",
+    "dt": "physical",
     "atk": 302,
     "int": 1.5,
-    "sDps": 140.933,
-    "sTot": 2114,
+    "sDps": 14.093,
+    "sTot": 211.4,
     "cDps": null,
-    "nDps": 100.667,
+    "nDps": 10.067,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "arts": {
-      "sd": 140.933,
-      "st": 2114,
+     "physical": {
+      "sd": 14.093,
+      "st": 211.4,
       "cd": null
      }
     },
@@ -39962,8 +39962,8 @@
  "token_10037_mitm_trshrb": {
   "name": "樱桃三号",
   "skills": [
-   "解体·自爆",
-   "承压·停攻"
+   "废品战车",
+   "废品战车"
   ],
   "entries": {
    "s0": {
@@ -58872,10 +58872,10 @@
    "s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 949.2,
+    "atk": 678,
     "int": 1.6,
-    "sDps": 276.85,
-    "sTot": 3322.2,
+    "sDps": 1898.4,
+    "sTot": 22780.8,
     "cDps": null,
     "nDps": 211.875,
     "sHps": null,
@@ -58883,8 +58883,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 276.85,
-      "st": 3322.2,
+      "sd": 1898.4,
+      "st": 22780.8,
       "cd": null
      }
     },
@@ -58896,8 +58896,8 @@
     "atk": 1220.4,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 610.2,
-    "cDps": 233.91,
+    "sTot": 7119,
+    "cDps": 559.35,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -58905,7 +58905,7 @@
     "dmg": {
      "arts": {
       "sd": 0,
-      "st": 610.2,
+      "st": 7119,
       "cd": 233.91
      }
     },
@@ -58950,10 +58950,10 @@
    "mXL1s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 998.2,
+    "atk": 713,
     "int": 1.6,
-    "sDps": 291.142,
-    "sTot": 3493.7,
+    "sDps": 1996.4,
+    "sTot": 23956.8,
     "cDps": null,
     "nDps": 222.813,
     "sHps": null,
@@ -58961,8 +58961,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 291.142,
-      "st": 3493.7,
+      "sd": 1996.4,
+      "st": 23956.8,
       "cd": null
      }
     },
@@ -58974,8 +58974,8 @@
     "atk": 1283.4,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 641.7,
-    "cDps": 245.985,
+    "sTot": 7486.5,
+    "cDps": 588.225,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -58983,7 +58983,7 @@
     "dmg": {
      "arts": {
       "sd": 0,
-      "st": 641.7,
+      "st": 7486.5,
       "cd": 245.985
      }
     },
@@ -59028,10 +59028,10 @@
    "mXL2s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 1012.2,
+    "atk": 723,
     "int": 1.6,
-    "sDps": 295.225,
-    "sTot": 3542.7,
+    "sDps": 2024.4,
+    "sTot": 24292.8,
     "cDps": null,
     "nDps": 225.938,
     "sHps": null,
@@ -59039,8 +59039,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 295.225,
-      "st": 3542.7,
+      "sd": 2024.4,
+      "st": 24292.8,
       "cd": null
      }
     },
@@ -59052,8 +59052,8 @@
     "atk": 1301.4,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 650.7,
-    "cDps": 249.435,
+    "sTot": 7591.5,
+    "cDps": 596.475,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -59061,7 +59061,7 @@
     "dmg": {
      "arts": {
       "sd": 0,
-      "st": 650.7,
+      "st": 7591.5,
       "cd": 249.435
      }
     },
@@ -59106,10 +59106,10 @@
    "mXL3s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 1026.2,
+    "atk": 733,
     "int": 1.6,
-    "sDps": 299.308,
-    "sTot": 3591.7,
+    "sDps": 2052.4,
+    "sTot": 24628.8,
     "cDps": null,
     "nDps": 229.063,
     "sHps": null,
@@ -59117,8 +59117,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 299.308,
-      "st": 3591.7,
+      "sd": 2052.4,
+      "st": 24628.8,
       "cd": null
      }
     },
@@ -59130,8 +59130,8 @@
     "atk": 1319.4,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 659.7,
-    "cDps": 252.885,
+    "sTot": 7696.5,
+    "cDps": 604.725,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -59139,7 +59139,7 @@
     "dmg": {
      "arts": {
       "sd": 0,
-      "st": 659.7,
+      "st": 7696.5,
       "cd": 252.885
      }
     },
@@ -59172,10 +59172,10 @@
    "s1": {
     "type": "damage",
     "dt": "arts",
-    "atk": 742.17,
+    "atk": 519,
     "int": 1.6,
-    "sDps": 222.651,
-    "sTot": 5566.275,
+    "sDps": 155.7,
+    "sTot": 3892.5,
     "cDps": null,
     "nDps": 162.188,
     "sHps": null,
@@ -59183,8 +59183,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 222.651,
-      "st": 5566.275,
+      "sd": 155.7,
+      "st": 3892.5,
       "cd": null
      }
     },
@@ -59194,9 +59194,9 @@
     "type": "damage",
     "dt": "arts",
     "atk": 519,
-    "int": 0.889,
-    "sDps": 285.45,
-    "sTot": 5709,
+    "int": 1.6,
+    "sDps": 155.7,
+    "sTot": 3114,
     "cDps": null,
     "nDps": 162.188,
     "sHps": null,
@@ -59204,8 +59204,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 285.45,
-      "st": 5709,
+      "sd": 155.7,
+      "st": 3114,
       "cd": null
      }
     },
@@ -59229,10 +59229,10 @@
    "mYL1s1": {
     "type": "damage",
     "dt": "arts",
-    "atk": 777.92,
+    "atk": 544,
     "int": 1.524,
-    "sDps": 248.934,
-    "sTot": 6223.36,
+    "sDps": 174.08,
+    "sTot": 4352,
     "cDps": null,
     "nDps": 178.5,
     "sHps": null,
@@ -59240,8 +59240,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 248.934,
-      "st": 6223.36,
+      "sd": 174.08,
+      "st": 4352,
       "cd": null
      }
     },
@@ -59251,9 +59251,9 @@
     "type": "damage",
     "dt": "arts",
     "atk": 544,
-    "int": 0.865,
-    "sDps": 312.8,
-    "sTot": 6256,
+    "int": 1.524,
+    "sDps": 176.8,
+    "sTot": 3536,
     "cDps": null,
     "nDps": 178.5,
     "sHps": null,
@@ -59261,8 +59261,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 312.8,
-      "st": 6256,
+      "sd": 176.8,
+      "st": 3536,
       "cd": null
      }
     },
@@ -59286,10 +59286,10 @@
    "mYL2s1": {
     "type": "damage",
     "dt": "arts",
-    "atk": 792.22,
+    "atk": 554,
     "int": 1.509,
-    "sDps": 253.51,
-    "sTot": 6337.76,
+    "sDps": 177.28,
+    "sTot": 4432,
     "cDps": null,
     "nDps": 183.513,
     "sHps": null,
@@ -59297,8 +59297,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 253.51,
-      "st": 6337.76,
+      "sd": 177.28,
+      "st": 4432,
       "cd": null
      }
     },
@@ -59308,9 +59308,9 @@
     "type": "damage",
     "dt": "arts",
     "atk": 554,
-    "int": 0.86,
-    "sDps": 318.55,
-    "sTot": 6371,
+    "int": 1.509,
+    "sDps": 180.05,
+    "sTot": 3601,
     "cDps": null,
     "nDps": 183.513,
     "sHps": null,
@@ -59318,8 +59318,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 318.55,
-      "st": 6371,
+      "sd": 180.05,
+      "st": 3601,
       "cd": null
      }
     },
@@ -59343,10 +59343,10 @@
    "mYL3s1": {
     "type": "damage",
     "dt": "arts",
-    "atk": 802.23,
+    "atk": 561,
     "int": 1.495,
-    "sDps": 256.714,
-    "sTot": 6417.84,
+    "sDps": 179.52,
+    "sTot": 4488,
     "cDps": null,
     "nDps": 187.584,
     "sHps": null,
@@ -59354,8 +59354,8 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 256.714,
-      "st": 6417.84,
+      "sd": 179.52,
+      "st": 4488,
       "cd": null
      }
     },
@@ -59365,9 +59365,9 @@
     "type": "damage",
     "dt": "arts",
     "atk": 561,
-    "int": 0.856,
-    "sDps": 322.575,
-    "sTot": 6451.5,
+    "int": 1.495,
+    "sDps": 182.325,
+    "sTot": 3646.5,
     "cDps": null,
     "nDps": 187.584,
     "sHps": null,
@@ -59375,11 +59375,102 @@
     "tHeal": null,
     "dmg": {
      "arts": {
-      "sd": 322.575,
-      "st": 6451.5,
+      "sd": 182.325,
+      "st": 3646.5,
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10043_necras_skeltn": {
+  "name": "悲叹的仆役",
+  "skills": [
+   "怨火缠身",
+   "怨火缠身",
+   "怨火缠身"
+  ],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 308,
+    "int": 1.8,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 8.556,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   },
+   "s1": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 308,
+    "int": 1.8,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 8.556,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   },
+   "s2": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 308,
+    "int": 1.8,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 8.556,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   },
+   "s3": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 308,
+    "int": 1.8,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 8.556,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
+ "token_10042_tecno_puppet": {
+  "name": "木偶舞者",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 298,
+    "int": 2.5,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 5.96,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }

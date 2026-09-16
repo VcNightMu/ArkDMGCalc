@@ -17,7 +17,7 @@ const IDS = [
   'char_222_bpipe', 'char_261_sddrag', 'char_290_vigna', 'char_192_falco', // 冲锋手
   'char_411_tomimi', 'char_466_qanik', 'char_002_amiya', 'char_141_nights', 'char_180_amgoat', // 中坚术师
   'char_2015_dusk', 'char_166_skfire', 'char_253_greyy', 'char_109_fmout', 'char_121_lava', 'char_341_sntlla', 'char_213_mostma', 'char_1011_lava2', // 扩散术师
-  'char_377_gdglow', 'char_4236_tmslot', 'char_4054_malist', 'char_4040_rockr', 'char_1038_whitw2', 'char_4013_kjera', 'char_328_cammou', // 驭械术师
+  'char_377_gdglow', 'char_4236_tmslot', 'char_4054_malist', 'char_4040_rockr', 'char_1038_whitw2', 'char_4013_kjera', 'char_328_cammou', 'char_450_necras', 'char_4164_tecno', // 驭械术师
   'char_479_sleach', 'char_497_ctable', // 执旗手/情报官
   'char_249_mlyss', 'char_4228_closur', // 战术家
   'char_4080_lin', 'char_426_billro', 'char_4046_ebnhlz', 'char_469_indigo', 'char_4004_pudd', 'char_134_ifrit', 'char_4204_mantra', 'char_4081_warmy', 'char_4164_tecno', // 术师其余子职业

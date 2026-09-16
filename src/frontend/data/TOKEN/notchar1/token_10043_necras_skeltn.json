@@ -1,0 +1,128 @@
+{
+  "id": "token_10043_necras_skeltn",
+  "name": "悲叹的仆役",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_450_necras",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        130,
+        184
+      ],
+      "def": [
+        107,
+        152
+      ],
+      "maxHp": [
+        919,
+        1149
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        190,
+        244
+      ],
+      "def": [
+        157,
+        202
+      ],
+      "maxHp": [
+        1210,
+        1458
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        252,
+        308
+      ],
+      "def": [
+        209,
+        255
+      ],
+      "maxHp": [
+        1535,
+        1850
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "sktok_necras_skeltn_1",
+      "name": "怨火缠身",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_necras_skeltn_2",
+      "name": "怨火缠身",
+      "levels": [
+        {
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_necras_skeltn_3",
+      "name": "怨火缠身",
+      "levels": [
+        {
+          "attack@atk_scale": 1.2,
+          "attack@duration": 8,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [],
+  "trait": null,
+  "potentialRanks": []
+}
