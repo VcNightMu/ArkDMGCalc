@@ -55,6 +55,8 @@ check('夜烟 S1 总伤(减抗res40)', niS1.skillTotalDamage, 9259.2, 0.01);
 // ===== 雪绒S1寒风/特米米S1部族技艺/阿米娅S1战术咏唱:攻速通用(间隔0.941) =====
 const qa = load('char_466_qanik');
 check('雪绒 S1 间隔 0.941', calculateOperator(qa, mkFor(qa, 0)).realInterval, 0.941176, 0.001);
+  const qaPs = calcPanelStats(qa, mkFor(qa, 0));
+  check('雪绒 S1 常态DPS=A(面板atk)/1.6(间隔不随技能)', calculateOperator(qa, mkFor(qa, 0)).normalDps, A(qaPs.panelAtk) / 1.6, 0.01);
 const to = load('char_411_tomimi');
 check('特米米 S1 间隔 0.941', calculateOperator(to, mkFor(to, 0)).realInterval, 0.941176, 0.001);
 // 荒野法术:技能开启期普攻变物理 + atk+100%(E2),31击×P(635×2.0);常态法伤不受影响
@@ -62,8 +64,8 @@ const toS1 = calculateOperator(to, mkFor(to, 0));
 check('特米米 S1 damageType=physical(技能期切物理)', toS1.damageType, 'physical');
 check('特米米 S1 总伤=31击×P(635×2.0)', toS1.skillTotalDamage, 31 * P2(635 * 2.0, 600), 0.01);
 check('特米米 S1 技能期ATK=×2.0', toS1.panelAtk, 635 * 2.0, 0.01);
-// 常态不改:非技能期仍是职业法术普攻(荒野法术仅技能开启时生效);间隔随技能期攻速(与雪绒/阿米娅同口径)
-check('特米米 S1 常态DPS=A(635)/0.941(法术)', toS1.normalDps, A(635) / (1.6 * 100 / 170), 0.01);
+// 常态不改:非技能期仍是职业法术普攻(荒野法术仅技能开启时生效);间隔用基础(面板)间隔,不含技能期攻速
+check('特米米 S1 常态DPS=A(635)/1.6(法术,不含技能期攻速)', toS1.normalDps, A(635) / 1.6, 0.01);
 check('特米米 S1 常态类型=arts', toS1.normalDamageType, 'arts');
 const toS2 = calculateOperator(to, mkFor(to, 1));
 check('特米米 S2 damageType=physical(技能期切物理)', toS2.damageType, 'physical');

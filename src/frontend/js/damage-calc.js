@@ -1421,7 +1421,7 @@ function calculateOperator(op, slotData, ctx) {
   const fragileExtra = (incantMode === 'burning' && levelData['talent@prob'] === 1) ? calcMagicFragileMul(op, slotData, 0) : 1;
 
   const params = {
-    panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, baseInterval: phase.baseAttackTime, skillDuration,
+    panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, normalInterval: realInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul,
     isIncantationMedic, enemy: state.enemy,
     incantMode,
@@ -1957,7 +1957,7 @@ function calculateOperator(op, slotData, ctx) {
     result = {
       type: 'heal', skillHps: hpsBear, totalHeal: hpsBear * durBear,
       skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalHps: null,
-      normalDps: calcPhysicalDamage(panelAtk, effDef) / normIntB,
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / realInterval,
       realInterval: normIntB, panelAtk,
     };
   } else if (op.id === 'char_479_sleach' && skillIndex === 2) {
@@ -2099,7 +2099,7 @@ function calculateOperator(op, slotData, ctx) {
     const cantDur = cantInt * ammo;
     result = {
       skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null,
-      normalDps: calcPhysicalDamage(panelAtk, effDef) / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: calcPhysicalDamage(panelAtk, effDef) / realInterval,
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: 'physical', realInterval: cantInt,
       dmgTypes: { physical: { skillDps: cantDur > 0 ? cantTotal / cantDur : 0, skillTotalDamage: cantTotal, cycleDps: null } },
@@ -2200,8 +2200,8 @@ function calculateOperator(op, slotData, ctx) {
     const dotHit = calcArtsDamage(dotCfg.atkScaleKey ? skillAtk * levelData[dotCfg.atkScaleKey] : skillAtk, state.enemy.res);
     const jumps = Math.floor(skillDuration / dotInterval);
     const dotTotal = dotHit * jumps;
-    const normInterval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
-    const normDps = calcPhysicalDamage(panelAtk, effDef) / normInterval;
+    const normInterval = realInterval;   // 常态间隔=面板间隔
+    const normDps = (op.damageType === 'arts' ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef)) / normInterval;
     result = {
       skillDps: skillDuration > 0 ? dotTotal / skillDuration : 0, skillTotalDamage: dotTotal,
       cycleDps: null, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,

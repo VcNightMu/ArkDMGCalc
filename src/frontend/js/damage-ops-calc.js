@@ -7,7 +7,7 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1 } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, normalInterval = realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1 } = params;
 
   const isTrue = levelData.trueDamage === true || isTrueOverride;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
@@ -66,7 +66,7 @@ function calcDamage(params) {
     }
     skillTotalDamage = total;
     skillDps = total / skillDuration;
-    normalDps = (normalHitDamage + flatOn) / realInterval;
+    normalDps = (normalHitDamage + flatOn) / normalInterval;
   } else if (skillDuration > 0) {
     skillAttacks = Math.floor(skillDuration / realInterval);
     if (flatAt) {
@@ -77,7 +77,7 @@ function calcDamage(params) {
       skillTotalDamage = (singleHitDamage + flatOn) * skillAttacks;
     }
     skillDps = skillTotalDamage / skillDuration;
-    normalDps = (normalHitDamage + flatOn) / realInterval;
+    normalDps = (normalHitDamage + flatOn) / normalInterval;
   } else {
     skillAttacks = 1;
     skillTotalDamage = singleHitDamage + flatOn;
