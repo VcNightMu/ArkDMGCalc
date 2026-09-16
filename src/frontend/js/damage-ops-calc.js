@@ -7,7 +7,7 @@ import { calcCycleDps } from './medic-calc.js';
  * @returns {Object} damage metrics
  */
 function calcDamage(params) {
-  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, normalInterval = realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1, funnelNormalMul = 1, funnelSkillMul = 1 } = params;
+  const { panelAtk, skillAtk, rawAtk, talentAtk, realInterval, normalInterval = realInterval, skillDuration, isToggle, isPermanent, levelData, isArts, normalTypeArts, hitMul = 1, talentDmgMul = 1, enemy, isWeakness = false, resPen = 0, isTrueOverride = false, hitMrMul = 1, flatArtsHit = 0, flatAt = null, defPenFixed = 0, skillDmgMul = 1, funnelNormalMul = 1, funnelSkillMul = 1, atkRampUp = null, dmgRamp = 0 } = params;
 
   const isTrue = levelData.trueDamage === true || isTrueOverride;
   const isDecay = levelData.atkDecay === true && levelData.atk !== undefined;
@@ -55,7 +55,7 @@ function calcDamage(params) {
     skillDps = (singleHitDamage + flatOn) / realInterval;
     // 驭械术师永续/切换技能:常态行照常展示(本体+既有单元满层);其它职业保持 null 口径不变
     if (funnelNormalMul !== 1) normalDps = (normalHitDamage + flatOn) / normalInterval;
-  } else if (skillDuration > 0 && isDecay) {
+  } else if (skillDuration > 0 && (isDecay || atkRampUp)) {
     // 攻击力增幅随时间线性衰减(从 levelData.atk 衰减至 0,衰减到面板攻击力)。
     // 按每次攻击时刻(第 0 秒、第 interval 秒、第 2×interval 秒......)的即时攻击力逐次结算总伤与平均 DPS。
     // 即时攻击力 = rawAtk × (1 + 天赋atk + 剩余增幅);直接乘算加算,不连乘。
@@ -63,8 +63,12 @@ function calcDamage(params) {
     let total = 0;
     for (let i = 0; i < skillAttacks; i++) {
       const t = i * realInterval;
-      const bonus = levelData.atk * (1 - t / skillDuration);
-      total += skillHitDamage(rawAtk * (1 + (talentAtk || 0) + bonus)) + (flatAt ? flatAt(i) : flatOn);
+      const bonus = atkRampUp
+        ? levelData.atk * Math.min(1, t / ((atkRampUp.span > 0 ? atkRampUp.span : skillDuration) || skillDuration))
+        : levelData.atk * (1 - t / skillDuration);
+      let hit = skillHitDamage(rawAtk * (1 + (talentAtk || 0) + bonus)) + (flatAt ? flatAt(i) : flatOn);
+      if (atkRampUp && dmgRamp > 0) hit = hit * (1 + dmgRamp * (t / skillDuration));  // 蓄力增伤:整个技能内线性递增
+      total += hit;
     }
     skillTotalDamage = total;
     skillDps = total / skillDuration;

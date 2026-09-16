@@ -1112,6 +1112,23 @@ const ATK_SCALE_REWRITE = {
   'char_166_skfire': [1],
   'char_341_sntlla': [1],
 };
+// 阵法术师技能改造①:技能「每次攻击造成相当于攻击力 X% 的法术伤害」→ 把该值作为技能期每击最终倍率
+// (键名多为 attack@atk_scale_s2/_s3 或 attack@atk_scale;伤害对攻击力线性,等价于最终乘算倍率;永续槽同样生效故不设时长门槛)
+const PHALANX_PER_HIT_SCALE = {
+  'char_1046_sbell2': { 1: 'attack@atk_scale_s2', 2: 'attack@atk_scale_s3' },
+  'char_388_mint': { 0: 'attack@atk_scale', 1: 'attack@atk_scale' },
+};
+// 阵法术师技能改造②:攻击力线性递增 + 蓄力增伤线性递增
+// (卡涅利安「食噬之印」:攻击力在 span 秒内从 +0% 线性增至满值;蓄力额外使目标受伤提升 20%×5 层,按整个技能线性折算)
+const PHALANX_ATK_RAMP = {
+  'char_426_billro': { 2: { span: 20, dmgRamp: 1 } },
+};
+// 阵法术师技能改造③:DoT 与技能结束收尾爆发
+const PHALANX_EXTRA = {
+  'char_1046_sbell2': { dot: { 1: 'talent@s2_magic_scale' } },  // S2 积雪:能攻击到即站在积雪上,每秒受 talent@s2_magic_scale×攻击力 法伤
+  'char_388_mint': { endBurst: { 1: 'atk_scale' } },            // S2 技能结束时对范围内敌人造成 atk_scale×攻击力 法伤(一次性)
+  'char_344_beewax': { endBurst: { 1: 'atk_scale' } },           // S2 技能开启召唤方尖塔时对附近敌人造成 atk_scale×攻击力 法伤(一次性;时点在技能开始,计入总伤)
+};
 // 技能开启期天赋自回(技能期每秒回 maxHp 比例,与技能自带自回键求和;火神「自我防护」对所有技能生效)
 const TALENT_SKILL_RECOVER = {
   'char_163_hpsts': 0,  // 火神:技能开启时每秒恢复 4~5% 最大生命(与 S1 自带 4% 叠加,S2 亦生效)
@@ -1163,7 +1180,9 @@ const SINGLE_CRIT_MUL = {
 const SKILL_ATK_SCALE_EXCLUDE = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
   'char_494_vendla': { 1: true },   // 刺玫 S2 荆藤庇荫：atk_scale 是受击反伤倍率（反伤不计），普攻只吃 atk 加攻
-  'char_4230_mcnist': { 1: true, 2: true }, // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
+  'char_4230_mcnist': { 1: true, 2: true },
+  'char_388_mint': { 1: true },    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2)
+  'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
@@ -1412,7 +1431,9 @@ function calculateOperator(op, slotData, ctx) {
       const isMed = op.id === 'char_2026_yu' && norm.normalTypes.arts; // 余常态含每秒法伤
       return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
     }
-    const normalDps = normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1);  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+    // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
+    const normalDps = op.subProfessionId === 'phalanx' ? 0
+      : normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1);  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -1495,6 +1516,10 @@ function calculateOperator(op, slotData, ctx) {
   // (天火 S2 天坠之火每击 2.2×atk、寒檀 S2 女巫之泪每击 0.8×atk)。其余带 attack@atk_scale 的技能
   // (暮落S2 times 连发/推进之王S3/机师S3/霍尔海雅S2 等)均已有专用分支消费,不得通用乘以免双倍
   if (((ATK_SCALE_REWRITE[op.id] || []).includes(skillIndex)) && levelData['attack@atk_scale'] !== undefined && skillDuration > 0) skillAtk = skillAtk * levelData['attack@atk_scale'];
+  // 阵法术师每击倍率(见 PHALANX_PER_HIT_SCALE)
+  const phHitKey = (PHALANX_PER_HIT_SCALE[op.id] || {})[skillIndex];
+  const phBaseSkillAtk = skillAtk;  // 阵法术师:每击倍率之前的技能期攻击力(供 DoT / 收尾爆发使用)
+  if (phHitKey && levelData[phHitKey] !== undefined) skillAtk = skillAtk * levelData[phHitKey];
   // 技能开启期天赋攻击(特米米「荒野法术」+50~100%):常态无加成,开启期与面板同乘区
   if (SKILL_TALENT_ATK_ONLY[op.id] !== undefined && skill) {
     const tOnly = calcSkillTalentAtkOnly(op, slotData);
@@ -1548,7 +1573,9 @@ function calculateOperator(op, slotData, ctx) {
     funnelNormalMul: funnelMuls.normalMul,  // 驭械术师:本体+浮游单元(常态)攻击力当量倍数
     funnelSkillMul: funnelMuls.skillMul,    // 驭械术师:技能期当量倍数(技能期新增单元按叠层取平均)  // 弱点伤害逐击取优(赤刃明霄陈,精1+)
     flatArtsHit: defHitArtsMax(op, slotData),  // 每击敌方防御附加法伤稳态档(刻俄柏剥壳:不吃倍率吃法抗;常态/循环用)
-    flatAt: defHitArtsMax(op, slotData) > 0 ? (i => defHitArtsAt(op, slotData, i)) : null,  // 逐击档(X模组剥壳递增:技能期按攻击序爬升)
+    flatAt: defHitArtsMax(op, slotData) > 0 ? (i => defHitArtsAt(op, slotData, i)) : null,
+    atkRampUp: (PHALANX_ATK_RAMP[op.id] || {})[skillIndex] || null,  // 阵法术师:攻击力线性递增(卡涅利安 S3)
+    dmgRamp: ((PHALANX_ATK_RAMP[op.id] || {})[skillIndex] || {}).dmgRamp || 0,  // 蓄力增伤线性递增(整个技能)  // 逐击档(X模组剥壳递增:技能期按攻击序爬升)
   };
 
   let result;
@@ -2488,6 +2515,29 @@ function calculateOperator(op, slotData, ctx) {
     };
   } else {
     result = calcDamage(params);
+  }
+
+  // 阵法术师(phalanx):特性「通常时不攻击」→ 常态行恒为 0(技能期照常计算)
+  if (op.subProfessionId === 'phalanx') result = { ...result, normalDps: 0, normalHps: null, normalDamageType: op.damageType };
+
+  // 阵法术师技能改造③:DoT(圣聆初雪 S2 积雪每秒法伤)与技能结束收尾爆发(薄绿 S2)
+  if (op.subProfessionId === 'phalanx' && skillIndex >= 0) {
+    const phExtra = PHALANX_EXTRA[op.id] || {};
+    const phDotKey = (phExtra.dot || {})[skillIndex];
+    if (phDotKey && levelData[phDotKey] !== undefined) {
+      const dotDps = calcArtsDamage(phBaseSkillAtk * levelData[phDotKey], state.enemy.res);
+      const addTotal = skillDuration > 0 ? dotDps * skillDuration : 0;
+      result = { ...result, skillDps: (result.skillDps || 0) + dotDps, skillTotalDamage: (result.skillTotalDamage || 0) + addTotal };
+    }
+    const phBurstKey = (phExtra.endBurst || {})[skillIndex];
+    if (phBurstKey && levelData[phBurstKey] !== undefined && skillDuration > 0) {
+      const newTotal = (result.skillTotalDamage || 0) + calcArtsDamage(phBaseSkillAtk * levelData[phBurstKey], state.enemy.res);
+      result = { ...result, skillTotalDamage: newTotal, skillDps: newTotal / skillDuration };
+    }
+    if (result.dmgTypes) {
+      const dk = op.damageType === 'arts' ? 'arts' : 'physical';
+      if (result.dmgTypes[dk]) result.dmgTypes = { ...result.dmgTypes, [dk]: { ...result.dmgTypes[dk], skillDps: result.skillDps, skillTotalDamage: result.skillTotalDamage } };
+    }
   }
 
   // ======== 重装/防御通用修正 ========
