@@ -5,8 +5,9 @@
 //  - 爆条窗口统一:损伤事件流推进 EP→爆条→窗口内降抗(火 -20)/条件性元素伤害按时间加权摊算
 //    神经 6000/cd10、灼燃 7000+10s 法抗-20、凋亡 800×15=12000/cd15
 //  - 弹药型(烛煌 S3,自体不自供损伤→元素归零)、满蓄力型(温米 S2 取 enhanced_duration 30s)、充能点燃(妮芙 S2)沿用既有机制
-//  - 不施加损伤的槽位(Christine S2/温米 S2/折光 S2/烛煌 S3/妮芙 S3)无爆条;依赖外部损伤源的天赋默认不计
-//  - 自供爆条的天赋计入:温米 S1「难免会溢锅」、妮芙 S1/S2 第一天赋「失魂」(爆发窗口内每秒 攻击力×40% 元素 DoT,用户口径 2026-09-16)
+//  - 不施加损伤的槽位(Christine S2/温米 S2/折光 S2/烛煌 S3/妮芙 S3)无爆条;依赖敌方行为/概率的天赋默认不计
+//  - 自供爆条的天赋计入:温米 S1「难免会溢锅」、烛煌 S1/S2「熔点引爆」(用户口径 2026-09-17)、
+//    妮芙 S1/S2 第一天赋「失魂」(爆发窗口内每秒 攻击力×40% 元素 DoT,用户口径 2026-09-16)
 //  - 常态(无技能)不含元素(普攻不移交损伤)→ 常态行不变
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
@@ -81,16 +82,18 @@ check('OPERATOR_ELEMENT 登记折光=凋亡', OPERATOR_ELEMENT['char_499_kaitou'
   const r0 = calculateOperator(o, mk(o, -1));
   check('烛煌 常态 = A(752)/1.6', near(r0.normalDps, A(752) / 1.6), `got ${r0.normalDps}`);
 
-  // S1 炙手之援(火圈 20s,每秒 60%×atk 法伤 + 30% 灼燃损伤)
+  // S1 炙手之援(火圈 20s,每秒 55%×atk 法伤 + 30% 灼燃损伤;自供 1 次灼燃爆条)
+  // + 天赋「熔点引爆」(灼燃爆发开始 +350%×atk 元素伤害,用户口径 2026-09-17 自供爆条计入)
   const r1 = calculateOperator(o, mk(o, 0));
-  check('烛煌 S1 元素档 = 爆条 7000(1 次)', near(dt(r1, 'element'), 7000), `got ${dt(r1, 'element')}`);
+  check('烛煌 S1 元素 = 爆条 7000 + 天赋 350%×atk(自供 1 次爆条)', near(dt(r1, 'element'), 7000 + 752 * 3.5), `got ${dt(r1, 'element')}`);
   check('烛煌 S1 火圈+普攻法伤 > 单火圈口径', dt(r1, 'arts') > 20 * A(752 * 0.6), `got ${dt(r1, 'arts')}`);
   check('烛煌 S1 常态行保持 null(AUTO 槽)', r1.normalDps === null, `got ${r1.normalDps}`);
 
   // S2 沸血燎原(手动 35s,攻击力+130%,间隔 +0.9→2.5s;灼烧地段每秒 35%×atk 法伤 + 30% 灼燃损伤)
   const r2 = calculateOperator(o, mk(o, 1));
   check('烛煌 S2 间隔 = 1.6+0.9 = 2.5s', near(r2.realInterval, 2.5, 0.001), `got ${r2.realInterval}`);
-  check('烛煌 S2 元素 = 2 次爆条 14000', near(dt(r2, 'element'), 14000), `got ${dt(r2, 'element')}`);
+  // 自供 2 次爆条 → 天赋「熔点引爆」2×350%×技能期攻击力(752×2.3,与上面 arts 口径一致)
+  check('烛煌 S2 元素 = 2 次爆条 14000 + 天赋 2×350%×atk', near(dt(r2, 'element'), 14000 + 2 * 752 * 2.3 * 3.5), `got ${dt(r2, 'element')}`);
   check('烛煌 S2 法伤 = 14 普攻 + 35 地段跳伤(窗口加权)', dt(r2, 'arts') > 14 * A(752 * 2.3) + 35 * A(752 * 2.3 * 0.35), `got ${dt(r2, 'arts')}`);
   check('烛煌 S2 常态行 = 无技能态', near(r2.normalDps, r0.normalDps), `got ${r2.normalDps}`);
 
@@ -206,6 +209,13 @@ check('OPERATOR_ELEMENT 登记折光=凋亡', OPERATOR_ELEMENT['char_499_kaitou'
   check('折光 X模L3 面板=643+65', near(rk0.panelAtk, 708), `got ${rk0.panelAtk}`);
   // 面板提升后第 10 击即爆条 → 窗口内 2 击(t=17.6/19.2)各额外 40%×atk×1.23
   check('折光 S1 X模L3 元素 = 12000 + 2×40%×atk×1.23(天赋强化)', near(dt(rk, 'element'), 12000 + 2 * 708 * 1.9 * 1.23 * 0.4, 1), `got ${dt(rk, 'element')}`);
+
+  const b = load('char_1040_blaze2');
+  const rb = calculateOperator(b, mk(b, 0, MOD(b, 'X', 3)));
+  const rb0 = calculateOperator(b, mk(b, -1, MOD(b, 'X', 3)));
+  // PRI-X L3:攻击+82(面板 834)、天赋 ep_damage_scale → 4.2;自供 1 次爆条 → +420%×atk
+  check('烛煌 X模L3 面板=752+82', near(rb0.panelAtk, 834), `got ${rb0.panelAtk}`);
+  check('烛煌 S1 X模L3 元素 = 爆条 7000 + 420%×834(天赋强化)', near(dt(rb, 'element'), 7000 + 834 * 4.2), `got ${dt(rb, 'element')}`);
 }
 
 // ============ 直接调用统一时间轴模拟器 ============

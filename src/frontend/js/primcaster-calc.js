@@ -8,9 +8,10 @@
 //     神经爆发 6000/cd10、灼燃 7000+10s 法抗-20、凋亡 800×15=12000/cd15;
 //  3) 弹药型(烛煌 S3)、蓄力型(温米 S2 按 enhanced_duration 满蓄力档)沿用既有机制;妮芙 S2 充能按「点燃」cycle 处理;
 //  4) 不施加损伤的技能槽(Christine S2 / 温米 S2 / 折光 S2 / 烛煌 S3 / 妮芙 S3 等)不得产生爆条 → 其"对爆发期目标的
-//     额外元素伤害"一律归零(用户口径 2026-09-16);依赖外部损伤源的天赋(烛煌「熔点引爆」全场、Christine「诱人美馔」、
-//     真言两条天赋、妮芙第二天赋「窥心钥」)默认不计;
+//     额外元素伤害"一律归零(用户口径 2026-09-16);依赖敌方行为/概率的天赋(Christine「诱人美馔」、真言「噤声限域」、
+//     妮芙第二天赋「窥心钥」)默认不计(说明文本已登记);
 //  5) 同一干员自己造成的爆条在其自供槽位要算:温米 S1「难免会溢锅」(攻击范围内=自身火圈满足)、
+//     烛煌 S1/S2「熔点引爆」(全场灼燃爆发开始时,自身火圈/灼烧地段满足,用户口径 2026-09-17)、
 //     妮芙 S1/S2 第一天赋「失魂」(自供爆条 → 爆发窗口内每秒 攻击力×0.4 元素 DoT)、
 //     折光 S1「预先告知」(范围内存在爆发单位)随窗口计入。
 // 常态(无技能)不含元素(普攻不移交损伤)→ 常态行不变。
@@ -128,7 +129,11 @@ export function calcPrimCasterSkill(p) {
         { atk: panelAtk, dmgMul: 1, interval: I },
         { atk: panelAtk, dmgMul: L.atk_scale, interval: 1, el, epMul: L.element_multiplier, epBase: 'damage' },
       ]});
-      return buildResult(result, { arts: sim.arts, element: sim.element, window, cycle: true });
+      // 天赋「熔点引爆」(全场灼燃损伤爆发开始时 +ep_damage_scale×攻击力 元素伤害):用户口径 2026-09-17 ——
+      // 烛煌自供爆条(火圈每秒灼燃损伤)时计入,按爆条次数 × 面板攻击力 × 天赋倍率(S1 无 atk 加成 → 面板)。
+      const talent = talentBbMax(op, slotData, 0, 'ep_damage_scale');
+      const talentElem = sim.breakCount * panelAtk * talent;
+      return buildResult(result, { arts: sim.arts, element: sim.element + talentElem, window, cycle: true });
     }
     if (skillIndex === 1) {
       // S2 沸血燎原(手动 35s,攻击力+130%,间隔 +0.9 秒):本体普攻 + 灼烧地段每秒 0.35×atk 法伤 + 30% 灼燃损伤。
@@ -138,7 +143,10 @@ export function calcPrimCasterSkill(p) {
         { atk: atkS, dmgMul: 1, interval: I },
         { atk: atkS, dmgMul: L.atk_scale, interval: 1, el, epMul: L.element_damage_scale, epBase: 'damage' },
       ]});
-      return buildResult(result, { arts: sim.arts, element: sim.element, window, cycle: false });
+      // 天赋「熔点引爆」(同 S1):S2 灼烧地段自供灼燃爆条 → 按爆条次数 × 技能期攻击力(含 atk 加成)× 天赋倍率。
+      const talent = talentBbMax(op, slotData, 0, 'ep_damage_scale');
+      const talentElem = sim.breakCount * atkS * talent;
+      return buildResult(result, { arts: sim.arts, element: sim.element + talentElem, window, cycle: false });
     }
     if (skillIndex === 2) {
       // S3 众恶的焚场(弹药型 attack@trigger_time 发,间隔 -1.3 → 0.3s):每发 攻击力×(1+atk)。
