@@ -41,6 +41,7 @@ const IDS = [
   'char_017_huang', 'char_1026_gvial2', 'char_127_estell', 'char_143_ghost', 'char_230_savage', 'char_281_popka', 'char_356_broca', 'char_4126_fuze', 'char_4166_varkis',  // 近卫·强攻手
   'char_137_brownb', 'char_155_tiger', 'char_157_dagda', 'char_2024_chyue', 'char_264_f12yin', 'char_347_jaksel', 'char_4037_demetr', 'char_415_flint',  // 近卫·斗士
   'char_130_doberm', 'char_265_sophia', 'char_308_swire', 'char_4106_bryota', 'char_4125_rdoc', 'char_485_pallas',  // 近卫·教官
+  'char_010_chen', 'char_252_bibeak', 'char_301_cutter', 'char_4009_irene', 'char_4116_blkkgt', 'char_4220_kormr', 'char_459_tachak',  // 近卫·剑豪
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

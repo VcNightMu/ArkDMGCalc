@@ -151,6 +151,77 @@ const FIGHTER_SPECIAL = {
   'char_4037_demetr': [1, 2] // 军师的手段 / 清算
 };
 
+// ===== 剑豪(sword)专用助手 =====
+const SWORD_SPECIAL = {
+  'char_010_chen': [2],      // 赤霄·绝影:10 次连斩(纯 times 键,引擎不识别)
+  'char_301_cutter': [0],    // 红移:4 把飞刀(times 键)
+  'char_4009_irene': [2],    // 判决:300% + 12 次 230%(multi_times/multi_atk_scale)
+  'char_4116_blkkgt': [0, 1, 2], // 锏:三技能均按天赋在 2/3 技能生效的口径
+  'char_459_tachak': [0],    // 燃烧榴弹:6 秒燃烧区域(每秒 50% 法术)
+  'char_4220_kormr': [-1]    // 虎狼丸天赋「黑色狼牙」按落地触发的被动处理
+};
+
+// 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
+function swordTalentAtkScale(op, slotData, skillIndex) {
+  if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 1;
+  const talent = (op.talents || [])[0];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 1;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb.atk_scale === 'number' && bb.atk_scale > best) best = bb.atk_scale;
+    }
+  }
+  return best;
+}
+// 锏「活着的传奇」:无视防御百分比,仅在 2/3 技能生效
+function swordTalentDefPen(op, slotData, skillIndex) {
+  if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 0;
+  const talent = (op.talents || [])[1];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, 1, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb.def_penetrate === 'number' && bb.def_penetrate > best) best = bb.def_penetrate;
+    }
+  }
+  return best;   // bb 中 def_penetrate 已是小数(0.25 = 25%)
+}
+// 虎狼丸「黑色狼牙」:部署后 5 次 atk_scale 法术斩击 + 最后 1 次 final_atk_scale 法术斩击
+function kormrBurst(op, slotData) {
+  const talent = (op.talents || [])[0];
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let scale = 1, finalScale = 2;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb.atk_scale === 'number') scale = bb.atk_scale;
+      if (typeof bb.final_atk_scale === 'number') finalScale = bb.final_atk_scale;
+    }
+  }
+  return { scale, finalScale };
+}
+
+// 虎狼丸:无技能槽,天赋落地斩击的等效 DPS = 总伤 / (6 次斩击 × 攻击间隔)
+function kormrBurstDps(op, slotData, realInterval, panelAtk) {
+  if (op.id !== 'char_4220_kormr') return null;
+  const b = kormrBurst(op, slotData);
+  const res = (state.enemy && state.enemy.res) || 0;
+  const Aa = (a) => Math.max(0, a * (1 - res / 100));
+  const tot = Aa(panelAtk * b.scale) * 5 + Aa(panelAtk * b.finalScale);
+  return { dps: tot / 6, total: tot };   // 外层再 / realInterval → 等效 tot/(6×攻击间隔)
+}
+
 function calcTalentAtkBonus(op, slotData) {
   const cfg = TALENT_ATK_DRIVERS[op.id];
   if (cfg === undefined) return 0;
@@ -650,6 +721,7 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  'char_4009_irene': 1,   // 艾丽妮「净化之剑」:攻速 +18/21(E2 潜0 = 18,基础版;模组新增攻击力部分按口径不计)
   'char_017_huang': { talentIndex: 1, key: 'huang_t_2[e_002_atk_speed].attack_speed' },   // 煌「严酷训练」:攻速增幅(模组 X 新增档,默认生效)
   'char_294_ayer': 0,   // 断崖「索敌援助」:自身(与周围8格友方)攻速 +4/6/8/10(常驻)
   'char_1013_chen2': { talentIndex: 1, key: 'chen2_t_2[common].attack_speed' },   // 假日威龙陈「假日余韵」:攻速+8(水地形档 [map] 默认不计,用户口径取基础效果)
@@ -2526,7 +2598,7 @@ function calculateOperator(op, slotData, ctx) {
     const normalDps = op.subProfessionId === 'phalanx' ? 0
       : (op.subProfessionId === 'lord'
         ? Math.max(calcPhysicalDamage(panelAtk * LORD_REMOTE_MUL, effDef), acdropMinDamage(op, slotData, panelAtk * LORD_REMOTE_MUL))
-        : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+        : (kormrBurstDps(op, slotData, realInterval, panelAtk) ? kormrBurstDps(op, slotData, realInterval, panelAtk).dps : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk)))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
@@ -3813,6 +3885,61 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const Aa = (a) => calcArtsDamage(a, state.enemy.res);
+    const mk2 = (sTot, sDps, cd, panel, dt) => ({ type: 'damage', damageType: dt || 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk, dmgTypes: { [dt || 'physical']: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    // 陈 S3 赤霄·绝影:10 次 280% 连斩
+    if (op.id === 'char_010_chen' && skillIndex === 2) {
+      const times = levelData.times || levelData['attack@times'] || 10;
+      return mk2(Pp(panelAtk * levelData.atk_scale) * times, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Pp(panelAtk * levelData.atk_scale) * times), panelAtk * levelData.atk_scale);
+    }
+    // 刻刀 S1 红移:4 把飞刀
+    if (op.id === 'char_301_cutter' && skillIndex === 0) {
+      const times = levelData.times || 4;
+      return mk2(Pp(panelAtk * levelData.atk_scale) * times, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Pp(panelAtk * levelData.atk_scale) * times), panelAtk * levelData.atk_scale);
+    }
+    // 艾丽妮 S3 判决:300% + 12 次 230%
+    if (op.id === 'char_4009_irene' && skillIndex === 2) {
+      const main = Pp(panelAtk * levelData.atk_scale);
+      const times = levelData.multi_times || 12;
+      const sub = Pp(panelAtk * levelData.multi_atk_scale) * times;
+      return mk2(main + sub, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), main + sub), panelAtk * levelData.atk_scale);
+    }
+    // 锏:天赋按 2/3 技能生效口径
+    if (op.id === 'char_4116_blkkgt') {
+      const tMul = swordTalentAtkScale(op, slotData, skillIndex);
+      const defEff = Math.max(0, state.enemy.def * (1 - swordTalentDefPen(op, slotData, skillIndex)));
+      const Ph = (a) => calcPhysicalDamage(a, defEff);
+      if (skillIndex === 0) {   // 纯粹的战意:两次 200%
+        const a = panelAtk * (levelData.atk_scale_s1 || levelData.atk_scale || 2);
+        return mk2(Ph(a) * 2, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Ph(a) * 2), a);
+      }
+      if (skillIndex === 1) {   // 无声的嘲弄:2 次斩击(未被阻挡)
+        const a = panelAtk * (levelData.dot_scale || 0) * tMul;
+        const cnt = levelData['blkkgt_s_2[not_blocked].trig_cnt'] || 2;
+        return mk2(Ph(a) * cnt, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Ph(a) * cnt), a);
+      }
+      // 归于宁静:10 次 + 最终一击
+      const a1 = panelAtk * (levelData.d_atk_scale || 0) * tMul;
+      const a2 = panelAtk * (levelData.e_atk_scale_end || 0) * tMul;
+      const tot = Ph(a1) * 10 + Ph(a2);
+      return mk2(tot, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), tot), a1);
+    }
+    // 战车 S1 燃烧榴弹:6 秒燃烧区域,每秒 50% 法术
+    if (op.id === 'char_459_tachak' && skillIndex === 0) {
+      const per = Aa(panelAtk * (levelData.atk_scale || 0));
+      const ticks = levelData.projectile_delay_time || 6;
+      return mk2(per * ticks, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), per * ticks), panelAtk * (levelData.atk_scale || 0), 'arts');
+    }
+    // 虎狼丸:天赋落地斩击(无技能槽,折进常态列)
+    if (op.id === 'char_4220_kormr') {
+      const b = kormrBurst(op, slotData);
+      const tot = Aa(panelAtk * b.scale) * 5 + Aa(panelAtk * b.finalScale);
+      return mk2(tot, 0, null, panelAtk * b.finalScale, 'arts');
+    }
+    return calcDamage(params);
   } else if (op.subProfessionId === 'fighter' && FIGHTER_SPECIAL[op.id] && FIGHTER_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
     const Pp = (a) => calcPhysicalDamage(a, effDef);
