@@ -19,6 +19,8 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  // ---- 狙击·神射手(longrange) ----
+  'char_4193_lemuen': 1,   // 蕾缪安「逃犯引渡手续」:在场20秒后攻击力+10%(用户口径:默认常驻;弹药上限+1 在专用分支内计)
   // ---- 狙击·炮手(aoesniper) ----
   'char_118_yuki': 0,   // 白雪「重型手里剑」:攻击力+20%(攻击间隔 +0.2s 见 TALENT_BAT_ADD)
   // ---- 驭械术师(funnel) ----
@@ -590,6 +592,8 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  // ---- 狙击·神射手(longrange) ----
+  'char_218_cuttle': 0,   // 安哲拉「深海直觉」:所有【深海猎人】攻速+6/8/12(E2潜0=12);自身即为深海猎人,按常驻计(用户 2026-09-17 确认)
   'char_328_cammou': 0,   // 卡达「协调一致」:自身与浮游单元攻速+6(精1)/+12(精2)
   'char_4040_rockr': 0,       // 洛洛「立于磐石」:本体无攻速;X 模组 L3 追加「叠满后攻击速度+5」(te 为 name=null 条目)
   'char_1038_whitw2': 1,      // 荒芜拉普兰德「叙拉古的荣幸」:本体无攻速;X 模组 L2/L3 追加「首次触发技能后攻速+6/+10」
@@ -628,6 +632,46 @@ const MODULE_TE_ASPD_STACK = {
 const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
+
+// ===== 神射手(longrange)专用结算 =====
+// 说明文本(用户 2026-09-17):守林人「暗杀者」攻击力增幅不计、S2「战术电台」炸弹只计一次;
+// 远牙「凝神」攻击力增幅不计、S3「光羽箭」伤害增幅不计;蕾缪安「跨境追缉许可」伤害增幅不计、
+// 「逃犯引渡手续」攻击力增幅与弹药上限提升默认常驻、S2「归乡邀约」默认不触发特殊狙击、S3「礼炮·强制追思」默认基础伤害。
+function calcLongrangeSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, generic } = ctx;
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const atkUp = 1 + (levelData.atk || 0);
+  const nrm = () => (normalInterval > 0 ? calcPhysicalDamage(panelAtk, effDef) / normalInterval : null);
+  const res = (total, dps, cycle, isPhys = true) => ({
+    skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle, normalDps: nrm(),
+    skillHps: null, normalHps: null, totalHeal: null, damageType: isPhys ? 'physical' : 'arts', realInterval,
+    dmgTypes: isPhys
+      ? { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } }
+      : { arts: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } },
+  });
+  // 蕾缪安(弹夹型):弹药 = attack@trigger_time + 天赋2 弹药上限 +add_count;打完后技能结束
+  if (op.id === 'char_4193_lemuen') {
+    const ammo = (levelData['attack@trigger_time'] || 0) + (funnelTalentValue(op, slotData, 1, 'add_count') || 0);
+    if (skillIndex === 0) {
+      // 「重逢问候」:每发 attack@atk_scale,额外攻击 1 名敌人(单目标口径只算本目标)
+      const per = h(panelAtk * atkUp * levelData['attack@atk_scale']);
+      const total = per * ammo;
+      return res(total, 0, calcCycleDps(levelData, realInterval, h(panelAtk), total));
+    }
+    if (skillIndex === 1) {
+      // 「归乡邀约」:默认不触发特殊狙击 → 不消耗弹药 → 按永续技能处理(攻速 +70%、攻击力 +60% 持续)
+      const per = h(panelAtk * atkUp);
+      return res(0, realInterval > 0 ? per / realInterval : 0, null);
+    }
+    if (skillIndex === 2) {
+      // 「礼炮·强制追思」:停止攻击,每发锁定一名敌人,默认基础伤害(非中心伤害) proj_atk_scale_2
+      const per = h(panelAtk * atkUp * levelData['attack@proj_atk_scale_2']);
+      const total = per * ammo;
+      return res(total, 0, calcCycleDps(levelData, realInterval, h(panelAtk), total));
+    }
+  }
+  return generic();
+}
 
 // ===== 炮手(aoesniper)专用结算 =====
 // 说明文本(用户 2026-09-17):陨星天赋「爆破附着改装」概率增幅不计、S2「高爆弹头」防御力 -250 仅对本技能伤害生效;
@@ -1326,6 +1370,7 @@ const BAT_ADD_OVERRIDES = {
   'char_133_mm': { 1: true },      // 梅 S2 束缚电击:攻击间隔增大(1.0+0.5=1.5s)
   'char_340_shwaz': { 2: true },   // 黑 S3 战术的终结:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4006_melnte': { 0: true }, // 玫拉 S1 饱和脉冲:攻击间隔增大(1.6+0.8=2.4s)
+  'char_302_glaze': { 1: true },   // 安比尔 S2 雷达定位:攻击间隔略微增大(2.7+0.9=3.6s)
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
@@ -1559,8 +1604,18 @@ function calcPlatnmChargeMul(op, slotData, interval) {
 const SINGLE_CRIT_MUL = {
   'char_350_surtr': { 1: true },   // 史尔特尔 S2 熔核巨影:仅攻击到一个敌人时攻击力提升至 1.4~1.6
 };
-// 天赋层攻击间隔加算(白雪「重型手里剑」:攻击间隔略微增大 +0.2s):常态与技能期都生效
-const TALENT_BAT_ADD = { 'char_118_yuki': 0.2 };
+// 天赋层攻击间隔加算(读天赋 bb.base_attack_time;含模组 te 覆盖):白雪「重型手里剑」+0.2s、
+// 子月「荒野本能」E2 -0.15s(X 模组 L2/L3 覆盖为 -0.2/-0.25)。常态与技能期都生效。
+const TALENT_BAT_ADD = { 'char_118_yuki': 0, 'char_4014_lunacu': 0 };   // 干员 id → 天赋索引
+function calcTalentBatAdd(op, slotData) {
+  const idx = TALENT_BAT_ADD[op.id];
+  if (idx === undefined) return 0;
+  const base = ((op.talents[idx] || {}).candidates || []).filter((c) => (c.phase ?? 0) <= (slotData.elite ?? 0) && (c.potentialRank ?? 0) <= (slotData.potentialRank ?? 0));
+  const list = talentCandSource(op, slotData, idx, base).filter((c) => typeof (c.blackboard || {}).base_attack_time === 'number');
+  if (!list.length) return 0;
+  list.sort((a, b) => (b.phase ?? 0) - (a.phase ?? 0));
+  return list[0].blackboard.base_attack_time;
+}
 // 菲亚梅塔「宣告终局」:技能持续期间外攻击速度 +X(模组可提升至 30/33);X 模组另给技能期内攻速
 // (te 键 phenxi_e_t_2[in_skill].attack_speed,+5/+10)。常态只吃前者,技能期只吃后者(用户 2026-09-17 提示检查模组技能期加成)
 function phenxiEndgameAspdBb(op, slotData) {
@@ -1812,7 +1867,7 @@ function calculateOperator(op, slotData, ctx) {
   const effDef = Math.max(0, state.enemy.def - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
-  const talentBat = TALENT_BAT_ADD[op.id] || 0;
+  const talentBat = calcTalentBatAdd(op, slotData);
   const realInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + phenxiNormalAspd(op, slotData));
 
   // No skill: return normal stats only
@@ -1895,8 +1950,8 @@ function calculateOperator(op, slotData, ctx) {
   // atk_scale 排除:车尔尼 S2 的 2.1 是技能结束爆炸倍率,不作普攻倍率乘算
   const scaleExcluded = (SKILL_ATK_SCALE_EXCLUDE[op.id] || {})[skillIndex] === true;
   const asOverride = (SKILL_ATTACK_SPEED_OVERRIDES[op.id] || {})[skillIndex];
-  if (asOverride !== undefined) { skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + asOverride); }
-  else if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
+  if (asOverride !== undefined) { skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + asOverride); }
+  else if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
   // base_attack_time:负值=加算秒(白面鸮脑啡肽 -2.1 等);(0,1) 正小数=攻击间隔倍率("间隔缩短至 x 倍",
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
   // 描述为"间隔增大"却给正小数的技能(火神S2 +0.4s/斥罪S3 +0.9s)经 BAT_ADD_OVERRIDES 按加算秒处理。
@@ -1912,8 +1967,8 @@ function calculateOperator(op, slotData, ctx) {
       const isAdd = (BAT_ADD_OVERRIDES[op.id] || {})[skillIndex] === true;
       const isPct = (BAT_PCT_OVERRIDES[op.id] || {})[skillIndex] === true;   // 负数按"缩短 X%"解释 → ×(1+bat)
       skillInterval = (isPct || (bat > 0 && bat < 1 && !isAdd))
-        ? calcRealInterval(phase.baseAttackTime * (isPct ? 1 + bat : bat), 100 + baseAspdBonus + skillAspdExtra)
-        : calcRealInterval(phase.baseAttackTime + bat, 100 + baseAspdBonus + skillAspdExtra);
+        ? calcRealInterval((phase.baseAttackTime + talentBat) * (isPct ? 1 + bat : bat), 100 + baseAspdBonus + skillAspdExtra)
+        : calcRealInterval(phase.baseAttackTime + talentBat + bat, 100 + baseAspdBonus + skillAspdExtra);
     }
   }
   // attack@base_attack_time:守望者普攻间隔乘算系数(风絮1技能 0.2 → 间隔 ×0.2,区别于顶层 base_attack_time 的加算秒数)
@@ -3115,6 +3170,11 @@ function calculateOperator(op, slotData, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'longrange') {
+    result = calcLongrangeSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      generic: () => calcDamage(params),
+    });
   } else if (op.subProfessionId === 'aoesniper') {
     result = calcAoeSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,

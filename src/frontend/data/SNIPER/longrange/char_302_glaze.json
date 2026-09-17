@@ -1,0 +1,516 @@
+{
+  "id": "char_302_glaze",
+  "name": "安比尔",
+  "rarity": "TIER_4",
+  "profession": "SNIPER",
+  "subProfessionId": "longrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        437,
+        608
+      ],
+      "def": [
+        60,
+        80
+      ],
+      "maxHp": [
+        785,
+        1020
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        608,
+        801
+      ],
+      "def": [
+        80,
+        100
+      ],
+      "maxHp": [
+        1020,
+        1276
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        801,
+        977
+      ],
+      "def": [
+        100,
+        122
+      ],
+      "maxHp": [
+        1276,
+        1595
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 75,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_glaze_1",
+      "name": "阻挡弹",
+      "levels": [
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.6,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.6,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.6,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.7,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.7,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.7,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.8,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 0.8,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 1,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "attack@sluggish": 1.2,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_glaze_2",
+      "name": "雷达定位",
+      "levels": [
+        {
+          "atk": 0.4,
+          "base_attack_time": 0.9,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": 0.9,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": 0.9,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": 0.9,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": 0.9,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "base_attack_time": 0.9,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "base_attack_time": 0.9,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "base_attack_time": 0.9,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "base_attack_time": 0.9,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "base_attack_time": 0.9,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "精确打击",
+          "description": "攻击原本攻击范围以外的目标时，有25%的几率使其<$ba.stun>晕眩</>2秒",
+          "blackboard": {
+            "buff_prob": 0.25,
+            "stun": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "精确打击",
+          "description": "攻击原本攻击范围以外的目标时，有28%<@ba.talpu>（+3%）</>的几率使其<$ba.stun>晕眩</>2秒",
+          "blackboard": {
+            "buff_prob": 0.28,
+            "stun": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+6",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_glaze",
+      "name": "安比尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_glaze",
+      "name": "便携雷达的辅助器材",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 65,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "精确打击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buff_prob": 0.33,
+                "stun": 2.5
+              }
+            },
+            {
+              "name": "精确打击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "buff_prob": 0.36,
+                "stun": 2.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 95,
+            "atk": 81
+          },
+          "talentEnhance": [
+            {
+              "name": "精确打击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buff_prob": 0.33,
+                "stun": 3
+              }
+            },
+            {
+              "name": "精确打击",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "buff_prob": 0.36,
+                "stun": 3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

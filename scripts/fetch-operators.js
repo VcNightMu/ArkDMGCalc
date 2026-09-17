@@ -116,7 +116,11 @@ const OPERATORS = {
       'char_118_yuki',                                                  // 白雪 4★
       'char_282_catap',                                                 // 空爆 3★
     ],
-    longrange: [],                  // 神射手
+    longrange: [ // 神射手
+      'char_430_fartth', 'char_4193_lemuen',                              // 远牙/蕾缪安 6★
+      'char_158_milu', 'char_218_cuttle', 'char_4014_lunacu',             // 守林人/安哲拉/子月 5★
+      'char_302_glaze',                                                   // 安比尔 4★
+    ],
     reaperrange: [],                // 散射手
     siegesniper: [],                // 攻城手
     bombarder: [],                  // 投掷手

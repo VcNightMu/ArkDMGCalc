@@ -1,0 +1,764 @@
+{
+  "id": "char_430_fartth",
+  "name": "远牙",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "longrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        535,
+        744
+      ],
+      "def": [
+        79,
+        106
+      ],
+      "maxHp": [
+        749,
+        973
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        744,
+        980
+      ],
+      "def": [
+        106,
+        133
+      ],
+      "maxHp": [
+        973,
+        1217
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        980,
+        1196
+      ],
+      "def": [
+        133,
+        163
+      ],
+      "maxHp": [
+        1217,
+        1522
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_quickattack[3]",
+      "name": "迅捷打击·γ型",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 20,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.24,
+          "attack_speed": 20,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.27,
+          "attack_speed": 25,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 25,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.31,
+          "attack_speed": 25,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "attack_speed": 35,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.37,
+          "attack_speed": 35,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 35,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_fartth_2",
+      "name": "同盟支援",
+      "levels": [
+        {
+          "attack_speed": 60,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 65,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 85,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 95,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_fartth_3",
+      "name": "光羽箭",
+      "levels": [
+        {
+          "atk": 0.6,
+          "damage_scale": 1.2,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "damage_scale": 1.2,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "damage_scale": 1.2,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "damage_scale": 1.25,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "damage_scale": 1.25,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "damage_scale": 1.25,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "damage_scale": 1.3,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "damage_scale": 1.3,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "damage_scale": 1.3,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "damage_scale": 1.4,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "凝神",
+          "description": "最近10秒内未受伤害时，攻击力+10%",
+          "blackboard": {
+            "atk": 0.1,
+            "delay": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "凝神",
+          "description": "最近10秒内未受伤害时，攻击力+13%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "atk": 0.13,
+            "delay": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "凝神",
+          "description": "最近10秒内未受伤害时，攻击力+15%",
+          "blackboard": {
+            "atk": 0.15,
+            "delay": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "凝神",
+          "description": "最近10秒内未受伤害时，攻击力+18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "atk": 0.18,
+            "delay": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "屏息",
+          "description": "技能开启时不容易成为敌人的目标，且攻击无视目标的物理闪避",
+          "blackboard": {
+            "taunt_level": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+40",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_fartth",
+      "name": "远牙证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_fartth",
+      "name": "首战支援套组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 70,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 85,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.2,
+                "delay": 8
+              }
+            },
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.23,
+                "delay": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 100,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.22,
+                "delay": 6
+              }
+            },
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.25,
+                "delay": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_fartth",
+      "name": "支持者来信",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 80
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 100
+          },
+          "talentEnhance": [
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15,
+                "delay": 5,
+                "attack_speed": 4
+              }
+            },
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.18,
+                "delay": 5,
+                "attack_speed": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 120
+          },
+          "talentEnhance": [
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15,
+                "delay": 3,
+                "attack_speed": 7
+              }
+            },
+            {
+              "name": "凝神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.18,
+                "delay": 3,
+                "attack_speed": 7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

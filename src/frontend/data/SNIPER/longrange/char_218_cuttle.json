@@ -1,0 +1,532 @@
+{
+  "id": "char_218_cuttle",
+  "name": "安哲拉",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "longrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        479,
+        666
+      ],
+      "def": [
+        62,
+        83
+      ],
+      "maxHp": [
+        737,
+        958
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        666,
+        877
+      ],
+      "def": [
+        83,
+        104
+      ],
+      "maxHp": [
+        958,
+        1198
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        877,
+        1070
+      ],
+      "def": [
+        104,
+        128
+      ],
+      "maxHp": [
+        1198,
+        1498
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cuttle_2",
+      "name": "阻滞射击战术",
+      "levels": [
+        {
+          "atk": 1.3,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "attack@move_speed": -0.2,
+          "attack@duration": 3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.9,
+          "attack@move_speed": -0.3,
+          "attack@duration": 4,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.05,
+          "attack@move_speed": -0.35,
+          "attack@duration": 4,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "attack@move_speed": -0.35,
+          "attack@duration": 5,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.4,
+          "attack@move_speed": -0.4,
+          "attack@duration": 6,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深海直觉",
+          "description": "编入队伍时，所有【深海猎人】干员攻击速度+6",
+          "blackboard": {
+            "attack_speed": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "深海直觉",
+          "description": "编入队伍时，所有【深海猎人】干员攻击速度+8<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "attack_speed": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深海直觉",
+          "description": "编入队伍时，所有【深海猎人】干员攻击速度+12",
+          "blackboard": {
+            "attack_speed": 12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "深海直觉",
+          "description": "编入队伍时，所有【深海猎人】干员攻击速度+14<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "attack_speed": 14
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_cuttle",
+      "name": "安哲拉证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_cuttle",
+      "name": "枪支调试工具组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "atk": 65
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 95,
+            "atk": 81
+          },
+          "talentEnhance": [
+            {
+              "name": "深海直觉",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 17
+              }
+            },
+            {
+              "name": "深海直觉",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 19
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 121,
+            "atk": 91
+          },
+          "talentEnhance": [
+            {
+              "name": "深海直觉",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 20
+              }
+            },
+            {
+              "name": "深海直觉",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 22
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

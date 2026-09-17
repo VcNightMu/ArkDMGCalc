@@ -1,0 +1,496 @@
+{
+  "id": "char_4014_lunacu",
+  "name": "子月",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "longrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        462,
+        643
+      ],
+      "def": [
+        75,
+        101
+      ],
+      "maxHp": [
+        756,
+        982
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        643,
+        847
+      ],
+      "def": [
+        101,
+        127
+      ],
+      "maxHp": [
+        982,
+        1228
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        847,
+        1034
+      ],
+      "def": [
+        127,
+        155
+      ],
+      "maxHp": [
+        1228,
+        1536
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lunacu_1",
+      "name": "狩猎时刻",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lunacu_2",
+      "name": "伏击之影",
+      "levels": [
+        {
+          "attack_speed": 70,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 3,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 3,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 3,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 90,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 4,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 95,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 4,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "lunacu_s_2[cam].cam_duration": 6,
+          "lunacu_s_2[start_cam].start_cam_duration": 4,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 110,
+          "lunacu_s_2[cam].cam_duration": 7,
+          "lunacu_s_2[start_cam].start_cam_duration": 5,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 120,
+          "lunacu_s_2[cam].cam_duration": 7,
+          "lunacu_s_2[start_cam].start_cam_duration": 6,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 130,
+          "lunacu_s_2[cam].cam_duration": 7,
+          "lunacu_s_2[start_cam].start_cam_duration": 7,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 140,
+          "lunacu_s_2[cam].cam_duration": 8,
+          "lunacu_s_2[start_cam].start_cam_duration": 8,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "荒野本能",
+          "description": "未开启技能时，获得<$ba.camou>迷彩</>",
+          "blackboard": {
+            "base_attack_time": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "荒野本能",
+          "description": "未开启技能时，获得<$ba.camou>迷彩</>，开启技能后攻击间隔略微缩短",
+          "blackboard": {
+            "base_attack_time": -0.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lunacu",
+      "name": "子月证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lunacu",
+      "name": "“移动的窝”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "atk": 63
+          },
+          "talentEnhance": [
+            {
+              "name": "荒野本能",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "base_attack_time": -0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "荒野本能",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "base_attack_time": -0.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

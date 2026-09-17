@@ -1,0 +1,516 @@
+{
+  "id": "char_158_milu",
+  "name": "守林人",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "longrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        486,
+        675
+      ],
+      "def": [
+        63,
+        85
+      ],
+      "maxHp": [
+        714,
+        928
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        675,
+        889
+      ],
+      "def": [
+        85,
+        107
+      ],
+      "maxHp": [
+        928,
+        1160
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        889,
+        1085
+      ],
+      "def": [
+        107,
+        131
+      ],
+      "maxHp": [
+        1160,
+        1450
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.7,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_milu_1",
+      "name": "环境伪装",
+      "levels": [
+        {
+          "atk": 0.24,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "level": 3,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "level": 4,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 6,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_milu_2",
+      "name": "战术电台",
+      "levels": [
+        {
+          "max_cnt": 2,
+          "atk_scale": 1.8,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 1.9,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 2,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 2.1,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 2.2,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 2.3,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 2,
+          "atk_scale": 2.4,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 3,
+          "atk_scale": 2.6,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 3,
+          "atk_scale": 2.8,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_cnt": 3,
+          "atk_scale": 3,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "暗杀者",
+          "description": "攻击使用远程武器的敌人时，攻击力提升至120%",
+          "blackboard": {
+            "atk_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "暗杀者",
+          "description": "攻击使用远程武器的敌人时，攻击力提升至125%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "暗杀者",
+          "description": "攻击使用远程武器的敌人时，攻击力提升至140%",
+          "blackboard": {
+            "atk_scale": 1.4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "暗杀者",
+          "description": "攻击使用远程武器的敌人时，攻击力提升至145%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.45
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_milu",
+      "name": "守林人证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_milu",
+      "name": "野战狙击套装",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 60
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "暗杀者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.45
+              }
+            },
+            {
+              "name": "暗杀者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 87
+          },
+          "talentEnhance": [
+            {
+              "name": "暗杀者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.5
+              }
+            },
+            {
+              "name": "暗杀者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.55
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

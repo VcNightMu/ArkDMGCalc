@@ -2266,5 +2266,59 @@
     "subProfessionId": "aoesniper",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_430_fartth",
+    "name": "远牙",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4193_lemuen",
+    "name": "蕾缪安",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_158_milu",
+    "name": "守林人",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_218_cuttle",
+    "name": "安哲拉",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4014_lunacu",
+    "name": "子月",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_302_glaze",
+    "name": "安比尔",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "longrange",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]
