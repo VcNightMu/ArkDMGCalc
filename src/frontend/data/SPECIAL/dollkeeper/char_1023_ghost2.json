@@ -1,0 +1,916 @@
+{
+  "id": "char_1023_ghost2",
+  "name": "归溟幽灵鲨",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        335,
+        459
+      ],
+      "def": [
+        133,
+        205
+      ],
+      "maxHp": [
+        1311,
+        1749
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        459,
+        604
+      ],
+      "def": [
+        205,
+        267
+      ],
+      "maxHp": [
+        1749,
+        2214
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        604,
+        737
+      ],
+      "def": [
+        267,
+        322
+      ],
+      "maxHp": [
+        2214,
+        2803
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ghost2_1",
+      "name": "生存的技巧",
+      "levels": [
+        {
+          "atk": 0.6,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ghost2_2",
+      "name": "生存的渴望",
+      "levels": [
+        {
+          "atk": 0.4,
+          "attack_speed": 10,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 14,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 18,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 22,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 26,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack_speed": 30,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack_speed": 34,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack_speed": 38,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack_speed": 44,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "attack_speed": 50,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ghost2_3",
+      "name": "生存的重压",
+      "levels": [
+        {
+          "atk": 1.3,
+          "max_hp": 1,
+          "attack@atk_scale_ex": 0.4,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "max_hp": 1.1,
+          "attack@atk_scale_ex": 0.4,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 1,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "max_hp": 1.2,
+          "attack@atk_scale_ex": 0.4,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 2,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "max_hp": 1.3,
+          "attack@atk_scale_ex": 0.5,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "max_hp": 1.4,
+          "attack@atk_scale_ex": 0.5,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.9,
+          "max_hp": 1.5,
+          "attack@atk_scale_ex": 0.5,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2,
+          "max_hp": 1.6,
+          "attack@atk_scale_ex": 0.6,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.2,
+          "max_hp": 1.7,
+          "attack@atk_scale_ex": 0.7,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.4,
+          "max_hp": 1.85,
+          "attack@atk_scale_ex": 0.7,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 2.6,
+          "max_hp": 2,
+          "attack@atk_scale_ex": 0.7,
+          "base_attack_time": 1,
+          "attack@hp_ratio": 0.03,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-20%且每秒造成相当于20%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.2,
+            "atk_scale": 0.2,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-30%且每秒造成相当于30%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.3,
+            "atk_scale": 0.3,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-40%且每秒造成相当于40%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.4,
+            "atk_scale": 0.4,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "阿戈尔的深邃",
+          "description": "编入队伍时，所有【深海猎人】干员的生命值+20%",
+          "blackboard": {
+            "max_hp": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "阿戈尔的深邃",
+          "description": "编入队伍时，所有【深海猎人】干员的生命值+23%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "max_hp": 0.23
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ghost2",
+      "name": "归溟幽灵鲨证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ghost2",
+      "name": "“唱片”收藏箱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 69,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.5,
+                "atk_scale": 0.6,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 83,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.6,
+                "atk_scale": 0.8,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_ghost2",
+      "name": "未竟之美",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 25,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 33,
+            "def": 48
+          },
+          "talentEnhance": [
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.25,
+                "sp_recovery_per_sec": 0.3
+              }
+            },
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.28,
+                "sp_recovery_per_sec": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 40,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.3,
+                "sp_recovery_per_sec": 0.5
+              }
+            },
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.33,
+                "sp_recovery_per_sec": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_ghost2",
+      "name": "归溟幽灵鲨特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 275,
+            "atk": 57
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.4,
+                "atk_scale": 0.4,
+                "talent_override_rangeid_flag": 1,
+                "atk_scale_2": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.4,
+                "atk_scale": 0.4,
+                "talent_override_rangeid_flag": 1,
+                "atk_scale_2": 1.6
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "protect_duration": 8,
+                "undead_duration": 8,
+                "atk_scale": 0.4,
+                "atk_scale_2": 1.6,
+                "move_speed": -0.4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

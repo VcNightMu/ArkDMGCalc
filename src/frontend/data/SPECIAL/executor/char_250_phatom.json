@@ -1,0 +1,887 @@
+{
+  "id": "char_250_phatom",
+  "name": "傀影",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "executor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        215,
+        317
+      ],
+      "def": [
+        144,
+        207
+      ],
+      "maxHp": [
+        769,
+        1026
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        317,
+        435
+      ],
+      "def": [
+        207,
+        270
+      ],
+      "maxHp": [
+        1026,
+        1283
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        435,
+        558
+      ],
+      "def": [
+        270,
+        322
+      ],
+      "maxHp": [
+        1283,
+        1645
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_phatom_1",
+      "name": "暗夜魅影",
+      "levels": [
+        {
+          "prob": 0.2,
+          "hp_ratio": 0.2,
+          "duration": 10,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.2,
+          "hp_ratio": 0.25,
+          "duration": 10,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.2,
+          "hp_ratio": 0.3,
+          "duration": 10,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "hp_ratio": 0.35,
+          "duration": 10,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "hp_ratio": 0.4,
+          "duration": 10,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "hp_ratio": 0.45,
+          "duration": 10,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.4,
+          "hp_ratio": 0.5,
+          "duration": 10,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.4,
+          "hp_ratio": 0.6,
+          "duration": 10,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.4,
+          "hp_ratio": 0.7,
+          "duration": 10,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "hp_ratio": 0.8,
+          "duration": 10,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phatom_2",
+      "name": "血色乐章",
+      "levels": [
+        {
+          "times": 7,
+          "atk": 0.1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 7,
+          "atk": 0.11,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 7,
+          "atk": 0.12,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 8,
+          "atk": 0.13,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 8,
+          "atk": 0.14,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 8,
+          "atk": 0.15,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 9,
+          "atk": 0.16,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 9,
+          "atk": 0.17,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 9,
+          "atk": 0.18,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "times": 10,
+          "atk": 0.2,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phatom_3",
+      "name": "夜幕突袭",
+      "levels": [
+        {
+          "atk_scale": 1.8,
+          "force": 0,
+          "sluggish": 2,
+          "root": 2,
+          "stun": 2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "force": 0,
+          "sluggish": 2,
+          "root": 2,
+          "stun": 2,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "force": 0,
+          "sluggish": 2,
+          "root": 2,
+          "stun": 2,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "force": 0,
+          "sluggish": 2.5,
+          "root": 2.5,
+          "stun": 2.5,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "force": 0,
+          "sluggish": 2.5,
+          "root": 2.5,
+          "stun": 2.5,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "force": 0,
+          "sluggish": 2.5,
+          "root": 2.5,
+          "stun": 2.5,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "force": 0,
+          "sluggish": 3,
+          "root": 3,
+          "stun": 3,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "force": 0,
+          "sluggish": 3.5,
+          "root": 3.5,
+          "stun": 3.5,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "force": 0,
+          "sluggish": 4,
+          "root": 4,
+          "stun": 4,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "force": 0,
+          "sluggish": 4.5,
+          "root": 4.5,
+          "stun": 4.5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "镜中虚影",
+          "description": "可以使用一个虚影，虚影拥有和自己一样的技能，拥有独立的再部署时间",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "镜中虚影",
+          "description": "可以使用一个属性更强的虚影，虚影拥有和自己一样的技能，拥有独立的再部署时间",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "虚影精通",
+          "description": "虚影的再部署时间-10秒",
+          "blackboard": {},
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+22",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 22
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-2秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -2
+        }
+      ]
+    },
+    {
+      "description": "生命上限+130",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 130
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_phatom",
+      "name": "傀影证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_phatom",
+      "name": "克里斯汀小姐的毛毡",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 62
+          },
+          "talentEnhance": [
+            {
+              "name": "虚影精通",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "虚影精通",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -14
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 73
+          },
+          "talentEnhance": [
+            {
+              "name": "虚影精通",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": "虚影精通",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -16
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_phatom",
+      "name": "“如影随形”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 24
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 28
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1
+              }
+            },
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1
+              }
+            },
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_phatom",
+      "name": "傀影特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 37,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            },
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            },
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            },
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 71,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 1
+              }
+            },
+            {
+              "name": "镜中虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            },
+            {
+              "blackboard": {
+                "respawn_time": -1,
+                "phatom_e_003_trait[remaining].remaining_respawn_time": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

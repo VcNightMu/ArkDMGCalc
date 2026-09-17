@@ -1,0 +1,873 @@
+{
+  "id": "char_4048_doroth",
+  "name": "多萝西",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "traper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        263,
+        361
+      ],
+      "def": [
+        70,
+        107
+      ],
+      "maxHp": [
+        702,
+        936
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        361,
+        476
+      ],
+      "def": [
+        107,
+        142
+      ],
+      "maxHp": [
+        936,
+        1186
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        476,
+        581
+      ],
+      "def": [
+        142,
+        172
+      ],
+      "maxHp": [
+        1186,
+        1502
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_doroth_1",
+      "name": "危险目标清除",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 3,
+          "def": -0.25,
+          "duration": 5,
+          "level": 0,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.1,
+          "def": -0.25,
+          "duration": 5,
+          "level": 1,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.2,
+          "def": -0.25,
+          "duration": 5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.3,
+          "def": -0.25,
+          "duration": 5,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.5,
+          "def": -0.25,
+          "duration": 5,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.6,
+          "def": -0.25,
+          "duration": 5,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.7,
+          "def": -0.3,
+          "duration": 5,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.9,
+          "def": -0.32,
+          "duration": 5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 4.2,
+          "def": -0.33,
+          "duration": 5,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 4.5,
+          "def": -0.35,
+          "duration": 5,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_doroth_2",
+      "name": "流沙区域生成",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 2,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 0,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.1,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 1,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.2,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.3,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.4,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "cnt_2": 1,
+          "duration": 2,
+          "duration_2": 3.5,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.6,
+          "cnt_2": 1,
+          "duration": 2.5,
+          "duration_2": 5,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.7,
+          "cnt_2": 1,
+          "duration": 3,
+          "duration_2": 5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.8,
+          "cnt_2": 1,
+          "duration": 3,
+          "duration_2": 5.5,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3,
+          "cnt_2": 1,
+          "duration": 3.5,
+          "duration_2": 6,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_doroth_3",
+      "name": "高速共振排障",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 2,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 0,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.1,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 1,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.3,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.6,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.7,
+          "sluggish": 3,
+          "interval": 2,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.8,
+          "sluggish": 3.5,
+          "interval": 2,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3,
+          "sluggish": 4,
+          "interval": 2,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.2,
+          "sluggish": 4.5,
+          "interval": 2,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.5,
+          "sluggish": 5,
+          "interval": 2,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共振装置",
+          "description": "可以使用4个共振装置（最多拥有6个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 4,
+            "attack@max_cnt": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "共振装置",
+          "description": "可以使用6<@ba.talpu>（+2）</>个共振装置（最多拥有6个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 6,
+            "attack@max_cnt": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共振装置",
+          "description": "可以使用6个共振装置（最多拥有8个），踩上去的第一个敌人会触发其效果，部署后立刻在攻击范围内召唤1个共振装置",
+          "blackboard": {
+            "cnt": 6,
+            "attack@max_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "共振装置",
+          "description": "可以使用8<@ba.talpu>（+2）</>个共振装置（最多拥有8个），踩上去的第一个敌人会触发其效果，部署后立刻在攻击范围内召唤1个共振装置",
+          "blackboard": {
+            "cnt": 8,
+            "attack@max_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共振装置",
+          "description": "可以使用8个共振装置（最多拥有10个），踩上去的第一个敌人会触发其效果，部署后立刻在攻击范围内召唤2个共振装置",
+          "blackboard": {
+            "cnt": 8,
+            "attack@max_cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "共振装置",
+          "description": "可以使用10<@ba.talpu>（+2）</>个共振装置（最多拥有10个），踩上去的第一个敌人会触发其效果，部署后立刻在攻击范围内召唤2个共振装置",
+          "blackboard": {
+            "cnt": 10,
+            "attack@max_cnt": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "梦想家",
+          "description": "陷阱触发后，多萝西获得2%的攻击力，最多叠加10层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "梦想家",
+          "description": "陷阱触发后，多萝西获得2%的攻击力，最多叠加12<@ba.talpu>（+2）</>层",
+          "blackboard": {
+            "atk": 0.02,
+            "max_stack_cnt": 12
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_doroth",
+      "name": "多萝西证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_doroth",
+      "name": "梦中人",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 36,
+            "def": 12
+          },
+          "talentEnhance": [
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_cnt": 2,
+                "cnt": 8
+              }
+            },
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack@max_cnt": 2,
+                "cnt": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 22
+          },
+          "talentEnhance": [
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_cnt": 3,
+                "cnt": 8
+              }
+            },
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack@max_cnt": 3,
+                "cnt": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@max_cnt": 3,
+                "cnt": 8
+              }
+            },
+            {
+              "name": "共振装置",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "attack@max_cnt": 3,
+                "cnt": 10
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_cnt": 1,
+                "prob": 0.5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_doroth",
+      "name": "童话书",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 42
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "梦想家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.03,
+                "max_stack_cnt": 10
+              }
+            },
+            {
+              "name": "梦想家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.03,
+                "max_stack_cnt": 12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 155,
+            "atk": 57
+          },
+          "talentEnhance": [
+            {
+              "name": "梦想家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.04,
+                "max_stack_cnt": 10
+              }
+            },
+            {
+              "name": "梦想家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.04,
+                "max_stack_cnt": 12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

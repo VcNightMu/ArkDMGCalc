@@ -3625,5 +3625,446 @@
     "subProfessionId": "supportiveranger",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_1028_texas2",
+    "name": "缄默德克萨斯",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1029_yato2",
+    "name": "麒麟R夜刀",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1502_crosly",
+    "name": "弑君者",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_250_phatom",
+    "name": "傀影",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_214_kafka",
+    "name": "卡夫卡",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_243_waaifu",
+    "name": "槐琥",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_237_gravel",
+    "name": "砾",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_376_therex",
+    "name": "THRM-EX",
+    "rarity": "TIER_1",
+    "profession": "SPECIAL",
+    "subProfessionId": "executor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_400_weedy",
+    "name": "温蒂",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "pusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_241_panda",
+    "name": "食铁兽",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "pusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4036_forcer",
+    "name": "见行者",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "pusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_277_sqrrel",
+    "name": "阿消",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "pusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4132_ascln",
+    "name": "阿斯卡纶",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_437_mizuki",
+    "name": "水月",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_215_mantic",
+    "name": "狮蝎",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4186_tmoris",
+    "name": "八幡海铃",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_478_kirara",
+    "name": "绮良",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_355_ethan",
+    "name": "伊桑",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_474_glady",
+    "name": "歌蕾蒂娅",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "hookmaster",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_173_slchan",
+    "name": "崖心",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "hookmaster",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_383_snsant",
+    "name": "雪雉",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "hookmaster",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4105_almond",
+    "name": "杏仁",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "hookmaster",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_236_rope",
+    "name": "暗索",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "hookmaster",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1041_angel2",
+    "name": "新约能天使",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "geek",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_225_haak",
+    "name": "阿",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "geek",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4015_spuria",
+    "name": "空构",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "geek",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1033_swire2",
+    "name": "琳琅诗怀雅",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "merchant",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_322_lmlee",
+    "name": "老鲤",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "merchant",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4155_talr",
+    "name": "裁度",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "merchant",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_455_nothin",
+    "name": "乌有",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "merchant",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_272_strong",
+    "name": "孑",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "merchant",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2027_wang",
+    "name": "望",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4048_doroth",
+    "name": "多萝西",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4123_ela",
+    "name": "艾拉",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4171_wulfen",
+    "name": "钼铅",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_451_robin",
+    "name": "罗宾",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_458_rfrost",
+    "name": "霜华",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "traper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1023_ghost2",
+    "name": "归溟幽灵鲨",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4217_makoto",
+    "name": "结城理",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_369_bena",
+    "name": "贝娜",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4016_kazema",
+    "name": "风丸",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4124_iana",
+    "name": "双月",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4183_mortis",
+    "name": "若叶睦",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4107_vrdant",
+    "name": "维荻",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "dollkeeper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1039_thorn2",
+    "name": "引星棘刺",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "alchemist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4151_tinman",
+    "name": "锡人",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "alchemist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1015_aglna2",
+    "name": "予愿安洁莉娜",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "skywalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4191_tippi",
+    "name": "蒂比",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "skywalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4165_ctrail",
+    "name": "云迹",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "skywalker",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

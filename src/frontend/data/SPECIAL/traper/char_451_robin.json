@@ -1,0 +1,557 @@
+{
+  "id": "char_451_robin",
+  "name": "罗宾",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "traper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        232,
+        319
+      ],
+      "def": [
+        68,
+        104
+      ],
+      "maxHp": [
+        674,
+        899
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        319,
+        420
+      ],
+      "def": [
+        104,
+        137
+      ],
+      "maxHp": [
+        899,
+        1139
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        420,
+        513
+      ],
+      "def": [
+        137,
+        166
+      ],
+      "maxHp": [
+        1139,
+        1442
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_robin_1",
+      "name": "束缚“夹子”",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 2,
+          "constraint": 1.5,
+          "level": 0,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.1,
+          "constraint": 1.5,
+          "level": 1,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.2,
+          "constraint": 1.5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.4,
+          "constraint": 1.5,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "constraint": 1.5,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.6,
+          "constraint": 1.5,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.8,
+          "constraint": 2,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3,
+          "constraint": 2.5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.2,
+          "constraint": 2.5,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.5,
+          "constraint": 3,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_robin_2",
+      "name": "弹射“夹子”",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 2.3,
+          "force": 0,
+          "level": 0,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.4,
+          "force": 0,
+          "level": 1,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "force": 0,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.7,
+          "force": 0,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.8,
+          "force": 0,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.9,
+          "force": 0,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.1,
+          "force": 1,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.3,
+          "force": 1,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.5,
+          "force": 1,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 3.8,
+          "force": 2,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“夹子”专家",
+          "description": "可以使用4个\"夹子\"陷阱（最多拥有6个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“夹子”专家",
+          "description": "可以使用6<@ba.talpu>（+2）</>个\"夹子\"陷阱（最多拥有6个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“夹子”专家",
+          "description": "可以使用6个\"夹子\"陷阱（最多拥有8个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“夹子”专家",
+          "description": "可以使用8<@ba.talpu>（+2）</>个\"夹子\"陷阱（最多拥有8个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“夹子”专家",
+          "description": "可以使用8个\"夹子\"陷阱（最多拥有10个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“夹子”专家",
+          "description": "可以使用10<@ba.talpu>（+2）</>个\"夹子\"陷阱（最多拥有10个），踩上去的第一个敌人会触发其效果",
+          "blackboard": {
+            "cnt": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_robin",
+      "name": "罗宾证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_robin",
+      "name": "限量版年历",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 36
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 39
+          },
+          "talentEnhance": [
+            {
+              "name": "进阶隐蔽",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "talent_duration": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 185,
+            "atk": 41
+          },
+          "talentEnhance": [
+            {
+              "name": "进阶隐蔽",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "talent_duration": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

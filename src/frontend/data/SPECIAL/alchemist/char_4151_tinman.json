@@ -1,0 +1,589 @@
+{
+  "id": "char_4151_tinman",
+  "name": "锡人",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "alchemist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        207,
+        288
+      ],
+      "def": [
+        44,
+        65
+      ],
+      "maxHp": [
+        500,
+        677
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        288,
+        379
+      ],
+      "def": [
+        65,
+        83
+      ],
+      "maxHp": [
+        677,
+        880
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        379,
+        469
+      ],
+      "def": [
+        83,
+        99
+      ],
+      "maxHp": [
+        880,
+        1114
+      ],
+      "magicResistance": 30,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_tinman_1",
+      "name": "“老科利”",
+      "levels": [
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.15,
+          "atk_scale": 0.3,
+          "projectile_range": 1,
+          "level": 0,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.15,
+          "atk_scale": 0.35,
+          "projectile_range": 1,
+          "level": 1,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.15,
+          "atk_scale": 0.4,
+          "projectile_range": 1,
+          "level": 2,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.2,
+          "atk_scale": 0.45,
+          "projectile_range": 1,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.2,
+          "atk_scale": 0.5,
+          "projectile_range": 1,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.2,
+          "atk_scale": 0.55,
+          "projectile_range": 1,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk": -0.25,
+          "atk_scale": 0.6,
+          "projectile_range": 1,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 9,
+          "atk": -0.25,
+          "atk_scale": 0.65,
+          "projectile_range": 1,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 9,
+          "atk": -0.25,
+          "atk_scale": 0.7,
+          "projectile_range": 1,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 10,
+          "atk": -0.3,
+          "atk_scale": 0.75,
+          "projectile_range": 1,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_tinman_2",
+      "name": "“大拉里”",
+      "levels": [
+        {
+          "projectile_delay_time": 10,
+          "hp_recovery_per_sec_ratio": 0.1,
+          "atk_scale": 0.5,
+          "projectile_range": 2,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 10,
+          "hp_recovery_per_sec_ratio": 0.1,
+          "atk_scale": 0.55,
+          "projectile_range": 2,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 10,
+          "hp_recovery_per_sec_ratio": 0.1,
+          "atk_scale": 0.6,
+          "projectile_range": 2,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 11,
+          "hp_recovery_per_sec_ratio": 0.15,
+          "atk_scale": 0.65,
+          "projectile_range": 2,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 11,
+          "hp_recovery_per_sec_ratio": 0.15,
+          "atk_scale": 0.7,
+          "projectile_range": 2,
+          "level": 4,
+          "spCost": 29,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 11,
+          "hp_recovery_per_sec_ratio": 0.15,
+          "atk_scale": 0.75,
+          "projectile_range": 2,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 12,
+          "hp_recovery_per_sec_ratio": 0.2,
+          "atk_scale": 0.8,
+          "projectile_range": 2,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 13,
+          "hp_recovery_per_sec_ratio": 0.2,
+          "atk_scale": 0.9,
+          "projectile_range": 2,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 14,
+          "hp_recovery_per_sec_ratio": 0.2,
+          "atk_scale": 1,
+          "projectile_range": 2,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 15,
+          "hp_recovery_per_sec_ratio": 0.25,
+          "atk_scale": 1.1,
+          "projectile_range": 2,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“在路上”",
+          "description": "在【萨卡兹的无终奇语】中，被招募时希望消耗-1",
+          "blackboard": {},
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“在路上”",
+          "description": "在【萨卡兹的无终奇语】中，被招募时希望消耗-2，且作为负荷干员时使负荷临界点额外+3",
+          "blackboard": {},
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "“在路上”",
+          "description": "在【萨卡兹的无终奇语】中，被招募时希望消耗-2，且作为负荷干员时使负荷临界点额外+4<@ba.talpu>（+1）</>",
+          "blackboard": {},
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“在路上”",
+          "description": "在【萨卡兹的无终奇语】中，被招募时希望消耗-2，且作为负荷干员时使负荷临界点额外+9",
+          "blackboard": {},
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "“在路上”",
+          "description": "在【萨卡兹的无终奇语】中，被招募时希望消耗-2，且作为负荷干员时使负荷临界点额外+10<@ba.talpu>（+1）</>",
+          "blackboard": {},
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "凋敝魂灵",
+          "description": "使自身炼金单元影响范围内地面敌人受到的持续伤害提高20%",
+          "blackboard": {
+            "skill@damage_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "凋敝魂灵",
+          "description": "使自身炼金单元影响范围内地面敌人受到的持续伤害提高22%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "skill@damage_scale": 1.22
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "法术抗性+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAGIC_RESISTANCE",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_tinman",
+      "name": "锡人证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_tinman",
+      "name": "“颅相学”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            },
+            {
+              "name": "凋敝魂灵",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "skill@damage_scale": 1.23
+              }
+            },
+            {
+              "name": "凋敝魂灵",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "skill@damage_scale": 1.25
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            },
+            {
+              "name": "凋敝魂灵",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "skill@damage_scale": 1.25
+              }
+            },
+            {
+              "name": "凋敝魂灵",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "skill@damage_scale": 1.27
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,808 @@
+{
+  "id": "char_1502_crosly",
+  "name": "弑君者",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "executor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        210,
+        310
+      ],
+      "def": [
+        147,
+        210
+      ],
+      "maxHp": [
+        792,
+        1057
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        310,
+        425
+      ],
+      "def": [
+        210,
+        273
+      ],
+      "maxHp": [
+        1057,
+        1322
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        425,
+        545
+      ],
+      "def": [
+        273,
+        325
+      ],
+      "maxHp": [
+        1322,
+        1695
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_crosly_1",
+      "name": "尘烟蔽目",
+      "levels": [
+        {
+          "atk": 0.5,
+          "prob": 0.2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "prob": 0.2,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "prob": 0.2,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "prob": 0.3,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "prob": 0.3,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "prob": 0.3,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "prob": 0.4,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "prob": 0.4,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "prob": 0.4,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "prob": 0.5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_crosly_2",
+      "name": "硝烟震爆",
+      "levels": [
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 2,
+          "talent_scale": 1.5,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 2.2,
+          "talent_scale": 1.5,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 2.4,
+          "talent_scale": 1.5,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 2.7,
+          "talent_scale": 2,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 2.9,
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 3.1,
+          "talent_scale": 2,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 3.5,
+          "talent_scale": 2,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 4,
+          "talent_scale": 2.5,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 4.5,
+          "talent_scale": 2.5,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "taunt_level": -1,
+          "attack@atk_scale_s2": 5,
+          "talent_scale": 2.5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_crosly_3",
+      "name": "烽烟行刑场",
+      "levels": [
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.1,
+          "attack@stun": 1,
+          "mark_duration": 6,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.2,
+          "attack@stun": 1,
+          "mark_duration": 6,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.3,
+          "attack@stun": 1,
+          "mark_duration": 6,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.5,
+          "attack@stun": 1.5,
+          "mark_duration": 6,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.6,
+          "attack@stun": 1.5,
+          "mark_duration": 6,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.7,
+          "attack@stun": 1.5,
+          "mark_duration": 6,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 1.9,
+          "attack@stun": 1.5,
+          "mark_duration": 6,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 2.1,
+          "attack@stun": 2,
+          "mark_duration": 6,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 2.3,
+          "attack@stun": 3,
+          "mark_duration": 6,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@s3_cd": 2,
+          "attack@times": 2,
+          "attack@hit_interval": 0.1,
+          "attack@atk_scale_s3": 2.5,
+          "attack@stun": 4,
+          "mark_duration": 6,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "吞咽苦厄",
+          "description": "技能持续期间在自身周围产生烟雾，使其中的地面敌人物理与法术命中率-15%",
+          "blackboard": {
+            "damage_hitrate_physical": -0.15,
+            "damage_hitrate_magical": -0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "吞咽苦厄",
+          "description": "技能持续期间在自身周围产生烟雾，使其中的地面敌人物理与法术命中率-20%",
+          "blackboard": {
+            "damage_hitrate_physical": -0.2,
+            "damage_hitrate_magical": -0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "弑君者威名",
+          "description": "对未伤害过自身的地面敌人造成的物理伤害提升20%",
+          "blackboard": {
+            "damage_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "弑君者威名",
+          "description": "对未伤害过自身的地面敌人造成的物理伤害提升22%<@ba.talpu>（+2）</>",
+          "blackboard": {
+            "damage_scale": 1.22
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_crosly",
+      "name": "弑君者证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_crosly",
+      "name": "弑君刃",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 34,
+            "def": 23
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 112,
+            "atk": 40,
+            "def": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "吞咽苦厄",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_hitrate_physical": -0.23,
+                "damage_hitrate_magical": -0.23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 45,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "吞咽苦厄",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_hitrate_physical": -0.25,
+                "damage_hitrate_magical": -0.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_crosly",
+      "name": "木炭画",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 84,
+            "atk": 63
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 109,
+            "atk": 74
+          },
+          "talentEnhance": [
+            {
+              "name": "弑君者威名",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.28
+              }
+            },
+            {
+              "name": "弑君者威名",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "one_minus_status_resistance": 0.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 135,
+            "atk": 88
+          },
+          "talentEnhance": [
+            {
+              "name": "弑君者威名",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.35
+              }
+            },
+            {
+              "name": "弑君者威名",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.37
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "one_minus_status_resistance": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

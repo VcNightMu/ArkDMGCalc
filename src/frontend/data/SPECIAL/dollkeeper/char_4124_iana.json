@@ -1,0 +1,582 @@
+{
+  "id": "char_4124_iana",
+  "name": "双月",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        321,
+        440
+      ],
+      "def": [
+        120,
+        185
+      ],
+      "maxHp": [
+        1139,
+        1519
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        440,
+        580
+      ],
+      "def": [
+        185,
+        241
+      ],
+      "maxHp": [
+        1519,
+        1924
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        580,
+        708
+      ],
+      "def": [
+        241,
+        291
+      ],
+      "maxHp": [
+        1924,
+        2436
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_iana_1",
+      "name": "幻影诡雷",
+      "levels": [
+        {
+          "atk_scale": 2.6,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.1,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.4,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.8,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_iana_2",
+      "name": "全知者的战术",
+      "levels": [
+        {
+          "attack_speed": 200,
+          "anti_invisible_duration": 8,
+          "level": 0,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 210,
+          "anti_invisible_duration": 8,
+          "level": 1,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 220,
+          "anti_invisible_duration": 8,
+          "level": 2,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 230,
+          "anti_invisible_duration": 8,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 240,
+          "anti_invisible_duration": 8,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 250,
+          "anti_invisible_duration": 8,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 260,
+          "anti_invisible_duration": 10,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 270,
+          "anti_invisible_duration": 10,
+          "level": 7,
+          "spCost": 6,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 280,
+          "anti_invisible_duration": 10,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 300,
+          "anti_invisible_duration": 10,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在6秒内隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 6,
+            "weak[limit]": 0,
+            "damage_scale": 1,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在6秒内隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 6,
+            "weak[limit]": 0,
+            "damage_scale": 1,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在6秒内受到10%的脆弱且隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 6,
+            "weak[limit]": 6,
+            "damage_scale": 1.1,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在6秒内受到12%<@ba.talpu>（+2%）</>的脆弱且隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 6,
+            "weak[limit]": 6,
+            "damage_scale": 1.12,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在8秒内受到20%的脆弱且隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 8,
+            "weak[limit]": 8,
+            "damage_scale": 1.2,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "双子分身复制器",
+          "description": "部署时原地释放全息幻影，该幻影不会攻击，受到攻击时使攻击幻影的敌人在8秒内受到22%<@ba.talpu>（+2%）</>的脆弱且隐匿效果失效，并立即切换为<替身>作战",
+          "blackboard": {
+            "duration": 8,
+            "weak[limit]": 8,
+            "damage_scale": 1.22,
+            "block_cnt": -2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0,
+      "talent_override_rangeid_flag": 1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_iana",
+      "name": "双月证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_iana",
+      "name": "“遥远陌生的世界”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "双子分身复制器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 10,
+                "weak[limit]": 10,
+                "damage_scale": 1.25,
+                "block_cnt": -2
+              }
+            },
+            {
+              "name": "双子分身复制器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 10,
+                "weak[limit]": 10,
+                "damage_scale": 1.27,
+                "block_cnt": -2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "双子分身复制器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 10,
+                "weak[limit]": 10,
+                "damage_scale": 1.28,
+                "block_cnt": -2
+              }
+            },
+            {
+              "name": "双子分身复制器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 10,
+                "weak[limit]": 10,
+                "damage_scale": 1.3,
+                "block_cnt": -2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

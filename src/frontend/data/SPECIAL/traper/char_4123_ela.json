@@ -1,0 +1,853 @@
+{
+  "id": "char_4123_ela",
+  "name": "艾拉",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "traper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        270,
+        366
+      ],
+      "def": [
+        72,
+        108
+      ],
+      "maxHp": [
+        696,
+        916
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        366,
+        476
+      ],
+      "def": [
+        108,
+        141
+      ],
+      "maxHp": [
+        916,
+        1145
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        476,
+        588
+      ],
+      "def": [
+        141,
+        173
+      ],
+      "maxHp": [
+        1145,
+        1468
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ela_1",
+      "name": "眩目阻滞",
+      "levels": [
+        {
+          "duration": 7,
+          "sluggish": 7,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.1,
+          "damage_hitrate_magical": -0.1,
+          "level": 0,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 7,
+          "sluggish": 7,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.15,
+          "damage_hitrate_magical": -0.15,
+          "level": 1,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 7,
+          "sluggish": 7,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.2,
+          "damage_hitrate_magical": -0.2,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "sluggish": 8,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.2,
+          "damage_hitrate_magical": -0.2,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "sluggish": 8,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.25,
+          "damage_hitrate_magical": -0.25,
+          "level": 4,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 8,
+          "sluggish": 8,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.3,
+          "damage_hitrate_magical": -0.3,
+          "level": 5,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 9,
+          "sluggish": 9,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.3,
+          "damage_hitrate_magical": -0.3,
+          "level": 6,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 9,
+          "sluggish": 9,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.35,
+          "damage_hitrate_magical": -0.35,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 9,
+          "sluggish": 9,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.4,
+          "damage_hitrate_magical": -0.4,
+          "level": 8,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "duration": 10,
+          "sluggish": 10,
+          "projectile_range": 1.7,
+          "damage_hitrate_physical": -0.4,
+          "damage_hitrate_magical": -0.4,
+          "level": 9,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ela_2",
+      "name": "震荡坚守",
+      "levels": [
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 1.5,
+          "def_penetrate_fixed": 200,
+          "attack@projectile_range": 1.1,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 1.5,
+          "def_penetrate_fixed": 250,
+          "attack@projectile_range": 1.1,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 1.5,
+          "def_penetrate_fixed": 300,
+          "attack@projectile_range": 1.1,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 2,
+          "def_penetrate_fixed": 350,
+          "attack@projectile_range": 1.1,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 2,
+          "def_penetrate_fixed": 400,
+          "attack@projectile_range": 1.1,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 2,
+          "def_penetrate_fixed": 450,
+          "attack@projectile_range": 1.1,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 4,
+          "projectile_range": 1.7,
+          "def": 2.5,
+          "def_penetrate_fixed": 500,
+          "attack@projectile_range": 1.1,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 5,
+          "projectile_range": 1.7,
+          "def": 2.5,
+          "def_penetrate_fixed": 600,
+          "attack@projectile_range": 1.1,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 5,
+          "projectile_range": 1.7,
+          "def": 2.5,
+          "def_penetrate_fixed": 700,
+          "attack@projectile_range": 1.1,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "stun": 5,
+          "projectile_range": 1.7,
+          "def": 3,
+          "def_penetrate_fixed": 800,
+          "attack@projectile_range": 1.1,
+          "level": 9,
+          "spCost": 16,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ela_3",
+      "name": "“博萨克风暴”",
+      "levels": [
+        {
+          "sluggish": 5,
+          "weak[limit]": 5,
+          "damage_scale": 1.15,
+          "fake_damage_scale": 0.15,
+          "projectile_range": 1.7,
+          "atk": 0.3,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 0,
+          "spCost": 48,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 5,
+          "weak[limit]": 5,
+          "damage_scale": 1.15,
+          "fake_damage_scale": 0.15,
+          "projectile_range": 1.7,
+          "atk": 0.35,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 1,
+          "spCost": 47,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 5,
+          "weak[limit]": 5,
+          "damage_scale": 1.15,
+          "fake_damage_scale": 0.15,
+          "projectile_range": 1.7,
+          "atk": 0.4,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 2,
+          "spCost": 46,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 6,
+          "weak[limit]": 6,
+          "damage_scale": 1.2,
+          "fake_damage_scale": 0.2,
+          "projectile_range": 1.7,
+          "atk": 0.45,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 3,
+          "spCost": 44,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 6,
+          "weak[limit]": 6,
+          "damage_scale": 1.2,
+          "fake_damage_scale": 0.2,
+          "projectile_range": 1.7,
+          "atk": 0.5,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 4,
+          "spCost": 43,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 6,
+          "weak[limit]": 6,
+          "damage_scale": 1.2,
+          "fake_damage_scale": 0.2,
+          "projectile_range": 1.7,
+          "atk": 0.55,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 5,
+          "spCost": 42,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 6,
+          "weak[limit]": 6,
+          "damage_scale": 1.25,
+          "fake_damage_scale": 0.25,
+          "projectile_range": 1.7,
+          "atk": 0.6,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 7,
+          "weak[limit]": 7,
+          "damage_scale": 1.3,
+          "fake_damage_scale": 0.3,
+          "projectile_range": 1.7,
+          "atk": 0.7,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 7,
+          "weak[limit]": 7,
+          "damage_scale": 1.3,
+          "fake_damage_scale": 0.3,
+          "projectile_range": 1.7,
+          "atk": 0.8,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 7,
+          "weak[limit]": 7,
+          "damage_scale": 1.35,
+          "fake_damage_scale": 0.35,
+          "projectile_range": 1.7,
+          "atk": 0.9,
+          "base_attack_time": -0.35,
+          "attack@trigger_time": 40,
+          "cnt": 2,
+          "level": 9,
+          "spCost": 34,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "雷鸣地雷",
+          "description": "可以使用1个雷鸣地雷（最多拥有2个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "雷鸣地雷",
+          "description": "可以使用2<@ba.talpu>（+1）</>个雷鸣地雷（最多拥有2个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "雷鸣地雷",
+          "description": "可以使用2个雷鸣地雷（最多拥有3个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "雷鸣地雷",
+          "description": "可以使用3<@ba.talpu>（+1）</>个雷鸣地雷（最多拥有3个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "雷鸣地雷",
+          "description": "可以使用3个雷鸣地雷（最多拥有4个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "雷鸣地雷",
+          "description": "可以使用4<@ba.talpu>（+1）</>个雷鸣地雷（最多拥有4个），经过周围的第一个敌人会触发其效果，撤退时以自身为中心触发一次雷鸣地雷效果",
+          "blackboard": {
+            "cnt": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“正中靶心”",
+          "description": "攻击有30%几率造成相当于攻击力150%的物理伤害，对受到雷鸣地雷效果影响的目标必定触发",
+          "blackboard": {
+            "atk_scale": 1.5,
+            "prob": 0.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“正中靶心”",
+          "description": "攻击有30%几率造成相当于攻击力160%<@ba.talpu>（+10%）</>的物理伤害，对受到雷鸣地雷效果影响的目标必定触发",
+          "blackboard": {
+            "atk_scale": 1.6,
+            "prob": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ela",
+      "name": "艾拉证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ela",
+      "name": "社会期望背包",
+      "type": "ADVANCED",
+      "typeName2": "D",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 3,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 36,
+            "def": 12
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 22
+          },
+          "talentEnhance": [
+            {
+              "name": "“正中靶心”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 1.6
+              }
+            },
+            {
+              "name": "“正中靶心”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.4,
+                "atk_scale": 1.7
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "“正中靶心”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "atk_scale": 1.7
+              }
+            },
+            {
+              "name": "“正中靶心”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.5,
+                "atk_scale": 1.8
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

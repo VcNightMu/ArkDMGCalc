@@ -1,0 +1,1021 @@
+{
+  "id": "char_1033_swire2",
+  "name": "琳琅诗怀雅",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "merchant",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        386,
+        530
+      ],
+      "def": [
+        235,
+        302
+      ],
+      "maxHp": [
+        1146,
+        1509
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        530,
+        672
+      ],
+      "def": [
+        302,
+        388
+      ],
+      "maxHp": [
+        1509,
+        1864
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        672,
+        810
+      ],
+      "def": [
+        388,
+        457
+      ],
+      "maxHp": [
+        1864,
+        2360
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 55,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_swire2_1",
+      "name": "仗义疏财",
+      "levels": [
+        {
+          "attack@heal_scale": 0.25,
+          "sp": 1,
+          "attack@sp": -1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.3,
+          "sp": 1,
+          "attack@sp": -1,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.35,
+          "sp": 1,
+          "attack@sp": -1,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.4,
+          "sp": 2,
+          "attack@sp": -1,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.45,
+          "sp": 2,
+          "attack@sp": -1,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.5,
+          "sp": 2,
+          "attack@sp": -1,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.55,
+          "sp": 2,
+          "attack@sp": -1,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.6,
+          "sp": 3,
+          "attack@sp": -1,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.7,
+          "sp": 3,
+          "attack@sp": -1,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@heal_scale": 0.8,
+          "sp": 3,
+          "attack@sp": -1,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_swire2_2",
+      "name": "“见面礼”",
+      "levels": [
+        {
+          "sp": 3,
+          "atk_scale": 1.4,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 3,
+          "atk_scale": 1.45,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 3,
+          "atk_scale": 1.5,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 3,
+          "atk_scale": 1.55,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 3,
+          "atk_scale": 1.6,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 3,
+          "atk_scale": 1.65,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 4,
+          "atk_scale": 1.7,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 4,
+          "atk_scale": 1.8,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 5,
+          "atk_scale": 1.9,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sp": 5,
+          "atk_scale": 2,
+          "sluggish": 2,
+          "attack@sp": -1,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_swire2_3",
+      "name": "千金一掷",
+      "levels": [
+        {
+          "atk_scale": 0.8,
+          "force": 0,
+          "sp": 10,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 0.85,
+          "force": 0,
+          "sp": 10,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 0.9,
+          "force": 0,
+          "sp": 10,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1,
+          "force": 0,
+          "sp": 10,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.05,
+          "force": 0,
+          "sp": 10,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.1,
+          "force": 0,
+          "sp": 10,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.2,
+          "force": 0,
+          "sp": 10,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.3,
+          "force": 0,
+          "sp": 10,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.4,
+          "force": 0,
+          "sp": 10,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.5,
+          "force": 1,
+          "sp": 10,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "大买家",
+          "description": "技能期间每次特性消耗费用时获得1枚金币（可用于技能消耗）",
+          "blackboard": {
+            "sp": 0,
+            "trait_sp": 1,
+            "atk": 0,
+            "max_stack_cnt": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "大买家",
+          "description": "技能期间每次特性消耗费用时获得1枚金币（可用于技能消耗），并提升自身3%的攻击力（最多叠加5次）",
+          "blackboard": {
+            "sp": 0,
+            "trait_sp": 1,
+            "atk": 0.03,
+            "max_stack_cnt": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "大买家",
+          "description": "技能期间每次特性消耗费用时获得1枚金币（可用于技能消耗），并提升自身3%的攻击力（最多叠加6<@ba.talpu>（+1）</>次）",
+          "blackboard": {
+            "sp": 0,
+            "trait_sp": 1,
+            "atk": 0.03,
+            "max_stack_cnt": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "大买家",
+          "description": "开启技能时获得1枚金币（可用于技能消耗），技能期间每次特性消耗费用时获得1枚金币，并提升自身4%的攻击力（最多叠加8次）",
+          "blackboard": {
+            "sp": 1,
+            "trait_sp": 1,
+            "atk": 0.04,
+            "max_stack_cnt": 8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "大买家",
+          "description": "开启技能时获得1枚金币（可用于技能消耗），技能期间每次特性消耗费用时获得1枚金币，并提升自身4%的攻击力（最多叠加9<@ba.talpu>（+1）</>次）",
+          "blackboard": {
+            "sp": 1,
+            "trait_sp": 1,
+            "atk": 0.04,
+            "max_stack_cnt": 9
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "破财消灾",
+          "description": "受到致命伤害时，若费用足够则消耗5点部署费用使生命恢复到70%，每次触发该天赋时消耗的费用翻倍",
+          "blackboard": {
+            "cost": -5,
+            "hp_ratio": 0.7,
+            "cost_multi": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "破财消灾",
+          "description": "受到致命伤害时，若费用足够则消耗5点部署费用使生命恢复到80%<@ba.talpu>（+10%）</>，每次触发该天赋时消耗的费用翻倍",
+          "blackboard": {
+            "cost": -5,
+            "hp_ratio": 0.8,
+            "cost_multi": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "interval": 3,
+      "cost": -3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_swire2",
+      "name": "琳琅诗怀雅证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_swire2",
+      "name": "“金币辉煌”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 25,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 35,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.05,
+                "max_stack_cnt": 8
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.05,
+                "max_stack_cnt": 9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 40,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 2,
+                "trait_sp": 1,
+                "atk": 0.05,
+                "max_stack_cnt": 8
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 2,
+                "trait_sp": 1,
+                "atk": 0.05,
+                "max_stack_cnt": 9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_swire2",
+      "name": "诗怀雅的龙门美食指南",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 57,
+            "def": 44
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 71,
+            "def": 53
+          },
+          "talentEnhance": [
+            {
+              "name": "破财消灾",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -5,
+                "hp_ratio": 0.7,
+                "cost_addition": -5
+              }
+            },
+            {
+              "name": "破财消灾",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cost": -5,
+                "hp_ratio": 0.8,
+                "cost_addition": -5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 81,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "破财消灾",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -3,
+                "hp_ratio": 0.7,
+                "cost_addition": -3
+              }
+            },
+            {
+              "name": "破财消灾",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "cost": -3,
+                "hp_ratio": 0.8,
+                "cost_addition": -3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_swire2",
+      "name": "琳琅诗怀雅特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time_ratio": 2,
+                "interval": 3,
+                "cost": -3,
+                "cost_scale": 0.7
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 5,
+                "sp_add": 1,
+                "atk_per_coin": 2
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.04,
+                "max_stack_cnt": 8
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.04,
+                "max_stack_cnt": 9
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time_ratio": 2,
+                "interval": 3,
+                "cost": -3,
+                "cost_scale": 0.7
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 5,
+                "sp_add": 1,
+                "atk_per_coin": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max": 60
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.04,
+                "max_stack_cnt": 8
+              }
+            },
+            {
+              "name": "大买家",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1,
+                "trait_sp": 1,
+                "atk": 0.04,
+                "max_stack_cnt": 9
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "respawn_time_ratio": 2,
+                "interval": 3,
+                "cost": -3,
+                "cost_scale": 0.7
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

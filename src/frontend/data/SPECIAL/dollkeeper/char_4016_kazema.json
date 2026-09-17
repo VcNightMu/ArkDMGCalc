@@ -1,0 +1,562 @@
+{
+  "id": "char_4016_kazema",
+  "name": "风丸",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        313,
+        430
+      ],
+      "def": [
+        131,
+        202
+      ],
+      "maxHp": [
+        1109,
+        1479
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        430,
+        567
+      ],
+      "def": [
+        202,
+        263
+      ],
+      "maxHp": [
+        1479,
+        1873
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        567,
+        692
+      ],
+      "def": [
+        263,
+        318
+      ],
+      "maxHp": [
+        1873,
+        2372
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_kazema_1",
+      "name": "纸艺·迅击",
+      "levels": [
+        {
+          "atk_scale": 2,
+          "hp_ratio": 0.1,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "hp_ratio": 0.1,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "hp_ratio": 0.1,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.35,
+          "hp_ratio": 0.1,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "hp_ratio": 0.1,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "hp_ratio": 0.1,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.75,
+          "hp_ratio": 0.1,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "hp_ratio": 0.1,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.3,
+          "hp_ratio": 0.1,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.5,
+          "hp_ratio": 0.1,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_kazema_2",
+      "name": "纸艺·双影",
+      "levels": [
+        {
+          "atk": 0.5,
+          "hp_ratio": 0.5,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "hp_ratio": 0.5,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "hp_ratio": 0.5,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "hp_ratio": 0.5,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "hp_ratio": 0.5,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "hp_ratio": 0.5,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "hp_ratio": 0.5,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "hp_ratio": 0.5,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "hp_ratio": 0.5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "hp_ratio": 0.5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力150%的法术伤害",
+          "blackboard": {
+            "damage_scale": 1.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力155%<@ba.talpu>（+5）</>的法术伤害",
+          "blackboard": {
+            "damage_scale": 1.55
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力225%的法术伤害",
+          "blackboard": {
+            "damage_scale": 2.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力230%<@ba.talpu>（+5）</>的法术伤害",
+          "blackboard": {
+            "damage_scale": 2.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力270%的法术伤害",
+          "blackboard": {
+            "damage_scale": 2.7
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "折纸生花",
+          "description": "<替身>出现时对其周围8格内所有敌方单位造成相当于其攻击力275%<@ba.talpu>（+5）</>的法术伤害",
+          "blackboard": {
+            "damage_scale": 2.75
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0,
+      "talent_override_rangeid_flag": 1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_kazema",
+      "name": "风丸证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_kazema",
+      "name": "旧物",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "折纸生花",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 2.8
+              }
+            },
+            {
+              "name": "折纸生花",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 2.85
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "折纸生花",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 2.85
+              }
+            },
+            {
+              "name": "折纸生花",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 2.9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "id": "char_1015_aglna2",
+  "name": "予愿安洁莉娜",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "skywalker",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        333,
+        477
+      ],
+      "def": [
+        217,
+        311
+      ],
+      "maxHp": [
+        1001,
+        1431
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        477,
+        628
+      ],
+      "def": [
+        311,
+        410
+      ],
+      "maxHp": [
+        1431,
+        1884
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        628,
+        796
+      ],
+      "def": [
+        410,
+        520
+      ],
+      "maxHp": [
+        1884,
+        2385
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_aglna2_1",
+      "name": "极速送达",
+      "levels": [
+        {
+          "atk": 0.6,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 55,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 55,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 55,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 56,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 56,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 56,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 56,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 58,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 58,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 60,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aglna2_2",
+      "name": "重力自定义",
+      "levels": [
+        {
+          "atk": 0.75,
+          "base_attack_time": -0.5,
+          "attack@max_target": 3,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 18,
+          "buff_duration_levitate": 8,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "base_attack_time": -0.5,
+          "attack@max_target": 3,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 18,
+          "buff_duration_levitate": 8,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "base_attack_time": -0.6,
+          "attack@max_target": 3,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 18,
+          "buff_duration_levitate": 8,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "base_attack_time": -0.6,
+          "attack@max_target": 4,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 20,
+          "buff_duration_levitate": 10,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "base_attack_time": -0.7,
+          "attack@max_target": 4,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 20,
+          "buff_duration_levitate": 10,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "base_attack_time": -0.7,
+          "attack@max_target": 4,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 20,
+          "buff_duration_levitate": 10,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "base_attack_time": -0.8,
+          "attack@max_target": 5,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 22,
+          "buff_duration_levitate": 12,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.45,
+          "base_attack_time": -0.8,
+          "attack@max_target": 5,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 22,
+          "buff_duration_levitate": 12,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.55,
+          "base_attack_time": -0.8,
+          "attack@max_target": 5,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 22,
+          "buff_duration_levitate": 12,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.65,
+          "base_attack_time": -0.8,
+          "attack@max_target": 5,
+          "chant_duration": 2.5,
+          "mass_level": 10,
+          "buff_duration_ground_bound": 22,
+          "buff_duration_levitate": 12,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aglna2_3",
+      "name": "酸橙的心事",
+      "levels": [
+        {
+          "attack@atk_scale": 2.45,
+          "attack@max_target": 4,
+          "move_speed": -0.3,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.15,
+          "damage_resistance": 0.5,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 30,
+          "level": 0,
+          "spCost": 48,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.55,
+          "attack@max_target": 4,
+          "move_speed": -0.3,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.15,
+          "damage_resistance": 0.5,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 30,
+          "level": 1,
+          "spCost": 46,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.65,
+          "attack@max_target": 4,
+          "move_speed": -0.3,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.15,
+          "damage_resistance": 0.5,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 30,
+          "level": 2,
+          "spCost": 44,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.75,
+          "attack@max_target": 4,
+          "move_speed": -0.4,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.2,
+          "damage_resistance": 0.55,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 30,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.85,
+          "attack@max_target": 4,
+          "move_speed": -0.4,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.2,
+          "damage_resistance": 0.55,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 31,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.95,
+          "attack@max_target": 4,
+          "move_speed": -0.4,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.2,
+          "damage_resistance": 0.55,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 31,
+          "level": 5,
+          "spCost": 38,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.05,
+          "attack@max_target": 4,
+          "move_speed": -0.4,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.3,
+          "damage_resistance": 0.6,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 31,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.3,
+          "attack@max_target": 4,
+          "move_speed": -0.5,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.3,
+          "damage_resistance": 0.6,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 33,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.55,
+          "attack@max_target": 4,
+          "move_speed": -0.5,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.3,
+          "damage_resistance": 0.6,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 33,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 3.8,
+          "attack@max_target": 4,
+          "move_speed": -0.6,
+          "aglna2_s_3[unblocked].attack_speed": 0,
+          "aglna2_s_3[blocked].attack_speed": 0,
+          "atk": 0.3,
+          "damage_resistance": 0.65,
+          "attack@attack_range_id": 0,
+          "attack@max_walk_target": 3,
+          "attack@trigger_time": 33,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "飘浮大地之上",
+          "description": "予愿安洁莉娜攻击额外造成相当于攻击力13%的法术伤害，攻击重量较轻（小于等于3）的敌人时则额外造成相当于攻击力20%的法术伤害；处于<$ba.liftoff>起飞</>状态时使攻击范围内的敌人<$ba.weightless>失重</>",
+          "blackboard": {
+            "atk_scale_hi": 0.2,
+            "atk_scale_lo": 0.13,
+            "mass_level": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "飘浮大地之上",
+          "description": "予愿安洁莉娜攻击额外造成相当于攻击力18%<@ba.talpu>（+5%）</>的法术伤害，攻击重量较轻（小于等于3）的敌人时则额外造成相当于攻击力30%<@ba.talpu>（+10%）</>的法术伤害；处于<$ba.liftoff>起飞</>状态时使攻击范围内的敌人<$ba.weightless>失重</>",
+          "blackboard": {
+            "atk_scale_hi": 0.3,
+            "atk_scale_lo": 0.18,
+            "mass_level": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "飘浮大地之上",
+          "description": "予愿安洁莉娜攻击额外造成相当于攻击力25%的法术伤害，攻击重量较轻（小于等于3）的敌人时则额外造成相当于攻击力35%的法术伤害；处于<$ba.liftoff>起飞</>状态时使攻击范围内的敌人<$ba.weightless>失重</>",
+          "blackboard": {
+            "atk_scale_hi": 0.35,
+            "atk_scale_lo": 0.25,
+            "mass_level": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "飘浮大地之上",
+          "description": "予愿安洁莉娜攻击额外造成相当于攻击力30%<@ba.talpu>（+5%）</>的法术伤害，攻击重量较轻（小于等于3）的敌人时则额外造成相当于攻击力45%<@ba.talpu>（+10%）</>的法术伤害；处于<$ba.liftoff>起飞</>状态时使攻击范围内的敌人<$ba.weightless>失重</>",
+          "blackboard": {
+            "atk_scale_hi": 0.45,
+            "atk_scale_lo": 0.3,
+            "mass_level": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "天穹间的舞步",
+          "description": "在场时，所有处于<$ba.liftoff>起飞</>状态的友方干员攻击力+13%且阻挡时每秒回复8%的最大生命值",
+          "blackboard": {
+            "atk": 0.13,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "天穹间的舞步",
+          "description": "在场时，所有处于<$ba.liftoff>起飞</>状态的友方干员攻击力+18%<@ba.talpu>（+5%）</>且阻挡时每秒回复10%<@ba.talpu>（+2%）</>的最大生命值",
+          "blackboard": {
+            "atk": 0.18,
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "起飞后能够阻挡2个飞行敌人",
+    "blackboard": {
+      "height_offset": 0.8
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

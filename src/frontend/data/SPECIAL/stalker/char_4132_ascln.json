@@ -1,0 +1,815 @@
+{
+  "id": "char_4132_ascln",
+  "name": "阿斯卡纶",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "stalker",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        410,
+        587
+      ],
+      "def": [
+        146,
+        215
+      ],
+      "maxHp": [
+        702,
+        949
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        587,
+        763
+      ],
+      "def": [
+        215,
+        283
+      ],
+      "maxHp": [
+        949,
+        1233
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        763,
+        954
+      ],
+      "def": [
+        283,
+        333
+      ],
+      "maxHp": [
+        1233,
+        1623
+      ],
+      "magicResistance": 30,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 40,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ascln_1",
+      "name": "追袭",
+      "levels": [
+        {
+          "atk_scale": 1.05,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "cnt": 2,
+          "level": 3,
+          "spCost": 10,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "cnt": 2,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "cnt": 2,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "cnt": 3,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "cnt": 3,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "cnt": 3,
+          "level": 8,
+          "spCost": 7,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "cnt": 3,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ascln_2",
+      "name": "恩赐",
+      "levels": [
+        {
+          "atk": 0.2,
+          "move_speed": -0.2,
+          "range_radius": 1.3,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "move_speed": -0.2,
+          "range_radius": 1.3,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "move_speed": -0.25,
+          "range_radius": 1.3,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "move_speed": -0.3,
+          "range_radius": 1.3,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "move_speed": -0.35,
+          "range_radius": 1.3,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "move_speed": -0.35,
+          "range_radius": 1.3,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "move_speed": -0.4,
+          "range_radius": 1.3,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "move_speed": -0.45,
+          "range_radius": 1.3,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "move_speed": -0.5,
+          "range_radius": 1.3,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "move_speed": -0.6,
+          "range_radius": 1.3,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ascln_3",
+      "name": "降临",
+      "levels": [
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.1,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.03,
+          "attack@damage_hitrate_physical": -0.1,
+          "attack@damage_hitrate_magical": -0.1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.03,
+          "attack@damage_hitrate_physical": -0.1,
+          "attack@damage_hitrate_magical": -0.1,
+          "level": 1,
+          "spCost": 58,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.03,
+          "attack@damage_hitrate_physical": -0.15,
+          "attack@damage_hitrate_magical": -0.15,
+          "level": 2,
+          "spCost": 56,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.2,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.04,
+          "attack@damage_hitrate_physical": -0.15,
+          "attack@damage_hitrate_magical": -0.15,
+          "level": 3,
+          "spCost": 53,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.2,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.04,
+          "attack@damage_hitrate_physical": -0.2,
+          "attack@damage_hitrate_magical": -0.2,
+          "level": 4,
+          "spCost": 52,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.2,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.04,
+          "attack@damage_hitrate_physical": -0.25,
+          "attack@damage_hitrate_magical": -0.25,
+          "level": 5,
+          "spCost": 51,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.5,
+          "atk": 0.2,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.05,
+          "attack@damage_hitrate_physical": -0.3,
+          "attack@damage_hitrate_magical": -0.3,
+          "level": 6,
+          "spCost": 49,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.5,
+          "atk": 0.3,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.06,
+          "attack@damage_hitrate_physical": -0.35,
+          "attack@damage_hitrate_magical": -0.35,
+          "level": 7,
+          "spCost": 47,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.5,
+          "atk": 0.4,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.07,
+          "attack@damage_hitrate_physical": -0.5,
+          "attack@damage_hitrate_magical": -0.5,
+          "level": 8,
+          "spCost": 46,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -1.5,
+          "atk": 0.5,
+          "taunt_level": 2,
+          "attack@hp_ratio": 0.08,
+          "attack@damage_hitrate_physical": -0.5,
+          "attack@damage_hitrate_magical": -0.5,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 45,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死亡拘审",
+          "description": "攻击对敌人施加效果：移动速度降低12％，每秒受到6％阿斯卡纶当前攻击力的法术伤害，持续18秒，效果最多叠加三层",
+          "blackboard": {
+            "move_speed": -0.12,
+            "atk_ratio": 0.06,
+            "max_stack_cnt": 3,
+            "debuff_duration": 18,
+            "interval": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死亡拘审",
+          "description": "攻击对敌人施加效果：移动速度降低15％，每秒受到8％阿斯卡纶当前攻击力的法术伤害，持续18秒，效果最多叠加三层",
+          "blackboard": {
+            "move_speed": -0.15,
+            "atk_ratio": 0.08,
+            "max_stack_cnt": 3,
+            "debuff_duration": 18,
+            "interval": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死亡拘审",
+          "description": "攻击对敌人施加效果：移动速度降低18％，每秒受到10％阿斯卡纶当前攻击力的法术伤害，持续25秒，效果最多叠加三层",
+          "blackboard": {
+            "move_speed": -0.18,
+            "atk_ratio": 0.1,
+            "max_stack_cnt": 3,
+            "debuff_duration": 25,
+            "interval": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "噬光残影",
+          "description": "攻击速度+8，自身周围四格有高台时，攻击速度额外+6",
+          "blackboard": {
+            "attack_speed": 8,
+            "attack_speed_add": 6,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "噬光残影",
+          "description": "攻击速度+10<@ba.talpu>（+2）</>，自身周围四格有高台时，攻击速度额外+6",
+          "blackboard": {
+            "attack_speed": 10,
+            "attack_speed_add": 6,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "prob": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+160",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 160
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ascln",
+      "name": "阿斯卡纶证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ascln",
+      "name": "“无形，无情”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 15
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 33
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            },
+            {
+              "name": "死亡拘审",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.18,
+                "atk_ratio": 0.11,
+                "max_stack_cnt": 3,
+                "debuff_duration": 27,
+                "interval": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 53
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            },
+            {
+              "name": "死亡拘审",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.18,
+                "atk_ratio": 0.11,
+                "max_stack_cnt": 3,
+                "debuff_duration": 30,
+                "interval": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_ascln",
+      "name": "“阿斯卡纶的眼睛”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.65
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "死亡拘审",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.18,
+                "atk_ratio": 0.1,
+                "max_stack_cnt": 3,
+                "debuff_duration": 25,
+                "interval": 1,
+                "hp_ratio": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.65
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 80,
+            "def": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "死亡拘审",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.18,
+                "atk_ratio": 0.1,
+                "max_stack_cnt": 3,
+                "debuff_duration": 25,
+                "interval": 1,
+                "hp_ratio": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.65
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -351,16 +351,54 @@ const OPERATORS = {
     ],
   },
   SPECIAL: { // 特种
-    executor: ['char_144_red'],     // 处决者
-    pusher: [],                     // 推击手
-    stalker: [],                    // 伏击客
-    hookmaster: [],                 // 钩索师
-    geek: [],                       // 怪杰
-    merchant: [],                   // 行商
-    traper: [],                     // 陷阱师
-    dollkeeper: [],                 // 傀儡师
-    alchemist: [],                  // 炼金师
-    skywalker: [],                  // 巡空者
+    executor: [ // 处决者
+      'char_1028_texas2', 'char_1029_yato2', 'char_1502_crosly', 'char_250_phatom', // 缄默德克萨斯(异格)/麒麟R夜刀(异格)/弑君者/傀影 6★
+      'char_144_red', 'char_214_kafka', 'char_243_waaifu',                            // 红/卡夫卡/槐琥 5★
+      'char_237_gravel',                                                             // 砾 4★
+      'char_376_therex',                                                             // THRM-EX 1★（公招可得，同 CONFESS-47 口径）
+    ], // 不录：预备干员-特种 char_607_cspec、Misery char_615_acspec（均为 isNotObtainable）
+    pusher: [ // 推击手
+      'char_400_weedy',                                                              // 温蒂 6★
+      'char_241_panda', 'char_4036_forcer',                                          // 食铁兽/见行者 5★
+      'char_277_sqrrel',                                                             // 阿消 4★
+    ],
+    stalker: [ // 伏击客
+      'char_4132_ascln', 'char_437_mizuki',                                          // 阿斯卡纶/水月 6★
+      'char_215_mantic', 'char_4186_tmoris', 'char_478_kirara',                      // 狮蝎/八幡海铃/绮良 5★
+      'char_355_ethan',                                                             // 伊桑 4★
+    ],
+    hookmaster: [ // 钩索师
+      'char_474_glady',                                                             // 歌蕾蒂娅 6★
+      'char_173_slchan', 'char_383_snsant', 'char_4105_almond',                      // 崖心/雪雉/杏仁 5★
+      'char_236_rope',                                                              // 暗索 4★
+    ],
+    geek: [ // 怪杰
+      'char_1041_angel2', 'char_225_haak',                                           // 新约能天使(异格)/阿 6★
+      'char_4015_spuria',                                                           // 空构 5★
+    ],
+    merchant: [ // 行商
+      'char_1033_swire2', 'char_322_lmlee',                                          // 琳琅诗怀雅(异格)/老鲤 6★
+      'char_4155_talr', 'char_455_nothin',                                           // 裁度/乌有 5★
+      'char_272_strong',                                                            // 孑 4★
+    ],
+    traper: [ // 陷阱师
+      'char_2027_wang', 'char_4048_doroth', 'char_4123_ela',                         // 望/多萝西/艾拉 6★
+      'char_4171_wulfen', 'char_451_robin', 'char_458_rfrost',                        // 钼铅/罗宾/霜华 5★
+    ],
+    dollkeeper: [ // 傀儡师
+      'char_1023_ghost2', 'char_4217_makoto',                                        // 归溟幽灵鲨(异格)/结城理 6★
+      'char_369_bena', 'char_4016_kazema', 'char_4124_iana', 'char_4183_mortis',      // 贝娜/风丸/双月/若叶睦 5★
+      'char_4107_vrdant',                                                           // 维荻 4★
+    ],
+    alchemist: [ // 炼金师
+      'char_1039_thorn2',                                                           // 引星棘刺(异格) 6★
+      'char_4151_tinman',                                                           // 锡人 5★
+    ],
+    skywalker: [ // 巡空者
+      'char_1015_aglna2',                                                           // 予愿安洁莉娜(异格) 6★
+      'char_4191_tippi',                                                            // 蒂比 5★
+      'char_4165_ctrail',                                                           // 云迹 4★
+    ],
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
     notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心）

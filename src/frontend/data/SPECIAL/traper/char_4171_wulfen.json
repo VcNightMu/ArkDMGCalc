@@ -1,0 +1,577 @@
+{
+  "id": "char_4171_wulfen",
+  "name": "钼铅",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "traper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        235,
+        323
+      ],
+      "def": [
+        66,
+        100
+      ],
+      "maxHp": [
+        678,
+        904
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        323,
+        426
+      ],
+      "def": [
+        100,
+        132
+      ],
+      "maxHp": [
+        904,
+        1145
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        426,
+        520
+      ],
+      "def": [
+        132,
+        160
+      ],
+      "maxHp": [
+        1145,
+        1450
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.85,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_wulfen_1",
+      "name": "“驱兽专用”",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 1.8,
+          "stun": 2,
+          "level": 0,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.85,
+          "stun": 2,
+          "level": 1,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.9,
+          "stun": 2,
+          "level": 2,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.95,
+          "stun": 2,
+          "level": 3,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2,
+          "stun": 2,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.1,
+          "stun": 2,
+          "level": 5,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.1,
+          "stun": 2.5,
+          "level": 6,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.2,
+          "stun": 2.5,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.3,
+          "stun": 2.5,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "stun": 3,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_wulfen_2",
+      "name": "“顽石专用”",
+      "levels": [
+        {
+          "cnt": 1,
+          "atk_scale": 1.5,
+          "def": -0.15,
+          "duration": 5,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.6,
+          "def": -0.15,
+          "duration": 5,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.7,
+          "def": -0.15,
+          "duration": 5,
+          "level": 2,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.8,
+          "def": -0.15,
+          "duration": 5,
+          "level": 3,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 1.9,
+          "def": -0.2,
+          "duration": 5,
+          "level": 4,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2,
+          "def": -0.2,
+          "duration": 5,
+          "level": 5,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.2,
+          "def": -0.25,
+          "duration": 5,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.3,
+          "def": -0.25,
+          "duration": 5,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.4,
+          "def": -0.25,
+          "duration": 5,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "cnt": 1,
+          "atk_scale": 2.5,
+          "def": -0.25,
+          "duration": 5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "探险家的口袋",
+          "description": "可以使用1个矿石“杀手”（最多拥有2个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "探险家的口袋",
+          "description": "可以使用2<@ba.talpu>（+1）</>个矿石“杀手”（最多拥有2个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "探险家的口袋",
+          "description": "可以使用2个矿石“杀手”（最多拥有3个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "探险家的口袋",
+          "description": "可以使用3<@ba.talpu>（+1）</>个矿石“杀手”（最多拥有3个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "探险家的口袋",
+          "description": "可以使用3个矿石“杀手”（最多拥有4个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "探险家的口袋",
+          "description": "可以使用4<@ba.talpu>（+1）</>个矿石“杀手”（最多拥有4个），矿石“杀手”被部署后准备一段时间可以主动引爆",
+          "blackboard": {
+            "cnt": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_wulfen",
+      "name": "钼铅证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_wulfen",
+      "name": "矿石展览柜",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "def": 25
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "探险家的从容",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.08
+              }
+            },
+            {
+              "name": "探险家的从容",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "探险家的从容",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.12
+              }
+            },
+            {
+              "name": "探险家的从容",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

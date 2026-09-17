@@ -1,0 +1,576 @@
+{
+  "id": "char_369_bena",
+  "name": "贝娜",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        309,
+        424
+      ],
+      "def": [
+        130,
+        200
+      ],
+      "maxHp": [
+        1139,
+        1519
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        424,
+        559
+      ],
+      "def": [
+        200,
+        261
+      ],
+      "maxHp": [
+        1519,
+        1923
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        559,
+        682
+      ],
+      "def": [
+        261,
+        315
+      ],
+      "maxHp": [
+        1923,
+        2435
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skchr_bena_1",
+      "name": "奋力修剪",
+      "levels": [
+        {
+          "max_hp": -0.5,
+          "atk": 0.5,
+          "def_penetrate": 0.1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.55,
+          "def_penetrate": 0.1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.6,
+          "def_penetrate": 0.1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.65,
+          "def_penetrate": 0.2,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.7,
+          "def_penetrate": 0.2,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.75,
+          "def_penetrate": 0.2,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.8,
+          "def_penetrate": 0.3,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.85,
+          "def_penetrate": 0.35,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 0.9,
+          "def_penetrate": 0.35,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": -0.5,
+          "atk": 1,
+          "def_penetrate": 0.35,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_bena_2",
+      "name": "快速修剪",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack_speed": 20,
+          "hp_ratio": 0.04,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack_speed": 25,
+          "hp_ratio": 0.04,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 30,
+          "hp_ratio": 0.04,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 35,
+          "hp_ratio": 0.04,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 40,
+          "hp_ratio": 0.04,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 45,
+          "hp_ratio": 0.04,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 50,
+          "hp_ratio": 0.04,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 60,
+          "hp_ratio": 0.04,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 70,
+          "hp_ratio": 0.04,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack_speed": 80,
+          "hp_ratio": 0.04,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害",
+          "blackboard": {
+            "damage_resistance": 0,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少20%",
+          "blackboard": {
+            "damage_resistance": 0.2,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少23%<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "damage_resistance": 0.23,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少40%",
+          "blackboard": {
+            "damage_resistance": 0.4,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少43%<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "damage_resistance": 0.43,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bena",
+      "name": "贝娜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bena",
+      "name": "《乔弗瑞古今童话集》精装本",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.43,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.46,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.45,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.48,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

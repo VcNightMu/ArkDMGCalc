@@ -1,0 +1,530 @@
+{
+  "id": "char_243_waaifu",
+  "name": "槐琥",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "executor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        207,
+        305
+      ],
+      "def": [
+        137,
+        196
+      ],
+      "maxHp": [
+        680,
+        907
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        305,
+        418
+      ],
+      "def": [
+        196,
+        255
+      ],
+      "maxHp": [
+        907,
+        1134
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        418,
+        536
+      ],
+      "def": [
+        255,
+        304
+      ],
+      "maxHp": [
+        1134,
+        1455
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.93,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_waaifu_1",
+      "name": "寸劲",
+      "levels": [
+        {
+          "waaifu_s_1[self].atk": 0.25,
+          "attack@waaifu_s_1[debuff].atk": -0.2,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.3,
+          "attack@waaifu_s_1[debuff].atk": -0.2,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.35,
+          "attack@waaifu_s_1[debuff].atk": -0.2,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.4,
+          "attack@waaifu_s_1[debuff].atk": -0.25,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.45,
+          "attack@waaifu_s_1[debuff].atk": -0.25,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.5,
+          "attack@waaifu_s_1[debuff].atk": -0.25,
+          "attack@waaifu_s_1[debuff].duration": 2,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.55,
+          "attack@waaifu_s_1[debuff].atk": -0.3,
+          "attack@waaifu_s_1[debuff].duration": 3,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.6,
+          "attack@waaifu_s_1[debuff].atk": -0.33,
+          "attack@waaifu_s_1[debuff].duration": 3,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.65,
+          "attack@waaifu_s_1[debuff].atk": -0.36,
+          "attack@waaifu_s_1[debuff].duration": 3,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "waaifu_s_1[self].atk": 0.7,
+          "attack@waaifu_s_1[debuff].atk": -0.4,
+          "attack@waaifu_s_1[debuff].duration": 3,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 10,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_waaifu_2",
+      "name": "七武掠阵踢",
+      "levels": [
+        {
+          "atk_scale": 1.8,
+          "silence": 5,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "silence": 5,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "silence": 5,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "silence": 6,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "silence": 6,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "silence": 6,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "silence": 7,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.55,
+          "silence": 7,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "silence": 7,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "silence": 8,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "红眉咏春",
+          "description": "攻击时有20%的几率攻击力提升至125%，并将目标稍微击退",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.25,
+            "force": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "红眉咏春",
+          "description": "攻击时有20%的几率攻击力提升至135%<@ba.talpu>（+10%）</>，并将目标稍微击退",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.35,
+            "force": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "红眉咏春",
+          "description": "攻击时有20%的几率攻击力提升至150%，并将目标稍微地击退",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.5,
+            "force": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "红眉咏春",
+          "description": "攻击时有20%的几率攻击力提升至160%<@ba.talpu>（+10%）</>，并将目标稍微地击退",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.6,
+            "force": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "防御力+19",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 19
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-2秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -2
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_waaifu",
+      "name": "槐琥证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_waaifu",
+      "name": "红眉咏春拳谱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 70,
+            "atk": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 85,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "除害杂役",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.07
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 95,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "除害杂役",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.14
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "withdraw_cost_recover_ratio": 0.8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

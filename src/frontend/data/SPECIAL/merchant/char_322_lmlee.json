@@ -1,0 +1,854 @@
+{
+  "id": "char_322_lmlee",
+  "name": "老鲤",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "merchant",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        376,
+        516
+      ],
+      "def": [
+        240,
+        308
+      ],
+      "maxHp": [
+        1179,
+        1552
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        516,
+        654
+      ],
+      "def": [
+        308,
+        395
+      ],
+      "maxHp": [
+        1552,
+        1917
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        654,
+        789
+      ],
+      "def": [
+        395,
+        465
+      ],
+      "maxHp": [
+        1917,
+        2427
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 55,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lmlee_1",
+      "name": "小惩大诫",
+      "levels": [
+        {
+          "atk": 0.1,
+          "prob": 0.15,
+          "level": 0,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.15,
+          "prob": 0.15,
+          "level": 1,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.2,
+          "prob": 0.15,
+          "level": 2,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.25,
+          "prob": 0.2,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "prob": 0.2,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.35,
+          "prob": 0.2,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "prob": 0.25,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.45,
+          "prob": 0.3,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "prob": 0.35,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "prob": 0.4,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lmlee_2",
+      "name": "驱凶辟邪",
+      "levels": [
+        {
+          "default_atk_scale": 2,
+          "factor_atk_scale": 0.05,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 10,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.1,
+          "factor_atk_scale": 0.05,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 10,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.2,
+          "factor_atk_scale": 0.05,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 10,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.3,
+          "factor_atk_scale": 0.1,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 15,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.4,
+          "factor_atk_scale": 0.1,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 15,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.5,
+          "factor_atk_scale": 0.1,
+          "max_stack_cnt": 20,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 15,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.6,
+          "factor_atk_scale": 0.15,
+          "max_stack_cnt": 25,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 20,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.7,
+          "factor_atk_scale": 0.15,
+          "max_stack_cnt": 25,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 20,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 2.8,
+          "factor_atk_scale": 0.15,
+          "max_stack_cnt": 25,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 20,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "default_atk_scale": 3,
+          "factor_atk_scale": 0.2,
+          "max_stack_cnt": 30,
+          "taunt_level": 1,
+          "paper_duration": 5,
+          "attack_speed": 30,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lmlee_3",
+      "name": "贵客盈门",
+      "levels": [
+        {
+          "atk": 0.25,
+          "def": 0.25,
+          "taunt_level": 1,
+          "prob": 0.5,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.27,
+          "def": 0.27,
+          "taunt_level": 1,
+          "prob": 0.5,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.29,
+          "def": 0.29,
+          "taunt_level": 1,
+          "prob": 0.5,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.31,
+          "def": 0.31,
+          "taunt_level": 1,
+          "prob": 0.55,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.33,
+          "def": 0.33,
+          "taunt_level": 1,
+          "prob": 0.55,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "taunt_level": 1,
+          "prob": 0.55,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.37,
+          "def": 0.37,
+          "taunt_level": 1,
+          "prob": 0.6,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "taunt_level": 1,
+          "prob": 0.6,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "taunt_level": 1,
+          "prob": 0.6,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "taunt_level": 1,
+          "prob": 0.7,
+          "attack@prob_knockback": 1,
+          "attack@force": 0,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "和气生财",
+          "description": "老鲤阻挡目标时，使其攻击速度-7，且自身攻击速度+7；当周围八格内仅存在一个敌人时效果翻倍",
+          "blackboard": {
+            "lmlee_t_1[enemy].attack_speed": -7,
+            "lmlee_t_1[self].attack_speed": 7,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "和气生财",
+          "description": "老鲤阻挡目标时，使其攻击速度-8<@ba.talpu>（+1）</>，且自身攻击速度+8<@ba.talpu>（+1）</>；当周围八格内仅存在一个敌人时效果翻倍",
+          "blackboard": {
+            "lmlee_t_1[enemy].attack_speed": -8,
+            "lmlee_t_1[self].attack_speed": 8,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "和气生财",
+          "description": "老鲤阻挡目标时，使其攻击速度-14，且自身攻击速度+14；当周围八格内仅存在一个敌人时效果翻倍",
+          "blackboard": {
+            "lmlee_t_1[enemy].attack_speed": -14,
+            "lmlee_t_1[self].attack_speed": 14,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "和气生财",
+          "description": "老鲤阻挡目标时，使其攻击速度-15<@ba.talpu>（+1）</>，且自身攻击速度+15<@ba.talpu>（+1）</>；当周围八格内仅存在一个敌人时效果翻倍",
+          "blackboard": {
+            "lmlee_t_1[enemy].attack_speed": -15,
+            "lmlee_t_1[self].attack_speed": 15,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "有备无患",
+          "description": "特性消耗费用时，若费用足够则改为消耗5费用，抵消自身受到的下一次<$ba.stun>晕眩</>/<$ba.frozen>冻结</>，并使攻击来源晕眩3秒",
+          "blackboard": {
+            "extra_cost": -5,
+            "stun": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "interval": 3,
+      "cost": -3
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lmlee",
+      "name": "老鲤证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lmlee",
+      "name": "“无问吉凶”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 67
+          },
+          "talentEnhance": [
+            {
+              "name": "有备无患",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "extra_cost": -5,
+                "stun": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 74
+          },
+          "talentEnhance": [
+            {
+              "name": "有备无患",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "extra_cost": -4,
+                "stun": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "interval": 3,
+                "cost": -2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_lmlee",
+      "name": "“但思善恶”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 57,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 69,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            },
+            {
+              "name": "和气生财",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "lmlee_t_1[enemy].attack_speed": -17,
+                "lmlee_t_1[self].attack_speed": 17,
+                "cnt": 1
+              }
+            },
+            {
+              "name": "和气生财",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "lmlee_t_1[enemy].attack_speed": -18,
+                "lmlee_t_1[self].attack_speed": 18,
+                "cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 76,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 3,
+                "atk": 0.04,
+                "max_stack_cnt": 5
+              }
+            },
+            {
+              "name": "和气生财",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "lmlee_t_1[enemy].attack_speed": -20,
+                "lmlee_t_1[self].attack_speed": 20,
+                "cnt": 1
+              }
+            },
+            {
+              "name": "和气生财",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "lmlee_t_1[enemy].attack_speed": -21,
+                "lmlee_t_1[self].attack_speed": 21,
+                "cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

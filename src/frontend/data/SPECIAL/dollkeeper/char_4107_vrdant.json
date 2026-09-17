@@ -1,0 +1,544 @@
+{
+  "id": "char_4107_vrdant",
+  "name": "维荻",
+  "rarity": "TIER_4",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        305,
+        418
+      ],
+      "def": [
+        106,
+        164
+      ],
+      "maxHp": [
+        1060,
+        1414
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        418,
+        551
+      ],
+      "def": [
+        164,
+        214
+      ],
+      "maxHp": [
+        1414,
+        1790
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        551,
+        672
+      ],
+      "def": [
+        214,
+        259
+      ],
+      "maxHp": [
+        1790,
+        2266
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [
+    {
+      "skillId": "skchr_vrdant_1",
+      "name": "苍翠屏障",
+      "levels": [
+        {
+          "max_hp": 0.1,
+          "magic_resistance": 5,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.11,
+          "magic_resistance": 5,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.12,
+          "magic_resistance": 5,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.14,
+          "magic_resistance": 5,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.15,
+          "magic_resistance": 5,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.16,
+          "magic_resistance": 5,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.18,
+          "magic_resistance": 10,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.2,
+          "magic_resistance": 11,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.22,
+          "magic_resistance": 13,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.25,
+          "magic_resistance": 15,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_vrdant_2",
+      "name": "双刃毒藤",
+      "levels": [
+        {
+          "attack_speed": 20,
+          "hp_ratio": 0.04,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 25,
+          "hp_ratio": 0.04,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 30,
+          "hp_ratio": 0.04,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "hp_ratio": 0.04,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "hp_ratio": 0.04,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "hp_ratio": 0.04,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "hp_ratio": 0.04,
+          "level": 6,
+          "spCost": 26,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "hp_ratio": 0.04,
+          "level": 7,
+          "spCost": 26,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "hp_ratio": 0.04,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "hp_ratio": 0.04,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复2%生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复2.5%<@ba.talpu>（+0.5%）</>生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.025
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复3.5%生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.035
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复4%<@ba.talpu>（+0.5%）</>生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.04
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0,
+      "talent_override_rangeid_flag": 1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+160",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 160
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_vrdant",
+      "name": "维荻证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_vrdant",
+      "name": "密林撷萃",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "atk": 28
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "magic_resistance": 5
+              }
+            },
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "magic_resistance": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 185,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "magic_resistance": 8
+              }
+            },
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "magic_resistance": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

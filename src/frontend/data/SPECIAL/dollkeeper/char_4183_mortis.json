@@ -1,0 +1,659 @@
+{
+  "id": "char_4183_mortis",
+  "name": "若叶睦",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "dollkeeper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        341,
+        468
+      ],
+      "def": [
+        117,
+        181
+      ],
+      "maxHp": [
+        1034,
+        1379
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        468,
+        616
+      ],
+      "def": [
+        181,
+        236
+      ],
+      "maxHp": [
+        1379,
+        1746
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        616,
+        752
+      ],
+      "def": [
+        236,
+        285
+      ],
+      "maxHp": [
+        1746,
+        2211
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_mortis_1",
+      "name": "多首野兽",
+      "levels": [
+        {
+          "def": 0.5,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.55,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 1,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.6,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 2,
+          "spCost": 27,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.65,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 3,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.7,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.75,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 5,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.8,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 6,
+          "spCost": 23,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 0.9,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 7,
+          "spCost": 22,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 8,
+          "spCost": 21,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "def": 1.2,
+          "block_cnt": 2,
+          "taunt_level": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mortis_2",
+      "name": "破坏与滋养",
+      "levels": [
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.6,
+          "value": 20,
+          "level": 0,
+          "spCost": 28,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.65,
+          "value": 20,
+          "level": 1,
+          "spCost": 28,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.7,
+          "value": 20,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.75,
+          "value": 20,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.8,
+          "value": 20,
+          "level": 4,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0,
+          "attack@atk_scale": 0.85,
+          "value": 20,
+          "level": 5,
+          "spCost": 27,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@atk_scale": 0.9,
+          "value": 20,
+          "level": 6,
+          "spCost": 26,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@atk_scale": 1,
+          "value": 20,
+          "level": 7,
+          "spCost": 26,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@atk_scale": 1.1,
+          "value": 20,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@atk_scale": 1.2,
+          "value": 20,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+5%",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.05,
+            "prob": 0,
+            "delta_time": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+9%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.09,
+            "prob": 0,
+            "delta_time": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+10%，<$ba.mujica>Ave Mujica</>成员攻击时有10%的概率使替身持续时间缩短1秒",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.1,
+            "prob": 0.1,
+            "delta_time": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+14%<@ba.talpu>（+4%）</>，<$ba.mujica>Ave Mujica</>成员攻击时有10%的概率使替身持续时间缩短1秒",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.14,
+            "prob": 0.1,
+            "delta_time": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+20%，<$ba.mujica>Ave Mujica</>成员攻击时有20%的概率使替身持续时间缩短1秒",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.2,
+            "prob": 0.2,
+            "delta_time": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "另一个“她”",
+          "description": "若叶睦和<替身>受到物理和法术伤害的30%转化为一半的<$ba.dt.apoptosis>凋亡损伤</>；<替身>不攻击，防御力+24%<@ba.talpu>（+4%）</>，<$ba.mujica>Ave Mujica</>成员攻击时有20%的概率使替身持续时间缩短1秒",
+          "blackboard": {
+            "damage_resistance": 0.3,
+            "dark_damage_mul_factor": 0.5,
+            "def": 0.24,
+            "prob": 0.2,
+            "delta_time": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏死亡",
+          "description": "自身受到一次伤害或损伤时使<$ba.fever>Fever</>+1",
+          "blackboard": {
+            "cnt": 1,
+            "max_hp": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏死亡",
+          "description": "自身受到一次伤害或损伤时使<$ba.fever>Fever</>+2，在场时<$ba.mujica>Ave Mujica</>成员生命上限+5%",
+          "blackboard": {
+            "cnt": 2,
+            "max_hp": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏死亡",
+          "description": "自身受到一次伤害或损伤时使<$ba.fever>Fever</>+3，在场时<$ba.mujica>Ave Mujica</>成员生命上限+10%",
+          "blackboard": {
+            "cnt": 3,
+            "max_hp": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成作战（替身阻挡数为0），持续20秒后自身再次替换",
+    "blackboard": {
+      "duration": 20,
+      "atk": 0,
+      "max_hp": 0,
+      "talent_override_rangeid_flag": 1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mortis",
+      "name": "若叶睦证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_mortis",
+      "name": "睦的新朋友",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "另一个“她”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.3,
+                "dark_damage_mul_factor": 0.5,
+                "def": 0.24,
+                "prob": 0.2,
+                "delta_time": 1
+              }
+            },
+            {
+              "name": "另一个“她”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.3,
+                "dark_damage_mul_factor": 0.5,
+                "def": 0.28,
+                "prob": 0.2,
+                "delta_time": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "另一个“她”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.3,
+                "dark_damage_mul_factor": 0.5,
+                "def": 0.26,
+                "prob": 0.2,
+                "delta_time": 1
+              }
+            },
+            {
+              "name": "另一个“她”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.3,
+                "dark_damage_mul_factor": 0.5,
+                "def": 0.3,
+                "prob": 0.2,
+                "delta_time": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

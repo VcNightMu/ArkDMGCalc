@@ -1,0 +1,551 @@
+{
+  "id": "char_215_mantic",
+  "name": "狮蝎",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "stalker",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        378,
+        511
+      ],
+      "def": [
+        141,
+        218
+      ],
+      "maxHp": [
+        777,
+        1080
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        511,
+        656
+      ],
+      "def": [
+        218,
+        284
+      ],
+      "maxHp": [
+        1080,
+        1385
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        656,
+        811
+      ],
+      "def": [
+        284,
+        343
+      ],
+      "maxHp": [
+        1385,
+        1630
+      ],
+      "magicResistance": 30,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_mantic_1",
+      "name": "蝎毒",
+      "levels": [
+        {
+          "move_speed": -0.23,
+          "duration": 3,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.25,
+          "duration": 3,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.27,
+          "duration": 3,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.29,
+          "duration": 3.5,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.31,
+          "duration": 3.5,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.33,
+          "duration": 3.5,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.35,
+          "duration": 4,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.4,
+          "duration": 4,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.45,
+          "duration": 4,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "move_speed": -0.5,
+          "duration": 5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mantic_2",
+      "name": "蓄力毒尾击",
+      "levels": [
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.3,
+          "attack@stun": 0.5,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.35,
+          "attack@stun": 0.5,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.4,
+          "attack@stun": 0.5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.45,
+          "attack@stun": 0.6,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.5,
+          "attack@stun": 0.6,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.55,
+          "attack@stun": 0.6,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.6,
+          "attack@stun": 0.7,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 37,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.7,
+          "attack@stun": 0.8,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.8,
+          "attack@stun": 0.9,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 39,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 1.7,
+          "atk": 0.9,
+          "attack@stun": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "隐匿的杀手·中级",
+          "description": "平时处于<$ba.invisible>隐匿</>状态，攻击时会解除<$ba.invisible>隐匿</>状态，且当次攻击的攻击力+25%。停止攻击6秒后，重新进入<$ba.invisible>隐匿</>状态",
+          "blackboard": {
+            "delay": 6,
+            "atk": 0.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "隐匿的杀手·中级",
+          "description": "平时处于<$ba.invisible>隐匿</>状态，攻击时会解除<$ba.invisible>隐匿</>状态，且当次攻击的攻击力+29%<@ba.talpu>（+4%）</>。停止攻击6秒后，重新进入<$ba.invisible>隐匿</>状态",
+          "blackboard": {
+            "delay": 6,
+            "atk": 0.29
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "隐匿的杀手·精英",
+          "description": "平时处于<$ba.invisible>隐匿</>状态，攻击时会解除<$ba.invisible>隐匿</>状态，且当次攻击的攻击力+50%。停止攻击5秒后，重新进入<$ba.invisible>隐匿</>状态",
+          "blackboard": {
+            "delay": 5,
+            "atk": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "隐匿的杀手·精英",
+          "description": "平时处于<$ba.invisible>隐匿</>状态，攻击时会解除<$ba.invisible>隐匿</>状态，且当次攻击的攻击力+54%<@ba.talpu>（+4%）</>。停止攻击5秒后，重新进入<$ba.invisible>隐匿</>状态",
+          "blackboard": {
+            "delay": 5,
+            "atk": 0.54
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "prob": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mantic",
+      "name": "狮蝎证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_mantic",
+      "name": "训练用尾部防护套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 58,
+            "def": 22
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 72,
+            "def": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "隐匿的杀手·精英",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "delay": 5,
+                "atk": 0.55
+              }
+            },
+            {
+              "name": "隐匿的杀手·精英",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "delay": 5,
+                "atk": 0.59
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 31
+          },
+          "talentEnhance": [
+            {
+              "name": "隐匿的杀手·精英",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "delay": 5,
+                "atk": 0.6
+              }
+            },
+            {
+              "name": "隐匿的杀手·精英",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "delay": 5,
+                "atk": 0.64
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
