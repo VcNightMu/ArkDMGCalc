@@ -67,6 +67,8 @@ const TALENT_ATK_DRIVERS = {
   'char_4141_marcil': 0,  // 玛露西尔「建校以来第一才女」:有魔力时攻击+25%(E2)且溅射扩大——魔力为常驻资源默认持有(简化口径),技能消耗魔力另计(精2,潜能只改费用不改atk);自身罗德岛必得(携带即生效同编队光环先例);X模组同名te覆盖至6/8%
   // ---- 速射手(fastshot) ----
   'char_133_mm': 0,       // 梅「维多利亚探员」:攻击力+7%(E2 潜0,潜4 +8%)(攻速档在 TALENT_SPD_DRIVERS)
+  // ---- 近卫·重剑手(crusher) ----
+  'char_4063_quartz': 0,  // 石英「行于荒野」:生命值+4/8%、攻击力+4/8%(E2 潜0 = +8%),无条件面板乘区;X 模组 te 覆盖至 12%/14%
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -202,6 +204,19 @@ const FEARLESS_SPECIAL = {
   'char_159_peacok': [1],   // 断罪者:S2 创世纪(法术 290%,按成功档结算)
   'char_4142_laios': [1],   // 莱欧斯:S2 威吓战法(停止攻击,技能结束时 1 击 400% 物理)
   'char_1014_nearl2': [2]   // 耀骑士临光:S3 耀阳颔首(本体物理 + 耀阳 1 击真实伤害)
+};
+
+// ===== 重剑手(crusher)特例 =====
+// 用户口径(2026-09-17):
+//  · 铎铃「走山路」的精力充沛(生命>50% 时 +20%/22% 攻击力,X 模组 28%/33%)不计算;
+//  · 赫德雷「及锋而试」攻击力增幅仅计算基础加成(110%/120%/130%,晕眩/束缚档 140% 不计);
+//  · 乌尔比安「血脉的哺养」的击倒叠攻击力不计算(第一天赋「本性的坚守」为受击自愈,非输出)。
+// 其余口径:特性「同时攻击阻挡的所有敌人」按单目标;重剑手各模组特性追加「受到的治疗效果提升20%」非输出不计;
+// 赫德雷 Y 模组「笔迹」特性追加「对被阻挡的敌人伤害提升至110%」为条件类(按不视为被阻挡口径不计)。
+const CRUSHER_SPECIAL = {
+  'char_4083_chimes': [1],    // 铎铃:S2 乡心无改(停止攻击,技能结束时挥刀 1 击,攻击力取叠满 +50% 档)
+  'char_4088_hodrer': [1, 2], // 赫德雷:S2 余烬重荷(切换型,被动 +32% 计入常态) / S3 死境硝烟(真实伤害 DOT)
+  'char_4145_ulpia': [2]      // 乌尔比安:S3 必须开辟的通路(船锚 1 击 + 技能期本体普攻)
 };
 
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
@@ -1909,6 +1924,7 @@ const TALENT_DMG_MUL_DRIVERS = {
   // (damage_resistance_pm 受击减伤为承伤向不计)——superGrades 按 state.enemy.grade 判定
   'char_4098_vvana': { talentIndex: 0, key: 'damage_scale_m', additive: true, superKey: 'super_scale', superGrades: ['elite', 'leader'] },
   'char_4218_aigis': { talentIndex: 1, key: 'damage_scale' },  // 埃癸斯「反暗影特殊压制兵装」:造成物理伤害 ×1.05~1.10(模组 te 提到 1.13~1.17);受击减伤为承伤向不计
+  'char_4088_hodrer': { talentIndex: 1, key: 'damage_scale', moduleTe: true },  // 赫德雷「余火之氅」X 模组「新的生活」:造成的物理伤害提升6%/10%(无条件,伤害乘区);Y 模组「笔迹」特性追加的 110% 属「对被阻挡的敌人」条件类不计
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
 // 领主(近卫)特性:攻击默认为远程攻击,攻击力按 80% 计算(用户 2026-09-17 口径)。
@@ -2137,6 +2153,8 @@ const BAT_ADD_OVERRIDES = {
   'char_1032_excu2': { 2: true },   // 圣约送葬人 S3 圣约决裁:攻击间隔略微增大(+0.5 → 1.3+0.5=1.8s)
   // ---- 近卫·解放者(librator) ----
   'char_4064_mlynar': { 1: true },  // 玛恩纳 S2 未宽解的悲哀:攻击间隔延长 +0.3(1.2+0.3=1.5s)
+  // ---- 近卫·重剑手(crusher) ----
+  'char_4088_hodrer': { 1: true },  // 赫德雷 S2 余烬重荷切换态:攻击间隔略微增大(+0.5 → 2.5+0.5=3.0s)
 };
 
 // base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
@@ -2639,7 +2657,11 @@ function calculateOperator(op, slotData, ctx) {
   // 战术家分支特性:自身攻击援军(召唤物)阻挡的敌人时攻击力提升至150%——攻击力乘区(非伤害乘区,提高破甲线),
   // 单目标模型默认召唤物在场并阻挡目标 → 本体攻击常驻 ×1.5(面板白值与伤害统一含;召唤物本体不享受)
   const isTacticianOp = !isSummon && op.profession === 'PIONEER' && op.subProfessionId === 'tactician';
-  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1);
+  // 重剑手·赫德雷「及锋而试」(用户口径 2026-09-17:仅计算基础加成):攻击敌人时攻击力提升至 110%(E2 潜0 基础档),
+  // 属攻击力乘区(逐击先乘再减防)→ 直接并入面板乘区(等价);晕眩/束缚中的 140% 档为条件类不计。
+  // Y 模组「笔迹」te 把基础档覆盖为 120%/130%(经 funnelTalentValue 感知模组 te)。
+  const hodrerAtkScale = op.id === 'char_4088_hodrer' ? (funnelTalentValue(op, slotData, 0, 'atk_scale_2') || 1) : 1;
+  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale;
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   const flatAttr = calcTalentFlatAttr(op, slotData);
   const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
@@ -4205,6 +4227,53 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const a = atkT * (levelData['attack@atk_scale'] || 1);
       const durC = levelData.enhance_duration > 0 ? levelData.enhance_duration : skillDuration;
       return mkL({ phys: Pp(a) * nHitsOf(durC) }, durC, a);
+    }
+  } else if (op.subProfessionId === 'crusher' && CRUSHER_SPECIAL[op.id] && CRUSHER_SPECIAL[op.id].includes(skillIndex)) {
+    // 重剑手(crusher)特例(用户口径 2026-09-17,详见 CRUSHER_SPECIAL 注释):
+    //  · 赫德雷 S2 为切换型:被动攻击力 +32%(专一)计入常态(同荒芜拉普兰德 S1「装备即生效」先例),切换态间隔 +0.5s(见 BAT_ADD_OVERRIDES);
+    //    S3「死境硝烟」的「自身攻击过和攻击过自身的敌人每秒受 200 点真实伤害」计入技能期(70s×200,无来源真实 DOT,不吃攻击/法抗/增伤);
+    //    「每秒流失 100 生命」为自身流失、「25% 概率晕眩」为条件类,均不计。
+    //  · 铎铃 S2 技能期停止攻击,结束时挥刀对前方所有地面敌人造成此时攻击力 210%(专一)物理伤害 → 单目标 1 击,结算取叠满档(+50%);
+    //    「可主动关闭」不改变 5s 时长口径;25% 概率晕眩不计。
+    //  · 乌尔比安 S3:立即船锚 1 击(此时攻击力 ×145%,单目标)+ 技能期本体普攻(攻击力 +240%),窗口 25s。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const nn = (dur) => (dur > 0 && sIvl > 0) ? Math.max(1, Math.floor(dur / sIvl + 1e-9)) : 1;
+    const tmul = calcTalentDmgMul(op, slotData);
+    const mkC = (parts, winSec, panel, nDps) => {
+      const phys = parts.phys || 0, arts = parts.arts || 0, tru = parts.tru || 0;
+      const tot = phys + arts + tru;
+      const dt = {};
+      if (phys > 0) dt.physical = { skillDps: winSec > 0 ? phys / winSec : 0, skillTotalDamage: phys, cycleDps: null };
+      if (arts > 0) dt.arts = { skillDps: winSec > 0 ? arts / winSec : 0, skillTotalDamage: arts, cycleDps: null };
+      if (tru > 0) dt.true = { skillDps: winSec > 0 ? tru / winSec : 0, skillTotalDamage: tru, cycleDps: null };
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: winSec > 0 ? tot / winSec : 0, skillTotalDamage: tot, cycleDps: null, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel, dmgTypes: dt };
+    };
+    if (op.id === 'char_4088_hodrer' && skillIndex === 1) {
+      // S2 余烬重荷(切换型):被动攻击力 +32% + 切换态(间隔 3.0s/阻挡+1/攻击晕眩)。持续型展示(总伤 0,给每秒 DPS)
+      const a = panelAtk * (1 + (levelData.atk || 0));
+      const dps = Pp(a) * tmul / sIvl;
+      return { type: 'damage', damageType: 'physical', isToggle: true, isPermanent: false, skillDps: dps, skillTotalDamage: 0, cycleDps: null, normalDps: Pp(a) * tmul / realInterval, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: a, dmgTypes: { physical: { skillDps: dps, skillTotalDamage: 0, cycleDps: null } } };
+    }
+    if (op.id === 'char_4088_hodrer') {
+      // S3 死境硝烟:攻击力 +100%(专一)普攻 28 击 + 真实伤害 DOT(200/s × 70s)
+      const a = panelAtk * (1 + (levelData.atk || 0));
+      const phys = Pp(a) * tmul * nn(skillDuration);
+      const tru = (levelData['attack@damage'] || 0) * Math.max(0, skillDuration);
+      return mkC({ phys, tru }, skillDuration, a, Pp(panelAtk) * tmul / realInterval);
+    }
+    if (op.id === 'char_4083_chimes') {
+      // S2 乡心无改:技能期停止攻击,结束时 1 击(此时攻击力 = 面板 ×1.5 叠满档,倍率 210%)
+      const a = panelAtk * (1 + (levelData.atk || 0));
+      const hit = Pp(a * (levelData['attack@atk_scale'] || 1)) * tmul;
+      return mkC({ phys: hit }, skillDuration, a, Pp(panelAtk) * tmul / realInterval);
+    }
+    {
+      // 乌尔比安 S3 必须开辟的通路:船锚 1 击(攻击力 ×145%)+ 技能期本体普攻(攻击力 +240%)
+      const a = panelAtk * (1 + (levelData.atk || 0));
+      const anchor = Pp(a * (levelData.atk_scale || 1)) * tmul;
+      const body = Pp(a) * tmul * nn(skillDuration);
+      return mkC({ phys: anchor + body }, skillDuration, a, Pp(panelAtk) * tmul / realInterval);
     }
   } else if (op.subProfessionId === 'fearless' && FEARLESS_SPECIAL[op.id] && FEARLESS_SPECIAL[op.id].includes(skillIndex)) {
     // 无畏者(fearless)特例(用户口径 2026-09-17,详见 FEARLESS_SPECIAL 注释):

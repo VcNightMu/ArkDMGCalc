@@ -46,6 +46,7 @@ const IDS = [
   'char_1032_excu2', 'char_4010_etlchi', 'char_4066_highmo', 'char_421_crow', 'char_491_humus',  // 近卫·收割者(圣约送葬人弹药槽:常态行仍为自身普攻)
   'char_1043_leizi2', 'char_4064_mlynar', 'char_445_wscoot', 'char_486_takila',  // 近卫·解放者(特性「通常不攻击」→ 常态行恒 0)
   'char_1014_nearl2', 'char_106_franka', 'char_131_flameb', 'char_154_morgan', 'char_159_peacok', 'char_208_melan', 'char_263_skadi', 'char_286_cast3', 'char_289_gyuki', 'char_4011_lessng', 'char_4142_laios',  // 近卫·无畏者(限时被动不得折进常态)
+  'char_4063_quartz', 'char_4083_chimes', 'char_4088_hodrer', 'char_4145_ulpia',  // 近卫·重剑手(赫德雷 S2 切换型被动见 NORMAL_EXCEPT)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量
@@ -53,6 +54,7 @@ const NORMAL_EXCEPT = {
   'char_4040_rockr': { 1: 1 },    // 洛洛 S2「自负此轭」:携带时技能后过载 20s/40s 无输出,常态按 0.5 计
   'char_1038_whitw2': { 0: 1 },   // 荒芜拉普兰德 S1「慵怠者悲鸣」被动:浮游单元+1 装备即常驻(含常态)
   'char_489_serum': { 0: 1 },     // 蚀清 S1「专注力超载」:技能结束眩晕 10s(技能 30s)→ 常态按 2/3 计
+  'char_4088_hodrer': { 1: 1 },   // 赫德雷 S2「余烬重荷」切换型:被动攻击力 +32% 装备即生效(含该槽常态列,用户口径 2026-09-17)
 };
 let pass = 0, fail = 0, excl = 0;
 const check = (name, ok, extra = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + name + (extra ? ' => ' + extra : '')); } };
