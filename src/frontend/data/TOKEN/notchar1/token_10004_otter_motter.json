@@ -1,0 +1,426 @@
+{
+  "id": "token_10004_otter_motter",
+  "name": "机械水獭",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_242_otter",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        185,
+        263
+      ],
+      "def": [
+        175,
+        280
+      ],
+      "maxHp": [
+        975,
+        1150
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        280,
+        350
+      ],
+      "def": [
+        290,
+        350
+      ],
+      "maxHp": [
+        1250,
+        1480
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        370,
+        444
+      ],
+      "def": [
+        360,
+        415
+      ],
+      "maxHp": [
+        1530,
+        1950
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.25,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_otter_1",
+      "name": "迷惑装置",
+      "levels": [
+        {
+          "prob": 0.1,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.13,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.15,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.18,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.2,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.22,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.25,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.25,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.35,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_otter_2",
+      "name": "爆破回收",
+      "levels": [
+        {
+          "atk_scale": 3,
+          "stun": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "stun": 1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.5,
+          "stun": 1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.8,
+          "stun": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "stun": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.2,
+          "stun": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.5,
+          "stun": 1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 5,
+          "stun": 1.5,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 5.5,
+          "stun": 1.5,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 6,
+          "stun": 2,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "机械水獭",
+          "description": "可以使用3个机械水獭召唤物。被机械水獭阻挡的敌人攻击速度-10",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "机械水獭",
+          "description": "可以使用4个机械水獭召唤物。被机械水獭阻挡的敌人攻击速度-25",
+          "blackboard": {
+            "cnt": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "机械水獭",
+          "description": "可以使用5个机械水獭召唤物。被机械水獭阻挡的敌人攻击速度-25",
+          "blackboard": {
+            "cnt": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [],
+  "ownerRef": {
+    "id": "char_242_otter",
+    "name": "梅尔",
+    "phases": [
+      {
+        "eliteLevel": 0,
+        "maxLevel": 50,
+        "atk": [
+          199,
+          285
+        ],
+        "def": [
+          56,
+          80
+        ],
+        "maxHp": [
+          480,
+          649
+        ],
+        "magicResistance": 15,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 1,
+        "maxLevel": 70,
+        "atk": [
+          285,
+          380
+        ],
+        "def": [
+          80,
+          107
+        ],
+        "maxHp": [
+          649,
+          843
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 2,
+        "maxLevel": 80,
+        "atk": [
+          380,
+          443
+        ],
+        "def": [
+          107,
+          130
+        ],
+        "maxHp": [
+          843,
+          1068
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      }
+    ],
+    "trustBonus": {
+      "atk": 35,
+      "def": 0,
+      "maxHp": 200
+    }
+  }
+}

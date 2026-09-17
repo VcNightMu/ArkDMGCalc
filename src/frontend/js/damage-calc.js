@@ -10,6 +10,7 @@ import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit, simulateSkillTim
 import { calcPrimCasterSkill } from './primcaster-calc.js';
 import { calcPrimGuardSkill } from './primguard-calc.js';
 import { calcRitualSkill, ritualNormalFields, calcPhonorDeploy, setRitualEpMul } from './ritualist-calc.js';
+import { calcSummonerToken, isSummonerToken, SUMMONER_OWN_NORMAL_SKILLS } from './summoner-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -90,6 +91,8 @@ const TALENT_ATK_DRIVERS = {
   'char_206_gnosis': 1,   // 灵知「殊途同归」:Y 模组「一号项目模型」te 改写为「所有【谢拉格】干员攻击力+10%/15%」——灵知本人即谢拉格(nation=kjerag),吃自己光环;基础天赋无该键 → 无 Y 模组为 0
   // ---- 辅助·巫役(ritualist) ----
   'char_4102_threye': 1,  // 凛视「隐居者」:攻击力 +6%(E2,潜4 +7%);X 模组同名 te 0.09/0.11;同源天赋攻速在 TALENT_SPD_DRIVERS
+  // ---- 辅助·召唤师(summoner) ----
+  'char_2023_ling': 1,    // 令「随付笺咏醉屠苏」:召唤物被击倒/吸收/回收时攻击力 +3%/层(最多 5 层) — 用户口径 2026-09-18:按满层计算(+15%)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -991,6 +994,7 @@ const SKILL_HP_RECOVERY_KEY_OVERRIDES = {
 const SKILL_REGEN_IGNORE = {
   'char_476_blkngt': [0],
   'char_249_mlyss': [1],
+  'char_110_deepcl': [0],   // 深海色 S1:每秒恢复 55 点生命属触手(召唤物),非本体自回
 };
 
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
@@ -3102,6 +3106,10 @@ function calculateOperator(op, slotData, ctx) {
     if (INERT_SUMMONS.includes(op.id)) {
       return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: 0, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
+    // 召唤师(summoner)召唤物:独立成条(「特殊-干员附带单位」),槽位与持有者技能一一对应;未关联的技能槽输出 0
+    if (isSummonerToken(op)) {
+      return calcSummonerToken({ op, slotData, panelAtk, realInterval, levelData: null, skillIndex: -1, isPermanent: false, skillDuration: 0, ownerPanelAtk: summonerOwnerPanelAtk(op, slotData), enemy: state.enemy });
+    }
     if (isMedic) {
       // 咒愈师:常态普攻=法术伤害 + 治疗 scale×伤害(单目标模型默认治疗目标=自身,必在攻击范围)
       if (op.subProfessionId === 'incantationmedic') {
@@ -3747,6 +3755,13 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
     result = calcMedical(params);
   } else if (isGuardianHealSkill) {
     result = calcGuardian(params);
+  } else if (isSummonerToken(op)) {
+    // 召唤师召唤物:技能期增益作用于召唤物本身(数据层已注入持有者的技能槽与天赋)
+    result = calcSummonerToken({
+      op, slotData: { ...slotData, skillIndex },
+      panelAtk, realInterval, levelData, skillIndex, isPermanent, skillDuration,
+      ownerPanelAtk: summonerOwnerPanelAtk(op, slotData), enemy: state.enemy,
+    });
   } else if (op.subProfessionId === 'ritualist') {
     // 巫役(辅助,ritualist):特性「攻击造成法术伤害,可以造成元素损伤」→ 全员特殊结算
     // (直伤法术 + 攻击力×倍率损伤 → 敌方 EP 爆条模拟;损伤不吃防/抗,单独一档)
@@ -4128,7 +4143,7 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       damageType: 'physical', realInterval: hitInt,
       dmgTypes: { physical: { skillDps: total / skillDuration, skillTotalDamage: total, cycleDps: null } },
     };
-  } else if (!isSummon && (NORMAL_ATK_SKILLS[op.id] || []).includes(skillIndex)) {
+  } else if (!isSummon && ((NORMAL_ATK_SKILLS[op.id] || []).includes(skillIndex) || (SUMMONER_OWN_NORMAL_SKILLS[op.id] || []).includes(skillIndex))) {
     // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）；
     // 伤害类型按职业(法伤干员如夜魔 S2 归常态=术师法伤普攻,含减抗/穿透后的有效法抗)
     // 常态普攻间隔用 realInterval(含天赋/模组白值攻速),与无技能态展示一致
@@ -5622,6 +5637,14 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
  * 计算干员面板基础属性(精英化/等级/信赖/潜能加成后)
  * @returns {Object} { panelHp, panelAtk, panelDef, attackSpeed, baseAttackTime }
  */
+// 召唤师召唤物的持有者面板攻击力(数据层 ownerRef 携带持有者 phases/信赖 → 与 ctx.ownerOp 无关,快照脚本也能算)
+function summonerOwnerPanelAtk(op, slotData) {
+  const ref = op.ownerRef;
+  if (!ref || !ref.phases) return 0;
+  const ownerOp = { ...op, id: ref.id || 'owner', phases: ref.phases, trustBonus: ref.trustBonus || { atk: 0, def: 0, maxHp: 0 }, ownerRef: null, modules: {} };
+  return calcPanelStats(ownerOp, slotData).panelAtk;
+}
+
 function calcPanelStats(op, slotData) {
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;

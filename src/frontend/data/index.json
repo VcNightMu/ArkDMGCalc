@@ -3465,6 +3465,69 @@
     "ownerName": null
   },
   {
+    "id": "token_10020_ling_soul3",
+    "name": "“弦惊”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul3_up",
+    "name": "弦惊·升级",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul2",
+    "name": "“逍遥”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul1",
+    "name": "“清平”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul3",
+    "name": "“弦惊”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul2",
+    "name": "“逍遥”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
+    "id": "token_10020_ling_soul1",
+    "name": "“清平”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_2023_ling",
+    "ownerName": "令"
+  },
+  {
     "id": "char_248_mgllan",
     "name": "麦哲伦",
     "rarity": "TIER_6",
@@ -3472,6 +3535,60 @@
     "subProfessionId": "summoner",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10005_mgllan_drone3",
+    "name": "龙腾.A",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
+  },
+  {
+    "id": "token_10005_mgllan_drone2",
+    "name": "龙腾.L",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
+  },
+  {
+    "id": "token_10005_mgllan_drone1",
+    "name": "龙腾.F",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
+  },
+  {
+    "id": "token_10005_mgllan_drone3",
+    "name": "龙腾.A",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
+  },
+  {
+    "id": "token_10005_mgllan_drone2",
+    "name": "龙腾.L",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
+  },
+  {
+    "id": "token_10005_mgllan_drone1",
+    "name": "龙腾.F",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_248_mgllan",
+    "ownerName": "麦哲伦"
   },
   {
     "id": "char_4195_radian",
@@ -3483,6 +3600,60 @@
     "ownerName": null
   },
   {
+    "id": "token_10053_radian_tower3",
+    "name": "桑特拉",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
+    "id": "token_10052_radian_tower2",
+    "name": "赛柯",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
+    "id": "token_10051_radian_tower1",
+    "name": "戴乌",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
+    "id": "token_10053_radian_tower3",
+    "name": "桑特拉",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
+    "id": "token_10052_radian_tower2",
+    "name": "赛柯",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
+    "id": "token_10051_radian_tower1",
+    "name": "戴乌",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4195_radian",
+    "ownerName": "电弧"
+  },
+  {
     "id": "char_242_otter",
     "name": "梅尔",
     "rarity": "TIER_5",
@@ -3490,6 +3661,24 @@
     "subProfessionId": "summoner",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10004_otter_motter",
+    "name": "机械水獭",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_242_otter",
+    "ownerName": "梅尔"
+  },
+  {
+    "id": "token_10004_otter_motter",
+    "name": "机械水獭",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_242_otter",
+    "ownerName": "梅尔"
   },
   {
     "id": "char_336_folivo",
@@ -3501,6 +3690,24 @@
     "ownerName": null
   },
   {
+    "id": "token_10010_folivo_car",
+    "name": "移动摄影器",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_336_folivo",
+    "ownerName": "稀音"
+  },
+  {
+    "id": "token_10010_folivo_car",
+    "name": "移动摄影器",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_336_folivo",
+    "ownerName": "稀音"
+  },
+  {
     "id": "char_4140_lasher",
     "name": "衡沙",
     "rarity": "TIER_5",
@@ -3510,6 +3717,24 @@
     "ownerName": null
   },
   {
+    "id": "token_10036_lasher_mcbird",
+    "name": "发条羽兽",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4140_lasher",
+    "ownerName": "衡沙"
+  },
+  {
+    "id": "token_10036_lasher_mcbird",
+    "name": "发条羽兽",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4140_lasher",
+    "ownerName": "衡沙"
+  },
+  {
     "id": "char_110_deepcl",
     "name": "深海色",
     "rarity": "TIER_4",
@@ -3517,6 +3742,24 @@
     "subProfessionId": "summoner",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10001_deepcl_tentac",
+    "name": "触手",
+    "rarity": "TIER_4",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_110_deepcl",
+    "ownerName": "深海色"
+  },
+  {
+    "id": "token_10001_deepcl_tentac",
+    "name": "触手",
+    "rarity": "TIER_4",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_110_deepcl",
+    "ownerName": "深海色"
   },
   {
     "id": "char_4072_ironmn",

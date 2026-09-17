@@ -1,0 +1,688 @@
+{
+  "id": "token_10020_ling_soul3_up",
+  "name": "弦惊·升级",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "arts",
+  "ownerOperatorId": "char_2023_ling",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        986.4,
+        1146.6
+      ],
+      "def": [
+        505.8,
+        588.6
+      ],
+      "maxHp": [
+        4804,
+        5586
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        1146.6,
+        1317.6
+      ],
+      "def": [
+        588.6,
+        676.8
+      ],
+      "maxHp": [
+        5586,
+        6420
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1317.6,
+        1481.4
+      ],
+      "def": [
+        676.8,
+        761.4
+      ],
+      "maxHp": [
+        6420,
+        7214
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ling_1",
+      "name": "重进酒",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "attack_speed": 23,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "attack_speed": 26,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 29,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 32,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack_speed": 35,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.38,
+          "attack_speed": 38,
+          "cnt": 1,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.42,
+          "attack_speed": 42,
+          "cnt": 1,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "attack_speed": 46,
+          "cnt": 1,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 50,
+          "cnt": 1,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ling_2",
+      "name": "笑鸣瑟",
+      "levels": [
+        {
+          "atk_scale": 2.5,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 1.5,
+          "value": 1,
+          "hp_ratio": 0.5,
+          "level": 0,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 1.5,
+          "value": 1,
+          "hp_ratio": 0.5,
+          "level": 1,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 1.5,
+          "value": 1,
+          "hp_ratio": 0.5,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.1,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 3,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.3,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 4,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.5,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.7,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2.5,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.9,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2.5,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.2,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 2.5,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 8,
+          "spCost": 14,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.5,
+          "cnt": 1,
+          "ling_s2_unmovable.duration": 3,
+          "value": 2,
+          "hp_ratio": 0.5,
+          "level": 9,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ling_3",
+      "name": "宁作吾",
+      "levels": [
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.4,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.4,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.5,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.5,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.5,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.6,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.7,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 7,
+          "spCost": 44,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.85,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 1,
+          "atk_scale": 0.2,
+          "interval": 0.5,
+          "cnt": 1,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "挑灯问梦",
+          "description": "可以使用3个召唤物（最多同时部署3个），功能随技能选择而改变",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "挑灯问梦",
+          "description": "可以使用4个召唤物（最多同时部署3个），功能随技能选择而改变",
+          "blackboard": {
+            "cnt": 4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "挑灯问梦",
+          "description": "可以使用5个召唤物（最多同时部署3个），功能随技能选择而改变",
+          "blackboard": {
+            "cnt": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "随付笺咏醉屠苏",
+          "description": "召唤物被击倒/吸收/回收时令额外获得2点技力、攻击力+2%（攻击力加成最多叠加5层）",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "sp": 2,
+            "atk": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "随付笺咏醉屠苏",
+          "description": "召唤物被击倒/吸收/回收时令额外获得3<@ba.talpu>(+1)</>点技力、攻击力+2%（攻击力加成最多叠加5层）",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "sp": 3,
+            "atk": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "随付笺咏醉屠苏",
+          "description": "召唤物被击倒/吸收/回收时令额外获得3点技力、攻击力+3%（攻击力加成最多叠加5层）",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "sp": 3,
+            "atk": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "随付笺咏醉屠苏",
+          "description": "召唤物被击倒/吸收/回收时令额外获得4<@ba.talpu>(+1)</>点技力、攻击力+3%（攻击力加成最多叠加5层）",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "sp": 4,
+            "atk": 0.03
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [],
+  "ownerRef": {
+    "id": "char_2023_ling",
+    "name": "令",
+    "phases": [
+      {
+        "eliteLevel": 0,
+        "maxLevel": 50,
+        "atk": [
+          212,
+          304
+        ],
+        "def": [
+          59,
+          85
+        ],
+        "maxHp": [
+          485,
+          656
+        ],
+        "magicResistance": 15,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 1,
+        "maxLevel": 80,
+        "atk": [
+          304,
+          406
+        ],
+        "def": [
+          85,
+          114
+        ],
+        "maxHp": [
+          656,
+          852
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 2,
+        "maxLevel": 90,
+        "atk": [
+          406,
+          473
+        ],
+        "def": [
+          114,
+          138
+        ],
+        "maxHp": [
+          852,
+          1079
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      }
+    ],
+    "trustBonus": {
+      "atk": 35,
+      "def": 0,
+      "maxHp": 350
+    }
+  }
+}

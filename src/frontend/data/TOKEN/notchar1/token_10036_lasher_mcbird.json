@@ -1,0 +1,439 @@
+{
+  "id": "token_10036_lasher_mcbird",
+  "name": "发条羽兽",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4140_lasher",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        153,
+        219
+      ],
+      "def": [
+        43,
+        62
+      ],
+      "maxHp": [
+        438,
+        592
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        219,
+        292
+      ],
+      "def": [
+        70,
+        83
+      ],
+      "maxHp": [
+        592,
+        769
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        292,
+        340
+      ],
+      "def": [
+        90,
+        100
+      ],
+      "maxHp": [
+        769,
+        974
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lasher_1",
+      "name": "上紧发条",
+      "levels": [
+        {
+          "attack_speed": 35,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 40,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 55,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 60,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lasher_2",
+      "name": "权知轻重",
+      "levels": [
+        {
+          "sluggish": 1,
+          "atk": 0.27,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.28,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.29,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.31,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.32,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.32,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.34,
+          "cnt": 1,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.36,
+          "cnt": 1,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.38,
+          "cnt": 1,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "sluggish": 1,
+          "atk": 0.4,
+          "cnt": 1,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工匠遗训",
+          "description": "可以使用3个发条羽兽召唤物。发条羽兽和衡沙对机械敌人伤害提升10%",
+          "blackboard": {
+            "cnt": 3,
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工匠遗训",
+          "description": "可以使用4个发条羽兽召唤物。发条羽兽和衡沙对机械敌人伤害提升20%",
+          "blackboard": {
+            "cnt": 4,
+            "damage_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工匠遗训",
+          "description": "可以使用5个发条羽兽召唤物。发条羽兽和衡沙对机械敌人伤害提升20%",
+          "blackboard": {
+            "cnt": 5,
+            "damage_scale": 1.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [],
+  "ownerRef": {
+    "id": "char_4140_lasher",
+    "name": "衡沙",
+    "phases": [
+      {
+        "eliteLevel": 0,
+        "maxLevel": 50,
+        "atk": [
+          203,
+          290
+        ],
+        "def": [
+          69,
+          99
+        ],
+        "maxHp": [
+          463,
+          626
+        ],
+        "magicResistance": 15,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 1,
+        "maxLevel": 70,
+        "atk": [
+          290,
+          387
+        ],
+        "def": [
+          99,
+          132
+        ],
+        "maxHp": [
+          626,
+          814
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 2,
+        "maxLevel": 80,
+        "atk": [
+          387,
+          450
+        ],
+        "def": [
+          132,
+          160
+        ],
+        "maxHp": [
+          814,
+          1031
+        ],
+        "magicResistance": 20,
+        "baseAttackTime": 1.6,
+        "attackSpeed": 100
+      }
+    ],
+    "trustBonus": {
+      "atk": 35,
+      "def": 0,
+      "maxHp": 200
+    }
+  }
+}
