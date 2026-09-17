@@ -1,0 +1,808 @@
+{
+  "id": "char_113_cqbw",
+  "name": "W",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "aoesniper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        397,
+        568
+      ],
+      "def": [
+        68,
+        89
+      ],
+      "maxHp": [
+        821,
+        1027
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        568,
+        711
+      ],
+      "def": [
+        89,
+        112
+      ],
+      "maxHp": [
+        1027,
+        1284
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        711,
+        912
+      ],
+      "def": [
+        112,
+        133
+      ],
+      "maxHp": [
+        1284,
+        1605
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_cqbw_1",
+      "name": "红桃K",
+      "levels": [
+        {
+          "atk_scale": 2.3,
+          "stun": 1.5,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "stun": 1.5,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "stun": 1.5,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "stun": 1.8,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "stun": 1.8,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "stun": 1.8,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.1,
+          "stun": 2.1,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "stun": 2.4,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.3,
+          "stun": 2.7,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.5,
+          "stun": 3,
+          "level": 9,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cqbw_2",
+      "name": "惊吓盒子",
+      "levels": [
+        {
+          "atk_scale": 1.9,
+          "stun": 1.4,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "stun": 1.4,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "stun": 1.4,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "stun": 1.6,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "stun": 1.6,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "stun": 1.6,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "stun": 1.8,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "stun": 1.8,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "stun": 2,
+          "level": 8,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "stun": 2.2,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_cqbw_3",
+      "name": "D12",
+      "levels": [
+        {
+          "max_target": 3,
+          "atk_scale": 2.2,
+          "stun": 3,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.3,
+          "stun": 3,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.4,
+          "stun": 3,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.5,
+          "stun": 3.5,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.6,
+          "stun": 3.5,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.7,
+          "stun": 3.5,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 2.8,
+          "stun": 4,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 2.9,
+          "stun": 4,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3,
+          "stun": 4.5,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3.1,
+          "stun": 5,
+          "level": 9,
+          "spCost": 33,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "设伏",
+          "description": "在战场停留10秒后获得40%的物理和法术闪避，且不容易成为敌人的攻击目标",
+          "blackboard": {
+            "interval": 10,
+            "prob": 0.4,
+            "taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "设伏",
+          "description": "在战场停留10秒后获得60%的物理和法术闪避，且不容易成为敌人的攻击目标",
+          "blackboard": {
+            "interval": 10,
+            "prob": 0.6,
+            "taunt_level": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "落井下石",
+          "description": "攻击范围内的敌人在被<$ba.stun>晕眩</>时受到的物理伤害+18%",
+          "blackboard": {
+            "damage_scale": 1.18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "落井下石",
+          "description": "攻击范围内的敌人在被<$ba.stun>晕眩</>时受到的物理伤害+21%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "damage_scale": 1.21
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_cqbw",
+      "name": "W证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_cqbw",
+      "name": "佣兵的行囊",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 54
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 68
+          },
+          "talentEnhance": [
+            {
+              "name": "落井下石",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.21,
+                "sp": 1
+              }
+            },
+            {
+              "name": "落井下石",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.24,
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 78
+          },
+          "talentEnhance": [
+            {
+              "name": "落井下石",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.24,
+                "sp": 1
+              }
+            },
+            {
+              "name": "落井下石",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.27,
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "sp": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            },
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_cqbw",
+      "name": "刺棱钝刃",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 45
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "设伏",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 10,
+                "prob": 0.6,
+                "taunt_level": -1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.005,
+                "max_stack_cnt": 20
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "设伏",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 8,
+                "prob": 0.6,
+                "taunt_level": -1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.0125,
+                "max_stack_cnt": 16
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

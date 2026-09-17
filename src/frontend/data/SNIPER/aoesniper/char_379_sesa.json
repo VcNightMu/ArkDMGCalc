@@ -1,0 +1,526 @@
+{
+  "id": "char_379_sesa",
+  "name": "慑砂",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "aoesniper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        363,
+        519
+      ],
+      "def": [
+        63,
+        82
+      ],
+      "maxHp": [
+        847,
+        1059
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        519,
+        649
+      ],
+      "def": [
+        82,
+        104
+      ],
+      "maxHp": [
+        1059,
+        1324
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        649,
+        833
+      ],
+      "def": [
+        104,
+        123
+      ],
+      "maxHp": [
+        1324,
+        1655
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 85,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_sesa_2",
+      "name": "延时震荡零件",
+      "levels": [
+        {
+          "attack@atk_scale": 1.7,
+          "attack@attack_speed": -3,
+          "attack@duration": 3,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.75,
+          "attack@attack_speed": -3,
+          "attack@duration": 3,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.8,
+          "attack@attack_speed": -3,
+          "attack@duration": 3,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.9,
+          "attack@attack_speed": -6,
+          "attack@duration": 3,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.95,
+          "attack@attack_speed": -6,
+          "attack@duration": 3,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2,
+          "attack@attack_speed": -6,
+          "attack@duration": 3,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.1,
+          "attack@attack_speed": -10,
+          "attack@duration": 3,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.2,
+          "attack@attack_speed": -13,
+          "attack@duration": 3,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.3,
+          "attack@attack_speed": -16,
+          "attack@duration": 3,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.4,
+          "attack@attack_speed": -20,
+          "attack@duration": 3,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "弱点拆解",
+          "description": "在场时所有被阻挡的敌方单位受到的物理伤害提高7%",
+          "blackboard": {
+            "damage_scale": 1.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "弱点拆解",
+          "description": "在场时所有被阻挡的敌方单位受到的物理伤害提高9%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "damage_scale": 1.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "弱点拆解",
+          "description": "在场时所有被阻挡的敌方单位受到的物理伤害提高14%",
+          "blackboard": {
+            "damage_scale": 1.14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "弱点拆解",
+          "description": "在场时所有被阻挡的敌方单位受到的物理伤害提高16%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "damage_scale": 1.16
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_sesa",
+      "name": "慑砂证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_sesa",
+      "name": "“灵魂共鸣”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 38,
+            "def": 24
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "弱点拆解",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.18
+              }
+            },
+            {
+              "name": "弱点拆解",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": "弱点拆解",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.22
+              }
+            },
+            {
+              "name": "弱点拆解",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.24
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2203,5 +2203,68 @@
     "subProfessionId": "closerange",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_113_cqbw",
+    "name": "W",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_300_phenxi",
+    "name": "菲亚梅塔",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_219_meteo",
+    "name": "陨星",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_379_sesa",
+    "name": "慑砂",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4078_bdhkgt",
+    "name": "截云",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_118_yuki",
+    "name": "白雪",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_282_catap",
+    "name": "空爆",
+    "rarity": "TIER_3",
+    "profession": "SNIPER",
+    "subProfessionId": "aoesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

@@ -110,7 +110,12 @@ const OPERATORS = {
       'char_145_prove', 'char_4006_melnte',                               // 普罗旺斯/玫拉 5★
       'char_366_acdrop',                                                  // 酸糖 4★
     ],
-    aoesniper: [],                  // 炮手
+    aoesniper: [ // 炮手
+      'char_113_cqbw', 'char_300_phenxi',                               // W/菲亚梅塔 6★
+      'char_219_meteo', 'char_379_sesa', 'char_4078_bdhkgt',            // 陨星/慑砂/截云 5★
+      'char_118_yuki',                                                  // 白雪 4★
+      'char_282_catap',                                                 // 空爆 3★
+    ],
     longrange: [],                  // 神射手
     reaperrange: [],                // 散射手
     siegesniper: [],                // 攻城手

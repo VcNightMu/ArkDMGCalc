@@ -1,0 +1,921 @@
+{
+  "id": "char_300_phenxi",
+  "name": "菲亚梅塔",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "aoesniper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        375,
+        536
+      ],
+      "def": [
+        80,
+        104
+      ],
+      "maxHp": [
+        985,
+        1232
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        536,
+        671
+      ],
+      "def": [
+        104,
+        132
+      ],
+      "maxHp": [
+        1232,
+        1540
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        671,
+        861
+      ],
+      "def": [
+        132,
+        156
+      ],
+      "maxHp": [
+        1540,
+        1926
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 100,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_phenxi_1",
+      "name": "“你须直面”",
+      "levels": [
+        {
+          "atk": 0.3,
+          "ability_range_forward_extend": 1,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "ability_range_forward_extend": 1,
+          "level": 1,
+          "spCost": 19,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "ability_range_forward_extend": 1,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "ability_range_forward_extend": 1,
+          "level": 3,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "ability_range_forward_extend": 1,
+          "level": 4,
+          "spCost": 16,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "ability_range_forward_extend": 1,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "ability_range_forward_extend": 1,
+          "level": 6,
+          "spCost": 14,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "ability_range_forward_extend": 1,
+          "level": 7,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "ability_range_forward_extend": 1,
+          "level": 8,
+          "spCost": 12,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "ability_range_forward_extend": 1,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phenxi_2",
+      "name": "“你须愧悔”",
+      "levels": [
+        {
+          "atk_scale": 2,
+          "atk_scale_2": 1,
+          "dist": 0.66,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "atk_scale_2": 1.1,
+          "dist": 0.66,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "atk_scale_2": 1.2,
+          "dist": 0.66,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "atk_scale_2": 1.3,
+          "dist": 0.66,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "atk_scale_2": 1.4,
+          "dist": 0.66,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "atk_scale_2": 1.5,
+          "dist": 0.66,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "atk_scale_2": 1.6,
+          "dist": 0.66,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.4,
+          "atk_scale_2": 1.7,
+          "dist": 0.66,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "atk_scale_2": 1.8,
+          "dist": 0.66,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "atk_scale_2": 2,
+          "dist": 0.66,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phenxi_3",
+      "name": "“你须偿还”",
+      "levels": [
+        {
+          "attack@atk_scale": 1.5,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.05,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.55,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.05,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.6,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.05,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.1,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.75,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.1,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.8,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.1,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.85,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.15,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 1.9,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.15,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 2,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.15,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "attack@atk_scale": 2.2,
+          "base_attack_time": 0,
+          "attack@dist": 1.1,
+          "attack@atk_scale_2": 1.25,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "陈述苦难",
+          "description": "自身生命会不断流失（该效果不会使生命降至0）；生命值高于50%时获得+15%攻击力的<$ba.strong>精力充沛</>；高于80%效果翻倍",
+          "blackboard": {
+            "interval": 0.1,
+            "hp_ratio": 0.005,
+            "phenxi_t_1[peak_1].peak_performance.atk": 0.15,
+            "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+            "phenxi_t_1[peak_2].peak_performance.atk": 0.3,
+            "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "陈述苦难",
+          "description": "自身生命会不断流失（该效果不会使生命降至0）；生命值高于50%时获得+20%攻击力的<$ba.strong>精力充沛</>；高于80%效果翻倍",
+          "blackboard": {
+            "interval": 0.1,
+            "hp_ratio": 0.005,
+            "phenxi_t_1[peak_1].peak_performance.atk": 0.2,
+            "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+            "phenxi_t_1[peak_2].peak_performance.atk": 0.4,
+            "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "陈述苦难",
+          "description": "自身生命会不断流失（该效果不会使生命降至0）；生命值高于50%时获得+25%攻击力的<$ba.strong>精力充沛</>；高于80%效果翻倍",
+          "blackboard": {
+            "interval": 0.1,
+            "hp_ratio": 0.005,
+            "phenxi_t_1[peak_1].peak_performance.atk": 0.25,
+            "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+            "phenxi_t_1[peak_2].peak_performance.atk": 0.5,
+            "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "宣告终局",
+          "description": "技能持续期间外，攻击速度+27",
+          "blackboard": {
+            "attack_speed": 27
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "宣告终局",
+          "description": "技能持续期间外，攻击速度+30<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "attack_speed": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_phenxi",
+      "name": "菲亚梅塔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_phenxi",
+      "name": "漫长的旅途",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 17
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 75,
+            "def": 26
+          },
+          "talentEnhance": [
+            {
+              "name": "陈述苦难",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.1,
+                "hp_ratio": 0.005,
+                "min_hp_ratio": 0.302,
+                "phenxi_t_1[peak_1].peak_performance.atk": 0.28,
+                "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+                "phenxi_t_1[peak_2].peak_performance.atk": 0.56,
+                "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 85,
+            "def": 32
+          },
+          "talentEnhance": [
+            {
+              "name": "陈述苦难",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.1,
+                "hp_ratio": 0.005,
+                "min_hp_ratio": 0.503,
+                "phenxi_t_1[peak_1].peak_performance.atk": 0.3,
+                "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+                "phenxi_t_1[peak_2].peak_performance.atk": 0.6,
+                "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_phenxi",
+      "name": "“律外”特种弹药配给组",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 48,
+            "def": 26
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 36
+          },
+          "talentEnhance": [
+            {
+              "name": "宣告终局",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 27,
+                "phenxi_e_t_2[in_skill].attack_speed": 5
+              }
+            },
+            {
+              "name": "宣告终局",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 30,
+                "phenxi_e_t_2[in_skill].attack_speed": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 43
+          },
+          "talentEnhance": [
+            {
+              "name": "宣告终局",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30,
+                "phenxi_e_t_2[in_skill].attack_speed": 10
+              }
+            },
+            {
+              "name": "宣告终局",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 33,
+                "phenxi_e_t_2[in_skill].attack_speed": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 100
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_phenxi",
+      "name": "菲亚梅塔特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 85,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "陈述苦难",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.2,
+                "hp_ratio": 0.005,
+                "min_hp_ratio": 0.002,
+                "phenxi_t_1[peak_1].peak_performance.atk": 0.5,
+                "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+                "phenxi_t_1[peak_2].peak_performance.atk": 1,
+                "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 115,
+            "atk": 90
+          },
+          "talentEnhance": [
+            {
+              "name": "陈述苦难",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost_scale": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 0.2,
+                "hp_ratio": 0.005,
+                "min_hp_ratio": 0.002,
+                "phenxi_t_1[peak_1].peak_performance.atk": 0.5,
+                "phenxi_t_1[peak_1].peak_performance.hp_ratio": 0.5,
+                "phenxi_t_1[peak_2].peak_performance.atk": 1,
+                "phenxi_t_1[peak_2].peak_performance.hp_ratio": 0.8
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -19,6 +19,8 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  // ---- 狙击·炮手(aoesniper) ----
+  'char_118_yuki': 0,   // 白雪「重型手里剑」:攻击力+20%(攻击间隔 +0.2s 见 TALENT_BAT_ADD)
   // ---- 驭械术师(funnel) ----
   'char_4013_kjera': 0,   // 耶拉「低眉」:攻击力+10%(E2);攻击范围内≥2格地面地形改+16%(地形条件默认不计,取无条件档)
   'char_4040_rockr': 0,   // 洛洛「立于磐石」:每15s+4%(E2 pot0),最多4层(时间累积长线默认满层,×max_stack_cnt=+16%)
@@ -626,6 +628,56 @@ const MODULE_TE_ASPD_STACK = {
 const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
+
+// ===== 炮手(aoesniper)专用结算 =====
+// 说明文本(用户 2026-09-17):陨星天赋「爆破附着改装」概率增幅不计、S2「高爆弹头」防御力 -250 仅对本技能伤害生效;
+// 慑砂「弱点拆解」物理伤害增幅不计;W「设伏」「落井下石」增幅不计;菲亚梅塔「陈述苦难」精力充沛不计、
+// S2「你须愧悔」灼痕爆炸只计一次、S3「你须偿还」攻击力提升不计;截云「初出荒野」攻击力增幅不计。
+function calcAoeSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, generic } = ctx;
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const ar = (atk) => calcArtsDamage(atk, enemy?.res ?? 0);
+  const nrm = () => (normalInterval > 0 ? h(panelAtk) / normalInterval : null);
+  const nAtk = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+  const res = (isPhys, total, dps, cycle, nrmVal) => {
+    const dmgTypes = isPhys
+      ? { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } }
+      : { arts: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } };
+    return {
+      skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle, normalDps: nrmVal === undefined ? null : nrmVal,
+      skillHps: null, normalHps: null, totalHeal: null, damageType: isPhys ? 'physical' : 'arts', realInterval, dmgTypes,
+    };
+  };
+  // 陨星 S2 高爆弹头:防御力 -250 仅对本技能伤害生效(默认 10s 内,单次结算按减防后防御)
+  if (op.id === 'char_219_meteo' && skillIndex === 1) {
+    const per = h(panelAtk * levelData.atk_scale, Math.max(0, effDef - Math.abs(levelData.def || 0)));
+    return res(true, per, 0, calcCycleDps(levelData, realInterval, h(panelAtk), per), nrm());
+  }
+  // 菲亚梅塔 S2 你须愧悔:主爆炸 atk_scale + 灼痕爆炸只计一次(atk_scale_2)
+  if (op.id === 'char_300_phenxi' && skillIndex === 1) {
+    const per = h(panelAtk * levelData.atk_scale) + h(panelAtk * levelData.atk_scale_2);
+    return res(true, per, 0, calcCycleDps(levelData, realInterval, h(panelAtk), per), nrm());
+  }
+  // 慑砂 S2 延时震荡零件:每击 attack@atk_scale(目标攻速 -13 为敌方 debuff,不计)
+  if (op.id === 'char_379_sesa' && skillIndex === 1) {
+    const per = h(panelAtk * levelData['attack@atk_scale']);
+    const total = per * nAtk;
+    return res(true, total, skillDuration > 0 ? total / skillDuration : 0, null, nrm());
+  }
+  // 截云 S2 掷旧尘:停止攻击,飞轮按 interval(1s) 每秒造成 atk_scale 物理伤害
+  if (op.id === 'char_4078_bdhkgt' && skillIndex === 1) {
+    const per = h(panelAtk * levelData.atk_scale);
+    const ticks = Math.floor(skillDuration / (levelData.interval || 1) + 1e-9);
+    return res(true, per * ticks, per, null, nrm());
+  }
+  // 白雪 S2 凝武:攻击变为回旋飞镖,每秒受到 attack@atk_scale 的法术伤害(技能持续期间)
+  if (op.id === 'char_118_yuki' && skillIndex === 1) {
+    const dps = ar(panelAtk * levelData['attack@atk_scale']);
+    const ticks = Math.floor(skillDuration / 1 + 1e-9);
+    return res(false, dps * ticks, dps, null, nrm());
+  }
+  return generic();
+}
 
 // ===== 重射手(closerange)专用口径与结算 =====
 // 说明文本(用户 2026-09-17):
@@ -1507,6 +1559,26 @@ function calcPlatnmChargeMul(op, slotData, interval) {
 const SINGLE_CRIT_MUL = {
   'char_350_surtr': { 1: true },   // 史尔特尔 S2 熔核巨影:仅攻击到一个敌人时攻击力提升至 1.4~1.6
 };
+// 天赋层攻击间隔加算(白雪「重型手里剑」:攻击间隔略微增大 +0.2s):常态与技能期都生效
+const TALENT_BAT_ADD = { 'char_118_yuki': 0.2 };
+// 菲亚梅塔「宣告终局」:技能持续期间外攻击速度 +X(模组可提升至 30/33);X 模组另给技能期内攻速
+// (te 键 phenxi_e_t_2[in_skill].attack_speed,+5/+10)。常态只吃前者,技能期只吃后者(用户 2026-09-17 提示检查模组技能期加成)
+function phenxiEndgameAspdBb(op, slotData) {
+  if (op.id !== 'char_300_phenxi') return null;
+  const base = ((op.talents[1] || {}).candidates || []).filter((c) => (c.phase ?? 0) <= (slotData.elite ?? 0) && (c.potentialRank ?? 0) <= (slotData.potentialRank ?? 0));
+  const cands = talentCandSource(op, slotData, 1, base);
+  let normal = 0, inSkill = 0;
+  for (const c of cands) {
+    const bb = c.blackboard || {};
+    if (typeof bb.attack_speed === 'number') normal = Math.max(normal, bb.attack_speed);
+    const s = bb['phenxi_e_t_2[in_skill].attack_speed'];
+    if (typeof s === 'number') inSkill = Math.max(inSkill, s);
+  }
+  return { normal, inSkill };
+}
+function phenxiNormalAspd(op, slotData) { const v = phenxiEndgameAspdBb(op, slotData); return v ? v.normal : 0; }
+function phenxiSkillAspd(op, slotData) { const v = phenxiEndgameAspdBb(op, slotData); return v ? v.inSkill : 0; }
+
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
   'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
@@ -1740,7 +1812,8 @@ function calculateOperator(op, slotData, ctx) {
   const effDef = Math.max(0, state.enemy.def - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
-  const realInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus);
+  const talentBat = TALENT_BAT_ADD[op.id] || 0;
+  const realInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + phenxiNormalAspd(op, slotData));
 
   // No skill: return normal stats only
   if (!skill) {
@@ -1792,7 +1865,7 @@ function calculateOperator(op, slotData, ctx) {
 
   let skillAtk = panelAtk;
   let skillDef = panelDef;
-  let skillInterval = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + skillAspdExtra);
+  let skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + phenxiSkillAspd(op, slotData));
   let skillDuration = levelData.skillDuration || 0;
   // 手动开启的限时增益(skillDuration=-1 + duration>0,自身必然获得,如华法琳「不稳定血浆」):
   // 视为持续型技能,技能期长度 = duration。
@@ -3042,6 +3115,11 @@ function calculateOperator(op, slotData, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'aoesniper') {
+    result = calcAoeSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      generic: () => calcDamage(params),
+    });
   } else if (op.subProfessionId === 'closerange') {
     result = calcCloserangeSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
