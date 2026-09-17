@@ -23,6 +23,9 @@ const FAMILIES = [
 // te 与基础天赋「同值」、实际改动在其它 blackboard 键(非本族值)→ 允许本族无变化:
 // 洛洛 X「立于磐石」改叠层间隔 15→10,atk 0.04 / max_stack_cnt 4 与基础同名同值
 const TE_SAME_VALUE_OK = new Set(['char_4040_rockr']);
+// te 与「自身」无关(自身不满足条件)→ 允许本族无变化:
+//  安洁莉娜 X「实验用反重力模块」加速力场 te(attack_speed 3/5)是「自身攻击范围内友方额外」,自身不在自身攻击范围内(见 MODULE_TE_IGNORE/MODULE_TE_SPD_SKIP)
+const TE_SELF_EXCLUDED = new Set(['char_291_aglina']);
 
 let pass = 0, fail = 0, skip = 0;
 const failList = [];
@@ -67,7 +70,7 @@ for (const e of idx) {
           const label = `${o.name}(${e.id}) ${mod.typeName2 || 'M'}L${lv.level}「${te.name}」${fam}+${teVal}: ${v0} → ${vM}`;
           // 若该天赋不在该族表:无模输出=族默认(0 或 1),增强后若仍默认 → 未接线族,跳过(不误报)
           if (vM === v0 && (fam === 'HEAL' ? v0 === 1 : v0 === 0)) { skip++; continue; }
-          const samePlaceholder = Math.abs(v0 - teVal) < 0.005 || TE_SAME_VALUE_OK.has(e.id);  // 同名同值占位 te(无实际增益)允许无变化
+          const samePlaceholder = Math.abs(v0 - teVal) < 0.005 || TE_SAME_VALUE_OK.has(e.id) || TE_SELF_EXCLUDED.has(e.id);  // 同名同值占位 te / te 与自身无关 允许无变化
           const okDir = teVal > 0 ? vM >= v0 : vM <= v0;
           const okChange = Math.abs(vM - v0) > 1e-9;
           if (!okDir) { fail++; failList.push('FAIL 方向: ' + label); }

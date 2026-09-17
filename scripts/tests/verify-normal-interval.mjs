@@ -50,10 +50,12 @@ const IDS = [
   'char_1051_headb2', 'char_4058_pepe', 'char_4131_odda', 'char_4185_amoris',  // 近卫·撼地者
   'char_4187_graceb',  // 近卫·本源近卫
   'char_394_hadiya', 'char_1049_catap2',  // 近卫·佣兵
+  'char_1047_halo2', 'char_291_aglina', 'char_358_lisa', 'char_195_glassb', 'char_326_glacus', 'char_4032_provs', 'char_4122_grabds', 'char_183_skgoat', 'char_258_podego', 'char_278_orchid',  // 辅助·凝滞师(安洁莉娜 S2/S3 见 NORMAL_EXCEPT)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量
 const NORMAL_EXCEPT = {
+  'char_291_aglina': { 1: 1, 2: 1 },  // 安洁莉娜 S2/S3「技能未开启时无法普通攻击」→ 该槽常态 0(设计例外)
   'char_4040_rockr': { 1: 1 },    // 洛洛 S2「自负此轭」:携带时技能后过载 20s/40s 无输出,常态按 0.5 计
   'char_1038_whitw2': { 0: 1 },   // 荒芜拉普兰德 S1「慵怠者悲鸣」被动:浮游单元+1 装备即常驻(含常态)
   'char_489_serum': { 0: 1 },     // 蚀清 S1「专注力超载」:技能结束眩晕 10s(技能 30s)→ 常态按 2/3 计

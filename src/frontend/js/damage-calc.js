@@ -78,6 +78,10 @@ const TALENT_ATK_DRIVERS = {
   'char_4187_graceb': 0,   // 聆音「趁势怜悯」:攻击力+5/10%(E2)→ 用户口径"仅计算基础加成"(击倒神经损伤爆发敌人后的 atk_bonus 升级档不计)
   // ---- 近卫·佣兵(mercenary) ----
   'char_394_hadiya': 0,    // 哈蒂娅「荒野的后裔」:每层攻击力+4%(E2,潜4 +5%),最多 5 层 → 用户口径"默认叠满"(×max_stack_cnt = +20%)
+  // ---- 辅助·凝滞师(slower) ----
+  'char_1047_halo2': { talentIndex: 0, noStack: true },   // 溯光星源「数据建模」:本体无攻击加成,Y 模组「叠满后攻击力+12%」te(叠满为用户口径默认,该 atk 非每层值 → noStack)
+  'char_258_podego': 0,   // 波登可「园丁」:所有【辅助】攻击力 +9%(E2,自身为辅助必得);X 模组同名 te 覆盖为 9%/11%
+  'char_358_lisa': 0,     // 铃兰「技力光环·辅助」:本体无攻击加成,X 模组「怀中御守」te 追加攻击力 +6%/9%(无条件,计入)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -163,6 +167,30 @@ const FIGHTER_SPECIAL = {
 };
 
 // ===== 剑豪(sword)专用助手 =====
+// ===== 辅助·凝滞师(slower) =====
+// 特性「攻击造成法术伤害，并使敌人停顿」:数据 damageType 仍为 physical,统一按法术结算(常态/技能期/模组档)。
+const SUBPROF_ARTS = { slower: true };
+// 技能期每击倍率改写表(值 = 技能 blackboard 中的倍数键;安洁莉娜 S2「微粒模式」:间隔极大缩短但每击只造成 40% 攻击力法伤)
+const SKILL_PER_HIT_SCALE = {
+  'char_291_aglina': { 1: 'damage_scale' },
+};
+// 凝滞师需专用结算的技能(其余落回引擎通用链尾)
+const SLOWER_SPECIAL = {
+  'char_326_glacus': [1],    // S2 反制电磁脉冲:冲击波单发 340%(专一)×atk 法伤(对【无人机】加倍不计,用户口径)
+  'char_358_lisa': [2],      // S3 狐火渺然:停止攻击,每秒回复范围内友方 攻击力×14%(专一) 生命
+  'char_4032_provs': [1],    // S2 致胜立论:开启瞬间全范围 300%(专一) 法伤 + 之后攻击间隔缩短(-1)
+  'char_4122_grabds': [1],   // S2 乡音沉沉:先停攻沉睡 5s(专一),剩余时长攻速 +100 并攻击 3 敌(单目标口径)
+  'char_258_podego': [0, 1], // S1 花香疗法(普攻转治疗)/ S2 孢子扩散(6s 孢子群每秒 65% 法伤)
+};
+// 技能期天赋攻速额外档(模组 te 中带 [skill] 前缀的「技能期间攻速加成额外提升」;真理 Y「读书笔记」)
+const TALENT_SPD_SKILL_ONLY = {
+  'char_195_glassb': { talentIndex: 0, key: 'glassb_e_t_1[skill].attack_speed' },
+};
+// 模组 te 整体忽略表(该天赋的 te 与自身无关:安洁莉娜 X「加速力场」自身攻击范围内友方额外攻速,自身不在自身攻击范围内)
+const MODULE_TE_IGNORE = {
+  'char_291_aglina': [0],
+};
+
 const SWORD_SPECIAL = {
   'char_010_chen': [2],      // 赤霄·绝影:10 次连斩(纯 times 键,引擎不识别)
   'char_301_cutter': [0],    // 红移:4 把飞刀(times 键)
@@ -450,6 +478,7 @@ function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
   const level = slotData.level;
   const pot = slotData.potentialRank || 0;
   let bonus = null;
+  const noStack = (typeof TALENT_ATK_DRIVERS[op.id] === 'object' && TALENT_ATK_DRIVERS[op.id] !== null && TALENT_ATK_DRIVERS[op.id].noStack === true);
   for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
@@ -458,7 +487,7 @@ function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
         const commonKey = Object.keys(cand.blackboard).find(k => k.endsWith('[common].atk'));
         if (commonKey !== undefined) atk = cand.blackboard[commonKey];
         else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
-        if (typeof cand.blackboard.max_stack_cnt === 'number') atk = atk * cand.blackboard.max_stack_cnt;
+        if (typeof cand.blackboard.max_stack_cnt === 'number' && !noStack) atk = atk * cand.blackboard.max_stack_cnt;
       }
       if (bonus === null || atk > bonus) bonus = atk;
     }
@@ -879,6 +908,13 @@ const TALENT_SPD_DRIVERS = {
   'char_367_swllow': 0,   // 灰喉「顺风」:攻击速度+6(「15% 概率攻击力×1.5」为概率类,不建模走说明)
   'char_235_jesica': 0,   // 杰西卡「快速弹匣」:攻击速度+6(精1)/+12(精2)
   'char_211_adnach': 0,   // 安德切尔「短板突破」:攻击速度+4(精1 潜0)/+8(精1 潜0 高档)(「优先攻击远程」为索敌规则,不计)
+  // ---- 辅助·凝滞师(slower) ----
+  'char_291_aglina': 0,   // 安洁莉娜「加速力场」:全场友方攻速 +7(含自身);X 模组「自身攻击范围内的友方额外 +3/5」不含自身,te 见 MODULE_TE_IGNORE
+  'char_1047_halo2': 0,   // 溯光星源「数据建模」:造成停顿时自身攻速 +1,最多 18 层 → 满层 +18(用户口径:攻速默认叠满);Y 模组 23/25 经 MODULE_TE_ASPD_STACK
+  'char_195_glassb': 0,    // 真理「探知者」:攻速 +18(E2);Y 模组同名 te 覆盖为 21/24
+  'char_4032_provs': 0,    // 但书「卡西米尔法律专精」:攻速 +10(E2)
+  'char_4122_grabds': 0,   // 小满「好好听话」:攻速 +10(E2);X 模组同名 te 覆盖为 12→14/16
+  'char_278_orchid': 0,    // 梓兰「施法速度提升」:攻速 +5(E1)/+9(E1 55 级满级)
 };
 
 
@@ -887,6 +923,7 @@ const TALENT_SPD_DRIVERS = {
 // 默认不叠乘:洛洛 X L3「叠满后攻击速度+5」是固定加算值(×max_stack_cnt 会误算成 +20)。
 const MODULE_TE_ASPD_STACK = {
   'char_135_halo': true,   // 星源「科研热忱」:Y 模组改 10s/6~7 层、每层 +4 → +24/+28
+  'char_1047_halo2': true,   // 溯光星源 Y「探索者的收藏」:数据建模叠层上限 23/25(te attack_speed 1 × max_stack_cnt)
 };
 
 // 模组 te 与基础天赋"合并而非替换"表:部分模组 te 只写变更部分(如异客 X 模组「孤卒」te 仅给 sp_recovery_per_sec),
@@ -1442,6 +1479,8 @@ const MODULE_TE_SPD_ALLOW = {
 };
 
 const MODULE_TE_SPD_SKIP = {
+  'char_291_aglina': true,   // X「实验用反重力模块」加速力场 te(attack_speed 3/5)是「自身攻击范围内友方额外」,自身不计
+
   'char_4226_veen': true,   // X 模组「在挥刀之前」增强:拥有已储存的攻击能量时攻速+30(本模型无储存能量→不适用)
 };
 
@@ -1796,6 +1835,20 @@ function calcTalentAttackSpeed(op, slotData) {
   return best;
 }
 
+// 技能期才生效的天赋攻速额外档(读 talentCandSource,故模组 te 的 [skill] 键同样生效)
+function calcTalentSpdSkillOnly(op, slotData) {
+  const cfg = TALENT_SPD_SKILL_ONLY[op.id];
+  if (!cfg) return 0;
+  const talent = (op.talents || [])[cfg.talentIndex];
+  if (!talent) return 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
+    const bb = cand.blackboard || {};
+    if (typeof bb[cfg.key] === 'number' && bb[cfg.key] > best) best = bb[cfg.key];
+  }
+  return best;
+}
+
 // 当前模组的指定等级数据(含 attributeBlackboard / talentEnhance);无模组或等级不存在返回 null。
 function getModuleLevelData(op, slotData) {
   const m = slotData.module;
@@ -1816,6 +1869,7 @@ function getTalentEnhBB(op, slotData, talentIndex) {
   // 模组增强名对应精英化后的名字,只取 candidates[0].name 会漏接)
   const tNames = new Set((talent && talent.candidates || []).map(c => c && c.name).filter(Boolean));
   if (tNames.size === 0) return null;
+  if ((MODULE_TE_IGNORE[op.id] || []).includes(talentIndex)) return null;   // 该天赋的 te 与自身无关(如安洁莉娜 X 加速力场)
   const lv = getModuleLevelData(op, slotData);
   if (!lv || !Array.isArray(lv.talentEnhance) || lv.talentEnhance.length === 0) return null;
   const pot = slotData.potentialRank || 0;
@@ -1824,8 +1878,9 @@ function getTalentEnhBB(op, slotData, talentIndex) {
     if (!c || !tNames.has(c.name)) continue;
     const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
     if (cPot > pot || cPot < bestPot) continue;
-    bestPot = cPot;
-    best = c.blackboard || {};
+    if (cPot > bestPot) { bestPot = cPot; best = { ...(c.blackboard || {}) }; }   // 更高潜能档:重置
+    else best = { ...(best || {}), ...(c.blackboard || {}) };                     // 同档同名多条:合并(天赋被拆为多条增强)
+
   }
   if (!best) return null;
   if ((MODULE_TE_TALENT_MERGE[op.id] || []).includes(talentIndex)) {
@@ -1967,6 +2022,9 @@ const TALENT_DMG_MUL_DRIVERS = {
   'char_4098_vvana': { talentIndex: 0, key: 'damage_scale_m', additive: true, superKey: 'super_scale', superGrades: ['elite', 'leader'] },
   'char_4218_aigis': { talentIndex: 1, key: 'damage_scale' },  // 埃癸斯「反暗影特殊压制兵装」:造成物理伤害 ×1.05~1.10(模组 te 提到 1.13~1.17);受击减伤为承伤向不计
   'char_4088_hodrer': { talentIndex: 1, key: 'damage_scale', moduleTe: true },  // 赫德雷「余火之氅」X 模组「新的生活」:造成的物理伤害提升6%/10%(无条件,伤害乘区);Y 模组「笔迹」特性追加的 110% 属「对被阻挡的敌人」条件类不计
+  // ---- 辅助·凝滞师(slower) ----
+  'char_358_lisa': { talentIndex: 1, key: 'damage_scale', moduleTe: true },                       // 铃兰「画地为牢」:攻击范围内被停顿的敌人受 20% 脆弱 → 自身伤害 ×1.2(Y 模组 1.21/1.22)
+  'char_1047_halo2': { talentIndex: 1, key: 'halo2_t_1[weak].damage_scale_max' },                 // 溯光星源「能源解析」:脆弱默认为最高层(14%;潜4 16%) → ×1.14
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
 // 领主(近卫)特性:攻击默认为远程攻击,攻击力按 80% 计算(用户 2026-09-17 口径)。
@@ -2340,6 +2398,7 @@ function ifritSlotEvents(levelData, c) {
 // 常态行比例扣减(技能结束后自身失能:该槽常态输出 = 无技能态 × 系数;用户口径 2026-09-16)
 const NORMAL_ROW_MUL = {
   'char_489_serum': { 0: 2 / 3 },  // 蚀清 S1「专注力超载」:技能结束眩晕 10s(技能 30s)→ 常态 ×(1-10/30)
+  'char_291_aglina': { 1: 0, 2: 0 },  // 安洁莉娜 S2/S3「技能未开启时无法普通攻击」→ 该槽常态输出记 0
 };
 
 // 秘术师(mystic)技能期必然生效的 DoT(描述为"每秒受到 X 伤害",不含概率/条件):
@@ -2581,6 +2640,8 @@ const STOP_ATTACK_SKILLS = {
   'char_479_sleach': [0, 1],  // 琴柳 S1 支援号令·γ / S2 信仰传承(def增益受击回血另议);S3 光辉旗帜见专用分支
   // ---- 近卫·武者(musha) 技能开启期间停止攻击 ----
   'char_337_utage': [0],      // 宴 S1 分神:停止攻击,阻挡数归零,防御力+100%~200% 且每秒回血(技能期伤害记 0)
+  // ---- 辅助·凝滞师(slower) ----
+  'char_183_skgoat': [1],  // 地灵 S2 流沙化:停止攻击,范围内敌方每秒受一次停顿(无伤害)
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
@@ -2648,6 +2709,8 @@ function calcTalentFlatDotDps(op, slotData) {
 }
 
 function calculateOperator(op, slotData, ctx) {
+  // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
+  if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
   const mod = calcModuleBonus(op, slotData);
@@ -2794,7 +2857,8 @@ function calculateOperator(op, slotData, ctx) {
 
   let skillAtk = panelAtk;
   let skillDef = panelDef;
-  let skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + phenxiSkillAspd(op, slotData));
+  const skillOnlyAspd = calcTalentSpdSkillOnly(op, slotData);
+  let skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd + phenxiSkillAspd(op, slotData));
   let skillDuration = levelData.skillDuration || 0;
   // 手动开启的限时增益(skillDuration=-1 + duration>0,自身必然获得,如华法琳「不稳定血浆」):
   // 视为持续型技能,技能期长度 = duration。
@@ -2827,8 +2891,8 @@ function calculateOperator(op, slotData, ctx) {
   // atk_scale 排除:车尔尼 S2 的 2.1 是技能结束爆炸倍率,不作普攻倍率乘算
   const scaleExcluded = (SKILL_ATK_SCALE_EXCLUDE[op.id] || {})[skillIndex] === true;
   const asOverride = (SKILL_ATTACK_SPEED_OVERRIDES[op.id] || {})[skillIndex];
-  if (asOverride !== undefined) { skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + asOverride); }
-  else if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + levelData.attack_speed);
+  if (asOverride !== undefined) { skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd + asOverride); }
+  else if (levelData.attack_speed) skillInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd + levelData.attack_speed);
   // base_attack_time:负值=加算秒(白面鸮脑啡肽 -2.1 等);(0,1) 正小数=攻击间隔倍率("间隔缩短至 x 倍",
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
   // 描述为"间隔增大"却给正小数的技能(火神S2 +0.4s/斥罪S3 +0.9s)经 BAT_ADD_OVERRIDES 按加算秒处理。
@@ -2839,13 +2903,13 @@ function calculateOperator(op, slotData, ctx) {
     if (batScale !== 1) bat = bat * batScale;
     if ((INTERVAL_GROW_OVERRIDES[op.id] || {})[skillIndex]) {
       // 间隔增大(+X%):base_attack_time 为增幅 → 间隔 ×(1+X)(天火 S2 +70%、夕 S3 +40%)
-      skillInterval = calcRealInterval(phase.baseAttackTime * (1 + bat), 100 + baseAspdBonus + skillAspdExtra);
+      skillInterval = calcRealInterval(phase.baseAttackTime * (1 + bat), 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd);
     } else {
       const isAdd = (BAT_ADD_OVERRIDES[op.id] || {})[skillIndex] === true;
       const isPct = (BAT_PCT_OVERRIDES[op.id] || {})[skillIndex] === true;   // 负数按"缩短 X%"解释 → ×(1+bat)
       skillInterval = (isPct || (bat > 0 && bat < 1 && !isAdd))
-        ? calcRealInterval((phase.baseAttackTime + talentBat) * (isPct ? 1 + bat : bat), 100 + baseAspdBonus + skillAspdExtra)
-        : calcRealInterval(phase.baseAttackTime + talentBat + bat, 100 + baseAspdBonus + skillAspdExtra);
+        ? calcRealInterval((phase.baseAttackTime + talentBat) * (isPct ? 1 + bat : bat), 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd)
+        : calcRealInterval(phase.baseAttackTime + talentBat + bat, 100 + baseAspdBonus + skillAspdExtra + skillOnlyAspd);
     }
   }
   // attack@base_attack_time:守望者普攻间隔乘算系数(风絮1技能 0.2 → 间隔 ×0.2,区别于顶层 base_attack_time 的加算秒数)
@@ -2871,6 +2935,9 @@ function calculateOperator(op, slotData, ctx) {
   const phHitKey = (PHALANX_PER_HIT_SCALE[op.id] || {})[skillIndex];
   const phBaseSkillAtk = skillAtk;  // 阵法术师:每击倍率之前的技能期攻击力(供 DoT / 收尾爆发使用)
   if (phHitKey && levelData[phHitKey] !== undefined) skillAtk = skillAtk * levelData[phHitKey];
+  // 凝滞师技能期每击倍率改写(安洁莉娜 S2 微粒模式:间隔极大缩短 ×0.15,每击只造成 40% 攻击力法伤)
+  const spHitKey = (SKILL_PER_HIT_SCALE[op.id] || {})[skillIndex];
+  if (spHitKey && levelData[spHitKey] !== undefined) skillAtk = skillAtk * levelData[spHitKey];
   // 技能开启期天赋攻击(特米米「荒野法术」+50~100%):常态无加成,开启期与面板同乘区
   if (SKILL_TALENT_ATK_ONLY[op.id] !== undefined && skill) {
     const tOnly = calcSkillTalentAtkOnly(op, slotData);
@@ -4459,6 +4526,48 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const phys = Pp(skillAtk) * n;
       const tru = skillAtk * (levelData.value || 0);
       return mkF({ phys, tru }, skillDuration, skillAtk);
+    }
+  } else if (op.subProfessionId === 'slower' && SLOWER_SPECIAL[op.id] && SLOWER_SPECIAL[op.id].includes(skillIndex)) {
+    // ===== 辅助·凝滞师(slower)特例技能 =====
+    // 通用口径:凝滞师普攻/技能均为法术伤害(SUBPROF_ARTS);特性「停顿」与减速为非输出,不建模。
+    // 用户口径(2026-09-17):格劳克斯「反制装置」对【无人机】攻击力增幅不计、「反制电磁脉冲」对【无人机】加倍不计;
+    // 溯光星源「数据建模」攻速默认叠满、「能源解析」脆弱默认最高层(表 TALENT_DMG_MUL_DRIVERS)。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Aa = (a) => calcArtsDamage(a, state.enemy.res);
+    const tmul = calcTalentDmgMul(op, slotData);
+    const nAtk = Aa(panelAtk) * tmul;     // 常态单次伤害(含常驻伤害乘区)
+    const nDps = nAtk / realInterval;     // 常态普攻秒伤
+    const mkS = (sTot, sDps, cd, iv) => ({ type: 'damage', damageType: 'arts', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: iv, panelAtk: skillAtk, dmgTypes: { arts: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    if (op.id === 'char_326_glacus' && skillIndex === 1) {
+      // S2 反制电磁脉冲:冲击波单发 340%(专一)×攻击力法伤(【无人机】加倍不计),自然回触发型
+      const hit = Aa(panelAtk * (levelData['atk_scale[normal]'] ?? levelData.atk_scale ?? 1)) * tmul;
+      result = mkS(hit, 0, calcCycleDps(levelData, realInterval, nAtk, hit), realInterval);
+    } else if (op.id === 'char_358_lisa' && skillIndex === 2) {
+      // S3 狐火渺然:停止攻击;每秒回复范围内友方 攻击力×14%(专一) 生命(生命回复速度属性);技能期无伤害
+      const hps = panelAtk * (levelData['attack@atk_to_hp_recovery_ratio'] ?? 0);
+      result = { type: 'heal', skillHps: hps, totalHeal: hps * Math.max(skillDuration, 1), skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: nDps, normalHps: null, realInterval: sIvl, panelAtk, damageType: 'arts' };
+    } else if (op.id === 'char_4032_provs' && skillIndex === 1) {
+      // S2 致胜立论:开启瞬间对范围内所有敌人 300%(专一)×攻击力法伤,之后自身攻击间隔缩短(-1)持续到结束
+      const burst = Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
+      const hits = skillDuration > 0 ? Math.floor(skillDuration / sIvl) : 0;
+      const total = burst + hits * nAtk;
+      result = mkS(total, skillDuration > 0 ? total / skillDuration : 0, null, sIvl);
+    } else if (op.id === 'char_4122_grabds' && skillIndex === 1) {
+      // S2 乡音沉沉:先停止攻击(=沉睡时间 sleep 5s 专一),剩余时长攻速 +100 且攻击 3 敌(单目标口径)
+      const act = Math.max(0, skillDuration - (levelData.sleep ?? 0));
+      const iv = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + (levelData.attack_speed || 0));
+      const hits = iv > 0 ? Math.floor(act / iv) : 0;
+      const total = hits * nAtk;
+      result = mkS(total, skillDuration > 0 ? total / skillDuration : 0, null, iv);
+    } else if (op.id === 'char_258_podego' && skillIndex === 0) {
+      // S1 花香疗法:普通攻击改为治疗友方单位,治疗量 = 攻击力×(1+40% 专一)
+      const hps = panelAtk * (1 + (levelData.atk || 0)) / realInterval;
+      result = { type: 'heal', skillHps: hps, totalHeal: hps * Math.max(skillDuration, 1), skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: nDps, normalHps: null, realInterval, panelAtk, damageType: 'arts' };
+    } else if (op.id === 'char_258_podego' && skillIndex === 1) {
+      // S2 孢子扩散:投掷孢子群,持续 6s(专一)每秒 65%×攻击力法伤(触发型,自然回充能周期)
+      const dotSec = levelData.projectile_delay_time ?? 5;
+      const total = dotSec * Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
+      result = mkS(total, dotSec > 0 ? total / dotSec : 0, calcCycleDps(levelData, realInterval, nAtk, total), realInterval);
     }
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
