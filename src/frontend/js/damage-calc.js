@@ -22,7 +22,8 @@ const TALENT_ATK_DRIVERS = {
   // ---- 狙击·神射手(longrange) ----
   'char_4193_lemuen': 1,   // 蕾缪安「逃犯引渡手续」:在场20秒后攻击力+10%(用户口径:默认常驻;弹药上限+1 在专用分支内计)
   // ---- 狙击·炮手(aoesniper) ----
-  'char_118_yuki': 0,   // 白雪「重型手里剑」:攻击力+20%(攻击间隔 +0.2s 见 TALENT_BAT_ADD)
+  'char_118_yuki': 0,
+  'char_4177_brigid': 0,   // 水灯心「结绳老手」:本体无攻击力,模组 te 才给 atk 0.06/0.1(用户:默认常驻)   // 白雪「重型手里剑」:攻击力+20%(攻击间隔 +0.2s 见 TALENT_BAT_ADD)
   // ---- 驭械术师(funnel) ----
   'char_4013_kjera': 0,   // 耶拉「低眉」:攻击力+10%(E2);攻击范围内≥2格地面地形改+16%(地形条件默认不计,取无条件档)
   'char_4040_rockr': 0,   // 洛洛「立于磐石」:每15s+4%(E2 pot0),最多4层(时间累积长线默认满层,×max_stack_cnt=+16%)
@@ -3579,16 +3580,18 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const per = h(baseAtk * (levelData['attack@atk_scale'] || 1));
       return mk(0, realInterval > 0 ? per / realInterval : 0);
     }
-    // 娜仁图亚「恶魇」:每击 230%(折返 180% 不计,待用户确认)
+    // 娜仁图亚「恶魇」:命中 230% + 折返对穿过敌人 180%(用户 2026-09-17:折返要算,单目标视为命中)
     if (op.id === 'char_4138_narant' && skillIndex === 1) {
-      const per = h(baseAtk * (levelData['attack@atk_scale'] || 1));
+      const per = h(baseAtk * (levelData['attack@atk_scale'] || 1))
+        + h(baseAtk * (levelData['attack@atk_scale_comeback'] || 0));
       const total = per * nAtk;
       return mk(total, skillDuration > 0 ? total / skillDuration : 0);
     }
-    // 娜仁图亚「吞日」:三连击(cnt 个投射物,每个 165%;回收爆发 145% 不计,待用户确认)
+    // 娜仁图亚「吞日」:三连击(cnt 个投射物,每个 165%)+ 投射物全回收时一次范围伤害 145%(用户 2026-09-17)
     if (op.id === 'char_4138_narant' && skillIndex === 2) {
       const shots = levelData.cnt || 1;
-      const per = shots * h(baseAtk * (levelData['attack@atk_scale'] || 1));
+      const per = shots * h(baseAtk * (levelData['attack@atk_scale'] || 1))
+        + h(baseAtk * (levelData['atk_scale_aoe'] || 0));
       const total = per * nAtk;
       return mk(total, skillDuration > 0 ? total / skillDuration : 0);
     }

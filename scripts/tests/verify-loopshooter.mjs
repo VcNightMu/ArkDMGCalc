@@ -23,8 +23,8 @@ for (const id of ['char_4138_narant', 'char_4177_brigid', 'char_4100_caper']) ok
 const na = load('char_4138_narant');
 let r = run(na, -1); ok(near(r.normalDps, 415), '娜仁图亚常态 DPS=415(含偷取满层+250) 实=' + r.normalDps);
 r = run(na, 0); ok(near(r.skillDps, 1125.5), '娜仁图亚 S1 旋刃 每击 170% → 1125.5 实=' + r.skillDps);
-r = run(na, 1); ok(near(r.skillTotalDamage, 52035) && near(r.skillDps, 1734.5), '娜仁图亚 S2 恶魇 230%×30 = 52035 实=' + r.skillTotalDamage);
-r = run(na, 2); ok(near(r.skillTotalDamage, 64485) && near(r.skillDps, 3224.3), '娜仁图亚 S3 吞日 三连击×165%×20 = 64485 实=' + r.skillTotalDamage);
+r = run(na, 1); ok(near(r.skillTotalDamage, 88845) && near(r.skillDps, 2961.5), '娜仁图亚 S2 恶魇 命中230%+折返180% ×30 = 88845 实=' + r.skillTotalDamage);
+r = run(na, 2); ok(near(r.skillTotalDamage, 81920) && near(r.skillDps, 4096), '娜仁图亚 S3 吞日 (三连击×165% + 回收145%)×20 = 81920 实=' + r.skillTotalDamage);
 
 // 水灯心:天赋结绳老手(无模组)不提供攻击力 → 常态 115;S2 五连击
 const br = load('char_4177_brigid');
