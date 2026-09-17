@@ -45,6 +45,7 @@ const IDS = [
   'char_1030_noirc2', 'char_188_helage', 'char_337_utage', 'char_4121_zuole', 'char_475_akafyu',  // 近卫·武者(宴 S2 落地限时被动不得折进常态)
   'char_1032_excu2', 'char_4010_etlchi', 'char_4066_highmo', 'char_421_crow', 'char_491_humus',  // 近卫·收割者(圣约送葬人弹药槽:常态行仍为自身普攻)
   'char_1043_leizi2', 'char_4064_mlynar', 'char_445_wscoot', 'char_486_takila',  // 近卫·解放者(特性「通常不攻击」→ 常态行恒 0)
+  'char_1014_nearl2', 'char_106_franka', 'char_131_flameb', 'char_154_morgan', 'char_159_peacok', 'char_208_melan', 'char_263_skadi', 'char_286_cast3', 'char_289_gyuki', 'char_4011_lessng', 'char_4142_laios',  // 近卫·无畏者(限时被动不得折进常态)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

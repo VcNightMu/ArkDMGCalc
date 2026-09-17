@@ -191,6 +191,19 @@ const LIBRATOR_SPECIAL = {
   'char_486_takila': [0, 1]      // 龙舌兰:S2「剑走偏锋」默认按蓄力档(同时 3 名、持续 30s)
 };
 
+// ===== 无畏者(fearless)特例 =====
+// 用户口径(2026-09-17):
+//  · 芙兰卡「铝热剑」无视防御(概率触发)、断罪者「断罪」概率暴击与「创世纪」概率失败、
+//    摩根「沸血先锋」坚忍、止颂「苦痛专注」无视防御与「痛楚砺刃」攻击力增幅、莱欧斯「胆小剑助」精力充沛 → 默认不计算;
+//  · 近战单目标场景不视为「目标被自身阻挡」→「攻击被阻挡的敌人」类效果不计算(X 模组 115%、止颂 S3 的 190% 加成);
+//  · 耀骑士临光 S3 召唤的「耀阳」那一击为无条件效果,按单目标 1 次计入。
+// 其余(摩根 S1/S2 的 attack@atk_scale 走 ATK_SCALE_REWRITE、止颂 S2 的 2 连击走 MULTI_HIT)由通用表处理。
+const FEARLESS_SPECIAL = {
+  'char_159_peacok': [1],   // 断罪者:S2 创世纪(法术 290%,按成功档结算)
+  'char_4142_laios': [1],   // 莱欧斯:S2 威吓战法(停止攻击,技能结束时 1 击 400% 物理)
+  'char_1014_nearl2': [2]   // 耀骑士临光:S3 耀阳颔首(本体物理 + 耀阳 1 击真实伤害)
+};
+
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
 function swordTalentAtkScale(op, slotData, skillIndex) {
   if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 1;
@@ -2161,6 +2174,8 @@ const INTERVAL_GROW_OVERRIDES = {
 const ATK_SCALE_REWRITE = {
   'char_166_skfire': [1],
   'char_341_sntlla': [1],
+  // ---- 近卫·无畏者(fearless) ----
+  'char_154_morgan': [0, 1],  // 摩根 S1 街头好手 / S2 无畏招架:每次攻击造成 170%(专一)攻击力的物理伤害(攻击倍率改写)
   // ---- 秘术师(mystic) ----
   'char_4046_ebnhlz': [0],  // 黑键 S1 渐快急板:间隔×0.17,每次攻击 43%(L7)/50%(专三)
   'char_297_hamoni': [0],   // 和弦 S1 轻巧舞步:间隔×0.2,每次攻击 40/43/50%
@@ -2319,6 +2334,8 @@ const MULTI_HIT = {
   'char_4010_etlchi': { 0: 2 },  // 隐德来希 S1 玫影觅迹
   'char_4066_highmo': { 0: 2 },  // 海沫 S1 回首，断舍
   'char_421_crow': { 0: 2 },     // 羽毛笔 S1 高速切割
+  // ---- 近卫·无畏者(fearless) ----
+  'char_4011_lessng': { 1: 2 },  // 止颂 S2 虔修对决「攻击变为 2 连击」(被动限时,数据无 times 键)
   // ---- 先锋(PIONEER) ----
   'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
   'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
@@ -4188,6 +4205,45 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const a = atkT * (levelData['attack@atk_scale'] || 1);
       const durC = levelData.enhance_duration > 0 ? levelData.enhance_duration : skillDuration;
       return mkL({ phys: Pp(a) * nHitsOf(durC) }, durC, a);
+    }
+  } else if (op.subProfessionId === 'fearless' && FEARLESS_SPECIAL[op.id] && FEARLESS_SPECIAL[op.id].includes(skillIndex)) {
+    // 无畏者(fearless)特例(用户口径 2026-09-17,详见 FEARLESS_SPECIAL 注释):
+    //  · 只拦下面三个技能,其余(芙兰卡/摩根/止颂/炎客/玫兰莎/缠丸/斯卡蒂/Castle-3 等)走引擎通用链;
+    //  · 止颂 S3 的 lessng_s3[atk_scale] 190% 属「攻击被阻挡目标时」的加成,按不视为被阻挡口径不消费该键(只算本体普攻);
+    //  · 摩根 S1/S2 的 attack@atk_scale 170% 走 ATK_SCALE_REWRITE,止颂 S2 的 2 连击走 MULTI_HIT。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const Aa = (a) => calcArtsDamage(a, state.enemy.res);
+    const nn = (dur) => (dur > 0 && sIvl > 0) ? Math.max(1, Math.floor(dur / sIvl + 1e-9)) : 1;
+    const mkF = (parts, winSec, panel) => {
+      const phys = parts.phys || 0, arts = parts.arts || 0, tru = parts.tru || 0;
+      const tot = phys + arts + tru;
+      const dt = {};
+      if (phys > 0) dt.physical = { skillDps: winSec > 0 ? phys / winSec : 0, skillTotalDamage: phys, cycleDps: null };
+      if (arts > 0) dt.arts = { skillDps: winSec > 0 ? arts / winSec : 0, skillTotalDamage: arts, cycleDps: null };
+      if (tru > 0) dt.true = { skillDps: winSec > 0 ? tru / winSec : 0, skillTotalDamage: tru, cycleDps: null };
+      return { type: 'damage', damageType: phys > 0 ? 'physical' : (arts > 0 ? 'arts' : 'true'), isToggle: false, isPermanent: false, skillDps: winSec > 0 ? tot / winSec : 0, skillTotalDamage: tot, cycleDps: null, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel, dmgTypes: dt };
+    };
+    if (op.id === 'char_159_peacok') {
+      // S2 创世纪:立即对周围所有敌人造成 290%(专一)攻击力的法术伤害(50% 失败效果按口径不计算 → 按成功档;
+      // 「失去特殊能力」为减益不计);无持续时间 → 只给总伤 + 循环 DPS(同陈 S3 口径)
+      const a = panelAtk * (levelData['success.atk_scale'] || 1);
+      const hit = Aa(a);
+      const cd = calcCycleDps(levelData, realInterval, Pp(panelAtk), hit);
+      return { type: 'damage', damageType: 'arts', isToggle: false, isPermanent: false, skillDps: 0, skillTotalDamage: hit, cycleDps: cd, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: a, dmgTypes: { arts: { skillDps: 0, skillTotalDamage: hit, cycleDps: cd } } };
+    }
+    if (op.id === 'char_4142_laios') {
+      // S2 威吓战法:停止攻击,技能结束时立即对阻挡的敌人造成 400%(专一)攻击力的物理伤害(单目标 1 次)
+      const a = panelAtk * (levelData.atk_scale || 1);
+      return mkF({ phys: Pp(a) }, skillDuration, a);
+    }
+    {
+      // S3 耀阳颔首:本体每击按技能期攻击力(专一 +110%)物理(「攻击自身与耀阳阻挡的单位时转真实」按不视为被阻挡口径不计),
+      // 召唤「耀阳」那一击为无条件效果:110%(专一)攻击力真实伤害 1 次
+      const n = nn(skillDuration);
+      const phys = Pp(skillAtk) * n;
+      const tru = skillAtk * (levelData.value || 0);
+      return mkF({ phys, tru }, skillDuration, skillAtk);
     }
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
