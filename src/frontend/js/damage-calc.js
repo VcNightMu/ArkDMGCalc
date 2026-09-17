@@ -2,7 +2,7 @@
 import { calcPhysicalDamage, calcArtsDamage, calcTrueDamage, calcRealInterval, interpolateAttr, calcAttribute } from './calculator.js';
 import { SkillType } from './operators.js';
 import { state } from './state.js';
-import { calcMedical, calcSummonHeal } from './medic-calc.js';
+import { calcMedical, calcSummonHeal, calcCycleDps } from './medic-calc.js';
 import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
@@ -627,6 +627,106 @@ const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
 
+// ===== 重射手(closerange)专用口径与结算 =====
+// 说明文本(用户 2026-09-17):
+//  黑「尖锐箭头/破甲箭头」的攻击力增幅与防御力下降仅在 3 技能开启时计算(该技能 talent@prob=1 必然发动,持续时间窗内覆盖全程);
+//    天赋「交叉火力」攻击力增幅默认不计算(需场上另有狙击)。
+//  普罗旺斯「狩猎箭头」概率增幅不计;「狼眼」默认攻击目标满血 → 无增幅。
+//  酸糖「滑射技巧」默认敌人不在正前方两格 → 单次伤害下限取基础档(atk_scale 25%,正前方两格的 40% 档不计)。
+//  鸿雪:打字机相关(弱点速记减防)默认不生效;「抑扬格」概率增幅不计;「锐笔速写」默认敌人不在正前方 3 格 → 取基础倍率。
+//  玫拉「参数校准」伤害提升默认常驻(技能期伤害 ×damage_scale);「临界爆发」默认伤害随距离衰减至最低(取 scale 档)。
+//  焰狐龙梓兰「强击瓶专家」「翔虫机动」攻击力增幅不计;「刚射」有充能即立刻释放 → 不触发刚连射,只按基础档(4 支 × atk_scale_1);
+//    「龙之箭」默认敌人仅受到一次伤害(物理 + 法术各一次)。
+function acdropMinDamage(op, slotData, atk) {
+  if (op.id !== 'char_366_acdrop') return 0;
+  const mul = funnelTalentValue(op, slotData, 0, 'atk_scale');
+  return mul > 0 ? mul * atk : 0;
+}
+
+function calcCloserangeSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, generic } = ctx;
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const ar = (atk) => calcArtsDamage(atk, enemy?.res ?? 0);
+  const atkUp = 1 + (levelData.atk || 0);
+  const nAtk = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+  // 常态普攻 DPS(重射手分支内自算:酸糖单次伤害下限;其余同通用口径)
+  const normDps = normalInterval > 0 ? Math.max(h(panelAtk), acdropMinDamage(op, slotData, panelAtk)) / normalInterval : null;
+  const one = (per) => ({
+    skillDps: skillDuration > 0 ? (per * nAtk) / skillDuration : 0,
+    skillTotalDamage: per * nAtk, cycleDps: null, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
+    damageType: 'physical', realInterval, dmgTypes: { physical: { skillDps: skillDuration > 0 ? (per * nAtk) / skillDuration : 0, skillTotalDamage: per * nAtk, cycleDps: null } },
+  });
+  const trigger = (total, cycle, phys, arts) => {
+    const dmgTypes = {
+      physical: { skillDps: 0, skillTotalDamage: phys === undefined ? total : phys, cycleDps: arts === undefined ? cycle : (cycle === null ? null : cycle * (phys / total)) },
+    };
+    if (arts !== undefined) dmgTypes.arts = { skillDps: 0, skillTotalDamage: arts, cycleDps: cycle === null ? null : cycle * (arts / total) };
+    return {
+      skillDps: 0, skillTotalDamage: total, cycleDps: cycle, normalDps: normDps, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval, dmgTypes,
+    };
+  };
+
+  // 黑 S3 战术的终结:天赋必发动 → 攻击力 ×atk_scale(1.6) 且目标防御 -20%(持续 5s,间隔 2.0s 全程覆盖)
+  if (op.id === 'char_340_shwaz' && skillIndex === 2) {
+    const cands = talentCandSource(op, slotData, 0, (op.talents[0] || {}).candidates || []);
+    const tScale = Math.max(1, ...cands.map((c) => (typeof c.blackboard?.atk_scale === 'number' ? c.blackboard.atk_scale : 1)));
+    const tDef = Math.min(0, ...cands.map((c) => (typeof c.blackboard?.def === 'number' ? c.blackboard.def : 0)));
+    const per = h(panelAtk * atkUp * tScale, effDef * (1 + tDef));
+    return one(per);
+  }
+  // 玫拉:「参数校准」技能期伤害提升默认常驻
+  if (op.id === 'char_4006_melnte') {
+    const dmgMul = funnelTalentValue(op, slotData, 0, 'damage_scale') || 1;
+    if (skillIndex === 0) {
+      // S1 饱和脉冲:间隔 2.4s(加算),攻击力 +170%
+      return one(h(panelAtk * atkUp) * dmgMul);
+    }
+    // S2 临界爆发:穿透弹单发,默认伤害衰减至最低档(scale)
+    const per = h(panelAtk * (levelData.scale || levelData.atk_scale)) * dmgMul;
+    return trigger(per, calcCycleDps(levelData, realInterval, h(panelAtk), per));
+  }
+  // 焰狐龙梓兰:刚射 / 飞翔瞪射 / 龙之箭
+  if (op.id === 'char_1048_orchd2') {
+    if (skillIndex === 0) {
+      // 刚射:有充能即立刻释放 → 不会积攒到"刚连射",只按基础档 4 支 × atk_scale_1(用户 2026-09-17 订正)
+      const per = h(panelAtk * levelData.atk_scale_1) * 4;
+      return trigger(per, calcCycleDps(levelData, realInterval, h(panelAtk), per));
+    }
+    if (skillIndex === 1) {
+      // 飞翔瞪射:3 次齐射(3/4/5 支 × atk_scale_loop)+ 降落一次 atk_scale_end
+      const loop = h(panelAtk * levelData['attack@atk_scale_loop']);
+      const end = h(panelAtk * levelData['attack@atk_scale_end']);
+      const total = loop * 12 + end;
+      const dur = skillDuration > 0 ? skillDuration : 0;
+      return {
+        skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total, cycleDps: null, normalDps: normDps,
+        skillHps: null, normalHps: null, totalHeal: null, damageType: 'physical', realInterval,
+        dmgTypes: { physical: { skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total, cycleDps: null } },
+      };
+    }
+    if (skillIndex === 2) {
+      // 龙之箭:默认敌人仅受到一次伤害 → 物理一次 + 法术一次
+      const phys = h(panelAtk * levelData.atk_scale);
+      const arts = ar(panelAtk * levelData.atk_scale_magic);
+      const total = phys + arts;
+      return trigger(total, calcCycleDps(levelData, realInterval, h(panelAtk), total), phys, arts);
+    }
+  }
+  // 鸿雪 S2 点题:立即对前方进行 3 次攻击(每次 atk_scale)
+  if (op.id === 'char_4055_bgsnow' && skillIndex === 1) {
+    const total = h(panelAtk * levelData.atk_scale) * 3;
+    return trigger(total, calcCycleDps(levelData, realInterval, h(panelAtk), total));
+  }
+  // 酸糖:单次伤害下限(滑射技巧基础档)
+  if (op.id === 'char_366_acdrop') {
+    const fl = (atk) => Math.max(h(atk), acdropMinDamage(op, slotData, atk));
+    if (skillIndex === 0) return one(fl(panelAtk));
+    if (skillIndex === 1) return one(fl(panelAtk * atkUp) * 2);   // 2 连射
+  }
+  return generic();
+}
+
 // 模组 te 攻速"放行"表:本体无攻速天赋、但模组 te 给的是无条件常驻攻速的干员
 // (蓝毒 X「标准比色卡」L1 起 te attack_speed 8,name=null 无条件条目——用户口径 2026-09-17:模组新增的加成要算)
 const MODULE_TE_SPD_ALLOW = {
@@ -1172,6 +1272,8 @@ const BAT_ADD_OVERRIDES = {
   'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
   // ---- 速射手(fastshot) ----
   'char_133_mm': { 1: true },      // 梅 S2 束缚电击:攻击间隔增大(1.0+0.5=1.5s)
+  'char_340_shwaz': { 2: true },   // 黑 S3 战术的终结:攻击间隔略微增大(1.6+0.4=2.0s)
+  'char_4006_melnte': { 0: true }, // 玫拉 S1 饱和脉冲:攻击间隔增大(1.6+0.8=2.4s)
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
@@ -1412,7 +1514,8 @@ const SKILL_ATK_SCALE_EXCLUDE = {
   'char_4230_mcnist': { 1: true, 2: true },
   'char_388_mint': { 1: true },    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2)
   'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)
-  'char_450_necras': { 1: true },   // 死芒 S2 折朽:atk_scale 是沉睡目标每 0.5s 的 DoT 倍率,不作普攻倍率   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
+  'char_450_necras': { 1: true },   // 死芒 S2 折朽:atk_scale 是沉睡目标每 0.5s 的 DoT 倍率,不作普攻倍率
+  'char_4055_bgsnow': { 0: true },  // 鸿雪 S1 抑扬格:atk_scale 1.85 是 30% 概率触发的当次攻击倍率(用户口径:概率增幅不计)   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
@@ -1669,7 +1772,7 @@ function calculateOperator(op, slotData, ctx) {
     }
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
     const normalDps = op.subProfessionId === 'phalanx' ? 0
-      : normalDpsRaw / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+      : Math.max(normalDpsRaw, acdropMinDamage(op, slotData, panelAtk)) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps;  // Δ/D 模组:常态化元素爆条平均 DPS
@@ -2939,6 +3042,11 @@ function calculateOperator(op, slotData, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'closerange') {
+    result = calcCloserangeSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      generic: () => calcDamage(params),
+    });
   } else {
     result = calcDamage(params);
   }

@@ -2149,5 +2149,59 @@
     "subProfessionId": "fastshot",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_340_shwaz",
+    "name": "黑",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4055_bgsnow",
+    "name": "鸿雪",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1048_orchd2",
+    "name": "焰狐龙梓兰",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_145_prove",
+    "name": "普罗旺斯",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4006_melnte",
+    "name": "玫拉",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_366_acdrop",
+    "name": "酸糖",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "closerange",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

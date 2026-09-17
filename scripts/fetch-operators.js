@@ -105,7 +105,11 @@ const OPERATORS = {
       'char_503_rang',                                                  // 巡林者 2★
       'char_4000_jnight',                                               // 正义骑士号 1★（拉特兰告解机器人，公招可得，同 CONFESS-47/Friston-3 口径）
     ], // 不录：预备干员-狙击（507_rsnipe/603_csnipe）与 Stormeye（511_asnipe/611_acnipe，集成战略限时形态，数据 isNotObtainable=true）
-    closerange: [],                 // 重射手
+    closerange: [ // 重射手
+      'char_340_shwaz', 'char_4055_bgsnow', 'char_1048_orchd2',           // 黑/鸿雪/焰狐龙梓兰(异格) 6★
+      'char_145_prove', 'char_4006_melnte',                               // 普罗旺斯/玫拉 5★
+      'char_366_acdrop',                                                  // 酸糖 4★
+    ],
     aoesniper: [],                  // 炮手
     longrange: [],                  // 神射手
     reaperrange: [],                // 散射手
