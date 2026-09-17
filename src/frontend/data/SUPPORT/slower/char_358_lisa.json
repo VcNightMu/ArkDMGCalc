@@ -1,0 +1,742 @@
+{
+  "id": "char_358_lisa",
+  "name": "铃兰",
+  "rarity": "TIER_6",
+  "profession": "SUPPORT",
+  "subProfessionId": "slower",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        220,
+        324
+      ],
+      "def": [
+        57,
+        83
+      ],
+      "maxHp": [
+        673,
+        922
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        324,
+        432
+      ],
+      "def": [
+        83,
+        107
+      ],
+      "maxHp": [
+        922,
+        1184
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        432,
+        521
+      ],
+      "def": [
+        107,
+        128
+      ],
+      "maxHp": [
+        1184,
+        1480
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.9,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 75,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lisa_1",
+      "name": "全力以赴",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack_speed": 5,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack_speed": 5,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 10,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 10,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 10,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 15,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack_speed": 20,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 25,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 30,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lisa_2",
+      "name": "儿时的舞乐",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 110,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 107,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 104,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 101,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 98,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 95,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 92,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack@max_target": 3,
+          "level": 7,
+          "spCost": 89,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 3,
+          "level": 8,
+          "spCost": 86,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "attack@max_target": 3,
+          "level": 9,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lisa_3",
+      "name": "狐火渺然",
+      "levels": [
+        {
+          "scale_delta_to_one": 1.1,
+          "attack@atk_to_hp_recovery_ratio": 0.07,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.2,
+          "attack@atk_to_hp_recovery_ratio": 0.07,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 41,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.3,
+          "attack@atk_to_hp_recovery_ratio": 0.07,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 42,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.4,
+          "attack@atk_to_hp_recovery_ratio": 0.09,
+          "level": 3,
+          "spCost": 70,
+          "initialSp": 43,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.5,
+          "attack@atk_to_hp_recovery_ratio": 0.09,
+          "level": 4,
+          "spCost": 70,
+          "initialSp": 44,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.6,
+          "attack@atk_to_hp_recovery_ratio": 0.09,
+          "level": 5,
+          "spCost": 70,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.7,
+          "attack@atk_to_hp_recovery_ratio": 0.11,
+          "level": 6,
+          "spCost": 70,
+          "initialSp": 46,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.8,
+          "attack@atk_to_hp_recovery_ratio": 0.14,
+          "level": 7,
+          "spCost": 70,
+          "initialSp": 47,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 1.9,
+          "attack@atk_to_hp_recovery_ratio": 0.17,
+          "level": 8,
+          "spCost": 70,
+          "initialSp": 48,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "scale_delta_to_one": 2,
+          "attack@atk_to_hp_recovery_ratio": 0.2,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环·辅助",
+          "description": "在场时所有【辅助】干员的技力自然回复速度+0.2/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "技力光环·辅助",
+          "description": "在场时所有【辅助】干员的技力自然回复速度+0.4/秒（同类效果取最高）",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.4
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "画地为牢",
+          "description": "攻击范围内被<$ba.sluggish>停顿</>的敌人在下一瞬间起还会受到等长时间的20%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.2,
+            "atk": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "画地为牢",
+          "description": "攻击范围内被<$ba.sluggish>停顿</>的敌人在下一瞬间起还会受到等长时间的23%<@ba.talpu>（+3%）</>的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.23,
+            "atk": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "sluggish": 0.8
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_lisa",
+      "name": "铃兰证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lisa",
+      "name": "怀中御守",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "技力光环·辅助",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4,
+                "atk": 0.06
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.2
+              }
+            },
+            {
+              "name": "技力光环·辅助",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4,
+                "atk": 0.09
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_lisa",
+      "name": "孩子们",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 38
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 43
+          },
+          "talentEnhance": [
+            {
+              "name": "画地为牢",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.21,
+                "atk": 0.95
+              }
+            },
+            {
+              "name": "画地为牢",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.24,
+                "atk": 0.95
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 46
+          },
+          "talentEnhance": [
+            {
+              "name": "画地为牢",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.22,
+                "atk": 0.92
+              }
+            },
+            {
+              "name": "画地为牢",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.25,
+                "atk": 0.92
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "sluggish": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "id": "char_4178_alanna",
+  "name": "阿兰娜",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "craftsman",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        236,
+        348
+      ],
+      "def": [
+        197,
+        284
+      ],
+      "maxHp": [
+        1164,
+        1595
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        464
+      ],
+      "def": [
+        284,
+        367
+      ],
+      "maxHp": [
+        1595,
+        2048
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        464,
+        560
+      ],
+      "def": [
+        367,
+        437
+      ],
+      "maxHp": [
+        2048,
+        2560
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_alanna_1",
+      "name": "气动增压",
+      "levels": [
+        {
+          "attack_speed": 10,
+          "extend_time": 12,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 11,
+          "extend_time": 14,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 12,
+          "extend_time": 16,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 13,
+          "extend_time": 18,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 15,
+          "extend_time": 20,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 16,
+          "extend_time": 22,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 17,
+          "extend_time": 24,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 19,
+          "extend_time": 26,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 21,
+          "extend_time": 28,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 23,
+          "extend_time": 30,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_alanna_2",
+      "name": "“万斤顶”",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "multi": 1.4,
+          "cnt": 1,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 22,
+          "multi": 1.5,
+          "cnt": 1,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "attack_speed": 25,
+          "multi": 1.6,
+          "cnt": 1,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "attack_speed": 28,
+          "multi": 1.8,
+          "cnt": 1,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 32,
+          "multi": 2,
+          "cnt": 1,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack_speed": 35,
+          "multi": 2.1,
+          "cnt": 1,
+          "level": 5,
+          "spCost": 22,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.38,
+          "attack_speed": 38,
+          "multi": 2.2,
+          "cnt": 1,
+          "level": 6,
+          "spCost": 22,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.42,
+          "attack_speed": 42,
+          "multi": 2.3,
+          "cnt": 1,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "multi": 2.5,
+          "cnt": 1,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 50,
+          "multi": 2.7,
+          "cnt": 1,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "携带2个支援装置（最多部署2个），使一名干员攻击敌人时无视其40点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 40,
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "携带2个支援装置（最多部署2个），使一名干员攻击敌人时无视其50<@ba.talpu>（+10）</>点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 50,
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "携带3个支援装置（最多部署2个），使一名干员攻击敌人时无视其60点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 60,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "携带3个支援装置（最多部署2个），使一名干员攻击敌人时无视其70<@ba.talpu>（+10）</>点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 70,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "携带3个支援装置（最多部署2个），使一名干员攻击敌人时无视其80点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 80,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "携带3个支援装置（最多部署2个），使一名干员攻击敌人时无视其90<@ba.talpu>（+10）</>点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "def_penetrate_fixed_bb": 90,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_alanna",
+      "name": "阿兰娜证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_alanna",
+      "name": "“随身保险杠”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 80
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 90
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 90
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 100
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 30
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 100
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cnt": 4,
+                "def_penetrate_fixed_bb": 110
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "duration": 30
+              }
+            },
+            {
+              "name": "临时改装",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "duration": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "id": "char_4172_xingzh",
+  "name": "行箸",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "blessing",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        191,
+        273
+      ],
+      "def": [
+        84,
+        121
+      ],
+      "maxHp": [
+        684,
+        1007
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        273,
+        351
+      ],
+      "def": [
+        121,
+        159
+      ],
+      "maxHp": [
+        1007,
+        1361
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        351,
+        423
+      ],
+      "def": [
+        159,
+        181
+      ],
+      "maxHp": [
+        1361,
+        1746
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_xingzh_1",
+      "name": "盈帙满笥",
+      "levels": [
+        {
+          "heal_scale": 2,
+          "level": 0,
+          "spCost": 13,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.1,
+          "level": 1,
+          "spCost": 13,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.2,
+          "level": 2,
+          "spCost": 13,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.4,
+          "level": 3,
+          "spCost": 12,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.5,
+          "level": 4,
+          "spCost": 12,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.6,
+          "level": 5,
+          "spCost": 12,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.9,
+          "level": 6,
+          "spCost": 11,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3,
+          "level": 7,
+          "spCost": 11,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3.1,
+          "level": 8,
+          "spCost": 11,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3.3,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_xingzh_2",
+      "name": "食不厌精",
+      "levels": [
+        {
+          "attack_speed": 20,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 23,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 47,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 27,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 49,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 32,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 52,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 38,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.15,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 54,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 43,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.18,
+          "level": 6,
+          "spCost": 78,
+          "initialSp": 55,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 45,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.18,
+          "level": 7,
+          "spCost": 78,
+          "initialSp": 57,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 47,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.18,
+          "level": 8,
+          "spCost": 78,
+          "initialSp": 59,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "attack@max_target": 2,
+          "attack@xingzh_s_2[heal].interval": 1,
+          "attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio": 0.2,
+          "level": 9,
+          "spCost": 75,
+          "initialSp": 60,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "同路之谊",
+          "description": "使攻击范围内除自己外2名友军获得7%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "同路之谊",
+          "description": "使攻击范围内除自己外2名友军获得9%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "同路之谊",
+          "description": "使攻击范围内除自己外2名友军获得10%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "同路之谊",
+          "description": "使攻击范围内除自己外2名友军获得12%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+    "blackboard": {
+      "heal_scale": 0.75
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_xingzh",
+      "name": "行箸证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_xingzh",
+      "name": "别昔年",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "同路之谊",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.12
+              }
+            },
+            {
+              "name": "同路之谊",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.14
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "同路之谊",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            },
+            {
+              "name": "同路之谊",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.17
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

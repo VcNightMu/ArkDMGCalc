@@ -3202,5 +3202,428 @@
     "subProfessionId": "mercenary",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_1047_halo2",
+    "name": "溯光星源",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_358_lisa",
+    "name": "铃兰",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_195_glassb",
+    "name": "真理",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_326_glacus",
+    "name": "格劳克斯",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4032_provs",
+    "name": "但书",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4122_grabds",
+    "name": "小满",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_183_skgoat",
+    "name": "地灵",
+    "rarity": "TIER_4",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_258_podego",
+    "name": "波登可",
+    "rarity": "TIER_4",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_278_orchid",
+    "name": "梓兰",
+    "rarity": "TIER_3",
+    "profession": "SUPPORT",
+    "subProfessionId": "slower",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_206_gnosis",
+    "name": "灵知",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "underminer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_174_slbell",
+    "name": "初雪",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "underminer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_254_vodfox",
+    "name": "巫恋",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "underminer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4079_haini",
+    "name": "海霓",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "underminer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1012_skadi2",
+    "name": "浊心斯卡蒂",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4134_cetsyr",
+    "name": "魔王",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_101_sora",
+    "name": "空",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4045_heidi",
+    "name": "海蒂",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4184_dolris",
+    "name": "三角初华",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4091_ulika",
+    "name": "U-Official",
+    "rarity": "TIER_1",
+    "profession": "SUPPORT",
+    "subProfessionId": "bard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1031_slent2",
+    "name": "淬羽赫默",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4202_haruka",
+    "name": "遥",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1022_flwr2",
+    "name": "撷英调香师",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_343_tknogi",
+    "name": "月禾",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4019_ncdeer",
+    "name": "九色鹿",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4172_xingzh",
+    "name": "行箸",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_492_quercu",
+    "name": "夏栎",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "blessing",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2023_ling",
+    "name": "令",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_248_mgllan",
+    "name": "麦哲伦",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4195_radian",
+    "name": "电弧",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_242_otter",
+    "name": "梅尔",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_336_folivo",
+    "name": "稀音",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4140_lasher",
+    "name": "衡沙",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_110_deepcl",
+    "name": "深海色",
+    "rarity": "TIER_4",
+    "profession": "SUPPORT",
+    "subProfessionId": "summoner",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4072_ironmn",
+    "name": "白铁",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4212_nasti",
+    "name": "娜斯提",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4162_cathy",
+    "name": "凯瑟琳",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4178_alanna",
+    "name": "阿兰娜",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_433_windft",
+    "name": "掠风",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_484_robrta",
+    "name": "罗比菈塔",
+    "rarity": "TIER_4",
+    "profession": "SUPPORT",
+    "subProfessionId": "craftsman",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1042_phatm2",
+    "name": "酒神",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_245_cello",
+    "name": "塑心",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4102_threye",
+    "name": "凛视",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4223_botany",
+    "name": "伯塔尼",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_487_bobb",
+    "name": "波卜",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4136_phonor",
+    "name": "PhonoR-0",
+    "rarity": "TIER_1",
+    "profession": "SUPPORT",
+    "subProfessionId": "ritualist",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4219_yukari",
+    "name": "岳羽由加莉",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "supportiveranger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4234_pedro",
+    "name": "佩德洛",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "supportiveranger",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

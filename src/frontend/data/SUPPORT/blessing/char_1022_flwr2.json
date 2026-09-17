@@ -1,0 +1,610 @@
+{
+  "id": "char_1022_flwr2",
+  "name": "撷英调香师",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "blessing",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        189,
+        271
+      ],
+      "def": [
+        84,
+        121
+      ],
+      "maxHp": [
+        723,
+        1064
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        271,
+        348
+      ],
+      "def": [
+        121,
+        160
+      ],
+      "maxHp": [
+        1064,
+        1439
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        348,
+        420
+      ],
+      "def": [
+        160,
+        182
+      ],
+      "maxHp": [
+        1439,
+        1845
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 250
+  },
+  "skills": [
+    {
+      "skillId": "skchr_flwr2_1",
+      "name": "“山中的喜悦”",
+      "levels": [
+        {
+          "heal_scale": 2,
+          "def": 0.1,
+          "cnt": 1,
+          "duration": 10,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.2,
+          "def": 0.1,
+          "cnt": 1,
+          "duration": 10,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.4,
+          "def": 0.1,
+          "cnt": 1,
+          "duration": 10,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 2.6,
+          "def": 0.15,
+          "cnt": 2,
+          "duration": 10,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3.1,
+          "def": 0.15,
+          "cnt": 2,
+          "duration": 10,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3.3,
+          "def": 0.15,
+          "cnt": 2,
+          "duration": 10,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 3.5,
+          "def": 0.2,
+          "cnt": 2,
+          "duration": 10,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 4,
+          "def": 0.2,
+          "cnt": 2,
+          "duration": 10,
+          "level": 7,
+          "spCost": 10,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 4.5,
+          "def": 0.2,
+          "cnt": 2,
+          "duration": 10,
+          "level": 8,
+          "spCost": 10,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "heal_scale": 5,
+          "def": 0.25,
+          "cnt": 2,
+          "duration": 10,
+          "level": 9,
+          "spCost": 9,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_flwr2_2",
+      "name": "“神殿的余烬”",
+      "levels": [
+        {
+          "attack_speed": 20,
+          "talent_scale": 1.1,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.1,
+          "attack@buff_duration": 3,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 23,
+          "talent_scale": 1.2,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.1,
+          "attack@buff_duration": 3,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 26,
+          "talent_scale": 1.3,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.1,
+          "attack@buff_duration": 3,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 20,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 29,
+          "talent_scale": 1.4,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.15,
+          "attack@buff_duration": 3,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 21,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 32,
+          "talent_scale": 1.5,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.15,
+          "attack@buff_duration": 3,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 22,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 35,
+          "talent_scale": 1.6,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.15,
+          "attack@buff_duration": 3,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 23,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 38,
+          "talent_scale": 1.7,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.2,
+          "attack@buff_duration": 3,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 24,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 42,
+          "talent_scale": 1.8,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.25,
+          "attack@buff_duration": 3,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 26,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 46,
+          "talent_scale": 1.9,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.25,
+          "attack@buff_duration": 3,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 28,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "talent_scale": 2,
+          "attack@hp_ratio": 0.01,
+          "attack@atk": 0.3,
+          "attack@buff_duration": 3,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 30,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "百里香",
+          "description": "使攻击范围内除自身外当前生命比例小于等于自身的友军获得8%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "百里香",
+          "description": "使攻击范围内除自身外当前生命比例小于等于自身的友军获得10%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "百里香",
+          "description": "使攻击范围内除自身外当前生命比例小于等于自身的友军获得14%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "百里香",
+          "description": "使攻击范围内除自身外当前生命比例小于等于自身的友军获得16%<@ba.talpu>（+2%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.16
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击造成法术伤害，技能开启后改为治疗友方单位（治疗量相当于75%攻击力）",
+    "blackboard": {
+      "heal_scale": 0.75
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+160",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 160
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_flwr2",
+      "name": "撷英调香师证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_flwr2",
+      "name": "“双月的呼吸”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_target_heal": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 2,
+                "attack@max_target_heal": 2,
+                "heal_scale": 0.75
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "百里香",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.18
+              }
+            },
+            {
+              "name": "百里香",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_target_heal": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 2,
+                "attack@max_target_heal": 2,
+                "heal_scale": 0.75
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "百里香",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.2
+              }
+            },
+            {
+              "name": "百里香",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.22
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_target_heal": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@max_target": 2,
+                "attack@max_target_heal": 2,
+                "heal_scale": 0.75
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

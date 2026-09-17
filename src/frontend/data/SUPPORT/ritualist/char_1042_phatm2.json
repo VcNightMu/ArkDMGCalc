@@ -1,0 +1,842 @@
+{
+  "id": "char_1042_phatm2",
+  "name": "酒神",
+  "rarity": "TIER_6",
+  "profession": "SUPPORT",
+  "subProfessionId": "ritualist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        233,
+        324
+      ],
+      "def": [
+        46,
+        67
+      ],
+      "maxHp": [
+        484,
+        702
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        324,
+        411
+      ],
+      "def": [
+        67,
+        89
+      ],
+      "maxHp": [
+        702,
+        936
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        411,
+        490
+      ],
+      "def": [
+        89,
+        104
+      ],
+      "maxHp": [
+        936,
+        1200
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_phatm2_1",
+      "name": "暗夜回声",
+      "levels": [
+        {
+          "atk_scale": 0.9,
+          "ep_damage_scale": 1.2,
+          "unmove": 1.5,
+          "times": 2,
+          "level": 0,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.95,
+          "ep_damage_scale": 1.2,
+          "unmove": 1.5,
+          "times": 2,
+          "level": 1,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "ep_damage_scale": 1.2,
+          "unmove": 1.5,
+          "times": 2,
+          "level": 2,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.05,
+          "ep_damage_scale": 1.3,
+          "unmove": 2,
+          "times": 2,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "ep_damage_scale": 1.3,
+          "unmove": 2,
+          "times": 2,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "ep_damage_scale": 1.3,
+          "unmove": 2,
+          "times": 2,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "ep_damage_scale": 1.5,
+          "unmove": 3,
+          "times": 2,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "ep_damage_scale": 1.6,
+          "unmove": 3,
+          "times": 2,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "ep_damage_scale": 1.7,
+          "unmove": 3,
+          "times": 2,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "ep_damage_scale": 1.8,
+          "unmove": 3,
+          "times": 2,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phatm2_2",
+      "name": "群体性谵妄",
+      "levels": [
+        {
+          "atk_scale": 0.85,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 15,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 0,
+          "spCost": 36,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 0.9,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 15,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 0.95,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 15,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 2,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 20,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 3,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.05,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 20,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.1,
+          "ep_damage_ratio_token": 0.15,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 20,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 5,
+          "spCost": 31,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.2,
+          "ep_damage_ratio_token": 0.2,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 25,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.3,
+          "ep_damage_ratio_token": 0.2,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 30,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.4,
+          "ep_damage_ratio_token": 0.2,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 30,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk_scale": 1.5,
+          "ep_damage_ratio_token": 0.25,
+          "cnt": 1,
+          "buff_time": 6,
+          "sluggish": 6,
+          "interval_damage": 0.5,
+          "max_target": 4,
+          "attack_speed": 35,
+          "talent@range_radius": 1.5,
+          "attack@projectile_range": 0,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_phatm2_3",
+      "name": "空剧场",
+      "levels": [
+        {
+          "atk": 0.6,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "ep_damage_ratio": 0.1,
+          "interval": 1,
+          "phatm2_s_3[token_cooldown].interval": 30,
+          "talent@ep_break_recover_speed": 0.5,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力20%的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力10%的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.2,
+            "ep_damage_ratio": 0.1,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力23%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力13%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.23,
+            "ep_damage_ratio": 0.13,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力25%的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力15%的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.25,
+            "ep_damage_ratio": 0.15,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力28%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力18%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.28,
+            "ep_damage_ratio": 0.18,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力30%的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力20%的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.3,
+            "ep_damage_ratio": 0.2,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "形为心役",
+          "description": "攻击附带相当于攻击力33%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>，并对目标周围其他敌人造成一次相当于攻击力23%<@ba.talpu>（+3%）</>的<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack@ep_damage_ratio": 0.33,
+            "ep_damage_ratio": 0.23,
+            "range_radius": 1.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "堕梦",
+          "description": "在场时，全场处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人攻击速度-12；攻击范围内的敌人普通攻击时受到70点<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack_speed": -12,
+            "value": 70
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "堕梦",
+          "description": "在场时，全场处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人攻击速度-16<@ba.talpu>（+4）</>；攻击范围内的敌人普通攻击时受到70点<$ba.dt.neural2>神经损伤</>",
+          "blackboard": {
+            "attack_speed": -16,
+            "value": 70
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_phatm2",
+      "name": "酒神证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_phatm2",
+      "name": "酒神之心",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 125,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.18
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 165,
+            "atk": 37
+          },
+          "talentEnhance": [
+            {
+              "name": "堕梦",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": -17,
+                "value": 80
+              }
+            },
+            {
+              "name": "堕梦",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": -21,
+                "value": 80
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.18
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 42
+          },
+          "talentEnhance": [
+            {
+              "name": "堕梦",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": -20,
+                "value": 90
+              }
+            },
+            {
+              "name": "堕梦",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": -24,
+                "value": 90
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.18
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

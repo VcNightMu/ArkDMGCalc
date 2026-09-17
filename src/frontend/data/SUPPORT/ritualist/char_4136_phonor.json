@@ -1,0 +1,148 @@
+{
+  "id": "char_4136_phonor",
+  "name": "PhonoR-0",
+  "rarity": "TIER_1",
+  "profession": "SUPPORT",
+  "subProfessionId": "ritualist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        133,
+        205
+      ],
+      "def": [
+        19,
+        30
+      ],
+      "maxHp": [
+        256,
+        395
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 125
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "悠远河谷的齐唱·I",
+          "description": "部署后40秒内攻击附带45点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到3%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 45,
+            "damage_scale": 1.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "悠远河谷的齐唱·II",
+          "description": "部署后40秒内攻击附带45点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到5%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 45,
+            "damage_scale": 1.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "悠远河谷的齐唱·III",
+          "description": "部署后40秒内攻击附带50点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到5%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 50,
+            "damage_scale": 1.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "悠远河谷的齐唱·IV",
+          "description": "部署后40秒内攻击附带55点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到8%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 55,
+            "damage_scale": 1.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "悠远河谷的齐唱·V",
+          "description": "部署后40秒内攻击附带60点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到8%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 60,
+            "damage_scale": 1.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "悠远河谷的齐唱·VI",
+          "description": "部署后40秒内攻击附带60点<$ba.dt.apoptosis2>凋亡损伤</>，并使攻击范围内的所有敌人受到10%的<$ba.magicfragile>【法术脆弱】</>和<$ba.elementfragile>【元素脆弱】</>",
+          "blackboard": {
+            "duration": 40,
+            "attack@dark_damage_value": 60,
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

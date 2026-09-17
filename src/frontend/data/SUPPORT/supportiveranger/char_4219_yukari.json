@@ -1,0 +1,546 @@
+{
+  "id": "char_4219_yukari",
+  "name": "岳羽由加莉",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "supportiveranger",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        350,
+        501
+      ],
+      "def": [
+        93,
+        134
+      ],
+      "maxHp": [
+        591,
+        870
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        501,
+        643
+      ],
+      "def": [
+        134,
+        176
+      ],
+      "maxHp": [
+        870,
+        1177
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        643,
+        775
+      ],
+      "def": [
+        176,
+        200
+      ],
+      "maxHp": [
+        1177,
+        1510
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_yukari_1",
+      "name": "龙卷箭",
+      "levels": [
+        {
+          "multi_atk_scale": 0.5,
+          "final_atk_scale": 2,
+          "levitate": 1.5,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.5,
+          "final_atk_scale": 2,
+          "levitate": 1.5,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.55,
+          "final_atk_scale": 2,
+          "levitate": 1.5,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.55,
+          "final_atk_scale": 2.5,
+          "levitate": 1.5,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.6,
+          "final_atk_scale": 2.5,
+          "levitate": 1.5,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.65,
+          "final_atk_scale": 2.5,
+          "levitate": 1.5,
+          "level": 5,
+          "spCost": 28,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.65,
+          "final_atk_scale": 3,
+          "levitate": 1.5,
+          "level": 6,
+          "spCost": 26,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.7,
+          "final_atk_scale": 3.5,
+          "levitate": 1.5,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.75,
+          "final_atk_scale": 3.5,
+          "levitate": 1.5,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.8,
+          "final_atk_scale": 4,
+          "levitate": 1.5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_yukari_2",
+      "name": "明镜止水",
+      "levels": [
+        {
+          "max_target": 3,
+          "duration": 15,
+          "damage_up": 0.1,
+          "level": 0,
+          "spCost": 48,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "duration": 15,
+          "damage_up": 0.1,
+          "level": 1,
+          "spCost": 47,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "duration": 15,
+          "damage_up": 0.15,
+          "level": 2,
+          "spCost": 46,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "duration": 15,
+          "damage_up": 0.15,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.15,
+          "level": 4,
+          "spCost": 43,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.2,
+          "level": 5,
+          "spCost": 41,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.2,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.25,
+          "level": 7,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.25,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "duration": 15,
+          "damage_up": 0.3,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "治愈之风",
+          "description": "技能结束后，治疗自身和攻击范围内最多2名干员相当于岳羽由加莉攻击力50%的生命值",
+          "blackboard": {
+            "max_target": 2,
+            "heal_scale": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "治愈之风",
+          "description": "技能结束后，治疗自身和攻击范围内最多3名干员相当于岳羽由加莉攻击力100%的生命值",
+          "blackboard": {
+            "max_target": 3,
+            "heal_scale": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_yukari",
+      "name": "岳羽由加莉证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_yukari",
+      "name": "命运的奖赏",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 36,
+            "def": 10
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 42,
+            "def": 15
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08
+              }
+            },
+            {
+              "name": "治愈之风",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_target": 3,
+                "heal_scale": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 48,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08
+              }
+            },
+            {
+              "name": "治愈之风",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_target": 3,
+                "heal_scale": 1.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": 0.08
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

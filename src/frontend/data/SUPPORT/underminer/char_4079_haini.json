@@ -1,0 +1,559 @@
+{
+  "id": "char_4079_haini",
+  "name": "海霓",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "underminer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        198,
+        284
+      ],
+      "def": [
+        47,
+        68
+      ],
+      "maxHp": [
+        637,
+        937
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        284,
+        365
+      ],
+      "def": [
+        68,
+        90
+      ],
+      "maxHp": [
+        937,
+        1267
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        365,
+        440
+      ],
+      "def": [
+        90,
+        103
+      ],
+      "maxHp": [
+        1267,
+        1625
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 65,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_haini_1",
+      "name": "迷惑性洋流图",
+      "levels": [
+        {
+          "atk_scale": 1.1,
+          "max_target": 4,
+          "level": 0,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "max_target": 4,
+          "level": 1,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "max_target": 4,
+          "level": 2,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "max_target": 4,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "max_target": 4,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "max_target": 4,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "max_target": 4,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "max_target": 4,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "max_target": 4,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "max_target": 4,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_haini_2",
+      "name": "阻滞性显色剂",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack@move_speed": -0.3,
+          "attack@talent_up": 0.3,
+          "attack@max_talent_up": 2.2,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "attack@move_speed": -0.33,
+          "attack@talent_up": 0.3,
+          "attack@max_talent_up": 2.2,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "attack@move_speed": -0.36,
+          "attack@talent_up": 0.3,
+          "attack@max_talent_up": 2.2,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@move_speed": -0.4,
+          "attack@talent_up": 0.4,
+          "attack@max_talent_up": 2.6,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 39,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "attack@move_speed": -0.43,
+          "attack@talent_up": 0.4,
+          "attack@max_talent_up": 2.6,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "attack@move_speed": -0.46,
+          "attack@talent_up": 0.4,
+          "attack@max_talent_up": 2.6,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@move_speed": -0.5,
+          "attack@talent_up": 0.5,
+          "attack@max_talent_up": 3,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 38,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.43,
+          "attack@move_speed": -0.55,
+          "attack@talent_up": 0.5,
+          "attack@max_talent_up": 3,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "attack@move_speed": -0.55,
+          "attack@talent_up": 0.5,
+          "attack@max_talent_up": 3,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@move_speed": -0.6,
+          "attack@talent_up": 0.5,
+          "attack@max_talent_up": 3,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "测绘器材的奇用",
+          "description": "攻击范围内的非精英和领袖敌人获得8%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "测绘器材的奇用",
+          "description": "攻击范围内的非精英和领袖敌人获得10%<@ba.talpu>（+2%）</>的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "测绘器材的奇用",
+          "description": "攻击范围内的非精英和领袖敌人获得16%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.16
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "测绘器材的奇用",
+          "description": "攻击范围内的非精英和领袖敌人获得18%<@ba.talpu>（+2%）</>的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "damage_scale": 1.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "法术抗性+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAGIC_RESISTANCE",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_haini",
+      "name": "海霓证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_haini",
+      "name": "多功能测绘仪-改良版",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 13,
+            "def": 13
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": -0.1,
+                "duration": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 23,
+            "def": 23
+          },
+          "talentEnhance": [
+            {
+              "name": "测绘器材的奇用",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.2
+              }
+            },
+            {
+              "name": "测绘器材的奇用",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.22
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": -0.1,
+                "duration": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 33,
+            "def": 33
+          },
+          "talentEnhance": [
+            {
+              "name": "测绘器材的奇用",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.23
+              }
+            },
+            {
+              "name": "测绘器材的奇用",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk": -0.1,
+                "duration": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

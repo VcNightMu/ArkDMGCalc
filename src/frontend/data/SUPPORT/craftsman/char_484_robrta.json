@@ -1,0 +1,590 @@
+{
+  "id": "char_484_robrta",
+  "name": "罗比菈塔",
+  "rarity": "TIER_4",
+  "profession": "SUPPORT",
+  "subProfessionId": "craftsman",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        226,
+        333
+      ],
+      "def": [
+        188,
+        270
+      ],
+      "maxHp": [
+        1123,
+        1539
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        333,
+        444
+      ],
+      "def": [
+        270,
+        349
+      ],
+      "maxHp": [
+        1539,
+        1976
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        444,
+        535
+      ],
+      "def": [
+        349,
+        415
+      ],
+      "maxHp": [
+        1976,
+        2470
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 35,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_robrta_1",
+      "name": "叙拉古式上妆",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.14,
+          "def": 0.14,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.18,
+          "def": 0.18,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "def": 0.22,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "def": 0.26,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_robrta_2",
+      "name": "全自动造型仪",
+      "levels": [
+        {
+          "block_cnt": 1,
+          "def": 0.2,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.25,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.3,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.35,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.4,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.45,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.5,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.6,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 7,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.7,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 8,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "block_cnt": 1,
+          "def": 0.8,
+          "robrta_s_2[recharge].cnt": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "携带2个造型仪（最多部署3个），使一名近战位上的单位防御力+10%并获得1层<$ba.shield>护盾</>（持续15秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "携带2个造型仪（最多部署3个），使一名近战位上的单位防御力+13%<@ba.talpu>（+3%）</>并获得1层<$ba.shield>护盾</>（持续15秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "携带3个造型仪（最多部署3个），使一名近战位上的单位防御力+20%并获得1层<$ba.shield>护盾</>（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "携带3个造型仪（最多部署3个），使一名近战位上的单位防御力+23%<@ba.talpu>（+3%）</>并获得1层<$ba.shield>护盾</>（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "携带3个造型仪（最多部署3个），使一名近战位上的单位防御力+30%并获得2层<$ba.shield>护盾</>（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "携带3个造型仪（最多部署3个），使一名近战位上的单位防御力+33%<@ba.talpu>（+3%）</>并获得2层<$ba.shield>护盾</>（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "cnt": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "防御力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_robrta",
+      "name": "罗比菈塔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_robrta",
+      "name": "半自动造型工具套组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "def": 28
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.36,
+                "duration": 25
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 0.39,
+                "duration": 25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "def": 46
+          },
+          "talentEnhance": [
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "cnt": 3
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.4,
+                "duration": 25
+              }
+            },
+            {
+              "name": "造型仪调试",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 0.43,
+                "duration": 25
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "cnt": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

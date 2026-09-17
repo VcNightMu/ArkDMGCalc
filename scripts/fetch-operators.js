@@ -312,14 +312,43 @@ const OPERATORS = {
     watchman: ['char_4222_taraxa', 'char_1052_kalts2'],  // 守望者
   },
   SUPPORT: { // 辅助
-    slower: ['char_291_aglina'],    // 凝滞师
-    underminer: [],                 // 削弱者
-    bard: [],                       // 吟游者
-    blessing: [],                   // 护佑者
-    summoner: [],                   // 召唤师
-    craftsman: [],                  // 工匠
-    ritualist: [],                  // 巫役
-    supportiveranger: [],           // 游击手
+    slower: [ // 凝滞师
+      'char_1047_halo2', 'char_291_aglina', 'char_358_lisa',                          // 溯光星源(异格)/安洁莉娜/铃兰 6★
+      'char_195_glassb', 'char_326_glacus', 'char_4032_provs', 'char_4122_grabds',     // 真理/格劳克斯/但书/小满 5★
+      'char_183_skgoat', 'char_258_podego',                                          // 地灵/波登可 4★
+      'char_278_orchid',                                                             // 梓兰 3★
+    ], // 不录：预备干员-辅助 char_606_csuppo、Raidian char_614_acsupo（均为 isNotObtainable）
+    underminer: [ // 削弱者
+      'char_206_gnosis',                                                             // 灵知 6★
+      'char_174_slbell', 'char_254_vodfox', 'char_4079_haini',                         // 初雪/巫恋/海霓 5★
+    ],
+    bard: [ // 吟游者
+      'char_1012_skadi2', 'char_4134_cetsyr',                                        // 浊心斯卡蒂(异格)/魔王 6★
+      'char_101_sora', 'char_4045_heidi', 'char_4184_dolris',                         // 空/海蒂/三角初华 5★
+      'char_4091_ulika',                                                             // U-Official 1★（公招/签到可得，同 CONFESS-47/Friston-3 口径）
+    ],
+    blessing: [ // 护佑者
+      'char_1031_slent2', 'char_4202_haruka',                                        // 淬羽赫默(异格)/遥 6★
+      'char_1022_flwr2', 'char_343_tknogi', 'char_4019_ncdeer', 'char_4172_xingzh', 'char_492_quercu', // 撷英调香师(异格)/月禾/九色鹿/行箸/夏栎 5★
+    ],
+    summoner: [ // 召唤师
+      'char_2023_ling', 'char_248_mgllan', 'char_4195_radian',                        // 令/麦哲伦/电弧 6★
+      'char_242_otter', 'char_336_folivo', 'char_4140_lasher',                        // 梅尔/稀音/衡沙 5★
+      'char_110_deepcl',                                                             // 深海色 4★
+    ],
+    craftsman: [ // 工匠
+      'char_4072_ironmn', 'char_4212_nasti',                                         // 白铁/娜斯提 6★
+      'char_4162_cathy', 'char_4178_alanna', 'char_433_windft',                       // 凯瑟琳/阿兰娜/掠风 5★
+      'char_484_robrta',                                                             // 罗比菈塔 4★
+    ],
+    ritualist: [ // 巫役
+      'char_1042_phatm2', 'char_245_cello',                                          // 酒神(异格)/塑心 6★
+      'char_4102_threye', 'char_4223_botany', 'char_487_bobb',                        // 凛视/伯塔尼/波卜 5★
+      'char_4136_phonor',                                                            // PhonoR-0 1★
+    ], // 不录：盟约·辅助干员 char_616_pithst（isNotObtainable，卫戍协议模式形态）
+    supportiveranger: [ // 游击手
+      'char_4219_yukari', 'char_4234_pedro',                                         // 岳羽由加莉/佩德洛 5★
+    ],
   },
   SPECIAL: { // 特种
     executor: ['char_144_red'],     // 处决者

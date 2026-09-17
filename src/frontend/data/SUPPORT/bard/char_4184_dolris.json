@@ -1,0 +1,645 @@
+{
+  "id": "char_4184_dolris",
+  "name": "三角初华",
+  "rarity": "TIER_5",
+  "profession": "SUPPORT",
+  "subProfessionId": "bard",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        122,
+        192
+      ],
+      "def": [
+        101,
+        151
+      ],
+      "maxHp": [
+        539,
+        771
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        192,
+        256
+      ],
+      "def": [
+        151,
+        202
+      ],
+      "maxHp": [
+        771,
+        1057
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        256,
+        309
+      ],
+      "def": [
+        202,
+        253
+      ],
+      "maxHp": [
+        1057,
+        1410
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_dolris_1",
+      "name": "我思念的",
+      "levels": [
+        {
+          "attack@atk": 0.2,
+          "attack@def": 0.2,
+          "attack@heal_value_s1": 50,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.23,
+          "attack@def": 0.23,
+          "attack@heal_value_s1": 55,
+          "level": 1,
+          "spCost": 48,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.27,
+          "attack@def": 0.27,
+          "attack@heal_value_s1": 60,
+          "level": 2,
+          "spCost": 46,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.3,
+          "attack@def": 0.3,
+          "attack@heal_value_s1": 65,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.33,
+          "attack@def": 0.33,
+          "attack@heal_value_s1": 70,
+          "level": 4,
+          "spCost": 43,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.37,
+          "attack@def": 0.37,
+          "attack@heal_value_s1": 75,
+          "level": 5,
+          "spCost": 41,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.4,
+          "attack@def": 0.4,
+          "attack@heal_value_s1": 80,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.45,
+          "attack@def": 0.45,
+          "attack@heal_value_s1": 85,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.5,
+          "attack@def": 0.5,
+          "attack@heal_value_s1": 90,
+          "level": 8,
+          "spCost": 36,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.55,
+          "attack@def": 0.55,
+          "attack@heal_value_s1": 100,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dolris_2",
+      "name": "我悲悯的",
+      "levels": [
+        {
+          "attack@atk": 0.7,
+          "interval": 0.3,
+          "attack@atk_scale": 0.6,
+          "attack@heal_scale": 0.1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.7,
+          "interval": 0.3,
+          "attack@atk_scale": 0.6,
+          "attack@heal_scale": 0.1,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.7,
+          "interval": 0.3,
+          "attack@atk_scale": 0.6,
+          "attack@heal_scale": 0.1,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.8,
+          "interval": 0.3,
+          "attack@atk_scale": 0.7,
+          "attack@heal_scale": 0.15,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.8,
+          "interval": 0.3,
+          "attack@atk_scale": 0.7,
+          "attack@heal_scale": 0.15,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.8,
+          "interval": 0.3,
+          "attack@atk_scale": 0.7,
+          "attack@heal_scale": 0.15,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.9,
+          "interval": 0.3,
+          "attack@atk_scale": 0.8,
+          "attack@heal_scale": 0.2,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.9,
+          "interval": 0.3,
+          "attack@atk_scale": 0.85,
+          "attack@heal_scale": 0.2,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 0.9,
+          "interval": 0.3,
+          "attack@atk_scale": 0.9,
+          "attack@heal_scale": 0.25,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk": 1,
+          "interval": 0.3,
+          "attack@atk_scale": 1,
+          "attack@heal_scale": 0.25,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "谎言的假面",
+          "description": "技能未开启时每5秒治疗攻击范围内生命最低的友方单位相当于攻击力15%的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 5,
+            "attack@heal_scale": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "谎言的假面",
+          "description": "技能未开启时每5秒治疗攻击范围内生命最低的友方单位相当于攻击力20%<@ba.talpu>(+5%)</>的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 5,
+            "attack@heal_scale": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "谎言的假面",
+          "description": "技能未开启时每4秒治疗攻击范围内生命最低的友方单位相当于攻击力20%的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 4,
+            "attack@heal_scale": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "谎言的假面",
+          "description": "技能未开启时每4秒治疗攻击范围内生命最低的友方单位相当于攻击力25%<@ba.talpu>(+5%)</>的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 4,
+            "attack@heal_scale": 0.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "谎言的假面",
+          "description": "技能未开启时每4秒治疗攻击范围内生命最低的友方单位相当于攻击力30%的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 4,
+            "attack@heal_scale": 0.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "谎言的假面",
+          "description": "技能未开启时每4秒治疗攻击范围内生命最低的友方单位相当于攻击力35%<@ba.talpu>(+5%)</>的生命；技能期间优先选择丰川祥子作为治疗目标",
+          "blackboard": {
+            "attack@heal_cd": 4,
+            "attack@heal_scale": 0.35
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏悲伤",
+          "description": "治疗<$ba.mujica>Ave Mujica</>成员时使<$ba.fever>Fever</>+2",
+          "blackboard": {
+            "normal_cnt": 2,
+            "atk_scale": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏悲伤",
+          "description": "治疗<$ba.mujica>Ave Mujica</>成员时使<$ba.fever>Fever</>+3；攻击范围内<$ba.mujica>Ave Mujica</>成员攻击时，附带三角初华攻击力15%的法术伤害",
+          "blackboard": {
+            "normal_cnt": 3,
+            "atk_scale": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏悲伤",
+          "description": "治疗<$ba.mujica>Ave Mujica</>成员时使<$ba.fever>Fever</>+5；攻击范围内<$ba.mujica>Ave Mujica</>成员攻击时，附带三角初华攻击力30%的法术伤害",
+          "blackboard": {
+            "normal_cnt": 5,
+            "atk_scale": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不攻击，持续恢复范围内所有友军生命（每秒相当于自身攻击力10%的生命），自身不受鼓舞影响",
+    "blackboard": {
+      "atk_to_hp_recovery_ratio": 0.1
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+20",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_dolris",
+      "name": "三角初华证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_dolris",
+      "name": "占卜的意义",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 142,
+            "atk": 13
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "cnt": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 172,
+            "atk": 18
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "cnt": 2
+              }
+            },
+            {
+              "name": "谎言的假面",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@heal_cd": 3.5,
+                "attack@heal_scale": 0.3
+              }
+            },
+            {
+              "name": "谎言的假面",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@heal_cd": 3.5,
+                "attack@heal_scale": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 22
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "cnt": 2
+              }
+            },
+            {
+              "name": "谎言的假面",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@heal_cd": 3,
+                "attack@heal_scale": 0.3
+              }
+            },
+            {
+              "name": "谎言的假面",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@heal_cd": 3,
+                "attack@heal_scale": 0.35
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_scale_up": 1.25
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
