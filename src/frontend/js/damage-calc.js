@@ -69,6 +69,10 @@ const TALENT_ATK_DRIVERS = {
   'char_133_mm': 0,       // 梅「维多利亚探员」:攻击力+7%(E2 潜0,潜4 +8%)(攻速档在 TALENT_SPD_DRIVERS)
   // ---- 近卫·重剑手(crusher) ----
   'char_4063_quartz': 0,  // 石英「行于荒野」:生命值+4/8%、攻击力+4/8%(E2 潜0 = +8%),无条件面板乘区;X 模组 te 覆盖至 12%/14%
+  // ---- 近卫·撼地者(hammer) ----
+  'char_4058_pepe': 1,     // 佩佩「弥漫莲香」:在场时所有【近卫】干员攻击力+16%(潜2 +20%)——本人即近卫,吃自己光环(问答确认 2026-09-17)
+  'char_4131_odda': 0,     // 奥达「落锤」:累计造成 30 次伤害后攻击力+15%(潜4 +18%;X 模组 te 提到 20%/23% 且计数降至 20)——用户口径默认常驻
+  'char_4185_amoris': 1,   // 祐天寺若麦「毋畏爱意」:Ave Mujica 成员攻击力+8%(潜4 +9%)——本人即 Ave Mujica 成员,吃自己光环(问答确认)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -217,6 +221,22 @@ const CRUSHER_SPECIAL = {
   'char_4083_chimes': [1],    // 铎铃:S2 乡心无改(停止攻击,技能结束时挥刀 1 击,攻击力取叠满 +50% 档)
   'char_4088_hodrer': [1, 2], // 赫德雷:S2 余烬重荷(切换型,被动 +32% 计入常态) / S3 死境硝烟(真实伤害 DOT)
   'char_4145_ulpia': [2]      // 乌尔比安:S3 必须开辟的通路(船锚 1 击 + 技能期本体普攻)
+};
+
+// ===== 撼地者(hammer)特例 =====
+// 用户口径(2026-09-17):
+//  · 奥达「落锤」的攻击力增幅效果默认常驻(累计 30 次伤害后 +15%,X 模组 +20%);
+//  · 祐天寺若麦「双利手」的脆弱效果默认不触发(概率类,走说明文本);
+//  · 怒潮凛冬 S2「绝不罢休」默认为第二次加成(能力加成翻倍、持续时间无限)。
+// 问答确认(2026-09-17):①佩佩 S2 攻速叠层默认满层 2 层(+40×2=+80);
+//  ②佩佩「弥漫莲香」(近卫 +16%)与祐天寺若麦「毋畏爱意」(Ave Mujica +8%)本人符合条件 → 自身也吃(已入 TALENT_ATK_DRIVERS)。
+// 其余口径:特性「攻击使目标周围的其他敌人受到攻击力 50% 的群体物理伤害」只打其他敌人 → 单目标场景不计;
+//  各模组特性追加「溅射范围内有≥3 个敌人时使当次攻击力提升至 115%」为条件类不计;佩佩 RA-α/生息演算 相关效果为特殊模式不计。
+//  怒潮凛冬第二天赋「万众巨潮」:技能期间全场干员攻击力+14%(潜2 +18%),本人属【乌萨斯学生自治团】→ 加成翻倍 → 技能期 ×1.28。
+const HAMMER_SPECIAL = {
+  'char_1051_headb2': [0, 1, 2], // 怒潮凛冬:S1 誓不低头(第二天赋光环) / S2 绝不罢休(第二次加成、持续无限) / S3 无可抵挡(五连击递增)
+  'char_4058_pepe': [1, 2],      // 佩佩:S2 阻遏混乱锤(攻速叠层满层) / S3 时光震荡(每击后攻击力额外+20%,最多 4 层)
+  'char_4185_amoris': [0, 1]     // 祐天寺若麦:S1 如焰般热烈(三连击 151%/20%/20%) / S2 如麦般生长(八连击 118%×2 + 10%×6)
 };
 
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
@@ -852,7 +872,9 @@ const MODULE_TE_ASPD_STACK = {
 // 模组 te 与基础天赋"合并而非替换"表:部分模组 te 只写变更部分(如异客 X 模组「孤卒」te 仅给 sp_recovery_per_sec),
 // 整体替换会丢失未写出的基础数值(攻击力+8%/10%)。
 const MODULE_TE_TALENT_MERGE = {
-  // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
+  // 异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
+  // 佩佩 RA-α「弥漫莲香」te 含空 blackboard 占位档(全模组档重复列出),整体替换会清掉基础 atk 键 → 改为合并
+  'char_4058_pepe': [1],
 };
 
 // ===== 投掷手(bombarder)专用结算 =====
@@ -2155,6 +2177,8 @@ const BAT_ADD_OVERRIDES = {
   'char_4064_mlynar': { 1: true },  // 玛恩纳 S2 未宽解的悲哀:攻击间隔延长 +0.3(1.2+0.3=1.5s)
   // ---- 近卫·重剑手(crusher) ----
   'char_4088_hodrer': { 1: true },  // 赫德雷 S2 余烬重荷切换态:攻击间隔略微增大(+0.5 → 2.5+0.5=3.0s)
+  // ---- 近卫·撼地者(hammer) ----
+  'char_4058_pepe': { 2: true },    // 佩佩 S3 时光震荡:攻击间隔略微增大(+0.2 → 1.8+0.2=2.0s)
 };
 
 // base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
@@ -4274,6 +4298,66 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const anchor = Pp(a * (levelData.atk_scale || 1)) * tmul;
       const body = Pp(a) * tmul * nn(skillDuration);
       return mkC({ phys: anchor + body }, skillDuration, a, Pp(panelAtk) * tmul / realInterval);
+    }
+  } else if (op.subProfessionId === 'hammer' && HAMMER_SPECIAL[op.id] && HAMMER_SPECIAL[op.id].includes(skillIndex)) {
+    // 撼地者(hammer)特例(用户口径 2026-09-17,详见 HAMMER_SPECIAL 注释)
+    const Ph = (a) => calcPhysicalDamage(a, effDef);
+    // 怒潮凛冬「万众巨潮」:技能期间全场攻击力+14%(潜2 +18%),本人属【乌萨斯学生自治团】→ 翻倍
+    // 与技能攻击力同池加算(引擎技能期口径 = 白值×(1+天赋%+技能%),同奥达/石英)
+    const t2 = op.id === 'char_1051_headb2' ? 2 * (funnelTalentValue(op, slotData, 1, 'atk') || 0) : 0;
+    const nBase = Ph(panelAtk) / realInterval;
+    const mkH = (sTot, winSec, panel, nDps, cd = null) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: winSec > 0 ? sTot / winSec : 0, skillTotalDamage: sTot, cycleDps: cd, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: skillRealInterval, panelAtk: panel, dmgTypes: { physical: { skillDps: winSec > 0 ? sTot / winSec : 0, skillTotalDamage: sTot, cycleDps: cd } } });
+    if (op.id === 'char_1051_headb2' && skillIndex === 0) {
+      // S1 誓不低头:攻击力+42%、攻速+45(通用键) + 第二天赋光环
+      const a = panelAtk * (1 + t2 + (levelData.atk || 0));
+      const n = Math.floor(skillDuration / skillRealInterval);
+      return mkH(Ph(a) * n, skillDuration, a, nBase);
+    }
+    if (op.id === 'char_1051_headb2' && skillIndex === 1) {
+      // S2 绝不罢休:第二次及以后能力加成翻倍(用户口径)→ 取数据 headb2_s_2[second] 档;持续时间无限 → 持续型(总伤 0、给每秒 DPS)
+      const sec = levelData['headb2_s_2[second].atk'];
+      const a = panelAtk * (1 + t2 + (sec !== undefined ? sec : (levelData.atk || 0)));
+      const dps = Ph(a) / skillRealInterval;
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: true, skillDps: dps, skillTotalDamage: 0, cycleDps: null, normalDps: nBase, skillHps: null, normalHps: null, totalHeal: null, realInterval: skillRealInterval, panelAtk: a, dmgTypes: { physical: { skillDps: dps, skillTotalDamage: 0, cycleDps: null } } };
+    }
+    if (op.id === 'char_1051_headb2') {
+      // S3 无可抵挡:对前方一格五连击(不受攻速影响,锤击间隔 1.8s),每击造成攻击力 210%(专一)物理伤害且攻击力额外+30%(逐击叠加)→ 窗口 5×1.8=9s
+      const step = levelData.atk_step || 0;
+      const base = panelAtk * (1 + t2 + (levelData.atk_base || 0));
+      const scale = levelData.atk_scale || 1;
+      let tot = 0;
+      for (let k = 0; k < 5; k++) tot += Ph(base * (1 + step * k) * scale);
+      return mkH(tot, 5 * 1.8, base, nBase);
+    }
+    if (op.id === 'char_4058_pepe' && skillIndex === 1) {
+      // S2 阻遏混乱锤:攻击力+75%、攻速+70,叠层满 2 层额外 +40×2(问答确认)→ 间隔 1.8/(1+150/100)=0.72s
+      const aspd = (levelData.attack_speed || 0) + (levelData.attack_speed_extra || 0) * (levelData.max_stack_cnt || 0);
+      const iv = calcRealInterval(phase.baseAttackTime, 100 + aspd);
+      const n = Math.floor(skillDuration / iv);
+      const r = mkH(Ph(skillAtk) * n, skillDuration, skillAtk, nBase);
+      return { ...r, realInterval: iv };
+    }
+    if (op.id === 'char_4058_pepe') {
+      // S3 时光震荡:攻击间隔+0.2(入 BAT_ADD_OVERRIDES → 2.0s),每次攻击后攻击力额外+20%(专一)最多叠 4 层(逐击叠加,首击无层)
+      const step = levelData['attack@atk'] || 0;
+      const cap = levelData['attack@max_stack_cnt'] || 0;
+      const n = Math.floor(skillDuration / skillRealInterval);
+      const a1 = panelAtk * (1 + (levelData.atk || 0));
+      let tot = 0;
+      for (let k = 0; k < n; k++) tot += Ph(a1 * (1 + step * Math.min(k, cap)));
+      return mkH(tot, skillDuration, a1, nBase);
+    }
+    if (op.id === 'char_4185_amoris' && skillIndex === 0) {
+      // S1 如焰般热烈:特殊三连击(首击 151% 且溅射范围扩大,后两次 20%),一次攻击动作为 3 击
+      const hv = levelData['attack@atk_scale_heavy'] || 1, lt = levelData['attack@atk_scale_light'] || 0;
+      const n = Math.floor(skillDuration / skillRealInterval);
+      return mkH((Ph(panelAtk * hv) + 2 * Ph(panelAtk * lt)) * n, skillDuration, panelAtk, nBase);
+    }
+    {
+      // S2 如麦般生长:特殊八连击(第一、五次 118%,其余 10%),一次攻击动作为 8 击
+      const hv = levelData['attack@atk_scale_heavy'] || 1, lt = levelData['attack@atk_scale_light'] || 0;
+      const n = Math.floor(skillDuration / skillRealInterval);
+      return mkH((2 * Ph(panelAtk * hv) + 6 * Ph(panelAtk * lt)) * n, skillDuration, panelAtk, nBase);
     }
   } else if (op.subProfessionId === 'fearless' && FEARLESS_SPECIAL[op.id] && FEARLESS_SPECIAL[op.id].includes(skillIndex)) {
     // 无畏者(fearless)特例(用户口径 2026-09-17,详见 FEARLESS_SPECIAL 注释):
