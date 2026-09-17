@@ -2365,5 +2365,59 @@
     "subProfessionId": "reaperrange",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_197_poca",
+    "name": "早露",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2012_typhon",
+    "name": "提丰",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_363_toddi",
+    "name": "熔泉",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4043_erato",
+    "name": "埃拉托",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4221_ju",
+    "name": "矩",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4062_totter",
+    "name": "铅踝",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "siegesniper",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

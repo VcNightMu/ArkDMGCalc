@@ -126,7 +126,11 @@ const OPERATORS = {
       'char_279_excu', 'char_346_aosta', 'char_4203_kichi',              // 送葬人/奥斯塔/吉星 5★
       'char_440_pinecn',                                                 // 松果 4★
     ],
-    siegesniper: [],                // 攻城手
+    siegesniper: [ // 攻城手
+      'char_197_poca', 'char_2012_typhon',                              // 早露/提丰 6★
+      'char_363_toddi', 'char_4043_erato', 'char_4221_ju',              // 熔泉/埃拉托/矩 5★
+      'char_4062_totter',                                               // 铅踝 4★
+    ],
     bombarder: [],                  // 投掷手
     hunter: [],                     // 猎手
     loopshooter: [],                // 回环射手

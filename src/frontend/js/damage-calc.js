@@ -634,6 +634,67 @@ const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
 
+// ===== 攻城手(siegesniper)专用结算 =====
+// 说明文本(用户 2026-09-17):早露「深入骨髓」防御忽视与额外伤害不生效;熔泉「火热直觉」攻击力提升不生效;
+// 埃拉托「琴音入梦」防御忽视不生效;铅踝「目光如炬」攻击力增幅不生效、S2「破虹」默认攻击多个敌人(只算本目标);
+// 提丰「锐如兽牙」无视防御按最高计算、「重如沼泥」攻击力提升不计、S3「冰原秩序」默认攻击不同目标(只算本目标);
+// 矩「墨守」伤害提升不计、S2「良翼难乘」额外物理伤害不计。
+function calcSiegeSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, generic } = ctx;
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const nrm = () => (normalInterval > 0 ? calcPhysicalDamage(panelAtk, effDef) / normalInterval : null);
+  const nAtk = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+  const res = (total, dps, cycle) => ({
+    skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle, normalDps: nrm(),
+    skillHps: null, normalHps: null, totalHeal: null, damageType: 'physical', realInterval,
+    dmgTypes: { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } },
+  });
+  // 早露 S3「雪崩击」:束缚期间每秒受到一次攻击,持续 hit_duration 秒(多目标只算本目标)
+  if (op.id === 'char_197_poca' && skillIndex === 2) {
+    const per = h(panelAtk * (1 + (levelData.atk || 0)));
+    const ticks = Math.floor((levelData.hit_duration || skillDuration) / (levelData.hit_interval || 1) + 1e-9);
+    return res(per * ticks, per, calcCycleDps(levelData, realInterval, h(panelAtk), per * ticks));
+  }
+  // 提丰 S3「永恒狩猎」:8 发弹药,每发一轮箭雨共 5 次命中(单目标口径)
+  if (op.id === 'char_2012_typhon' && skillIndex === 2) {
+    const per = h(panelAtk * levelData['attack@s3_atk_scale']);
+    const hits = (levelData['attack@s3_trigger_time'] || 0) * (levelData['attack@s3_max_hit_num'] || 1);
+    const total = per * hits;
+    return res(total, realInterval > 0 && (levelData['attack@s3_trigger_time'] || 0) > 0 ? total / ((levelData['attack@s3_trigger_time'] / 1) * realInterval) : 0, null);
+  }
+  // 熔泉:S1「信号矢」每击 attack@atk_scale + 目标防御 -25%;S2「便携破城矢」10 发弹药(直击 + 爆炸对目标)
+  if (op.id === 'char_363_toddi') {
+    if (skillIndex === 0) {
+      const defDown = 1 + (levelData.def || 0);
+      const per = h(panelAtk * levelData['attack@atk_scale'], Math.max(0, effDef * defDown));
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+    if (skillIndex === 1) {
+      const per = h(panelAtk * levelData['attack@atk_scale']) + h(panelAtk * levelData['attack@splash_atk_scale']);
+      const ammo = levelData['attack@trigger_time'] || 0;
+      const total = per * ammo;
+      return res(total, realInterval > 0 ? total / (ammo * realInterval) : 0, null);
+    }
+  }
+  // 提丰 S1/S2:走本分支以保证技能行常态 DPS 与常态口径一致(锐如兽牙无视防御 50%)
+  if (op.id === 'char_2012_typhon' && (skillIndex === 0 || skillIndex === 1)) {
+    if (skillIndex === 0) {
+      const per = h(panelAtk * (1 + (levelData.atk || 0)));
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+    const per = h(panelAtk * (1 + (levelData.atk || 0)));
+    return res(0, realInterval > 0 ? per / realInterval : 0, null);
+  }
+  // 矩 S1「良弓难张」:atk_scale_s1(前缀键,原引擎不识别)
+  if (op.id === 'char_4221_ju' && skillIndex === 0) {
+    const per = h(panelAtk * levelData.atk_scale_s1);
+    return res(per, 0, calcCycleDps(levelData, realInterval, h(panelAtk), per));
+  }
+  return generic();
+}
+
 // ===== 散射手(reaperrange)专用结算 =====
 // 说明文本(用户 2026-09-17):奥斯塔「尖钉」流血不生效;松果「便携电源」技力回复不生效、S2「电能过载」默认无攻击力追加;
 // 假日威龙陈「节约风气」不消耗弹药不生效、「假日余韵」取基础效果(三级模组技能期强制视为水地形);
@@ -970,6 +1031,30 @@ function calcTalentMrDebuffMul(op, slotData) {
 const SKILL_MODULE_SPD_BUFF = {
   'char_4052_surfer': { 2: { atkSpeed: 10, duration: 10 }, 3: { atkSpeed: 15, duration: 10 } },  // 寻澜 X 佳肴 L2/L3
 };
+
+// 天赋百分比无视防御(id → 天赋索引;读 bb.def_penetrate × bb.max_stack_cnt,即叠满档)
+const TALENT_DEF_IGNORE_PCT = {
+  'char_2012_typhon': 0,   // 提丰「锐如兽牙」:连续攻击逐渐无视防御,叠满 = max_stack_cnt × def_penetrate(E2潜0 = 5×10% = 50%,用户口径"按最高计算")
+};
+function calcTalentDefIgnorePct(op, slotData) {
+  const idx = TALENT_DEF_IGNORE_PCT[op.id];
+  if (idx === undefined) return 0;
+  const talent = (op.talents || [])[idx];
+  if (!talent) return 0;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb.def_penetrate === 'number') {
+        const stacks = typeof bb.max_stack_cnt === 'number' ? bb.max_stack_cnt : 1;
+        if (bb.def_penetrate * stacks > best) best = bb.def_penetrate * stacks;
+      }
+    }
+  }
+  return Math.min(1, best);
+}
 
 // 查固定物理穿防:返回最高满足档 def_penetrate_fixed(0 表示无或未解锁)
 function calcTalentDefPenFixed(op, slotData) {
@@ -1474,6 +1559,7 @@ const BAT_ADD_OVERRIDES = {
   'char_302_glaze': { 1: true },   // 安比尔 S2 雷达定位:攻击间隔略微增大(2.7+0.9=3.6s)
   'char_346_aosta': { 1: true },   // 奥斯塔 S2 影钉:攻击间隔增大(2.3+0.5=2.8s)
   'char_4203_kichi': { 0: true, 1: true }, // 吉星 S1 欢迎您来/S2 吉星高照:攻击间隔增大(2.3+0.5=2.8s / 2.3+0.7=3.0s)
+  'char_363_toddi': { 1: true },   // 熔泉 S2 便携破城矢:攻击间隔稍微延长(2.4+0.3=2.7s)
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
@@ -1967,7 +2053,8 @@ function calculateOperator(op, slotData, ctx) {
   // 有效防御:固定穿防直接减(defPenFixed=0 干员与 enemy.def 等价,函数内物理结算统一引用)
   // 偷取防御稳态(伺夜 Y 模组叠满:目标减防至上限,无模组为 0)
   const defStealSteady = calcTalentDefStealSteady(op, slotData);
-  const effDef = Math.max(0, state.enemy.def - defPenFixed - defStealSteady);
+  const defIgnorePct = calcTalentDefIgnorePct(op, slotData);
+  const effDef = Math.max(0, state.enemy.def * (1 - defIgnorePct) - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
   const talentBat = calcTalentBatAdd(op, slotData);
@@ -3273,6 +3360,11 @@ function calculateOperator(op, slotData, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'siegesniper') {
+    result = calcSiegeSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      generic: () => calcDamage(params),
+    });
   } else if (op.subProfessionId === 'reaperrange') {
     result = calcReaperSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,

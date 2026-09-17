@@ -32,6 +32,7 @@ const IDS = [
   'char_113_cqbw', 'char_300_phenxi', 'char_219_meteo', 'char_379_sesa', 'char_4078_bdhkgt', 'char_118_yuki', 'char_282_catap', // 炮手
   'char_430_fartth', 'char_4193_lemuen', 'char_158_milu', 'char_218_cuttle', 'char_4014_lunacu', 'char_302_glaze', // 神射手
   'char_1013_chen2', 'char_279_excu', 'char_346_aosta', 'char_4203_kichi', 'char_440_pinecn', // 散射手
+  'char_197_poca', 'char_2012_typhon', 'char_363_toddi', 'char_4043_erato', 'char_4221_ju', 'char_4062_totter', // 攻城手
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

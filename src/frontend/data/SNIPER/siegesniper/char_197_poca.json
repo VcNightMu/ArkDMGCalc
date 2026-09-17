@@ -1,0 +1,784 @@
+{
+  "id": "char_197_poca",
+  "name": "早露",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "siegesniper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        492,
+        684
+      ],
+      "def": [
+        60,
+        80
+      ],
+      "maxHp": [
+        800,
+        1067
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        684,
+        856
+      ],
+      "def": [
+        80,
+        100
+      ],
+      "maxHp": [
+        1067,
+        1351
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        856,
+        1032
+      ],
+      "def": [
+        100,
+        122
+      ],
+      "maxHp": [
+        1351,
+        1755
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 110,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_poca_2",
+      "name": "分裂射击",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 39,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 80,
+          "initialSp": 41,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 80,
+          "initialSp": 42,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 80,
+          "initialSp": 43,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 44,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 80,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 75,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 70,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 65,
+          "initialSp": 45,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 60,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_poca_3",
+      "name": "雪崩击",
+      "levels": [
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 6,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.1,
+          "hit_duration": 7,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "hit_interval": 1,
+          "atk": 0.15,
+          "hit_duration": 7,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "hit_interval": 1,
+          "atk": 0.2,
+          "hit_duration": 7,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 7,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "hit_interval": 1,
+          "atk": 0.25,
+          "hit_duration": 8,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 8,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深入骨髓",
+          "description": "攻击重量较重（重量等级大于等于3）的敌人时，无视其防御力的40%",
+          "blackboard": {
+            "value": 3,
+            "def_penetrate": 0.4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深入骨髓",
+          "description": "攻击重量较重（重量等级大于等于3）的敌人时，无视其防御力的60%",
+          "blackboard": {
+            "value": 3,
+            "def_penetrate": 0.6
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "学生楷模",
+          "description": "编入队伍时，所有【乌萨斯学生自治团】干员攻击力+8%",
+          "blackboard": {
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "学生楷模",
+          "description": "编入队伍时，所有【乌萨斯学生自治团】干员攻击力+10%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_poca",
+      "name": "早露证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_poca",
+      "name": "攻城器械训练装置",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.15,
+                "value": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 78,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.15,
+                "value": 3
+              }
+            },
+            {
+              "name": "深入骨髓",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "extra_atk_scale": 0.4,
+                "value": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 90,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.15,
+                "value": 3
+              }
+            },
+            {
+              "name": "深入骨髓",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "extra_atk_scale": 0.6,
+                "value": 3
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_poca",
+      "name": "“心”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 90,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "学生楷模",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1
+              }
+            },
+            {
+              "name": "学生楷模",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 0.11,
+                "max_atk": 0.33
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "init_atk": 0.11,
+                "max_atk": 0.33
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 100,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "学生楷模",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.12
+              }
+            },
+            {
+              "name": "学生楷模",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.14
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 0.15,
+                "max_atk": 0.45
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "init_atk": 0.15,
+                "max_atk": 0.45
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_dist": 4.5,
+                "min_dist": 1,
+                "damage_scale": 0.12
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
