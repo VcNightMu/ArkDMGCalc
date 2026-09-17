@@ -178,6 +178,19 @@ const REAPER_SPECIAL = {
   'char_4010_etlchi': [1, 2]     // 隐德来希:S2 绯红壁合(停止攻击,血镰每 0.5s 切割) / S3 灵与欲的惜别(心烛)
 };
 
+// ===== 解放者(librator)专用助手 =====
+// 解放者共性(用户口径 2026-09-17):特性「技能未开启时攻击力逐渐提升至最高+200%」→ 技能期默认按叠满计,
+// 即攻击力加成 +200%(面板 ×3);特性「通常不攻击且阻挡数为 0」→ 常态行恒为 0(同阵法术师处理,见链尾修正)。
+// 玛恩纳 S3「未照耀的荣光」描述「特性提升至2倍」→ 特性加成翻倍为 +400%(面板 ×5,用户口径 2026-09-17)。
+// 「攻击力提升至 X%」型天赋(玛恩纳「游侠」基础档、司霆惊蛰「明断」技能期档)按独立乘区(不并入同一加算池,用户口径 2026-09-17);
+// 攻速/间隔改动(龙舌兰/骋风 S1 attack_speed、玛恩纳 S2 base_attack_time、司霆惊蛰 S3 +1.7s)由通用参数区处理。
+const LIBRATOR_SPECIAL = {
+  'char_1043_leizi2': [0, 1, 2], // 司霆惊蛰:S1 浩气长存(三方向斩击) / S2 正霆摄威(叠层) / S3 天地通明(电流)
+  'char_4064_mlynar': [0, 1, 2], // 玛恩纳:S1 未声张的怒火 / S2 未宽解的悲哀(二连击) / S3 未照耀的荣光(特性 ×2、光环真伤)
+  'char_445_wscoot': [0, 1],     // 骋风:天赋「藏锋伺敌」追加一次攻击默认生效(特性叠满时)
+  'char_486_takila': [0, 1]      // 龙舌兰:S2「剑走偏锋」默认按蓄力档(同时 3 名、持续 30s)
+};
+
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
 function swordTalentAtkScale(op, slotData, skillIndex) {
   if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 1;
@@ -2109,6 +2122,8 @@ const BAT_ADD_OVERRIDES = {
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
   // ---- 近卫·收割者(reaper) ----
   'char_1032_excu2': { 2: true },   // 圣约送葬人 S3 圣约决裁:攻击间隔略微增大(+0.5 → 1.3+0.5=1.8s)
+  // ---- 近卫·解放者(librator) ----
+  'char_4064_mlynar': { 1: true },  // 玛恩纳 S2 未宽解的悲哀:攻击间隔延长 +0.3(1.2+0.3=1.5s)
 };
 
 // base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
@@ -2666,7 +2681,8 @@ function calculateOperator(op, slotData, ctx) {
       return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
     }
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
-    const normalDps = op.subProfessionId === 'phalanx' ? 0
+    // 解放者(librator):特性「通常不攻击且阻挡数为 0」→ 无技能态常态行记 0(用户口径 2026-09-17)
+    const normalDps = (op.subProfessionId === 'phalanx' || op.subProfessionId === 'librator') ? 0
       : (op.subProfessionId === 'lord'
         ? Math.max(calcPhysicalDamage(panelAtk * LORD_REMOTE_MUL, effDef), acdropMinDamage(op, slotData, panelAtk * LORD_REMOTE_MUL))
         : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
@@ -4058,6 +4074,121 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     } else {
       result = calcDamage(params);
     }
+  } else if (op.subProfessionId === 'librator' && LIBRATOR_SPECIAL[op.id] && LIBRATOR_SPECIAL[op.id].includes(skillIndex)) {
+    // 解放者分支(用户口径 2026-09-17):技能期默认特性叠满(+200%;玛恩纳 S3 按特性倍率 ×2 → +400%),
+    // 常态行由链尾 librator 修正统一置 0(特性「通常不攻击」)。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const Aa = (a) => calcArtsDamage(a, state.enemy.res);
+    const traitBonus = (op.id === 'char_4064_mlynar' && skillIndex === 2) ? 4.0 : 2.0;   // 叠满 +200%;玛恩纳 S3 特性倍率 ×2
+    // 「攻击力提升至 X%」型天赋:游侠(E2 潜0 110%,X 模组 L3 120%)、明断技能期(E2 潜0 107%,X 模组 L3 113%)
+    // 用户口径 2026-09-17:此类天赋按独立乘区(乘在特性/技能等的攻击力加算池之外),不并入同一池
+    const scaleTal = op.id === 'char_4064_mlynar' ? (funnelTalentValue(op, slotData, 0, 'atk_scale_base') || 1)
+      : (op.id === 'char_1043_leizi2' ? (funnelTalentValue(op, slotData, 0, 'atk_scale[skill_up]') || 1) : 1);
+    const atkT = panelAtk * (1 + traitBonus) * scaleTal;
+    // 明断落雷等效(用户口径):攻击范围内地块每秒 10% 概率 × 100% 攻击力法术 → 等效每秒 0.1 × 原伤害
+    // (基础等价量按技能期基础攻击力计;S2 正霆摄威期间改为按秒实时结算、该秒取当时已叠层数,见 S2 分支;
+    //  常态行恒为 0,不计落雷)
+    const lightScale = op.id === 'char_1043_leizi2' ? (funnelTalentValue(op, slotData, 0, 'atk_scale_t') || 0) : 0;
+    const lightDps = lightScale > 0 ? 0.1 * Aa(atkT * lightScale) : 0;
+    // 追责(司霆惊蛰第二天赋):开启技能时全地面地块落雷,对范围内敌人造成 100% 攻击力法术伤害 → 每次开技能 1 击
+    const zhuizeTot = op.id === 'char_1043_leizi2' ? Aa(atkT * (funnelTalentValue(op, slotData, 1, 'atk_scale_t2') || 0)) : 0;
+    const nHitsOf = (dur) => (dur > 0 && sIvl > 0) ? Math.max(1, Math.floor(dur / sIvl + 1e-9)) : 1;
+    const mkL = (parts, winSec, panel) => {
+      const phys = parts.phys || 0, arts = parts.arts || 0, tru = parts.true || 0;
+      const tot = phys + arts + tru;
+      const dt = {};
+      if (phys > 0) dt.physical = { skillDps: winSec > 0 ? phys / winSec : 0, skillTotalDamage: phys, cycleDps: null };
+      if (arts > 0) dt.arts = { skillDps: winSec > 0 ? arts / winSec : 0, skillTotalDamage: arts, cycleDps: null };
+      if (tru > 0) dt.true = { skillDps: winSec > 0 ? tru / winSec : 0, skillTotalDamage: tru, cycleDps: null };
+      return { type: 'damage', damageType: phys > 0 ? 'physical' : (arts > 0 ? 'arts' : 'true'), isToggle: false, isPermanent: false, skillDps: winSec > 0 ? tot / winSec : 0, skillTotalDamage: tot, cycleDps: null, normalDps: 0, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || atkT, dmgTypes: dt };
+    };
+    if (op.id === 'char_1043_leizi2') {
+      const n = nHitsOf(skillDuration);
+      if (skillIndex === 0) {
+        // S1 浩气长存:朝左/前/右各斩一次,对三个方向地面敌人各造成 315%(专一)物理(单目标只算命中它的 1 次);
+        // 「可充能 3 次」不计;数据 skillDuration = -1,属触发型 → 只给总伤 + 循环 DPS(同陈 S3 口径,按自动回复 spCost 结算)
+        const a = atkT * (levelData['attack@atk_scale_s1'] || 1);
+        const phys = Pp(a), arts = zhuizeTot;
+        const cd = (phys + arts) / (levelData.spCost || 1);
+        const dt = { physical: { skillDps: 0, skillTotalDamage: phys, cycleDps: cd } };
+        if (arts > 0) dt.arts = { skillDps: 0, skillTotalDamage: arts, cycleDps: cd };
+        return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: 0, skillTotalDamage: phys + arts, cycleDps: cd, normalDps: 0, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: a, dmgTypes: dt };
+      }
+      if (skillIndex === 1) {
+        // S2 正霆摄威:每击 130%(专一)物理,同时 3 名敌人(单目标口径 1 名);技能期间每次落雷使攻击力 +10%
+        // (最多 25 层;用户口径:默认按每次攻击增加一层,先结算再出伤 → 第 k 击含 k 层)
+        const scale = levelData['attack@atk_scale_s2'] || 1;
+        const step = levelData['thunder_atk'] || 0.1;
+        const cap = levelData['thunder_max_stack_cnt'] || 25;
+        let phys = 0;
+        for (let k = 1; k <= n; k++) phys += Pp(panelAtk * (1 + traitBonus + step * Math.min(k, cap)) * scaleTal * scale);
+        // 明断落雷按秒实时结算(用户口径 2026-09-17):第 s 秒已完成攻击次数 = floor(s / 间隔)(上限 cap),
+        // 该秒落雷伤害 = 0.1 × atk_scale_t × 叠层后的攻击力 → 取当时攻击力,叠层收益一并计入
+        let lightTot = 0;
+        const lightTicks = Math.floor(skillDuration + 1e-9);
+        for (let s = 1; s <= lightTicks; s++) {
+          const stk = Math.min(Math.floor(s / realInterval), cap);
+          lightTot += 0.1 * Aa(panelAtk * (1 + traitBonus + step * stk) * scaleTal * lightScale);
+        }
+        return mkL({ phys, arts: lightTot + zhuizeTot }, skillDuration, atkT * scale);
+      }
+      // S3 天地通明:间隔 +1.7s(通用参数区 → 2.9s),每击 260%(专一)范围物理(单目标 1 击);
+      // 电流:在目标位置生成朝四周流动的三格电流,电流所在地块敌人每 0.6s 受 60%(专一)攻击力法术伤害
+      // (用户口径 2026-09-17:电流每 0.6s 独立结算一次,与本体普攻/攻击次数无关;持续时间同技能期 →
+      //  结算次数 = floor(dur / 0.6);prob 5-15% 战栗为减益不计)
+      const scale = levelData['attack@atk_scale_s3'] || 1;
+      const curScale = levelData['attack@atk_scale_current'] || 0;
+      const curTicks = Math.floor(skillDuration / 0.6 + 1e-9);
+      const phys = Pp(atkT * scale) * n;
+      const arts = Aa(atkT * curScale) * curTicks + lightDps * skillDuration + zhuizeTot;
+      return mkL({ phys, arts }, skillDuration, atkT * scale);
+    }
+    if (op.id === 'char_4064_mlynar') {
+      const n = nHitsOf(skillDuration);
+      if (skillIndex === 0) {
+        // S1 未声张的怒火:每击 180%(专一)物理(防御力 +45% 不计输出)
+        const a = atkT * (levelData['attack@atk_scale'] || 1);
+        return mkL({ phys: Pp(a) * n }, skillDuration, a);
+      }
+      if (skillIndex === 1) {
+        // S2 未宽解的悲哀:间隔 +0.3s(见 BAT_ADD_OVERRIDES → 1.5s),每击 170%(专一)物理 × 二连击
+        const a = atkT * (levelData['attack@atk_scale'] || 1);
+        return mkL({ phys: Pp(a) * n * 2 }, skillDuration, a);
+      }
+      // S3 未照耀的荣光:特性倍率 ×2 → +400%;每击 160%(专一)物理,对 5 名目标(单目标口径 1 名);
+      // 光环:范围内敌人受到卡西米尔干员攻击时额外附带玛恩纳 11%(专一)攻击力真实伤害(玛恩纳自身即卡西米尔)
+      // 用户口径:默认不击倒任何敌人 → 特性加成不衰减(维持 +400%)
+      const a = atkT * (levelData['attack@atk_scale'] || 1);
+      const trueMul = levelData['atk_scale'] || 0;
+      return mkL({ phys: Pp(a) * n, true: atkT * trueMul * n }, skillDuration, a);
+    }
+    if (op.id === 'char_445_wscoot') {
+      // 藏锋伺敌(用户口径:默认生效):特性攻击力提升至最高时,每次攻击额外追加一次 X% 攻击力的攻击
+      // (E2 潜0 = 40%,X 模组 L3 = 52%;追加攻击单独扣防)
+      const extra = funnelTalentValue(op, slotData, 0, 'atk_scale') || 0;
+      const n = nHitsOf(skillDuration);
+      if (skillIndex === 0) {
+        // S1 以攻为守:攻击速度 +42(专一,通用参数区折算间隔),无攻击力倍率 → 每击 = 攻击力 + 追加 40%
+        return mkL({ phys: (Pp(atkT) + Pp(atkT * extra)) * n }, skillDuration, atkT);
+      }
+      // S2 招无虚发:每击 180%(专一)物理,同时 2 名敌人(单目标 1 名);备注明确追加攻击不享受技能攻击力倍率
+      const a = atkT * (levelData['attack@atk_scale'] || 1);
+      return mkL({ phys: (Pp(a) + Pp(atkT * extra)) * n }, skillDuration, a);
+    }
+    // 龙舌兰(char_486_takila)
+    if (skillIndex === 0) {
+      // S1 当机立断:攻击速度 +42(专一),每击 155%(专一)物理
+      const a = atkT * (levelData['attack@atk_scale'] || 1);
+      return mkL({ phys: Pp(a) * nHitsOf(skillDuration) }, skillDuration, a);
+    }
+    {
+      // S2 剑走偏锋(用户口径:默认蓄力):每击 210%(专一)物理,同时 3 名敌人(单目标 1 名),
+      // 持续时间取蓄力档 enhance_duration = 30s(技能标注 15s + duration_plus 15);「可主动关闭」不影响口径
+      const a = atkT * (levelData['attack@atk_scale'] || 1);
+      const durC = levelData.enhance_duration > 0 ? levelData.enhance_duration : skillDuration;
+      return mkL({ phys: Pp(a) * nHitsOf(durC) }, durC, a);
+    }
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
     const Pp = (a) => calcPhysicalDamage(a, effDef);
@@ -4297,6 +4428,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
 
   // 阵法术师(phalanx):特性「通常时不攻击」→ 常态行恒为 0(技能期照常计算)
   if (op.subProfessionId === 'phalanx') result = { ...result, normalDps: 0, normalHps: null, normalDamageType: op.damageType };
+
+  // 解放者(librator):特性「通常不攻击且阻挡数为 0」→ 常态行恒为 0(用户口径 2026-09-17:常态 DPS 记 0)
+  if (op.subProfessionId === 'librator') result = { ...result, normalDps: 0, normalHps: null, normalDamageType: op.damageType };
 
   // 阵法术师技能改造③:DoT(圣聆初雪 S2 积雪每秒法伤)与技能结束收尾爆发(薄绿 S2)
   if (op.subProfessionId === 'phalanx' && skillIndex >= 0) {
