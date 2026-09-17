@@ -1,0 +1,543 @@
+{
+  "id": "char_131_flameb",
+  "name": "炎客",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "fearless",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        408,
+        601
+      ],
+      "def": [
+        86,
+        123
+      ],
+      "maxHp": [
+        1496,
+        2138
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        601,
+        761
+      ],
+      "def": [
+        123,
+        161
+      ],
+      "maxHp": [
+        2138,
+        2930
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        761,
+        918
+      ],
+      "def": [
+        161,
+        195
+      ],
+      "maxHp": [
+        2930,
+        3907
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 0,
+    "maxHp": 400
+  },
+  "skills": [
+    {
+      "skillId": "skchr_flameb_1",
+      "name": "歃血",
+      "levels": [
+        {
+          "atk_scale": 1.55,
+          "hp_ratio": 0.05,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "hp_ratio": 0.05,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "hp_ratio": 0.05,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "hp_ratio": 0.06,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "hp_ratio": 0.06,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "hp_ratio": 0.06,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "hp_ratio": 0.07,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "hp_ratio": 0.07,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "hp_ratio": 0.07,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "hp_ratio": 0.08,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_flameb_2",
+      "name": "刃鬼",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack_speed": 30,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack_speed": 30,
+          "level": 1,
+          "spCost": 58,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack_speed": 30,
+          "level": 2,
+          "spCost": 56,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 30,
+          "level": 3,
+          "spCost": 54,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 30,
+          "level": 4,
+          "spCost": 52,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 30,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 30,
+          "level": 6,
+          "spCost": 48,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 35,
+          "level": 7,
+          "spCost": 46,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 40,
+          "level": 8,
+          "spCost": 44,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 45,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "血戮",
+          "description": "每击杀一名敌人后自身的生命上限提高20，最多可以叠加30次",
+          "blackboard": {
+            "max_hp": 20,
+            "max_stack_cnt": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "血戮",
+          "description": "每击杀一名敌人后自身的生命上限提高30<@ba.talpu>（+10）</>，最多可以叠加30次",
+          "blackboard": {
+            "max_hp": 30,
+            "max_stack_cnt": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "血戮",
+          "description": "每击杀一名敌人后自身的生命上限提高40，最多可以叠加30次",
+          "blackboard": {
+            "max_hp": 40,
+            "max_stack_cnt": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "血戮",
+          "description": "每击杀一名敌人后自身的生命上限提高50<@ba.talpu>（+10）</>，最多可以叠加30次",
+          "blackboard": {
+            "max_hp": 50,
+            "max_stack_cnt": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_flameb",
+      "name": "炎客证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_flameb",
+      "name": "锈损的断刀",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "attack_speed": 4
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 370,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "血戮",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 60,
+                "max_stack_cnt": 30
+              }
+            },
+            {
+              "name": "血戮",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 70,
+                "max_stack_cnt": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 430,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "血戮",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 70,
+                "max_stack_cnt": 30
+              }
+            },
+            {
+              "name": "血戮",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 80,
+                "max_stack_cnt": 30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

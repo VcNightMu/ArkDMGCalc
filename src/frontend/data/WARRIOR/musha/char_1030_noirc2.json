@@ -1,0 +1,610 @@
+{
+  "id": "char_1030_noirc2",
+  "name": "火龙S黑角",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "musha",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        324,
+        463
+      ],
+      "def": [
+        169,
+        232
+      ],
+      "maxHp": [
+        1442,
+        2004
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        463,
+        602
+      ],
+      "def": [
+        232,
+        298
+      ],
+      "maxHp": [
+        2004,
+        2638
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        602,
+        726
+      ],
+      "def": [
+        298,
+        351
+      ],
+      "maxHp": [
+        2638,
+        3518
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_noirc2_1",
+      "name": "居合拔刀气刃斩",
+      "levels": [
+        {
+          "multi_atk_scale": 0.6,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.7,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.8,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 2,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 0.9,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 3,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 4,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.1,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 5,
+          "spCost": 13,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.2,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.3,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 7,
+          "spCost": 10,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.4,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 8,
+          "spCost": 10,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.5,
+          "multi_times": 4,
+          "multi_hit_interval": 0.2,
+          "nadao_duration": 5.6,
+          "nadaodonghua_duration": 0.4,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 6,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_noirc2_2",
+      "name": "气刃兜割",
+      "levels": [
+        {
+          "multi_atk_scale": 0.9,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.1,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.2,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.3,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.4,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.5,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.6,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 7,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.7,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 8,
+          "spCost": 23,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "multi_atk_scale": 1.8,
+          "multi_times": 7,
+          "cnt": 2,
+          "level": 9,
+          "spCost": 22,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 1.4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "坚韧",
+          "description": "在场时，自身获得最高+30攻击速度和最高+30%防御力的<$ba.berserk>坚忍</>（损失50%生命值时达到最大加成）",
+          "blackboard": {
+            "min_attack_speed": 30,
+            "min_hp_ratio": 0.5,
+            "min_def": 0.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "坚韧",
+          "description": "在场时，自身获得最高+40攻击速度和最高+40%防御力的<$ba.berserk>坚忍</>（损失60%生命值时达到最大加成）",
+          "blackboard": {
+            "min_attack_speed": 40,
+            "min_hp_ratio": 0.4,
+            "min_def": 0.4
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "坚韧",
+          "description": "在场时，自身获得最高+50攻击速度和最高+50%防御力的<$ba.berserk>坚忍</>（损失70%生命值时达到最大加成）",
+          "blackboard": {
+            "min_attack_speed": 50,
+            "min_hp_ratio": 0.3,
+            "min_def": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "练气",
+          "description": "非技能期间，连续攻击5次后自身获得攻击力+3%（最多3层）",
+          "blackboard": {
+            "atk": 0.03,
+            "hit_num": 5,
+            "attack@clear_attackcount_time": 1.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "练气",
+          "description": "非技能期间，连续攻击5次后自身获得攻击力+5%（最多3层）",
+          "blackboard": {
+            "atk": 0.05,
+            "hit_num": 5,
+            "attack@clear_attackcount_time": 1.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "练气",
+          "description": "非技能期间，连续攻击5次后自身获得攻击力+7%（最多3层）",
+          "blackboard": {
+            "atk": 0.07,
+            "hit_num": 5,
+            "attack@clear_attackcount_time": 1.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不成为其他角色的治疗目标，每次攻击到敌人后回复自身{value}生命（精英1后更新）",
+    "blackboard": {
+      "value": 30
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+5",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_noirc2",
+      "name": "火龙S黑角证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_noirc2",
+      "name": "黑角的随身笔记",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 24
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 32
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.25
+              }
+            },
+            {
+              "name": "练气",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.08,
+                "hit_num": 5,
+                "attack@clear_attackcount_time": 1.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 500,
+            "atk": 36
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.25
+              }
+            },
+            {
+              "name": "练气",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.09,
+                "hit_num": 5,
+                "attack@clear_attackcount_time": 1.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

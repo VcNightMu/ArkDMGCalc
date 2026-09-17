@@ -1,0 +1,1040 @@
+{
+  "id": "char_1026_gvial2",
+  "name": "百炼嘉维尔",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "centurion",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        309,
+        430
+      ],
+      "def": [
+        165,
+        236
+      ],
+      "maxHp": [
+        1325,
+        1699
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        430,
+        582
+      ],
+      "def": [
+        236,
+        320
+      ],
+      "maxHp": [
+        1699,
+        2179
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        582,
+        766
+      ],
+      "def": [
+        320,
+        391
+      ],
+      "maxHp": [
+        2179,
+        2906
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 60,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_gvial2_1",
+      "name": "精准痛击",
+      "levels": [
+        {
+          "atk": 0.3,
+          "heal_scale": 0.25,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "heal_scale": 0.25,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "heal_scale": 0.25,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "heal_scale": 0.3,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "heal_scale": 0.3,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "heal_scale": 0.3,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "heal_scale": 0.35,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "heal_scale": 0.35,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "heal_scale": 0.35,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "heal_scale": 0.4,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_gvial2_2",
+      "name": "链锯强袭",
+      "levels": [
+        {
+          "atk": 0.8,
+          "def": 0.3,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.3,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 0.3,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "def": 0.35,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 0.35,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "def": 0.35,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "def": 0.4,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "def": 0.4,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 37,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.65,
+          "def": 0.4,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "def": 0.5,
+          "block_cnt": 0,
+          "attack@force": 1,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_gvial2_3",
+      "name": "丛林之魂",
+      "levels": [
+        {
+          "atk": 0.7,
+          "attack_speed": 40,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "attack_speed": 40,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 40,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "attack_speed": 60,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack_speed": 60,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "attack_speed": 60,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack_speed": 80,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack_speed": 80,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack_speed": 80,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "attack_speed": 100,
+          "damage_resistance": 0.5,
+          "final_duration": 20,
+          "interval": 0.1,
+          "priority": 1000,
+          "block_cnt": 2,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战地巨斧",
+          "description": "攻击力和防御力提升5%，每再阻挡一个敌人提升3%",
+          "blackboard": {
+            "atk": 0.05,
+            "def": 0.05,
+            "atk_add": 0.03,
+            "def_add": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "战地巨斧",
+          "description": "攻击力和防御力提升7%<@ba.talpu>（+2%）</>，每再阻挡一个敌人提升4%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "atk": 0.07,
+            "def": 0.07,
+            "atk_add": 0.04,
+            "def_add": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战地巨斧",
+          "description": "攻击力和防御力提升10%，每再阻挡一个敌人提升4%",
+          "blackboard": {
+            "atk": 0.1,
+            "def": 0.1,
+            "atk_add": 0.04,
+            "def_add": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "战地巨斧",
+          "description": "攻击力和防御力提升12%<@ba.talpu>（+2%）</>，每再阻挡一个敌人提升5%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "atk": 0.12,
+            "def": 0.12,
+            "atk_add": 0.05,
+            "def_add": 0.05
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "医学背景",
+          "description": "受到的治疗效果提升20%，生命值低于一半时提升至40%",
+          "blackboard": {
+            "heal_scale_1": 1.2,
+            "heal_scale_2": 1.4,
+            "hp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "医学背景",
+          "description": "受到的治疗效果提升25%<@ba.talpu>（+5%）</>，生命值低于一半时提升至45%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "heal_scale_1": 1.25,
+            "heal_scale_2": 1.45,
+            "hp_ratio": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+28",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_gvial2",
+      "name": "百炼嘉维尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_gvial2",
+      "name": "嘉维尔的折磨",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 45,
+            "def": 23
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 60,
+            "def": 29
+          },
+          "talentEnhance": [
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.13,
+                "def": 0.13,
+                "atk_add": 0.04,
+                "def_add": 0.04
+              }
+            },
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk": 0.15,
+                "def": 0.15,
+                "atk_add": 0.05,
+                "def_add": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 73,
+            "def": 34
+          },
+          "talentEnhance": [
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.13,
+                "def": 0.13,
+                "atk_add": 0.05,
+                "def_add": 0.05
+              }
+            },
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk": 0.15,
+                "def": 0.15,
+                "atk_add": 0.06,
+                "def_add": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_gvial2",
+      "name": "好锯多磨",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 155,
+            "atk": 21,
+            "def": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 26,
+            "def": 63
+          },
+          "talentEnhance": [
+            {
+              "name": "医学背景",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale_1": 1.25,
+                "heal_scale_2": 1.5,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": "医学背景",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale_1": 1.3,
+                "heal_scale_2": 1.55,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 29,
+            "def": 71
+          },
+          "talentEnhance": [
+            {
+              "name": "医学背景",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "heal_scale_1": 1.3,
+                "heal_scale_2": 1.6,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": "医学背景",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "heal_scale_1": 1.35,
+                "heal_scale_2": 1.65,
+                "hp_ratio": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_gvial2",
+      "name": "百炼嘉维尔特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 46,
+            "def": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_hp": 1.5,
+                "atk": 1.5,
+                "def": 1.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 54,
+            "def": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1,
+                "def": 0.1,
+                "atk_add": 0.04,
+                "def_add": 0.04,
+                "atk_add_max": 1,
+                "def_add_max": 1
+              }
+            },
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk": 0.12,
+                "def": 0.12,
+                "atk_add": 0.05,
+                "def_add": 0.05,
+                "atk_add_max": 1,
+                "def_add_max": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "block_cnt": 2,
+                "hp_ratio": 0.05,
+                "scale": 0.02,
+                "max_scale": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 5,
+                "atk_scale": 1,
+                "force": 2,
+                "range_id": 0
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_hp": 1.5,
+                "atk": 1.5,
+                "def": 1.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 62,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1,
+                "def": 0.1,
+                "atk_add": 0.04,
+                "def_add": 0.04,
+                "atk_add_max": 1,
+                "def_add_max": 1
+              }
+            },
+            {
+              "name": "战地巨斧",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk": 0.12,
+                "def": 0.12,
+                "atk_add": 0.05,
+                "def_add": 0.05,
+                "atk_add_max": 1,
+                "def_add_max": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "block_cnt": 3,
+                "hp_ratio": 0.1,
+                "scale": 0.03,
+                "max_scale": 3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 5,
+                "atk_scale": 1,
+                "force": 2,
+                "range_id": 0
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "max_hp": 1.5,
+                "atk": 1.5,
+                "def": 1.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

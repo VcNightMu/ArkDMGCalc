@@ -37,6 +37,7 @@ const IDS = [
   'char_4117_ray', 'char_4104_coldst', 'char_4211_snhunt',  // 猎手
   'char_4138_narant', 'char_4177_brigid', 'char_4100_caper',  // 回环射手
   'char_4213_skybx', 'char_4218_aigis',  // 裂空炮手
+  'char_283_midn', 'char_193_frostl', 'char_271_spikes', 'char_4067_lolxh', 'char_140_whitew', 'char_294_ayer', 'char_194_leto', 'char_172_svrash', 'char_293_thorns', 'char_4082_qiubai', 'char_4182_oblvns',  // 近卫·领主
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

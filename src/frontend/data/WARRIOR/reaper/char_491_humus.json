@@ -1,0 +1,572 @@
+{
+  "id": "char_491_humus",
+  "name": "休谟斯",
+  "rarity": "TIER_4",
+  "profession": "WARRIOR",
+  "subProfessionId": "reaper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        275,
+        393
+      ],
+      "def": [
+        194,
+        266
+      ],
+      "maxHp": [
+        882,
+        1225
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        393,
+        511
+      ],
+      "def": [
+        266,
+        342
+      ],
+      "maxHp": [
+        1225,
+        1612
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        511,
+        616
+      ],
+      "def": [
+        342,
+        403
+      ],
+      "maxHp": [
+        1612,
+        2150
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_humus_1",
+      "name": "固废切割",
+      "levels": [
+        {
+          "atk_scale": 1.6,
+          "value": 50,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "value": 50,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "value": 50,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "value": 60,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "value": 60,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "value": 60,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "value": 80,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "value": 80,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "value": 80,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "value": 80,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_humus_2",
+      "name": "高效处理",
+      "levels": [
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.15,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.3,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.18,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.36,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.21,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.42,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.25,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.5,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.28,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.56,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.32,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.64,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.36,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.72,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.39,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.78,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.42,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.84,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "humus_s_2[peak_1].peak_performance.atk": 0.45,
+          "humus_s_2[peak_1].peak_performance.hp_ratio": 0.5,
+          "humus_s_2[peak_2].peak_performance.atk": 0.9,
+          "humus_s_2[peak_2].peak_performance.hp_ratio": 0.8,
+          "block_cnt": 1,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "再回收",
+          "description": "超出自身生命上限的生命值可转化为<$ba.barrier>屏障</>；最多不超过自身最大生命值的60%",
+          "blackboard": {
+            "max_hp_ratio": 0.6,
+            "def": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "再回收",
+          "description": "超出自身生命上限的生命值可转化为<$ba.barrier>屏障</>；最多不超过自身最大生命值的64%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "max_hp_ratio": 0.64,
+            "def": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "再回收",
+          "description": "超出自身生命上限的生命值可转化为<$ba.barrier>屏障</>；最多不超过自身最大生命值的100%",
+          "blackboard": {
+            "max_hp_ratio": 1,
+            "def": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "再回收",
+          "description": "超出自身生命上限的生命值可转化为<$ba.barrier>屏障</>；最多不超过自身最大生命值的104%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "max_hp_ratio": 1.04,
+            "def": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "无法被友方角色治疗，攻击造成群体伤害，每攻击到一个敌人回复自身{value}生命，最大生效数等于阻挡数",
+    "blackboard": {
+      "value": 50
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_humus",
+      "name": "休谟斯证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_humus",
+      "name": "恶地奇异工具套组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 10,
+            "def": 14
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 15,
+            "def": 22
+          },
+          "talentEnhance": [
+            {
+              "name": "再回收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp_ratio": 1,
+                "def": 0.05
+              }
+            },
+            {
+              "name": "再回收",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp_ratio": 1.04,
+                "def": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 20,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "再回收",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp_ratio": 1,
+                "def": 0.08
+              }
+            },
+            {
+              "name": "再回收",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp_ratio": 1.04,
+                "def": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

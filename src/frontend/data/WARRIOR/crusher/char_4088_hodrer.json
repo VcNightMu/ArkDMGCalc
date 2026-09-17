@@ -1,0 +1,829 @@
+{
+  "id": "char_4088_hodrer",
+  "name": "赫德雷",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "crusher",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        742,
+        1031
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2626,
+        3549
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        1031,
+        1323
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        3549,
+        4670
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1323,
+        1576
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        4670,
+        5988
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hodrer_1",
+      "name": "重锋不熄",
+      "levels": [
+        {
+          "atk_scale": 1.6,
+          "hp_ratio": 0.1,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "hp_ratio": 0.1,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "hp_ratio": 0.1,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "hp_ratio": 0.15,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "hp_ratio": 0.15,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "hp_ratio": 0.15,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "hp_ratio": 0.2,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "hp_ratio": 0.2,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "hp_ratio": 0.2,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "hp_ratio": 0.25,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hodrer_2",
+      "name": "余烬重荷",
+      "levels": [
+        {
+          "atk": 0.04,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.08,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.12,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.24,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 7,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "base_attack_time": 0.5,
+          "block_cnt": 1,
+          "attack@stun": 1,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hodrer_3",
+      "name": "死境硝烟",
+      "levels": [
+        {
+          "max_hp": 0.15,
+          "atk": 0.3,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 2,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.15,
+          "atk": 0.4,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 2,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 1,
+          "spCost": 77,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.15,
+          "atk": 0.5,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 2,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 2,
+          "spCost": 74,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.3,
+          "atk": 0.6,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 3,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 3,
+          "spCost": 70,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.3,
+          "atk": 0.7,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 3,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 4,
+          "spCost": 67,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.3,
+          "atk": 0.8,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 3,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 5,
+          "spCost": 64,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "atk": 0.9,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 4,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "atk": 1,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 4,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 7,
+          "spCost": 57,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.45,
+          "atk": 1.1,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 4,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 8,
+          "spCost": 54,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "atk": 1.2,
+          "attack@hp_ratio": 0.05,
+          "attack@buff_prob": 0.25,
+          "attack@stun": 5,
+          "ability_range_forward_extend": 1,
+          "attack@value": 100,
+          "attack@damage": 200,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 70,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "及锋而试",
+          "description": "攻击敌人时攻击力提升至105%，若目标处于<$ba.stun>晕眩</>、<$ba.root>束缚</>则改为提升至125%",
+          "blackboard": {
+            "atk_scale": 1.25,
+            "atk_scale_2": 1.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "及锋而试",
+          "description": "攻击敌人时攻击力提升至110%，若目标处于<$ba.stun>晕眩</>、<$ba.root>束缚</>则改为提升至140%",
+          "blackboard": {
+            "atk_scale": 1.4,
+            "atk_scale_2": 1.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "余火之氅",
+          "description": "使自身与身后一格的友军获得18%的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "余火之氅",
+          "description": "使自身与身后一格的友军获得21%<@ba.talpu>（+3%）</>的<$ba.protect>庇护</>",
+          "blackboard": {
+            "damage_resistance": 0.21
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "生命上限+250",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "description": "攻击力+45",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 45
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_hodrer",
+      "name": "赫德雷证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_hodrer",
+      "name": "新的生活",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 290,
+            "atk": 92
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 380,
+            "atk": 112
+          },
+          "talentEnhance": [
+            {
+              "name": "余火之氅",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.24,
+                "damage_scale": 1.06
+              }
+            },
+            {
+              "name": "余火之氅",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.27,
+                "damage_scale": 1.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 450,
+            "atk": 130
+          },
+          "talentEnhance": [
+            {
+              "name": "余火之氅",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.28,
+                "damage_scale": 1.1
+              }
+            },
+            {
+              "name": "余火之氅",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.31,
+                "damage_scale": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_hodrer",
+      "name": "笔迹",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 110
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 140
+          },
+          "talentEnhance": [
+            {
+              "name": "及锋而试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.5,
+                "atk_scale_2": 1.2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 1.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 400,
+            "atk": 160
+          },
+          "talentEnhance": [
+            {
+              "name": "及锋而试",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.6,
+                "atk_scale_2": 1.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "stun": 2.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

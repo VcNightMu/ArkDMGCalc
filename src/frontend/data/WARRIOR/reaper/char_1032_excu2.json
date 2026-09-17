@@ -1,0 +1,872 @@
+{
+  "id": "char_1032_excu2",
+  "name": "圣约送葬人",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "reaper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        298,
+        439
+      ],
+      "def": [
+        224,
+        308
+      ],
+      "maxHp": [
+        1076,
+        1475
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        439,
+        586
+      ],
+      "def": [
+        308,
+        396
+      ],
+      "maxHp": [
+        1475,
+        1967
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        586,
+        707
+      ],
+      "def": [
+        396,
+        461
+      ],
+      "maxHp": [
+        1967,
+        2491
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_excu2_1",
+      "name": "遗嘱执行",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def_penetrate_fixed": 100,
+          "attack@trigger_time": 8,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def_penetrate_fixed": 130,
+          "attack@trigger_time": 8,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "def_penetrate_fixed": 160,
+          "attack@trigger_time": 8,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def_penetrate_fixed": 190,
+          "attack@trigger_time": 8,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def_penetrate_fixed": 220,
+          "attack@trigger_time": 8,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def_penetrate_fixed": 250,
+          "attack@trigger_time": 8,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def_penetrate_fixed": 280,
+          "attack@trigger_time": 8,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def_penetrate_fixed": 320,
+          "attack@trigger_time": 8,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def_penetrate_fixed": 360,
+          "attack@trigger_time": 8,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def_penetrate_fixed": 400,
+          "attack@trigger_time": 8,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_excu2_2",
+      "name": "近身铳斗",
+      "levels": [
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "block_cnt": 1,
+          "prob": 0.1,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "block_cnt": 1,
+          "prob": 0.1,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "block_cnt": 1,
+          "prob": 0.1,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 2,
+          "spCost": 15,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "block_cnt": 1,
+          "prob": 0.2,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 3,
+          "spCost": 15,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "block_cnt": 1,
+          "prob": 0.2,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 4,
+          "spCost": 15,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.55,
+          "block_cnt": 1,
+          "prob": 0.2,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "block_cnt": 1,
+          "prob": 0.3,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 6,
+          "spCost": 15,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "block_cnt": 1,
+          "prob": 0.3,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 7,
+          "spCost": 14,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.75,
+          "block_cnt": 1,
+          "prob": 0.3,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 8,
+          "spCost": 13,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "block_cnt": 1,
+          "prob": 0.4,
+          "recover_cnt": 1,
+          "attack@trigger_time": 12,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_excu2_3",
+      "name": "圣约决裁",
+      "levels": [
+        {
+          "atk": 0.9,
+          "attack@atk": 0.03,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 0,
+          "spCost": 36,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@atk": 0.03,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack@atk": 0.03,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 2,
+          "spCost": 34,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack@atk": 0.04,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 3,
+          "spCost": 33,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "attack@atk": 0.04,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "attack@atk": 0.04,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 5,
+          "spCost": 31,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "attack@atk": 0.05,
+          "trait_ratio": 2,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "attack@atk": 0.05,
+          "trait_ratio": 3,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "attack@atk": 0.05,
+          "trait_ratio": 3,
+          "attack@final_atk_scale": 2,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "attack@atk": 0.06,
+          "trait_ratio": 3,
+          "attack@final_atk_scale": 2.5,
+          "base_attack_time": 0.5,
+          "attack@trigger_time": 16,
+          "attack@max_stack_cnt": 30,
+          "level": 9,
+          "spCost": 24,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "受选之人",
+          "description": "攻击时有10%几率额外攻击一次，技能期间每消耗1颗弹药这个几率提升3%，技能结束时重置",
+          "blackboard": {
+            "prob": 0.1,
+            "prob_add": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "受选之人",
+          "description": "攻击时有13%<@ba.talpu>（+3%）</>几率额外攻击一次，技能期间每消耗1颗弹药这个几率提升3%，技能结束时重置",
+          "blackboard": {
+            "prob": 0.13,
+            "prob_add": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "受选之人",
+          "description": "攻击时有20%几率额外攻击一次，技能期间每消耗1颗弹药这个几率提升5%，技能结束时重置",
+          "blackboard": {
+            "prob": 0.2,
+            "prob_add": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "受选之人",
+          "description": "攻击时有23%<@ba.talpu>（+3%）</>几率额外攻击一次，技能期间每消耗1颗弹药这个几率提升5%，技能结束时重置",
+          "blackboard": {
+            "prob": 0.23,
+            "prob_add": 0.05
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "铳弹共感",
+          "description": "每有一个【拉特兰】干员在场，自身的弹药类技能弹药上限+1（最多4层）",
+          "blackboard": {
+            "add_count": 1,
+            "add_count_max_stack": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "无法被友方角色治疗，攻击造成群体伤害，每攻击到一个敌人回复自身{value}生命，最大生效数等于阻挡数",
+    "blackboard": {
+      "value": 50
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "防御力+22",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 22
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_excu2",
+      "name": "圣约送葬人证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_excu2",
+      "name": "待解答",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 24,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 32,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "受选之人",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "prob_add": 0.05,
+                "def_penetrate_fixed": 150
+              }
+            },
+            {
+              "name": "受选之人",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.33,
+                "prob_add": 0.05,
+                "def_penetrate_fixed": 150
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 40,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "受选之人",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.35,
+                "prob_add": 0.05,
+                "def_penetrate_fixed": 300
+              }
+            },
+            {
+              "name": "受选之人",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.38,
+                "prob_add": 0.05,
+                "def_penetrate_fixed": 300
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_excu2",
+      "name": "已知悉",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 12,
+                "trigger_cnt[equip]": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 12,
+                "trigger_cnt[equip]": 2
+              }
+            },
+            {
+              "name": "铳弹共感",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "add_count": 1,
+                "add_count_max_stack": 4,
+                "atk": 0.08,
+                "prob": 0.2,
+                "ratio": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 12,
+                "trigger_cnt[equip]": 2
+              }
+            },
+            {
+              "name": "铳弹共感",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "add_count": 1,
+                "add_count_max_stack": 4,
+                "atk": 0.12,
+                "prob": 0.3,
+                "ratio": 0.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

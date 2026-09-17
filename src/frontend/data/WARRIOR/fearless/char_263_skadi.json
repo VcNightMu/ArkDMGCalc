@@ -1,0 +1,761 @@
+{
+  "id": "char_263_skadi",
+  "name": "斯卡蒂",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "fearless",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        452,
+        665
+      ],
+      "def": [
+        116,
+        167
+      ],
+      "maxHp": [
+        1521,
+        2174
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        665,
+        842
+      ],
+      "def": [
+        167,
+        220
+      ],
+      "maxHp": [
+        2174,
+        2938
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        842,
+        1015
+      ],
+      "def": [
+        220,
+        263
+      ],
+      "maxHp": [
+        2938,
+        3866
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_quickattack[3]",
+      "name": "迅捷打击·γ型",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 20,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.24,
+          "attack_speed": 20,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.27,
+          "attack_speed": 25,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 25,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.31,
+          "attack_speed": 25,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "attack_speed": 35,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.37,
+          "attack_speed": 35,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 35,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_skadi_2",
+      "name": "跃浪击",
+      "levels": [
+        {
+          "atk": 0.8,
+          "duration": 15,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "duration": 16,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "duration": 17,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "duration": 20,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.05,
+          "duration": 21,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "duration": 22,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "duration": 25,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "duration": 27,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "duration": 28,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "duration": 30,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_skadi_3",
+      "name": "涌潮悲歌",
+      "levels": [
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "max_hp": 0.7,
+          "level": 0,
+          "spCost": 90,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "def": 0.75,
+          "max_hp": 0.75,
+          "level": 1,
+          "spCost": 90,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "max_hp": 0.8,
+          "level": 2,
+          "spCost": 90,
+          "initialSp": 50,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.85,
+          "def": 0.85,
+          "max_hp": 0.85,
+          "level": 3,
+          "spCost": 90,
+          "initialSp": 55,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.9,
+          "max_hp": 0.9,
+          "level": 4,
+          "spCost": 90,
+          "initialSp": 55,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.95,
+          "def": 0.95,
+          "max_hp": 0.95,
+          "level": 5,
+          "spCost": 90,
+          "initialSp": 55,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 1,
+          "max_hp": 1,
+          "level": 6,
+          "spCost": 90,
+          "initialSp": 60,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 41,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "def": 1.1,
+          "max_hp": 1.1,
+          "level": 7,
+          "spCost": 90,
+          "initialSp": 63,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 44,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "def": 1.2,
+          "max_hp": 1.2,
+          "level": 8,
+          "spCost": 90,
+          "initialSp": 66,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 47,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "def": 1.3,
+          "max_hp": 1.3,
+          "level": 9,
+          "spCost": 90,
+          "initialSp": 70,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 50,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深海掠食者",
+          "description": "编入队伍时，所有【深海猎人】干员的攻击力+7%",
+          "blackboard": {
+            "atk": 0.07
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "深海掠食者",
+          "description": "编入队伍时，所有【深海猎人】干员的攻击力+9%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "深海掠食者",
+          "description": "编入队伍时，所有【深海猎人】干员的攻击力+14%",
+          "blackboard": {
+            "atk": 0.14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "深海掠食者",
+          "description": "编入队伍时，所有【深海猎人】干员的攻击力+16%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.16
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "迅捷出击",
+          "description": "自身再部署时间-10秒",
+          "blackboard": {
+            "respawn_time": -10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_skadi",
+      "name": "斯卡蒂证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_skadi",
+      "name": "往日残梦",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 70
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 90
+          },
+          "talentEnhance": [
+            {
+              "name": "迅捷出击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -20
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 105
+          },
+          "talentEnhance": [
+            {
+              "name": "迅捷出击",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -30
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_skadi",
+      "name": "潮湿的剑袋",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 400,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "深海掠食者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.18,
+                "max_hp": 0.1
+              }
+            },
+            {
+              "name": "深海掠食者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.2,
+                "max_hp": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 450,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "深海掠食者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.22,
+                "max_hp": 0.2
+              }
+            },
+            {
+              "name": "深海掠食者",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.24,
+                "max_hp": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 30,
+                "max_hp": 0.4,
+                "hp_ratio": 1,
+                "value": 0.6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

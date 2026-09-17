@@ -1,0 +1,817 @@
+{
+  "id": "char_4182_oblvns",
+  "name": "丰川祥子",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "lord",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        302,
+        451
+      ],
+      "def": [
+        202,
+        278
+      ],
+      "maxHp": [
+        863,
+        1234
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        451,
+        587
+      ],
+      "def": [
+        278,
+        352
+      ],
+      "maxHp": [
+        1234,
+        1624
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        587,
+        725
+      ],
+      "def": [
+        352,
+        425
+      ],
+      "maxHp": [
+        1624,
+        2056
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_oblvns_1",
+      "name": "新月的苏醒",
+      "levels": [
+        {
+          "atk_scale": 0.5,
+          "atk_scale_2": 0.46,
+          "atk_scale_3": 0.38,
+          "atk_scale_4": 0.29,
+          "atk_scale_5": 0.21,
+          "atk_scale_6": 0.17,
+          "atk_scale_7": 0.08,
+          "atk_scale_8": 0.03,
+          "angle": 15,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.55,
+          "atk_scale_2": 0.5,
+          "atk_scale_3": 0.42,
+          "atk_scale_4": 0.32,
+          "atk_scale_5": 0.23,
+          "atk_scale_6": 0.19,
+          "atk_scale_7": 0.09,
+          "atk_scale_8": 0.03,
+          "angle": 15,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.6,
+          "atk_scale_2": 0.55,
+          "atk_scale_3": 0.45,
+          "atk_scale_4": 0.35,
+          "atk_scale_5": 0.25,
+          "atk_scale_6": 0.2,
+          "atk_scale_7": 0.1,
+          "atk_scale_8": 0.03,
+          "angle": 15,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.65,
+          "atk_scale_2": 0.6,
+          "atk_scale_3": 0.49,
+          "atk_scale_4": 0.38,
+          "atk_scale_5": 0.27,
+          "atk_scale_6": 0.22,
+          "atk_scale_7": 0.11,
+          "atk_scale_8": 0.04,
+          "angle": 15,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.7,
+          "atk_scale_2": 0.64,
+          "atk_scale_3": 0.53,
+          "atk_scale_4": 0.41,
+          "atk_scale_5": 0.29,
+          "atk_scale_6": 0.24,
+          "atk_scale_7": 0.12,
+          "atk_scale_8": 0.04,
+          "angle": 15,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.75,
+          "atk_scale_2": 0.69,
+          "atk_scale_3": 0.57,
+          "atk_scale_4": 0.44,
+          "atk_scale_5": 0.31,
+          "atk_scale_6": 0.25,
+          "atk_scale_7": 0.12,
+          "atk_scale_8": 0.04,
+          "angle": 15,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.8,
+          "atk_scale_2": 0.73,
+          "atk_scale_3": 0.6,
+          "atk_scale_4": 0.47,
+          "atk_scale_5": 0.33,
+          "atk_scale_6": 0.27,
+          "atk_scale_7": 0.13,
+          "atk_scale_8": 0.04,
+          "angle": 15,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.85,
+          "atk_scale_2": 0.78,
+          "atk_scale_3": 0.64,
+          "atk_scale_4": 0.5,
+          "atk_scale_5": 0.35,
+          "atk_scale_6": 0.29,
+          "atk_scale_7": 0.14,
+          "atk_scale_8": 0.05,
+          "angle": 15,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 0.9,
+          "atk_scale_2": 0.83,
+          "atk_scale_3": 0.68,
+          "atk_scale_4": 0.53,
+          "atk_scale_5": 0.38,
+          "atk_scale_6": 0.3,
+          "atk_scale_7": 0.15,
+          "atk_scale_8": 0.05,
+          "angle": 15,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1,
+          "atk_scale_2": 0.92,
+          "atk_scale_3": 0.75,
+          "atk_scale_4": 0.58,
+          "atk_scale_5": 0.42,
+          "atk_scale_6": 0.33,
+          "atk_scale_7": 0.17,
+          "atk_scale_8": 0.05,
+          "angle": 15,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_oblvns_2",
+      "name": "满月的舞会",
+      "levels": [
+        {
+          "attack@attack_speed": 60,
+          "attack@atk": 0.4,
+          "attack@passby_delay": 0.5,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 65,
+          "attack@atk": 0.45,
+          "attack@passby_delay": 0.5,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 70,
+          "attack@atk": 0.5,
+          "attack@passby_delay": 0.5,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 80,
+          "attack@atk": 0.6,
+          "attack@passby_delay": 0.5,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 90,
+          "attack@atk": 0.65,
+          "attack@passby_delay": 0.5,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 100,
+          "attack@atk": 0.7,
+          "attack@passby_delay": 0.5,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 110,
+          "attack@atk": 0.75,
+          "attack@passby_delay": 0.5,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 120,
+          "attack@atk": 0.8,
+          "attack@passby_delay": 0.5,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 130,
+          "attack@atk": 0.95,
+          "attack@passby_delay": 0.5,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 140,
+          "attack@atk": 1.1,
+          "attack@passby_delay": 0.5,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_oblvns_3",
+      "name": "残月的余响",
+      "levels": [
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.4,
+          "level": 0,
+          "spCost": 48,
+          "initialSp": 28,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.45,
+          "level": 1,
+          "spCost": 48,
+          "initialSp": 28,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.5,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 28,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.55,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 28,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.6,
+          "level": 4,
+          "spCost": 47,
+          "initialSp": 29,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.7,
+          "level": 5,
+          "spCost": 47,
+          "initialSp": 29,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.8,
+          "level": 6,
+          "spCost": 46,
+          "initialSp": 30,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 1.9,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 31,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 2.05,
+          "level": 8,
+          "spCost": 44,
+          "initialSp": 32,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@attack_speed": 0,
+          "attack@atk_scale": 2.2,
+          "level": 9,
+          "spCost": 42,
+          "initialSp": 34,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "颂乐音符",
+          "description": "丰川祥子可以<$ba.permanentatk>持续攻击</>且攻击会演奏追踪敌人的音符，音符飘出攻击范围一段时间后消失",
+          "blackboard": {
+            "delay": 1,
+            "def_penetrate_ratio": 0,
+            "magic_resist_penetrate_ratio": 0,
+            "attack@angle": 20,
+            "max_cnt": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "颂乐音符",
+          "description": "丰川祥子可以<$ba.permanentatk>持续攻击</>且攻击会演奏追踪敌人的音符，音符飘出攻击范围一段时间后消失。每存在一个音符，<$ba.mujica>Ave Mujica</>成员无视敌人2.5%的防御力和1.5%法术抗性（最多叠加至10层）",
+          "blackboard": {
+            "delay": 1,
+            "def_penetrate_ratio": 0.025,
+            "magic_resist_penetrate_ratio": 0.015,
+            "attack@angle": 20,
+            "max_cnt": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "颂乐音符",
+          "description": "丰川祥子可以<$ba.permanentatk>持续攻击</>且攻击会演奏追踪敌人的音符，音符飘出攻击范围一段时间后消失。每存在一个音符，<$ba.mujica>Ave Mujica</>成员无视敌人3%的防御力和2%法术抗性（最多叠加至10层）",
+          "blackboard": {
+            "delay": 1,
+            "def_penetrate_ratio": 0.03,
+            "magic_resist_penetrate_ratio": 0.02,
+            "attack@angle": 20,
+            "max_cnt": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏遗忘",
+          "description": "对敌人造成伤害时使<$ba.fever>Fever</>+1",
+          "blackboard": {
+            "enable": 0,
+            "attack_speed": 0,
+            "cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏遗忘",
+          "description": "对敌人造成伤害时使<$ba.fever>Fever</>+2；其他<$ba.mujica>Ave Mujica</>成员的攻击范围若与自身原本攻击范围重合，则将其视作攻击范围的延伸；攻击范围内干员攻击速度+5",
+          "blackboard": {
+            "enable": 1,
+            "attack_speed": 5,
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "毋畏遗忘",
+          "description": "对敌人造成伤害时使<$ba.fever>Fever</>+2；其他<$ba.mujica>Ave Mujica</>成员的攻击范围若与自身原本攻击范围重合，则将其视作攻击范围的延伸；攻击范围内干员攻击速度+9<@ba.talpu>（+4）</>",
+          "blackboard": {
+            "enable": 1,
+            "attack_speed": 9,
+            "cnt": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "毋畏遗忘",
+          "description": "对敌人造成伤害时使<$ba.fever>Fever</>+3；其他<$ba.mujica>Ave Mujica</>成员的攻击范围若与自身原本攻击范围重合，则将其视作攻击范围的延伸；攻击范围内干员攻击速度+12",
+          "blackboard": {
+            "enable": 1,
+            "attack_speed": 12,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "毋畏遗忘",
+          "description": "对敌人造成伤害时使<$ba.fever>Fever</>+3；其他<$ba.mujica>Ave Mujica</>成员的攻击范围若与自身原本攻击范围重合，则将其视作攻击范围的延伸；攻击范围内干员攻击速度+16<@ba.talpu>（+4）</>",
+          "blackboard": {
+            "enable": 1,
+            "attack_speed": 16,
+            "cnt": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 0.8
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_oblvns",
+      "name": "丰川祥子证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_oblvns",
+      "name": "无言的约定",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 38,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "atk_scale": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 54,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "颂乐音符",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_ratio": 0.04,
+                "magic_resist_penetrate_ratio": 0.02,
+                "attack@angle": 20,
+                "delay": 1,
+                "max_cnt": 12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "atk_scale": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 63,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "颂乐音符",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_ratio": 0.05,
+                "magic_resist_penetrate_ratio": 0.025,
+                "attack@angle": 20,
+                "delay": 1,
+                "max_cnt": 12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "atk_scale": 0.8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

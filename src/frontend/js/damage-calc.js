@@ -490,6 +490,9 @@ const SKILL_REGEN_IGNORE = {
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
 // 技能期每击按法术结算(吃敌方法抗),常态普攻仍为物理。
 const SKILL_ARTS_OVERRIDES = {
+  'char_140_whitew': [1],   // 拉普兰德 S2「狼魂」:伤害类型变为法术
+  'char_294_ayer': [0, 1],  // 断崖 S1/S2:伤害类型变为法术
+  'char_271_spikes': [1],   // 芳汀 S2「致命恶作剧」:伤害类型变为法术
   'char_2014_nian': [0],   // 年 S1「锡灼」
   'char_107_liskam': [1],  // 雷蛇 S2 反击电弧：攻击变为对最多 3 敌造成法术伤害（单目标=法伤）
   'char_4230_mcnist': [2], // 机械师 S3 工程学十字星：攻击变为十字范围法术伤害（召唤物轮再校冲锋口径）
@@ -593,6 +596,7 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  'char_294_ayer': 0,   // 断崖「索敌援助」:自身(与周围8格友方)攻速 +4/6/8/10(常驻)
   'char_1013_chen2': { talentIndex: 1, key: 'chen2_t_2[common].attack_speed' },   // 假日威龙陈「假日余韵」:攻速+8(水地形档 [map] 默认不计,用户口径取基础效果)
   // ---- 狙击·神射手(longrange) ----
   'char_218_cuttle': 0,   // 安哲拉「深海直觉」:所有【深海猎人】攻速+6/8/12(E2潜0=12);自身即为深海猎人,按常驻计(用户 2026-09-17 确认)
@@ -1705,6 +1709,162 @@ const TALENT_DMG_MUL_DRIVERS = {
   'char_4218_aigis': { talentIndex: 1, key: 'damage_scale' },  // 埃癸斯「反暗影特殊压制兵装」:造成物理伤害 ×1.05~1.10(模组 te 提到 1.13~1.17);受击减伤为承伤向不计
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
+// 领主(近卫)特性:攻击默认为远程攻击,攻击力按 80% 计算(用户 2026-09-17 口径)。
+// 下列技能描述含"远程攻击不再降低攻击力",技能期按 100% 攻击力;其余技能与常态按 80%。
+const LORD_REMOTE_MUL = 0.8;
+const LORD_NO_DOWN = {
+  'char_193_frostl': { 0: true },            // 霜叶 S1 寒霜枪刃
+  'char_294_ayer': { 0: true, 1: true },     // 断崖 S1 多导向散射弹丸 / S2 浮游刃启动
+  'char_140_whitew': { 1: true },            // 拉普兰德 S2 狼魂
+  'char_172_svrash': { 0: true, 2: true },   // 银灰 S1 强力击γ / S3 真银斩
+  'char_293_thorns': { 2: true },            // 棘刺 S3 至高之术
+  'char_271_spikes': { 1: true },            // 芳汀 S2 致命恶作剧
+  'char_4067_lolxh': { 0: true, 1: true },   // 罗小黑 S1 掠光尾影 / S2 碎金为刃
+  'char_4082_qiubai': { 0: true, 2: true },  // 仇白 S1 留羽 / S3 问雪(S2 仅起手与结束的伤害不降,分支内单独处理)
+  'char_194_leto': { 1: true },              // 烈夏 S2
+};
+function lordAtkMul(op, skillIndex) {
+  if (op.subProfessionId !== 'lord') return 1;
+  const set = LORD_NO_DOWN[op.id];
+  return (skillIndex >= 0 && set && set[skillIndex]) ? 1 : LORD_REMOTE_MUL;
+}
+// 读取天赋 blackboard 数值上限(按精化/潜能过滤,兼容模组 te 覆盖)
+function lordTalentBb(op, slotData, talentIndex, key) {
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
+    const pot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= slotData.elite && pot <= (slotData.potentialRank || 0)) {
+      const v = (cand.blackboard || {})[key];
+      if (typeof v === 'number' && v > best) best = v;
+    }
+  }
+  return best;
+}
+// 烈夏「快点快点！」:开启技能时自身攻速 +10/13/21/24(E2 潜0 = 21),仅技能期
+function lordSkillAspd(op, slotData) {
+  if (op.id !== 'char_194_leto') return 0;
+  return lordTalentBb(op, slotData, 0, 'attack_speed') || 0;
+}
+// 棘刺「神经腐蚀」:攻击使目标中毒,3 秒内每秒 125 点法术伤害(默认不取"对远程目标翻倍"档)
+function lordThornsDot(op, slotData) {
+  if (op.id !== 'char_293_thorns') return 0;
+  return lordTalentBb(op, slotData, 0, 'damage[normal]') || 0;
+}
+function lordThornsDotDps(op, slotData) {
+  const v = lordThornsDot(op, slotData);
+  const lay = lordTalentBb(op, slotData, 0, 'max_cnt') || 1;   // 「默认叠满」;无模组/模组1级无 max_cnt → 1 层,L2 = 3 层,L3 = 4 层
+  return v > 0 ? calcArtsDamage(v * lay, state.enemy?.res || 0) : 0;
+}
+function calcLordSkill(op, slotData, skillIndex, levelData, ctx, cbase) {
+  const { panelAtk, effDef, skillDuration, realInterval, skillRealInterval, skillAtk, generic } = ctx;
+  const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+  const res = state.enemy?.res || 0;
+  const tmul = calcTalentDmgMul(op, slotData);
+  const h = (atk) => calcPhysicalDamage(atk, effDef) * tmul;
+  const aa = (atk) => calcArtsDamage(atk, res) * tmul;
+  const dot = lordThornsDotDps(op, slotData);
+  const nrm = () => (realInterval > 0 ? h(panelAtk * LORD_REMOTE_MUL) / realInterval + dot : null);
+  const nAtk = (dur, iv) => (dur > 0 && iv > 0 ? Math.floor(dur / iv + 1e-9) : 0);
+  const skill = (dmgType, sTot, sDps, cd, dmgTypes, panel) => ({
+    type: 'damage', damageType: dmgType, isToggle: false, isPermanent: false,
+    skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: nrm(),
+    skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk,
+    dmgTypes: dmgTypes || { [dmgType]: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } },
+  });
+  // 棘刺「护身尖刺」:停止攻击,尖刺仅在受击时释放(条件触发)→ 不计输出
+  if (op.id === 'char_293_thorns' && skillIndex === 1) return skill('physical', 0, 0, null, {});
+  // 棘刺「至高之术」:第二次及以后使用加成翻倍且持续无限(数据在 thorns_s_3[b] 档)
+  if (op.id === 'char_293_thorns' && skillIndex === 2) {
+    const a2 = levelData['thorns_s_3[b].atk'];
+    const s2 = levelData['thorns_s_3[b].attack_speed'];
+    const atk = panelAtk * (1 + (typeof a2 === 'number' ? a2 : (levelData.atk || 0)));
+    const iv = calcRealInterval(cbase.baseInterval, 100 + cbase.baseAspdBonus + (typeof s2 === 'number' ? s2 : (levelData.attack_speed || 0)));
+    const d = h(atk) / iv + dot;
+    return skill('physical', 0, d, null, { physical: { skillDps: d, skillTotalDamage: 0, cycleDps: null } }, atk);
+  }
+  // 仇白「留羽」:束缚结束时对目标与附近敌人造成 260% 攻击力法术伤害(触发型)
+  if (op.id === 'char_4082_qiubai' && skillIndex === 0) {
+    const per = aa(skillAtk * (levelData.aoe_scale || 0));
+    const cd = realInterval > 0 ? calcCycleDps(levelData, realInterval, h(panelAtk * LORD_REMOTE_MUL), per) : null;
+    return skill('physical', per, 0, cd, { arts: { skillDps: 0, skillTotalDamage: per, cycleDps: cd } });
+  }
+  // 仇白「承影」:起手 260% 法术 + 技能期普攻(3 击,攻击力+100%,远程仍降) + 结束时 260% 物理(不降)
+  if (op.id === 'char_4082_qiubai' && skillIndex === 1) {
+    const full = panelAtk * (1 + (levelData.atk || 0));   // 起手/结束按 100% 攻击力
+    const begin = aa(full * (levelData.sword_begin_atk_scale || 0));
+    const end = h(full * (levelData.sword_end_atk_scale || 0));
+    const mid = nAtk(skillDuration, sIvl) * h(skillAtk);
+    const tot = begin + mid + end;
+    const cd = realInterval > 0 ? calcCycleDps(levelData, realInterval, h(panelAtk * LORD_REMOTE_MUL), tot) : null;
+    return skill('physical', tot, skillDuration > 0 ? tot / skillDuration : 0, cd,
+      { physical: { skillDps: (mid + end) / (skillDuration || 1), skillTotalDamage: mid + end, cycleDps: cd }, arts: { skillDps: begin / (skillDuration || 1), skillTotalDamage: begin, cycleDps: null } }, full);
+  }
+  // 仇白「问雪」:法术(伤害类型变为法术);攻速 +13/次,默认满 6 层 = +78
+  if (op.id === 'char_4082_qiubai' && skillIndex === 2) {
+    const aspd = (levelData.attack_speed || 0) * (levelData.max_stack_cnt || 1);
+    const iv = calcRealInterval(cbase.baseInterval, 100 + cbase.baseAspdBonus + aspd);
+    const tot = nAtk(skillDuration, iv) * aa(skillAtk);
+    const sDps = skillDuration > 0 ? tot / skillDuration : 0;
+    return skill('physical', tot, sDps, null, { arts: { skillDps: sDps, skillTotalDamage: tot, cycleDps: null } });
+  }
+  // 芳汀「小玩笑」(S1):二连击,每击 135% 攻击力物理
+  if (op.id === 'char_271_spikes' && skillIndex === 0) {
+    const per = 2 * h(skillAtk * (levelData['attack@atk_scale'] || 1));
+    const cd = realInterval > 0 ? calcCycleDps(levelData, realInterval, h(panelAtk * LORD_REMOTE_MUL), per) : null;
+    return skill('physical', per, 0, cd, { physical: { skillDps: 0, skillTotalDamage: per, cycleDps: cd } });
+  }
+  // 芳汀「致命恶作剧」(S2):伤害类型变法术,每击 145%
+  if (op.id === 'char_271_spikes' && skillIndex === 1) {
+    const tot = nAtk(skillDuration, sIvl) * aa(skillAtk * (levelData['attack@atk_scale'] || 1));
+    const sDps = skillDuration > 0 ? tot / skillDuration : 0;
+    return skill('physical', tot, sDps, null, { arts: { skillDps: sDps, skillTotalDamage: tot, cycleDps: null } });
+  }
+  // 丰川祥子「新月的苏醒」:8 个音符依次从 85% 递减到 5%(法术,可充能 2 次 → 触发型)
+  if (op.id === 'char_4182_oblvns' && skillIndex === 0) {
+    const scales = ['atk_scale', 'atk_scale_2', 'atk_scale_3', 'atk_scale_4', 'atk_scale_5', 'atk_scale_6', 'atk_scale_7', 'atk_scale_8'].map(k => levelData[k]).filter(v => typeof v === 'number');
+    const per = scales.reduce((s, v) => s + aa(skillAtk * v), 0);
+    const cd = realInterval > 0 ? calcCycleDps(levelData, realInterval, h(panelAtk * LORD_REMOTE_MUL), per) : null;
+    return skill('physical', per, 0, cd, { arts: { skillDps: 0, skillTotalDamage: per, cycleDps: cd } });
+  }
+  // 丰川祥子「残月的余响」:每次攻击同时演奏钢琴(2×190% 物理)与风琴(2×190% 法术)
+  if (op.id === 'char_4182_oblvns' && skillIndex === 2) {
+    const s = levelData['attack@atk_scale'] || 1;
+    const hits = nAtk(skillDuration, sIvl);
+    const ph = 2 * h(skillAtk * s) * hits;
+    const ar = 2 * aa(skillAtk * s) * hits;
+    const tot = ph + ar;
+    const sDps = skillDuration > 0 ? tot / skillDuration : 0;
+    return skill('physical', tot, sDps, null,
+      { physical: { skillDps: skillDuration > 0 ? ph / skillDuration : 0, skillTotalDamage: ph, cycleDps: null }, arts: { skillDps: skillDuration > 0 ? ar / skillDuration : 0, skillTotalDamage: ar, cycleDps: null } });
+  }
+  // 烈夏:天赋「快点快点！」技能期内自身攻速 +10/13/21/24(E2 潜0 = 21)
+  if (op.id === 'char_194_leto') {
+    const aspd = lordSkillAspd(op, slotData);
+    if (skillIndex === 0 || skillIndex === 1) {
+      const extra = skillIndex === 0 ? (levelData.attack_speed || 0) : 0;
+      const iv = calcRealInterval(cbase.baseInterval, 100 + cbase.baseAspdBonus + aspd + extra);
+      const tot = nAtk(skillDuration, iv) * h(skillAtk);
+      return skill('physical', tot, skillDuration > 0 ? tot / skillDuration : 0, null, null, skillAtk);
+    }
+  }
+  // 其余领主技能走通用结算,只额外并入棘刺的毒伤
+  const g = generic();
+  if (dot > 0) {
+    const overDur = skillDuration > 0 ? dot * skillDuration : 0;
+    return Object.assign({}, g, {
+      skillDps: (g.skillDps || 0) + dot,
+      skillTotalDamage: (g.skillTotalDamage || 0) + overDur,
+      cycleDps: g.cycleDps == null ? null : g.cycleDps + dot,
+      normalDps: nrm(),
+      panelAtk: skillAtk,
+      realInterval: sIvl,
+      dmgTypes: Object.assign({}, g.dmgTypes || {}, { arts: { skillDps: dot, skillTotalDamage: overDur, cycleDps: null } }),
+    });
+  }
+  return Object.assign({}, g, { normalDps: nrm(), panelAtk: skillAtk, realInterval: sIvl });
+}
 function calcTalentDmgMul(op, slotData) {
   const cfg = TALENT_DMG_MUL_DRIVERS[op.id];
   if (!cfg) return 1;
@@ -1934,6 +2094,7 @@ const PERIODIC_DOT = {
 };
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
+  'char_271_spikes': { 0: 2 },   // 芳汀 S1「小玩笑」:攻击变为二连击(数据无 times,按文案写死)
   'char_4054_malist': { 1: 2 },   // 至简 S2「神工意匠」:下次攻击造成 1.7×atk 法伤并连续攻击两次(点燃类,可充能3次)
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
@@ -1989,7 +2150,10 @@ const SINGLE_CRIT_MUL = {
 };
 // 天赋层攻击间隔加算(读天赋 bb.base_attack_time;含模组 te 覆盖):白雪「重型手里剑」+0.2s、
 // 子月「荒野本能」E2 -0.15s(X 模组 L2/L3 覆盖为 -0.2/-0.25)。常态与技能期都生效。
-const TALENT_BAT_ADD = { 'char_118_yuki': 0, 'char_4014_lunacu': 0 };   // 干员 id → 天赋索引
+const TALENT_BAT_ADD = {
+  'char_118_yuki': 0, 'char_4014_lunacu': 0,   // 干员 id → 天赋索引(白雪「重型手里剑」+0.2s、子月「荒野本能」E2 -0.15s)
+  'char_193_frostl': 0,                          // 霜叶「掩护打击」:攻击间隔 +0.15 秒,常态与技能期都加算
+};
 function calcTalentBatAdd(op, slotData) {
   const idx = TALENT_BAT_ADD[op.id];
   if (idx === undefined) return 0;
@@ -2019,6 +2183,8 @@ function phenxiSkillAspd(op, slotData) { const v = phenxiEndgameAspdBb(op, slotD
 
 // atk_scale 不作为普攻倍率(技能结束爆炸等一次性伤害语义,如车尔尼 S2 结束时 2.1×atk 法伤)
 const SKILL_ATK_SCALE_EXCLUDE = {
+  'char_4182_oblvns': { 0: true },   // 丰川祥子 S1:顶层 atk_scale 只是第 1 个音符的倍率,8 个音符由领主分支逐个结算
+  'char_294_ayer': { 1: true },   // 断崖 S2 顶层 atk_scale 1.4 属"额外对友方阻挡敌人"的条件伤害,不计
   'char_4047_pianst': { 1: true },  // 车尔尼 S2 曲惊四座：atk_scale 2.1 是技能结束爆炸，非普攻倍率
   'char_494_vendla': { 1: true },   // 刺玫 S2 荆藤庇荫：atk_scale 是受击反伤倍率（反伤不计），普攻只吃 atk 加攻
   'char_4230_mcnist': { 1: true, 2: true },
@@ -2285,7 +2451,9 @@ function calculateOperator(op, slotData, ctx) {
     }
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
     const normalDps = op.subProfessionId === 'phalanx' ? 0
-      : Math.max(normalDpsRaw, acdropMinDamage(op, slotData, panelAtk)) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+      : (op.subProfessionId === 'lord'
+        ? Math.max(calcPhysicalDamage(panelAtk * LORD_REMOTE_MUL, effDef), acdropMinDamage(op, slotData, panelAtk * LORD_REMOTE_MUL))
+        : Math.max(normalDpsRaw, acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
@@ -2295,7 +2463,7 @@ function calculateOperator(op, slotData, ctx) {
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
     const normFlat = defHitArtsMax(op, slotData);
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -2429,7 +2597,7 @@ function calculateOperator(op, slotData, ctx) {
     : { normalMul: 1, skillMul: 1 };
 
   const params = {
-    panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, normalInterval: realInterval, baseInterval: phase.baseAttackTime, skillDuration,
+    panelAtk, baseAtk, rawAtk, talentAtk, skillAtk: (op.subProfessionId === 'lord' ? skillAtk * lordAtkMul(op, skillIndex) : skillAtk), panelHp, realInterval: skillRealInterval, normalInterval: realInterval, baseInterval: phase.baseAttackTime, skillDuration,
     isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul, hitCount,
     isIncantationMedic, enemy: state.enemy,
     incantMode,
@@ -3572,6 +3740,8 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'lord') {
+    return calcLordSkill(op, slotData, skillIndex, levelData, { panelAtk, effDef, skillDuration, realInterval, skillRealInterval, skillAtk: skillAtk * lordAtkMul(op, skillIndex), generic: () => calcDamage(params) }, { baseInterval: phase.baseAttackTime, baseAspdBonus });
   } else if (op.subProfessionId === 'skybreaker') {
     const tmul = calcTalentDmgMul(op, slotData);
     const h = (atk) => calcPhysicalDamage(atk, effDef) * tmul;

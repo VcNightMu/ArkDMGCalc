@@ -1,0 +1,904 @@
+{
+  "id": "char_4009_irene",
+  "name": "艾丽妮",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "sword",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        249,
+        367
+      ],
+      "def": [
+        151,
+        214
+      ],
+      "maxHp": [
+        1236,
+        1694
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        367,
+        484
+      ],
+      "def": [
+        214,
+        282
+      ],
+      "maxHp": [
+        1694,
+        2201
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        484,
+        621
+      ],
+      "def": [
+        282,
+        349
+      ],
+      "maxHp": [
+        2201,
+        2935
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 20,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_irene_1",
+      "name": "起风",
+      "levels": [
+        {
+          "atk_scale": 1,
+          "levitate": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "levitate": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "levitate": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "levitate": 1,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "levitate": 1,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "levitate": 1,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "levitate": 1,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "levitate": 1,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "levitate": 1,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "levitate": 1,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_irene_2",
+      "name": "裂潮",
+      "levels": [
+        {
+          "atk_scale": 2.8,
+          "levitate": 1,
+          "max_target": 4,
+          "value": 3,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "levitate": 1,
+          "max_target": 4,
+          "value": 3,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "levitate": 1,
+          "max_target": 4,
+          "value": 3,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.1,
+          "levitate": 2,
+          "max_target": 5,
+          "value": 3,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.2,
+          "levitate": 2,
+          "max_target": 5,
+          "value": 3,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.3,
+          "levitate": 2,
+          "max_target": 5,
+          "value": 3,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.4,
+          "levitate": 3,
+          "max_target": 6,
+          "value": 3,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "levitate": 3,
+          "max_target": 6,
+          "value": 3,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.8,
+          "levitate": 3,
+          "max_target": 6,
+          "value": 3,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "levitate": 4,
+          "max_target": 6,
+          "value": 3,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_irene_3",
+      "name": "判决",
+      "levels": [
+        {
+          "atk_scale": 2,
+          "levitate": 2,
+          "multi_atk_scale": 1.8,
+          "multi_times": 8,
+          "multi_hit_interval": 0.375,
+          "level": 0,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "levitate": 2,
+          "multi_atk_scale": 1.9,
+          "multi_times": 8,
+          "multi_hit_interval": 0.375,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "levitate": 2,
+          "multi_atk_scale": 2,
+          "multi_times": 8,
+          "multi_hit_interval": 0.375,
+          "level": 2,
+          "spCost": 34,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "levitate": 2,
+          "multi_atk_scale": 2,
+          "multi_times": 10,
+          "multi_hit_interval": 0.3,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "levitate": 2,
+          "multi_atk_scale": 2.1,
+          "multi_times": 10,
+          "multi_hit_interval": 0.3,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 12,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "levitate": 2,
+          "multi_atk_scale": 2.2,
+          "multi_times": 10,
+          "multi_hit_interval": 0.3,
+          "level": 5,
+          "spCost": 32,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "levitate": 3,
+          "multi_atk_scale": 2.3,
+          "multi_times": 10,
+          "multi_hit_interval": 0.3,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "levitate": 3,
+          "multi_atk_scale": 2.3,
+          "multi_times": 12,
+          "multi_hit_interval": 0.25,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "levitate": 3,
+          "multi_atk_scale": 2.4,
+          "multi_times": 12,
+          "multi_hit_interval": 0.25,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3,
+          "levitate": 4,
+          "multi_atk_scale": 2.5,
+          "multi_times": 12,
+          "multi_hit_interval": 0.25,
+          "level": 9,
+          "spCost": 24,
+          "initialSp": 16,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "审判之火",
+          "description": "对敌人造成物理伤害时有50%概率无视其30%防御力，对空中单位概率提升至100%",
+          "blackboard": {
+            "prob": 0.5,
+            "def_penetrate": 0.3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "审判之火",
+          "description": "对敌人造成物理伤害时有50%概率无视其50%防御力，对空中单位概率提升至100%",
+          "blackboard": {
+            "prob": 0.5,
+            "def_penetrate": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "净化之剑",
+          "description": "攻击速度+18，场上有【海怪】敌人时效果翻倍",
+          "blackboard": {
+            "attack_speed": 18,
+            "atk": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "净化之剑",
+          "description": "攻击速度+21<@ba.talpu>（+3）</>，场上有【海怪】敌人时效果翻倍",
+          "blackboard": {
+            "attack_speed": 21,
+            "atk": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_irene",
+      "name": "艾丽妮证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_003_irene",
+      "name": "审判官口粮",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "审判之火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "def_penetrate": 0.5,
+                "sp": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 80,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "审判之火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "def_penetrate": 0.55,
+                "sp": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_002_irene",
+      "name": "厚重的经卷",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 59,
+            "def": 44
+          },
+          "talentEnhance": [
+            {
+              "name": "净化之剑",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 18,
+                "atk": 0.03
+              }
+            },
+            {
+              "name": "净化之剑",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 21,
+                "atk": 0.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "净化之剑",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 18,
+                "atk": 0.05
+              }
+            },
+            {
+              "name": "净化之剑",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 21,
+                "atk": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_irene",
+      "name": "艾丽妮特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 8,
+                "respawn_time": 0.4,
+                "skill@talent_range_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "审判之火",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 8,
+                "respawn_time": 0.4,
+                "skill@talent_range_flag": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "def_penetrate": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "skill@talent_range_flag": 1,
+                "damage_scale": 2,
+                "levitate_duration": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "审判之火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "def_penetrate": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 8,
+                "respawn_time": 0.4,
+                "skill@talent_range_flag": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.5,
+                "def_penetrate": 0.5
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "skill@talent_range_flag": 1,
+                "damage_scale": 2.4,
+                "levitate_duration": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

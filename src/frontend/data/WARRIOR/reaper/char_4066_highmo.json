@@ -1,0 +1,559 @@
+{
+  "id": "char_4066_highmo",
+  "name": "海沫",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "reaper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        306,
+        438
+      ],
+      "def": [
+        216,
+        300
+      ],
+      "maxHp": [
+        1055,
+        1389
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        438,
+        569
+      ],
+      "def": [
+        300,
+        385
+      ],
+      "maxHp": [
+        1389,
+        1759
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        569,
+        670
+      ],
+      "def": [
+        385,
+        454
+      ],
+      "maxHp": [
+        1759,
+        2120
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 250
+  },
+  "skills": [
+    {
+      "skillId": "skchr_highmo_1",
+      "name": "回首，断舍",
+      "levels": [
+        {
+          "atk_scale": 1.05,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.1,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_highmo_2",
+      "name": "泡影，殆尽",
+      "levels": [
+        {
+          "atk": 0.3,
+          "prob": 0.4,
+          "hp_ratio": 0.05,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "prob": 0.4,
+          "hp_ratio": 0.05,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "prob": 0.4,
+          "hp_ratio": 0.05,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "prob": 0.45,
+          "hp_ratio": 0.06,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.43,
+          "prob": 0.45,
+          "hp_ratio": 0.06,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.46,
+          "prob": 0.45,
+          "hp_ratio": 0.06,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "prob": 0.5,
+          "hp_ratio": 0.07,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.53,
+          "prob": 0.53,
+          "hp_ratio": 0.08,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.56,
+          "prob": 0.56,
+          "hp_ratio": 0.09,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "prob": 0.6,
+          "hp_ratio": 0.1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "收割，给养",
+          "description": "每攻击到一个敌人回复自身18<$ba.dt.element>元素损伤</>，最大生效数等于阻挡数",
+          "blackboard": {
+            "value": 18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "收割，给养",
+          "description": "每攻击到一个敌人回复自身23<@ba.talpu>（+5）</><$ba.dt.element>元素损伤</>，最大生效数等于阻挡数",
+          "blackboard": {
+            "value": 23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "收割，给养",
+          "description": "每攻击到一个敌人回复自身30<$ba.dt.element>元素损伤</>，最大生效数等于阻挡数",
+          "blackboard": {
+            "value": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "收割，给养",
+          "description": "每攻击到一个敌人回复自身35<@ba.talpu>（+5）</><$ba.dt.element>元素损伤</>，最大生效数等于阻挡数",
+          "blackboard": {
+            "value": 35
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "罹患，浸染",
+          "description": "在【水月与深蓝之树】中，攻击速度+10，阻挡数+1",
+          "blackboard": {
+            "attack_speed": 10,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "罹患，浸染",
+          "description": "在【水月与深蓝之树】中，攻击速度+25，阻挡数+1",
+          "blackboard": {
+            "attack_speed": 25,
+            "block_cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "无法被友方角色治疗，攻击造成群体伤害，每攻击到一个敌人回复自身{value}生命，最大生效数等于阻挡数",
+    "blackboard": {
+      "value": 50
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+160",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 160
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_highmo",
+      "name": "海沫证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_highmo",
+      "name": "“启航”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "attack_speed": 4
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "收割，给养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 35
+              }
+            },
+            {
+              "name": "收割，给养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 40
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "收割，给养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 40
+              }
+            },
+            {
+              "name": "收割，给养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 45
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

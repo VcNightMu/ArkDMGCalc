@@ -1,0 +1,740 @@
+{
+  "id": "char_4064_mlynar",
+  "name": "玛恩纳",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "librator",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        161,
+        231
+      ],
+      "def": [
+        239,
+        332
+      ],
+      "maxHp": [
+        1945,
+        2560
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        231,
+        301
+      ],
+      "def": [
+        332,
+        426
+      ],
+      "maxHp": [
+        2560,
+        3241
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        301,
+        355
+      ],
+      "def": [
+        426,
+        502
+      ],
+      "maxHp": [
+        3241,
+        3906
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 360
+  },
+  "skills": [
+    {
+      "skillId": "skchr_mlynar_1",
+      "name": "未声张的怒火",
+      "levels": [
+        {
+          "attack@atk_scale": 1.3,
+          "def": 0.2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.35,
+          "def": 0.2,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.4,
+          "def": 0.2,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.45,
+          "def": 0.3,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "def": 0.3,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.6,
+          "def": 0.3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "def": 0.4,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.8,
+          "def": 0.45,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.9,
+          "def": 0.5,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2,
+          "def": 0.6,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mlynar_2",
+      "name": "未宽解的悲哀",
+      "levels": [
+        {
+          "attack@atk_scale": 1,
+          "base_attack_time": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.1,
+          "base_attack_time": 0.3,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.2,
+          "base_attack_time": 0.3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.3,
+          "base_attack_time": 0.3,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.4,
+          "base_attack_time": 0.3,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "base_attack_time": 0.3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.6,
+          "base_attack_time": 0.3,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "base_attack_time": 0.3,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.8,
+          "base_attack_time": 0.3,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.9,
+          "base_attack_time": 0.3,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_mlynar_3",
+      "name": "未照耀的荣光",
+      "levels": [
+        {
+          "attack@atk_scale": 1.1,
+          "atk_scale": 0.08,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.15,
+          "atk_scale": 0.08,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.2,
+          "atk_scale": 0.08,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.25,
+          "atk_scale": 0.1,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.3,
+          "atk_scale": 0.1,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.4,
+          "atk_scale": 0.1,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "atk_scale": 0.11,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.6,
+          "atk_scale": 0.11,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "atk_scale": 0.11,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.8,
+          "atk_scale": 0.12,
+          "attack@max_target": 5,
+          "trait_up": 2,
+          "per_kill_reduce": -0.1,
+          "level": 9,
+          "spCost": 42,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "游侠",
+          "description": "攻击敌人时攻击力提升至105%。周围存在3名及以上敌人时攻击力提升至110%且受到的伤害减少10%",
+          "blackboard": {
+            "atk_scale_base": 1.05,
+            "cnt": 3,
+            "atk_scale_up": 1.1,
+            "damage_resistance": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "游侠",
+          "description": "攻击敌人时攻击力提升至108%<@ba.talpu>（+3%）</>。周围存在3名及以上敌人时攻击力提升至113%<@ba.talpu>（+3%）</>且受到的伤害减少10%",
+          "blackboard": {
+            "atk_scale_base": 1.08,
+            "cnt": 3,
+            "atk_scale_up": 1.13,
+            "damage_resistance": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "游侠",
+          "description": "攻击敌人时攻击力提升至110%。周围存在3名及以上敌人时攻击力提升至115%且受到的伤害减少15%",
+          "blackboard": {
+            "atk_scale_base": 1.1,
+            "cnt": 3,
+            "atk_scale_up": 1.15,
+            "damage_resistance": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "游侠",
+          "description": "攻击敌人时攻击力提升至113%<@ba.talpu>（+3%）</>。周围存在3名及以上敌人时攻击力提升至118%<@ba.talpu>（+3%）</>且受到的伤害减少15%",
+          "blackboard": {
+            "atk_scale_base": 1.13,
+            "cnt": 3,
+            "atk_scale_up": 1.18,
+            "damage_resistance": 0.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "无动于衷",
+          "description": "在场时，自身更容易受到攻击，所有卡西米尔干员被攻击时反弹相当于玛恩纳攻击力15%的真实伤害",
+          "blackboard": {
+            "taunt_level": 1,
+            "atk_scale": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "无动于衷",
+          "description": "在场时，自身更容易受到攻击，所有卡西米尔干员被攻击时反弹相当于玛恩纳攻击力18%<@ba.talpu>（+3%）</>的真实伤害",
+          "blackboard": {
+            "taunt_level": 1,
+            "atk_scale": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "通常不攻击且阻挡数为0，技能未开启时{max_stack_cnt}秒内攻击力逐渐提升至最高+200%且技能结束时重置攻击力",
+    "blackboard": {
+      "atk": 2,
+      "mid_stack_cnt": 20,
+      "max_stack_cnt": 40
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_mlynar",
+      "name": "玛恩纳证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_mlynar",
+      "name": "“鞘中人”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 225,
+            "atk": 18,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 27,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "游侠",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale_base": 1.15,
+                "cnt": 3,
+                "atk_scale_up": 1.2,
+                "damage_resistance": 0.2
+              }
+            },
+            {
+              "name": "游侠",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk_scale_base": 1.18,
+                "cnt": 3,
+                "atk_scale_up": 1.23,
+                "damage_resistance": 0.2
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 360,
+            "atk": 35,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "游侠",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale_base": 1.2,
+                "cnt": 3,
+                "atk_scale_up": 1.25,
+                "damage_resistance": 0.25
+              }
+            },
+            {
+              "name": "游侠",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "atk_scale_base": 1.23,
+                "cnt": 3,
+                "atk_scale_up": 1.28,
+                "damage_resistance": 0.25
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

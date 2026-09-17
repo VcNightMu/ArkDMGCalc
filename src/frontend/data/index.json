@@ -2536,5 +2536,671 @@
     "subProfessionId": "skybreaker",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_017_huang",
+    "name": "煌",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1026_gvial2",
+    "name": "百炼嘉维尔",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_127_estell",
+    "name": "艾丝黛尔",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_143_ghost",
+    "name": "幽灵鲨",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_230_savage",
+    "name": "暴行",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_281_popka",
+    "name": "泡普卡",
+    "rarity": "TIER_3",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_356_broca",
+    "name": "布洛卡",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4126_fuze",
+    "name": "导火索",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4166_varkis",
+    "name": "摆渡人",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "centurion",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_137_brownb",
+    "name": "猎蜂",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_155_tiger",
+    "name": "因陀罗",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_157_dagda",
+    "name": "达格达",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_2024_chyue",
+    "name": "重岳",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_264_f12yin",
+    "name": "山",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_347_jaksel",
+    "name": "杰克",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4037_demetr",
+    "name": "贝洛内",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_415_flint",
+    "name": "燧石",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fighter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_130_doberm",
+    "name": "杜宾",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_265_sophia",
+    "name": "鞭刃",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_308_swire",
+    "name": "诗怀雅",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4106_bryota",
+    "name": "苍苔",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4125_rdoc",
+    "name": "医生",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_485_pallas",
+    "name": "帕拉斯",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_140_whitew",
+    "name": "拉普兰德",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_193_frostl",
+    "name": "霜叶",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_194_leto",
+    "name": "烈夏",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_271_spikes",
+    "name": "芳汀",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_283_midn",
+    "name": "月见夜",
+    "rarity": "TIER_3",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_294_ayer",
+    "name": "断崖",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4067_lolxh",
+    "name": "罗小黑",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4082_qiubai",
+    "name": "仇白",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4182_oblvns",
+    "name": "丰川祥子",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "lord",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_252_bibeak",
+    "name": "柏喙",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_301_cutter",
+    "name": "刻刀",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4009_irene",
+    "name": "艾丽妮",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4116_blkkgt",
+    "name": "锏",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4220_kormr",
+    "name": "虎狼丸",
+    "rarity": "TIER_1",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_459_tachak",
+    "name": "战车",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "sword",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1030_noirc2",
+    "name": "火龙S黑角",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "musha",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_188_helage",
+    "name": "赫拉格",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "musha",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_337_utage",
+    "name": "宴",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "musha",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4121_zuole",
+    "name": "左乐",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "musha",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_475_akafyu",
+    "name": "赤冬",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "musha",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1014_nearl2",
+    "name": "耀骑士临光",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_106_franka",
+    "name": "芙兰卡",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_131_flameb",
+    "name": "炎客",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_154_morgan",
+    "name": "摩根",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_159_peacok",
+    "name": "断罪者",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_208_melan",
+    "name": "玫兰莎",
+    "rarity": "TIER_3",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_263_skadi",
+    "name": "斯卡蒂",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_286_cast3",
+    "name": "Castle-3",
+    "rarity": "TIER_1",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_289_gyuki",
+    "name": "缠丸",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4011_lessng",
+    "name": "止颂",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4142_laios",
+    "name": "莱欧斯",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "fearless",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1032_excu2",
+    "name": "圣约送葬人",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "reaper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4010_etlchi",
+    "name": "隐德来希",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "reaper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4066_highmo",
+    "name": "海沫",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "reaper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_421_crow",
+    "name": "羽毛笔",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "reaper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_491_humus",
+    "name": "休谟斯",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "reaper",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1043_leizi2",
+    "name": "司霆惊蛰",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "librator",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4064_mlynar",
+    "name": "玛恩纳",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "librator",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_445_wscoot",
+    "name": "骋风",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "librator",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_486_takila",
+    "name": "龙舌兰",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "librator",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4063_quartz",
+    "name": "石英",
+    "rarity": "TIER_4",
+    "profession": "WARRIOR",
+    "subProfessionId": "crusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4083_chimes",
+    "name": "铎铃",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "crusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4088_hodrer",
+    "name": "赫德雷",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "crusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4145_ulpia",
+    "name": "乌尔比安",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "crusher",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1051_headb2",
+    "name": "怒潮凛冬",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "hammer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4058_pepe",
+    "name": "佩佩",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "hammer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4131_odda",
+    "name": "奥达",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "hammer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4185_amoris",
+    "name": "祐天寺若麦",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "hammer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4187_graceb",
+    "name": "聆音",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "primguard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1049_catap2",
+    "name": "雷狼龙S空爆",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "mercenary",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_394_hadiya",
+    "name": "哈蒂娅",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "mercenary",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

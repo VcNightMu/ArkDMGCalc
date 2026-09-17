@@ -1,0 +1,801 @@
+{
+  "id": "char_1043_leizi2",
+  "name": "司霆惊蛰",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "librator",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        164,
+        235
+      ],
+      "def": [
+        234,
+        325
+      ],
+      "maxHp": [
+        1924,
+        2532
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        235,
+        306
+      ],
+      "def": [
+        325,
+        417
+      ],
+      "maxHp": [
+        2532,
+        3206
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        306,
+        360
+      ],
+      "def": [
+        417,
+        491
+      ],
+      "maxHp": [
+        3206,
+        3863
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 360
+  },
+  "skills": [
+    {
+      "skillId": "skchr_leizi2_1",
+      "name": "浩气长存",
+      "levels": [
+        {
+          "attack@atk_scale_s1": 2.3,
+          "level": 0,
+          "spCost": 15,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 2.4,
+          "level": 1,
+          "spCost": 15,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 2.5,
+          "level": 2,
+          "spCost": 15,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 2.6,
+          "level": 3,
+          "spCost": 14,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 2.7,
+          "level": 4,
+          "spCost": 14,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 2.85,
+          "level": 5,
+          "spCost": 14,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 3,
+          "level": 6,
+          "spCost": 13,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 3.15,
+          "level": 7,
+          "spCost": 13,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 3.35,
+          "level": 8,
+          "spCost": 13,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s1": 3.55,
+          "level": 9,
+          "spCost": 11,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_leizi2_2",
+      "name": "正霆摄威",
+      "levels": [
+        {
+          "attack@atk_scale_s2": 1,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 0,
+          "spCost": 53,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.03,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 1,
+          "spCost": 52,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.07,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 2,
+          "spCost": 51,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.1,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.15,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 4,
+          "spCost": 49,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.2,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 5,
+          "spCost": 48,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.25,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 6,
+          "spCost": 47,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.3,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 7,
+          "spCost": 46,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.4,
+          "attack@max_target_s2": 3,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s2": 1.5,
+          "attack@max_target_s2": 4,
+          "thunder_atk": 0.1,
+          "thunder_max_stack_cnt": 25,
+          "level": 9,
+          "spCost": 43,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_leizi2_3",
+      "name": "天地通明",
+      "levels": [
+        {
+          "attack@atk_scale_s3": 1.8,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.35,
+          "prob": 0.05,
+          "not_combat": 3,
+          "level": 0,
+          "spCost": 46,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 1.9,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.38,
+          "prob": 0.05,
+          "not_combat": 3,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.42,
+          "prob": 0.05,
+          "not_combat": 3,
+          "level": 2,
+          "spCost": 44,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.1,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.45,
+          "prob": 0.07,
+          "not_combat": 3,
+          "level": 3,
+          "spCost": 43,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.2,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.48,
+          "prob": 0.07,
+          "not_combat": 3,
+          "level": 4,
+          "spCost": 42,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.3,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.52,
+          "prob": 0.07,
+          "not_combat": 3,
+          "level": 5,
+          "spCost": 41,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.4,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.56,
+          "prob": 0.1,
+          "not_combat": 3,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.6,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.6,
+          "prob": 0.1,
+          "not_combat": 3,
+          "level": 7,
+          "spCost": 39,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 2.8,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.65,
+          "prob": 0.1,
+          "not_combat": 3,
+          "level": 8,
+          "spCost": 38,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale_s3": 3,
+          "base_attack_time": 1.7,
+          "attack@range_radius": 1.65,
+          "attack@atk_scale_current": 0.7,
+          "prob": 0.15,
+          "not_combat": 3,
+          "level": 9,
+          "spCost": 36,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "明断",
+          "description": "攻击范围内地块每秒有10%的概率落雷造成相当于攻击力50%的法术伤害。未开启技能时<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 0.5,
+            "atk_scale[skill_up]": 1,
+            "times": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "明断",
+          "description": "攻击范围内地块每秒有10%的概率落雷造成相当于攻击力50%的法术伤害。未开启技能时<$ba.liftoff>起飞</>",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 0.5,
+            "atk_scale[skill_up]": 1,
+            "times": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "明断",
+          "description": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力80%的法术伤害。未开启技能时<$ba.liftoff>起飞</>；技能期间攻击时攻击力提升至104%",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 0.8,
+            "atk_scale[skill_up]": 1.04,
+            "times": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "明断",
+          "description": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力80%的法术伤害。未开启技能时<$ba.liftoff>起飞</>；技能期间攻击时攻击力提升至108%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 0.8,
+            "atk_scale[skill_up]": 1.08,
+            "times": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "明断",
+          "description": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力100%的法术伤害。未开启技能时<$ba.liftoff>起飞</>；技能期间攻击时攻击力提升至107%",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 1,
+            "atk_scale[skill_up]": 1.07,
+            "times": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "明断",
+          "description": "攻击范围内每个地块每秒有10%的概率落雷对所有敌人造成相当于攻击力100%的法术伤害。未开启技能时<$ba.liftoff>起飞</>；技能期间攻击时攻击力提升至111%<@ba.talpu>（+4%）</>",
+          "blackboard": {
+            "interval": 1,
+            "atk_scale_t": 1,
+            "atk_scale[skill_up]": 1.11,
+            "times": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "追责",
+          "description": "开启技能时，使攻击范围内所有地面地块落雷，对所有敌人造成相当于攻击力100%的法术伤害和2秒<$ba.tremble>战栗</>",
+          "blackboard": {
+            "atk_scale_t2": 1,
+            "not_combat": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "追责",
+          "description": "开启技能时，使攻击范围内所有地面地块落雷，对所有敌人造成相当于攻击力100%的法术伤害和3<@ba.talpu>（+1）</>秒<$ba.tremble>战栗</>",
+          "blackboard": {
+            "atk_scale_t2": 1,
+            "not_combat": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "通常不攻击且阻挡数为0，技能未开启时{max_stack_cnt}秒内攻击力逐渐提升至最高+200%且技能结束时重置攻击力",
+    "blackboard": {
+      "atk": 2,
+      "mid_stack_cnt": 20,
+      "max_stack_cnt": 40
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+29",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 29
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_leizi2",
+      "name": "司霆惊蛰证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_leizi2",
+      "name": "“一念”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 225,
+            "atk": 26,
+            "def": 27
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 35,
+            "def": 31
+          },
+          "talentEnhance": [
+            {
+              "name": "明断",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 1,
+                "atk_scale_t": 1,
+                "atk_scale[skill_up]": 1.11,
+                "times": 1
+              }
+            },
+            {
+              "name": "明断",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 1,
+                "atk_scale_t": 1,
+                "atk_scale[skill_up]": 1.15,
+                "times": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 360,
+            "atk": 42,
+            "def": 36
+          },
+          "talentEnhance": [
+            {
+              "name": "明断",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "interval": 1,
+                "atk_scale_t": 1,
+                "atk_scale[skill_up]": 1.13,
+                "times": 1
+              }
+            },
+            {
+              "name": "明断",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "interval": 1,
+                "atk_scale_t": 1,
+                "atk_scale[skill_up]": 1.17,
+                "times": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "init_atk": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

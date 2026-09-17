@@ -1,0 +1,553 @@
+{
+  "id": "char_4126_fuze",
+  "name": "导火索",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "centurion",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        321,
+        446
+      ],
+      "def": [
+        122,
+        175
+      ],
+      "maxHp": [
+        1213,
+        1556
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        446,
+        604
+      ],
+      "def": [
+        175,
+        237
+      ],
+      "maxHp": [
+        1556,
+        1995
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        604,
+        795
+      ],
+      "def": [
+        237,
+        290
+      ],
+      "maxHp": [
+        1995,
+        2660
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_fuze_1",
+      "name": "火力侦察",
+      "levels": [
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.1,
+          "attack_speed": 60,
+          "attack@trigger_time": 100,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.11,
+          "attack_speed": 60,
+          "attack@trigger_time": 100,
+          "level": 1,
+          "spCost": 54,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.12,
+          "attack_speed": 60,
+          "attack@trigger_time": 100,
+          "level": 2,
+          "spCost": 53,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.13,
+          "attack_speed": 70,
+          "attack@trigger_time": 100,
+          "level": 3,
+          "spCost": 52,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.14,
+          "attack_speed": 70,
+          "attack@trigger_time": 100,
+          "level": 4,
+          "spCost": 51,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.15,
+          "attack_speed": 70,
+          "attack@trigger_time": 100,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.17,
+          "attack_speed": 75,
+          "attack@trigger_time": 100,
+          "level": 6,
+          "spCost": 49,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.22,
+          "attack_speed": 80,
+          "attack@trigger_time": 100,
+          "level": 7,
+          "spCost": 48,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.25,
+          "attack_speed": 85,
+          "attack@trigger_time": 100,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "ability_range_forward_extend": 1,
+          "atk": 0.3,
+          "attack_speed": 90,
+          "attack@trigger_time": 100,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_fuze_2",
+      "name": "霰射炸药",
+      "levels": [
+        {
+          "atk_scale": 3.8,
+          "skill_max_trigger_time": 3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.9,
+          "skill_max_trigger_time": 3,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "skill_max_trigger_time": 3,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.1,
+          "skill_max_trigger_time": 3,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.2,
+          "skill_max_trigger_time": 3,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.3,
+          "skill_max_trigger_time": 3,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.4,
+          "skill_max_trigger_time": 3,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.5,
+          "skill_max_trigger_time": 3,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.6,
+          "skill_max_trigger_time": 3,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.8,
+          "skill_max_trigger_time": 3,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "防弹护盾",
+          "description": "获得17%的远程物理抵挡",
+          "blackboard": {
+            "prob": 0.17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "防弹护盾",
+          "description": "获得20%<@ba.talpu>（+3%）</>的远程物理抵挡",
+          "blackboard": {
+            "prob": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "防弹护盾",
+          "description": "获得27%的远程物理抵挡",
+          "blackboard": {
+            "prob": 0.27
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "防弹护盾",
+          "description": "获得30%<@ba.talpu>（+3%）</>的远程物理抵挡",
+          "blackboard": {
+            "prob": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_fuze",
+      "name": "导火索证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_fuze",
+      "name": "副语言符号展示系统",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "防弹护盾",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "def": 0.03
+              }
+            },
+            {
+              "name": "防弹护盾",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.33,
+                "def": 0.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": "防弹护盾",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.32,
+                "def": 0.06
+              }
+            },
+            {
+              "name": "防弹护盾",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.35,
+                "def": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_resistance": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

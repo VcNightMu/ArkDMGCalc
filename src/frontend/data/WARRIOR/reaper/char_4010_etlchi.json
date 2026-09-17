@@ -1,0 +1,865 @@
+{
+  "id": "char_4010_etlchi",
+  "name": "隐德来希",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "reaper",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        295,
+        435
+      ],
+      "def": [
+        220,
+        302
+      ],
+      "maxHp": [
+        1115,
+        1528
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        435,
+        581
+      ],
+      "def": [
+        302,
+        388
+      ],
+      "maxHp": [
+        1528,
+        2038
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        581,
+        700
+      ],
+      "def": [
+        388,
+        452
+      ],
+      "maxHp": [
+        2038,
+        2580
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_etlchi_1",
+      "name": "玫影觅迹",
+      "levels": [
+        {
+          "atk_scale": 1.1,
+          "level": 0,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "level": 1,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 2,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_etlchi_2",
+      "name": "绯红壁合",
+      "levels": [
+        {
+          "atk_scale": 1.1,
+          "interval": 0.5,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "interval": 0.5,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "interval": 0.5,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "interval": 0.5,
+          "level": 3,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "interval": 0.5,
+          "level": 4,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "interval": 0.5,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "interval": 0.5,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "interval": 0.5,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "interval": 0.5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "interval": 0.5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_etlchi_3",
+      "name": "灵与欲的惜别",
+      "levels": [
+        {
+          "atk": 0.5,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 0,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 1,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 2,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 3,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 5,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.35,
+          "attack_speed": 100,
+          "attack@max_target": 3,
+          "attack@max_hp_scale": 0.6,
+          "attack@def_scale": 1,
+          "attack@magic_resistance_scale": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "萃血",
+          "description": "每次攻击敌人时<$ba.steal>偷取</>目标50点生命上限（最高900）并使目标每秒受到100点法术伤害持续5秒",
+          "blackboard": {
+            "dot_duration": 5,
+            "attack@steal_hp": 50,
+            "attack@steal_hp_max": 900,
+            "magic_value": 100,
+            "interval": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "萃血",
+          "description": "每次攻击敌人时<$ba.steal>偷取</>目标50点生命上限（最高900）并使目标每秒受到150<@ba.talpu>（+50）</>点法术伤害持续5秒",
+          "blackboard": {
+            "dot_duration": 5,
+            "attack@steal_hp": 50,
+            "attack@steal_hp_max": 900,
+            "magic_value": 150,
+            "interval": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "萃血",
+          "description": "每次攻击敌人时<$ba.steal>偷取</>目标75点生命上限（最高1350）并使目标每秒受到200点法术伤害持续5秒",
+          "blackboard": {
+            "dot_duration": 5,
+            "attack@steal_hp": 75,
+            "attack@steal_hp_max": 1350,
+            "magic_value": 200,
+            "interval": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "萃血",
+          "description": "每次攻击敌人时<$ba.steal>偷取</>目标75点生命上限（最高1350）并使目标每秒受到250<@ba.talpu>（+50）</>点法术伤害持续5秒",
+          "blackboard": {
+            "dot_duration": 5,
+            "attack@steal_hp": 75,
+            "attack@steal_hp_max": 1350,
+            "magic_value": 250,
+            "interval": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重盈",
+          "description": "生命值低于25%时，仅一次立刻回复50%最大生命值，且自身之后受到的物理伤害降低10%",
+          "blackboard": {
+            "hp_ratio": 0.25,
+            "damage_resistance": 0.1,
+            "etlchi_t_2[heal].hp_ratio": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "重盈",
+          "description": "生命值低于25%时，仅一次立刻回复55%<@ba.talpu>（+5%）</>最大生命值，且自身之后受到的物理伤害降低15%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "hp_ratio": 0.25,
+            "damage_resistance": 0.15,
+            "etlchi_t_2[heal].hp_ratio": 0.55
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {
+            "take_extra_enemy_key": 0,
+            "skill_index": 2
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "无法被友方角色治疗，攻击造成群体伤害，每攻击到一个敌人回复自身{value}生命，最大生效数等于阻挡数",
+    "blackboard": {
+      "value": 50
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_etlchi",
+      "name": "隐德来希证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_etlchi",
+      "name": "易枯萎的航船",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "重盈",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.25,
+                "damage_resistance": 0.15,
+                "etlchi_t_2[heal].hp_ratio": 0.7
+              }
+            },
+            {
+              "name": "重盈",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_ratio": 0.25,
+                "damage_resistance": 0.2,
+                "etlchi_t_2[heal].hp_ratio": 0.75
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 70,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "重盈",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.25,
+                "damage_resistance": 0.2,
+                "etlchi_t_2[heal].hp_ratio": 0.85
+              }
+            },
+            {
+              "name": "重盈",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "hp_ratio": 0.25,
+                "damage_resistance": 0.25,
+                "etlchi_t_2[heal].hp_ratio": 0.9
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 60
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_etlchi",
+      "name": "玫瑰色故事集",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 220,
+            "atk": 62,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "cnt": 2,
+                "value": 50
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 270,
+            "atk": 70,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "萃血",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@steal_hp": 100,
+                "attack@steal_hp_max": 1800,
+                "magic_value": 350,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.025,
+                "interval": 1,
+                "dot_duration": 5
+              }
+            },
+            {
+              "name": "萃血",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@steal_hp": 100,
+                "attack@steal_hp_max": 1800,
+                "magic_value": 400,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.025,
+                "interval": 1,
+                "dot_duration": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "cnt": 2,
+                "value": 50
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 75,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "萃血",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@steal_hp": 120,
+                "attack@steal_hp_max": 2160,
+                "magic_value": 450,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "interval": 1,
+                "dot_duration": 6
+              }
+            },
+            {
+              "name": "萃血",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@steal_hp": 120,
+                "attack@steal_hp_max": 2160,
+                "magic_value": 500,
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "interval": 1,
+                "dot_duration": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 12,
+                "cnt": 2,
+                "value": 50
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

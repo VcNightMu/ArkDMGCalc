@@ -1,0 +1,494 @@
+{
+  "id": "char_230_savage",
+  "name": "暴行",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "centurion",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        284,
+        395
+      ],
+      "def": [
+        135,
+        193
+      ],
+      "maxHp": [
+        1108,
+        1421
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        395,
+        535
+      ],
+      "def": [
+        193,
+        262
+      ],
+      "maxHp": [
+        1421,
+        1822
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        535,
+        705
+      ],
+      "def": [
+        262,
+        320
+      ],
+      "maxHp": [
+        1822,
+        2430
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_savage_1",
+      "name": "强力击·β型",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_savage_2",
+      "name": "微差爆破",
+      "levels": [
+        {
+          "max_target": 3,
+          "atk_scale": 3,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 3.1,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 3,
+          "atk_scale": 3.2,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3.3,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3.4,
+          "level": 4,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3.5,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 4,
+          "atk_scale": 3.6,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "atk_scale": 3.7,
+          "level": 7,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "atk_scale": 3.8,
+          "level": 8,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "atk_scale": 4,
+          "level": 9,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "山谷",
+          "description": "周围四格中有两格以上的高地地形时攻击力和防御力+5%",
+          "blackboard": {
+            "cnt": 2,
+            "atk": 0.05,
+            "def": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "山谷",
+          "description": "周围四格中有两格以上的高地地形时攻击力和防御力+10%",
+          "blackboard": {
+            "cnt": 2,
+            "atk": 0.1,
+            "def": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "生命上限+250",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "description": "防御力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "DEF",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "攻击速度+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATTACK_SPEED",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "description": "法术抗性+8",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAGIC_RESISTANCE",
+          "formula": "ADDITION",
+          "value": 8
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_savage",
+      "name": "暴行证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_savage",
+      "name": "未竟的旅程",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "def": 22
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "def": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "山谷",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 2,
+                "def": 0.13,
+                "atk": 0.13
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "山谷",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 2,
+                "def": 0.15,
+                "atk": 0.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

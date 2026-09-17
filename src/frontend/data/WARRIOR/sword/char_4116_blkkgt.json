@@ -1,0 +1,877 @@
+{
+  "id": "char_4116_blkkgt",
+  "name": "锏",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "sword",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        255,
+        376
+      ],
+      "def": [
+        147,
+        208
+      ],
+      "maxHp": [
+        1218,
+        1669
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        376,
+        495
+      ],
+      "def": [
+        208,
+        274
+      ],
+      "maxHp": [
+        1669,
+        2168
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        495,
+        635
+      ],
+      "def": [
+        274,
+        339
+      ],
+      "maxHp": [
+        2168,
+        2891
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_blkkgt_1",
+      "name": "纯粹的武力",
+      "levels": [
+        {
+          "atk_scale_s1": 1.6,
+          "max_target": 5,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.65,
+          "max_target": 5,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.7,
+          "max_target": 5,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.75,
+          "max_target": 5,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.8,
+          "max_target": 5,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.85,
+          "max_target": 5,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 1.9,
+          "max_target": 6,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 2,
+          "max_target": 6,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 2.1,
+          "max_target": 6,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale_s1": 2.2,
+          "max_target": 6,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blkkgt_2",
+      "name": "无声的嘲笑",
+      "levels": [
+        {
+          "dot_scale": 2.2,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 0,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.3,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 1,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.35,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.5,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 3,
+          "spCost": 15,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.6,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 4,
+          "spCost": 15,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.7,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 5,
+          "spCost": 15,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.8,
+          "max_target": 5,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 6,
+          "spCost": 12,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 2.9,
+          "max_target": 6,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 7,
+          "spCost": 12,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 3,
+          "max_target": 6,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 8,
+          "spCost": 12,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "dot_scale": 3.1,
+          "max_target": 6,
+          "blkkgt_s_2[not_blocked].trig_cnt": 2,
+          "blkkgt_s_2[blocked].trig_cnt": 3,
+          "prob": 1,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_blkkgt_3",
+      "name": "归于宁静",
+      "levels": [
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.5,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.6,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.7,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.8,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.9,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 4,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 5,
+          "d_atk_scale": 1.95,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 6,
+          "d_atk_scale": 2,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3,
+          "e_force": 2,
+          "level": 6,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 6,
+          "d_atk_scale": 2.1,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3.1,
+          "e_force": 2,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 6,
+          "d_atk_scale": 2.2,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3.2,
+          "e_force": 2,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 1,
+          "max_target": 6,
+          "d_atk_scale": 2.35,
+          "d_hit_interval": 0.3,
+          "p_force": 1,
+          "p_hit_interval": 1,
+          "e_atk_scale_end": 3.3,
+          "e_force": 2,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“天生的武者”",
+          "description": "造成伤害时有10%的几率攻击力提升至130%，并使目标<$ba.tremble>战栗</>5秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.3,
+            "not_combat": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "“天生的武者”",
+          "description": "造成伤害时有10%的几率攻击力提升至135%<@ba.talpu>（+5%）</>，并使目标<$ba.tremble>战栗</>5秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.35,
+            "not_combat": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“天生的武者”",
+          "description": "造成伤害时有10%的几率攻击力提升至160%，并使目标<$ba.tremble>战栗</>5秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.6,
+            "not_combat": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "“天生的武者”",
+          "description": "造成伤害时有10%的几率攻击力提升至165%<@ba.talpu>（+5%）</>，并使目标<$ba.tremble>战栗</>5秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.65,
+            "not_combat": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "活着的传奇",
+          "description": "攻击被<$ba.tremble>战栗</>的目标时，无视目标25%的防御力",
+          "blackboard": {
+            "def_penetrate": 0.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "活着的传奇",
+          "description": "攻击被<$ba.tremble>战栗</>的目标时，无视目标30%<@ba.talpu>（+5%）</>的防御力",
+          "blackboard": {
+            "def_penetrate": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_blkkgt",
+      "name": "锏证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_blkkgt",
+      "name": "“过往的注脚”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 80,
+            "atk": 35,
+            "def": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 44,
+            "def": 44
+          },
+          "talentEnhance": [
+            {
+              "name": "“天生的武者”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.1,
+                "atk_scale": 1.65,
+                "not_combat": 5
+              }
+            },
+            {
+              "name": "“天生的武者”",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.1,
+                "atk_scale": 1.7,
+                "not_combat": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 50,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "“天生的武者”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.1,
+                "atk_scale": 1.7,
+                "not_combat": 5
+              }
+            },
+            {
+              "name": "“天生的武者”",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.1,
+                "atk_scale": 1.75,
+                "not_combat": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_blkkgt",
+      "name": "新合同",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 67
+          },
+          "talentEnhance": [
+            {
+              "name": "活着的传奇",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate": 0.3,
+                "atk": 0.05,
+                "not_combat": 6
+              }
+            },
+            {
+              "name": "活着的传奇",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate": 0.35,
+                "atk": 0.05,
+                "not_combat": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "活着的传奇",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate": 0.33,
+                "atk": 0.08,
+                "not_combat": 6
+              }
+            },
+            {
+              "name": "活着的传奇",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate": 0.38,
+                "atk": 0.08,
+                "not_combat": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def_penetrate_fixed": 70
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

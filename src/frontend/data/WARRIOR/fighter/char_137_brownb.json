@@ -1,0 +1,514 @@
+{
+  "id": "char_137_brownb",
+  "name": "猎蜂",
+  "rarity": "TIER_4",
+  "profession": "WARRIOR",
+  "subProfessionId": "fighter",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        211,
+        311
+      ],
+      "def": [
+        131,
+        191
+      ],
+      "maxHp": [
+        1151,
+        1556
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        311,
+        415
+      ],
+      "def": [
+        191,
+        262
+      ],
+      "maxHp": [
+        1556,
+        1996
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        415,
+        513
+      ],
+      "def": [
+        262,
+        312
+      ],
+      "maxHp": [
+        1996,
+        2435
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_brownb_1",
+      "name": "高机动",
+      "levels": [
+        {
+          "prob": 0.2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.23,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.26,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.33,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.36,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.4,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.45,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.6,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 0,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_brownb_2",
+      "name": "急速拳",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.55,
+          "level": 3,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.55,
+          "level": 4,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.55,
+          "level": 5,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.55,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "level": 8,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.6,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 10,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "竞技专注",
+          "description": "攻击相同目标时每次攻击可提高自身攻击力3%，最多可叠加5层。更换目标会失去之前叠加的效果",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "atk": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "竞技专注",
+          "description": "攻击相同目标时每次攻击可提高自身攻击力4%<@ba.talpu>（+1%）</>，最多可叠加5层。更换目标会失去之前叠加的效果",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "竞技专注",
+          "description": "攻击相同目标时每次攻击可提高自身攻击力5%，最多可叠加5层。更换目标会失去之前叠加的效果",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "竞技专注",
+          "description": "攻击相同目标时每次攻击可提高自身攻击力6%<@ba.talpu>（+1%）</>，最多可叠加5层。更换目标会失去之前叠加的效果",
+          "blackboard": {
+            "max_stack_cnt": 5,
+            "atk": 0.06
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+180",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 180
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_brownb",
+      "name": "猎蜂证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_brownb",
+      "name": "咬紧牙关",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 30
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "竞技专注",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "atk": 0.06
+              }
+            },
+            {
+              "name": "竞技专注",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "atk": 0.07
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "竞技专注",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "atk": 0.07
+              }
+            },
+            {
+              "name": "竞技专注",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 5,
+                "atk": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

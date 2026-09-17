@@ -1,0 +1,148 @@
+{
+  "id": "char_286_cast3",
+  "name": "Castle-3",
+  "rarity": "TIER_1",
+  "profession": "WARRIOR",
+  "subProfessionId": "fearless",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        247,
+        353
+      ],
+      "def": [
+        63,
+        90
+      ],
+      "maxHp": [
+        928,
+        1191
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战术整理·I",
+          "description": "部署后10秒内所有友方【近战位】单位的攻击力和防御力+10%",
+          "blackboard": {
+            "duration": 10,
+            "atk": 0.1,
+            "def": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "战术整理·II",
+          "description": "部署后12秒内所有友方【近战位】单位的攻击力和防御力+12%",
+          "blackboard": {
+            "duration": 12,
+            "atk": 0.12,
+            "def": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "战术整理·III",
+          "description": "部署后14秒内所有友方【近战位】单位的攻击力和防御力+14%",
+          "blackboard": {
+            "duration": 14,
+            "atk": 0.14,
+            "def": 0.14
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "战术整理·IV",
+          "description": "部署后16秒内所有友方【近战位】单位的攻击力和防御力+16%",
+          "blackboard": {
+            "duration": 16,
+            "atk": 0.16,
+            "def": 0.16
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "战术整理·V",
+          "description": "部署后18秒内所有友方【近战位】单位的攻击力和防御力+18%",
+          "blackboard": {
+            "duration": 18,
+            "atk": 0.18,
+            "def": 0.18
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "战术整理·VI",
+          "description": "部署后20秒内所有友方【近战位】单位的攻击力和防御力+20%",
+          "blackboard": {
+            "duration": 20,
+            "atk": 0.2,
+            "def": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

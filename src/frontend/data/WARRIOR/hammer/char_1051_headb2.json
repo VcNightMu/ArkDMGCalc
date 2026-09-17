@@ -1,0 +1,770 @@
+{
+  "id": "char_1051_headb2",
+  "name": "怒潮凛冬",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "hammer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        594,
+        826
+      ],
+      "def": [
+        196,
+        269
+      ],
+      "maxHp": [
+        1293,
+        1748
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        826,
+        1060
+      ],
+      "def": [
+        269,
+        346
+      ],
+      "maxHp": [
+        1748,
+        2301
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1060,
+        1262
+      ],
+      "def": [
+        346,
+        408
+      ],
+      "maxHp": [
+        2301,
+        2950
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 65,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_headb2_1",
+      "name": "誓不低头",
+      "levels": [
+        {
+          "atk": 0.25,
+          "attack_speed": 30,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.27,
+          "attack_speed": 30,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 30,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "attack_speed": 35,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "attack_speed": 35,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "attack_speed": 35,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.39,
+          "attack_speed": 40,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.42,
+          "attack_speed": 45,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 50,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_headb2_2",
+      "name": "绝不罢休",
+      "levels": [
+        {
+          "atk": 0.45,
+          "def": 0.3,
+          "headb2_s_2[second].atk": 0.9,
+          "headb2_s_2[second].def": 0.6,
+          "sp_per_highland": 1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "def": 0.3,
+          "headb2_s_2[second].atk": 1,
+          "headb2_s_2[second].def": 0.6,
+          "sp_per_highland": 1,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.55,
+          "def": 0.3,
+          "headb2_s_2[second].atk": 1.1,
+          "headb2_s_2[second].def": 0.6,
+          "sp_per_highland": 1,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "def": 0.4,
+          "headb2_s_2[second].atk": 1.2,
+          "headb2_s_2[second].def": 0.8,
+          "sp_per_highland": 1,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.65,
+          "def": 0.4,
+          "headb2_s_2[second].atk": 1.3,
+          "headb2_s_2[second].def": 0.8,
+          "sp_per_highland": 1,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.7,
+          "def": 0.4,
+          "headb2_s_2[second].atk": 1.4,
+          "headb2_s_2[second].def": 0.8,
+          "sp_per_highland": 1,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.75,
+          "def": 0.5,
+          "headb2_s_2[second].atk": 1.5,
+          "headb2_s_2[second].def": 1,
+          "sp_per_highland": 1,
+          "level": 6,
+          "spCost": 53,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.8,
+          "def": 0.5,
+          "headb2_s_2[second].atk": 1.6,
+          "headb2_s_2[second].def": 1,
+          "sp_per_highland": 1,
+          "level": 7,
+          "spCost": 52,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.85,
+          "def": 0.6,
+          "headb2_s_2[second].atk": 1.7,
+          "headb2_s_2[second].def": 1.2,
+          "sp_per_highland": 1,
+          "level": 8,
+          "spCost": 51,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.9,
+          "def": 0.6,
+          "headb2_s_2[second].atk": 1.8,
+          "headb2_s_2[second].def": 1.2,
+          "sp_per_highland": 1,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_headb2_3",
+      "name": "无可抵挡",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.5,
+          "level": 0,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.55,
+          "level": 1,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.6,
+          "level": 2,
+          "spCost": 36,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.65,
+          "level": 3,
+          "spCost": 34,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.7,
+          "level": 4,
+          "spCost": 34,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1,
+          "atk_base": 0.75,
+          "level": 5,
+          "spCost": 34,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1.5,
+          "atk_base": 0.8,
+          "level": 6,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1.5,
+          "atk_base": 0.9,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 1.5,
+          "atk_base": 0.95,
+          "level": 8,
+          "spCost": 28,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "atk_step": 0.3,
+          "splash_atk_scale_bonus": 3.5,
+          "unmovable": 2,
+          "atk_base": 1,
+          "level": 9,
+          "spCost": 27,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "汹涌怒火",
+          "description": "特性溅射造成的物理伤害提升24%，且溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力24%的物理伤害",
+          "blackboard": {
+            "damage_scale": 1.24,
+            "attack@splash_atk_scale": 0.24,
+            "attack@sluggish": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "汹涌怒火",
+          "description": "特性溅射造成的物理伤害提升24%，且溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力27%<@ba.talpu>（+3%）</>的物理伤害",
+          "blackboard": {
+            "damage_scale": 1.24,
+            "attack@splash_atk_scale": 0.27,
+            "attack@sluggish": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "汹涌怒火",
+          "description": "特性溅射造成的物理伤害提升24%，且溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力24%的物理伤害和0.5秒<$ba.sluggish>停顿</>",
+          "blackboard": {
+            "damage_scale": 1.24,
+            "attack@splash_atk_scale": 0.24,
+            "attack@sluggish": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "汹涌怒火",
+          "description": "特性溅射造成的物理伤害提升24%，且溅射到的每个高台对周围四格所有地面敌人造成相当于攻击力27%<@ba.talpu>（+3%）</>的物理伤害和0.5秒<$ba.sluggish>停顿</>",
+          "blackboard": {
+            "damage_scale": 1.24,
+            "attack@splash_atk_scale": 0.27,
+            "attack@sluggish": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "万众巨潮",
+          "description": "技能期间所有场上干员攻击力和防御力+14%，【乌萨斯学生自治团】干员获得加成效果翻倍",
+          "blackboard": {
+            "atk": 0.14,
+            "def": 0.14,
+            "scale_bonus": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "万众巨潮",
+          "description": "技能期间所有场上干员攻击力和防御力+18%<@ba.talpu>（+4%）</>，【乌萨斯学生自治团】干员获得加成效果翻倍",
+          "blackboard": {
+            "atk": 0.18,
+            "def": 0.18,
+            "scale_bonus": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击使目标周围的其他敌人受到相当于攻击力{attack@atk_scale_2:0%}的群体物理伤害",
+    "blackboard": {
+      "attack@ability_range_radius": 1,
+      "attack@atk_scale_2": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+40",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_headb2",
+      "name": "怒潮凛冬证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_headb2",
+      "name": "迟到的勋章",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 63,
+            "def": 21
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 320,
+            "atk": 75,
+            "def": 26
+          },
+          "talentEnhance": [
+            {
+              "name": "汹涌怒火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.32,
+                "attack@splash_atk_scale": 0.24,
+                "attack@sluggish": 0.5
+              }
+            },
+            {
+              "name": "汹涌怒火",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.32,
+                "attack@splash_atk_scale": 0.27,
+                "attack@sluggish": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 380,
+            "atk": 83,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "汹涌怒火",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 1.4,
+                "attack@splash_atk_scale": 0.24,
+                "attack@sluggish": 0.5
+              }
+            },
+            {
+              "name": "汹涌怒火",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_scale": 1.4,
+                "attack@splash_atk_scale": 0.27,
+                "attack@sluggish": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

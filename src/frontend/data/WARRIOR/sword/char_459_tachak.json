@@ -1,0 +1,588 @@
+{
+  "id": "char_459_tachak",
+  "name": "战车",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "sword",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        253,
+        368
+      ],
+      "def": [
+        135,
+        194
+      ],
+      "maxHp": [
+        1121,
+        1536
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        368,
+        478
+      ],
+      "def": [
+        194,
+        253
+      ],
+      "maxHp": [
+        1536,
+        1995
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        478,
+        621
+      ],
+      "def": [
+        253,
+        309
+      ],
+      "maxHp": [
+        1995,
+        2626
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 40,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_tachak_1",
+      "name": "燃烧榴弹",
+      "levels": [
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.2,
+          "def_penetrate_fixed": 100,
+          "interval": 1,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.2,
+          "def_penetrate_fixed": 110,
+          "interval": 1,
+          "level": 1,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.2,
+          "def_penetrate_fixed": 120,
+          "interval": 1,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.3,
+          "def_penetrate_fixed": 130,
+          "interval": 1,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.3,
+          "def_penetrate_fixed": 140,
+          "interval": 1,
+          "level": 4,
+          "spCost": 21,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.3,
+          "def_penetrate_fixed": 150,
+          "interval": 1,
+          "level": 5,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.4,
+          "def_penetrate_fixed": 160,
+          "interval": 1,
+          "level": 6,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.5,
+          "def_penetrate_fixed": 170,
+          "interval": 1,
+          "level": 7,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.6,
+          "def_penetrate_fixed": 180,
+          "interval": 1,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 6,
+          "atk_scale": 0.7,
+          "def_penetrate_fixed": 200,
+          "interval": 1,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_tachak_2",
+      "name": "倾泻弹药",
+      "levels": [
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.05,
+          "atk_scale": 1.3,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.06,
+          "atk_scale": 1.35,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.07,
+          "atk_scale": 1.4,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.08,
+          "atk_scale": 1.5,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.09,
+          "atk_scale": 1.55,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.1,
+          "atk_scale": 1.6,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.11,
+          "atk_scale": 1.7,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.12,
+          "atk_scale": 1.8,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.13,
+          "atk_scale": 1.9,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.85,
+          "prob": 0.15,
+          "atk_scale": 2,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 4,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重火力",
+          "description": "攻击距离+1，再部署时间+20秒",
+          "blackboard": {
+            "def": 0,
+            "respawn_time": 20,
+            "ability_range_forward_extend": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重火力",
+          "description": "攻击距离+1，防御力+5%，再部署时间+20秒",
+          "blackboard": {
+            "def": 0.05,
+            "respawn_time": 20,
+            "ability_range_forward_extend": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "重火力",
+          "description": "攻击距离+1，防御力+10%<@ba.talpu>（+5%）</>，再部署时间+20秒",
+          "blackboard": {
+            "def": 0.1,
+            "respawn_time": 20,
+            "ability_range_forward_extend": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "重火力",
+          "description": "攻击距离+2，防御力+10%，再部署时间+20秒",
+          "blackboard": {
+            "def": 0.1,
+            "respawn_time": 20,
+            "ability_range_forward_extend": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "重火力",
+          "description": "攻击距离+2，防御力+15%<@ba.talpu>（+5%）</>，再部署时间+20秒",
+          "blackboard": {
+            "def": 0.15,
+            "respawn_time": 20,
+            "ability_range_forward_extend": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_tachak",
+      "name": "战车证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_tachak",
+      "name": "轻机枪枪架",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 40,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 49,
+            "def": 49
+          },
+          "talentEnhance": [
+            {
+              "name": "重火力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.2,
+                "respawn_time": 20,
+                "ability_range_forward_extend": 2
+              }
+            },
+            {
+              "name": "重火力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 0.25,
+                "respawn_time": 20,
+                "ability_range_forward_extend": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 55,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "重火力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def": 0.23,
+                "respawn_time": 20,
+                "ability_range_forward_extend": 2
+              }
+            },
+            {
+              "name": "重火力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def": 0.28,
+                "respawn_time": 20,
+                "ability_range_forward_extend": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

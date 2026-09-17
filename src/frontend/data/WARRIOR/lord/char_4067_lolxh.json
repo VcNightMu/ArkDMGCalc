@@ -1,0 +1,487 @@
+{
+  "id": "char_4067_lolxh",
+  "name": "罗小黑",
+  "rarity": "TIER_4",
+  "profession": "WARRIOR",
+  "subProfessionId": "lord",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        287,
+        423
+      ],
+      "def": [
+        154,
+        212
+      ],
+      "maxHp": [
+        856,
+        1224
+      ],
+      "magicResistance": 5,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        423,
+        565
+      ],
+      "def": [
+        212,
+        269
+      ],
+      "maxHp": [
+        1224,
+        1611
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        565,
+        698
+      ],
+      "def": [
+        269,
+        325
+      ],
+      "maxHp": [
+        1611,
+        2040
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 25,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_lolxh_1",
+      "name": "掠光尾影",
+      "levels": [
+        {
+          "prob": 0.2,
+          "attack_speed": 0,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.25,
+          "attack_speed": 0,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "attack_speed": 0,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "attack_speed": 10,
+          "level": 3,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "attack_speed": 15,
+          "level": 4,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.3,
+          "attack_speed": 20,
+          "level": 5,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.35,
+          "attack_speed": 25,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.35,
+          "attack_speed": 30,
+          "level": 7,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.35,
+          "attack_speed": 35,
+          "level": 8,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.45,
+          "attack_speed": 40,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_lolxh_2",
+      "name": "碎金为刃",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 100,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.15,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 110,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 120,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 130,
+          "level": 3,
+          "spCost": 43,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 140,
+          "level": 4,
+          "spCost": 43,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 150,
+          "level": 5,
+          "spCost": 43,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 160,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 170,
+          "level": 7,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 180,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@hp_ratio": 0.5,
+          "attack@def_penetrate_fixed": 200,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "见习执行者",
+          "description": "造成致命伤害时使敌人保留1点生命并使其<$ba.dying>重伤</>（击杀者技力+1）；罗小黑不攻击<$ba.dying>重伤</>单位",
+          "blackboard": {
+            "move_speed": -0.8,
+            "sp": 1,
+            "interval": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "见习执行者",
+          "description": "造成致命伤害时使敌人保留1点生命并使其<$ba.dying>重伤</>（击杀者技力+2）；罗小黑不攻击<$ba.dying>重伤</>单位",
+          "blackboard": {
+            "move_speed": -0.8,
+            "sp": 2,
+            "interval": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 0.8
+    }
+  },
+  "potentialRanks": [],
+  "modules": [
+    {
+      "id": "uniequip_001_lolxh",
+      "name": "罗小黑证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_lolxh",
+      "name": "毛线球",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 65,
+            "atk": 25,
+            "def": 15
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 2,
+                "attack_speed": 12
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 83,
+            "atk": 35,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 2,
+                "attack_speed": 12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_scale": 1.08
+              }
+            },
+            {
+              "name": "见习执行者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.8,
+                "sp": 2,
+                "interval": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 40,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cnt": 2,
+                "attack_speed": 12
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "damage_scale": 1.12
+              }
+            },
+            {
+              "name": "见习执行者",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.8,
+                "sp": 2,
+                "interval": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

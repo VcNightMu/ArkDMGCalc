@@ -1,0 +1,792 @@
+{
+  "id": "char_485_pallas",
+  "name": "帕拉斯",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "instructor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        302,
+        432
+      ],
+      "def": [
+        213,
+        301
+      ],
+      "maxHp": [
+        794,
+        1088
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        432,
+        577
+      ],
+      "def": [
+        301,
+        382
+      ],
+      "maxHp": [
+        1088,
+        1413
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        577,
+        687
+      ],
+      "def": [
+        382,
+        455
+      ],
+      "maxHp": [
+        1413,
+        1963
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skchr_pallas_1",
+      "name": "胜利的连击",
+      "levels": [
+        {
+          "atk_scale": 1.1,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_pallas_2",
+      "name": "信念的长鞭",
+      "levels": [
+        {
+          "atk": 0.2,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.5,
+          "attack@stun": 0.2,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.5,
+          "attack@stun": 0.2,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.5,
+          "attack@stun": 0.2,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.6,
+          "attack@stun": 0.2,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.6,
+          "attack@stun": 0.2,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.6,
+          "attack@stun": 0.2,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.7,
+          "attack@stun": 0.2,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.7,
+          "attack@stun": 0.2,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.8,
+          "attack@stun": 0.2,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "ability_range_forward_extend": 1,
+          "attack@buff_prob": 0.85,
+          "attack@stun": 0.2,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_pallas_3",
+      "name": "英勇的祝福",
+      "levels": [
+        {
+          "atk": 0.4,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.3,
+          "attack@def": 0.15,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.3,
+          "attack@def": 0.15,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.3,
+          "attack@def": 0.15,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.35,
+          "attack@def": 0.2,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.35,
+          "attack@def": 0.2,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.35,
+          "attack@def": 0.2,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.4,
+          "attack@def": 0.25,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.45,
+          "attack@def": 0.3,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.45,
+          "attack@def": 0.3,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@max_target": 3,
+          "attack@peak_performance.atk": 0.5,
+          "attack@def": 0.35,
+          "attack@peak_performance.hp_ratio": 0.8,
+          "attack@block_cnt": 1,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "英雄的诞生",
+          "description": "在场时，所有【米诺斯】干员生命值高于80%时获得+15%攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "peak_performance.hp_ratio": 0.8,
+            "peak_performance.atk": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "英雄的诞生",
+          "description": "在场时，所有【米诺斯】干员生命值高于80%时获得+25%攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "peak_performance.hp_ratio": 0.8,
+            "peak_performance.atk": 0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "女神的振奋",
+          "description": "每攻击一名敌人时为自身与身前一格的我方干员恢复40点生命值",
+          "blackboard": {
+            "value": 40
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "女神的振奋",
+          "description": "每攻击一名敌人时为自身与身前一格的我方干员恢复45<@ba.talpu>（+5）</>点生命值",
+          "blackboard": {
+            "value": 45
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_pallas",
+      "name": "帕拉斯证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_pallas",
+      "name": "“故乡的山岩”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 73
+          },
+          "talentEnhance": [
+            {
+              "name": "英雄的诞生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "peak_performance.hp_ratio": 0.5,
+                "peak_performance.atk": 0.27
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 83
+          },
+          "talentEnhance": [
+            {
+              "name": "英雄的诞生",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "peak_performance.hp_ratio": 0.5,
+                "peak_performance.atk": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_pallas",
+      "name": "“赫里亚之辉”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 40,
+            "attack_speed": 3
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 2
+              }
+            },
+            {
+              "name": "女神的振奋",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 50,
+                "pallas_e_t_2.value": 25
+              }
+            },
+            {
+              "name": "女神的振奋",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 55,
+                "pallas_e_t_2.value": 25
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "buildable_type": 2
+              }
+            },
+            {
+              "name": "女神的振奋",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "value": 60,
+                "pallas_e_t_2.value": 40
+              }
+            },
+            {
+              "name": "女神的振奋",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "value": 65,
+                "pallas_e_t_2.value": 40
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

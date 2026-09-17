@@ -1,0 +1,579 @@
+{
+  "id": "char_252_bibeak",
+  "name": "柏喙",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "sword",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        245,
+        356
+      ],
+      "def": [
+        146,
+        209
+      ],
+      "maxHp": [
+        1089,
+        1492
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        356,
+        463
+      ],
+      "def": [
+        209,
+        272
+      ],
+      "maxHp": [
+        1492,
+        1938
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        463,
+        602
+      ],
+      "def": [
+        272,
+        332
+      ],
+      "maxHp": [
+        1938,
+        2550
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_bibeak_1",
+      "name": "飞针剑羽",
+      "levels": [
+        {
+          "atk_scale": 1.2,
+          "ranged@atk_scale": 1.2,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "ranged@atk_scale": 1.25,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "ranged@atk_scale": 1.3,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "ranged@atk_scale": 1.35,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "ranged@atk_scale": 1.4,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "ranged@atk_scale": 1.45,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "ranged@atk_scale": 1.5,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "ranged@atk_scale": 1.6,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "ranged@atk_scale": 1.7,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "ranged@atk_scale": 1.8,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_bibeak_2",
+      "name": "异刃斩",
+      "levels": [
+        {
+          "max_target": 5,
+          "stun": 0.8,
+          "atk_scale": 1.3,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "stun": 0.8,
+          "atk_scale": 1.35,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "stun": 0.8,
+          "atk_scale": 1.4,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "stun": 1,
+          "atk_scale": 1.5,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "stun": 1,
+          "atk_scale": 1.55,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 5,
+          "stun": 1,
+          "atk_scale": 1.6,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 6,
+          "stun": 1.2,
+          "atk_scale": 1.7,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 6,
+          "stun": 1.4,
+          "atk_scale": 1.8,
+          "level": 7,
+          "spCost": 9,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 6,
+          "stun": 1.6,
+          "atk_scale": 1.9,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_target": 6,
+          "stun": 1.8,
+          "atk_scale": 2,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "摄魂",
+          "description": "每击杀一名敌人后获得+4攻击速度（最多叠加5次）",
+          "blackboard": {
+            "attack_speed": 4,
+            "max_stack_cnt": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "摄魂",
+          "description": "每击杀一名敌人后获得+4攻击速度（最多叠加6次<@ba.talpu>（+1）</>）",
+          "blackboard": {
+            "attack_speed": 4,
+            "max_stack_cnt": 6
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "摄魂",
+          "description": "每击杀一名敌人后获得+6攻击速度（最多叠加5次）",
+          "blackboard": {
+            "attack_speed": 6,
+            "max_stack_cnt": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "摄魂",
+          "description": "每击杀一名敌人后获得+6攻击速度（最多叠加6次<@ba.talpu>（+1）</>）",
+          "blackboard": {
+            "attack_speed": 6,
+            "max_stack_cnt": 6
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+22",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 22
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bibeak",
+      "name": "柏喙证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bibeak",
+      "name": "做工优良的衬衣",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "attack_speed": 4
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "摄魂",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 6,
+                "max_stack_cnt": 6
+              }
+            },
+            {
+              "name": "摄魂",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 6,
+                "max_stack_cnt": 7
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.01,
+                "max_stack_cnt": 6
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.01,
+                "max_stack_cnt": 7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": "摄魂",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 6,
+                "max_stack_cnt": 6
+              }
+            },
+            {
+              "name": "摄魂",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack_speed": 6,
+                "max_stack_cnt": 7
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 6
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.02,
+                "max_stack_cnt": 7
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1,
+                "value": 0.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

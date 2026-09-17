@@ -1,0 +1,563 @@
+{
+  "id": "char_4106_bryota",
+  "name": "苍苔",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "instructor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        286,
+        409
+      ],
+      "def": [
+        197,
+        278
+      ],
+      "maxHp": [
+        768,
+        1053
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        409,
+        546
+      ],
+      "def": [
+        278,
+        353
+      ],
+      "maxHp": [
+        1053,
+        1368
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        546,
+        650
+      ],
+      "def": [
+        353,
+        421
+      ],
+      "maxHp": [
+        1368,
+        1900
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 35,
+    "def": 35,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_bryota_1",
+      "name": "强力击·β型",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_bryota_2",
+      "name": "土石的恒心",
+      "levels": [
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "stun": 8,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "def": 0.35,
+          "stun": 8,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "stun": 8,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "def": 0.45,
+          "stun": 7,
+          "level": 3,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "stun": 7,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "def": 0.55,
+          "stun": 7,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "stun": 6,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "def": 0.65,
+          "stun": 6,
+          "level": 7,
+          "spCost": 50,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "stun": 6,
+          "level": 8,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "stun": 5,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+4%，阻挡敌人时自身防御力+4%",
+          "blackboard": {
+            "bryota_t_ally.def": 0.04,
+            "bryota_t_self.def": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+6%<@ba.talpu>（+2%）</>，阻挡敌人时自身防御力+6%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "bryota_t_ally.def": 0.06,
+            "bryota_t_self.def": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+8%，阻挡敌人时自身防御力+8%",
+          "blackboard": {
+            "bryota_t_ally.def": 0.08,
+            "bryota_t_self.def": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+10%<@ba.talpu>（+2%）</>，阻挡敌人时自身防御力+10%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "bryota_t_ally.def": 0.1,
+            "bryota_t_self.def": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+12%，阻挡敌人时自身防御力+12%",
+          "blackboard": {
+            "bryota_t_ally.def": 0.12,
+            "bryota_t_self.def": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "量时度力",
+          "description": "未阻挡敌人时使周围8格内近战干员防御力+14%<@ba.talpu>（+2%）</>，阻挡敌人时自身防御力+14%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "bryota_t_ally.def": 0.14,
+            "bryota_t_self.def": 0.14
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_bryota",
+      "name": "苍苔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_bryota",
+      "name": "餐后好时光",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 52
+          },
+          "talentEnhance": [
+            {
+              "name": "量时度力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "bryota_t_ally.def": 0.15,
+                "bryota_t_self.def": 0.15
+              }
+            },
+            {
+              "name": "量时度力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "bryota_t_ally.def": 0.17,
+                "bryota_t_self.def": 0.17
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": "量时度力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "bryota_t_ally.def": 0.17,
+                "bryota_t_self.def": 0.17
+              }
+            },
+            {
+              "name": "量时度力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "bryota_t_ally.def": 0.19,
+                "bryota_t_self.def": 0.19
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

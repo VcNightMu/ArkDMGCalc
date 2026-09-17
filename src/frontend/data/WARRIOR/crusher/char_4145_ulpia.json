@@ -1,0 +1,733 @@
+{
+  "id": "char_4145_ulpia",
+  "name": "乌尔比安",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "crusher",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        739,
+        1027
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2641,
+        3569
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        1027,
+        1317
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        3569,
+        4697
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        1317,
+        1569
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        4697,
+        6022
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 500
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ulpia_1",
+      "name": "必须促成的接触",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "max_target": 2,
+          "force": 1,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "max_target": 2,
+          "force": 1,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "max_target": 2,
+          "force": 1,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "max_target": 2,
+          "force": 1,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "max_target": 2,
+          "force": 1,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "max_target": 2,
+          "force": 1,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "max_target": 2,
+          "force": 1,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "max_target": 2,
+          "force": 1,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "max_target": 2,
+          "force": 1,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "max_target": 2,
+          "force": 1,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ulpia_2",
+      "name": "必须维系的界限",
+      "levels": [
+        {
+          "talent_scale": 1.5,
+          "atk": 1,
+          "max_hp": 0.2,
+          "block_cnt": 1,
+          "level": 0,
+          "spCost": 90,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.5,
+          "atk": 1.05,
+          "max_hp": 0.2,
+          "block_cnt": 1,
+          "level": 1,
+          "spCost": 88,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.5,
+          "atk": 1.1,
+          "max_hp": 0.2,
+          "block_cnt": 1,
+          "level": 2,
+          "spCost": 86,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.6,
+          "atk": 1.15,
+          "max_hp": 0.3,
+          "block_cnt": 1,
+          "level": 3,
+          "spCost": 84,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.6,
+          "atk": 1.2,
+          "max_hp": 0.3,
+          "block_cnt": 1,
+          "level": 4,
+          "spCost": 82,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.6,
+          "atk": 1.25,
+          "max_hp": 0.3,
+          "block_cnt": 1,
+          "level": 5,
+          "spCost": 80,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.8,
+          "atk": 1.3,
+          "max_hp": 0.4,
+          "block_cnt": 1,
+          "level": 6,
+          "spCost": 78,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.8,
+          "atk": 1.4,
+          "max_hp": 0.45,
+          "block_cnt": 1,
+          "level": 7,
+          "spCost": 76,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 1.8,
+          "atk": 1.5,
+          "max_hp": 0.5,
+          "block_cnt": 1,
+          "level": 8,
+          "spCost": 74,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "talent_scale": 2,
+          "atk": 1.6,
+          "max_hp": 0.6,
+          "block_cnt": 1,
+          "level": 9,
+          "spCost": 70,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ulpia_3",
+      "name": "必须开辟的通路",
+      "levels": [
+        {
+          "max_hp": 0.2,
+          "atk": 1.7,
+          "atk_scale": 1.3,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.2,
+          "atk": 1.8,
+          "atk_scale": 1.3,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 1,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.2,
+          "atk": 1.9,
+          "atk_scale": 1.3,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 2,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.4,
+          "atk": 2,
+          "atk_scale": 1.35,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 3,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.4,
+          "atk": 2.1,
+          "atk_scale": 1.35,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 4,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.4,
+          "atk": 2.2,
+          "atk_scale": 1.35,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 5,
+          "spCost": 29,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "atk": 2.3,
+          "atk_scale": 1.4,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 6,
+          "spCost": 28,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "atk": 2.4,
+          "atk_scale": 1.45,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 7,
+          "spCost": 27,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.6,
+          "atk": 2.5,
+          "atk_scale": 1.5,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 8,
+          "spCost": 26,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "max_hp": 0.8,
+          "atk": 2.6,
+          "atk_scale": 1.6,
+          "stun": 6,
+          "projectile_range": 1.8,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "本性的坚守",
+          "description": "每次受到伤害时，治疗自身80点生命值；生命值低于50%时，治疗效果提升至120点生命值",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "value1": 80,
+            "value2": 120
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "本性的坚守",
+          "description": "每次受到伤害时，治疗自身100点生命值；生命值低于50%时，治疗效果提升至160点生命值",
+          "blackboard": {
+            "hp_ratio": 0.5,
+            "value1": 100,
+            "value2": 160
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "血脉的哺养",
+          "description": "每次击倒一名敌人时，自身的生命上限提高120，攻击力提高30，最多叠加9次，其他【深海猎人】干员获得50%的提高效果",
+          "blackboard": {
+            "max_stack_cnt": 9,
+            "max_hp": 120,
+            "atk": 30,
+            "ulpia_t_1[abyssal].max_hp": 60,
+            "ulpia_t_1[abyssal].atk": 15,
+            "ulpia_t_1[abyssal].max_stack_cnt": 9
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "血脉的哺养",
+          "description": "每次击倒一名敌人时，自身的生命上限提高120，攻击力提高30，最多叠加10<@ba.talpu>（+1）</>次，其他【深海猎人】干员获得50%的提高效果",
+          "blackboard": {
+            "max_stack_cnt": 10,
+            "max_hp": 120,
+            "atk": 30,
+            "ulpia_t_1[abyssal].max_hp": 60,
+            "ulpia_t_1[abyssal].atk": 15,
+            "ulpia_t_1[abyssal].max_stack_cnt": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": null,
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "生命上限+250",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 250
+        }
+      ]
+    },
+    {
+      "description": "攻击力+45",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 45
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ulpia",
+      "name": "乌尔比安证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ulpia",
+      "name": "乌尔比安的衣橱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 330,
+            "atk": 84
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 430,
+            "atk": 107
+          },
+          "talentEnhance": [
+            {
+              "name": "本性的坚守",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.5,
+                "value1": 120,
+                "value2": 170
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 510,
+            "atk": 120
+          },
+          "talentEnhance": [
+            {
+              "name": "本性的坚守",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_ratio": 0.6,
+                "value1": 130,
+                "value2": 175
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

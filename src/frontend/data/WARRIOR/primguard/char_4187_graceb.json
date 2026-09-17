@@ -1,0 +1,453 @@
+{
+  "id": "char_4187_graceb",
+  "name": "聆音",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "primguard",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        366,
+        523
+      ],
+      "def": [
+        168,
+        231
+      ],
+      "maxHp": [
+        1067,
+        1482
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        523,
+        680
+      ],
+      "def": [
+        231,
+        297
+      ],
+      "maxHp": [
+        1482,
+        1950
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        680,
+        820
+      ],
+      "def": [
+        297,
+        350
+      ],
+      "maxHp": [
+        1950,
+        2600
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_graceb_1",
+      "name": "开颅挽歌",
+      "levels": [
+        {
+          "attack@atk_scale": 1,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.05,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.1,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.15,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.2,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.25,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.3,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.35,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.4,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "ep_damage_ratio": 0.1,
+          "mode": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_graceb_2",
+      "name": "破膛弥撒",
+      "levels": [
+        {
+          "atk_scale": 1.8,
+          "max_target": 5,
+          "ct": 1,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "max_target": 5,
+          "ct": 1,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "max_target": 5,
+          "ct": 1,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "max_target": 5,
+          "ct": 1,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.05,
+          "max_target": 5,
+          "ct": 1,
+          "level": 4,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "max_target": 5,
+          "ct": 1,
+          "level": 5,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "max_target": 5,
+          "ct": 2,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "max_target": 6,
+          "ct": 2,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "max_target": 6,
+          "ct": 2,
+          "level": 8,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "max_target": 6,
+          "ct": 2,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "趁势怜悯",
+          "description": "攻击力+5%，击倒过处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人后改为攻击力+10%",
+          "blackboard": {
+            "atk": 0.05,
+            "atk_bonus": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "趁势怜悯",
+          "description": "攻击力+8%<@ba.talpu>（+3%）</>，击倒过处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人后改为攻击力+13%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "atk": 0.08,
+            "atk_bonus": 0.13
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "趁势怜悯",
+          "description": "攻击力+10%，击倒过处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人后改为攻击力+15%",
+          "blackboard": {
+            "atk": 0.1,
+            "atk_bonus": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "趁势怜悯",
+          "description": "攻击力+13%<@ba.talpu>（+3%）</>，击倒过处于<$ba.dt.neural2>神经损伤</>爆发期间的敌人后改为攻击力+18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "atk": 0.13,
+            "atk_bonus": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+30",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

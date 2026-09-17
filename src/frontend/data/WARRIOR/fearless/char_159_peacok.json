@@ -1,0 +1,488 @@
+{
+  "id": "char_159_peacok",
+  "name": "断罪者",
+  "rarity": "TIER_4",
+  "profession": "WARRIOR",
+  "subProfessionId": "fearless",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        402,
+        601
+      ],
+      "def": [
+        74,
+        107
+      ],
+      "maxHp": [
+        1449,
+        1932
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        601,
+        771
+      ],
+      "def": [
+        107,
+        139
+      ],
+      "maxHp": [
+        1932,
+        2577
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        771,
+        929
+      ],
+      "def": [
+        139,
+        166
+      ],
+      "maxHp": [
+        2577,
+        3483
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 22,
+    "def": 22,
+    "maxHp": 222
+  },
+  "skills": [
+    {
+      "skillId": "skchr_peacok_1",
+      "name": "断罪",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 5.6,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 5.8,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 6,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 6.2,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 6.4,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 6.6,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 6.8,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 7.2,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 7.6,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "peacok_s_1[crit].prob": 0.05,
+          "peacok_s_1[crit].atk_scale": 4,
+          "atk_scale_fake": 8,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_peacok_2",
+      "name": "创世纪",
+      "levels": [
+        {
+          "prob": 0.5,
+          "success.atk_scale": 1.8,
+          "success.silence": 2,
+          "failure.stun": 5,
+          "level": 0,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 1.9,
+          "success.silence": 2,
+          "failure.stun": 5,
+          "level": 1,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2,
+          "success.silence": 2,
+          "failure.stun": 5,
+          "level": 2,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2.2,
+          "success.silence": 2.5,
+          "failure.stun": 5,
+          "level": 3,
+          "spCost": 18,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2.3,
+          "success.silence": 2.5,
+          "failure.stun": 5,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2.4,
+          "success.silence": 2.5,
+          "failure.stun": 5,
+          "level": 5,
+          "spCost": 18,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2.6,
+          "success.silence": 3,
+          "failure.stun": 5,
+          "level": 6,
+          "spCost": 17,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 2.9,
+          "success.silence": 3.5,
+          "failure.stun": 5,
+          "level": 7,
+          "spCost": 16,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 3.2,
+          "success.silence": 4,
+          "failure.stun": 5,
+          "level": 8,
+          "spCost": 15,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "prob": 0.5,
+          "success.atk_scale": 3.5,
+          "success.silence": 5,
+          "failure.stun": 5,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "稳妥降落",
+          "description": "部署费用-2，再部署时间-8秒，但部署后<$ba.stun>晕眩</>10秒",
+          "blackboard": {
+            "cost": -2,
+            "respawn_time": -8,
+            "stun": 10
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "稳妥降落",
+          "description": "部署费用-4，再部署时间-15秒，但部署后<$ba.stun>晕眩</>10秒",
+          "blackboard": {
+            "cost": -4,
+            "respawn_time": -15,
+            "stun": 10
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [],
+  "modules": [
+    {
+      "id": "uniequip_001_peacok",
+      "name": "断罪者证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_peacok",
+      "name": "断罪之拳",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 50,
+            "attack_speed": 3
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 70,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "稳妥降落",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -6,
+                "respawn_time": -25,
+                "stun": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 80,
+            "attack_speed": 4
+          },
+          "talentEnhance": [
+            {
+              "name": "稳妥降落",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "cost": -8,
+                "respawn_time": -30,
+                "stun": 10
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

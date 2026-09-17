@@ -1,0 +1,524 @@
+{
+  "id": "char_157_dagda",
+  "name": "达格达",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "fighter",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        236,
+        348
+      ],
+      "def": [
+        134,
+        192
+      ],
+      "maxHp": [
+        1185,
+        1602
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        348,
+        464
+      ],
+      "def": [
+        192,
+        260
+      ],
+      "maxHp": [
+        1602,
+        2054
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        464,
+        574
+      ],
+      "def": [
+        260,
+        310
+      ],
+      "maxHp": [
+        2054,
+        2506
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 0.78,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 35,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_dagda_1",
+      "name": "反制技巧",
+      "levels": [
+        {
+          "damage_resistance": 0.3,
+          "attack@defensive_atk_scale": 1.2,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.3,
+          "attack@defensive_atk_scale": 1.3,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.3,
+          "attack@defensive_atk_scale": 1.4,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.4,
+          "attack@defensive_atk_scale": 1.5,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.4,
+          "attack@defensive_atk_scale": 1.6,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.4,
+          "attack@defensive_atk_scale": 1.7,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.5,
+          "attack@defensive_atk_scale": 1.8,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.5,
+          "attack@defensive_atk_scale": 1.9,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 1,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.5,
+          "attack@defensive_atk_scale": 2,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.6,
+          "attack@defensive_atk_scale": 2.1,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dagda_2",
+      "name": "精准捕杀",
+      "levels": [
+        {
+          "atk": 0.1,
+          "talent@prob": 0.4,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.13,
+          "talent@prob": 0.4,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "talent@prob": 0.4,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.19,
+          "talent@prob": 0.45,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "talent@prob": 0.45,
+          "level": 4,
+          "spCost": 42,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "talent@prob": 0.45,
+          "level": 5,
+          "spCost": 39,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.28,
+          "talent@prob": 0.5,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "talent@prob": 0.53,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.32,
+          "talent@prob": 0.56,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "talent@prob": 0.6,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "帮派精神",
+          "description": "攻击时有30%概率使当次攻击力提升至130%，自身在场时，【格拉斯哥帮】干员周围4格内每有一个敌人倒下，攻击力提升额外提升5%（最高提升至190%）",
+          "blackboard": {
+            "prob": 0.3,
+            "atk_scale": 1.3,
+            "atk_up_max_value": 1.9,
+            "atk_up_each_time": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "帮派精神",
+          "description": "攻击时有30%概率使当次攻击力提升至150%，自身在场时，【格拉斯哥帮】干员周围4格内每有一个敌人倒下，攻击力提升额外提升5%（最高提升至240%）",
+          "blackboard": {
+            "prob": 0.3,
+            "atk_scale": 1.5,
+            "atk_up_max_value": 2.4,
+            "atk_up_each_time": 0.05
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "骑士意志",
+          "description": "在【淬火尘霾】中，生命值+20%，每次攻击治疗自身相当于造成伤害20%的生命值",
+          "blackboard": {
+            "max_hp": 0.2,
+            "heal_scale": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "攻击力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_dagda",
+      "name": "达格达证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_dagda",
+      "name": "后街圆盾",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "帮派精神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "atk_scale": 1.56,
+                "atk_up_max_value": 2.4,
+                "atk_up_each_time": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "帮派精神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.3,
+                "atk_scale": 1.62,
+                "atk_up_max_value": 2.4,
+                "atk_up_each_time": 0.06
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack_speed": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

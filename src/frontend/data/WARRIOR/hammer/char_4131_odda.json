@@ -1,0 +1,569 @@
+{
+  "id": "char_4131_odda",
+  "name": "奥达",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "hammer",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        531,
+        759
+      ],
+      "def": [
+        162,
+        223
+      ],
+      "maxHp": [
+        1063,
+        1477
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        759,
+        987
+      ],
+      "def": [
+        223,
+        286
+      ],
+      "maxHp": [
+        1477,
+        1944
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        987,
+        1190
+      ],
+      "def": [
+        286,
+        337
+      ],
+      "maxHp": [
+        1944,
+        2593
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.8,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_odda_1",
+      "name": "火花溅射",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "ability_range_radius": 1.5,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "ability_range_radius": 1.5,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "ability_range_radius": 1.5,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "ability_range_radius": 1.5,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "ability_range_radius": 1.5,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "ability_range_radius": 1.5,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "ability_range_radius": 1.5,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "ability_range_radius": 1.5,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "ability_range_radius": 1.5,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "ability_range_radius": 1.5,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_odda_2",
+      "name": "锻锤之力",
+      "levels": [
+        {
+          "atk": 0.1,
+          "def": 0.1,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "def": 0.2,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "def": 0.3,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "def": 0.4,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "def": 0.5,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "def": 0.6,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "def": 0.7,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "def": 0.8,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "def": 0.9,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "def": 1,
+          "attack@value": 3,
+          "attack@levitate_duration": 0.5,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "落锤",
+          "description": "累计造成45次物理伤害后，攻击力+9%",
+          "blackboard": {
+            "count": 45,
+            "atk": 0.09
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "落锤",
+          "description": "累计造成45次物理伤害后，攻击力+12%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "count": 45,
+            "atk": 0.12
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "落锤",
+          "description": "累计造成30次物理伤害后，攻击力+15%",
+          "blackboard": {
+            "count": 30,
+            "atk": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "落锤",
+          "description": "累计造成30次物理伤害后，攻击力+18%<@ba.talpu>（+3%）</>",
+          "blackboard": {
+            "count": 30,
+            "atk": 0.18
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击使目标周围的其他敌人受到相当于攻击力{attack@atk_scale_2:0%}的群体物理伤害",
+    "blackboard": {
+      "attack@ability_range_radius": 1,
+      "attack@atk_scale_2": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_odda",
+      "name": "奥达证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_odda",
+      "name": "旧背包",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 60
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "落锤",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "count": 30,
+                "atk": 0.2
+              }
+            },
+            {
+              "name": "落锤",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "count": 30,
+                "atk": 0.23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 85
+          },
+          "talentEnhance": [
+            {
+              "name": "落锤",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "count": 20,
+                "atk": 0.2
+              }
+            },
+            {
+              "name": "落锤",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "count": 20,
+                "atk": 0.23
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@atk_scale_2": 0.5,
+                "attack@ability_range_radius": 1,
+                "atk_scale_e": 1.15,
+                "cnt": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

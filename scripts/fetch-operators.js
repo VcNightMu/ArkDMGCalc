@@ -51,20 +51,119 @@ const OPERATORS = {
     ],
   },
   WARRIOR: { // 近卫
-    centurion: [],                  // 强攻手
-    fighter: [],                    // 斗士
-    artsfghter: ['char_350_surtr', 'char_185_frncat', 'char_274_astesi', 'char_333_sidero', 'char_4098_vvana', 'char_1019_siege2', 'char_1050_chen3', 'char_1001_amiya2'], // 术战者：慕斯4/星极5/铸铁5/史尔特尔6/薇薇安娜6/维娜·维多利亚6(异格)/赤刃明霄陈6(异格)/阿米娅(近卫)5(升变)
-    instructor: [],                 // 教官
-    lord: ['char_172_svrash', 'char_293_thorns'], // 领主
-    sword: ['char_010_chen'],       // 剑豪
-    musha: [],                      // 武者
-    fearless: [],                   // 无畏者
-    reaper: [],                     // 收割者
-    librator: [],                   // 解放者
-    crusher: [],                    // 重剑手
-    hammer: [],                     // 撼地者
-    primguard: [],                  // 本源近卫
-    mercenary: [],                  // 佣兵
+    centurion: [
+      'char_017_huang',       // 煌 TIER_61★
+      'char_1026_gvial2',     // 百炼嘉维尔 TIER_61★(异格/升变)
+      'char_127_estell',      // 艾丝黛尔 TIER_41★
+      'char_143_ghost',       // 幽灵鲨 TIER_51★
+      'char_230_savage',      // 暴行 TIER_51★
+      'char_281_popka',       // 泡普卡 TIER_31★
+      'char_356_broca',       // 布洛卡 TIER_51★
+      'char_4126_fuze',       // 导火索 TIER_51★
+      'char_4166_varkis',     // 摆渡人 TIER_51★
+    ],
+    fighter: [
+      'char_137_brownb',      // 猎蜂 TIER_41★
+      'char_155_tiger',       // 因陀罗 TIER_51★
+      'char_157_dagda',       // 达格达 TIER_51★
+      'char_2024_chyue',      // 重岳 TIER_61★
+      'char_264_f12yin',      // 山 TIER_61★
+      'char_347_jaksel',      // 杰克 TIER_41★
+      'char_4037_demetr',     // 贝洛内 TIER_61★
+      'char_415_flint',       // 燧石 TIER_51★
+    ],
+    artsfghter: [
+      'char_1001_amiya2',     // 阿米娅(近卫) 5★(异格/升变)
+      'char_1019_siege2',     // 维娜·维多利亚 TIER_61★(异格/升变)
+      'char_1050_chen3',      // 赤刃明霄陈 TIER_61★(异格/升变)
+      'char_185_frncat',      // 慕斯 TIER_41★
+      'char_274_astesi',      // 星极 TIER_51★
+      'char_333_sidero',      // 铸铁 TIER_51★
+      'char_350_surtr',       // 史尔特尔 TIER_61★
+      'char_4098_vvana',      // 薇薇安娜 TIER_61★
+    ],
+    instructor: [
+      'char_130_doberm',      // 杜宾 TIER_41★
+      'char_265_sophia',      // 鞭刃 TIER_51★
+      'char_308_swire',       // 诗怀雅 TIER_51★
+      'char_4106_bryota',     // 苍苔 TIER_51★
+      'char_4125_rdoc',       // 医生 TIER_51★
+      'char_485_pallas',      // 帕拉斯 TIER_61★
+    ],
+    lord: [
+      'char_140_whitew',      // 拉普兰德 TIER_51★
+      'char_172_svrash',      // 银灰 TIER_61★
+      'char_193_frostl',      // 霜叶 TIER_41★
+      'char_194_leto',        // 烈夏 TIER_51★
+      'char_271_spikes',      // 芳汀 TIER_41★
+      'char_283_midn',        // 月见夜 TIER_31★
+      'char_293_thorns',      // 棘刺 TIER_61★
+      'char_294_ayer',        // 断崖 TIER_51★
+      'char_4067_lolxh',      // 罗小黑 TIER_41★
+      'char_4082_qiubai',     // 仇白 TIER_61★
+      'char_4182_oblvns',     // 丰川祥子 TIER_61★
+    ],
+    sword: [
+      'char_010_chen',        // 陈 TIER_61★
+      'char_252_bibeak',      // 柏喙 TIER_51★
+      'char_301_cutter',      // 刻刀 TIER_41★
+      'char_4009_irene',      // 艾丽妮 TIER_61★
+      'char_4116_blkkgt',     // 锏 TIER_61★
+      'char_4220_kormr',      // 虎狼丸 TIER_11★
+      'char_459_tachak',      // 战车 TIER_51★
+    ],
+    musha: [
+      'char_1030_noirc2',     // 火龙S黑角 TIER_51★(异格/升变)
+      'char_188_helage',      // 赫拉格 TIER_61★
+      'char_337_utage',       // 宴 TIER_41★
+      'char_4121_zuole',      // 左乐 TIER_61★
+      'char_475_akafyu',      // 赤冬 TIER_51★
+    ],
+    fearless: [
+      'char_1014_nearl2',     // 耀骑士临光 TIER_61★(异格/升变)
+      'char_106_franka',      // 芙兰卡 TIER_51★
+      'char_131_flameb',      // 炎客 TIER_51★
+      'char_154_morgan',      // 摩根 TIER_51★
+      'char_159_peacok',      // 断罪者 TIER_41★
+      'char_208_melan',       // 玫兰莎 TIER_31★
+      'char_263_skadi',       // 斯卡蒂 TIER_61★
+      'char_286_cast3',       // Castle-3 TIER_11★
+      'char_289_gyuki',       // 缠丸 TIER_41★
+      'char_4011_lessng',     // 止颂 TIER_61★
+      'char_4142_laios',      // 莱欧斯 TIER_51★
+    ],
+    reaper: [
+      'char_1032_excu2',      // 圣约送葬人 TIER_61★(异格/升变)
+      'char_4010_etlchi',     // 隐德来希 TIER_61★
+      'char_4066_highmo',     // 海沫 TIER_51★
+      'char_421_crow',        // 羽毛笔 TIER_51★
+      'char_491_humus',       // 休谟斯 TIER_41★
+    ],
+    librator: [
+      'char_1043_leizi2',     // 司霆惊蛰 TIER_61★(异格/升变)
+      'char_4064_mlynar',     // 玛恩纳 TIER_61★
+      'char_445_wscoot',      // 骋风 TIER_41★
+      'char_486_takila',      // 龙舌兰 TIER_51★
+    ],
+    crusher: [
+      'char_4063_quartz',     // 石英 TIER_41★
+      'char_4083_chimes',     // 铎铃 TIER_51★
+      'char_4088_hodrer',     // 赫德雷 TIER_61★
+      'char_4145_ulpia',      // 乌尔比安 TIER_61★
+    ],
+    hammer: [
+      'char_1051_headb2',     // 怒潮凛冬 TIER_61★(异格/升变)
+      'char_4058_pepe',       // 佩佩 TIER_61★
+      'char_4131_odda',       // 奥达 TIER_51★
+      'char_4185_amoris',     // 祐天寺若麦 TIER_51★
+    ],
+    primguard: [
+      'char_4187_graceb',     // 聆音 TIER_51★
+    ],
+    mercenary: [
+      'char_1049_catap2',     // 雷狼龙S空爆 TIER_51★(异格/升变)
+      'char_394_hadiya',      // 哈蒂娅 TIER_51★
+    ],
   },
   TANK: { // 重装
     protector: [ // 铁卫

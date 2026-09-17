@@ -1,0 +1,554 @@
+{
+  "id": "char_4083_chimes",
+  "name": "铎铃",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "crusher",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        642,
+        918
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2325,
+        3230
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        918,
+        1193
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        3230,
+        4251
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        1193,
+        1438
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        4251,
+        5669
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 70,
+    "def": 0,
+    "maxHp": 350
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chimes_2",
+      "name": "乡心无改",
+      "levels": [
+        {
+          "damage_resistance": 0.2,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.4,
+          "maxcnt": 5,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.2,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.5,
+          "maxcnt": 5,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.2,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.6,
+          "maxcnt": 5,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.25,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.7,
+          "maxcnt": 5,
+          "level": 3,
+          "spCost": 30,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.25,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.8,
+          "maxcnt": 5,
+          "level": 4,
+          "spCost": 30,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.25,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 1.9,
+          "maxcnt": 5,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.3,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 2,
+          "maxcnt": 5,
+          "level": 6,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.32,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 2.1,
+          "maxcnt": 5,
+          "level": 7,
+          "spCost": 25,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.35,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 2.2,
+          "maxcnt": 5,
+          "level": 8,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_resistance": 0.4,
+          "atk": 0.5,
+          "attack@stun": 1,
+          "attack@atk_scale": 2.3,
+          "maxcnt": 5,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 5,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "走山路",
+          "description": "生命上限+5%，生命值高于50%时获得+15%攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "atk": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "走山路",
+          "description": "生命上限+5%，生命值高于50%时获得+17%<@ba.talpu>（+2%）</>攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "atk": 0.17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "走山路",
+          "description": "生命上限+5%，生命值高于50%时获得+20%攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "atk": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "走山路",
+          "description": "生命上限+5%，生命值高于50%时获得+22%<@ba.talpu>（+2%）</>攻击力的<$ba.strong>精力充沛</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "atk": 0.22
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+40",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chimes",
+      "name": "铎铃证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chimes",
+      "name": "致继任者",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 85
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 305,
+            "atk": 89
+          },
+          "talentEnhance": [
+            {
+              "name": "走山路",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.07,
+                "atk": 0.28
+              }
+            },
+            {
+              "name": "走山路",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.07,
+                "atk": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 350,
+            "atk": 100
+          },
+          "talentEnhance": [
+            {
+              "name": "走山路",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.08,
+                "atk": 0.33
+              }
+            },
+            {
+              "name": "走山路",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.08,
+                "atk": 0.35
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

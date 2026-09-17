@@ -1,0 +1,564 @@
+{
+  "id": "char_4063_quartz",
+  "name": "石英",
+  "rarity": "TIER_4",
+  "profession": "WARRIOR",
+  "subProfessionId": "crusher",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        620,
+        886
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2229,
+        3096
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        886,
+        1151
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        3096,
+        4074
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        1151,
+        1387
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        4074,
+        5432
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 300
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[2]",
+      "name": "攻击力强化·β型",
+      "levels": [
+        {
+          "atk": 0.2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 6,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_quartz_2",
+      "name": "全力相搏",
+      "levels": [
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 35,
+          "attack@s2_atk_scale": 0.8,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 40,
+          "attack@s2_atk_scale": 0.8,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 45,
+          "attack@s2_atk_scale": 0.8,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 50,
+          "attack@s2_atk_scale": 0.9,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 55,
+          "attack@s2_atk_scale": 0.9,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 60,
+          "attack@s2_atk_scale": 0.9,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 65,
+          "attack@s2_atk_scale": 1,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 70,
+          "attack@s2_atk_scale": 1,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 75,
+          "attack@s2_atk_scale": 1,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "damage_scale": 1.25,
+          "attack_speed": 80,
+          "attack@s2_atk_scale": 1.2,
+          "attack@s2_buff_prob": 0.25,
+          "attack@s2_stun": 2,
+          "fake_damage": 0.25,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "行于荒野",
+          "description": "生命值+4%，攻击力+4%",
+          "blackboard": {
+            "max_hp": 0.04,
+            "atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "行于荒野",
+          "description": "生命值+5%<@ba.talpu>（+1%）</>，攻击力+5%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "max_hp": 0.05,
+            "atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "行于荒野",
+          "description": "生命值+8%，攻击力+8%",
+          "blackboard": {
+            "max_hp": 0.08,
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "行于荒野",
+          "description": "生命值+9%<@ba.talpu>（+1%）</>，攻击力+9%<@ba.talpu>（+1%）</>",
+          "blackboard": {
+            "max_hp": 0.09,
+            "atk": 0.09
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_quartz",
+      "name": "石英证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_quartz",
+      "name": "钟表修理套组",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 68
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "行于荒野",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.12,
+                "atk": 0.12
+              }
+            },
+            {
+              "name": "行于荒野",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.13,
+                "atk": 0.13
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 90
+          },
+          "talentEnhance": [
+            {
+              "name": "行于荒野",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.14,
+                "atk": 0.14
+              }
+            },
+            {
+              "name": "行于荒野",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.15,
+                "atk": 0.15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "heal_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
