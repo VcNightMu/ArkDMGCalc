@@ -408,9 +408,10 @@ async function updateResults() {
     // 干员 skcom_ 通用技能模板(迅捷打击/冲锋号令等)与限时被动(PASSIVE 且 duration>0，芬 S2 执守阵线：部署自动生效 N 秒)按正常技能处理——有技能期+有常态
     const equipped = op.skills[slotData.skillIndex || 0];
     const equippedLv = (equipped && equipped.levels) ? (equipped.levels[slotData.skillLevel || 0] || equipped.levels[equipped.levels.length - 1] || {}) : {};
-    const hasSkill = !!equipped && !!equipped.skillId
+    // result.deploySkill:落地点火/开局定时触发天赋(无技能选择也显示技能期 DPS/总伤)
+    const hasSkill = result.deploySkill === true || (!!equipped && !!equipped.skillId
       && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0])
-      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]);
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]));
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;

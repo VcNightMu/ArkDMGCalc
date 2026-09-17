@@ -31,7 +31,7 @@ r = run('char_4116_blkkgt', -1); ok(near(r.normalDps, 65.4), '锏 常态(天赋�
 r = run('char_4116_blkkgt', 0); ok(near(r.skillTotalDamage, 1540.0), '锏 纯粹的战意(两次 200%,天赋不生效)1540.0 实=' + r.skillTotalDamage);
 r = run('char_4116_blkkgt', 1); ok(near(r.skillTotalDamage, 5456.8), '锏 无声的嘲弄(2 斩击×1.6,无视 25% 防御)5456.8 实=' + r.skillTotalDamage);
 r = run('char_4116_blkkgt', 2); ok(near(r.skillTotalDamage, 21463.6), '锏 归于宁静(10 斩+终结)21463.6 实=' + r.skillTotalDamage);
-r = run('char_4220_kormr', -1); ok(near(r.normalDps, 122.1, 0.3), '虎狼丸 天赋落地斩击 122.1 实=' + r.normalDps);
+r = run('char_4220_kormr', -1); ok(near(r.normalDps, 10.46, 0.3) && near(r.skillTotalDamage, 952, 0.5) && near(r.skillDps, 122.05, 0.3), '虎狼丸 常态=普攻10.46/技能期总伤952/技能期DPS122.05 实=' + r.normalDps + '/' + r.skillTotalDamage + '/' + r.skillDps);
 r = run('char_459_tachak', -1); ok(near(r.normalDps, 46.9), '战车 常态 46.9 实=' + r.normalDps);
 r = run('char_459_tachak', 0); ok(near(r.skillTotalDamage, 991.5), '战车 燃烧榴弹(6 秒 50% 法术)991.5 实=' + r.skillTotalDamage);
 r = run('char_459_tachak', 1); ok(near(r.realInterval, 0.45) && near(r.skillTotalDamage, 4718.4), '战车 倾泻弹药 0.45s/4718.4 实=' + r.realInterval + '/' + r.skillTotalDamage);

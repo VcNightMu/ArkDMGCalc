@@ -157,8 +157,7 @@ const SWORD_SPECIAL = {
   'char_301_cutter': [0],    // 红移:4 把飞刀(times 键)
   'char_4009_irene': [2],    // 判决:300% + 12 次 230%(multi_times/multi_atk_scale)
   'char_4116_blkkgt': [0, 1, 2], // 锏:三技能均按天赋在 2/3 技能生效的口径
-  'char_459_tachak': [0],    // 燃烧榴弹:6 秒燃烧区域(每秒 50% 法术)
-  'char_4220_kormr': [-1]    // 虎狼丸天赋「黑色狼牙」按落地触发的被动处理
+  'char_459_tachak': [0]     // 燃烧榴弹:6 秒燃烧区域(每秒 50% 法术)
 };
 
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
@@ -212,14 +211,27 @@ function kormrBurst(op, slotData) {
   return { scale, finalScale };
 }
 
-// 虎狼丸:无技能槽,天赋落地斩击的等效 DPS = 总伤 / (6 次斩击 × 攻击间隔)
-function kormrBurstDps(op, slotData, realInterval, panelAtk) {
-  if (op.id !== 'char_4220_kormr') return null;
-  const b = kormrBurst(op, slotData);
-  const res = (state.enemy && state.enemy.res) || 0;
-  const Aa = (a) => Math.max(0, a * (1 - res / 100));
-  const tot = Aa(panelAtk * b.scale) * 5 + Aa(panelAtk * b.finalScale);
-  return { dps: tot / 6, total: tot };   // 外层再 / realInterval → 等效 tot/(6×攻击间隔)
+// ===== 落地点火 / 开局定时触发天赋(一次性伤害) =====
+// 用户口径(2026-09-17):这类天赋按"落地点火技能"处理——即使没有技能选择,也依旧显示技能期 DPS/总伤;
+// 常态化列改回该干员自身的普攻(不再把天赋摊销进常态,也不与技能期重复计算)。
+// 技能期时长口径 = 攻击次数 × 攻击间隔(与既有落地生效技能同款)。
+// 目前仅虎狼丸(1★ 剑豪,无技能槽);以后同类(部署即触发 / 开局一定时间触发的伤害型天赋)接入本表即可。
+const DEPLOY_BURST_TALENTS = {
+  // 虎狼丸「黑色猎犬」:部署后 5 次 atk_scale 法术斩击 + 末次 final_atk_scale 法术斩击(单目标)
+  'char_4220_kormr': (op, slotData, panelAtk) => {
+    const b = kormrBurst(op, slotData);
+    const hits = 6;
+    const total = calcArtsDamage(panelAtk * b.scale, state.enemy.res) * (hits - 1)
+      + calcArtsDamage(panelAtk * b.finalScale, state.enemy.res);
+    return { total, hits, damageType: 'arts' };
+  },
+};
+function calcDeployBurstSkill(op, slotData, panelAtk, realInterval) {
+  const handler = DEPLOY_BURST_TALENTS[op.id];
+  if (!handler) return null;
+  const r = handler(op, slotData, panelAtk);
+  const duration = realInterval > 0 ? r.hits * realInterval : 0;
+  return { total: r.total, dps: duration > 0 ? r.total / duration : 0, duration, damageType: r.damageType };
 }
 
 function calcTalentAtkBonus(op, slotData) {
@@ -2598,7 +2610,7 @@ function calculateOperator(op, slotData, ctx) {
     const normalDps = op.subProfessionId === 'phalanx' ? 0
       : (op.subProfessionId === 'lord'
         ? Math.max(calcPhysicalDamage(panelAtk * LORD_REMOTE_MUL, effDef), acdropMinDamage(op, slotData, panelAtk * LORD_REMOTE_MUL))
-        : (kormrBurstDps(op, slotData, realInterval, panelAtk) ? kormrBurstDps(op, slotData, realInterval, panelAtk).dps : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk)))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+        : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
@@ -2608,7 +2620,9 @@ function calculateOperator(op, slotData, ctx) {
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
     const normFlat = defHitArtsMax(op, slotData);
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
+    // 落地点火/开局定时触发天赋(虎狼丸等):其伤害移入技能期显示,常态只留普攻
+    const deployBurst = calcDeployBurstSkill(op, slotData, panelAtk, realInterval);
+    return { type: 'damage', skillDps: deployBurst ? deployBurst.dps : 0, skillTotalDamage: deployBurst ? deployBurst.total : 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType, deploySkill: !!deployBurst, dmgTypes: deployBurst ? { [deployBurst.damageType]: { skillDps: deployBurst.dps, skillTotalDamage: deployBurst.total, cycleDps: null } } : undefined };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -3932,12 +3946,6 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const per = Aa(panelAtk * (levelData.atk_scale || 0));
       const ticks = levelData.projectile_delay_time || 6;
       return mk2(per * ticks, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), per * ticks), panelAtk * (levelData.atk_scale || 0), 'arts');
-    }
-    // 虎狼丸:天赋落地斩击(无技能槽,折进常态列)
-    if (op.id === 'char_4220_kormr') {
-      const b = kormrBurst(op, slotData);
-      const tot = Aa(panelAtk * b.scale) * 5 + Aa(panelAtk * b.finalScale);
-      return mk2(tot, 0, null, panelAtk * b.finalScale, 'arts');
     }
     return calcDamage(params);
   } else if (op.subProfessionId === 'fighter' && FIGHTER_SPECIAL[op.id] && FIGHTER_SPECIAL[op.id].includes(skillIndex)) {

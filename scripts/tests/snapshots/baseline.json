@@ -88594,14 +88594,20 @@
     "dt": "physical",
     "atk": 272,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 0,
+    "sDps": 122.051,
+    "sTot": 952,
     "cDps": null,
-    "nDps": 122.051,
+    "nDps": 10.462,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": null,
+    "dmg": {
+     "arts": {
+      "sd": 122.051,
+      "st": 952,
+      "cd": null
+     }
+    },
     "nm": null
    }
   }
