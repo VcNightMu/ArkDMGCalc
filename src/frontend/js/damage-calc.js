@@ -19,6 +19,9 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  'char_1026_gvial2': 0,   // 百炼嘉维尔「战地巨斧」:攻击力 +10%(默认按"不阻挡敌人"的档,atk_add 档不计)
+  'char_281_popka': 0,     // 泡普卡:攻击力 +3/5/6/8%(E2 潜0 = 6%)
+  'char_017_huang': { talentIndex: 1, key: 'huang_t_2[e_002_atk].atk' },   // 煌「严酷训练」:攻击力增幅(模组 X 新增档,默认生效)
   // ---- 狙击·神射手(longrange) ----
   'char_4193_lemuen': 1,   // 蕾缪安「逃犯引渡手续」:在场20秒后攻击力+10%(用户口径:默认常驻;弹药上限+1 在专用分支内计)
   // ---- 狙击·炮手(aoesniper) ----
@@ -596,6 +599,7 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  'char_017_huang': { talentIndex: 1, key: 'huang_t_2[e_002_atk_speed].attack_speed' },   // 煌「严酷训练」:攻速增幅(模组 X 新增档,默认生效)
   'char_294_ayer': 0,   // 断崖「索敌援助」:自身(与周围8格友方)攻速 +4/6/8/10(常驻)
   'char_1013_chen2': { talentIndex: 1, key: 'chen2_t_2[common].attack_speed' },   // 假日威龙陈「假日余韵」:攻速+8(水地形档 [map] 默认不计,用户口径取基础效果)
   // ---- 狙击·神射手(longrange) ----
@@ -1702,6 +1706,7 @@ function calcSleepAtkMul(op, slotData) {
 // ===== 常驻伤害乘区天赋驱动（通用，非白值加成：物理/法术/真伤一律乘，如森蚺「勇冠三军」满血时攻击造成 115% 伤害）=====
 // 值：干员 id → { talentIndex, key }（blackboard 中伤害倍率所在键，各干员键名不一：damage_scale/atk_scale…）
 const TALENT_DMG_MUL_DRIVERS = {
+  'char_143_ghost': { talentIndex: 0, key: 'damage_scale', moduleTe: true },   // 幽灵鲨 X 模组「溶于血的经验」:额外伤害倍率(本体无该键 → 1 倍)
   'char_416_zumama': { talentIndex: 0, key: 'atk_scale' },  // 森蚺「勇冠三军」：hp>50% 时攻击伤害 ×1.15/1.17（默认满血必触发；≤50% 的庇护向不计）
   // 薇薇安娜「燃烛施明」:法术伤害加成 additive(damage_scale_m 0.05~0.09),攻击范围内有精英/领袖敌人时 super_scale 翻倍
   // (damage_resistance_pm 受击减伤为承伤向不计)——superGrades 按 state.enemy.grade 判定
@@ -1876,13 +1881,25 @@ function calcTalentDmgMul(op, slotData) {
   for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const bb = cand.blackboard || {};
-      let v = typeof bb[cfg.key] === 'number' ? bb[cfg.key] : 0;
+      const bb0 = cand.blackboard || {};
+      const bb = (bb0.blackboard && typeof bb0.blackboard === 'object') ? bb0.blackboard : bb0;
+      if (typeof bb[cfg.key] !== 'number') continue;   // 本体没有这个键 = 1 倍(用户 2026-09-17:增幅默认 1 倍)
+      let v = bb[cfg.key];
       // 条件翻倍:薇薇安娜攻击范围内存在精英/领袖敌人时法伤加成 ×super_scale
       if (v > 0 && cfg.superKey && typeof bb[cfg.superKey] === 'number' && (cfg.superGrades || []).includes(state.enemy?.grade)) {
         v = v * bb[cfg.superKey];
       }
       const use = cfg.additive ? (1 + v) : v;  // additive:键值是加成比例(0.05→×1.05);否则键值即完整乘子
+      if (mul === null || use > mul) mul = use;
+    }
+  }
+  // 模组 talentEnhance 兜底:本体天赋没有该键时,直接读当前模组档 te 里的键(模块改写天赋数值的情况)
+  const ml = (mul === null && cfg.moduleTe && typeof getModuleLevelData === 'function') ? getModuleLevelData(op, slotData) : null;
+  for (const enh of (ml && Array.isArray(ml.talentEnhance) ? ml.talentEnhance : [])) {
+    const bbx = enh.blackboard || {};
+    if ((enh.requiredPotentialRank ?? 0) > (slotData.potentialRank || 0)) continue;   // 只取当前潜力档
+    if (typeof bbx[cfg.key] === 'number') {
+      const use = cfg.additive ? (1 + bbx[cfg.key]) : bbx[cfg.key];
       if (mul === null || use > mul) mul = use;
     }
   }
@@ -1892,6 +1909,7 @@ function calcTalentDmgMul(op, slotData) {
 // ===== 不屈者(unyield)及相关通用机制驱动表 =====
 // base_attack_time 正小数按加算秒处理(引擎默认 (0,1)=乘算缩短;描述为"间隔增大"的技能例外)
 const BAT_ADD_OVERRIDES = {
+  'char_356_broca': { 1: true },   // 布洛卡 S2「高压电流」:基础攻击间隔 +0.65 秒(加算)
   'char_163_hpsts': { 1: true },   // 火神 S2 武力模式:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4065_judge': { 2: true },  // 斥罪 S3 披荆斩棘:攻击间隔增大(1.6+0.9=2.5s)
   'char_378_asbest': { 1: true },  // 石棉 S2 火电模式:攻击间隔增大(1.6+0.4=2.0s)
@@ -3740,6 +3758,34 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'centurion' && op.id === 'char_017_huang' && skillIndex === 2) {
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const tmul = calcTalentDmgMul(op, slotData);
+    const mk = (sTot, sDps, cd, panel) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk, dmgTypes: { physical: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    // 煌 S3「沸腾爆裂」:技能期持续灼烧,结束时对范围内造成 360% 攻击力物理(单目标算一次)
+    {
+      const n = skillDuration > 0 && sIvl > 0 ? Math.floor(skillDuration / sIvl + 1e-9) : 0;
+      const base = n * calcPhysicalDamage(skillAtk, effDef) * tmul;
+      const boom = calcPhysicalDamage(skillAtk * (levelData.damage_by_atk_scale || 0), effDef) * tmul;
+      return mk(base + boom, skillDuration > 0 ? (base + boom) / skillDuration : 0, null, skillAtk);
+    }
+    // 摆渡人 S2「同胞的意志」:攻击力提升至 185%(数据键带 attack@ 前缀)
+    if (false) {
+      const sc = levelData['attack@s2_atk_scale'] || 1;
+      const n = skillDuration > 0 && sIvl > 0 ? Math.floor(skillDuration / sIvl + 1e-9) : 0;
+      const tot = n * calcPhysicalDamage(panelAtk * sc, effDef) * tmul;
+      return mk(tot, skillDuration > 0 ? tot / skillDuration : 0, null, panelAtk * sc);
+    }
+    return calcDamage(params);
+  } else if (op.subProfessionId === 'centurion' && op.id === 'char_4166_varkis' && skillIndex === 1) {
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const tmul = calcTalentDmgMul(op, slotData);
+    const mk = (sTot, sDps, cd, panel) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel, dmgTypes: { physical: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    // 摆渡人 S2「同胞的意志」:攻击力提升至 185%(数据键带 attack@ 前缀,引擎不识别)
+    const sc = levelData['attack@s2_atk_scale'] || 1;
+    const n = skillDuration > 0 && sIvl > 0 ? Math.floor(skillDuration / sIvl + 1e-9) : 0;
+    const tot = n * calcPhysicalDamage(panelAtk * sc, effDef) * tmul;
+    return mk(tot, skillDuration > 0 ? tot / skillDuration : 0, null, panelAtk * sc);
   } else if (op.subProfessionId === 'lord') {
     return calcLordSkill(op, slotData, skillIndex, levelData, { panelAtk, effDef, skillDuration, realInterval, skillRealInterval, skillAtk: skillAtk * lordAtkMul(op, skillIndex), generic: () => calcDamage(params) }, { baseInterval: phase.baseAttackTime, baseAspdBonus });
   } else if (op.subProfessionId === 'skybreaker') {
