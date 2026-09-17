@@ -48,6 +48,8 @@ const IDS = [
   'char_1014_nearl2', 'char_106_franka', 'char_131_flameb', 'char_154_morgan', 'char_159_peacok', 'char_208_melan', 'char_263_skadi', 'char_286_cast3', 'char_289_gyuki', 'char_4011_lessng', 'char_4142_laios',  // 近卫·无畏者(限时被动不得折进常态)
   'char_4063_quartz', 'char_4083_chimes', 'char_4088_hodrer', 'char_4145_ulpia',  // 近卫·重剑手(赫德雷 S2 切换型被动见 NORMAL_EXCEPT)
   'char_1051_headb2', 'char_4058_pepe', 'char_4131_odda', 'char_4185_amoris',  // 近卫·撼地者
+  'char_4187_graceb',  // 近卫·本源近卫
+  'char_394_hadiya', 'char_1049_catap2',  // 近卫·佣兵
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

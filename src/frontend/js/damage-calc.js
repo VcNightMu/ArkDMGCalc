@@ -8,6 +8,7 @@ import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
 import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit } from './element-calc.js';
 import { calcPrimCasterSkill } from './primcaster-calc.js';
+import { calcPrimGuardSkill } from './primguard-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -73,6 +74,10 @@ const TALENT_ATK_DRIVERS = {
   'char_4058_pepe': 1,     // 佩佩「弥漫莲香」:在场时所有【近卫】干员攻击力+16%(潜2 +20%)——本人即近卫,吃自己光环(问答确认 2026-09-17)
   'char_4131_odda': 0,     // 奥达「落锤」:累计造成 30 次伤害后攻击力+15%(潜4 +18%;X 模组 te 提到 20%/23% 且计数降至 20)——用户口径默认常驻
   'char_4185_amoris': 1,   // 祐天寺若麦「毋畏爱意」:Ave Mujica 成员攻击力+8%(潜4 +9%)——本人即 Ave Mujica 成员,吃自己光环(问答确认)
+  // ---- 近卫·本源近卫(primguard) ----
+  'char_4187_graceb': 0,   // 聆音「趁势怜悯」:攻击力+5/10%(E2)→ 用户口径"仅计算基础加成"(击倒神经损伤爆发敌人后的 atk_bonus 升级档不计)
+  // ---- 近卫·佣兵(mercenary) ----
+  'char_394_hadiya': 0,    // 哈蒂娅「荒野的后裔」:每层攻击力+4%(E2,潜4 +5%),最多 5 层 → 用户口径"默认叠满"(×max_stack_cnt = +20%)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -704,6 +709,21 @@ const SKILL_ATK_KEY_OVERRIDES = {
   'char_2014_nian': { 2: 'nian_s_3[self].atk' },   // 年 S3「铁御」:自身攻击力增幅(友方 def/阻挡 buff 不计)
   'char_4199_makiri': { 1: 'makiri_s_2[passive].atk' },  // 松桐 S2 万手成局:攻击+X% 在 passive 前缀键
   'char_180_amgoat': { 0: 'amgoat_s_1[b].atk' },  // 艾雅法拉 S1 二重咏唱:默认第二次开启口径(追加攻击力+50% M1,[a] 首启只有攻速)
+  // ---- 近卫·佣兵(mercenary) ----
+  'char_394_hadiya': { 0: 'extra.atk' },  // 哈蒂娅 S1 沙地战术改良:装备应变 攻击力+80%(专一)记在 extra.atk(用户口径"视为开启装备应变")
+};
+
+// ===== 佣兵(mercenary)特例 =====
+// 用户口径(2026-09-17):所有佣兵可开启装备应变的技能均视为开启装备应变;
+//   哈蒂娅「荒野的后裔」攻击力增幅默认叠满(入 TALENT_ATK_DRIVERS,×max_stack_cnt);
+//   雷狼龙S空爆「斧模式变形」不考虑增加持续时间、所有技能均不考虑充能。
+// 佣兵特性:可消耗部署费用来强化作战能力(消耗费用本身不改输出,DPS 不建模)。
+const MERCENARY_SPECIAL = {
+  'char_1049_catap2': [0, 1],  // 雷狼龙S空爆:S1 高压回填斩(变形斩5+五连击5+十连击10=20 击,每击附 29% 法伤) / S2 超高输出属性解放斩(装备应变一击 300%)
+};
+// 佣兵「装备应变」视为开启:技能期时长的额外加成登记(哈蒂娅 S2 剑角之锋:消耗 15 费用延长 15 秒)
+const ALTER_EQUIP_DURATION = {
+  'char_394_hadiya': { 1: 'extra.duration' },
 };
 
 // 技能自回键别名(数据把每秒回血比例放带前缀的键,语义同顶层 hp_recovery_per_sec_by_max_hp_ratio):
@@ -2209,6 +2229,8 @@ function calcBluePoisonDps(op, slotData, enemy) {
 const INTERVAL_GROW_OVERRIDES = {
   'char_166_skfire': { 1: true },  // 天火 S2 天坠之火:攻击间隔增大(+70%)
   'char_2015_dusk': { 2: true },   // 夕 S3 写意胜形:攻击间隔增大(+40%)
+  // ---- 近卫·佣兵(mercenary) ----
+  'char_1049_catap2': { 0: true },  // 雷狼龙S空爆 S1 高压回填斩:攻击间隔增大(+100% → 1.25×2=2.5s)
 };
 
 // 普攻改写注册表(attack@atk_scale 无 attack@times 的持续型,值=技能期每击伤害倍率):
@@ -2782,6 +2804,9 @@ function calculateOperator(op, slotData, ctx) {
   // 前段延迟输出(泥岩 S3 秽壤的血脉:前 10s 沉睡无敌无输出,仅后 20s 攻击计算)
   const delayedSec = (DELAYED_OUTPUT[op.id] || {})[skillIndex];
   if (delayedSec) skillDuration = Math.max(0, skillDuration - delayedSec);
+  // 佣兵「装备应变」视为开启(用户口径 2026-09-17):技能期时长的额外加成计入技能期长度
+  const aeDur = (ALTER_EQUIP_DURATION[op.id] || {})[skillIndex];
+  if (aeDur && typeof levelData[aeDur] === 'number') skillDuration += levelData[aeDur];
 
   const modifiers = [];
   // 技能开启期间常驻光环天赋加倍(阿米娅(近卫)「青色怒火」:青色怒火开技效果 ×2,补一份 talentAtk)
@@ -4299,6 +4324,43 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const body = Pp(a) * tmul * nn(skillDuration);
       return mkC({ phys: anchor + body }, skillDuration, a, Pp(panelAtk) * tmul / realInterval);
     }
+  } else if (op.subProfessionId === 'mercenary' && MERCENARY_SPECIAL[op.id] && MERCENARY_SPECIAL[op.id].includes(skillIndex)) {
+    // 佣兵(mercenary)特例(用户口径 2026-09-17,详见 MERCENARY_SPECIAL 注释)
+    const Pm = (a) => calcPhysicalDamage(a, effDef);
+    const Am = (a) => calcArtsDamage(a, effRes);
+    const nMerc = Pm(panelAtk) / realInterval;
+    // X 模组「狩猎之路」特性追加:开启技能消耗费用时每 1 点费用使本次技能期攻击力 +2%(上限 10 层)→ 满层 +20%
+    // (模组 talentEnhance 里 name=null 的 {max_stack_cnt,atk} 档即此特性;与技能攻击力同池加算)
+    let mercEquipAtk = 0;
+    const mSlot = slotData.module;
+    if (mSlot) {
+      const modObj = (op.modules || []).find(x => x.id === mSlot.moduleId);
+      const ml = modObj && (modObj.levels || []).find(l => l.level === mSlot.moduleLevel);
+      if (ml) for (const te of (ml.talentEnhance || [])) {
+        const bb = te.blackboard || {};
+        if (te.name === null && typeof bb.atk === 'number' && typeof bb.max_stack_cnt === 'number') mercEquipAtk = Math.max(mercEquipAtk, bb.atk * bb.max_stack_cnt);
+      }
+    }
+    if (skillIndex === 0) {
+      // S1 高压回填斩:攻击变为"变形斩五连击 + 五连击 5 击 + 十连击 10 击"共 20 击(问答确认),
+      // 每一击造成普攻物理伤害并附带攻击力 29%(专一)的法术伤害;间隔 +100%(INTERVAL_GROW_OVERRIDES)→ 窗口 4s
+      const magicScale = levelData['attack@atk_magic'] !== undefined ? levelData['attack@atk_magic'] : (levelData.atk_magic || 0);
+      const a = rawAtk * (1 + mercEquipAtk);
+      const hits = 20;
+      const physPer = Pm(a), artsPer = Am(a * magicScale);
+      const win = skillDuration > 0 ? skillDuration : 4;
+      const physTot = physPer * hits, artsTot = artsPer * hits;
+      const sTot = physTot + artsTot;
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sTot / win, skillTotalDamage: sTot, cycleDps: null, normalDps: nMerc, skillHps: null, normalHps: null, totalHeal: null, realInterval: skillRealInterval, panelAtk: a, dmgTypes: { physical: { skillDps: physTot / win, skillTotalDamage: physTot, cycleDps: null }, arts: { skillDps: artsTot / win, skillTotalDamage: artsTot, cycleDps: null } } };
+    }
+    {
+      // S2 超高输出属性解放斩:装备应变(视为开启)→ 对前方造成一次攻击力 300%(专一)的物理伤害,之后技能立即结束;
+      // 充能附加法术伤害按"不考虑充能"记 0(用户口径);技能自身攻击力 +90%(专一,顶层 atk)
+      const a = rawAtk * (1 + mercEquipAtk + (levelData.atk || 0));
+      const sTot = Pm(a * (levelData['attack@extra_physic_atk_scale'] || 0));
+      const win = skillDuration > 0 ? skillDuration : 4;
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sTot / win, skillTotalDamage: sTot, cycleDps: null, normalDps: nMerc, skillHps: null, normalHps: null, totalHeal: null, realInterval: skillRealInterval, panelAtk: a, dmgTypes: { physical: { skillDps: sTot / win, skillTotalDamage: sTot, cycleDps: null } } };
+    }
   } else if (op.subProfessionId === 'hammer' && HAMMER_SPECIAL[op.id] && HAMMER_SPECIAL[op.id].includes(skillIndex)) {
     // 撼地者(hammer)特例(用户口径 2026-09-17,详见 HAMMER_SPECIAL 注释)
     const Ph = (a) => calcPhysicalDamage(a, effDef);
@@ -4898,6 +4960,13 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
   if (op.subProfessionId === 'primcaster') {
     result = calcPrimCasterSkill({
       op, slotData, levelData, panelAtk, skillAtk, skillRealInterval, skillDuration, effRes, skillIndex,
+      grade: (state.enemy && state.enemy.grade) || 'normal', result,
+    });
+  }
+  // 本源近卫(primguard)元素损伤建模(用户口径 2026-09-17:与本源术师同源处理)
+  if (op.subProfessionId === 'primguard') {
+    result = calcPrimGuardSkill({
+      op, slotData, levelData, panelAtk, skillAtk, skillRealInterval, skillDuration, effRes, effDef, skillIndex,
       grade: (state.enemy && state.enemy.grade) || 'normal', result,
     });
   }
