@@ -1,0 +1,887 @@
+{
+  "id": "char_4138_narant",
+  "name": "娜仁图亚",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "loopshooter",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        229,
+        382
+      ],
+      "def": [
+        60,
+        100
+      ],
+      "maxHp": [
+        1064,
+        1520
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        382,
+        546
+      ],
+      "def": [
+        100,
+        144
+      ],
+      "maxHp": [
+        1520,
+        2000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        546,
+        675
+      ],
+      "def": [
+        144,
+        170
+      ],
+      "maxHp": [
+        2000,
+        2500
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_narant_1",
+      "name": "旋刃",
+      "levels": [
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.2,
+          "ability_range_forward_extend": -1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.25,
+          "ability_range_forward_extend": -1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.3,
+          "ability_range_forward_extend": -1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.4,
+          "ability_range_forward_extend": -1,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.45,
+          "ability_range_forward_extend": -1,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.5,
+          "ability_range_forward_extend": -1,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.6,
+          "ability_range_forward_extend": -1,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.7,
+          "ability_range_forward_extend": -1,
+          "level": 7,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.8,
+          "ability_range_forward_extend": -1,
+          "level": 8,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        },
+        {
+          "attack@times": 3,
+          "attack@atk_scale": 1.9,
+          "ability_range_forward_extend": -1,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": true,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_narant_2",
+      "name": "恶魇",
+      "levels": [
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 1.9,
+          "attack@atk_scale_comeback": 1.4,
+          "attack@sluggish": 1,
+          "level": 0,
+          "spCost": 18,
+          "initialSp": 2,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2,
+          "attack@atk_scale_comeback": 1.45,
+          "attack@sluggish": 1,
+          "level": 1,
+          "spCost": 18,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.05,
+          "attack@atk_scale_comeback": 1.5,
+          "attack@sluggish": 1,
+          "level": 2,
+          "spCost": 18,
+          "initialSp": 4,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.1,
+          "attack@atk_scale_comeback": 1.55,
+          "attack@sluggish": 1,
+          "level": 3,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.15,
+          "attack@atk_scale_comeback": 1.6,
+          "attack@sluggish": 1,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 6,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.2,
+          "attack@atk_scale_comeback": 1.65,
+          "attack@sluggish": 1,
+          "level": 5,
+          "spCost": 18,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.25,
+          "attack@atk_scale_comeback": 1.7,
+          "attack@sluggish": 1,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.3,
+          "attack@atk_scale_comeback": 1.8,
+          "attack@sluggish": 1,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.4,
+          "attack@atk_scale_comeback": 1.9,
+          "attack@sluggish": 1,
+          "level": 8,
+          "spCost": 16,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@move_ahead_time": 0.5,
+          "attack@projectile_range": 1,
+          "attack@atk_scale": 2.5,
+          "attack@atk_scale_comeback": 2,
+          "attack@sluggish": 1,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_narant_3",
+      "name": "吞日",
+      "levels": [
+        {
+          "attack@atk_scale": 1.3,
+          "atk_scale_aoe": 1.2,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 0,
+          "spCost": 42,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.35,
+          "atk_scale_aoe": 1.2,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 1,
+          "spCost": 41,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.4,
+          "atk_scale_aoe": 1.2,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.45,
+          "atk_scale_aoe": 1.3,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 3,
+          "spCost": 39,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "atk_scale_aoe": 1.3,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.55,
+          "atk_scale_aoe": 1.3,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.6,
+          "atk_scale_aoe": 1.4,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 6,
+          "spCost": 36,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.65,
+          "atk_scale_aoe": 1.45,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "atk_scale_aoe": 1.5,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.75,
+          "atk_scale_aoe": 1.6,
+          "sluggish": 1,
+          "attack@aoe.max_target": 3,
+          "cnt": 3,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“我见，我得”",
+          "description": "在场时，每次攻击到敌人<$ba.steal>偷取</>其15点攻击力（最高150点）与10点防御力（最高100点）",
+          "blackboard": {
+            "attack@steal_atk": 15,
+            "attack@steal_atk_max": 150,
+            "attack@steal_def": 10,
+            "attack@steal_def_max": 100
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“我见，我得”",
+          "description": "在场时，每次攻击到敌人<$ba.steal>偷取</>其17<@ba.talpu>（+2）</>点攻击力（最高170<@ba.talpu>（+20）</>点）与11<@ba.talpu>（+1）</>点防御力（最高110<@ba.talpu>（+10）</>点）",
+          "blackboard": {
+            "attack@steal_atk": 17,
+            "attack@steal_atk_max": 170,
+            "attack@steal_def": 11,
+            "attack@steal_def_max": 110
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "“我见，我得”",
+          "description": "在场时，每次攻击到敌人<$ba.steal>偷取</>其25点攻击力（最高250点）与20点防御力（最高200点）",
+          "blackboard": {
+            "attack@steal_atk": 25,
+            "attack@steal_atk_max": 250,
+            "attack@steal_def": 20,
+            "attack@steal_def_max": 200
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "“我见，我得”",
+          "description": "在场时，每次攻击到敌人<$ba.steal>偷取</>其27<@ba.talpu>（+2）</>点攻击力（最高270<@ba.talpu>（+20）</>点）与21<@ba.talpu>（+1）</>点防御力（最高210<@ba.talpu>（+10）</>点）",
+          "blackboard": {
+            "attack@steal_atk": 27,
+            "attack@steal_atk_max": 270,
+            "attack@steal_def": 21,
+            "attack@steal_def_max": 210
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "婀娜虚影",
+          "description": "获得35%的物理与法术闪避，周围8格内敌人的物理与法术命中率-20%",
+          "blackboard": {
+            "prob": 0.35,
+            "damage_hitrate_physical": -0.2,
+            "damage_hitrate_magical": -0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "婀娜虚影",
+          "description": "获得38%<@ba.talpu>（+3%）</>的物理与法术闪避，周围8格内敌人的物理与法术命中率-20%",
+          "blackboard": {
+            "prob": 0.38,
+            "damage_hitrate_physical": -0.2,
+            "damage_hitrate_magical": -0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "持有回旋投射物时才能够攻击（投射物需要时间回收）",
+    "blackboard": {}
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+27",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_narant",
+      "name": "娜仁图亚证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_narant",
+      "name": "“吹尽狂沙”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 25,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 35,
+            "def": 35
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            },
+            {
+              "name": "“我见，我得”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@steal_atk": 25,
+                "attack@steal_atk_max": 275,
+                "attack@steal_def": 20,
+                "attack@steal_def_max": 220
+              }
+            },
+            {
+              "name": "“我见，我得”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@steal_atk": 27,
+                "attack@steal_atk_max": 297,
+                "attack@steal_def": 21,
+                "attack@steal_def_max": 231
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            },
+            {
+              "name": "“我见，我得”",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@steal_atk": 25,
+                "attack@steal_atk_max": 300,
+                "attack@steal_def": 20,
+                "attack@steal_def_max": 240
+              }
+            },
+            {
+              "name": "“我见，我得”",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@steal_atk": 27,
+                "attack@steal_atk_max": 324,
+                "attack@steal_def": 21,
+                "attack@steal_def_max": 252
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_narant",
+      "name": "“致我们的老大”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "come_back_cnt": 5,
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 260,
+            "atk": 32
+          },
+          "talentEnhance": [
+            {
+              "name": "婀娜虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.35,
+                "damage_hitrate_physical": -0.25,
+                "damage_hitrate_magical": -0.25
+              }
+            },
+            {
+              "name": "婀娜虚影",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.38,
+                "damage_hitrate_physical": -0.25,
+                "damage_hitrate_magical": -0.25
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.1,
+                "interval": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "come_back_cnt": 5,
+                "sp": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": "婀娜虚影",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.35,
+                "damage_hitrate_physical": -0.3,
+                "damage_hitrate_magical": -0.3
+              }
+            },
+            {
+              "name": "婀娜虚影",
+              "requiredPotentialRank": 2,
+              "blackboard": {
+                "prob": 0.38,
+                "damage_hitrate_physical": -0.3,
+                "damage_hitrate_magical": -0.3
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.15,
+                "interval": 6
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "come_back_cnt": 5,
+                "sp": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

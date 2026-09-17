@@ -2491,5 +2491,50 @@
     "subProfessionId": "hunter",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_4138_narant",
+    "name": "娜仁图亚",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "loopshooter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4177_brigid",
+    "name": "水灯心",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "loopshooter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4100_caper",
+    "name": "跃跃",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "loopshooter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4213_skybx",
+    "name": "天空盒",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "skybreaker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4218_aigis",
+    "name": "埃癸斯",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "skybreaker",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

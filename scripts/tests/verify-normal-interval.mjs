@@ -35,6 +35,7 @@ const IDS = [
   'char_197_poca', 'char_2012_typhon', 'char_363_toddi', 'char_4043_erato', 'char_4221_ju', 'char_4062_totter', // 攻城手
   'char_391_rosmon', 'char_1035_wisdel', 'char_1027_greyy2', 'char_4077_palico',  // 投掷手
   'char_4117_ray', 'char_4104_coldst', 'char_4211_snhunt',  // 猎手
+  'char_4138_narant', 'char_4177_brigid', 'char_4100_caper',  // 回环射手
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

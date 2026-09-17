@@ -140,8 +140,15 @@ const OPERATORS = {
       'char_4117_ray',                                                  // 莱伊 6★
       'char_4104_coldst', 'char_4211_snhunt',                           // 冰酿/雪猎 5★
     ],
-    loopshooter: [],                // 回环射手
-    skybreaker: [],                 // 裂空炮手
+    loopshooter: [
+    'char_4138_narant',  // 娜仁图亚 6★
+    'char_4177_brigid',  // 水灯心 5★
+    'char_4100_caper',   // 跃跃 4★
+    ],  // 回环射手
+    skybreaker: [
+    'char_4213_skybx',   // 天空盒 5★
+    'char_4218_aigis',   // 埃癸斯 5★
+    ],  // 裂空炮手
   },
   CASTER: { // 术师
     corecaster: [ // 中坚术师

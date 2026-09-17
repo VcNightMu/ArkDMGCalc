@@ -752,6 +752,36 @@ const BOMBARDER_AFTERSHOCK = {
   'char_1027_greyy2': { n: 2, scale: 0.5 },
   'char_4077_palico': { n: 2, scale: 0.5 },
 };
+// ===== 回环射手(loopshooter) =====
+// 特性:持有回旋投射物时才能攻击(投射物需回收),数值上不改变间隔。
+// 用户口径(2026-09-17):娜仁图亚「我见，我得」偷取数值默认为满 → 常驻 +attack@steal_atk_max 攻击力;
+// 跃跃「乐趣加倍」二连击、娜仁图亚「吞日」三连击、水灯心「可驯服的」五连击(技能额外发射/斩击的段数)。
+function narantStealAtk(op, slotData) {
+  if (op.id !== 'char_4138_narant') return 0;
+  const cands = (op.talents && op.talents[0] && op.talents[0].candidates) || [];
+  const pick = [];
+  for (const c of cands) {
+    const ph = (c.unlockCondition && c.unlockCondition.phase) || 'PHASE_0';
+    const phIdx = ph === 'PHASE_0' ? 0 : ph === 'PHASE_1' ? 1 : 2;
+    if (phIdx > slotData.elite) continue;
+    if ((c.potentialRank || 0) > (slotData.potentialRank || 0)) continue;
+    pick.push(c);
+  }
+  const src = talentCandSource(op, slotData, 0, pick.length ? pick : cands);
+  let best = 0;
+  for (const c of (src || [])) {
+    const v = (c.blackboard || {})['attack@steal_atk_max'];
+    if (typeof v === 'number' && v > best) best = v;
+  }
+  return best;
+}
+// 常态:偷取攻击力带来的额外秒伤(与常态行其余项相加)
+function loopshooterExtraAtkDps(op, slotData, panelAtk, effDef, realInterval) {
+  const steal = narantStealAtk(op, slotData);
+  if (!steal || !(realInterval > 0)) return 0;
+  return (calcPhysicalDamage(panelAtk + steal, effDef) - calcPhysicalDamage(panelAtk, effDef)) / realInterval;
+}
+
 // 投掷手常态普攻的余震秒伤(计入常态行;余震同样吃 5% 保底伤害)
 function bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval) {
   const af = bombarderAftershocks(op, slotData);
@@ -2257,7 +2287,8 @@ function calculateOperator(op, slotData, ctx) {
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
-        + bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval);  // 投掷手特性:常态普攻的余震(含保底伤害)
+        + bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval)  // 投掷手特性:常态普攻的余震(含保底伤害)
+        + loopshooterExtraAtkDps(op, slotData, panelAtk, effDef, realInterval);  // 回环射手:娜仁图亚偷取攻击力(默认满层)
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -3529,6 +3560,49 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'loopshooter') {
+    const steal = narantStealAtk(op, slotData);
+    const baseAtk = panelAtk + steal;
+    const h = (atk) => calcPhysicalDamage(atk, effDef);
+    const nrm = () => (realInterval > 0 ? h(baseAtk) / realInterval : null);   // 常态间隔
+    const nAtk = skillDuration > 0 && realInterval > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+    const mk = (total, dps) => ({ skillDps: dps, skillTotalDamage: total, cycleDps: null, normalDps: nrm(), skillHps: null, normalHps: null, totalHeal: null, damageType: 'physical', realInterval, dmgTypes: { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
+    // 跃跃「乐趣加倍」:二连击
+    if (op.id === 'char_4100_caper' && skillIndex === 1) {
+      const atk = baseAtk * (1 + (levelData.atk || 0));
+      const per = 2 * h(atk);
+      const total = per * nAtk;
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+    }
+    // 娜仁图亚「旋刃」(切换):每击 170%(弹跳只对多目标生效,单目标 1 段)
+    if (op.id === 'char_4138_narant' && skillIndex === 0) {
+      const per = h(baseAtk * (levelData['attack@atk_scale'] || 1));
+      return mk(0, realInterval > 0 ? per / realInterval : 0);
+    }
+    // 娜仁图亚「恶魇」:每击 230%(折返 180% 不计,待用户确认)
+    if (op.id === 'char_4138_narant' && skillIndex === 1) {
+      const per = h(baseAtk * (levelData['attack@atk_scale'] || 1));
+      const total = per * nAtk;
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+    }
+    // 娜仁图亚「吞日」:三连击(cnt 个投射物,每个 165%;回收爆发 145% 不计,待用户确认)
+    if (op.id === 'char_4138_narant' && skillIndex === 2) {
+      const shots = levelData.cnt || 1;
+      const per = shots * h(baseAtk * (levelData['attack@atk_scale'] || 1));
+      const total = per * nAtk;
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+    }
+    // 水灯心「可驯服的」:五连击(命中后额外斩击 4 次)
+    if (op.id === 'char_4177_brigid' && skillIndex === 1) {
+      const atk = baseAtk * (1 + (levelData.atk || 0));
+      const per = 5 * h(atk);
+      const total = per * nAtk;
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+    }
+    const g = calcDamage(params);
+    if (g && steal > 0 && g.normalDps !== null && g.normalDps !== undefined) g.normalDps = nrm();
+    // 未命中特例的技能照常走通用结算,但补上面板/技能间隔字段(通用链不带)
+    return { ...g, panelAtk: (g && g.panelAtk) || panelAtk, realInterval: skillRealInterval, skillInterval: skillRealInterval, normalInterval: realInterval };
   } else if (op.subProfessionId === 'bombarder') {
     result = calcBombarderSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
