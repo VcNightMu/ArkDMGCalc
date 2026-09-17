@@ -6,9 +6,10 @@ import { calcMedical, calcSummonHeal, calcCycleDps } from './medic-calc.js';
 import { calcGuardian } from './guardian-calc.js';
 import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
-import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit } from './element-calc.js';
+import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit, simulateSkillTimeline } from './element-calc.js';
 import { calcPrimCasterSkill } from './primcaster-calc.js';
 import { calcPrimGuardSkill } from './primguard-calc.js';
+import { calcRitualSkill, ritualNormalFields, calcPhonorDeploy, setRitualEpMul } from './ritualist-calc.js';
 
 function getSkillLevelData(skill, level) {
   const levels = skill.levels;
@@ -87,6 +88,8 @@ const TALENT_ATK_DRIVERS = {
   'char_358_lisa': 0,     // 铃兰「技力光环·辅助」:本体无攻击加成,X 模组「怀中御守」te 追加攻击力 +6%/9%(无条件,计入)
   // ---- 辅助·削弱者(underminer) ----
   'char_206_gnosis': 1,   // 灵知「殊途同归」:Y 模组「一号项目模型」te 改写为「所有【谢拉格】干员攻击力+10%/15%」——灵知本人即谢拉格(nation=kjerag),吃自己光环;基础天赋无该键 → 无 Y 模组为 0
+  // ---- 辅助·巫役(ritualist) ----
+  'char_4102_threye': 1,  // 凛视「隐居者」:攻击力 +6%(E2,潜4 +7%);X 模组同名 te 0.09/0.11;同源天赋攻速在 TALENT_SPD_DRIVERS
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -176,7 +179,23 @@ const FIGHTER_SPECIAL = {
 // 特性「攻击造成法术伤害」:数据 damageType 仍为 physical,统一按法术结算(常态/技能期/模组档)。
 // 凝滞师(slower):「攻击造成法术伤害，并使敌人停顿」;削弱者(underminer):「攻击造成法术伤害」(攻击使敌攻击力-10% 持续2秒为敌方减益,非己方输出,不建模);
 // 护佑者(blessing):「攻击造成法术伤害,技能开启后改为治疗友方单位(治疗量相当于75%攻击力)」——常态也是法术伤害(同特米米口径,数据 damageType 仍为 physical)。
-const SUBPROF_ARTS = { slower: true, underminer: true, blessing: true };
+// 巫役(ritualist):「攻击造成法术伤害，可以造成元素损伤」——直伤按法术,损伤为攻击力×倍率附带(元素爆条走 element-calc 模拟)。
+const SUBPROF_ARTS = { slower: true, underminer: true, blessing: true, ritualist: true };
+// 巫役(ritualist)天赋 blackboard 读取(模组同名 te 覆盖感知)
+const ritualCandSource = (o, sd, ti) => talentCandSource(o, sd, ti, ((o.talents || [])[ti] || {}).candidates);
+// 巫役模组特性追加「对精英和领袖敌人造成的元素损伤提升 18%」(traitEnhance.ep_damage_scale):
+// 仅当敌人设置为精英/领袖时生效(损伤累积端倍率)。
+function ritualGradeEpMul(op, slotData) {
+  const g = state.enemy && state.enemy.grade;
+  if (g !== 'elite' && g !== 'leader') return 1;
+  const lv = getModuleLevelData(op, slotData);
+  let mul = 1;
+  for (const c of (lv && lv.traitEnhance) || []) {
+    const bb = c.blackboard || {};
+    if (typeof bb.ep_damage_scale === 'number') mul = Math.max(mul, bb.ep_damage_scale);
+  }
+  return mul;
+}
 // 技能期每击倍率改写表(值 = 技能 blackboard 中的倍数键;安洁莉娜 S2「微粒模式」:间隔极大缩短但每击只造成 40% 攻击力法伤)
 const SKILL_PER_HIT_SCALE = {
   'char_291_aglina': { 1: 'damage_scale' },
@@ -1128,6 +1147,10 @@ const TALENT_SPD_DRIVERS = {
   'char_4032_provs': 0,    // 但书「卡西米尔法律专精」:攻速 +10(E2)
   'char_4122_grabds': 0,   // 小满「好好听话」:攻速 +10(E2);X 模组同名 te 覆盖为 12→14/16
   'char_278_orchid': 0,    // 梓兰「施法速度提升」:攻速 +5(E1)/+9(E1 55 级满级)
+  // ---- 辅助·巫役(ritualist) ----
+  'char_4102_threye': 1,   // 凛视「隐居者」:攻速 +6(E2,潜4 +7);X 模组同名 te 0.09/0.11(同源天赋攻击力在 TALENT_ATK_DRIVERS)
+  'char_4223_botany': 0,   // 伯塔尼「背弃沉默」:攻击范围内有敌人侵蚀损伤爆发时攻速 +6(E2)/+7(潜4),最多 3 层 →
+                           // 用户口径(2026-09-18)按满层:×max_stack_cnt = +18/+21(X 模组 L3 te 7×4 层 = +28)
 };
 
 
@@ -1139,6 +1162,8 @@ const MODULE_TE_ASPD_STACK = {
 
   'char_135_halo': true,   // 星源「科研热忱」:Y 模组改 10s/6~7 层、每层 +4 → +24/+28
   'char_1047_halo2': true,   // 溯光星源 Y「探索者的收藏」:数据建模叠层上限 23/25(te attack_speed 1 × max_stack_cnt)
+  'char_4223_botany': true,  // 伯塔尼 X「昨日、今日、明日」:背弃沉默 te attack_speed 7 × max_stack_cnt(3/4 层)
+                             // ——用户口径 2026-09-18 攻速增幅按满层计
 };
 
 // 模组 te 与基础天赋"合并而非替换"表:部分模组 te 只写变更部分(如异客 X 模组「孤卒」te 仅给 sp_recovery_per_sec),
@@ -2967,6 +2992,7 @@ const INERT_SUMMONS = [
   'token_10045_alanna_crane',   // 阿兰娜·小螺帽
   'token_10023_windft_wrench',  // 掠风·可靠电池
   'token_10018_robrta_mach',    // 罗比菈塔·全自动造型仪
+  'token_10055_phatm2_mndclv',  // 巫役·酒神·迷狂牢笼(神经损伤爆发时生成的阻挡物,无输出)
 ];
 
 function calculateOperator(op, slotData, ctx) {
@@ -3100,6 +3126,16 @@ function calculateOperator(op, slotData, ctx) {
     if (op.subProfessionId === 'blessing') {
       const normHit = calcArtsDamage(panelAtk, effRes);
       return { type: 'damage', damageType: 'arts', normalDamageType: 'arts', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normHit / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+    }
+    // 巫役(ritualist):常态 = 法术普攻 + 天赋损伤爆条均摊;PhonoR-0(1★)为落地点火(部署后 40s 附带固定点凋亡损伤 + 法术/元素脆弱)
+    if (op.subProfessionId === 'ritualist') {
+      setRitualEpMul(ritualGradeEpMul(op, slotData));
+      const nf = ritualNormalFields(op, slotData, panelAtk, state.enemy, realInterval, ritualCandSource);
+      if (op.id === 'char_4136_phonor') {
+        const dep = calcPhonorDeploy({ op, slotData, panelAtk, realInterval, enemy: state.enemy, candSourceFor: ritualCandSource });
+        if (dep) return dep;
+      }
+      return { type: 'damage', damageType: 'arts', normalDamageType: 'arts', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: nf.normalDps, normalTypes: nf.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
@@ -3329,13 +3365,47 @@ function calculateOperator(op, slotData, ctx) {
       1: { mode: 'flow-buff', atkMul: 0.4, dur: 15, regenRatio: 0.05 },
       2: { mode: 'flow-buff', atkMul: 0.4, dur: 15 },
     },
+    // 巫役·酒神 S2 的支援召唤物「本能的召唤」:诱导至多4名敌人 10s 后撤退,使周围所有敌人在 buff_time 秒内停顿、
+    // 每 interval_damage 秒受到酒神攻击力×atk_scale 的法术伤害与攻击力×ep_damage_ratio_token 的神经损伤
+    // (伤害源=酒神面板,经 UI ctx.ownerOp 注入;召唤物自身面板为占位值)
+    'token_10054_phatm2_encdool': { 0: { mode: 'ritual-ep-window', el: 'sanity', ownerId: 'char_1042_phatm2' } },
   };
   // 继承持有者技能、用自身面板的召唤物(用户 2026-09-17 口径:打字机技能=鸿雪的技能,面板=打字机自己的)
 const TOKEN_INHERIT_OWNER_SKILLS = { 'token_10026_bgsnow_subbow': true };
 
-function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
+function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
     const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
     if (!cfg) return null;
+    if (cfg.mode === 'ritual-ep-window') {
+      // 巫役·酒神「本能的召唤」:伤害源 = 持有者(酒神)面板攻击力(经 ctx 注入;无 ctx 时退回召唤物自身面板)
+      let ownerAtk = panelAtk;
+      if (ctx && ctx.ownerOp && cfg.ownerId === ctx.ownerOp.id) ownerAtk = calcPanelStats(ctx.ownerOp, ctx.ownerSlot).panelAtk;
+      const ld = levelData || {};
+      const win = ld.buff_time > 0 ? ld.buff_time : 6;
+      const tick = ld.interval_damage > 0 ? ld.interval_damage : 0.5;
+      const atkScale = ld.atk_scale !== undefined ? ld.atk_scale : 1.3;
+      const epRatio = ld.ep_damage_ratio_token !== undefined ? ld.ep_damage_ratio_token : 0.2;
+      const ticks = Math.max(1, Math.floor(win / tick));
+      const sim = simulateSkillTimeline({
+        grade: (state.enemy && state.enemy.grade) || 'normal', duration: win, enemy: state.enemy,
+        dots: [
+          { type: 'arts', atk: ownerAtk * atkScale, interval: tick, count: ticks },
+          { type: null, atk: ownerAtk, epMul: epRatio, el: cfg.el, interval: tick, count: ticks },
+        ],
+      });
+      const total = sim.arts + sim.element;
+      const iv = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
+      return {
+        type: 'damage', damageType: 'arts', normalDamageType: 'arts',
+        skillDps: total / win, skillTotalDamage: total, cycleDps: null,
+        normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: iv, panelAtk,
+        dmgTypes: {
+          arts: { skillDps: sim.arts / win, skillTotalDamage: sim.arts, cycleDps: null },
+          element: { skillDps: sim.element / win, skillTotalDamage: sim.element, cycleDps: null },
+        },
+      };
+    }
     if (cfg.mode === 'arts-sleep') {
       const interval = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1.25;
       const hits = Math.max(1, Math.floor(cfg.dur / interval));  // 5s/1.25 = 4 击
@@ -3642,7 +3712,7 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     };
   } else if (isSummon && !hasRealSkills) {
     // 战术家召唤物形态技能:技能位 = 持有者技能激活态对召唤物的输出影响(基值为召唤物自身面板,数值引用见 SUMMON_FORM_MODES)
-    const summonForm = calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx);
+    const summonForm = calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData);
     if (summonForm) {
       result = summonForm;
     } else {
@@ -3677,6 +3747,17 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     result = calcMedical(params);
   } else if (isGuardianHealSkill) {
     result = calcGuardian(params);
+  } else if (op.subProfessionId === 'ritualist') {
+    // 巫役(辅助,ritualist):特性「攻击造成法术伤害,可以造成元素损伤」→ 全员特殊结算
+    // (直伤法术 + 攻击力×倍率损伤 → 敌方 EP 爆条模拟;损伤不吃防/抗,单独一档)
+    setRitualEpMul(ritualGradeEpMul(op, slotData));
+    const rNorm = ritualNormalFields(op, slotData, panelAtk, state.enemy, realInterval, ritualCandSource);
+    result = calcRitualSkill({
+      op, slotData: { ...slotData, skillIndex },
+      panelAtk, skillAtk, skillDuration, realInterval: skillRealInterval,
+      levelData, enemy: state.enemy, candSourceFor: ritualCandSource,
+      normalDps: rNorm.normalDps, normalTypes: rNorm.normalTypes,
+    });
   } else if (op.subProfessionId === 'primprotector' && skill && OPERATOR_ELEMENT[op.id]) {
     // 本源铁卫元素系三人（余灼燃/珊比侵蚀/响石神经）：技能全部特殊（元素损伤时间轴），且 bb 的 atk_scale 为附加伤害倍率
     // （余S2 瞬发群伤/珊比S2 胶、S3 传送带/响石S2 区域法伤）而非普攻倍率，不能走通用 skillAtk 计算。

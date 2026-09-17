@@ -3672,6 +3672,24 @@
     "ownerName": null
   },
   {
+    "id": "token_10055_phatm2_mndclv",
+    "name": "迷狂牢笼",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1042_phatm2",
+    "ownerName": "酒神"
+  },
+  {
+    "id": "token_10054_phatm2_encdool",
+    "name": "本能的召唤",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1042_phatm2",
+    "ownerName": "酒神"
+  },
+  {
     "id": "char_245_cello",
     "name": "塑心",
     "rarity": "TIER_6",

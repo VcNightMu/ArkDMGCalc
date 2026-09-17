@@ -11,10 +11,12 @@ const TOKEN_FORM_SKILLS = {
   'token_10037_mitm_trshrb': { 0: true, 1: true }, // 樱桃三号 S1(遥控解体:自爆,伤害源渡桥)/ S2(承压功率:停攻,结束销毁)
   'token_10030_mlyss_wtrman': { 0: true, 1: true, 2: true }, // 流形·远程(法伤):S1润化加速/S2耦合二连/S3适应束缚(缪尔赛思技能激活态)
   'token_10030_mlyss_melee': { 0: true, 1: true, 2: true },  // 流形·近战(物伤):S2 耦合自回每秒5%最大生命
+  'token_10054_phatm2_encdool': { 0: true },  // 本能的召唤(巫役·酒神 S2):6s 内每 0.5s 酒神攻击力×atk_scale 法术伤害 + 攻击力×ep 神经损伤
 };
 // 形态技能需持有者面板的召唤物(伤害源=持有者干员,如樱桃三号 S1 自爆=渡桥攻击力×3.7):UI 计算时联动加载持有者数据
 const TOKEN_SUMMON_OWNER_REF = {
   'token_10037_mitm_trshrb': 'char_4147_mitm',
+  'token_10054_phatm2_encdool': 'char_1042_phatm2',   // 巫役·酒神「本能的召唤」:伤害源=酒神面板攻击力
 };
 
 function isModuleUnlocked(op, slotData) {

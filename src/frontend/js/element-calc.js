@@ -214,7 +214,9 @@ export function simulateSkillTimeline(p) {
       for (let i = 1; i <= n; i++) {
         const t = i * interval;
         if (t > duration) break;
-        if (d.epMul && d.epMul > 0) applyEp(d.el || 'fire', d.epMul * d.atk, t);
+        // 损伤量：epFlat 为固定值（如 PhonoR-0 攻击附带 45 点）；否则 攻击力×epMul；epScale 为「受到的损伤提高」倍率
+        const epAmt = (d.epFlat !== undefined ? d.epFlat : (d.epMul || 0) * d.atk) * (d.epScale || 1);
+        if (epAmt > 0) applyEp(d.el || 'fire', epAmt, t);
         if (d.type) events.push({ t, kind: 'dot', type: d.type, atk: d.atk * (d.dmgMul || 1) });
       }
     }
