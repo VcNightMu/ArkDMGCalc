@@ -51,6 +51,7 @@ const IDS = [
   'char_4187_graceb',  // 近卫·本源近卫
   'char_394_hadiya', 'char_1049_catap2',  // 近卫·佣兵
   'char_1047_halo2', 'char_291_aglina', 'char_358_lisa', 'char_195_glassb', 'char_326_glacus', 'char_4032_provs', 'char_4122_grabds', 'char_183_skgoat', 'char_258_podego', 'char_278_orchid',  // 辅助·凝滞师(安洁莉娜 S2/S3 见 NORMAL_EXCEPT)
+  'char_174_slbell', 'char_254_vodfox', 'char_4079_haini', 'char_206_gnosis',  // 辅助·削弱者(初雪 S1/巫恋 S2 归常态、灵知 S1/S2、海霓 S1 为触发型常态 null 自动跳过)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

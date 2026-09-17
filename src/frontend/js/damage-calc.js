@@ -85,6 +85,8 @@ const TALENT_ATK_DRIVERS = {
   'char_1047_halo2': { talentIndex: 0, noStack: true },   // 溯光星源「数据建模」:本体无攻击加成,Y 模组「叠满后攻击力+12%」te(叠满为用户口径默认,该 atk 非每层值 → noStack)
   'char_258_podego': 0,   // 波登可「园丁」:所有【辅助】攻击力 +9%(E2,自身为辅助必得);X 模组同名 te 覆盖为 9%/11%
   'char_358_lisa': 0,     // 铃兰「技力光环·辅助」:本体无攻击加成,X 模组「怀中御守」te 追加攻击力 +6%/9%(无条件,计入)
+  // ---- 辅助·削弱者(underminer) ----
+  'char_206_gnosis': 1,   // 灵知「殊途同归」:Y 模组「一号项目模型」te 改写为「所有【谢拉格】干员攻击力+10%/15%」——灵知本人即谢拉格(nation=kjerag),吃自己光环;基础天赋无该键 → 无 Y 模组为 0
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -171,12 +173,40 @@ const FIGHTER_SPECIAL = {
 
 // ===== 剑豪(sword)专用助手 =====
 // ===== 辅助·凝滞师(slower) =====
-// 特性「攻击造成法术伤害，并使敌人停顿」:数据 damageType 仍为 physical,统一按法术结算(常态/技能期/模组档)。
-const SUBPROF_ARTS = { slower: true };
+// 特性「攻击造成法术伤害」:数据 damageType 仍为 physical,统一按法术结算(常态/技能期/模组档)。
+// 凝滞师(slower):「攻击造成法术伤害，并使敌人停顿」;削弱者(underminer):「攻击造成法术伤害」(攻击使敌攻击力-10% 持续2秒为敌方减益,非己方输出,不建模)。
+const SUBPROF_ARTS = { slower: true, underminer: true };
 // 技能期每击倍率改写表(值 = 技能 blackboard 中的倍数键;安洁莉娜 S2「微粒模式」:间隔极大缩短但每击只造成 40% 攻击力法伤)
 const SKILL_PER_HIT_SCALE = {
   'char_291_aglina': { 1: 'damage_scale' },
 };
+// 削弱者(underminer)需专用结算的技能(其余落回引擎通用链尾):
+// 灵知:「寒冷/冻结先结算状态再结算伤害」(用户口径 2026-09-17)→ S1 二连击第二下、S2 蓄力、S3 第2击起均处于冻结,
+// 吃的是「坚冰」冻结脆弱而非寒冷脆弱,且 S3 顶层 atk_scale 是「技能结束时对冻结目标」的一次性爆发倍率(非普攻倍率)
+// → 三个技能都走专用分支,用 gnosisFrozenFragileMul 叠冻结档。
+const UNDERMINER_SPECIAL = {
+  'char_206_gnosis': [0, 1, 2],
+};
+// 灵知「坚冰」冻结脆弱倍率(blackboard.damage_scale_freeze;数据里恒有该键,缺失时按天赋文案「冻结则脆弱效果提升至2倍」由
+// 寒冷脆弱推算:damage_scale_freeze = 2×damage_scale_cold - 1,如特限证章 A 的 te 只给 damage_scale_cold)。
+// 用户口径(2026-09-17):S3「失温症」把敌人冻结延长至技能结束 → 第 2 击起目标始终处于冻结,吃冻结脆弱;
+// 第 1 击落点目标尚未冻结,但已处于寒冷(按寒冷脆弱计)。X 模组「誓言」te 覆盖该值(1.56/1.6)。
+function gnosisFrozenFragileMul(op, slotData) {
+  const talent = (op.talents || [])[0];
+  if (!talent) return 1;
+  let bestFreeze = 1, bestCold = 1;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const pot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= slotData.elite && pot <= (slotData.potentialRank || 0)) {
+      const bb = cand.blackboard || {};
+      const fz = typeof bb.damage_scale_freeze === 'number' ? bb.damage_scale_freeze : 0;
+      const cd = typeof bb.damage_scale_cold === 'number' ? bb.damage_scale_cold : 0;
+      if (fz > bestFreeze) bestFreeze = fz;
+      if (cd > bestCold) bestCold = cd;
+    }
+  }
+  return Math.max(bestFreeze, bestCold > 1 ? 2 * bestCold - 1 : 1);
+}
 // 凝滞师需专用结算的技能(其余落回引擎通用链尾)
 const SLOWER_SPECIAL = {
   'char_326_glacus': [1],    // S2 反制电磁脉冲:冲击波单发 340%(专一)×atk 法伤(对【无人机】加倍不计,用户口径)
@@ -2052,6 +2082,11 @@ const TALENT_DMG_MUL_DRIVERS = {
   // ---- 辅助·凝滞师(slower) ----
   'char_358_lisa': { talentIndex: 1, key: 'damage_scale', moduleTe: true },                       // 铃兰「画地为牢」:攻击范围内被停顿的敌人受 20% 脆弱 → 自身伤害 ×1.2(Y 模组 1.21/1.22)
   'char_1047_halo2': { talentIndex: 1, key: 'halo2_t_1[weak].damage_scale_max' },                 // 溯光星源「能源解析」:脆弱默认为最高层(14%;潜4 16%) → ×1.14
+  // ---- 辅助·削弱者(underminer) ----
+  // 灵知「坚冰」:「攻击造成1秒寒冷;范围内寒冷的敌人受到脆弱(冻结则脆弱×2)」。用户口径(2026-09-17):寒冷/冻结都是先结算状态再结算伤害,
+  // 灵知所有攻击都按此逻辑 → 自身每次攻击(含常态普攻)落点目标必已处于寒冷(本次攻击自己刚叠上的 1 层) → 常态吃寒冷脆弱 ×damage_scale_cold。
+  // 冻结档(damage_scale_freeze)在冻结场景(S1 二连击第二下 / S2 蓄力 / S3 第2击起)由 UNDERMINER_SPECIAL 分支用 gnosisFrozenFragileMul 叠加。
+  'char_206_gnosis': { talentIndex: 0, key: 'damage_scale_cold' },
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
 // 领主(近卫)特性:攻击默认为远程攻击,攻击力按 80% 计算(用户 2026-09-17 口径)。
@@ -2492,6 +2527,7 @@ const MULTI_HIT = {
   'char_1001_amiya2': { 0: 2 },  // 阿米娅(近卫) S1 影霄·奔夜:攻击变为二连击(dur28 法伤)
   'char_1036_fang2': { 0: 2 },  // 历阵锐枪芬 S1 贯敌刺枪:下次攻击变二连击(1.8×atk×2,AUTO dur0 触发)
   'char_222_bpipe': { 2: 3 },   // 风笛 S3 闭膛连发:攻击变三连击(dur20 间隔+0.7→1.7s,atk+100% 三连全中)
+  // 注:灵知 S1「高速思考」的「下次攻击连续攻击两次」已由 UNDERMINER_SPECIAL 专用分支结算(二连击第二下处于冻结要吃冻结脆弱,不能只乘次数)
 };
 // 速射手连射(用户口径 2026-09-17):一次攻击打出 N 发,单目标模型全部命中。
 // hitCount = 每次攻击的发数;attack@atk_scale 归"每发倍率"(进 skillAtk,与 top-level atk_scale 区分)。
@@ -2695,6 +2731,9 @@ const NORMAL_ATK_SKILLS = {
   // ---- 策士(counsellor) ----
   'char_1045_svash2': [0],  // 凛御银灰 S1 周旋的谋略:立即回费+减费+屏障,纯部署区支援无输出
   'char_4199_makiri': [0],  // 松桐 S1 入场安排:立即回 10 费+待部署区最右干员-4 费,纯回费无输出
+  // ---- 辅助·削弱者(underminer) 纯 debuff / 召唤类技能(自身无输出增益 → 归常态普攻展示) ----
+  'char_174_slbell': [0],   // 初雪 S1 传音回响:范围内敌人攻击速度-(敌方减益,自身法伤普攻不变)
+  'char_254_vodfox': [1],   // 巫恋 S2 诅咒娃娃:召唤物周围敌人攻/防-(自身为法伤,降防不受益;降攻为敌方减益)
   // ---- 中坚术师(corecaster) ----
   'char_164_nightm': [1],  // 夜魔 S2 夜魇魔影:AUTO 施加梦魇 debuff(减速+移动真伤),移动增伤不考虑(用户口径)无输出 → 归常态
   // ---- 战术家(tactician) 召唤物强化/纯回费技能(本体无输出增益→归常态;召唤物侧效果见持有者技能建模与说明) ----
@@ -3784,11 +3823,14 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
   } else if (!isSummon && (NORMAL_ATK_SKILLS[op.id] || []).includes(skillIndex)) {
     // 纯防御/控制技能（无输出增益，普攻照常）：雷蛇 S1 充能防御（受击自动 def）、闪击 S1 闪光护盾（眩晕控制）；
     // 伤害类型按职业(法伤干员如夜魔 S2 归常态=术师法伤普攻,含减抗/穿透后的有效法抗)
+    // 常态普攻间隔用 realInterval(含天赋/模组白值攻速),与无技能态展示一致
+    // (曾用 phase.baseAttackTime 硬写,baseline 攻速被忽略 → 初雪 X 模组 S1 与 S0 常态不一致)
     const naArts = op.damageType === 'arts';
     const normHit = naArts ? calcArtsDamage(panelAtk, effRes) : calcPhysicalDamage(panelAtk, effDef);
+    const naInterval = realInterval > 0 ? realInterval : 1;
     result = {
       skillDps: 0, skillTotalDamage: 0, cycleDps: null,
-      normalDps: normHit / (phase.baseAttackTime > 0 ? phase.baseAttackTime : 1),
+      normalDps: normHit / naInterval,
       skillHps: null, normalHps: null, totalHeal: null,
       damageType: naArts ? 'arts' : 'physical', realInterval: skillRealInterval,
     };
@@ -4596,6 +4638,42 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const dotSec = levelData.projectile_delay_time ?? 5;
       const total = dotSec * Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
       result = mkS(total, dotSec > 0 ? total / dotSec : 0, calcCycleDps(levelData, realInterval, nAtk, total), realInterval);
+    }
+  } else if (op.subProfessionId === 'underminer' && UNDERMINER_SPECIAL[op.id] && UNDERMINER_SPECIAL[op.id].includes(skillIndex)) {
+    // ===== 辅助·削弱者(underminer)特例技能 =====
+    // 通用口径:削弱者普攻/技能均为法术伤害(SUBPROF_ARTS);特性「攻击使敌人攻击力-10% 持续2秒」为敌方减益(非己方输出),
+    // 不建模。用户口径(2026-09-17):初雪「虚弱化」/巫恋「溃败暗示」的脆弱默认不计算;海霓「阻滞性显色剂」默认不击倒目标;
+    // 灵知「零度爆发」默认蓄力。
+    // 灵知专项(用户 2026-09-17):寒冷/冻结都是先结算状态再结算伤害,所有攻击都按此逻辑 →
+    //   常态普攻与各技能首击落点目标必已处于寒冷(本次攻击刚叠的 1 层)→ 吃寒冷脆弱(damage_scale_cold,已由 TALENT_DMG_MUL_DRIVERS 的 tmul 带出);
+    //   叠到 2 层即冻结 → 吃冻结脆弱(damage_scale_freeze),相对寒冷档的额外倍率 frz 如下。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Aa = (a) => calcArtsDamage(a, effRes);
+    const tmul = calcTalentDmgMul(op, slotData);
+    const nAtk = Aa(panelAtk) * tmul;     // 常态单次伤害(灵知=含寒冷脆弱;常态普攻间隔 > 寒冷时长,不会叠到冻结)
+    const nDps = nAtk / realInterval;     // 常态普攻秒伤
+    const frz = (() => { const fc = gnosisFrozenFragileMul(op, slotData); return tmul > 0 ? fc / tmul : 1; })();   // 冻结脆弱/寒冷脆弱(无模组 1.5/1.25=1.2)
+    const mkU = (sTot, sDps, cd, iv) => ({ type: 'damage', damageType: 'arts', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: iv, panelAtk, dmgTypes: { arts: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    if (op.id === 'char_206_gnosis' && skillIndex === 0) {
+      // S1「高速思考」:下次攻击连续攻击两次,每次 atk_scale(专一 1.55)法术伤害。
+      // 第 1 击落点即寒冷(1 层),第 2 击叠至 2 层 → 冻结 → 吃冻结脆弱。
+      const per = Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
+      const total = per * (1 + frz);
+      result = mkU(total, 0, calcCycleDps(levelData, realInterval, nAtk, total), sIvl);
+    } else if (op.id === 'char_206_gnosis' && skillIndex === 1) {
+      // S2「零度爆发」:对范围内敌人造成 {cold} 秒寒冷 + atk_scale(专一 1.7)法术伤害;蓄力额外造成一层寒冷。
+      // 用户口径默认蓄力 → 2 层即时冻结 → 该发吃冻结脆弱。
+      const total = Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul * frz;
+      result = mkU(total, 0, calcCycleDps(levelData, realInterval, nAtk, total), sIvl);
+    } else if (op.id === 'char_206_gnosis' && skillIndex === 2) {
+      // S3 失温症:攻速 +130(M1 +124)、同时攻击 2 敌(单目标口径);技能期普攻为常态倍率(非 atk_scale);
+      // 「范围内所有敌人的冻结延长至技能结束」→ 第 2 击起目标始终冻结 → 吃冻结脆弱;第 1 击仅寒冷。
+      // 技能结束时对所有冻结目标爆发 atk_scale(专一 4.5)×攻击力法伤(单目标=1 发,同吃冻结脆弱)。
+      const hits = skillDuration > 0 ? Math.floor(skillDuration / sIvl) : 0;
+      const normal = hits > 0 ? nAtk + (hits - 1) * nAtk * frz : 0;
+      const burst = Aa(panelAtk * (levelData.atk_scale ?? 0)) * tmul * frz;
+      const total = normal + burst;
+      result = mkU(total, skillDuration > 0 ? total / skillDuration : 0, null, sIvl);
     }
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
