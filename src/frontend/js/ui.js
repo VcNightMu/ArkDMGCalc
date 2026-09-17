@@ -449,7 +449,8 @@ async function updateResults() {
         metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       }
       if (hasSkill) {
-        metricsHtml += '<div class="metric"><span class="label">技能期攻击间隔</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
+        // 吟游者不攻击,显示的是治疗跳数(每秒一跳)→ 标签改为治疗间隔
+        metricsHtml += '<div class="metric"><span class="label">' + ((op.subProfessionId === 'bard' || op.id === 'token_10017_skadi2_dedant') ? '治疗间隔' : '技能期攻击间隔') + '</span><span class="value stat">' + result.realInterval.toFixed(2) + 's</span></div>';
         metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
       }
     } else if (result.isToggle || result.isPermanent) {

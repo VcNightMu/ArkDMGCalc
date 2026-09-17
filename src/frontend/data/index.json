@@ -3330,6 +3330,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10017_skadi2_dedant",
+    "name": "斯卡蒂的海嗣",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1012_skadi2",
+    "ownerName": "浊心斯卡蒂"
+  },
+  {
     "id": "char_4134_cetsyr",
     "name": "魔王",
     "rarity": "TIER_6",

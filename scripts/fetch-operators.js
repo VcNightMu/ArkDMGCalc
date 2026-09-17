@@ -401,7 +401,7 @@ const OPERATORS = {
     ],
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow', 'token_10017_skadi2_dedant'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心 / 浊心斯卡蒂·海嗣）
   },
 };
 
@@ -623,7 +623,7 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   // 剔除召唤物自带的占位/联动技能（结构性原理的 sktok_mcgraf_1/2 空占位、sktok_mcgraf_3 冲锋被动由持有者 S3 触发，
   // 独立查询时以常态普攻为准——与医疗探机同类无技能卡）；同时跳过持有者技能注入
   // （机械师技能的 attack@ 前缀键是机械师自身普攻改写，非结构体加成）
-  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd', 'token_10040_siege2_vlion'];
+  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd', 'token_10040_siege2_vlion', 'token_10017_skadi2_dedant'];
   const dropNative = String(id).startsWith('token_') && tokenDropNativeSkills.includes(id);
   const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);
   const nativeRefs2 = dropNative ? [] : nativeRefs;
@@ -651,7 +651,7 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
     skills.push({ skillId: sid, name: firstLevel?.name || sid, levels });
   }
 
-  return {
+  const converted = {
     id, name: PATCH_CHARS[id] || charData.name, rarity: charData.rarity,
     profession: charData.profession, subProfessionId: charData.subProfessionId,
     damageType,
@@ -665,6 +665,20 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
       })) || []
     }))
   };
+  // 数值继承持有者的召唤物(浊心斯卡蒂「海嗣」):数据层直接取同等级持有者(用户口径 2026-09-18:
+  // HPS 继承同等级浊心斯卡蒂的数据、S3 的 DPS 也一样)→ phases/信赖/天赋/特性/潜能/技能换成持有者的,
+  // 保留自身的 id/name/职业/持有者归属(召唤物独立成条,同其他召唤物)。
+  const OWNER_DATA_TOKENS = { 'token_10017_skadi2_dedant': true };
+  if (OWNER_DATA_TOKENS[id] && ownerCharData) {
+    const oc = convertOperator(ownerOperatorId, ownerCharData, skillTable, null, null);
+    converted.phases = oc.phases;
+    converted.trustBonus = oc.trustBonus;
+    converted.talents = oc.talents;
+    converted.trait = oc.trait;
+    converted.potentialRanks = oc.potentialRanks;
+    converted.skills = oc.skills;
+  }
+  return converted;
 }
 
 async function main() {
@@ -718,6 +732,7 @@ async function main() {
   // 显式登记（黄金盟誓 ← 维娜·维多利亚异格）
   const TOKEN_OWNER_FALLBACK = {
     'token_10040_siege2_vlion': 'char_1019_siege2',  // 维娜·维多利亚 S3 召唤
+    'token_10017_skadi2_dedant': 'char_1012_skadi2', // 浊心斯卡蒂天赋「远古血亲」召唤(海嗣,数据源无 tokenKey 关联)
   };
   for (const [tokenId, ownerId] of Object.entries(TOKEN_OWNER_FALLBACK)) {
     tokenOwners[tokenId] = tokenOwners[tokenId] || ownerId;

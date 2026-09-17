@@ -207,6 +207,112 @@ function gnosisFrozenFragileMul(op, slotData) {
   }
   return Math.max(bestFreeze, bestCold > 1 ? 2 * bestCold - 1 : 1);
 }
+// ===== 吟游者(bard)专用结算 =====
+// 特性:不攻击,持续恢复范围内所有友军生命(每秒相当于自身攻击力 10% 的生命),自身不受鼓舞影响
+// (U-Official 另加「不受部署数量限制/再部署时间极长」,与输出无关)。用户口径(2026-09-18):
+//   · 「鼓舞」作用于友方 → 不进自身输出,纯鼓舞技能(空 S2 / 海蒂 S1)自身无输出变化;
+//   · 只看技能期治疗量:技能把特性效果提高至 X% → 技能期 HPS = 面板攻击力 × X(每秒一跳,同铃兰 S3 的 heal 型结果);
+//   · 技能改为造成伤害的按伤害算(浊心斯卡蒂 S3 每秒真伤 / 魔王 S2 微尘碰撞真伤 / 三角初华 S2 每 0.3s 法伤)。
+// 数据坑:三角初华与 U-Official 的 trait 键少了 attack@ 前缀(atk_to_hp_recovery_ratio),两个键名都认。
+function bardTraitRatio(op, levelData) {
+  if (levelData && typeof levelData['attack@atk_to_hp_recovery_ratio'] === 'number') return levelData['attack@atk_to_hp_recovery_ratio'];
+  const bb = (op.trait && op.trait.blackboard) || {};
+  if (typeof bb['attack@atk_to_hp_recovery_ratio'] === 'number') return bb['attack@atk_to_hp_recovery_ratio'];
+  return typeof bb['atk_to_hp_recovery_ratio'] === 'number' ? bb['atk_to_hp_recovery_ratio'] : 0.1;
+}
+// 浊心斯卡蒂本体与其海嗣(token_10017_skadi2_dedant)共用同一套结算(海嗣数据层即继承同等级浊心斯卡蒂的数据)
+function isSkadi2(op) { return op.id === 'char_1012_skadi2' || op.id === 'token_10017_skadi2_dedant'; }
+// 魔王「过往尘埃」:被“微尘”撞到的友方受到的「特性效果」提升至 1.2(E1)/1.5(E2) 倍(X 模组 te 覆写为 1.6)、持续 6 秒。
+// 用户口径(2026-09-18):该「微尘对友方产生的效果」不计算 → 不建模该倍率,特性治疗就按基础比率(10%)计。
+// 三角初华「谎言的假面」:技能未开启时每 attack@heal_cd 秒治疗攻击范围内生命最低的友方相当于攻击力 attack@heal_scale
+// 的生命(技能期间治疗照常,只是优先选丰川祥子)→ 折算成每秒等效系数(×攻击力)。X 模组 te 覆写为 3s / 30%。
+function bardTalentHealRate(op, slotData) {
+  if (op.id !== 'char_4184_dolris') return 0;
+  const talent = (op.talents || [])[0];
+  if (!talent) return 0;
+  let rate = 0;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates || [])) {
+    const pot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= slotData.elite && pot <= (slotData.potentialRank || 0)) {
+      const bb = cand.blackboard || {};
+      const cd = bb['attack@heal_cd'], sc = bb['attack@heal_scale'];
+      if (typeof cd === 'number' && cd > 0 && typeof sc === 'number' && sc / cd > rate) rate = sc / cd;
+    }
+  }
+  return rate;
+}
+// 浊心斯卡蒂「捕食习性」:自身或海嗣攻击范围内存在我方干员时自身攻击力 +6%(存在【深海猎人】干员时改为 +15%)。
+// 计算器口径「自身必在自身范围内」(同纯烬艾雅法拉/琴柳先例)→ 取基础档(浊心斯卡蒂本身 group 不属深海猎人);
+// Y 模组「一号项目模型」te 覆写为 8%/9%(E2)等(键名 skadi2_e_003_t_2[atk][1].atk)。
+function bardSelfAtkMul(op, slotData) {
+  if (!isSkadi2(op)) return 1;
+  const talent = (op.talents || [])[1];
+  if (!talent) return 1;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, 1, talent.candidates || [])) {
+    const pot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= slotData.elite && pot <= (slotData.potentialRank || 0)) {
+      const bb = cand.blackboard || {};
+      for (const k of Object.keys(bb)) if (/\[atk\]\[1\]\.atk$/.test(k) && typeof bb[k] === 'number' && bb[k] > best) best = bb[k];
+    }
+  }
+  return 1 + best;
+}
+// 吟游者技能结算:全部技能走此分支(纯鼓舞技能返回无自身输出变化的常态 HPS)。
+function calcBardSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, skillDuration, isPermanent } = ctx;
+  const talentRate = bardTalentHealRate(op, slotData);
+  const baseRatio = bardTraitRatio(op, null);
+  const normalHps = panelAtk * baseRatio + panelAtk * talentRate;   // 常态 HPS(特性 + 常驻天赋额外治疗;过往尘埃倍率不计)
+  const dur = skillDuration > 0 ? skillDuration : 0;
+  const mk = (sHps, totalHeal, extra) => Object.assign({
+    type: 'heal', damageType: 'arts', isToggle: false, isPermanent: !!isPermanent,
+    skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null,
+    skillHps: sHps, normalHps, totalHeal: totalHeal === undefined ? null : totalHeal,
+    realInterval: 1, panelAtk,
+  }, extra || {});
+  const ratioHps = () => panelAtk * bardTraitRatio(op, levelData);
+  if (isSkadi2(op)) {
+    if (skillIndex === 0) { const h = ratioHps(); return mk(h, h * dur); }        // S1 同归殊途之吟:特性提高至 70%(专一) dur30
+    if (skillIndex === 1) return mk(ratioHps(), null);                            // S2 同葬无光之愿:永久,特性提高至 18%(专一)
+    if (skillIndex === 2) {                                                       // S3 潮涌,潮枯:特性变为每秒真伤(无治疗)
+      // 用户口径(2026-09-18):S3 伤害仅计自身的(海嗣那部分在召唤物侧查询) → 单份 atk_scale
+      const dps = panelAtk * (levelData.atk_scale ?? 0);
+      const total = dps * dur;
+      return mk(0, null, { damageType: 'true', skillDps: dps, skillTotalDamage: total, dmgTypes: { true: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
+    }
+  }
+  if (op.id === 'char_4134_cetsyr') {
+    if (skillIndex === 0) return mk(ratioHps(), null);                            // S1 往昔萦绕身旁:永久,特性提高至 30%(专一)
+    if (skillIndex === 1) {                                                       // S2 明日渺远不及:微尘碰撞真伤
+      // 用户口径(2026-09-18):微尘的伤害按「每秒造成一次伤害」计算(不再按 6 枚/8s 一圈的命中节奏拆)
+      const dps = panelAtk * (levelData.atk_scale ?? 0);
+      const total = dps * dur;
+      return mk(panelAtk * baseRatio, null, { damageType: 'true', skillDps: dps, skillTotalDamage: total, dmgTypes: { true: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
+    }
+    if (skillIndex === 2) { const h = ratioHps(); return mk(h, h * dur); }        // S3 编织重构现世:特性提高至 80%(专一) dur30
+  }
+  if (op.id === 'char_101_sora') {
+    if (skillIndex === 0) { const h = ratioHps(); return mk(h, h * dur); }        // S1 睡眠之歌:特性提高至 80%(专一) dur7
+    if (skillIndex === 1) return mk(panelAtk * baseRatio, null);                  // S2 战斗之歌:仅鼓舞 → 自身输出不变化
+  }
+  if (op.id === 'char_4045_heidi') {
+    if (skillIndex === 0) return mk(panelAtk * baseRatio, null);                  // S1 虚构故事·怒士:鼓舞 + 阻挡-3,特性不变
+    if (skillIndex === 1) { const h = ratioHps(); return mk(h, h * dur); }        // S2 虚构故事·锈城:特性提高至 25%(专一) dur20
+  }
+  if (op.id === 'char_4184_dolris') {
+    // S1 我思念的:鼓舞 + 目标受击补 85 点(用户口径 2026-09-18:目标受伤时的治疗不计算);特性不变(0.1)+ 天赋治疗照常
+    if (skillIndex === 0) return mk(panelAtk * baseRatio + panelAtk * talentRate, null);
+    if (skillIndex === 1) {                                                       // S2 我悲悯的:特性停止回血,每 interval 秒法伤 + 治疗
+      const iv = levelData.interval ?? 0.3;
+      const dps = panelAtk * (levelData['attack@atk_scale'] ?? 0) / iv;
+      const hps = panelAtk * (levelData['attack@heal_scale'] ?? 0) / iv + panelAtk * talentRate;
+      const total = dps * dur;
+      return mk(hps, null, { damageType: 'arts', skillDps: dps, skillTotalDamage: total, dmgTypes: { arts: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
+    }
+  }
+  return mk(normalHps, null);
+}
 // 凝滞师需专用结算的技能(其余落回引擎通用链尾)
 const SLOWER_SPECIAL = {
   'char_326_glacus': [1],    // S2 反制电磁脉冲:冲击波单发 340%(专一)×atk 法伤(对【无人机】加倍不计,用户口径)
@@ -2777,6 +2883,8 @@ function calcTalentFlatDotDps(op, slotData) {
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
+  // 吟游者(及继承其口径的浊心斯卡蒂海嗣 TOKEN):不攻击,输出形式是治疗 → 走 bard 专用分支(见 calcBardSkill)
+  const isBard = op.subProfessionId === 'bard' || op.id === 'token_10017_skadi2_dedant';
   const phase = op.phases[slotData.elite] || op.phases[op.phases.length - 1];
   const maxLevel = phase.maxLevel;
   const mod = calcModuleBonus(op, slotData);
@@ -2836,7 +2944,9 @@ function calculateOperator(op, slotData, ctx) {
   // 属攻击力乘区(逐击先乘再减防)→ 直接并入面板乘区(等价);晕眩/束缚中的 140% 档为条件类不计。
   // Y 模组「笔迹」te 把基础档覆盖为 120%/130%(经 funnelTalentValue 感知模组 te)。
   const hodrerAtkScale = op.id === 'char_4088_hodrer' ? (funnelTalentValue(op, slotData, 0, 'atk_scale_2') || 1) : 1;
-  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale;
+  // 吟游者自身不受鼓舞影响(不吃别人的鼓舞加成);浊心斯卡蒂「捕食习性」是自身攻击力加成(影响治疗量与 S3 真伤)
+  const bardAtkMul = isBard ? bardSelfAtkMul(op, slotData) : 1;
+  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale * bardAtkMul;
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   const flatAttr = calcTalentFlatAttr(op, slotData);
   const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
@@ -2881,6 +2991,11 @@ function calculateOperator(op, slotData, ctx) {
       const dHeal = calcDeployBurstSkill(op, slotData, panelAtk, realInterval);
       const isDeployHeal = !!dHeal && dHeal.damageType === 'heal';
       return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: isDeployHeal ? dHeal.total : null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+    }
+    // 吟游者(bard):不攻击 → 常态无 DPS,输出形式是治疗(每秒一跳,特性比率×攻击力;三角初华另有天赋额外治疗)
+    if (isBard) {
+      const hps = panelAtk * bardTraitRatio(op, null) + panelAtk * bardTalentHealRate(op, slotData);
+      return { type: 'heal', damageType: 'arts', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: hps, totalHeal: null, isToggle: false, isPermanent: false, realInterval: 1, panelAtk };
     }
     const isArts = op.damageType === 'arts';
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
@@ -4639,6 +4754,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const total = dotSec * Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
       result = mkS(total, dotSec > 0 ? total / dotSec : 0, calcCycleDps(levelData, realInterval, nAtk, total), realInterval);
     }
+  } else if (isBard) {
+    // 吟游者:全部技能走专用分支(特性比率覆盖 / 微尘真伤 / 每跳法伤;鼓舞不计入自身输出)
+    result = calcBardSkill(op, slotData, skillIndex, levelData, { panelAtk, skillDuration, isPermanent });
   } else if (op.subProfessionId === 'underminer' && UNDERMINER_SPECIAL[op.id] && UNDERMINER_SPECIAL[op.id].includes(skillIndex)) {
     // ===== 辅助·削弱者(underminer)特例技能 =====
     // 通用口径:削弱者普攻/技能均为法术伤害(SUBPROF_ARTS);特性「攻击使敌人攻击力-10% 持续2秒」为敌方减益(非己方输出),
@@ -5255,7 +5373,8 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     if (hps > 0) result = { ...result, normalHps: hps };
   }
   const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined);
-  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: skillAtk };
+  // 吟游者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
+  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: isBard ? panelAtk : skillAtk };
 }
 
 /**
