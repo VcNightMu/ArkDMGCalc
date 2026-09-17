@@ -221,7 +221,7 @@ const OPERATORS = {
     skywalker: [],                  // 巡空者
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心）
   },
 };
 

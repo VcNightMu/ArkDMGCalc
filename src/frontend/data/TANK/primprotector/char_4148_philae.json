@@ -362,7 +362,7 @@
           "level": 1,
           "potentialRank": 0,
           "name": "神河谕使",
-          "description": "受到的元素损伤-5%，受到凋亡损伤时回复1点技力",
+          "description": "受到的<$ba.dt.element>元素损伤</>-5%，受到<$ba.dt.apoptosis>凋亡损伤</>时回复1点技力",
           "blackboard": {
             "damage_resistance": 0.05,
             "sp": 1
@@ -374,7 +374,7 @@
           "level": 1,
           "potentialRank": 4,
           "name": "神河谕使",
-          "description": "受到的元素损伤-7%<@ba.talpu>（+2%）</>，受到凋亡损伤时回复1点技力",
+          "description": "受到的<$ba.dt.element>元素损伤</>-7%<@ba.talpu>（+2%）</>，受到<$ba.dt.apoptosis>凋亡损伤</>时回复1点技力",
           "blackboard": {
             "damage_resistance": 0.07,
             "sp": 1
@@ -386,7 +386,7 @@
           "level": 1,
           "potentialRank": 0,
           "name": "神河谕使",
-          "description": "受到的元素损伤-10%，受到凋亡损伤时回复2点技力",
+          "description": "受到的<$ba.dt.element>元素损伤</>-10%，受到<$ba.dt.apoptosis>凋亡损伤</>时回复2点技力",
           "blackboard": {
             "damage_resistance": 0.1,
             "sp": 2
@@ -398,7 +398,7 @@
           "level": 1,
           "potentialRank": 4,
           "name": "神河谕使",
-          "description": "受到的元素损伤-12%<@ba.talpu>（+2%）</>，受到凋亡损伤时回复2点技力",
+          "description": "受到的<$ba.dt.element>元素损伤</>-12%<@ba.talpu>（+2%）</>，受到<$ba.dt.apoptosis>凋亡损伤</>时回复2点技力",
           "blackboard": {
             "damage_resistance": 0.12,
             "sp": 2

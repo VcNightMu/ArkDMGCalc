@@ -1,0 +1,534 @@
+{
+  "id": "token_10026_bgsnow_subbow",
+  "name": "“打字机”",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4055_bgsnow",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        369,
+        506
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        500,
+        500
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        506,
+        666
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        500,
+        500
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        666,
+        866
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        500,
+        500
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "sktok_bgsnow_1",
+      "name": "抑扬格",
+      "levels": [
+        {
+          "atk": 0.2,
+          "prob": 0.3,
+          "atk_scale": 1.3,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "prob": 0.3,
+          "atk_scale": 1.35,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "prob": 0.3,
+          "atk_scale": 1.4,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "prob": 0.3,
+          "atk_scale": 1.45,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "prob": 0.3,
+          "atk_scale": 1.5,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "prob": 0.3,
+          "atk_scale": 1.55,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "prob": 0.3,
+          "atk_scale": 1.6,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.53,
+          "prob": 0.3,
+          "atk_scale": 1.85,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.56,
+          "prob": 0.4,
+          "atk_scale": 2,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "prob": 0.4,
+          "atk_scale": 2.25,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_bgsnow_2",
+      "name": "点题",
+      "levels": [
+        {
+          "atk_scale": 1.6,
+          "respawn_time": 0.7,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "respawn_time": 0.7,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "respawn_time": 0.7,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "respawn_time": 0.65,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "respawn_time": 0.65,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "respawn_time": 0.65,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "respawn_time": 0.6,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "respawn_time": 0.6,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "respawn_time": 0.6,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "respawn_time": 0.5,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "sktok_bgsnow_3",
+      "name": "锐笔速写",
+      "levels": [
+        {
+          "attack@atk_scale": 1.55,
+          "base_attack_time": -0.6,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.65,
+          "base_attack_time": -0.6,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.75,
+          "base_attack_time": -0.6,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.85,
+          "base_attack_time": -0.6,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.95,
+          "base_attack_time": -0.6,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.05,
+          "base_attack_time": -0.6,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.15,
+          "base_attack_time": -0.6,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.3,
+          "base_attack_time": -0.6,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.4,
+          "base_attack_time": -0.6,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.55,
+          "base_attack_time": -0.6,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "-",
+          "blackboard": {
+            "interval": 15
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "-",
+          "blackboard": {
+            "interval": 20
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "-",
+          "blackboard": {
+            "interval": 25
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "弱点速记",
+          "description": "“打字机”的攻击会使命中目标的防御力下降18%，持续4秒；若“打字机”放在鸿雪周围四格则效果提升至23%",
+          "blackboard": {
+            "duration": 4,
+            "bgsnow_token[def_down]_1.def": -0.18,
+            "bgsnow_token[def_down]_2.def": -0.23
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "弱点速记",
+          "description": "“打字机”的攻击会使命中目标的防御力下降20%<@ba.talpu>（+2%）</>，持续5<@ba.talpu>（+1）</>秒；若“打字机”放在鸿雪周围四格则效果提升至25%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "duration": 5,
+            "bgsnow_token[def_down]_1.def": -0.2,
+            "bgsnow_token[def_down]_2.def": -0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

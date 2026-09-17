@@ -810,6 +810,24 @@ function calcLongrangeSkill(op, slotData, skillIndex, levelData, ctx) {
       ? { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } }
       : { arts: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } },
   });
+  // 打字机(鸿雪召唤物):技能继承鸿雪(抑扬格/点题/锐笔速写),面板用自身;目标防御按其天赋「弱点速记」-18%(打在自身结算内)
+  if (op.id === 'token_10026_bgsnow_subbow') {
+    const tAtkMul = 1 + (levelData.atk || 0);
+    if (skillIndex === 0) {          // 「抑扬格」:持续无限,攻击力 +53%(30% 概率档不计)
+      const per = h(panelAtk * tAtkMul);
+      return res(0, realInterval > 0 ? per / realInterval : 0, null);
+    }
+    if (skillIndex === 1) {          // 「点题」:立即对前方进行 3 次攻击(每次 atk_scale)
+      const per = h(panelAtk * (levelData['attack@atk_scale'] ?? levelData.atk_scale ?? 1)) * 3;
+      return res(per, 0, calcCycleDps(levelData, realInterval, h(panelAtk * tAtkMul), per));
+    }
+    if (skillIndex === 2) {          // 「锐笔速写」:间隔缩短,每击 attack@atk_scale(默认不在正前方 3 格 → 取基础倍率)
+      const per = h(panelAtk * (levelData['attack@atk_scale'] ?? levelData.atk_scale ?? 1));
+      const nn = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 1;
+      return res(per * nn, skillDuration > 0 ? (per * nn) / skillDuration : 0, null);
+    }
+  }
+
   // 蕾缪安(弹夹型):弹药 = attack@trigger_time + 天赋2 弹药上限 +add_count;打完后技能结束
   if (op.id === 'char_4193_lemuen') {
     const ammo = (levelData['attack@trigger_time'] || 0) + (funnelTalentValue(op, slotData, 1, 'add_count') || 0);
@@ -1035,10 +1053,14 @@ const SKILL_MODULE_SPD_BUFF = {
 // 天赋百分比无视防御(id → 天赋索引;读 bb.def_penetrate × bb.max_stack_cnt,即叠满档)
 const TALENT_DEF_IGNORE_PCT = {
   'char_2012_typhon': 0,   // 提丰「锐如兽牙」:连续攻击逐渐无视防御,叠满 = max_stack_cnt × def_penetrate(E2潜0 = 5×10% = 50%,用户口径"按最高计算")
+  // 打字机「弱点速记」:自身攻击使目标防御 -18%(默认不在鸿雪周围四格 → 取基础档,用户口径 2026-09-17)
+  'token_10026_bgsnow_subbow': { talentIndex: 1, key: 'bgsnow_token[def_down]_1.def' },
 };
 function calcTalentDefIgnorePct(op, slotData) {
-  const idx = TALENT_DEF_IGNORE_PCT[op.id];
-  if (idx === undefined) return 0;
+  const cfg = TALENT_DEF_IGNORE_PCT[op.id];
+  if (cfg === undefined) return 0;
+  const idx = typeof cfg === 'number' ? cfg : cfg.talentIndex;
+  const key = typeof cfg === 'number' ? 'def_penetrate' : (cfg.key || 'def_penetrate');
   const talent = (op.talents || [])[idx];
   if (!talent) return 0;
   const elite = slotData.elite, pot = slotData.potentialRank || 0;
@@ -1047,9 +1069,9 @@ function calcTalentDefIgnorePct(op, slotData) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
       const bb = cand.blackboard || {};
-      if (typeof bb.def_penetrate === 'number') {
+      if (typeof bb[key] === 'number') {
         const stacks = typeof bb.max_stack_cnt === 'number' ? bb.max_stack_cnt : 1;
-        if (bb.def_penetrate * stacks > best) best = bb.def_penetrate * stacks;
+        if (Math.abs(bb[key]) * stacks > best) best = Math.abs(bb[key]) * stacks;
       }
     }
   }
@@ -1831,7 +1853,8 @@ const SKILL_ATK_SCALE_EXCLUDE = {
   'char_388_mint': { 1: true },    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2)
   'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)
   'char_450_necras': { 1: true },   // 死芒 S2 折朽:atk_scale 是沉睡目标每 0.5s 的 DoT 倍率,不作普攻倍率
-  'char_4055_bgsnow': { 0: true },  // 鸿雪 S1 抑扬格:atk_scale 1.85 是 30% 概率触发的当次攻击倍率(用户口径:概率增幅不计)   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
+  'char_4055_bgsnow': { 0: true },  // 鸿雪 S1 抑扬格:atk_scale 1.85 是 30% 概率触发的当次攻击倍率(用户口径:概率增幅不计)
+  'token_10026_bgsnow_subbow': { 0: true },  // 打字机继承鸿雪 S1 同口径(继承技能,面板为打字机自身)   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
 const SKILL_ATK_EXCLUDE = {
@@ -2280,7 +2303,10 @@ function calculateOperator(op, slotData, ctx) {
       2: { mode: 'flow-buff', atkMul: 0.4, dur: 15 },
     },
   };
-  function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
+  // 继承持有者技能、用自身面板的召唤物(用户 2026-09-17 口径:打字机技能=鸿雪的技能,面板=打字机自己的)
+const TOKEN_INHERIT_OWNER_SKILLS = { 'token_10026_bgsnow_subbow': true };
+
+function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     const cfg = (SUMMON_FORM_MODES[op.id] || {})[skillIndex];
     if (!cfg) return null;
     if (cfg.mode === 'arts-sleep') {
@@ -2386,7 +2412,9 @@ function calculateOperator(op, slotData, ctx) {
   // 召唤物路由:带独立技能(非 skcom_ 通用被动、非 sktok_ 召唤物原生占位)的召唤物按技能语义走伤害/治疗计算
   // (如凯尔希·Mon3tr 攻击型召唤物,技能由持有者注入 skchr_);仅占位技能(战术家狼群/眠兽/流形/模様三号等 sktok_,
   // 与医疗探机 skcom_)的召唤物无独立技能期 → 攻击型走常态普攻、非攻击型走 calcSummonHeal。
-  const hasRealSkills = (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'));
+  // 继承持有者技能的召唤物(鸿雪「打字机」:技能与鸿雪同名同值,但用打字机自身面板)按普通干员口径结算
+  const inheritedSkills = TOKEN_INHERIT_OWNER_SKILLS[op.id] === true;
+  const hasRealSkills = inheritedSkills || (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'));
   // 守护者治疗技能识别:治疗模式型(bb 带 base_attack_time,普攻转治疗)、
   // 急救族 AUTO(heal_scale + AUTO 充能触发治疗)与特殊模式(塞雷娅S3 钙质化每秒HOT attack@heal_scale;
   // 瑕光S1 双通道 atk_scale+heal_scale AUTO / S2 沉睡 attack@atk_to_hp_recovery_ratio / S3 物法双伤 attack@blemsh_s_3...;
@@ -3370,7 +3398,7 @@ function calculateOperator(op, slotData, ctx) {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
       phase, module: slotData.module, generic: () => calcDamage(params),
     });
-  } else if (op.subProfessionId === 'longrange') {
+  } else if (op.subProfessionId === 'longrange' || op.id === 'token_10026_bgsnow_subbow') {
     result = calcLongrangeSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
       generic: () => calcDamage(params),
