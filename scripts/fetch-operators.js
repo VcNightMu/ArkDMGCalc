@@ -97,7 +97,14 @@ const OPERATORS = {
     ],
   },
   SNIPER: { // 狙击
-    fastshot: ['char_103_angel'],   // 速射手
+    fastshot: [ // 速射手
+      'char_103_angel', 'char_332_archet', 'char_456_ash',              // 能天使/空弦/灰烬 6★
+      'char_129_bluep', 'char_204_platnm', 'char_365_aprl', 'char_367_swllow', 'char_498_inside', 'char_1021_kroos2', // 蓝毒/白金/四月/灰喉/隐现 5★、寒芒克洛丝 5★（克洛丝异格）
+      'char_126_shotst', 'char_133_mm', 'char_190_clour', 'char_235_jesica', // 流星/梅/红云/杰西卡 4★
+      'char_124_kroos', 'char_211_adnach',                              // 克洛丝/安德切尔 3★
+      'char_503_rang',                                                  // 巡林者 2★
+      'char_4000_jnight',                                               // 正义骑士号 1★（拉特兰告解机器人，公招可得，同 CONFESS-47/Friston-3 口径）
+    ], // 不录：预备干员-狙击（507_rsnipe/603_csnipe）与 Stormeye（511_asnipe/611_acnipe，集成战略限时形态，数据 isNotObtainable=true）
     closerange: [],                 // 重射手
     aoesniper: [],                  // 炮手
     longrange: [],                  // 神射手

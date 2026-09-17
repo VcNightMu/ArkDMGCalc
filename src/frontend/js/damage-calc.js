@@ -56,6 +56,8 @@ const TALENT_ATK_DRIVERS = {
   'char_341_sntlla': 0,   // 寒檀「生于冰寒」:战场停留 20s 后攻击+15%(E2)且获得抵抗——时间条件长线必达成默认触发(同凛御雪境先驱 15s 翻倍先例);Y 模组缩短至 15s 且 +18/20%
   'char_373_lionhd': 0,   // 莱恩哈特「破片杀伤」:攻击范围内每有一个敌人攻击+X%(E2 4%)——键 max_valid_stack_cnt(非 max_stack_cnt)不进叠层乘,天然=单目标 1 层(用户口径);X 模组每层 5%
   'char_4141_marcil': 0,  // 玛露西尔「建校以来第一才女」:有魔力时攻击+25%(E2)且溅射扩大——魔力为常驻资源默认持有(简化口径),技能消耗魔力另计(精2,潜能只改费用不改atk);自身罗德岛必得(携带即生效同编队光环先例);X模组同名te覆盖至6/8%
+  // ---- 速射手(fastshot) ----
+  'char_133_mm': 0,       // 梅「维多利亚探员」:攻击力+7%(E2 潜0,潜4 +8%)(攻速档在 TALENT_SPD_DRIVERS)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -604,6 +606,11 @@ const TALENT_SPD_DRIVERS = {
   'char_497_ctable': 0,   // 晓歌「万全」:未阻挡敌人时攻速+6/8(E1)→+12/14(E2 潜4),阻挡时改攻击力+12% 二选一(远程位默认未阻挡吃攻速档)
   // ---- 链术师(chain) ----
   'char_135_halo': 0,     // 星源「科研热忱」:每在场上停留15s攻速+3(E1)/+4(E2),最多5层 → 时间累积默认满层(×max_stack_cnt,同星极「天体仪」先例)=+15/+20;Y 模组改 10s/6~7层 → +24/+28
+  // ---- 速射手(fastshot) ----
+  'char_133_mm': 0,       // 梅「维多利亚探员」:攻击速度+7(E2 潜0,潜4 +8)(攻击力 +7% 在 TALENT_ATK_DRIVERS)
+  'char_367_swllow': 0,   // 灰喉「顺风」:攻击速度+6(「15% 概率攻击力×1.5」为概率类,不建模走说明)
+  'char_235_jesica': 0,   // 杰西卡「快速弹匣」:攻击速度+6(精1)/+12(精2)
+  'char_211_adnach': 0,   // 安德切尔「短板突破」:攻击速度+4(精1 潜0)/+8(精1 潜0 高档)(「优先攻击远程」为索敌规则,不计)
 };
 
 
@@ -618,6 +625,12 @@ const MODULE_TE_ASPD_STACK = {
 // 整体替换会丢失未写出的基础数值(攻击力+8%/10%)。
 const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
+};
+
+// 模组 te 攻速"放行"表:本体无攻速天赋、但模组 te 给的是无条件常驻攻速的干员
+// (蓝毒 X「标准比色卡」L1 起 te attack_speed 8,name=null 无条件条目——用户口径 2026-09-17:模组新增的加成要算)
+const MODULE_TE_SPD_ALLOW = {
+  'char_129_bluep': true,
 };
 
 const MODULE_TE_SPD_SKIP = {
@@ -1018,7 +1031,7 @@ function calcModuleTalentEnhance(op, slotData) {
     // 不是常驻攻速强化,不参与 attackSpeed 拾取——由 SKILL_MODULE_SPD_BUFF 专用通道在技能窗口内分两段模拟。
     const isTimedAspd = typeof bb.attack_speed_up_duration === 'number' && bb.attack_speed_up_duration > 0;
     // 仅常驻攻速天赋入表干员(闪灵法典/琴柳不退之旗/晓歌万全等)允许攻速拾取;表外干员的 te 攻速为条件/触发型(冬时疾笔撰录/录武官学成于聚)不计
-    const spdOk = TALENT_SPD_DRIVERS[op.id] !== undefined;
+    const spdOk = TALENT_SPD_DRIVERS[op.id] !== undefined || (MODULE_TE_SPD_ALLOW[op.id] || false) === true;
     const spdTeSkip = (MODULE_TE_SPD_SKIP[op.id] || false) === true;
     const aspStack = (MODULE_TE_ASPD_STACK[op.id] === true && typeof bb.max_stack_cnt === 'number') ? bb.max_stack_cnt : 1;
     if (spdOk && !spdTeSkip && typeof bb.attack_speed === 'number' && !isTimedAspd && (bestAspd === null || bb.attack_speed * aspStack > bestAspd)) bestAspd = bb.attack_speed * aspStack;
@@ -1157,6 +1170,8 @@ const BAT_ADD_OVERRIDES = {
   // ---- 冲锋手 ----
   'char_222_bpipe': { 2: true },   // 风笛 S3 闭膛连发:攻击间隔增大(1.0+0.7=1.7s)
   'char_290_vigna': { 1: true },  // 红豆 S2 槌音:攻击间隔略微增大(1.0+0.5=1.5s)
+  // ---- 速射手(fastshot) ----
+  'char_133_mm': { 1: true },      // 梅 S2 束缚电击:攻击间隔增大(1.0+0.5=1.5s)
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
@@ -1168,6 +1183,20 @@ const BAT_PCT_OVERRIDES = {
   'char_469_indigo': { 0: true },   // 深靛 S1 灯塔守卫者:攻击间隔大幅度缩短(-80%) → 3.0×0.2=0.6s
   'char_472_pasngr': { 1: true },   // 异客 S2 聚焦指令:攻击间隔缩短(-40%) → 2.3×0.6=1.38s(同深靛口径,官方文案为百分比)
 };
+
+// 攻击间隔缩短值"×N"折算表(用户口径 2026-09-17):能天使「过载模式」游戏内技能描述为"攻击间隔一定程度缩短(-0.22)",
+// 而原始数据 base_attack_time 只有一半(专三 -0.11),按游戏描述口径 ×2 后参与攻速结算((1-0.22)/1.12 ≈ 0.696s)。
+const BAT_SCALE_OVERRIDES = {
+  'char_103_angel': { 2: 2 },   // 能天使 S3 过载模式
+};
+
+// 蓝毒「神经毒素」固定 DOT 每秒伤害(用户口径 2026-09-17):攻击使目标中毒 3.1s,每秒 poison_damage 点法术伤害,不叠层;
+// 持续攻击下等效常驻,常态/技能期各加一份。DPS = poison_damage × (1 - 法抗)。E2 潜0 = 75/秒。
+function calcBluePoisonDps(op, slotData, enemy) {
+  if (op.id !== 'char_129_bluep') return 0;
+  const v = funnelTalentValue(op, slotData, 0, 'poison_damage');
+  return v > 0 ? calcArtsDamage(v, enemy?.res ?? 0) : 0;
+}
 
 // 间隔"增大(+X%)"型:描述为"攻击间隔增大(+70%/+40%)"的 base_attack_time 正小数,
 // 语义=攻击间隔 ×(1+val)(区别于 (0,1) 乘算缩短与 BAT_ADD 加算秒——天火 S2 2.9×1.7=4.93/夕 S3 2.9×1.4=4.06)
@@ -1335,6 +1364,43 @@ const MULTI_HIT = {
   'char_1036_fang2': { 0: 2 },  // 历阵锐枪芬 S1 贯敌刺枪:下次攻击变二连击(1.8×atk×2,AUTO dur0 触发)
   'char_222_bpipe': { 2: 3 },   // 风笛 S3 闭膛连发:攻击变三连击(dur20 间隔+0.7→1.7s,atk+100% 三连全中)
 };
+// 速射手连射(用户口径 2026-09-17):一次攻击打出 N 发,单目标模型全部命中。
+// hitCount = 每次攻击的发数;attack@atk_scale 归"每发倍率"(进 skillAtk,与 top-level atk_scale 区分)。
+// 数据里没有 times 键、只写在技能文案里的固定连射在此写死(灰喉 S1/S2、寒芒克洛丝 S1/S2)。
+const FASTSHOT_MULTI_HARD = {
+  'char_367_swllow': { 0: 2, 1: 3 },    // 灰喉 S1 飞羽「连续射击2次」/ S2 回流「攻击变为3连射」
+  'char_1021_kroos2': { 0: 2, 1: 2 },   // 寒芒克洛丝 S1 无痕 / S2 封喉「攻击变为2连射」(命中32次后转4连射未建模)
+};
+function fastshotMultiHit(opId, skillIndex, levelData) {
+  const times = levelData['attack@times'] ?? levelData.times ?? (FASTSHOT_MULTI_HARD[opId] || {})[skillIndex] ?? 0;
+  if (!times) return null;
+  const scale = levelData['attack@atk_scale'] !== undefined ? levelData['attack@atk_scale'] : 1;
+  return { times, scale };
+}
+
+// 白金「蓄力攻击」(用户口径 2026-09-17):距上次攻击间隔越长,下次攻击倍率越高。
+// 间隔 min_delta~max_delta 秒线性映射 min_atk_scale~max_atk_scale;常态 1.0s 无加成,天马视域(攻速-20 → 1.25s)≈1.13×。
+function calcPlatnmChargeMul(op, slotData, interval) {
+  const talent = (op.talents || [])[0];
+  if (!talent) return 1;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let minD = null, maxD = null, minS = null, maxS = null;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const candPot = cand.potentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb['attack@min_delta'] === 'number') minD = bb['attack@min_delta'];
+      if (typeof bb['attack@max_delta'] === 'number') maxD = bb['attack@max_delta'];
+      if (typeof bb['attack@min_atk_scale'] === 'number') minS = bb['attack@min_atk_scale'];
+      if (typeof bb['attack@max_atk_scale'] === 'number') maxS = bb['attack@max_atk_scale'];
+    }
+  }
+  if (minD === null || maxD === null || minS === null || maxS === null || maxD <= minD) return 1;
+  const t = Math.min(Math.max(interval, minD), maxD);
+  const ratio = (t - minD) / (maxD - minD);
+  return minS + (maxS - minS) * ratio;
+}
+
 // 仅攻击到一个敌人时的伤害倍率(单目标模型恒成立;读 attack@xxx[critical] 键,与 atk 加成相乘)
 const SINGLE_CRIT_MUL = {
   'char_350_surtr': { 1: true },   // 史尔特尔 S2 熔核巨影:仅攻击到一个敌人时攻击力提升至 1.4~1.6
@@ -1611,7 +1677,7 @@ function calculateOperator(op, slotData, ctx) {
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
     const normFlat = defHitArtsMax(op, slotData);
-    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
+    return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType };
   }
 
   const levelData = getSkillLevelData(skill, slotData.skillLevel);
@@ -1659,7 +1725,10 @@ function calculateOperator(op, slotData, ctx) {
   // 清流涌泉 ×0.12、安洁莉娜微粒模式 ×0.15、风笛闭膛连发 ×0.7,官方描述均为"间隔(极)大幅度缩短")。
   // 描述为"间隔增大"却给正小数的技能(火神S2 +0.4s/斥罪S3 +0.9s)经 BAT_ADD_OVERRIDES 按加算秒处理。
   if (levelData.base_attack_time) {
-    const bat = levelData.base_attack_time;
+    let bat = levelData.base_attack_time;
+    // 间隔缩短值折算(能天使「过载模式」:数据 -0.11 与游戏描述 -0.22 差一倍,见 BAT_SCALE_OVERRIDES)
+    const batScale = (BAT_SCALE_OVERRIDES[op.id] || {})[skillIndex] || 1;
+    if (batScale !== 1) bat = bat * batScale;
     if ((INTERVAL_GROW_OVERRIDES[op.id] || {})[skillIndex]) {
       // 间隔增大(+X%):base_attack_time 为增幅 → 间隔 ×(1+X)(天火 S2 +70%、夕 S3 +40%)
       skillInterval = calcRealInterval(phase.baseAttackTime * (1 + bat), 100 + baseAspdBonus + skillAspdExtra);
@@ -1712,10 +1781,16 @@ function calculateOperator(op, slotData, ctx) {
   const isArts = (op.damageType === 'arts' && !physSkillOn) || ((SKILL_ARTS_OVERRIDES[op.id] || []).includes(skillIndex)) || artsProtectorSkill;
   // 弱点伤害:赤刃明霄陈「形意洞照」精1+ 所有物理/法术伤害逐击取物法更高(精0 无天赋全法术)
   const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
+  // 速射手连射:每发倍率进 skillAtk、发数走 hitCount(与"整次乘算"的 hitMul 语义区分,参见 fastshotMultiHit)
+  const fsMulti = op.subProfessionId === 'fastshot' ? fastshotMultiHit(op.id, skillIndex, levelData) : null;
+  if (fsMulti && fsMulti.scale !== 1) skillAtk = skillAtk * fsMulti.scale;
   // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
-  const hitMul = ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
-    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1)
+  const hitMul = (fsMulti ? 1 : ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
+    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1)) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1)
     * (((SINGLE_CRIT_MUL[op.id] || {})[skillIndex] && levelData['attack@surtr_s_2[critical].atk_scale']) || 1);
+  const hitCount = fsMulti ? fsMulti.times : 1;
+  // 白金「蓄力攻击」:按技能期实际间隔折算攻击力倍率(常态间隔 1.0s → ×1,不产生影响)
+  if (op.id === 'char_204_platnm') { const cMul = calcPlatnmChargeMul(op, slotData, skillInterval); if (cMul !== 1) skillAtk = skillAtk * cMul; }
   const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;
   // 法脆必触发增伤:芙蓉常驻(×damage_scale);焰苇S3 灼痕 100% 触发(talent@prob=1)再乘灼痕档
   const fragileBase = calcMagicFragileMul(op, slotData);
@@ -1727,7 +1802,7 @@ function calculateOperator(op, slotData, ctx) {
 
   const params = {
     panelAtk, baseAtk, rawAtk, talentAtk, skillAtk, panelHp, realInterval: skillRealInterval, normalInterval: realInterval, baseInterval: phase.baseAttackTime, skillDuration,
-    isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul,
+    isToggle, isPermanent, levelData, isArts, normalTypeArts: op.damageType === 'arts', hitMul, hitCount,
     isIncantationMedic, enemy: state.enemy,
     incantMode,
     traitScale: calcTraitScale(op, slotData),
@@ -2804,8 +2879,86 @@ function calculateOperator(op, slotData, ctx) {
       damageType: isArtsOp ? 'arts' : 'physical', normalDamageType: isArtsOp ? 'arts' : 'physical',
       type: 'damage', realInterval: skillRealInterval,
     };
+  } else if (op.id === 'char_456_ash' && skillIndex === 1) {
+    // 灰烬 S2 突击战术(用户口径 2026-09-17):弹药型 31 发,间隔 1.0-0.8=0.2s;不计对晕眩目标增伤(敌人不一定被晕眩)。
+    // 每发 = 技能期攻击力 × ash_s_2[atk_scale](专一 2.2);总伤 = 31 × 每发;用时 = 31 × 间隔。
+    const ashScale = levelData['ash_s_2[atk_scale].atk_scale'] ?? 1;
+    const ashPer = calcPhysicalDamage(panelAtk * ashScale, effDef);
+    const ashAmmo = 31;
+    const ashTotal = ashPer * ashAmmo;
+    const ashTime = ashAmmo * (skillRealInterval > 0 ? skillRealInterval : 0.2);
+    const ashDps = ashTime > 0 ? ashTotal / ashTime : 0;
+    result = {
+      skillDps: ashDps, skillTotalDamage: ashTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: ashDps, skillTotalDamage: ashTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_456_ash' && skillIndex === 2) {
+    // 灰烬 S3 攻坚榴弹(用户口径 2026-09-17):手动瞬发,一次部署两发;每发 = 沿途(not_hitwall_scale)+ 爆炸(atk_scale),
+    // 打墙项(hitwall_scale,伤害更高)按墙外爆炸口径不计。总伤 = 2 × (atk_scale + not_hitwall_scale) × 攻击力。
+    const ashBurstPer = calcPhysicalDamage(panelAtk * ((levelData.atk_scale || 0) + (levelData.not_hitwall_scale || 0)), effDef);
+    const ashBurstTotal = ashBurstPer * 2;
+    result = {
+      skillDps: 0, skillTotalDamage: ashBurstTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: 0, skillTotalDamage: ashBurstTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_498_inside' && (skillIndex === 0 || skillIndex === 1)) {
+    // 隐现「不惹麻烦」/「解决麻烦」(用户口径 2026-09-17):弹药型,弹药量 = attack@trigger_time + 天赋「火力支援」
+    // self_ammo(在场停留 20s 后 +3,E2 潜0);S1 每发 = 攻击力 × attack@atk_scale(专一 2.1),S2 每发 = 技能期攻击力(顶层 atk);
+    // 间隔:S1 1.0s、S2 1.0-0.3=0.7s。总伤 = 弹药数 × 每发;用时 = 弹药数 × 间隔。
+    const inAmmo = (levelData['attack@trigger_time'] || 0) + funnelTalentValue(op, slotData, 0, 'self_ammo');
+    const inPer = skillIndex === 0
+      ? calcPhysicalDamage(panelAtk * (levelData['attack@atk_scale'] ?? 1), effDef)
+      : calcPhysicalDamage(skillAtk, effDef);
+    const inTotal = inPer * inAmmo;
+    const inTime = inAmmo * (skillRealInterval > 0 ? skillRealInterval : 1);
+    const inDps = inTime > 0 ? inTotal / inTime : 0;
+    result = {
+      skillDps: inDps, skillTotalDamage: inTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: inDps, skillTotalDamage: inTotal, cycleDps: null } },
+    };
+  } else if (op.id === 'char_1021_kroos2' && skillIndex === 1) {
+    // 寒芒克洛丝 S2 封喉(用户口径 2026-09-17):窗口连射——攻击变为 2 连射,累计命中 max_stack_count 次后转 4 连射。
+    // 单目标模型:前 ceil(stacks/2) 次攻击为 2 连射,其余 4 连射;逐击伤害相同 → 按平均发数折算总伤。
+    const kroosInt = skillRealInterval > 0 ? skillRealInterval : 1;
+    const kroosAtt = Math.max(0, Math.floor(skillDuration / kroosInt + 1e-9));
+    const kroosStacks = levelData['attack@max_stack_count'] || 32;
+    const kroosN2 = Math.min(kroosAtt, Math.ceil(kroosStacks / 2));
+    const kroosHits = kroosN2 * 2 + (kroosAtt - kroosN2) * 4;
+    const kroosPer = calcPhysicalDamage(panelAtk, effDef);
+    const kroosTotal = kroosPer * kroosHits;
+    const kroosDps = skillDuration > 0 ? kroosTotal / skillDuration : 0;
+    result = {
+      skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null,
+      normalDps: null, skillHps: null, normalHps: null, totalHeal: null,
+      damageType: 'physical', realInterval: skillRealInterval,
+      dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
+    };
   } else {
     result = calcDamage(params);
+  }
+
+  // 蓝毒「神经毒素」固定 DOT(见 calcBluePoisonDps):技能期 DPS/总伤与周期行各加一份(法术伤害,法抗结算)
+  if (op.id === 'char_129_bluep' && skillIndex >= 0) {
+    const poison = calcBluePoisonDps(op, slotData, state.enemy);
+    if (poison > 0) {
+      const pDur = skillDuration > 0 ? skillDuration : 0;
+      const addTotal = poison * pDur;
+      const pSd = (result.skillDps || 0) + poison;
+      const pSt = (result.skillTotalDamage || 0) + addTotal;
+      result = {
+        ...result,
+        skillDps: pSd, skillTotalDamage: pSt,
+        cycleDps: result.cycleDps === null || result.cycleDps === undefined ? result.cycleDps : result.cycleDps + poison,
+        normalDps: result.normalDps === null || result.normalDps === undefined ? result.normalDps : result.normalDps + poison,
+        dmgTypes: { ...(result.dmgTypes || {}), arts: { skillDps: poison, skillTotalDamage: addTotal, cycleDps: null } },
+      };
+    }
   }
 
   // 阵法术师(phalanx):特性「通常时不攻击」→ 常态行恒为 0(技能期照常计算)

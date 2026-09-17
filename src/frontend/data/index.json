@@ -2005,5 +2005,149 @@
     "subProfessionId": "notchar1",
     "ownerOperatorId": "char_4164_tecno",
     "ownerName": "特克诺"
+  },
+  {
+    "id": "char_332_archet",
+    "name": "空弦",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_456_ash",
+    "name": "灰烬",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_129_bluep",
+    "name": "蓝毒",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_204_platnm",
+    "name": "白金",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_365_aprl",
+    "name": "四月",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_367_swllow",
+    "name": "灰喉",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_498_inside",
+    "name": "隐现",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1021_kroos2",
+    "name": "寒芒克洛丝",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_126_shotst",
+    "name": "流星",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_133_mm",
+    "name": "梅",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_190_clour",
+    "name": "红云",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_235_jesica",
+    "name": "杰西卡",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_124_kroos",
+    "name": "克洛丝",
+    "rarity": "TIER_3",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_211_adnach",
+    "name": "安德切尔",
+    "rarity": "TIER_3",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_503_rang",
+    "name": "巡林者",
+    "rarity": "TIER_2",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4000_jnight",
+    "name": "正义骑士号",
+    "rarity": "TIER_1",
+    "profession": "SNIPER",
+    "subProfessionId": "fastshot",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

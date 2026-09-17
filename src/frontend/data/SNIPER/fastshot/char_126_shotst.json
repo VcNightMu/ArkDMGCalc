@@ -1,0 +1,546 @@
+{
+  "id": "char_126_shotst",
+  "name": "流星",
+  "rarity": "TIER_4",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        159,
+        266
+      ],
+      "def": [
+        58,
+        97
+      ],
+      "maxHp": [
+        612,
+        875
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        266,
+        381
+      ],
+      "def": [
+        97,
+        139
+      ],
+      "maxHp": [
+        875,
+        1123
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        381,
+        465
+      ],
+      "def": [
+        139,
+        165
+      ],
+      "maxHp": [
+        1123,
+        1370
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 65,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_shotst_1",
+      "name": "碎甲击",
+      "levels": [
+        {
+          "atk_scale": 1.2,
+          "def": -0.2,
+          "duration": 5,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "def": -0.2,
+          "duration": 5,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "def": -0.2,
+          "duration": 5,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "def": -0.25,
+          "duration": 5,
+          "level": 3,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.4,
+          "def": -0.25,
+          "duration": 5,
+          "level": 4,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "def": -0.25,
+          "duration": 5,
+          "level": 5,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "def": -0.3,
+          "duration": 5,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "def": -0.31,
+          "duration": 5,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "def": -0.32,
+          "duration": 5,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "def": -0.35,
+          "duration": 5,
+          "level": 9,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_shotst_2",
+      "name": "碎甲击·扩散",
+      "levels": [
+        {
+          "atk_scale": 1.4,
+          "def": -0.25,
+          "duration": 5,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "def": -0.25,
+          "duration": 5,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.5,
+          "def": -0.25,
+          "duration": 5,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "def": -0.3,
+          "duration": 5,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "def": -0.3,
+          "duration": 5,
+          "level": 4,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "def": -0.3,
+          "duration": 5,
+          "level": 5,
+          "spCost": 19,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "def": -0.35,
+          "duration": 5,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "def": -0.35,
+          "duration": 5,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "def": -0.35,
+          "duration": 5,
+          "level": 8,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "def": -0.4,
+          "duration": 5,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "空射专精",
+          "description": "攻击空中目标时，攻击力提升至120%",
+          "blackboard": {
+            "atk_scale": 1.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "空射专精",
+          "description": "攻击空中目标时，攻击力提升至125%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "空射专精",
+          "description": "攻击空中目标时，攻击力提升至135%",
+          "blackboard": {
+            "atk_scale": 1.35
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "空射专精",
+          "description": "攻击空中目标时，攻击力提升至140%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "atk_scale": 1.4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_shotst",
+      "name": "流星证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_shotst",
+      "name": "猎刀",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 22
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "空射专精",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.4
+              }
+            },
+            {
+              "name": "空射专精",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.45
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "空射专精",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.5
+              }
+            },
+            {
+              "name": "空射专精",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.55
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

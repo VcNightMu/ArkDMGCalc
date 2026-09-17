@@ -1,0 +1,148 @@
+{
+  "id": "char_4000_jnight",
+  "name": "正义骑士号",
+  "rarity": "TIER_1",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        137,
+        172
+      ],
+      "def": [
+        32,
+        41
+      ],
+      "maxHp": [
+        396,
+        495
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 45,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "正义助威·I",
+          "description": "部署后10秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得10%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 10,
+            "damage_scale": 1.1,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "正义助威·II",
+          "description": "部署后12秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得13%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 12,
+            "damage_scale": 1.13,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "正义助威·III",
+          "description": "部署后14秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得16%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 14,
+            "damage_scale": 1.16,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "正义助威·IV",
+          "description": "部署后16秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得19%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 16,
+            "damage_scale": 1.19,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "正义助威·V",
+          "description": "部署后18秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得22%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 18,
+            "damage_scale": 1.22,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "正义助威·VI",
+          "description": "部署后20秒内攻击范围内所有友方远程位单位更不容易被攻击且敌方空中单位获得25%的<$ba.fragile>脆弱</>效果",
+          "blackboard": {
+            "duration": 20,
+            "damage_scale": 1.25,
+            "jnight_t.taunt_level": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

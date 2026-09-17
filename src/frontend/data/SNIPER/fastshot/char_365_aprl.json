@@ -1,0 +1,482 @@
+{
+  "id": "char_365_aprl",
+  "name": "四月",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        178,
+        298
+      ],
+      "def": [
+        56,
+        94
+      ],
+      "maxHp": [
+        572,
+        818
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        298,
+        432
+      ],
+      "def": [
+        94,
+        135
+      ],
+      "maxHp": [
+        818,
+        1049
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        432,
+        528
+      ],
+      "def": [
+        135,
+        160
+      ],
+      "maxHp": [
+        1049,
+        1280
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 75,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_aprl_1",
+      "name": "精准射击",
+      "levels": [
+        {
+          "atk_scale": 1.7,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.85,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aprl_2",
+      "name": "灵活伪装",
+      "levels": [
+        {
+          "atk": 0.2,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 18,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 19,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 20,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 22,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 24,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": 8,
+          "skillDuration": 26,
+          "skillType": "PASSIVE",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熟练猎手",
+          "description": "自身再部署时间-15秒",
+          "blackboard": {
+            "respawn_time": -15,
+            "cost": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "熟练猎手",
+          "description": "自身再部署时间-20秒，自身部署费用-1",
+          "blackboard": {
+            "respawn_time": -20,
+            "cost": -1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+23",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aprl",
+      "name": "四月证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_aprl",
+      "name": "高保真通讯耳机",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 23
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 8
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 28
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 8
+              }
+            },
+            {
+              "name": "熟练猎手",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -25,
+                "cost": -2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 32
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": 8
+              }
+            },
+            {
+              "name": "熟练猎手",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "respawn_time": -28,
+                "cost": -2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

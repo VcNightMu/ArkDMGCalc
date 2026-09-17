@@ -1,0 +1,532 @@
+{
+  "id": "char_1021_kroos2",
+  "name": "寒芒克洛丝",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        169,
+        283
+      ],
+      "def": [
+        61,
+        103
+      ],
+      "maxHp": [
+        679,
+        971
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        283,
+        411
+      ],
+      "def": [
+        103,
+        148
+      ],
+      "maxHp": [
+        971,
+        1246
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        411,
+        502
+      ],
+      "def": [
+        148,
+        176
+      ],
+      "maxHp": [
+        1246,
+        1520
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 75,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_kroos2_1",
+      "name": "无痕",
+      "levels": [
+        {
+          "atk": 0.1,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.13,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.16,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 11,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "level": 3,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.23,
+          "level": 4,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.26,
+          "level": 5,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 12,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "level": 6,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 13,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.33,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 8,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.36,
+          "level": 8,
+          "spCost": 15,
+          "initialSp": 9,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 14,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 10,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_kroos2_2",
+      "name": "封喉",
+      "levels": [
+        {
+          "base_attack_time": -0.15,
+          "attack@max_stack_count": 40,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.15,
+          "attack@max_stack_count": 40,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.15,
+          "attack@max_stack_count": 40,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.22,
+          "attack@max_stack_count": 40,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.22,
+          "attack@max_stack_count": 40,
+          "level": 4,
+          "spCost": 44,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.22,
+          "attack@max_stack_count": 40,
+          "level": 5,
+          "spCost": 43,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@max_stack_count": 40,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@max_stack_count": 36,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.3,
+          "attack@max_stack_count": 32,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.375,
+          "attack@max_stack_count": 32,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "中的",
+          "description": "攻击时，10%几率当次攻击的攻击力提升至150%，并使敌人<$ba.stun>晕眩</>0.2秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.5,
+            "stun": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "中的",
+          "description": "攻击时，10%几率当次攻击的攻击力提升至160%<@ba.talpu>（+10%）</>，并使敌人<$ba.stun>晕眩</>0.2秒",
+          "blackboard": {
+            "prob": 0.1,
+            "atk_scale": 1.6,
+            "stun": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "中的",
+          "description": "攻击时，20%几率当次攻击的攻击力提升至150%，并使敌人<$ba.stun>晕眩</>0.2秒",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.5,
+            "stun": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "中的",
+          "description": "攻击时，20%几率当次攻击的攻击力提升至160%<@ba.talpu>（+10%）</>，并使敌人<$ba.stun>晕眩</>0.2秒",
+          "blackboard": {
+            "prob": 0.2,
+            "atk_scale": 1.6,
+            "stun": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_kroos2",
+      "name": "寒芒克洛丝证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_kroos2",
+      "name": "真心的话和想冒的险",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 110,
+            "atk": 22
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "中的",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 1.6,
+                "stun": 0.2
+              }
+            },
+            {
+              "name": "中的",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 1.7,
+                "stun": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 31
+          },
+          "talentEnhance": [
+            {
+              "name": "中的",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 1.65,
+                "stun": 0.2
+              }
+            },
+            {
+              "name": "中的",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "prob": 0.2,
+                "atk_scale": 1.75,
+                "stun": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,7 @@ const IDS = [
   'char_4226_veen', 'char_4110_delphn', 'char_297_hamoni', 'char_338_iris', // 秘术师(维伊/戴菲恩/和弦/爱丽丝;黑键/深靛已在上方)
   'char_472_pasngr', 'char_135_halo', 'char_306_leizi', // 链术师(异客/星源/惊蛰;布丁已在上方)
   'char_4229_aphris', 'char_134_ifrit', 'char_446_aroma', 'char_489_serum', 'char_4051_akkord', // 轰击术师(谬因/伊芙利特/阿罗玛/蚀清/协律)
+  'char_103_angel', 'char_332_archet', 'char_456_ash', 'char_129_bluep', 'char_204_platnm', 'char_365_aprl', 'char_367_swllow', 'char_498_inside', 'char_1021_kroos2', 'char_126_shotst', 'char_133_mm', 'char_190_clour', 'char_235_jesica', 'char_124_kroos', 'char_211_adnach', 'char_503_rang', 'char_4000_jnight', // 速射手
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

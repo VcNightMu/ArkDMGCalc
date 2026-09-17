@@ -1,0 +1,486 @@
+{
+  "id": "char_190_clour",
+  "name": "红云",
+  "rarity": "TIER_4",
+  "profession": "SNIPER",
+  "subProfessionId": "fastshot",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        166,
+        277
+      ],
+      "def": [
+        57,
+        95
+      ],
+      "maxHp": [
+        550,
+        786
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        277,
+        397
+      ],
+      "def": [
+        95,
+        136
+      ],
+      "maxHp": [
+        786,
+        1008
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        397,
+        485
+      ],
+      "def": [
+        136,
+        162
+      ],
+      "maxHp": [
+        1008,
+        1230
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 65,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[2]",
+      "name": "攻击力强化·β型",
+      "levels": [
+        {
+          "atk": 0.2,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.25,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 6,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 7,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_clour_2",
+      "name": "双弦开弓",
+      "levels": [
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 1,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 2,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "attack@max_target": 2,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 17,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "attack@max_target": 2,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 18,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@max_target": 2,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 19,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@max_target": 2,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "猎人的经验",
+          "description": "自身的技力自然回复速度+0.15/秒",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "猎人的经验",
+          "description": "自身的技力自然回复速度+0.3/秒",
+          "blackboard": {
+            "sp_recovery_per_sec": 0.3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+24",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-6秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -6
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_clour",
+      "name": "红云证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_clour",
+      "name": "“不落”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 90,
+            "atk": 23
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 140,
+            "atk": 28
+          },
+          "talentEnhance": [
+            {
+              "name": "猎人的经验",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.35
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 31
+          },
+          "talentEnhance": [
+            {
+              "name": "猎人的经验",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
