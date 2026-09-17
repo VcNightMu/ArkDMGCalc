@@ -20,6 +20,9 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  'char_4117_ray': 1,   // 莱伊「入神」(天赋1):攻击相同目标每次+8%攻击力,最多3层(Y 模组 4 层)→ 攻击次数型,叠满 24%/32%/36%
+  'char_113_cqbw': 0,   // W「设伏」(天赋0)Y 模组:部署后每秒+1层永久攻击力(0.5%×20 / 1.25%×16)→ 时间型,叠满 10%/20%
+
   'char_137_brownb': 0,   // 猎蜂「竞技专注」:攻击力每层 +3/4/5/6%,最多 5 层(引擎按满层叠满)
   'char_1026_gvial2': 0,   // 百炼嘉维尔「战地巨斧」:攻击力 +10%(默认按"不阻挡敌人"的档,atk_add 档不计)
   'char_281_popka': 0,     // 泡普卡:攻击力 +3/5/6/8%(E2 潜0 = 6%)
@@ -878,7 +881,14 @@ function calcModuleBonus(op, slotData) {
 
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
+// 攻速天赋不看叠层数的干员(Y 模组 te 的 attack_speed 为平值、叠层的是别的效果)
+const TALENT_SPD_NO_STACK = {
+  'char_103_angel': true,   // Y「快速弹匣」:攻速 +12 为平值,叠层的是「无视防御」(走 TALENT_DEF_PEN_FIXED)
+};
+
 const TALENT_SPD_DRIVERS = {
+  'char_4194_rmixer': { talentIndex: 0, key: 'attack_speed' },   // 信仰搅拌机「扫射迎宾仪礼」:每次造成伤害 10s 内攻速+3(X 模组 +4/+5),最多3层 → 攻击次数型,叠满 9/12/15
+
   'char_4009_irene': 1,   // 艾丽妮「净化之剑」:攻速 +18/21(E2 潜0 = 18,基础版;模组新增攻击力部分按口径不计)
   'char_017_huang': { talentIndex: 1, key: 'huang_t_2[e_002_atk_speed].attack_speed' },   // 煌「严酷训练」:攻速增幅(模组 X 新增档,默认生效)
   'char_294_ayer': 0,   // 断崖「索敌援助」:自身(与周围8格友方)攻速 +4/6/8/10(常驻)
@@ -922,13 +932,22 @@ const TALENT_SPD_DRIVERS = {
 // 模组 te 攻速按满层叠乘的干员(其天赋本身是叠层攻速型,模组同步改叠层上限/间隔)。
 // 默认不叠乘:洛洛 X L3「叠满后攻击速度+5」是固定加算值(×max_stack_cnt 会误算成 +20)。
 const MODULE_TE_ASPD_STACK = {
+  'char_4194_rmixer': true,   // X「扫射迎宾仪礼」te 攻速 4/5 × 最大 3 层
+
   'char_135_halo': true,   // 星源「科研热忱」:Y 模组改 10s/6~7 层、每层 +4 → +24/+28
   'char_1047_halo2': true,   // 溯光星源 Y「探索者的收藏」:数据建模叠层上限 23/25(te attack_speed 1 × max_stack_cnt)
 };
 
 // 模组 te 与基础天赋"合并而非替换"表:部分模组 te 只写变更部分(如异客 X 模组「孤卒」te 仅给 sp_recovery_per_sec),
 // 整体替换会丢失未写出的基础数值(攻击力+8%/10%)。
+// name=null 的模组 te(不指名天赋)允许并入的天赋索引白名单:需与 MODULE_TE_TALENT_MERGE 配合
+const MODULE_TE_NULL_MERGE = {
+  'char_113_cqbw': [0],   // W Y 模组:部署后每秒+1层永久攻击力,并入天赋0「设伏」
+};
+
 const MODULE_TE_TALENT_MERGE = {
+  'char_113_cqbw': [0],   // W Y 模组 te(name=null):部署后每秒+1层攻击力,并入天赋0「设伏」
+
   // 异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
   // 佩佩 RA-α「弥漫莲香」te 含空 blackboard 占位档(全模组档重复列出),整体替换会清掉基础 atk 键 → 改为合并
   'char_4058_pepe': [1],
@@ -1479,6 +1498,8 @@ const MODULE_TE_SPD_ALLOW = {
 };
 
 const MODULE_TE_SPD_SKIP = {
+  'char_103_angel': true,   // Y「快速弹匣」te 的 attack_speed 12 是平值(叠层的是无视防御),不可 ×max_stack_cnt(否则 300)
+
   'char_291_aglina': true,   // X「实验用反重力模块」加速力场 te(attack_speed 3/5)是「自身攻击范围内友方额外」,自身不计
 
   'char_4226_veen': true,   // X 模组「在挥刀之前」增强:拥有已储存的攻击能量时攻速+30(本模型无储存能量→不适用)
@@ -1493,6 +1514,8 @@ const TALENT_RES_PEN_DRIVERS = {
 // 固定物理穿防天赋表(敌人被 X 阻挡时攻击无视其 N 防御):伺夜「狼群天性」——单目标模型默认战术点狼群在场阻挡
 // (阻挡条件默认成立同满层先例);Y模组「时光不再」同名增强 te 覆盖(Y3: 225/250)
 const TALENT_DEF_PEN_FIXED = {
+  'char_103_angel': 0,   // 能天使 Y「快速弹匣」:连续造成伤害逐渐无视防御,叠满 = max_stack_cnt 25 × def_penetrate_fixed(6/10) = 150/250(攻击次数型,用户口径按叠满)
+
   'char_279_excu': 0,   // 送葬人「终结改装」:攻击时无视目标防御力(E2潜0=160;模组 te 覆盖 190~225)
   'char_427_vigil': 1,   // 伺夜 狼群天性(天赋2):无视 175(精2 潜5 200)
 };
@@ -1561,8 +1584,10 @@ function calcTalentDefPenFixed(op, slotData) {
   for (const cand of talentCandSource(op, slotData, idx, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const v = cand.blackboard && typeof cand.blackboard.def_penetrate_fixed === 'number' ? cand.blackboard.def_penetrate_fixed : 0;
-      if (v > best) best = v;
+      const bb = cand.blackboard || {};
+      const v = typeof bb.def_penetrate_fixed === 'number' ? bb.def_penetrate_fixed : 0;
+      const stacks = typeof bb.max_stack_cnt === 'number' ? bb.max_stack_cnt : 1;   // 攻击次数型叠层 → 按叠满计(用户口径 2026-09-17)
+      if (v * stacks > best) best = v * stacks;
     }
   }
   return best;
@@ -1828,7 +1853,7 @@ function calcTalentAttackSpeed(op, slotData) {
     if (cand.phase <= elite && candPot <= pot) {
       const aspd = cand.blackboard && typeof cand.blackboard[bbKey] === 'number' ? cand.blackboard[bbKey] : 0;
       // 叠层攻速天赋(星极「天体仪」每层+3/5、最多5层):按满层等效常驻(同塞雷娅 HP/DEF 叠层口径)
-      const stack = (cand.blackboard && typeof cand.blackboard.max_stack_cnt === 'number') ? cand.blackboard.max_stack_cnt : 1;
+      const stack = (cand.blackboard && typeof cand.blackboard.max_stack_cnt === 'number' && !TALENT_SPD_NO_STACK[op.id]) ? cand.blackboard.max_stack_cnt : 1;
       if (aspd * stack > best) best = aspd * stack;
     }
   }
@@ -1874,8 +1899,10 @@ function getTalentEnhBB(op, slotData, talentIndex) {
   if (!lv || !Array.isArray(lv.talentEnhance) || lv.talentEnhance.length === 0) return null;
   const pot = slotData.potentialRank || 0;
   let bestPot = -1, best = null;
+  const allowNullTe = (MODULE_TE_NULL_MERGE[op.id] || []).includes(talentIndex);
   for (const c of lv.talentEnhance) {
-    if (!c || !tNames.has(c.name)) continue;
+    if (!c) continue;
+    if (!tNames.has(c.name) && !(allowNullTe && c.name === null)) continue;
     const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
     if (cPot > pot || cPot < bestPot) continue;
     if (cPot > bestPot) { bestPot = cPot; best = { ...(c.blackboard || {}) }; }   // 更高潜能档:重置
@@ -3011,6 +3038,7 @@ function calculateOperator(op, slotData, ctx) {
     flatAt: defHitArtsMax(op, slotData) > 0 ? (i => defHitArtsAt(op, slotData, i)) : null,
     atkRampUp: (PHALANX_ATK_RAMP[op.id] || {})[skillIndex] || null,  // 阵法术师:攻击力线性递增(卡涅利安 S3)
     dmgRamp: ((PHALANX_ATK_RAMP[op.id] || {})[skillIndex] || {}).dmgRamp || 0,  // 蓄力增伤线性递增(整个技能)  // 逐击档(X模组剥壳递增:技能期按攻击序爬升)
+    defPenFixed,  // 天赋级固定物理穿防(能天使 Y「快速弹匣」等):技能期与常态同一口径,否则技能槽常态与无技能态不一致
   };
 
   let result;

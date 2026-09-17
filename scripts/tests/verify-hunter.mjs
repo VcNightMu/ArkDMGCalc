@@ -25,8 +25,8 @@ ok(near(r.realInterval, 3.2), '莱伊常态间隔 3.2(=2×1.6) 实=' + r.realInt
 const rayX = (ray.modules || []).find(m => (m.levels || []).length);
 r = run(ray, -1, { moduleId: rayX.id, level: rayX.levels.length, moduleLevel: rayX.levels.length });
 ok(near(r.realInterval, 2.4), '莱伊 X 模组常态间隔 2.4(=1.5×1.6) 实=' + r.realInterval);
-r = run(ray, 0); ok(near(r.skillTotalDamage, 4048.8), '莱伊 S1 总伤 4048.8 实=' + r.skillTotalDamage);
-r = run(ray, 2); ok(near(r.realInterval, 2.0) && near(r.skillTotalDamage, 4736.0), '莱伊 S3 间隔 2.0(reload -1.2)/总伤 4736.0 实=' + r.realInterval + '/' + r.skillTotalDamage);
+r = run(ray, 0); ok(near(r.skillTotalDamage, 5164.5), '莱伊 S1 总伤 5164.5(含入神 3 层 atk+24%) 实=' + r.skillTotalDamage);
+r = run(ray, 2); ok(near(r.realInterval, 2.0) && near(r.skillTotalDamage, 7024.6), '莱伊 S3 间隔 2.0(reload -1.2)/总伤 7024.6 实=' + r.realInterval + '/' + r.skillTotalDamage);
 r = run(ray, 1); ok(r.skillDps > 0, '莱伊 S2 有输出 实=' + r.skillDps);
 
 // 冰酿:不甘示弱(无模组默认生效);S2 装填间隔 +0.8 → 循环 4.0
