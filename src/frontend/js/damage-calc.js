@@ -2401,12 +2401,22 @@ function calculateOperator(op, slotData, ctx) {
   const isWeaknessOn = WEAKNESS_DAMAGE[op.id] === true && calcTalentAtkBonus(op, slotData) > 0;
   // 速射手连射:每发倍率进 skillAtk、发数走 hitCount(与"整次乘算"的 hitMul 语义区分,参见 fastshotMultiHit)
   const fsMulti = op.subProfessionId === 'fastshot' ? fastshotMultiHit(op.id, skillIndex, levelData) : null;
-  if (fsMulti && fsMulti.scale !== 1) skillAtk = skillAtk * fsMulti.scale;
-  // 技能期每击伤害乘子:暮落 S2 六连发(attack@atk_scale×attack@times)+ 斩业星熊 S3 二连击(MULTI_HIT)
-  const hitMul = (fsMulti ? 1 : ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
-    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1)) * ((MULTI_HIT[op.id] || {})[skillIndex] || 1)
+  // 多连击(用户口径 2026-09-17):"attack@times" 是不同的攻击次数 → 每击单独结算(逐击扣减防御/法抗)。
+  // 所以每击倍率(attack@atk_scale)进 skillAtk、次数进 hitCount,不再用"整次乘算"的 hitMul(会在减防之后才乘)。
+  // 注意:attack@times 只在"整数且 ≥2"时才是攻击次数(能天使 5 连射 times=5);
+  // 取小数值(如 荒拉普兰德 S3 times=1.3)是"倍率"而非次数,仍走整次乘算的 hitMul。
+  const timesIsCount = typeof levelData['attack@times'] === 'number' && Number.isInteger(levelData['attack@times']) && levelData['attack@times'] >= 2;
+  const multiHitData = (!fsMulti && timesIsCount)
+    ? { scale: levelData['attack@atk_scale'] !== undefined ? levelData['attack@atk_scale'] : 1, times: levelData['attack@times'] }
+    : null;
+  const hm = fsMulti || multiHitData;
+  if (hm && hm.scale !== 1) skillAtk = skillAtk * hm.scale;
+  // 技能期整次伤害乘子:小数 times 倍率(荒拉普兰德 S3 1.3 等)+ MULTI_HIT(每击全额×连击数,与逐击等价)
+  const legacyMul = (hm ? 1 : ((levelData['attack@atk_scale'] !== undefined && levelData['attack@times'] !== undefined)
+    ? levelData['attack@atk_scale'] * levelData['attack@times'] : 1));
+  const hitMul = legacyMul * ((MULTI_HIT[op.id] || {})[skillIndex] || 1)
     * (((SINGLE_CRIT_MUL[op.id] || {})[skillIndex] && levelData['attack@surtr_s_2[critical].atk_scale']) || 1);
-  const hitCount = fsMulti ? fsMulti.times : 1;
+  const hitCount = hm ? hm.times : 1;
   // 白金「蓄力攻击」:按技能期实际间隔折算攻击力倍率(常态间隔 1.0s → ×1,不产生影响)
   if (op.id === 'char_204_platnm') { const cMul = calcPlatnmChargeMul(op, slotData, skillInterval); if (cMul !== 1) skillAtk = skillAtk * cMul; }
   const incantMode = (INCANTATION_SPECIAL_MODES[op.id] || {})[skillIndex] || null;

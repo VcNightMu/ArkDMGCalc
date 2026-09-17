@@ -22507,7 +22507,7 @@
    "s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 729,
+    "atk": 510.3,
     "int": 1.6,
     "sDps": 918.54,
     "sTot": 18370.8,
@@ -22564,7 +22564,7 @@
    "mXL1s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 774,
+    "atk": 541.8,
     "int": 1.6,
     "sDps": 975.24,
     "sTot": 19504.8,
@@ -22621,7 +22621,7 @@
    "mXL2s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 789,
+    "atk": 552.3,
     "int": 1.6,
     "sDps": 994.14,
     "sTot": 19882.8,
@@ -22678,7 +22678,7 @@
    "mXL3s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 799,
+    "atk": 559.3,
     "int": 1.6,
     "sDps": 1006.74,
     "sTot": 20134.8,
@@ -26382,11 +26382,11 @@
    "s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 573,
+    "atk": 716.25,
     "int": 2.5,
     "sDps": 0,
-    "sTot": 179.063,
-    "cDps": 17.477,
+    "sTot": 581.25,
+    "cDps": 33.564,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -26394,8 +26394,8 @@
     "dmg": {
      "physical": {
       "sd": 0,
-      "st": 179.063,
-      "cd": 17.477
+      "st": 581.25,
+      "cd": 33.564
      }
     },
     "nm": null
@@ -26465,11 +26465,11 @@
    "mAL1s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 633,
+    "atk": 791.25,
     "int": 2.5,
     "sDps": 0,
-    "sTot": 206.25,
-    "cDps": 20.13,
+    "sTot": 956.25,
+    "cDps": 50.13,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -26477,8 +26477,8 @@
     "dmg": {
      "physical": {
       "sd": 0,
-      "st": 206.25,
-      "cd": 20.13
+      "st": 956.25,
+      "cd": 50.13
      }
     },
     "nm": null
@@ -26548,11 +26548,11 @@
    "mAL2s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 653,
+    "atk": 816.25,
     "int": 2.5,
     "sDps": 0,
-    "sTot": 331.25,
-    "cDps": 32.33,
+    "sTot": 1081.25,
+    "cDps": 62.33,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -26560,8 +26560,8 @@
     "dmg": {
      "physical": {
       "sd": 0,
-      "st": 331.25,
-      "cd": 32.33
+      "st": 1081.25,
+      "cd": 62.33
      }
     },
     "nm": null
@@ -26631,11 +26631,11 @@
    "mAL3s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 673,
+    "atk": 841.25,
     "int": 2.5,
     "sDps": 0,
-    "sTot": 456.25,
-    "cDps": 44.53,
+    "sTot": 1206.25,
+    "cDps": 74.53,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -26643,8 +26643,8 @@
     "dmg": {
      "physical": {
       "sd": 0,
-      "st": 456.25,
-      "cd": 44.53
+      "st": 1206.25,
+      "cd": 74.53
      }
     },
     "nm": null
@@ -46337,7 +46337,7 @@
    "s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 682,
+    "atk": 341,
     "int": 1.6,
     "sDps": 818.4,
     "sTot": 20460,
@@ -46415,7 +46415,7 @@
    "mYL1s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 712,
+    "atk": 356,
     "int": 1.6,
     "sDps": 854.4,
     "sTot": 21360,
@@ -46493,7 +46493,7 @@
    "mYL2s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 722,
+    "atk": 361,
     "int": 1.6,
     "sDps": 866.4,
     "sTot": 21660,
@@ -46571,7 +46571,7 @@
    "mYL3s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 732,
+    "atk": 366,
     "int": 1.6,
     "sDps": 878.4,
     "sTot": 21960,
@@ -47345,7 +47345,7 @@
    "s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 703,
+    "atk": 562.4,
     "int": 1.6,
     "sDps": 682.914,
     "sTot": 19121.6,
@@ -47402,7 +47402,7 @@
    "mXL1s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 733,
+    "atk": 586.4,
     "int": 1.6,
     "sDps": 712.057,
     "sTot": 19937.6,
@@ -47459,7 +47459,7 @@
    "mXL2s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 743,
+    "atk": 594.4,
     "int": 1.6,
     "sDps": 721.771,
     "sTot": 20209.6,
@@ -47516,7 +47516,7 @@
    "mXL3s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 753,
+    "atk": 602.4,
     "int": 1.6,
     "sDps": 731.486,
     "sTot": 20481.6,
@@ -60487,7 +60487,7 @@
    "s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 755,
+    "atk": 1585.5,
     "int": 0.9,
     "sDps": 1169.254,
     "sTot": 29231.35,
@@ -60575,7 +60575,7 @@
    "mXL1s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 798,
+    "atk": 1675.8,
     "int": 0.9,
     "sDps": 1462.178,
     "sTot": 36554.46,
@@ -60663,7 +60663,7 @@
    "mXL2s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 824,
+    "atk": 1730.4,
     "int": 0.9,
     "sDps": 1494.179,
     "sTot": 37354.48,
@@ -60751,7 +60751,7 @@
    "mXL3s2": {
     "type": "damage",
     "dt": "arts",
-    "atk": 842,
+    "atk": 1768.2,
     "int": 0.9,
     "sDps": 1516.334,
     "sTot": 37908.34,
