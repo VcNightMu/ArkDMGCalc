@@ -592,6 +592,7 @@ function calcModuleBonus(op, slotData) {
 // 常驻攻击速度天赋驱动表(blackboard.attack_speed 为直接加算的攻速值,100 基准上加算)。
 // key: 干员 id;value: 攻速天赋在 op.talents 数组中的索引。
 const TALENT_SPD_DRIVERS = {
+  'char_1013_chen2': { talentIndex: 1, key: 'chen2_t_2[common].attack_speed' },   // 假日威龙陈「假日余韵」:攻速+8(水地形档 [map] 默认不计,用户口径取基础效果)
   // ---- 狙击·神射手(longrange) ----
   'char_218_cuttle': 0,   // 安哲拉「深海直觉」:所有【深海猎人】攻速+6/8/12(E2潜0=12);自身即为深海猎人,按常驻计(用户 2026-09-17 确认)
   'char_328_cammou': 0,   // 卡达「协调一致」:自身与浮游单元攻速+6(精1)/+12(精2)
@@ -632,6 +633,105 @@ const MODULE_TE_ASPD_STACK = {
 const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
+
+// ===== 散射手(reaperrange)专用结算 =====
+// 说明文本(用户 2026-09-17):奥斯塔「尖钉」流血不生效;松果「便携电源」技力回复不生效、S2「电能过载」默认无攻击力追加;
+// 假日威龙陈「节约风气」不消耗弹药不生效、「假日余韵」取基础效果(三级模组技能期强制视为水地形);
+// 吉星「好运连击！」伤害增幅不生效。(陈 S2「堇青之夜」用户说明文案被截断,暂按蓄力档处理,待补)
+// 散射手特性:攻击时对攻击范围内的所有敌人应用特性加成(atk_scale 基础 1.5,X 模组 traitEnhance 提升至 1.6)。
+// 用户口径(2026-09-17):一般情况下不触发特性加成,仅技能描述明确写"应用特性加成"的技能计入(陈 S1/S3、送葬人 S1)。
+function calcReaperTraitScale(op, slotData) {
+  let v = 1.5;
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && Array.isArray(lv.traitEnhance)) {
+    for (const tr of lv.traitEnhance) {
+      const s = (tr.blackboard || {}).atk_scale;
+      if (typeof s === 'number' && s > v) v = s;
+    }
+  }
+  return v;
+}
+
+function calcReaperSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, phase, generic, module } = ctx;
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const atkUp = 1 + (levelData.atk || 0);
+  const nrm = () => (normalInterval > 0 ? calcPhysicalDamage(panelAtk, effDef) / normalInterval : null);
+  const res = (total, dps, cycle, interval, n) => ({
+    skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle, normalDps: nrm(),
+    skillHps: null, normalHps: null, totalHeal: null, damageType: 'physical',
+    realInterval: interval === undefined ? realInterval : interval,
+    dmgTypes: { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } },
+  });
+  // 假日威龙陈:「假日余韵」技能期档位 — 三级模组技能期强制视为水地形(取 [map] 档),否则取 [common] 档
+  if (op.id === 'char_1013_chen2') {
+    const isL3 = module && module.moduleLevel >= 3 && String(module.moduleId).includes('_003_');
+    let aspd = isL3 ? 20 : 8;
+    let atkMul = isL3 ? 1.28 : 1;
+    // 模组的 [common] 档(常驻)在三级模组时被 [map] 覆盖(技能期);低等级模组取 [common]
+    const phaseBase = phase ? phase.baseAttackTime : 2.3;
+    const interval = calcRealInterval(phaseBase, 100 + aspd);
+    const ammo = levelData['attack@trigger_time'] || 0;
+    const traitScale = calcReaperTraitScale(op, slotData);
+    if (skillIndex === 0) {
+      // 「高压冲击」:4 发弹夹,技能描述明确"应用特性加成" → 计入特性 atk_scale
+      const per = h(panelAtk * atkUp * atkMul * traitScale);
+      const total = per * ammo;
+      return res(total, interval > 0 ? total / (ammo * interval) : 0, calcCycleDps(levelData, interval, h(panelAtk), total), interval);
+    }
+    if (skillIndex === 1) {
+      // 「堇青之夜」:粘液(减速/减防)不计;默认蓄力 → 弹药 20 发(用户文案截断,暂按蓄力档)
+      const ammoZ = levelData['attack@another_trigger_time'] || ammo;
+      const per = h(panelAtk * atkUp * atkMul);
+      const total = per * ammoZ;
+      return res(total, interval > 0 ? total / (ammoZ * interval) : 0, calcCycleDps(levelData, interval, h(panelAtk), total), interval);
+    }
+    if (skillIndex === 2) {
+      // 「假日风暴」:32 发,每次攻击消耗 2 发且造成两次伤害 → 32 次命中;技能描述明确"应用特性加成" → 计入
+      const hits = levelData['attack@trigger_time'] || 0;
+      const per = h(panelAtk * atkUp * atkMul * traitScale);
+      const total = per * hits;
+      return res(total, interval > 0 ? total / ((hits / 2) * interval) : 0, null, interval);
+    }
+  }
+  // 送葬人:S2「最终旅程」普攻变二连击;S1「铳口收束」攻击力+55%
+  if (op.id === 'char_279_excu') {
+    const traitScale = calcReaperTraitScale(op, slotData);
+    const per = skillIndex === 1 ? h(panelAtk, effDef) * 2 : h(panelAtk * atkUp * traitScale);
+    const n = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+    const total = per * n;
+    return res(total, skillDuration > 0 ? total / skillDuration : 0, n ? null : calcCycleDps(levelData, realInterval, h(panelAtk), per), realInterval);
+  }
+  // 松果:S1「RMA长钉」技能级固定穿防 220;S2「电能过载」默认无攻击力追加(只用基础 +45%)
+  if (op.id === 'char_440_pinecn') {
+    if (skillIndex === 0) {
+      const per = h(panelAtk * levelData.atk_scale, Math.max(0, effDef - (levelData.def_penetrate_fixed || 0)));
+      return res(per, 0, calcCycleDps(levelData, realInterval, h(panelAtk), per), realInterval);
+    }
+    if (skillIndex === 1) {
+      const per = h(panelAtk * (1 + (levelData['pinecn_s_2[a].atk'] || 0)));
+      const n = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+      const total = per * n;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null, realInterval);
+    }
+  }
+  // 奥斯塔:S2「影钉」攻击力+55%(间隔增大走 BAT_ADD;天赋流血不生效)
+  if (op.id === 'char_346_aosta' && skillIndex === 1) {
+    const per = h(panelAtk * atkUp);
+    const n = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+    const total = per * n;
+    return res(total, skillDuration > 0 ? total / skillDuration : 0, null, realInterval);
+  }
+  // 吉星:S1「欢迎您来」按满层(4 层 ×+22%);S2「吉星高照」攻击力+65%(控制效果不计)
+  if (op.id === 'char_4203_kichi') {
+    const stacks = skillDuration > 0 ? (levelData.max_stack_cnt || 0) : 0;
+    const per = skillIndex === 0 ? h(panelAtk * (1 + (levelData.atk || 0) * stacks)) : h(panelAtk * atkUp);
+    const n = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+    const total = per * n;
+    return res(total, skillDuration > 0 ? total / skillDuration : 0, null, realInterval);
+  }
+  return generic();
+}
 
 // ===== 神射手(longrange)专用结算 =====
 // 说明文本(用户 2026-09-17):守林人「暗杀者」攻击力增幅不计、S2「战术电台」炸弹只计一次;
@@ -842,6 +942,7 @@ const TALENT_RES_PEN_DRIVERS = {
 // 固定物理穿防天赋表(敌人被 X 阻挡时攻击无视其 N 防御):伺夜「狼群天性」——单目标模型默认战术点狼群在场阻挡
 // (阻挡条件默认成立同满层先例);Y模组「时光不再」同名增强 te 覆盖(Y3: 225/250)
 const TALENT_DEF_PEN_FIXED = {
+  'char_279_excu': 0,   // 送葬人「终结改装」:攻击时无视目标防御力(E2潜0=160;模组 te 覆盖 190~225)
   'char_427_vigil': 1,   // 伺夜 狼群天性(天赋2):无视 175(精2 潜5 200)
 };
 // 天赋级"敌方减抗"乘数表(键值 = 比例,如 -0.4 表示范围内敌军法抗 -40%):作用于自身全部法伤结算,含常态行
@@ -1371,6 +1472,8 @@ const BAT_ADD_OVERRIDES = {
   'char_340_shwaz': { 2: true },   // 黑 S3 战术的终结:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4006_melnte': { 0: true }, // 玫拉 S1 饱和脉冲:攻击间隔增大(1.6+0.8=2.4s)
   'char_302_glaze': { 1: true },   // 安比尔 S2 雷达定位:攻击间隔略微增大(2.7+0.9=3.6s)
+  'char_346_aosta': { 1: true },   // 奥斯塔 S2 影钉:攻击间隔增大(2.3+0.5=2.8s)
+  'char_4203_kichi': { 0: true, 1: true }, // 吉星 S1 欢迎您来/S2 吉星高照:攻击间隔增大(2.3+0.5=2.8s / 2.3+0.7=3.0s)
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
@@ -3170,6 +3273,11 @@ function calculateOperator(op, slotData, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'reaperrange') {
+    result = calcReaperSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      phase, module: slotData.module, generic: () => calcDamage(params),
+    });
   } else if (op.subProfessionId === 'longrange') {
     result = calcLongrangeSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,

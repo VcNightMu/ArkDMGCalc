@@ -121,7 +121,11 @@ const OPERATORS = {
       'char_158_milu', 'char_218_cuttle', 'char_4014_lunacu',             // 守林人/安哲拉/子月 5★
       'char_302_glaze',                                                   // 安比尔 4★
     ],
-    reaperrange: [],                // 散射手
+    reaperrange: [ // 散射手
+      'char_1013_chen2',                                                 // 假日威龙陈 6★(异格)
+      'char_279_excu', 'char_346_aosta', 'char_4203_kichi',              // 送葬人/奥斯塔/吉星 5★
+      'char_440_pinecn',                                                 // 松果 4★
+    ],
     siegesniper: [],                // 攻城手
     bombarder: [],                  // 投掷手
     hunter: [],                     // 猎手

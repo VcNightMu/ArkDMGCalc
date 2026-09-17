@@ -1,0 +1,559 @@
+{
+  "id": "char_346_aosta",
+  "name": "奥斯塔",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "reaperrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        314,
+        449
+      ],
+      "def": [
+        103,
+        135
+      ],
+      "maxHp": [
+        1055,
+        1407
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        449,
+        580
+      ],
+      "def": [
+        135,
+        172
+      ],
+      "maxHp": [
+        1407,
+        1782
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        580,
+        691
+      ],
+      "def": [
+        172,
+        192
+      ],
+      "maxHp": [
+        1782,
+        2376
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 65,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_quickattack[3]",
+      "name": "迅捷打击·γ型",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 20,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.22,
+          "attack_speed": 20,
+          "level": 1,
+          "spCost": 44,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.24,
+          "attack_speed": 20,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.27,
+          "attack_speed": 25,
+          "level": 3,
+          "spCost": 42,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.29,
+          "attack_speed": 25,
+          "level": 4,
+          "spCost": 41,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.31,
+          "attack_speed": 25,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.34,
+          "attack_speed": 35,
+          "level": 6,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.37,
+          "attack_speed": 35,
+          "level": 7,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 35,
+          "level": 8,
+          "spCost": 37,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 45,
+          "level": 9,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_aosta_2",
+      "name": "影钉",
+      "levels": [
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.2,
+          "attack@frozen_duration": 0.8,
+          "talent_scale": 2,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.25,
+          "attack@frozen_duration": 0.8,
+          "talent_scale": 2,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.3,
+          "attack@frozen_duration": 0.8,
+          "talent_scale": 2,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.35,
+          "attack@frozen_duration": 1,
+          "talent_scale": 2,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.4,
+          "attack@frozen_duration": 1,
+          "talent_scale": 2,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.45,
+          "attack@frozen_duration": 1,
+          "talent_scale": 2,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 21,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.5,
+          "attack@frozen_duration": 1.2,
+          "talent_scale": 2,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 22,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.55,
+          "attack@frozen_duration": 1.2,
+          "talent_scale": 2,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.6,
+          "attack@frozen_duration": 1.2,
+          "talent_scale": 2,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 24,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.7,
+          "attack@frozen_duration": 1.5,
+          "talent_scale": 2,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "尖钉",
+          "description": "攻击使未被阻挡的敌人流血，每秒受到相当于奥斯塔攻击力12%的法术伤害（不受特性影响），持续3秒",
+          "blackboard": {
+            "atk_scale": 0.12,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "尖钉",
+          "description": "攻击使未被阻挡的敌人流血，每秒受到相当于奥斯塔攻击力14%<@ba.talpu>（+2%）</>的法术伤害（不受特性影响），持续3秒",
+          "blackboard": {
+            "atk_scale": 0.14,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "尖钉",
+          "description": "攻击使未被阻挡的敌人流血，每秒受到相当于奥斯塔攻击力18%的法术伤害（不受特性影响），持续3秒",
+          "blackboard": {
+            "atk_scale": 0.18,
+            "duration": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "尖钉",
+          "description": "攻击使未被阻挡的敌人流血，每秒受到相当于奥斯塔攻击力20%<@ba.talpu>（+2%）</>的法术伤害（不受特性影响），持续3秒",
+          "blackboard": {
+            "atk_scale": 0.2,
+            "duration": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_aosta",
+      "name": "奥斯塔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_aosta",
+      "name": "逃亡路上的应急小包",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 35
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 44
+          },
+          "talentEnhance": [
+            {
+              "name": "尖钉",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.23,
+                "duration": 4
+              }
+            },
+            {
+              "name": "尖钉",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.25,
+                "duration": 4
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "尖钉",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 0.25,
+                "duration": 5
+              }
+            },
+            {
+              "name": "尖钉",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 0.27,
+                "duration": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

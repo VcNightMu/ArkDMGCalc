@@ -1,0 +1,814 @@
+{
+  "id": "char_1013_chen2",
+  "name": "假日威龙陈",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "reaperrange",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        351,
+        502
+      ],
+      "def": [
+        110,
+        143
+      ],
+      "maxHp": [
+        1110,
+        1481
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        502,
+        649
+      ],
+      "def": [
+        143,
+        182
+      ],
+      "maxHp": [
+        1481,
+        1875
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        649,
+        773
+      ],
+      "def": [
+        182,
+        203
+      ],
+      "maxHp": [
+        1875,
+        2501
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.3,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_chen2_1",
+      "name": "高压冲击",
+      "levels": [
+        {
+          "atk": 0.4,
+          "attack@trigger_time": 4,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@trigger_time": 4,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@trigger_time": 4,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@trigger_time": 4,
+          "level": 3,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@trigger_time": 4,
+          "level": 4,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@trigger_time": 4,
+          "level": 5,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@trigger_time": 4,
+          "level": 6,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@trigger_time": 4,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@trigger_time": 4,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@trigger_time": 4,
+          "level": 9,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen2_2",
+      "name": "“堇青之夜”",
+      "levels": [
+        {
+          "atk": 0.35,
+          "attack@move_speed": -0.1,
+          "attack@def": -50,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 0,
+          "spCost": 30,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@move_speed": -0.1,
+          "attack@def": -50,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 1,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@move_speed": -0.1,
+          "attack@def": -50,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 2,
+          "spCost": 28,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 3,
+          "spCost": 27,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 4,
+          "spCost": 26,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 5,
+          "spCost": 25,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@move_speed": -0.3,
+          "attack@def": -150,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 6,
+          "spCost": 24,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@move_speed": -0.3,
+          "attack@def": -150,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 7,
+          "spCost": 23,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "attack@move_speed": -0.35,
+          "attack@def": -170,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 8,
+          "spCost": 22,
+          "initialSp": 11,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@move_speed": -0.35,
+          "attack@def": -170,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 8,
+          "attack@another_trigger_time": 20,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_chen2_3",
+      "name": "“假日风暴”",
+      "levels": [
+        {
+          "atk": 0.4,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 1,
+          "spCost": 70,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@move_speed": -0.2,
+          "attack@def": -100,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 2,
+          "spCost": 70,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@move_speed": -0.3,
+          "attack@def": -150,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 3,
+          "spCost": 65,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@move_speed": -0.3,
+          "attack@def": -150,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 4,
+          "spCost": 65,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@move_speed": -0.3,
+          "attack@def": -150,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 5,
+          "spCost": 65,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@move_speed": -0.4,
+          "attack@def": -200,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 6,
+          "spCost": 60,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@move_speed": -0.45,
+          "attack@def": -220,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 7,
+          "spCost": 58,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@move_speed": -0.45,
+          "attack@def": -220,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 8,
+          "spCost": 56,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@move_speed": -0.45,
+          "attack@def": -220,
+          "attack@projectile_life_time": 5,
+          "attack@trigger_time": 32,
+          "level": 9,
+          "spCost": 55,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "节约风气",
+          "description": "在场时自身弹药类技能攻击时15%概率不消耗对应弹药（同类效果取最高）",
+          "blackboard": {
+            "spareshot_chen.prob": 0.15,
+            "prob": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "节约风气",
+          "description": "在场时自身弹药类技能攻击时17%<@ba.talpu>（+2%）</>概率不消耗对应弹药（同类效果取最高）",
+          "blackboard": {
+            "spareshot_chen.prob": 0.17,
+            "prob": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "节约风气",
+          "description": "在场时自身弹药类技能攻击时20%概率不消耗对应弹药，其他【狙击】干员的弹药类技能改为10%概率不消耗（同类效果取最高）",
+          "blackboard": {
+            "spareshot_chen.prob": 0.2,
+            "prob": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "节约风气",
+          "description": "在场时自身弹药类技能攻击时22%<@ba.talpu>（+2%）</>概率不消耗对应弹药，其他【狙击】干员的弹药类技能改为10%概率不消耗（同类效果取最高）",
+          "blackboard": {
+            "spareshot_chen.prob": 0.22,
+            "prob": 0.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "假日余韵",
+          "description": "攻击速度+8，当场地中存在水地形时改为攻击速度+12",
+          "blackboard": {
+            "chen2_t_2[common].attack_speed": 8,
+            "chen2_t_2[map].attack_speed": 4
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_chen2",
+      "name": "假日威龙陈证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_chen2",
+      "name": "沙滩战斗套装",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 30,
+            "def": 37
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 45,
+            "def": 42
+          },
+          "talentEnhance": [
+            {
+              "name": "节约风气",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "e_spareshot_chen.prob": 0.23,
+                "chen2_t_002[spareshot][other].prob": 0.08,
+                "chen2_t_002[spareshot][sniper].prob": 0.2
+              }
+            },
+            {
+              "name": "节约风气",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "e_spareshot_chen.prob": 0.25,
+                "chen2_t_002[spareshot][other].prob": 0.08,
+                "chen2_t_002[spareshot][sniper].prob": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "节约风气",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "e_spareshot_chen.prob": 0.25,
+                "chen2_t_002[spareshot][other].prob": 0.12,
+                "chen2_t_002[spareshot][sniper].prob": 0.2
+              }
+            },
+            {
+              "name": "节约风气",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "e_spareshot_chen.prob": 0.27,
+                "chen2_t_002[spareshot][other].prob": 0.12,
+                "chen2_t_002[spareshot][sniper].prob": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.6
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_chen2",
+      "name": "假期的最后一天",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "cost": -8,
+            "max_hp": 135,
+            "atk": 55
+          }
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "cost": -8,
+            "max_hp": 165,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": "假日余韵",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "chen2_t_2[common].attack_speed": 8,
+                "chen2_t_2[common].atk": 0.1,
+                "chen2_t_2[map].attack_speed": 12,
+                "chen2_t_2[map].atk": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "cost": -8,
+            "max_hp": 180,
+            "atk": 100
+          },
+          "talentEnhance": [
+            {
+              "name": "假日余韵",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "chen2_t_2[common].attack_speed": 12,
+                "chen2_t_2[common].atk": 0.15,
+                "chen2_t_2[map].attack_speed": 20,
+                "chen2_t_2[map].atk": 0.28
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

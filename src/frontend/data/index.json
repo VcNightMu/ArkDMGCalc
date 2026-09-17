@@ -2320,5 +2320,50 @@
     "subProfessionId": "longrange",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_1013_chen2",
+    "name": "假日威龙陈",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "reaperrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_279_excu",
+    "name": "送葬人",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "reaperrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_346_aosta",
+    "name": "奥斯塔",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "reaperrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4203_kichi",
+    "name": "吉星",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "reaperrange",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_440_pinecn",
+    "name": "松果",
+    "rarity": "TIER_4",
+    "profession": "SNIPER",
+    "subProfessionId": "reaperrange",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]
