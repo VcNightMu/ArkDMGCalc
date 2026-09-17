@@ -112916,17 +112916,17 @@
     "atk": 805,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 205,
-    "cDps": 102.5,
+    "sTot": 2254,
+    "cDps": 187.875,
     "nDps": null,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "physical": {
+     "arts": {
       "sd": 0,
-      "st": 205,
-      "cd": 102.5
+      "st": 2254,
+      "cd": null
      }
     },
     "nm": null
@@ -112937,19 +112937,13 @@
     "atk": 805,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 205,
-    "cDps": 102.5,
-    "nDps": null,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 97.619,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 0,
-      "st": 205,
-      "cd": 102.5
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL1s0": {
@@ -112973,17 +112967,17 @@
     "atk": 841,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 241,
-    "cDps": 120.5,
+    "sTot": 2354.8,
+    "cDps": 208.575,
     "nDps": null,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "physical": {
+     "arts": {
       "sd": 0,
-      "st": 241,
-      "cd": 120.5
+      "st": 2354.8,
+      "cd": null
      }
     },
     "nm": null
@@ -112994,19 +112988,13 @@
     "atk": 841,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 241,
-    "cDps": 120.5,
-    "nDps": null,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 114.762,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 0,
-      "st": 241,
-      "cd": 120.5
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL2s0": {
@@ -113030,17 +113018,17 @@
     "atk": 847,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 247,
-    "cDps": 123.5,
+    "sTot": 2371.6,
+    "cDps": 212.025,
     "nDps": null,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "physical": {
+     "arts": {
       "sd": 0,
-      "st": 247,
-      "cd": 123.5
+      "st": 2371.6,
+      "cd": null
      }
     },
     "nm": null
@@ -113051,19 +113039,13 @@
     "atk": 847,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 247,
-    "cDps": 123.5,
-    "nDps": null,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 117.619,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 0,
-      "st": 247,
-      "cd": 123.5
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL3s0": {
@@ -113087,17 +113069,17 @@
     "atk": 853,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 253,
-    "cDps": 126.5,
+    "sTot": 2388.4,
+    "cDps": 215.475,
     "nDps": null,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
-     "physical": {
+     "arts": {
       "sd": 0,
-      "st": 253,
-      "cd": 126.5
+      "st": 2388.4,
+      "cd": null
      }
     },
     "nm": null
@@ -113108,19 +113090,13 @@
     "atk": 853,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 253,
-    "cDps": 126.5,
-    "nDps": null,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 120.476,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 0,
-      "st": 253,
-      "cd": 126.5
-     }
-    },
+    "dmg": null,
     "nm": null
    }
   }
@@ -113153,8 +113129,8 @@
     "atk": 1012.5,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 412.5,
-    "cDps": 116.071,
+    "sTot": 1182,
+    "cDps": 177.143,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -113163,7 +113139,12 @@
      "physical": {
       "sd": 0,
       "st": 412.5,
-      "cd": 116.071
+      "cd": null
+     },
+     "arts": {
+      "sd": 0,
+      "st": 769.5,
+      "cd": null
      }
     },
     "nm": null
@@ -113171,22 +113152,16 @@
    "s2": {
     "type": "damage",
     "dt": "physical",
-    "atk": 1539,
+    "atk": 810,
     "int": 2.1,
     "sDps": 0,
-    "sTot": 939,
-    "cDps": 133.038,
-    "nDps": null,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 100,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 0,
-      "st": 939,
-      "cd": 133.038
-     }
-    },
+    "dmg": null,
     "nm": null
    }
   }

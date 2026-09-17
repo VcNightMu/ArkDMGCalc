@@ -4875,6 +4875,45 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       panelAtk, skillRealInterval, skillDuration, isPermanent,
       normalDps: calcArtsDamage(panelAtk, effRes) / realInterval,
     });
+  } else if (op.subProfessionId === 'supportiveranger') {
+    // ===== 辅助·游击手(supportiveranger) =====
+    // 特性「可以使用触发型效果协助作战」:触发型效果是施加于敌我单位、需满足条件才一次性生效的增减益。
+    // 普攻为物理伤害(特性未声明法术伤害;佩德洛的标记需由我方其他法术伤害触发,故其自身普攻不吃标记)。
+    // 用户口径(2026-09-18):
+    //   佩德洛「掩护战术」的攻击力增幅不计算(条件类:攻击范围内≥ 2 名其他干员);
+    //   佩德洛「标记射击」直接将触发型效果进行伤害计算(每发 = 物理 atk_scale + 法术 debuff_atk_scale);
+    //   佩德洛「交替撤离」的触发型效果不计算(治疗/不易被选中不计);
+    //   岳羽由加莉「明镜止水」的触发型效果默认自己立刻生效(术法充盈=法术伤害提升,自身普攻为物理 → 不影响自身输出)。
+    // 岳羽由加莉「龙卷箭」为一次性法术伤害(3 发 multi_atk_scale + 追加 final_atk_scale)。
+    const AaS = (a) => calcArtsDamage(a, effRes);
+    const nAtkS = calcPhysicalDamage(panelAtk, effDef);
+    const nDpsS = nAtkS / realInterval;
+    const mkS = (sTot, sDps, cd, dmgTypes, iv, normalDps) => ({
+      type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false,
+      skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd,
+      normalDps: normalDps === undefined ? nDpsS : normalDps,
+      skillHps: null, normalHps: null, totalHeal: null, realInterval: iv || realInterval, panelAtk, dmgTypes,
+    });
+    if (op.id === 'char_4234_pedro' && skillIndex === 0) {
+      // S1「标记射击」(攻击回复,专一 spCost 5):下次攻击攻击力提升至 atk_scale(专一 125%),同时攻击 2 个目标
+      // (单目标口径计 1),并对目标施加触发型效果 → 用户口径直接计入:
+      // 目标受到法术伤害时额外受到 debuff_atk_scale(专一 190%)攻击力的法术伤害(一次性,不叠加)。
+      const phys = calcPhysicalDamage(panelAtk * (levelData.atk_scale ?? 1), effDef);
+      const arts = AaS(panelAtk * (levelData.debuff_atk_scale ?? 0));
+      const total = phys + arts;
+      result = mkS(total, 0, calcCycleDps(levelData, realInterval, nAtkS, total), {
+        physical: { skillDps: 0, skillTotalDamage: phys, cycleDps: null },
+        arts: { skillDps: 0, skillTotalDamage: arts, cycleDps: null },
+      }, realInterval, null);
+    } else if (op.id === 'char_4219_yukari' && skillIndex === 0) {
+      // S1「龙卷箭」(自动回复,专一 spCost 24):立即发射三发箭矢(每发 multi_atk_scale 专一 70% 法术伤害),
+      // 随后追加一次 final_atk_scale(专一 350%)范围法术伤害并浮空 1.5s → 一次性法术总伤(单目标口径)。
+      const per = AaS(panelAtk * ((levelData.multi_atk_scale ?? 0) * 3 + (levelData.final_atk_scale ?? 0)));
+      result = mkS(per, 0, calcCycleDps(levelData, realInterval, nAtkS, per), { arts: { skillDps: 0, skillTotalDamage: per, cycleDps: null } }, realInterval, null);
+    } else {
+      // 其余技能(佩德洛 S2「交替撤离」/ 岳羽由加莉 S2「明镜止水」)触发型效果不计 → 技能期普攻照常归常态展示
+      result = { ...mkS(0, 0, null, undefined, realInterval, nDpsS), basePanelAtk: true };
+    }
   } else if (op.subProfessionId === 'underminer' && UNDERMINER_SPECIAL[op.id] && UNDERMINER_SPECIAL[op.id].includes(skillIndex)) {
     // ===== 辅助·削弱者(underminer)特例技能 =====
     // 通用口径:削弱者普攻/技能均为法术伤害(SUBPROF_ARTS);特性「攻击使敌人攻击力-10% 持续2秒」为敌方减益(非己方输出),
@@ -5492,7 +5531,10 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
   }
   const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined) || (op.subProfessionId === 'blessing' && result.skillHps !== null && result.skillHps !== undefined);
   // 吟游者/护佑者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
-  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: (isBard || op.subProfessionId === 'blessing') ? panelAtk : skillAtk };
+  // basePanelAtk 为分支显式声明(如游击手 S2 的 atk_scale 是治疗比率,不含伤害倍率)
+  const useBasePanelAtk = isBard || op.subProfessionId === 'blessing' || result.basePanelAtk === true;
+  const { basePanelAtk: _basePanelAtkFlag, ...resultOut } = result;
+  return { ...resultOut, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: useBasePanelAtk ? panelAtk : skillAtk };
 }
 
 /**
