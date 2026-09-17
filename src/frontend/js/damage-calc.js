@@ -211,11 +211,12 @@ function kormrBurst(op, slotData) {
   return { scale, finalScale };
 }
 
-// ===== 落地点火 / 开局定时触发天赋(一次性伤害) =====
-// 用户口径(2026-09-17):这类天赋按"落地点火技能"处理——即使没有技能选择,也依旧显示技能期 DPS/总伤;
-// 常态化列改回该干员自身的普攻(不再把天赋摊销进常态,也不与技能期重复计算)。
-// 技能期时长口径 = 攻击次数 × 攻击间隔(与既有落地生效技能同款)。
-// 目前仅虎狼丸(1★ 剑豪,无技能槽);以后同类(部署即触发 / 开局一定时间触发的伤害型天赋)接入本表即可。
+// ===== 落地点火 / 开局定时触发天赋(一次性爆发) =====
+// 用户口径(2026-09-17):这类天赋按"落地点火技能"处理——即使没有技能选择,也依旧显示技能期数值;
+// 常态化列改回该干员自身的普攻/普攻治疗(不再把天赋摊销进常态,也不与技能期重复计算)。
+// 伤害型走技能期 DPS/总伤,技能期时长 = 次数 × 攻击间隔(与既有落地生效技能同款)。
+// 治疗型为瞬发一次性给量,不存在"技能期 HPS"概念,只给总治疗量(damageType: 'heal' 区分)。
+// 处理范围仅限 ★1/★2 干员(低星常无技能,落地天赋是其输出主体);有技能的正常干员落地类天赋一般不处理。
 const DEPLOY_BURST_TALENTS = {
   // 虎狼丸「黑色猎犬」:部署后 5 次 atk_scale 法术斩击 + 末次 final_atk_scale 法术斩击(单目标)
   'char_4220_kormr': (op, slotData, panelAtk) => {
@@ -225,12 +226,27 @@ const DEPLOY_BURST_TALENTS = {
       + calcArtsDamage(panelAtk * b.finalScale, state.enemy.res);
     return { total, hits, damageType: 'arts' };
   },
+  // Lancet-2「救援喷雾」:部署后立即恢复全场友方单位 N 点生命(固定值,不随攻击力;1★ 无技能槽)
+  'char_285_medic2': (op, slotData) => {
+    const talent = (op.talents || [])[0];
+    const elite = slotData.elite;
+    const pot = slotData.potentialRank || 0;
+    let value = 0;
+    for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (cand.phase <= elite && candPot <= pot) {
+        const bb = cand.blackboard || {};
+        if (typeof bb.value === 'number' && bb.value > value) value = bb.value;
+      }
+    }
+    return { total: value, hits: 1, damageType: 'heal' };
+  },
 };
 function calcDeployBurstSkill(op, slotData, panelAtk, realInterval) {
   const handler = DEPLOY_BURST_TALENTS[op.id];
   if (!handler) return null;
   const r = handler(op, slotData, panelAtk);
-  const duration = realInterval > 0 ? r.hits * realInterval : 0;
+  const duration = realInterval > 0 ? (r.hits || 1) * realInterval : 0;
   return { total: r.total, dps: duration > 0 ? r.total / duration : 0, duration, damageType: r.damageType };
 }
 
@@ -2592,7 +2608,10 @@ function calculateOperator(op, slotData, ctx) {
         return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normalHit / realInterval, skillHps: null, normalHps: hpsPerSec, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: 'arts', normalDamageType: 'arts' };
       }
       const normalHeal = panelAtk * healRatio * healScale;
-      return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+      // 落地点火天赋(Lancet-2「救援喷雾」:部署即回血)是一次性给量,无"技能期 HPS"——只给总治疗量
+      const dHeal = calcDeployBurstSkill(op, slotData, panelAtk, realInterval);
+      const isDeployHeal = !!dHeal && dHeal.damageType === 'heal';
+      return { type: 'heal', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: normalHeal / realInterval, totalHeal: isDeployHeal ? dHeal.total : null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
