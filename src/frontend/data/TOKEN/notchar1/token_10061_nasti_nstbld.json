@@ -1,0 +1,130 @@
+{
+  "id": "token_10061_nasti_nstbld",
+  "name": "“应急承重小组”",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4212_nasti",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        177,
+        236
+      ],
+      "maxHp": [
+        1891,
+        2456
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        244,
+        305
+      ],
+      "maxHp": [
+        2586,
+        3154
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        315,
+        385
+      ],
+      "maxHp": [
+        3320,
+        4150
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "承重结构部署",
+          "description": "部署时在前方可部署地面生成高台装置（最多存在1个）；使前方高台装置每秒回复1%最大生命值，但自身流失2%最大生命值，娜斯提技能期间回复效果翻倍",
+          "blackboard": {
+            "nasti_nstbld_m1[heal_m456].hp_ratio": 0.01,
+            "nasti_nstbld_m2[heal_m456].hp_ratio": 0.02,
+            "m1_sp": 1,
+            "m2_sp": 2,
+            "nasti_nstbld_m1[heal_m456].cnt": 2,
+            "nasti_nstbld_m2[heal_m456].cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "承重结构部署",
+          "description": "部署时在前方可部署地面生成高台装置（最多存在1个）；使前方高台装置每秒回复1%最大生命值，但自身流失2%最大生命值；娜斯提技能期间回复效果翻倍",
+          "blackboard": {
+            "nasti_nstbld_m1[heal_m456].hp_ratio": 0.01,
+            "nasti_nstbld_m2[heal_m456].hp_ratio": 0.02,
+            "m1_sp": 1,
+            "m2_sp": 2,
+            "nasti_nstbld_m1[heal_m456].cnt": 2,
+            "nasti_nstbld_m2[heal_m456].cnt": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "承重结构部署",
+          "description": "部署时在前方可部署地面生成高台装置（最多存在1个）；使前方高台装置每秒回复1%最大生命值，但自身流失2%最大生命值；娜斯提技能期间回复效果翻倍",
+          "blackboard": {
+            "nasti_nstbld_m1[heal_m456].hp_ratio": 0.01,
+            "nasti_nstbld_m2[heal_m456].hp_ratio": 0.02,
+            "m1_sp": 1,
+            "m2_sp": 2,
+            "nasti_nstbld_m1[heal_m456].cnt": 2,
+            "nasti_nstbld_m2[heal_m456].cnt": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

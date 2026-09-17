@@ -1,0 +1,163 @@
+{
+  "id": "token_10023_windft_wrench",
+  "name": "可靠电池",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_433_windft",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效，使装备者攻击力+5%（持续20秒）",
+          "blackboard": {
+            "cnt": 2,
+            "atk": 0.05,
+            "duration": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效的可靠电池，使装备者攻击力+7%（+2%）（持续20秒）",
+          "blackboard": {
+            "cnt": 2,
+            "atk": 0.07,
+            "duration": 20
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效，使装备者攻击力+10%（持续30秒）",
+          "blackboard": {
+            "cnt": 3,
+            "atk": 0.1,
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效，使装备者攻击力+12%（+2%）（持续30秒）",
+          "blackboard": {
+            "cnt": 3,
+            "atk": 0.12,
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效，使装备者攻击力+15%（持续30秒）",
+          "blackboard": {
+            "cnt": 3,
+            "atk": 0.15,
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "共进",
+          "description": "仅对术师和辅助干员生效，使装备者攻击力+17%（+2%）（持续30秒）",
+          "blackboard": {
+            "cnt": 3,
+            "atk": 0.17,
+            "duration": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不会受到攻击",
+    "blackboard": {}
+  },
+  "potentialRanks": []
+}

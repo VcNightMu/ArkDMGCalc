@@ -1,0 +1,175 @@
+{
+  "id": "token_10041_cathy_catsld",
+  "name": "爬行号·防护单元",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4162_cathy",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限10%的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 2,
+            "interval": 5,
+            "max_shield_ratio": 0.1,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限12%（+2%）的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 2,
+            "interval": 5,
+            "max_shield_ratio": 0.12,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限15%的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 3,
+            "interval": 5,
+            "max_shield_ratio": 0.15,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限17%（+2%）的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 3,
+            "interval": 5,
+            "max_shield_ratio": 0.17,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限20%的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 3,
+            "interval": 5,
+            "max_shield_ratio": 0.2,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "定向支援信号",
+          "description": "使攻击范围内一名友方干员获得相当于凯瑟琳生命上限22%（+2%）的屏障（若目标最近5秒内未受攻击，则每秒补充相当于凯瑟琳生命上限6%的屏障，不超过初始上限），装置效果不叠加，持续时间无限",
+          "blackboard": {
+            "cnt": 3,
+            "interval": 5,
+            "max_shield_ratio": 0.22,
+            "catsld_t_1[timer][interval].interval": 1,
+            "shield_ratio_each_trigger": 0.06
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不会受到攻击",
+    "blackboard": {}
+  },
+  "potentialRanks": []
+}

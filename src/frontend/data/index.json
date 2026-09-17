@@ -3528,6 +3528,33 @@
     "ownerName": null
   },
   {
+    "id": "token_10027_ironmn_pile3",
+    "name": "铁钳号·原型机",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4072_ironmn",
+    "ownerName": "白铁"
+  },
+  {
+    "id": "token_10027_ironmn_pile2",
+    "name": "白铁™多功能平台",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4072_ironmn",
+    "ownerName": "白铁"
+  },
+  {
+    "id": "token_10027_ironmn_pile1",
+    "name": "白铁™多功能平台",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4072_ironmn",
+    "ownerName": "白铁"
+  },
+  {
     "id": "char_4212_nasti",
     "name": "娜斯提",
     "rarity": "TIER_6",
@@ -3535,6 +3562,33 @@
     "subProfessionId": "craftsman",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10061_nasti_nstbld",
+    "name": "“应急承重小组”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4212_nasti",
+    "ownerName": "娜斯提"
+  },
+  {
+    "id": "token_10060_nasti_nstchr",
+    "name": "“监工专员”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4212_nasti",
+    "ownerName": "娜斯提"
+  },
+  {
+    "id": "token_10059_nasti_nstdef",
+    "name": "“质检专员”",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4212_nasti",
+    "ownerName": "娜斯提"
   },
   {
     "id": "char_4162_cathy",
@@ -3546,6 +3600,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10041_cathy_catsld",
+    "name": "爬行号·防护单元",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4162_cathy",
+    "ownerName": "凯瑟琳"
+  },
+  {
     "id": "char_4178_alanna",
     "name": "阿兰娜",
     "rarity": "TIER_5",
@@ -3553,6 +3616,15 @@
     "subProfessionId": "craftsman",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10045_alanna_crane",
+    "name": "小螺帽",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4178_alanna",
+    "ownerName": "阿兰娜"
   },
   {
     "id": "char_433_windft",
@@ -3564,6 +3636,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10023_windft_wrench",
+    "name": "可靠电池",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_433_windft",
+    "ownerName": "掠风"
+  },
+  {
     "id": "char_484_robrta",
     "name": "罗比菈塔",
     "rarity": "TIER_4",
@@ -3571,6 +3652,15 @@
     "subProfessionId": "craftsman",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10018_robrta_mach",
+    "name": "全自动造型仪",
+    "rarity": "TIER_4",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_484_robrta",
+    "ownerName": "罗比菈塔"
   },
   {
     "id": "char_1042_phatm2",

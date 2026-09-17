@@ -1,0 +1,148 @@
+{
+  "id": "token_10027_ironmn_pile2",
+  "name": "白铁™多功能平台",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4072_ironmn",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2000,
+        2000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2000,
+        2000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        2000,
+        2000
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "战地补给",
+          "description": "使攻击范围内一名友方干员每3.5秒额外获得1点技力，每秒流失0.4%生命，持续时间无限",
+          "blackboard": {
+            "default.interval": 3.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "",
+          "blackboard": {
+            "max_deck_stack_cnt": 2,
+            "max_deploy_count": 0
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "",
+          "blackboard": {
+            "max_deck_stack_cnt": 2,
+            "max_deploy_count": 1
+          },
+          "isHideTalent": true
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "",
+          "blackboard": {
+            "max_deck_stack_cnt": 3,
+            "max_deploy_count": 1
+          },
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": null,
+          "description": "",
+          "blackboard": {
+            "hp_ratio": 0.004
+          },
+          "isHideTalent": true
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

@@ -401,7 +401,11 @@ const OPERATORS = {
     ],
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
-    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow', 'token_10017_skadi2_dedant', 'token_10029_slent2_protrb'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心 / 浊心斯卡蒂·海嗣 / 淬羽赫默·夜灯）
+    notchar1: ['token_10000_silent_healrb', 'token_10002_kalts_mon3tr', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd', 'token_10069_mcnist_mcgraf', 'token_10040_siege2_vlion', 'token_10014_bstalk_crab', 'token_10021_blkngt_hypnos', 'token_10028_vigil_wolf', 'token_10030_mlyss_wtrman', 'token_10037_mitm_trshrb', 'token_10057_svash2_eagle1', 'token_10057_svash2_eagle2', 'token_10057_svash2_eagle3', 'token_10063_buddy_bddg', 'token_10066_closur_ourbase', 'token_10043_necras_skeltn', 'token_10042_tecno_puppet', 'token_10026_bgsnow_subbow', 'token_10017_skadi2_dedant', 'token_10029_slent2_protrb',
+      // 工匠(craftsman)装置类召唤物(10 个:白铁×3 / 娜斯提×3 / 凯瑟琳 / 阿兰娜 / 掠风 / 罗比菈塔)
+      'token_10027_ironmn_pile1', 'token_10027_ironmn_pile2', 'token_10027_ironmn_pile3',
+      'token_10059_nasti_nstdef', 'token_10060_nasti_nstchr', 'token_10061_nasti_nstbld',
+      'token_10041_cathy_catsld', 'token_10045_alanna_crane', 'token_10023_windft_wrench', 'token_10018_robrta_mach'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心 / 浊心斯卡蒂·海嗣 / 淬羽赫默·夜灯 / 工匠装置×10）
   },
 };
 
@@ -623,7 +627,11 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   // 剔除召唤物自带的占位/联动技能（结构性原理的 sktok_mcgraf_1/2 空占位、sktok_mcgraf_3 冲锋被动由持有者 S3 触发，
   // 独立查询时以常态普攻为准——与医疗探机同类无技能卡）；同时跳过持有者技能注入
   // （机械师技能的 attack@ 前缀键是机械师自身普攻改写，非结构体加成）
-  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd', 'token_10040_siege2_vlion', 'token_10017_skadi2_dedant', 'token_10029_slent2_protrb'];
+  const tokenDropNativeSkills = ['token_10069_mcnist_mcgraf', 'token_10032_jesca2_jckshd', 'token_10040_siege2_vlion', 'token_10017_skadi2_dedant', 'token_10029_slent2_protrb',
+    // 工匠(craftsman)装置类:丢弃 sktok_ 占位技能并跳过继承持有者技能(自身无输出)
+    'token_10027_ironmn_pile1', 'token_10027_ironmn_pile2', 'token_10027_ironmn_pile3',
+    'token_10059_nasti_nstdef', 'token_10060_nasti_nstchr', 'token_10061_nasti_nstbld',
+    'token_10041_cathy_catsld', 'token_10045_alanna_crane', 'token_10023_windft_wrench', 'token_10018_robrta_mach'];
   const dropNative = String(id).startsWith('token_') && tokenDropNativeSkills.includes(id);
   const nativeRefs = (charData.skills || []).filter(sr => sr.skillId && skillTable[sr.skillId]);
   const nativeRefs2 = dropNative ? [] : nativeRefs;

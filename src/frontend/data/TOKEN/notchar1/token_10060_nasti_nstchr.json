@@ -1,0 +1,149 @@
+{
+  "id": "token_10060_nasti_nstchr",
+  "name": "“监工专员”",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4212_nasti",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        6,
+        6
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        7,
+        7
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        8,
+        8
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "",
+          "blackboard": {},
+          "isHideTalent": true
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "",
+          "blackboard": {},
+          "isHideTalent": true
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "",
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "最大生命值固定为6，部署时生命值为1，仅可通过自身技能补充生命",
+          "blackboard": {
+            "init_max_hp": 6,
+            "init_hp": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "最大生命值固定为7，部署时生命值为2，仅可通过自身技能补充生命",
+          "blackboard": {
+            "init_max_hp": 7,
+            "init_hp": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "取缔无效流程",
+          "description": "最大生命值固定为8，部署时生命值为3，仅可通过自身技能补充生命",
+          "blackboard": {
+            "init_max_hp": 8,
+            "init_hp": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

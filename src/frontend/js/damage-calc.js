@@ -2457,6 +2457,7 @@ function calcTalentDmgMul(op, slotData) {
 // ===== 不屈者(unyield)及相关通用机制驱动表 =====
 // base_attack_time 正小数按加算秒处理(引擎默认 (0,1)=乘算缩短;描述为"间隔增大"的技能例外)
 const BAT_ADD_OVERRIDES = {
+  'char_433_windft': { 1: true },   // 掠风 S2「此身为源」:攻击间隔增大(1.5+0.5=2.0s;数据给正小数 0.5 按加算秒处理)
   'char_264_f12yin': { 2: true },   // 山 S3「震地碎岩击」:攻击间隔增大(0.78+0.7)
   'char_356_broca': { 1: true },   // 布洛卡 S2「高压电流」:基础攻击间隔 +0.65 秒(加算)
   'char_163_hpsts': { 1: true },   // 火神 S2 武力模式:攻击间隔略微增大(1.6+0.4=2.0s)
@@ -2539,6 +2540,8 @@ const ATK_SCALE_REWRITE = {
   'char_338_iris': [0],     // 爱丽丝 S1 童话守卫者:间隔×0.2,每次攻击 40/43/50%
   'char_4110_delphn': [0],  // 戴菲恩 S1「贯注」:间隔×0.2,每次攻击 40/43/50%
   'char_469_indigo': [0],   // 深靛 S1 灯塔守卫者:每次攻击 40/43/50%(间隔键 -0.8 语义待定,见口径清单)
+  // ---- 辅助·工匠(craftsman) ----
+  'char_4072_ironmn': [0],  // 白铁 S1「极致火力」:攻击造成相当于 180%(专一)攻击力的物理伤害(attack@atk_scale 作每击倍率改写)
 };
 // 阵法术师技能改造①:技能「每次攻击造成相当于攻击力 X% 的法术伤害」→ 把该值作为技能期每击最终倍率
 // (键名多为 attack@atk_scale_s2/_s3 或 attack@atk_scale;伤害对攻击力线性,等价于最终乘算倍率;永续槽同样生效故不设时长门槛)
@@ -2878,6 +2881,10 @@ const STOP_ATTACK_SKILLS = {
   'char_337_utage': [0],      // 宴 S1 分神:停止攻击,阻挡数归零,防御力+100%~200% 且每秒回血(技能期伤害记 0)
   // ---- 辅助·凝滞师(slower) ----
   'char_183_skgoat': [1],  // 地灵 S2 流沙化:停止攻击,范围内敌方每秒受一次停顿(无伤害)
+  // ---- 辅助·工匠(craftsman) 技能开启期间停止攻击 ----
+  'char_4212_nasti': [1],   // 娜斯提 S2「执行」:停止攻击(屏障/技力给予,受击/护盾无输出模型)
+  'char_4162_cathy': [1],   // 凯瑟琳 S2「战火淬炼」:停止攻击(生命上限/防御增益)
+  'char_484_robrta': [1],   // 罗比菈塔 S2「全自动造型仪」:停止攻击(阻挡数/防御增益)
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
@@ -2947,6 +2954,21 @@ function calcTalentFlatDotDps(op, slotData) {
   return dmg;
 }
 
+// 被动技能(SKILL PASSIVE)里非标准键名的自身属性加成:PASSIVE 区块只认 atk/def/max_hp 三个键名,
+// 其他键名(如凯瑟琳 S1「岁月锻打」的 s1_atk/s1_def)在此登记。装置默认不放置 → 只计自身那份。
+const PASSIVE_ATTR_KEYS = {
+  'char_4162_cathy': { 0: { atk: 's1_atk', def: 's1_def' } },
+};
+// 工匠(craftsman)的装置类召唤物:不攻击、不治疗,仅占位置(提供友方增益不建模) → 输出全 0
+const INERT_SUMMONS = [
+  'token_10027_ironmn_pile1', 'token_10027_ironmn_pile2', 'token_10027_ironmn_pile3',   // 白铁™多功能平台 / 铁钳号·原型机
+  'token_10059_nasti_nstdef', 'token_10060_nasti_nstchr', 'token_10061_nasti_nstbld',   // 娜斯提装置(质检专员/监工专员/应急承重小组)
+  'token_10041_cathy_catsld',   // 凯瑟琳·爬行号·防护单元
+  'token_10045_alanna_crane',   // 阿兰娜·小螺帽
+  'token_10023_windft_wrench',  // 掠风·可靠电池
+  'token_10018_robrta_mach',    // 罗比菈塔·全自动造型仪
+];
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -2997,6 +3019,12 @@ function calculateOperator(op, slotData, ctx) {
     if (passiveLv.atk !== undefined) talentAtk += passiveLv.atk;
     if (passiveLv.def !== undefined) pctTalent.defMul += passiveLv.def;
     if (passiveLv.max_hp !== undefined) pctTalent.hpMul += passiveLv.max_hp;
+    // 非标准键名的被动属性加成(凯瑟琳 S1「岁月锻打」s1_atk/s1_def;装置默认不放置 → 只计自身)
+    const pk = (PASSIVE_ATTR_KEYS[op.id] || {})[slotData.skillIndex ?? 0];
+    if (pk) {
+      if (pk.atk && typeof passiveLv[pk.atk] === 'number') talentAtk += passiveLv[pk.atk];
+      if (pk.def && typeof passiveLv[pk.def] === 'number') pctTalent.defMul += passiveLv[pk.def];
+    }
   }
   // 模组天赋强化:X模组 L2 把「法典」攻速覆盖为 15/18;Y 模组走基础天赋(10/13)。
   const enh = calcModuleTalentEnhance(op, slotData);
@@ -3044,6 +3072,10 @@ function calculateOperator(op, slotData, ctx) {
   if (!skill) {
     const healScale = calcTalentHealScale(op, slotData) * (enh.healScale || 1);  // 无技能干员也乘常驻治疗倍率
     const healRatio = 1.0;
+    // 工匠(craftsman)装置类召唤物:无技能、不攻击不治疗 → 输出全 0(仅占位置;给友方的增益不建模)
+    if (INERT_SUMMONS.includes(op.id)) {
+      return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: 0, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
+    }
     if (isMedic) {
       // 咒愈师:常态普攻=法术伤害 + 治疗 scale×伤害(单目标模型默认治疗目标=自身,必在攻击范围)
       if (op.subProfessionId === 'incantationmedic') {
@@ -3619,7 +3651,15 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     // 注意医疗探机的 phases.atk 是治疗力(125>0),须显式按治疗型处理
     const HEAL_SUMMONS = ['token_10000_silent_healrb', 'token_10003_cgbird_bird', 'token_10032_jesca2_jckshd'];
     const summonBaseAtk = (phase.atk && phase.atk[phase.atk.length - 1]) || 0;
-    if (!HEAL_SUMMONS.includes(op.id) && summonBaseAtk > 0) {
+    if (INERT_SUMMONS.includes(op.id)) {
+      // 工匠装置类召唤物:不攻击、不治疗,仅占位置(给友方的增益不建模) → 输出全 0
+      result = {
+        type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+        normalDps: 0, skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: phase.baseAttackTime > 0 ? phase.baseAttackTime : 1, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical',
+      };
+    } else if (!HEAL_SUMMONS.includes(op.id) && summonBaseAtk > 0) {
       const normInt = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
       const isArtsSummon = op.damageType === 'arts';  // 流形·远程默认法伤水炮
       const normHit = isArtsSummon ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef);
@@ -5501,6 +5541,12 @@ function calcPanelStats(op, slotData) {
     if (passiveLv.atk !== undefined) talentAtk += passiveLv.atk;
     if (passiveLv.def !== undefined) pctTalent.defMul += passiveLv.def;
     if (passiveLv.max_hp !== undefined) pctTalent.hpMul += passiveLv.max_hp;
+    // 非标准键名的被动属性加成(凯瑟琳 S1「岁月锻打」s1_atk/s1_def;装置默认不放置 → 只计自身)
+    const pk = (PASSIVE_ATTR_KEYS[op.id] || {})[slotData.skillIndex ?? 0];
+    if (pk) {
+      if (pk.atk && typeof passiveLv[pk.atk] === 'number') talentAtk += passiveLv[pk.atk];
+      if (pk.def && typeof passiveLv[pk.def] === 'number') pctTalent.defMul += passiveLv[pk.def];
+    }
   }
   const enh = calcModuleTalentEnhance(op, slotData);
   const talentAspd = enh.attackSpeed !== null ? enh.attackSpeed : calcTalentAttackSpeed(op, slotData);

@@ -1,0 +1,157 @@
+{
+  "id": "token_10018_robrta_mach",
+  "name": "全自动造型仪",
+  "rarity": "TIER_4",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_484_robrta",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+10%并获得1层护盾（持续15秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.1,
+            "duration": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+13%（+3%）并获得1层护盾（持续15秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.13,
+            "duration": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+20%并获得1层护盾（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.2,
+            "duration": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+23%（+3%）并获得1层护盾（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.23,
+            "duration": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+30%并获得2层护盾（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.3,
+            "duration": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "造型仪调试",
+          "description": "使一名近战位上的单位防御力+33%（+3%）并获得2层护盾（持续25秒，防御加成不叠加）",
+          "blackboard": {
+            "def": 0.33,
+            "duration": 25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不会受到攻击",
+    "blackboard": {}
+  },
+  "potentialRanks": []
+}

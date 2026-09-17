@@ -1,0 +1,128 @@
+{
+  "id": "token_10059_nasti_nstdef",
+  "name": "“质检专员”",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4212_nasti",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        0,
+        0
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "严禁偷工减料",
+          "description": "",
+          "blackboard": {},
+          "isHideTalent": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "严禁偷工减料",
+          "description": "使前方干员的防御力+17%",
+          "blackboard": {
+            "def": 0.17
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "严禁偷工减料",
+          "description": "使前方干员的防御力+20%",
+          "blackboard": {
+            "def": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "严禁偷工减料",
+          "description": "使前方干员的防御力+25%",
+          "blackboard": {
+            "def": 0.25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": []
+}

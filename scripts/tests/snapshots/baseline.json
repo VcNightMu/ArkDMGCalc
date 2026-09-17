@@ -109316,10 +109316,10 @@
    "s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 633,
+    "atk": 1139.4,
     "int": 1.5,
-    "sDps": 22,
-    "sTot": 396,
+    "sDps": 359.6,
+    "sTot": 6472.8,
     "cDps": null,
     "nDps": 22,
     "sHps": null,
@@ -109327,8 +109327,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 22,
-      "st": 396,
+      "sd": 359.6,
+      "st": 6472.8,
       "cd": null
      }
     },
@@ -109394,10 +109394,10 @@
    "mXL1s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 658,
+    "atk": 1184.4,
     "int": 1.429,
-    "sDps": 38.667,
-    "sTot": 696,
+    "sDps": 389.6,
+    "sTot": 7012.8,
     "cDps": null,
     "nDps": 40.6,
     "sHps": null,
@@ -109405,8 +109405,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 38.667,
-      "st": 696,
+      "sd": 389.6,
+      "st": 7012.8,
       "cd": null
      }
     },
@@ -109472,10 +109472,10 @@
    "mXL2s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 668,
+    "atk": 1202.4,
     "int": 1.429,
-    "sDps": 45.333,
-    "sTot": 816,
+    "sDps": 401.6,
+    "sTot": 7228.8,
     "cDps": null,
     "nDps": 47.6,
     "sHps": null,
@@ -109483,8 +109483,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 45.333,
-      "st": 816,
+      "sd": 401.6,
+      "st": 7228.8,
       "cd": null
      }
     },
@@ -109550,10 +109550,10 @@
    "mXL3s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 678,
+    "atk": 1220.4,
     "int": 1.429,
-    "sDps": 52,
-    "sTot": 936,
+    "sDps": 413.6,
+    "sTot": 7444.8,
     "cDps": null,
     "nDps": 54.6,
     "sHps": null,
@@ -109561,8 +109561,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 52,
-      "st": 936,
+      "sd": 413.6,
+      "st": 7444.8,
       "cd": null
      }
     },
@@ -109628,10 +109628,10 @@
    "mYL1s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 633,
+    "atk": 1139.4,
     "int": 1.5,
-    "sDps": 22,
-    "sTot": 396,
+    "sDps": 359.6,
+    "sTot": 6472.8,
     "cDps": null,
     "nDps": 22,
     "sHps": null,
@@ -109639,8 +109639,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 22,
-      "st": 396,
+      "sd": 359.6,
+      "st": 6472.8,
       "cd": null
      }
     },
@@ -109706,10 +109706,10 @@
    "mYL2s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 633,
+    "atk": 1139.4,
     "int": 1.5,
-    "sDps": 22,
-    "sTot": 396,
+    "sDps": 359.6,
+    "sTot": 6472.8,
     "cDps": null,
     "nDps": 22,
     "sHps": null,
@@ -109717,8 +109717,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 22,
-      "st": 396,
+      "sd": 359.6,
+      "st": 6472.8,
       "cd": null
      }
     },
@@ -109784,10 +109784,10 @@
    "mYL3s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 633,
+    "atk": 1139.4,
     "int": 1.5,
-    "sDps": 22,
-    "sTot": 396,
+    "sDps": 359.6,
+    "sTot": 6472.8,
     "cDps": null,
     "nDps": 22,
     "sHps": null,
@@ -109795,8 +109795,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 22,
-      "st": 396,
+      "sd": 359.6,
+      "st": 6472.8,
       "cd": null
      }
     },
@@ -109842,6 +109842,69 @@
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10027_ironmn_pile3": {
+  "name": "铁钳号·原型机",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 100,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
+ "token_10027_ironmn_pile2": {
+  "name": "白铁™多功能平台",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 0,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
+ "token_10027_ironmn_pile1": {
+  "name": "白铁™多功能平台",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 0,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }
@@ -109895,8 +109958,8 @@
     "dt": "physical",
     "atk": 614,
     "int": 1.5,
-    "sDps": 15.35,
-    "sTot": 61.4,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 20.467,
     "sHps": null,
@@ -109904,8 +109967,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 15.35,
-      "st": 61.4,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -109973,8 +110036,8 @@
     "dt": "physical",
     "atk": 640,
     "int": 1.5,
-    "sDps": 20,
-    "sTot": 80,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 26.667,
     "sHps": null,
@@ -109982,8 +110045,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 20,
-      "st": 80,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110051,8 +110114,8 @@
     "dt": "physical",
     "atk": 646,
     "int": 1.5,
-    "sDps": 23,
-    "sTot": 92,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 30.667,
     "sHps": null,
@@ -110060,8 +110123,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 23,
-      "st": 92,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110129,8 +110192,8 @@
     "dt": "physical",
     "atk": 654,
     "int": 1.5,
-    "sDps": 27,
-    "sTot": 108,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 36,
     "sHps": null,
@@ -110138,8 +110201,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 27,
-      "st": 108,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110164,6 +110227,69 @@
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10061_nasti_nstbld": {
+  "name": "“应急承重小组”",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 0,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
+ "token_10060_nasti_nstchr": {
+  "name": "“监工专员”",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 0,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
+ "token_10059_nasti_nstdef": {
+  "name": "“质检专员”",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 0,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }
@@ -110193,12 +110319,12 @@
    "s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 590,
+    "atk": 660.8,
     "int": 1.5,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 19.667,
+    "nDps": 40.533,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -110210,8 +110336,8 @@
     "dt": "physical",
     "atk": 590,
     "int": 1.5,
-    "sDps": 19.667,
-    "sTot": 590,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 19.667,
     "sHps": null,
@@ -110219,8 +110345,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 19.667,
-      "st": 590,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110244,12 +110370,12 @@
    "mXL1s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 610,
+    "atk": 683.2,
     "int": 1.5,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 20.333,
+    "nDps": 55.467,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -110261,8 +110387,8 @@
     "dt": "physical",
     "atk": 610,
     "int": 1.5,
-    "sDps": 20.333,
-    "sTot": 610,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 20.333,
     "sHps": null,
@@ -110270,8 +110396,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 20.333,
-      "st": 610,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110295,12 +110421,12 @@
    "mXL2s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 615,
+    "atk": 688.8,
     "int": 1.5,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 20.5,
+    "nDps": 59.2,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -110312,8 +110438,8 @@
     "dt": "physical",
     "atk": 615,
     "int": 1.5,
-    "sDps": 20.5,
-    "sTot": 615,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 20.5,
     "sHps": null,
@@ -110321,8 +110447,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 20.5,
-      "st": 615,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110346,12 +110472,12 @@
    "mXL3s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 620,
+    "atk": 694.4,
     "int": 1.5,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 20.667,
+    "nDps": 62.933,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -110363,8 +110489,8 @@
     "dt": "physical",
     "atk": 620,
     "int": 1.5,
-    "sDps": 20.667,
-    "sTot": 620,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 20.667,
     "sHps": null,
@@ -110372,11 +110498,32 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 20.667,
-      "st": 620,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10041_cathy_catsld": {
+  "name": "爬行号·防护单元",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 100,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }
@@ -110594,6 +110741,27 @@
    }
   }
  },
+ "token_10045_alanna_crane": {
+  "name": "小螺帽",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 100,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
+    "nm": null
+   }
+  }
+ },
  "char_433_windft": {
   "name": "掠风",
   "skills": [
@@ -110641,9 +110809,9 @@
     "type": "damage",
     "dt": "physical",
     "atk": 1452,
-    "int": 0.75,
-    "sDps": 1136,
-    "sTot": 17040,
+    "int": 2,
+    "sDps": 397.6,
+    "sTot": 5964,
     "cDps": null,
     "nDps": 20.167,
     "sHps": null,
@@ -110651,8 +110819,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 1136,
-      "st": 17040,
+      "sd": 397.6,
+      "st": 5964,
       "cd": null
      }
     },
@@ -110698,9 +110866,9 @@
     "type": "damage",
     "dt": "physical",
     "atk": 1524,
-    "int": 0.75,
-    "sDps": 1232,
-    "sTot": 18480,
+    "int": 2,
+    "sDps": 431.2,
+    "sTot": 6468,
     "cDps": null,
     "nDps": 23.333,
     "sHps": null,
@@ -110708,8 +110876,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 1232,
-      "st": 18480,
+      "sd": 431.2,
+      "st": 6468,
       "cd": null
      }
     },
@@ -110755,9 +110923,9 @@
     "type": "damage",
     "dt": "physical",
     "atk": 1548,
-    "int": 0.75,
-    "sDps": 1264,
-    "sTot": 18960,
+    "int": 2,
+    "sDps": 442.4,
+    "sTot": 6636,
     "cDps": null,
     "nDps": 30,
     "sHps": null,
@@ -110765,8 +110933,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 1264,
-      "st": 18960,
+      "sd": 442.4,
+      "st": 6636,
       "cd": null
      }
     },
@@ -110812,9 +110980,9 @@
     "type": "damage",
     "dt": "physical",
     "atk": 1567.2,
-    "int": 0.75,
-    "sDps": 1289.6,
-    "sTot": 19344,
+    "int": 2,
+    "sDps": 451.36,
+    "sTot": 6770.4,
     "cDps": null,
     "nDps": 35.333,
     "sHps": null,
@@ -110822,11 +110990,32 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 1289.6,
-      "st": 19344,
+      "sd": 451.36,
+      "st": 6770.4,
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10023_windft_wrench": {
+  "name": "可靠电池",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 100,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }
@@ -110879,8 +111068,8 @@
     "dt": "physical",
     "atk": 570,
     "int": 1.5,
-    "sDps": 18.24,
-    "sTot": 456,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 19,
     "sHps": null,
@@ -110888,8 +111077,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 18.24,
-      "st": 456,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110936,8 +111125,8 @@
     "dt": "physical",
     "atk": 570,
     "int": 1.5,
-    "sDps": 18.24,
-    "sTot": 456,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 19,
     "sHps": null,
@@ -110945,8 +111134,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 18.24,
-      "st": 456,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -110993,8 +111182,8 @@
     "dt": "physical",
     "atk": 570,
     "int": 1.5,
-    "sDps": 18.24,
-    "sTot": 456,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 19,
     "sHps": null,
@@ -111002,8 +111191,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 18.24,
-      "st": 456,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
@@ -111050,8 +111239,8 @@
     "dt": "physical",
     "atk": 570,
     "int": 1.5,
-    "sDps": 18.24,
-    "sTot": 456,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 19,
     "sHps": null,
@@ -111059,11 +111248,32 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 18.24,
-      "st": 456,
+      "sd": 0,
+      "st": 0,
       "cd": null
      }
     },
+    "nm": null
+   }
+  }
+ },
+ "token_10018_robrta_mach": {
+  "name": "全自动造型仪",
+  "skills": [],
+  "entries": {
+   "s0": {
+    "type": "damage",
+    "dt": "physical",
+    "atk": 100,
+    "int": 1,
+    "sDps": 0,
+    "sTot": 0,
+    "cDps": null,
+    "nDps": 0,
+    "sHps": null,
+    "nHps": null,
+    "tHeal": null,
+    "dmg": null,
     "nm": null
    }
   }

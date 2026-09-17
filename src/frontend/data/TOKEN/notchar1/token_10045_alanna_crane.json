@@ -1,0 +1,151 @@
+{
+  "id": "token_10045_alanna_crane",
+  "name": "小螺帽",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4178_alanna",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        100,
+        100
+      ],
+      "def": [
+        0,
+        0
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其40点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其50（+10）点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其60点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其70（+10）点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其80点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "临时改装",
+          "description": "使攻击范围内一名干员攻击敌人时无视其90（+10）点防御力（持续30秒），装置效果不叠加",
+          "blackboard": {
+            "duration": 30
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "不会受到攻击",
+    "blackboard": {}
+  },
+  "potentialRanks": []
+}
