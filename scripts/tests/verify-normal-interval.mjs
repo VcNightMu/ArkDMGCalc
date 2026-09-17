@@ -42,6 +42,7 @@ const IDS = [
   'char_137_brownb', 'char_155_tiger', 'char_157_dagda', 'char_2024_chyue', 'char_264_f12yin', 'char_347_jaksel', 'char_4037_demetr', 'char_415_flint',  // 近卫·斗士
   'char_130_doberm', 'char_265_sophia', 'char_308_swire', 'char_4106_bryota', 'char_4125_rdoc', 'char_485_pallas',  // 近卫·教官
   'char_010_chen', 'char_252_bibeak', 'char_301_cutter', 'char_4009_irene', 'char_4116_blkkgt', 'char_4220_kormr', 'char_459_tachak',  // 近卫·剑豪
+  'char_1030_noirc2', 'char_188_helage', 'char_337_utage', 'char_4121_zuole', 'char_475_akafyu',  // 近卫·武者(宴 S2 落地限时被动不得折进常态)
 ];
 
 // 设计例外:该槽常态与无技能态本就不同(已按用户口径建模),不计入本不变量

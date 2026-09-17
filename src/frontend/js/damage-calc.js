@@ -160,6 +160,15 @@ const SWORD_SPECIAL = {
   'char_459_tachak': [0]     // 燃烧榴弹:6 秒燃烧区域(每秒 50% 法术)
 };
 
+// ===== 武者(musha)专用助手 =====
+// 武者共性(用户口径 2026-09-17):坚忍类天赋(按已损失生命给攻击速度/防御力/技力回复)
+// 默认视为满血 → 全部不触发;特性「不成为治疗目标,每次攻击到敌人后回复自身 30/50/70 生命」
+// 是自回血不是输出,不建模型(常态/技能期列均不含)。
+const MUSHA_SPECIAL = {
+  'char_1030_noirc2': [0, 1],  // S1 居合拔刀气刃斩(受击反击 4 段) / S2 气刃兜割(瞬发 7 段)
+  'char_4121_zuole': [2]       // S3 佑序有炎(7 段斩击 + 末击系数加倍)
+};
+
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
 function swordTalentAtkScale(op, slotData, skillIndex) {
   if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 1;
@@ -653,6 +662,8 @@ const SKILL_ARTS_OVERRIDES = {
   'char_102_texas': [1],   // 德克萨斯 S2 剑雨:对周围敌人两次 1.7×atk 法术伤害(单目标全中)
   'char_349_chiave': [1],  // 贾维 S2 火焰剥离:对周围敌人 3.5×atk 法术伤害
   'char_4026_vulpis': [1], // 忍冬 S2 坠刃拷问:对周围最多6敌 3×atk 法术伤害
+  // ---- 近卫·武者(musha) ----
+  'char_337_utage': [1],   // 宴 S2 落地斩·破门(落地限时被动):技能期伤害类型变为法术(常态仍为物理普攻)
 };
 
 /**
@@ -2273,6 +2284,9 @@ const MULTI_HIT = {
   'char_4194_rmixer': { 0: 3 },    // 信仰搅拌机 S1 铳骑主考官:下次攻击变三连击(每击 1.7×atk → 单次触发 5.1×atk)
   'char_1050_chen3': { 0: 2 },     // 赤刃明霄陈 S1 奔夜:攻击变为二连击(每击=技能期攻击力全额弱点,乘 2 连)
   'char_4098_vvana': { 0: 2, 2: 2 }, // 薇薇安娜 S1 光影迅捷剑:下次攻击连击两次(每击 atk_scale×atk);S3 明灭:攻击变为二连击(单目标 2 连全中)
+  // ---- 近卫·武者(musha) 「攻击变为二连击」(写在技能文案里,数据无 times 键) ----
+  'char_188_helage': { 0: 2, 1: 2 }, // 赫拉格 S1 新月「并连续攻击两次」/ S2 弦月「攻击变为二连击」
+  'char_475_akafyu': { 0: 2 },       // 赤冬 S1 信影流·雷刀之势「攻击变为二连击」
   // ---- 先锋(PIONEER) ----
   'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
   'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
@@ -2452,6 +2466,8 @@ const STOP_ATTACK_SKILLS = {
   'char_4119_wanqin': [0, 1], // 万顷 S1 支援号令·γ / S2 应东风(攻速增益+治疗另议)
   'char_4237_jcinta': [0, 1], // 嘉辛塔 S1 支援号令·γ / S2 伞下乘荫(治疗另议)
   'char_479_sleach': [0, 1],  // 琴柳 S1 支援号令·γ / S2 信仰传承(def增益受击回血另议);S3 光辉旗帜见专用分支
+  // ---- 近卫·武者(musha) 技能开启期间停止攻击 ----
+  'char_337_utage': [0],      // 宴 S1 分神:停止攻击,阻挡数归零,防御力+100%~200% 且每秒回血(技能期伤害记 0)
 };
 // 纯防御/控制技能（无输出增益，技能期普攻照常归常态展示）：雷蛇 S1 充能防御、闪击 S1 闪光护盾
 const NORMAL_ATK_SKILLS = {
@@ -2526,8 +2542,12 @@ function calculateOperator(op, slotData, ctx) {
   // (仅干员职业;召唤物的 skcom 被动型技能不在此列,走 summon 分支)
   // 限时被动(PASSIVE 且 duration>0,如芬 S2 执守阵线/野鬃 S1 骑枪刺击/红 S1 处决模式):部署后自动生效 N 秒的一次性强化,
   // 不走被动常驻面板,按技能期=duration 的普通技能计算;永久被动(duration 0)仍常驻入面板。
-  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE' && !(getSkillLevelData(equippedSkill, slotData.skillLevel).skillDuration > 0))
-    ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
+  // 限时被动判定用「生效时长」:PASSIVE 且 skillDuration>0(野鬃 S1 骑枪刺击/红 S1 处决模式/历阵锐枪芬 S2 执守阵线);
+  // 另有部分数据把时长写在 blackboard.duration、skillDuration=-1(宴 S2 落地斩·破门、斯卡蒂 S2 跃浪击),
+  // 同属"部署后生效 N 秒"的一次性强化 → 一并按限时被动走技能期,不再并入常驻面板。
+  const passiveRaw = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE') ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
+  const passiveRawDur = passiveRaw ? (passiveRaw.skillDuration > 0 ? passiveRaw.skillDuration : (passiveRaw.duration > 0 ? passiveRaw.duration : 0)) : 0;
+  const passiveLv = (passiveRaw && !(passiveRawDur > 0)) ? passiveRaw : null;
 
   // ======== Panel Stats ========
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
@@ -2657,7 +2677,7 @@ function calculateOperator(op, slotData, ctx) {
   let skillDuration = levelData.skillDuration || 0;
   // 手动开启的限时增益(skillDuration=-1 + duration>0,自身必然获得,如华法琳「不稳定血浆」):
   // 视为持续型技能,技能期长度 = duration。
-  if (skillDuration === -1 && levelData.duration > 0 && levelData.atk !== undefined && levelData.skillType === 'MANUAL') {
+  if (skillDuration === -1 && levelData.duration > 0 && levelData.atk !== undefined && (levelData.skillType === 'MANUAL' || levelData.skillType === 'PASSIVE')) {
     skillDuration = levelData.duration;
   }
   // 前段延迟输出(泥岩 S3 秽壤的血脉:前 10s 沉睡无敌无输出,仅后 20s 攻击计算)
@@ -3918,6 +3938,37 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'musha' && MUSHA_SPECIAL[op.id] && MUSHA_SPECIAL[op.id].includes(skillIndex)) {
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const mkM = (sTot, sDps, cd, panel, nDps) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk, dmgTypes: { physical: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    const nAtk = realInterval > 0 ? Pp(panelAtk) / realInterval : null;  // 常态化列:自身普攻 DPS(与引擎 dur>0 技能同口径)
+    // 火龙S黑角 S1「居合拔刀气刃斩」:纳刀期间停止攻击,受击时反击 multi_times 段(每段 multi_atk_scale,逐段单独扣防)。
+    // 用户口径(2026-09-17):受击默认触发一次,技能期 DPS 按技能标注窗口(6s)摊;常态化列保留自身普攻。
+    if (op.id === 'char_1030_noirc2' && skillIndex === 0) {
+      const n = levelData.multi_times || 4;
+      const a = panelAtk * (levelData.multi_atk_scale || 1);
+      const tot = Pp(a) * n;
+      return mkM(tot, skillDuration > 0 ? tot / skillDuration : 0, null, a, nAtk);
+    }
+    // 火龙S黑角 S2「气刃兜割」:瞬发对单敌 7 段 multi_atk_scale(逐段单独扣防),技能期长度 = 技能标注 1.4s;
+    // 「可充能2次」只影响再充能,不计入单次伤害(与现有充能型技能同一口径)。
+    if (op.id === 'char_1030_noirc2' && skillIndex === 1) {
+      const n = levelData.multi_times || 7;
+      const a = panelAtk * (levelData.multi_atk_scale || 1);
+      const tot = Pp(a) * n;
+      return mkM(tot, skillDuration > 0 ? tot / skillDuration : 0, null, a, nAtk);
+    }
+    // 左乐 S3「佑序有炎」:立刻 7 段斩击,末击系数加倍(总段数 = times - 1 + last_atk_bonus),触发型(dur 0)
+    // → 只给技能期总伤 + 循环 DPS(同陈 S3/艾丽妮 S3 口径);最多 3 名目标按单目标口径。
+    if (op.id === 'char_4121_zuole' && skillIndex === 2) {
+      const times = levelData.times || 7;
+      const lastMul = levelData.last_atk_bonus || 1;
+      const a = panelAtk * (levelData.atk_scale || 1);
+      const tot = Pp(a) * (times - 1) + Pp(a * lastMul);
+      return mkM(tot, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), tot), a, null);
+    }
+    return calcDamage(params);
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
     const Pp = (a) => calcPhysicalDamage(a, effDef);
@@ -4502,8 +4553,12 @@ function calcPanelStats(op, slotData) {
   // 与 calculateOperator 同口径,使白值面板(renderPanelStats)也体现被动加成(星熊 S2 加防肉眼可查)
   const equippedSkill = op.skills[slotData.skillIndex || 0];
   const isSummon = op.profession === 'TOKEN';
-  const passiveLv = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE' && !(getSkillLevelData(equippedSkill, slotData.skillLevel).skillDuration > 0))
-    ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
+  // 限时被动判定用「生效时长」:PASSIVE 且 skillDuration>0(野鬃 S1 骑枪刺击/红 S1 处决模式/历阵锐枪芬 S2 执守阵线);
+  // 另有部分数据把时长写在 blackboard.duration、skillDuration=-1(宴 S2 落地斩·破门、斯卡蒂 S2 跃浪击),
+  // 同属"部署后生效 N 秒"的一次性强化 → 一并按限时被动走技能期,不再并入常驻面板。
+  const passiveRaw = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE') ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
+  const passiveRawDur = passiveRaw ? (passiveRaw.skillDuration > 0 ? passiveRaw.skillDuration : (passiveRaw.duration > 0 ? passiveRaw.duration : 0)) : 0;
+  const passiveLv = (passiveRaw && !(passiveRawDur > 0)) ? passiveRaw : null;
 
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
   const baseDef = interpolateAttr(phase.def[0], phase.def[1], slotData.level, maxLevel);

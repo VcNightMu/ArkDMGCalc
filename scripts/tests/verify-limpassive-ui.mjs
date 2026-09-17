@@ -74,5 +74,24 @@ html = await render('char_261_sddrag', 0);
 check('苇草S1(skcom迅捷打击) 出现「技能期 DPS」', html.includes('技能期 DPS'));
 check('苇草S1(skcom迅捷打击) 出现「技能期总伤」', html.includes('技能期总伤'));
 
+// ===== 宴 S2 落地斩·破门(限时被动 PASSIVE,时长写在 blackboard.duration):必须显示技能期 =====
+html = await render('char_337_utage', 1);
+check('宴S2(bb.duration 限时被动) 出现「技能期 DPS」', html.includes('技能期 DPS'), html.slice(0, 400));
+check('宴S2(bb.duration 限时被动) 出现「技能期总伤」', html.includes('技能期总伤'));
+check('宴S2(bb.duration 限时被动) 出现「技能期 ATK」', html.includes('技能期 ATK'));
+check('宴S2(bb.duration 限时被动) 出现「常态 DPS」', html.includes('常态 DPS'));
+check('宴S2(bb.duration 限时被动) 技能期总伤 8242(专一 15s 法术 atk+90%)', html.includes('8242'));
+
+// ===== 宴 S1 分神(停止攻击):技能期伤害 0,常态保留 =====
+html = await render('char_337_utage', 0);
+check('宴S1(停止攻击) 不显示「技能期 DPS」(技能期无伤害输出)', !html.includes('技能期 DPS'));
+check('宴S1(停止攻击) 保留常态 DPS', html.includes('常态 DPS'));
+
+// ===== 斯卡蒂 S2 跃浪击(限时被动,时长写在 bb.duration):回归 =====
+html = await render('char_263_skadi', 1);
+check('斯卡蒂S2(bb.duration 限时被动) 出现「技能期 DPS」', html.includes('技能期 DPS'), html.slice(0, 400));
+check('斯卡蒂S2(bb.duration 限时被动) 技能期总伤 35519', html.includes('35519'), html.slice(0, 400));
+check('斯卡蒂S2(bb.duration 限时被动) 出现「常态 DPS」', html.includes('常态 DPS'));
+
 console.log(`\n限时被动/通用技能 UI 验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

@@ -405,13 +405,14 @@ async function updateResults() {
     const rarityNum = typeof op.rarity === 'number' ? op.rarity : parseInt(String(op.rarity).match(/\d/)?.[0] || '1');
     const skillName = op.skills[slotData.skillIndex || 0]?.name || '';
     // 是否有技能期：当前槽位技能存在；召唤物的 skcom_ 通用被动(医疗探机等)与干员 PASSIVE 永久被动(星熊 S2「荆棘」装备即常驻)无技能期只显常态，
-    // 干员 skcom_ 通用技能模板(迅捷打击/冲锋号令等)与限时被动(PASSIVE 且 duration>0，芬 S2 执守阵线：部署自动生效 N 秒)按正常技能处理——有技能期+有常态
+    // 干员 skcom_ 通用技能模板(迅捷打击/冲锋号令等)与限时被动(PASSIVE 且 skillDuration>0 或 blackboard.duration>0：芬 S2 执守阵线、
+    // 宴 S2 落地斩·破门/斯卡蒂 S2 跃浪击——部署后自动生效 N 秒)按正常技能处理——有技能期+有常态
     const equipped = op.skills[slotData.skillIndex || 0];
     const equippedLv = (equipped && equipped.levels) ? (equipped.levels[slotData.skillLevel || 0] || equipped.levels[equipped.levels.length - 1] || {}) : {};
     // result.deploySkill:落地点火/开局定时触发天赋(无技能选择也显示技能期 DPS/总伤)
     const hasSkill = result.deploySkill === true || (!!equipped && !!equipped.skillId
       && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0])
-      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]));
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(equippedLv.duration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]));
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;
