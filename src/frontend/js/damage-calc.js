@@ -169,6 +169,15 @@ const MUSHA_SPECIAL = {
   'char_4121_zuole': [2]       // S3 佑序有炎(7 段斩击 + 末击系数加倍)
 };
 
+// ===== 收割者(reaper)专用助手 =====
+// 收割者共性:特性「无法被友方角色治疗,攻击造成群体伤害,每攻击到一个敌人回复自身生命」
+// 是自回血不是输出,不建模型;海沫「收割,给养」(回复元素损伤)同理;群体伤害按单目标口径。
+// 隐德来希「萃血」的每秒法术 DOT 走通用固定 DOT 通道(TALENT_FLAT_DOT)。
+const REAPER_SPECIAL = {
+  'char_1032_excu2': [0, 1, 2],  // 圣约送葬人:三技能均为弹药型(攻击装有 N 发弹药,打完技能结束)
+  'char_4010_etlchi': [1, 2]     // 隐德来希:S2 绯红壁合(停止攻击,血镰每 0.5s 切割) / S3 灵与欲的惜别(心烛)
+};
+
 // 锏「天生的武者」:攻击力提升(bb.atk_scale),仅在 2/3 技能(索引 1/2)生效
 function swordTalentAtkScale(op, slotData, skillIndex) {
   if (op.id !== 'char_4116_blkkgt' || (skillIndex !== 1 && skillIndex !== 2)) return 1;
@@ -2098,6 +2107,8 @@ const BAT_ADD_OVERRIDES = {
   // ---- 本源术师(primcaster) ----
   'char_1040_blaze2': { 1: true },  // 烛煌 S2 沸血燎原:攻击间隔增大(+0.9 秒 → 2.5s)
   'char_4081_warmy': { 1: true },   // 温米 S2 滔滔热流:攻击间隔增大(+0.9 秒 → 2.5s)
+  // ---- 近卫·收割者(reaper) ----
+  'char_1032_excu2': { 2: true },   // 圣约送葬人 S3 圣约决裁:攻击间隔略微增大(+0.5 → 1.3+0.5=1.8s)
 };
 
 // base_attack_time 负数按"缩短 X%"解释的白名单(键值 -0.8 = -80% → 间隔 ×(1-0.8)=×0.2)。
@@ -2105,6 +2116,8 @@ const BAT_ADD_OVERRIDES = {
 const BAT_PCT_OVERRIDES = {
   'char_469_indigo': { 0: true },   // 深靛 S1 灯塔守卫者:攻击间隔大幅度缩短(-80%) → 3.0×0.2=0.6s
   'char_472_pasngr': { 1: true },   // 异客 S2 聚焦指令:攻击间隔缩短(-40%) → 2.3×0.6=1.38s(同深靛口径,官方文案为百分比)
+  // ---- 近卫·收割者(reaper) ----
+  'char_421_crow': { 1: true },    // 羽毛笔 S2 收割:攻击间隔缩短(-30% L1~3/-35% L4~6/-40% 专一/-50% 专三) → 专一 1.3×0.6=0.78s
 };
 
 // 攻击间隔缩短值"×N"折算表(用户口径 2026-09-17):能天使「过载模式」游戏内技能描述为"攻击间隔一定程度缩短(-0.22)",
@@ -2287,6 +2300,10 @@ const MULTI_HIT = {
   // ---- 近卫·武者(musha) 「攻击变为二连击」(写在技能文案里,数据无 times 键) ----
   'char_188_helage': { 0: 2, 1: 2 }, // 赫拉格 S1 新月「并连续攻击两次」/ S2 弦月「攻击变为二连击」
   'char_475_akafyu': { 0: 2 },       // 赤冬 S1 信影流·雷刀之势「攻击变为二连击」
+  // ---- 近卫·收割者(reaper) 「并连续攻击两次」(写在技能文案里,数据无 times 键) ----
+  'char_4010_etlchi': { 0: 2 },  // 隐德来希 S1 玫影觅迹
+  'char_4066_highmo': { 0: 2 },  // 海沫 S1 回首，断舍
+  'char_421_crow': { 0: 2 },     // 羽毛笔 S1 高速切割
   // ---- 先锋(PIONEER) ----
   'char_102_texas': { 1: 2 },  // 德克萨斯 S2 剑雨:造成两次 1.7×atk 法伤(单目标=2 段全中)
   'char_420_flamtl': { 1: 2 }, // 焰尾 S2 "红松林":造成两次 2.4×atk 物伤(单目标=2 段全中)
@@ -2510,6 +2527,9 @@ const TALENT_FLAT_DOT = {
   // 维伊「战争技艺」:攻击/能量命中后 5s 内每秒受 attack@value 法伤,最多叠 attack@max_stack_cnt 层;
   // 攻击间隔 2.5s < 5s 全覆盖 → 等效常驻 value×层数 秒伤(模组 Y L2/L3 的 100×4 / 120×4 经同名 te 自动生效)
   'char_4226_veen': { talentIndex: 1, key: 'attack@value', stackKey: 'attack@max_stack_cnt', duration: 5 },
+  // 隐德来希「萃血」:每次攻击敌人时使目标 5s 内每秒受 magic_value 点法术伤害(重复施加仅重置持续时间、不叠层);
+  // 攻击间隔 1.3s < 5s → 等效常驻秒伤(吃法抗、不吃攻击加成)。E2 潜0 = 200/秒;Y 模组 L2/L3 = 350/450(经同名 te 自动生效)
+  'char_4010_etlchi': { talentIndex: 0, key: 'magic_value', duration: 5 },
 };
 function calcTalentFlatDotDps(op, slotData) {
   const cfg = TALENT_FLAT_DOT[op.id];
@@ -3969,6 +3989,72 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       return mkM(tot, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), tot), a, null);
     }
     return calcDamage(params);
+  } else if (op.subProfessionId === 'reaper' && REAPER_SPECIAL[op.id] && REAPER_SPECIAL[op.id].includes(skillIndex)) {
+    // 收割者分支采用「赋值 result 后继续走链尾后处理」的写法(同晓歌 S2 弹药口径),不提前 return:
+    // 隐德来希天赋「萃血」的固定 DOT 由链尾 TALENT_FLAT_DOT 通道追加,提前 return 会漏掉。
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const nDps = realInterval > 0 ? Pp(panelAtk) / realInterval : null;   // 常态化列:自身普攻 DPS(与引擎 dur>0 技能同口径)
+    const mkR = (sTot, sDps, cd, panel, nD) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: nD, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk, dmgTypes: { physical: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    // 圣约送葬人:三个技能均为弹药型「攻击装有 N 发弹药,打完后结束」。
+    // 弹药数 = attack@trigger_time + 天赋「铳弹共感」弹药上限(每有 1 名【拉特兰】干员在场 +1,最多 4 层;
+    // 用户口径 2026-09-17:默认按 1 层 → +1);技能期窗口 = 弹药数 × 攻击间隔,期间即耗弹出击 → 常态化列仍按自身普攻;
+    // Y 模组「已知悉」的「弹药类技能期间攻击力 +8%/+12%」是必然生效效果(闪避部分不计) → 计入。
+    if (op.id === 'char_1032_excu2') {
+      const ammo = Math.round(levelData['attack@trigger_time'] || 0) + (funnelTalentValue(op, slotData, 1, 'add_count') || 0);
+      const yMul = 1 + (funnelTalentValue(op, slotData, 1, 'atk') || 0);
+      const win = ammo * (sIvl > 0 ? sIvl : 1.3);
+      if (skillIndex === 0) {
+        // S1 遗嘱执行:攻击力 +X%(专一 +40%),攻击时无视目标 def_penetrate_fixed 防御(专一 320);8 发弹药
+        const a = skillAtk * yMul;
+        const per = calcPhysicalDamage(a, Math.max(0, effDef - (levelData.def_penetrate_fixed || 0)));
+        const tot = per * ammo;
+        result = mkR(tot, win > 0 ? tot / win : 0, null, a, nDps);
+      } else if (skillIndex === 1) {
+        // S2 近身铳斗:攻击力 +X%(专一 +70%);防御力/阻挡数不计输出,「受击闪避补 1 颗弹药」默认不触发 → 弹药不增加;12 发弹药
+        const a = skillAtk * yMul;
+        const tot = Pp(a) * ammo;
+        result = mkR(tot, win > 0 ? tot / win : 0, null, a, nDps);
+      } else {
+        // S3 圣约决裁:攻击间隔略微增大 +0.5(BAT_ADD,1.3→1.8s);攻击力 +X%(专一 +160%),
+        // 每消耗 1 颗弹药攻击力额外 +attack@atk%(专一 5%,上限 attack@max_stack_cnt = 30 层);
+        // 用户口径 2026-09-17:第 k 次攻击含 k 层(首击即 +5%,末击 +85%);
+        // 技能结束时对技能期间攻击过的目标追加 1 次 attack@final_atk_scale × 当前攻击力 的物理伤害(专一 200%)。
+        // 注:attack@atk 已由引擎按 1 层并入 skillAtk(见参数区 attack@atk 的 direct_mul),故每层增量单列。
+        const perAmmo = levelData['attack@atk'] || 0;
+        const capSt = levelData['attack@max_stack_cnt'] || 30;
+        const stepAtk = panelAtk * perAmmo;
+        let tot = 0, lastAtk = skillAtk * yMul;
+        for (let i = 1; i <= ammo; i++) {
+          lastAtk = (skillAtk + stepAtk * (Math.min(i, capSt) - 1)) * yMul;
+          tot += Pp(lastAtk);
+        }
+        tot += Pp(lastAtk * (levelData['attack@final_atk_scale'] || 1));
+        result = mkR(tot, win > 0 ? tot / win : 0, null, skillAtk * yMul, nDps);
+      }
+    } else if (op.id === 'char_4010_etlchi' && skillIndex === 2) {
+      // 隐德来希 S3「灵与欲的惜别」:攻击范围扩大、攻击速度 +100(间隔 1.3→0.65s)、攻击力 +X%(专一 +120%),
+      // 立刻为攻击范围内最多 3 名敌人召唤「心烛」(心烛继承原敌 100% 防御/法抗与 60% 当前生命;
+      // 每击对心烛至少造成 35% 攻击力的伤害,心烛受伤时原敌受等量真实伤害)→ 单目标口径。
+      // 用户口径 2026-09-17:每击 = max(常规物理伤害, 35%×攻击力);总伤按心烛生命(原敌当前生命 × attack@max_hp_scale)封顶。
+      const hits = Math.max(1, Math.floor(skillDuration / (sIvl > 0 ? sIvl : 0.65) + 1e-9));
+      const per = Math.max(Pp(skillAtk), skillAtk * 0.35);
+      let tot = per * hits;
+      const capHp = (state.enemy && state.enemy.hp ? state.enemy.hp : 0) * (levelData['attack@max_hp_scale'] || 0);
+      if (capHp > 0) tot = Math.min(tot, capHp);
+      result = mkR(tot, skillDuration > 0 ? tot / skillDuration : 0, null, skillAtk, nDps);
+    } else if (op.id === 'char_4010_etlchi' && skillIndex === 1) {
+      // 隐德来希 S2「绯红壁合」:停止攻击,召唤血镰每 bb.interval(0.5s)对周围敌人造成 atk_scale × 攻击力 的物理伤害;
+      // 用户口径 2026-09-17:单目标只按 1 个血镰结算;血镰期间天赋「萃血」DOT 照旧整段计入(走链尾固定 DOT 通道)。
+      const tick = levelData.interval > 0 ? levelData.interval : 0.5;
+      const n = Math.max(1, Math.floor(skillDuration / tick + 1e-9));
+      const a = panelAtk * (levelData.atk_scale || 1);
+      const tot = Pp(a) * n;
+      const d = skillDuration > 0 ? skillDuration : tick * n;
+      result = { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: d > 0 ? tot / d : 0, skillTotalDamage: tot, cycleDps: null, normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null, realInterval: tick, panelAtk: a, dmgTypes: { physical: { skillDps: d > 0 ? tot / d : 0, skillTotalDamage: tot, cycleDps: null } } };
+    } else {
+      result = calcDamage(params);
+    }
   } else if (op.subProfessionId === 'sword' && SWORD_SPECIAL[op.id] && SWORD_SPECIAL[op.id].includes(skillIndex)) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
     const Pp = (a) => calcPhysicalDamage(a, effDef);
@@ -4317,7 +4403,8 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     const dotTotal = dotDps * dotDur;
     result = {
       ...result,
-      normalDps: (result.normalDps ?? 0) + dotDps,
+      // 常态化列为 null(触发型 dur<=0 技能)时保持 null,不把 DOT 单独物化成常态值(同蓝毒 DOT 通道口径)
+      normalDps: result.normalDps === null || result.normalDps === undefined ? result.normalDps : result.normalDps + dotDps,
       skillDps: (result.skillDps ?? 0) + dotDps,
       skillTotalDamage: (result.skillTotalDamage ?? 0) + dotTotal,
       dmgTypes: result.dmgTypes ? {
