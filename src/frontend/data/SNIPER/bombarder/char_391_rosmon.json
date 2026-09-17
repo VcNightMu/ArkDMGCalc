@@ -1,0 +1,827 @@
+{
+  "id": "char_391_rosmon",
+  "name": "迷迭香",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "bombarder",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        341,
+        461
+      ],
+      "def": [
+        123,
+        160
+      ],
+      "maxHp": [
+        874,
+        1166
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        461,
+        584
+      ],
+      "def": [
+        160,
+        200
+      ],
+      "maxHp": [
+        1166,
+        1477
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        584,
+        688
+      ],
+      "def": [
+        200,
+        245
+      ],
+      "maxHp": [
+        1477,
+        1944
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 60,
+    "def": 30,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_rosmon_1",
+      "name": "思维膨大",
+      "levels": [
+        {
+          "extra_atk_scale": 0.8,
+          "append_atk_scale": 0.5,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 0.85,
+          "append_atk_scale": 0.5,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 0.95,
+          "append_atk_scale": 0.5,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1,
+          "append_atk_scale": 0.5,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.05,
+          "append_atk_scale": 0.5,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.1,
+          "append_atk_scale": 0.5,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.2,
+          "append_atk_scale": 0.5,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.4,
+          "append_atk_scale": 0.5,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.6,
+          "append_atk_scale": 0.5,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "extra_atk_scale": 1.8,
+          "append_atk_scale": 0.5,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_rosmon_2",
+      "name": "末梢阻断",
+      "levels": [
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.1,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.7,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.1,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.7,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 31,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.1,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.7,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 32,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.2,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.9,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.2,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.9,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 34,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.2,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 0.9,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.3,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 1.1,
+          "level": 6,
+          "spCost": 34,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.37,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 1.2,
+          "level": 7,
+          "spCost": 33,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 37,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.45,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 1.3,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 38,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": 0.5,
+          "atk": 0.55,
+          "add_times": 2,
+          "attack@prob": 0.2,
+          "attack@stun": 1.5,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_rosmon_3",
+      "name": "“如你所愿”",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.1,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 1.5,
+          "level": 0,
+          "spCost": 80,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.15,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 1.5,
+          "level": 1,
+          "spCost": 79,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.2,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 1.5,
+          "level": 2,
+          "spCost": 78,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.25,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2,
+          "level": 3,
+          "spCost": 77,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.3,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2,
+          "level": 4,
+          "spCost": 76,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.35,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2,
+          "level": 5,
+          "spCost": 75,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.4,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2.5,
+          "level": 6,
+          "spCost": 74,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 27,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.5,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2.5,
+          "level": 7,
+          "spCost": 70,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 28,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.6,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 2.5,
+          "level": 8,
+          "spCost": 66,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 29,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.75,
+          "attack@max_target": 2,
+          "def": 1,
+          "attack@append_atk_scale": 0.5,
+          "stun": 3,
+          "level": 9,
+          "spCost": 60,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "歼灭战装备",
+          "description": "攻击无视目标90防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 90
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "歼灭战装备",
+          "description": "攻击无视目标105<@ba.talpu>（+15）</>防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 105
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "歼灭战装备",
+          "description": "攻击无视目标160防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 160
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "歼灭战装备",
+          "description": "攻击无视目标175<@ba.talpu>（+15）</>防御力",
+          "blackboard": {
+            "def_penetrate_fixed": 175
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "感知稳定",
+          "description": "部署后随机选择一名在场的【术师】干员，自身和其的攻击力+8%",
+          "blackboard": {
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "attack@append_atk_scale": 0.5,
+      "attack@times": 2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+32",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_rosmon",
+      "name": "迷迭香证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_rosmon",
+      "name": "“记事”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "atk": 55
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@times": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "歼灭战装备",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 190
+              }
+            },
+            {
+              "name": "歼灭战装备",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 205
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@times": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 275,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "歼灭战装备",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "def_penetrate_fixed": 220
+              }
+            },
+            {
+              "name": "歼灭战装备",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "def_penetrate_fixed": 235
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@times": 3
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_rosmon",
+      "name": "迷迭香特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "attack_speed": 5
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "equip_atk_scale": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 70,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "equip_atk_scale": 1
+              }
+            },
+            {
+              "name": "感知稳定",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 90,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "equip_atk_scale": 1
+              }
+            },
+            {
+              "name": "感知稳定",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "def": -400,
+                "magic_resistance": -20,
+                "stun": 5,
+                "rosmon_e_003_token[passive].max_hp": 1750,
+                "rosmon_e_003_token[passive].def": 330,
+                "rosmon_e_003_token[passive].magic_resistance": 35
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

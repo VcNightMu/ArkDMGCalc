@@ -131,8 +131,15 @@ const OPERATORS = {
       'char_363_toddi', 'char_4043_erato', 'char_4221_ju',              // 熔泉/埃拉托/矩 5★
       'char_4062_totter',                                               // 铅踝 4★
     ],
-    bombarder: [],                  // 投掷手
-    hunter: [],                     // 猎手
+    bombarder: [ // 投掷手
+      'char_391_rosmon', 'char_1035_wisdel',                            // 迷迭香/维什戴尔 6★
+      'char_1027_greyy2',                                               // 承曦格雷伊 5★(异格)
+      'char_4077_palico',                                               // 泰拉大陆调查团 1★
+    ],
+    hunter: [ // 猎手
+      'char_4117_ray',                                                  // 莱伊 6★
+      'char_4104_coldst', 'char_4211_snhunt',                           // 冰酿/雪猎 5★
+    ],
     loopshooter: [],                // 回环射手
     skybreaker: [],                 // 裂空炮手
   },

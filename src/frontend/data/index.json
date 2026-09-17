@@ -2428,5 +2428,68 @@
     "subProfessionId": "notchar1",
     "ownerOperatorId": "char_2015_dusk",
     "ownerName": "夕"
+  },
+  {
+    "id": "char_391_rosmon",
+    "name": "迷迭香",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "bombarder",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1035_wisdel",
+    "name": "维什戴尔",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "bombarder",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_1027_greyy2",
+    "name": "承曦格雷伊",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "bombarder",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4077_palico",
+    "name": "泰拉大陆调查团",
+    "rarity": "TIER_1",
+    "profession": "SNIPER",
+    "subProfessionId": "bombarder",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4117_ray",
+    "name": "莱伊",
+    "rarity": "TIER_6",
+    "profession": "SNIPER",
+    "subProfessionId": "hunter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4104_coldst",
+    "name": "冰酿",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "hunter",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4211_snhunt",
+    "name": "雪猎",
+    "rarity": "TIER_5",
+    "profession": "SNIPER",
+    "subProfessionId": "hunter",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

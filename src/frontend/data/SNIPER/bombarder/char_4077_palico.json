@@ -1,0 +1,177 @@
+{
+  "id": "char_4077_palico",
+  "name": "泰拉大陆调查团",
+  "rarity": "TIER_1",
+  "profession": "SNIPER",
+  "subProfessionId": "bombarder",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 30,
+      "atk": [
+        220,
+        276
+      ],
+      "def": [
+        40,
+        51
+      ],
+      "maxHp": [
+        414,
+        518
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 100
+  },
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "猫式抽签爆弹·I",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成200%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.1秒；什么都没有发生！触发3次伤害效果后天赋失效 ",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 2,
+            "attack@sleep": 1,
+            "attack@stun": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 1,
+          "name": "猫式抽签爆弹·II",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成250%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.1秒；什么都没有发生！触发3次伤害效果后天赋失效",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 2.5,
+            "attack@sleep": 1,
+            "attack@stun": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "猫式抽签爆弹·III",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成300%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.1秒；什么都没有发生！触发3次伤害效果后天赋失效",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 3,
+            "attack@sleep": 1,
+            "attack@stun": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 3,
+          "name": "猫式抽签爆弹·IV",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成350%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.2秒；什么都没有发生！触发3次伤害效果后天赋失效",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 3.5,
+            "attack@sleep": 1,
+            "attack@stun": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "猫式抽签爆弹·V",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成400%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.2秒；什么都没有发生！触发3次伤害效果后天赋失效",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 4,
+            "attack@sleep": 1,
+            "attack@stun": 0.2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 5,
+          "name": "猫式抽签爆弹·VI",
+          "description": "攻击后会延时引爆，随机触发下列效果之一： 造成450%的物理伤害；目标<$ba.sleep>沉睡</>1秒；目标<$ba.stun>晕眩</>0.2秒；什么都没有发生！触发3次伤害效果后天赋失效",
+          "blackboard": {
+            "attack@prob1": 0.2,
+            "attack@prob2": 0.3,
+            "attack@prob3": 0.3,
+            "attack@prob4": 0.2,
+            "attack@bomb_scale": 4.5,
+            "attack@sleep": 1,
+            "attack@stun": 0.2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "attack@append_atk_scale": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "天赋效果加强",
+      "type": "CUSTOM",
+      "modifiers": []
+    }
+  ]
+}

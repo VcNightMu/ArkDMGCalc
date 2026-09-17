@@ -1,0 +1,766 @@
+{
+  "id": "char_1035_wisdel",
+  "name": "维什戴尔",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "bombarder",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        340,
+        460
+      ],
+      "def": [
+        128,
+        167
+      ],
+      "maxHp": [
+        849,
+        1132
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        460,
+        583
+      ],
+      "def": [
+        167,
+        209
+      ],
+      "maxHp": [
+        1132,
+        1434
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        583,
+        687
+      ],
+      "def": [
+        209,
+        256
+      ],
+      "maxHp": [
+        1434,
+        1888
+      ],
+      "magicResistance": 15,
+      "baseAttackTime": 2.1,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_wisdel_1",
+      "name": "定点清算",
+      "levels": [
+        {
+          "append_atk_scale": 0.6,
+          "stun_duration": 0.5,
+          "level": 0,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.65,
+          "stun_duration": 0.5,
+          "level": 1,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.7,
+          "stun_duration": 0.5,
+          "level": 2,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.75,
+          "stun_duration": 0.5,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.8,
+          "stun_duration": 0.5,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.85,
+          "stun_duration": 0.5,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 0.9,
+          "stun_duration": 1,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 1,
+          "stun_duration": 1,
+          "level": 7,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 1.1,
+          "stun_duration": 1,
+          "level": 8,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "append_atk_scale": 1.2,
+          "stun_duration": 1.5,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_wisdel_2",
+      "name": "饱和复仇",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.1,
+          "attack@atk_scale_ol": 0.6,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.12,
+          "attack@atk_scale_ol": 0.6,
+          "level": 1,
+          "spCost": 34,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.14,
+          "attack@atk_scale_ol": 0.6,
+          "level": 2,
+          "spCost": 33,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.16,
+          "attack@atk_scale_ol": 0.65,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.18,
+          "attack@atk_scale_ol": 0.65,
+          "level": 4,
+          "spCost": 31,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.2,
+          "attack@atk_scale_ol": 0.65,
+          "level": 5,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.25,
+          "attack@atk_scale_ol": 0.7,
+          "level": 6,
+          "spCost": 29,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.28,
+          "attack@atk_scale_ol": 0.75,
+          "level": 7,
+          "spCost": 28,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.3,
+          "attack@atk_scale_ol": 0.75,
+          "level": 8,
+          "spCost": 27,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.7,
+          "atk": 0.35,
+          "attack@atk_scale_ol": 0.8,
+          "level": 9,
+          "spCost": 25,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 25,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_wisdel_3",
+      "name": "爆裂黎明",
+      "levels": [
+        {
+          "atk": 0.95,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.6,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 0,
+          "spCost": 70,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.65,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 1,
+          "spCost": 68,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.7,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 2,
+          "spCost": 66,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.75,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 3,
+          "spCost": 64,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.3,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.8,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 4,
+          "spCost": 62,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "max_cnt": 1,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.85,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 5,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.5,
+          "max_cnt": 2,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 1.9,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 6,
+          "spCost": 58,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.6,
+          "max_cnt": 2,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 2,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 7,
+          "spCost": 55,
+          "initialSp": 36,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.7,
+          "max_cnt": 2,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 2.1,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 8,
+          "spCost": 53,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.8,
+          "max_cnt": 2,
+          "base_attack_time": 2.9,
+          "attack@atk_scale_3": 2.2,
+          "attack@prob": 1,
+          "attack@trigger_time": 6,
+          "sp": 3,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 40,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "好礼",
+          "description": "攻击时为主目标附着残影，残影受到维什戴尔的余震影响时有15%概率爆炸，对周围所有敌人造成120%攻击力的物理伤害并使其<$ba.stun>晕眩</>0.5秒",
+          "blackboard": {
+            "attack@main_atk_scale": 1,
+            "attack@prob": 0.15,
+            "attack@bomb_atk_scale": 1.2,
+            "attack@stun": 0.5,
+            "attack@range_radius": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "好礼",
+          "description": "攻击时为主目标附着残影，残影受到维什戴尔的余震影响时有15%概率爆炸，对周围所有敌人造成130%<@ba.talpu>（+10%）</>攻击力的物理伤害并使其<$ba.stun>晕眩</>0.5秒",
+          "blackboard": {
+            "attack@main_atk_scale": 1,
+            "attack@prob": 0.15,
+            "attack@bomb_atk_scale": 1.3,
+            "attack@stun": 0.5,
+            "attack@range_radius": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "好礼",
+          "description": "攻击时对主目标的攻击力提升至115%并为其附着残影，残影受到维什戴尔的余震影响时有15%概率爆炸，对周围所有敌人造成150%攻击力的物理伤害并使其<$ba.stun>晕眩</>1秒",
+          "blackboard": {
+            "attack@main_atk_scale": 1.15,
+            "attack@prob": 0.15,
+            "attack@bomb_atk_scale": 1.5,
+            "attack@stun": 1,
+            "attack@range_radius": 1.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "好礼",
+          "description": "攻击时对主目标的攻击力提升至115%并为其附着残影，残影受到维什戴尔的余震影响时有15%概率爆炸，对周围所有敌人造成160%<@ba.talpu>（+10%）</>攻击力的物理伤害并使其<$ba.stun>晕眩</>1秒",
+          "blackboard": {
+            "attack@main_atk_scale": 1.15,
+            "attack@prob": 0.15,
+            "attack@bomb_atk_scale": 1.6,
+            "attack@stun": 1,
+            "attack@range_radius": 1.1
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "死魂灵的余息",
+          "description": "部署后立刻在攻击范围内召唤一个魂灵之影，在魂灵之影周围时获得<$ba.camou>迷彩</>",
+          "blackboard": {},
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "attack@append_atk_scale": 0.5,
+      "attack@enable_third_attack": 0
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+32",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_wisdel",
+      "name": "维什戴尔证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_wisdel",
+      "name": "“祖宗发射器”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 45,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@enable_third_attack": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 55,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "好礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@main_atk_scale": 1.2,
+                "attack@prob": 0.15,
+                "attack@bomb_atk_scale": 1.7,
+                "attack@stun": 1,
+                "attack@range_radius": 1.1
+              }
+            },
+            {
+              "name": "好礼",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@main_atk_scale": 1.2,
+                "attack@prob": 0.15,
+                "attack@bomb_atk_scale": 1.8,
+                "attack@stun": 1,
+                "attack@range_radius": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@enable_third_attack": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 65,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "好礼",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack@main_atk_scale": 1.25,
+                "attack@prob": 0.15,
+                "attack@bomb_atk_scale": 1.75,
+                "attack@stun": 1,
+                "attack@range_radius": 1.1
+              }
+            },
+            {
+              "name": "好礼",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "attack@main_atk_scale": 1.25,
+                "attack@prob": 0.15,
+                "attack@bomb_atk_scale": 1.85,
+                "attack@stun": 1,
+                "attack@range_radius": 1.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "attack@append_atk_scale": 0.5,
+                "attack@enable_third_attack": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

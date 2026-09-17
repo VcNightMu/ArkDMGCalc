@@ -1,0 +1,546 @@
+{
+  "id": "char_4104_coldst",
+  "name": "冰酿",
+  "rarity": "TIER_5",
+  "profession": "SNIPER",
+  "subProfessionId": "hunter",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        476,
+        635
+      ],
+      "def": [
+        105,
+        141
+      ],
+      "maxHp": [
+        845,
+        1113
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        635,
+        804
+      ],
+      "def": [
+        141,
+        179
+      ],
+      "maxHp": [
+        1113,
+        1428
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        804,
+        958
+      ],
+      "def": [
+        179,
+        224
+      ],
+      "maxHp": [
+        1428,
+        1855
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 105,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skcom_atk_up[3]",
+      "name": "攻击力强化·γ型",
+      "levels": [
+        {
+          "atk": 0.3,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.35,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.45,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "level": 4,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "level": 5,
+          "spCost": 37,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "level": 8,
+          "spCost": 33,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_coldst_2",
+      "name": "酣醉之夜",
+      "levels": [
+        {
+          "atk": 0.4,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 1,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 23,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 2,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 26,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 30,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 4,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 33,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 5,
+          "spCost": 40,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 6,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.15,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 7,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.25,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 8,
+          "spCost": 40,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "reload_interval": 0.8,
+          "attack@sluggish": 1,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 40,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不甘示弱",
+          "description": "如果2秒内没有主动攻击过，下次攻击造成相当于攻击力120%的物理伤害",
+          "blackboard": {
+            "atk_scale": 1.2,
+            "attack@delay": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不甘示弱",
+          "description": "如果2秒内没有主动攻击过，下次攻击造成相当于攻击力123%<@ba.talpu>（+3%）</>的物理伤害",
+          "blackboard": {
+            "atk_scale": 1.23,
+            "attack@delay": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不甘示弱",
+          "description": "如果2秒内没有主动攻击过，下次攻击造成相当于攻击力130%的物理伤害",
+          "blackboard": {
+            "atk_scale": 1.3,
+            "attack@delay": 2
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不甘示弱",
+          "description": "如果2秒内没有主动攻击过，下次攻击造成相当于攻击力133%<@ba.talpu>（+3%）</>的物理伤害",
+          "blackboard": {
+            "atk_scale": 1.33,
+            "attack@delay": 2
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击时需要消耗子弹且攻击力提升至120%，不攻击时会缓慢地装填子弹（最多{value}发，精英1后更新）",
+    "blackboard": {
+      "value": 4,
+      "atk_scale": 1.2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_coldst",
+      "name": "冰酿证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_coldst",
+      "name": "“桀骜”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 128,
+            "atk": 53
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 168,
+            "atk": 65
+          },
+          "talentEnhance": [
+            {
+              "name": "不甘示弱",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.35,
+                "attack@delay": 2
+              }
+            },
+            {
+              "name": "不甘示弱",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.38,
+                "attack@delay": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 205,
+            "atk": 75
+          },
+          "talentEnhance": [
+            {
+              "name": "不甘示弱",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk_scale": 1.38,
+                "attack@delay": 2
+              }
+            },
+            {
+              "name": "不甘示弱",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk_scale": 1.41,
+                "attack@delay": 2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

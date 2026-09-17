@@ -634,6 +634,146 @@ const MODULE_TE_TALENT_MERGE = {
   // 目前无入库干员命中:异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
 };
 
+// ===== 投掷手(bombarder)专用结算 =====
+// 用户口径(2026-09-17):投掷手特性(余震)要计入 —— 每次攻击附带 attack@times × append_atk_scale(0.5)×攻击力 的余震伤害;
+// 迷迭香「思维膨大」额外一次 140% 法术;维什戴尔「好礼」额外伤害仅在 3 技能开启时计;承曦格雷伊「窃光链缚」伤害增幅不计。
+function calcBombarderSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, realInterval, normalInterval, effDef, enemy, skillDuration, generic } = ctx;
+  const af = bombarderAftershocks(op, slotData);
+  const h = (atk, def) => calcPhysicalDamage(atk, def === undefined ? effDef : def);
+  const a = (atk) => calcArtsDamage(atk, enemy.res);
+  const nrm = () => (normalInterval > 0 ? (h(panelAtk) + af.n * h(panelAtk * af.scale)) / normalInterval : null);
+  const res = (total, dps, cycle, extraArts) => ({
+    skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle, normalDps: nrm(),
+    skillHps: null, normalHps: null, totalHeal: null, damageType: extraArts > 0 ? 'physical' : 'physical', realInterval,
+    dmgTypes: extraArts > 0 && extraArts >= total
+      ? { arts: { skillDps: dps, skillTotalDamage: total, cycleDps: null } }
+      : extraArts > 0
+        ? { physical: { skillDps: dps, skillTotalDamage: total - extraArts, cycleDps: null }, arts: { skillDps: 0, skillTotalDamage: extraArts, cycleDps: null } }
+        : { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: cycle === undefined ? null : cycle } },
+  });
+  const nAtk = realInterval > 0 && skillDuration > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
+  // 迷迭香
+  if (op.id === 'char_391_rosmon') {
+    if (skillIndex === 0) {                    // 「思维膨大」:下次攻击 + 一次 140% 法伤 + 余震
+      const phys = h(panelAtk) + af.n * h(panelAtk * af.scale);
+      const arts = a(panelAtk * (levelData.extra_atk_scale || 0));
+      return res(phys, 0, calcCycleDps(levelData, realInterval, h(panelAtk), phys + arts), arts);
+    }
+    if (skillIndex === 1) {                    // 「末梢阻断」:atk+37%、额外 2 次余震、间隔增大
+      const atk = panelAtk * (1 + (levelData.atk || 0));
+      const n = Math.max(af.n, levelData.add_times || 0);
+      const per = h(atk) + n * h(atk * af.scale);
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+    if (skillIndex === 2) {                    // 「如你所愿」:atk+50%、间隔缩短、目标默认被阻挡(战术装备减防 160)
+      const atk = panelAtk * (1 + (levelData.atk || 0));
+      const def = Math.max(0, effDef - 160);
+      const per = h(atk, def) + af.n * h(atk * af.scale, def);
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+  }
+  // 维什戴尔
+  if (op.id === 'char_1035_wisdel') {
+    const bombScale = funnelTalentValue(op, slotData, 0, 'attack@bomb_atk_scale') || 0;
+    if (skillIndex === 0) {                    // 「定点清算」:额外 2 次余震(余震伤害按 append_atk_scale)
+      const per = h(panelAtk) + 2 * h(panelAtk * (levelData.append_atk_scale || af.scale));
+      return res(per, 0, calcCycleDps(levelData, realInterval, h(panelAtk), per));
+    }
+    if (skillIndex === 1) {                    // 「饱和复仇」过载:4 连发 × attack@atk_scale_ol,默认均可命中
+      const atk = panelAtk * (1 + (levelData.atk || 0));
+      const shots = 4;
+      const per = shots * h(atk * (levelData['attack@atk_scale_ol'] || 1));
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+    if (skillIndex === 2) {                    // 「爆裂黎明」:atk+160%、攻击力提升至 200%、弹药 6、好礼额外伤害计入
+      const atk = panelAtk * (1 + (levelData.atk || 0));
+      const main = h(atk * (levelData['attack@atk_scale_3'] || 1));
+      const bomb = h(atk * bombScale);
+      const per = main + bomb + af.n * h(atk * af.scale);
+      const ammo = levelData['attack@trigger_time'] || 0;
+      const total = per * ammo;
+      return res(total, ammo > 0 && realInterval > 0 ? total / (ammo * realInterval) : 0, null);
+    }
+  }
+  // 承曦格雷伊
+  if (op.id === 'char_1027_greyy2') {
+    if (skillIndex === 0) {                    // 「迅捷打击·γ型」:atk+37% + 攻速+35
+      const atk = panelAtk * (1 + (levelData.atk || 0));
+      const per = h(atk) + af.n * h(atk * af.scale);
+      const total = per * nAtk;
+      return res(total, skillDuration > 0 ? total / skillDuration : 0, null);
+    }
+    if (skillIndex === 1) {                    // 「晨曦信标」:雷电球每 interval 秒造成 120% 法伤,持续 10 秒(可充能 2 次 → 计 1 个球的持续时间)
+      const tick = a(panelAtk * (levelData.atk_scale || 0));   // 技能伤害基数 = 攻击力×atk_scale(120%)
+      const dur = levelData.projectile_delay_time || 0;
+      const iv = levelData.interval || 1.5;
+      const ticks = Math.floor(dur / iv + 1e-9) + 1;
+      const total = tick * ticks;
+      return res(total, 0, null, total);
+    }
+  }
+  return generic();
+}
+
+// ===== 猎手(hunter)补弹间隔 =====
+// 用户口径(2026-09-17):基准装填时间 = 攻击间隔;常态"1攻1装弹"(A 装弹 A 装弹)→ 两次普攻之间 = 攻速 + 装填间隔 = 2×攻击间隔;
+// X 模组"2攻1装弹"(A A 装弹 A A 装弹)→ 攻速+攻速+装填间隔内打 2 次 → 每次普攻摊到 1.5×攻击间隔。
+// 技能里的 reload_interval 增减量作用在装填段(装填 = 攻击间隔 + reload_interval)。
+function hunterReloadShots(op, slotData) {
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && Array.isArray(lv.traitEnhance)) {
+    for (const tr of lv.traitEnhance) {
+      const bb = tr.blackboard || {};
+      if (typeof bb.extra_add === 'number' && bb.extra_add >= 1) return 2;
+    }
+  }
+  return 1;
+}
+// 一轮循环 = 攻击间隔 + 装填间隔/n(装填间隔 = 攻击间隔 + 技能 reload_interval 增减量)
+function hunterCycleInterval(baseInterval, op, slotData, levelData) {
+  if (op.subProfessionId !== 'hunter' || !(baseInterval > 0)) return baseInterval;
+  const reload = Math.max(0, baseInterval + ((levelData && levelData.reload_interval) || 0));
+  return baseInterval + reload / hunterReloadShots(op, slotData);
+}
+
+// ===== 投掷手(bombarder)余震 =====
+// 用户口径(2026-09-17):投掷手特性要算(余震伤害 = 攻击力×append_atk_scale,次数取 trait 的 attack@times;
+// X 模组 traitEnhance 会把余震提到 3 次/或开启第三段)。重射手/速射手特性不影响伤害,不计。
+// 转换后干员数据不带 trait(为 null),按原始 character_table 的特性键写死:
+// 投掷手特性 = 攻击附带 attack@times 次、每次 attack@append_atk_scale(0.5)×攻击力的余震;
+// X 模组 traitEnhance 把余震提到 3 次(迷迭香 attack@times 3 / 其余 attack@enable_third_attack 1)。
+const BOMBARDER_AFTERSHOCK = {
+  'char_391_rosmon': { n: 2, scale: 0.5 },
+  'char_1035_wisdel': { n: 2, scale: 0.5 },
+  'char_1027_greyy2': { n: 2, scale: 0.5 },
+  'char_4077_palico': { n: 2, scale: 0.5 },
+};
+// 投掷手常态普攻的余震秒伤(计入常态行;余震同样吃 5% 保底伤害)
+function bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval) {
+  const af = bombarderAftershocks(op, slotData);
+  if (!af.n || !(realInterval > 0)) return 0;
+  return af.n * calcPhysicalDamage(panelAtk * af.scale, effDef) / realInterval;
+}
+function bombarderAftershocks(op, slotData) {
+  const base = BOMBARDER_AFTERSHOCK[op.id];
+  if (!base) return { n: 0, scale: 0.5 };
+  let n = base.n, scale = base.scale;
+  const lv = getModuleLevelData(op, slotData);
+  if (lv && Array.isArray(lv.traitEnhance)) {
+    for (const tr of lv.traitEnhance) {
+      const bb = tr.blackboard || {};
+      if (typeof bb['attack@times'] === 'number') n = bb['attack@times'];
+      if (typeof bb['attack@append_atk_scale'] === 'number') scale = bb['attack@append_atk_scale'];
+      if (typeof bb['attack@enable_third_attack'] === 'number' && bb['attack@enable_third_attack'] >= 1) n = Math.max(n, 3);
+    }
+  }
+  return { n, scale };
+}
+
 // ===== 攻城手(siegesniper)专用结算 =====
 // 说明文本(用户 2026-09-17):早露「深入骨髓」防御忽视与额外伤害不生效;熔泉「火热直觉」攻击力提升不生效;
 // 埃拉托「琴音入梦」防御忽视不生效;铅踝「目光如炬」攻击力增幅不生效、S2「破虹」默认攻击多个敌人(只算本目标);
@@ -2081,7 +2221,7 @@ function calculateOperator(op, slotData, ctx) {
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
   const talentBat = calcTalentBatAdd(op, slotData);
-  const realInterval = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + phenxiNormalAspd(op, slotData));
+  const realInterval = hunterCycleInterval(calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + phenxiNormalAspd(op, slotData)), op, slotData, null);
 
   // No skill: return normal stats only
   if (!skill) {
@@ -2116,7 +2256,8 @@ function calculateOperator(op, slotData, ctx) {
       : Math.max(normalDpsRaw, acdropMinDamage(op, slotData, panelAtk)) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
-        + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps;  // Δ/D 模组:常态化元素爆条平均 DPS
+        + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
+        + bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval);  // 投掷手特性:常态普攻的余震(含保底伤害)
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -2216,7 +2357,7 @@ function calculateOperator(op, slotData, ctx) {
   // ======== Dispatch ========
   const isToggle = levelData.isToggle || false;
   const isPermanent = levelData.isPermanent === true || (PERMANENT_OVERRIDES[op.id] || []).includes(skillIndex);
-  const skillRealInterval = skillInterval;
+  const skillRealInterval = hunterCycleInterval(skillInterval, op, slotData, levelData);
   const isIncantationMedic = op.subProfessionId === 'incantationmedic';
   // 驭法铁卫特性:技能开启时普通攻击变为法术伤害(常态仍物理);技能期=有持续时间/常驻的技能
   const artsProtectorSkill = op.subProfessionId === 'artsprotector' && (skillDuration > 0 || isPermanent) && skillDuration !== 0;
@@ -3388,6 +3529,11 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'bombarder') {
+    result = calcBombarderSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
+      generic: () => calcDamage(params),
+    });
   } else if (op.subProfessionId === 'siegesniper') {
     result = calcSiegeSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,

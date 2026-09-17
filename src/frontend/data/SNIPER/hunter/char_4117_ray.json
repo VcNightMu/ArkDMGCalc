@@ -1,0 +1,784 @@
+{
+  "id": "char_4117_ray",
+  "name": "莱伊",
+  "rarity": "TIER_6",
+  "profession": "SNIPER",
+  "subProfessionId": "hunter",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        547,
+        720
+      ],
+      "def": [
+        103,
+        140
+      ],
+      "maxHp": [
+        904,
+        1190
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        720,
+        900
+      ],
+      "def": [
+        140,
+        180
+      ],
+      "maxHp": [
+        1190,
+        1507
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        900,
+        1072
+      ],
+      "def": [
+        180,
+        228
+      ],
+      "maxHp": [
+        1507,
+        1933
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 120,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_ray_1",
+      "name": "脱身矢",
+      "levels": [
+        {
+          "atk_scale": 2.2,
+          "cnt": 1,
+          "force": 1,
+          "level": 0,
+          "spCost": 16,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "cnt": 1,
+          "force": 1,
+          "level": 1,
+          "spCost": 16,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.6,
+          "cnt": 1,
+          "force": 1,
+          "level": 2,
+          "spCost": 16,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "cnt": 1,
+          "force": 1,
+          "level": 3,
+          "spCost": 14,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.1,
+          "cnt": 1,
+          "force": 1,
+          "level": 4,
+          "spCost": 14,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.3,
+          "cnt": 1,
+          "force": 1,
+          "level": 5,
+          "spCost": 14,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "cnt": 1,
+          "force": 1,
+          "level": 6,
+          "spCost": 12,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.9,
+          "cnt": 2,
+          "force": 1,
+          "level": 7,
+          "spCost": 12,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.2,
+          "cnt": 2,
+          "force": 1,
+          "level": 8,
+          "spCost": 12,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.5,
+          "cnt": 2,
+          "force": 2,
+          "level": 9,
+          "spCost": 10,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ray_2",
+      "name": "广域警觉",
+      "levels": [
+        {
+          "atk": 0.3,
+          "respawn_time": -0.1,
+          "level": 0,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "respawn_time": -0.1,
+          "level": 1,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "respawn_time": -0.1,
+          "level": 2,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.6,
+          "respawn_time": -0.2,
+          "level": 3,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.7,
+          "respawn_time": -0.2,
+          "level": 4,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.8,
+          "respawn_time": -0.2,
+          "level": 5,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.9,
+          "respawn_time": -0.3,
+          "level": 6,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 1,
+          "respawn_time": -0.3,
+          "level": 7,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 1.1,
+          "respawn_time": -0.3,
+          "level": 8,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 1.2,
+          "respawn_time": -0.4,
+          "level": 9,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_ray_3",
+      "name": "“得见光芒”",
+      "levels": [
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 1.9,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 0,
+          "spCost": 40,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 1,
+          "spCost": 39,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.1,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 2,
+          "spCost": 38,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.3,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 3,
+          "spCost": 37,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.4,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 4,
+          "spCost": 36,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.5,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 5,
+          "spCost": 35,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.7,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 6,
+          "spCost": 33,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 2.9,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 7,
+          "spCost": 32,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 3.1,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 8,
+          "spCost": 31,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "reload_interval": -1.2,
+          "attack@atk_scale": 3.3,
+          "attack@unmove_duration": 2,
+          "sp": 10,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "巡哨伙伴",
+          "description": "可以在攻击范围内部署沙地兽于15秒内侦察一片区域延伸攻击范围，自身优先攻击该区域内的目标且对其造成的物理伤害提高10%",
+          "blackboard": {
+            "damage_scale": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "巡哨伙伴",
+          "description": "可以在攻击范围内部署沙地兽于25秒内侦察一片区域延伸攻击范围，自身优先攻击该区域内的目标且对其造成的物理伤害提高15%",
+          "blackboard": {
+            "damage_scale": 0.15
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "入神",
+          "description": "攻击相同目标时每次攻击提高自身攻击力8%，最多3层",
+          "blackboard": {
+            "atk": 0.08,
+            "max_stack_cnt": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "入神",
+          "description": "攻击相同目标时每次攻击提高自身攻击力9%<@ba.talpu>（+1%）</>，最多3层",
+          "blackboard": {
+            "atk": 0.09,
+            "max_stack_cnt": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "攻击时需要消耗子弹且攻击力提升至120%，不攻击时会缓慢地装填子弹（最多{value}发，精英1后更新）",
+    "blackboard": {
+      "value": 4,
+      "atk_scale": 1.2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+37",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 37
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_ray",
+      "name": "莱伊证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_ray",
+      "name": "《跳舞的月光》",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 50,
+            "def": 15
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 65,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": "巡哨伙伴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.18
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 70,
+            "def": 25
+          },
+          "talentEnhance": [
+            {
+              "name": "巡哨伙伴",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_scale": 0.2
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "extra_add": 1,
+                "value": 8,
+                "atk_scale": 1.2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_ray",
+      "name": "证明什么？",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 60,
+            "attack_speed": 5
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 8,
+                "atk_scale": 1.33
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 160,
+            "atk": 65,
+            "attack_speed": 6
+          },
+          "talentEnhance": [
+            {
+              "name": "入神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 4,
+                "atk": 0.08
+              }
+            },
+            {
+              "name": "入神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 4,
+                "atk": 0.09
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 8,
+                "atk_scale": 1.33
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 75,
+            "attack_speed": 7
+          },
+          "talentEnhance": [
+            {
+              "name": "入神",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 4,
+                "atk": 0.09
+              }
+            },
+            {
+              "name": "入神",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 4,
+                "atk": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "value": 8,
+                "atk_scale": 1.33
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
