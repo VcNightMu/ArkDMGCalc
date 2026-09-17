@@ -1702,6 +1702,7 @@ const TALENT_DMG_MUL_DRIVERS = {
   // 薇薇安娜「燃烛施明」:法术伤害加成 additive(damage_scale_m 0.05~0.09),攻击范围内有精英/领袖敌人时 super_scale 翻倍
   // (damage_resistance_pm 受击减伤为承伤向不计)——superGrades 按 state.enemy.grade 判定
   'char_4098_vvana': { talentIndex: 0, key: 'damage_scale_m', additive: true, superKey: 'super_scale', superGrades: ['elite', 'leader'] },
+  'char_4218_aigis': { talentIndex: 1, key: 'damage_scale' },  // 埃癸斯「反暗影特殊压制兵装」:造成物理伤害 ×1.05~1.10(模组 te 提到 1.13~1.17);受击减伤为承伤向不计
 };
 // 返回满足当前精化/潜能的最高伤害乘子（无 → 1）
 function calcTalentDmgMul(op, slotData) {
@@ -3561,19 +3562,39 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'skybreaker') {
+    const tmul = calcTalentDmgMul(op, slotData);
+    const h = (atk) => calcPhysicalDamage(atk, effDef) * tmul;
+    const nrm = () => (realInterval > 0 ? calcPhysicalDamage(panelAtk, effDef) * tmul / realInterval : null);
+    // 天空盒「电磁脉冲恩宠」:10 枚弹药,每枚 200%(攻击范围扩大不影响单目标伤害)
+    if (op.id === 'char_4213_skybx' && skillIndex === 1) {
+      const ammo = levelData['attack@trigger_time'] || 0;
+      const per = h(panelAtk * (levelData['attack@atk_scale'] || 1));
+      const total = per * ammo;
+      const dur = ammo > 0 ? ammo * realInterval : realInterval;
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total, cycleDps: null, normalDps: nrm(), skillHps: null, normalHps: null, totalHeal: null, realInterval, panelAtk, dmgTypes: { physical: { skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total, cycleDps: null } } };
+    }
+    // 埃癸斯「全弹发射」:6 枚导弹各 140% + 飞踢 280%(目标及周围,单目标算一次)
+    if (op.id === 'char_4218_aigis' && skillIndex === 1) {
+      const per = 6 * h(panelAtk * (levelData.atk_scale || 1)) + h(panelAtk * (levelData.kick_atk_scale || 0));
+      const cd = realInterval > 0 ? calcCycleDps(levelData, realInterval, calcPhysicalDamage(panelAtk, effDef) * tmul, per) : null;
+      return { type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: 0, skillTotalDamage: per, cycleDps: cd, normalDps: nrm(), skillHps: null, normalHps: null, totalHeal: null, realInterval, panelAtk, dmgTypes: { physical: { skillDps: 0, skillTotalDamage: per, cycleDps: cd } } };
+    }
+    const g = calcDamage(params);
+    return { ...g, type: 'damage', damageType: g.damageType || 'physical', isToggle: false, isPermanent: false, realInterval: skillRealInterval, skillInterval: skillRealInterval, normalInterval: realInterval, panelAtk: panelAtk * (1 + (levelData.atk || 0)) };
   } else if (op.subProfessionId === 'loopshooter') {
     const steal = narantStealAtk(op, slotData);
     const baseAtk = panelAtk + steal;
     const h = (atk) => calcPhysicalDamage(atk, effDef);
     const nrm = () => (realInterval > 0 ? h(baseAtk) / realInterval : null);   // 常态间隔
     const nAtk = skillDuration > 0 && realInterval > 0 ? Math.floor(skillDuration / realInterval + 1e-9) : 0;
-    const mk = (total, dps) => ({ skillDps: dps, skillTotalDamage: total, cycleDps: null, normalDps: nrm(), skillHps: null, normalHps: null, totalHeal: null, damageType: 'physical', realInterval, dmgTypes: { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
+    const mk = (total, dps, panel) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: dps, skillTotalDamage: total, cycleDps: null, normalDps: nrm(), skillHps: null, normalHps: null, totalHeal: null, realInterval, panelAtk: panel || panelAtk, dmgTypes: { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: null } } });
     // 跃跃「乐趣加倍」:二连击
     if (op.id === 'char_4100_caper' && skillIndex === 1) {
       const atk = baseAtk * (1 + (levelData.atk || 0));
       const per = 2 * h(atk);
       const total = per * nAtk;
-      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0, atk);
     }
     // 娜仁图亚「旋刃」(切换):每击 170%(弹跳只对多目标生效,单目标 1 段)
     if (op.id === 'char_4138_narant' && skillIndex === 0) {
@@ -3600,12 +3621,12 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       const atk = baseAtk * (1 + (levelData.atk || 0));
       const per = 5 * h(atk);
       const total = per * nAtk;
-      return mk(total, skillDuration > 0 ? total / skillDuration : 0);
+      return mk(total, skillDuration > 0 ? total / skillDuration : 0, atk);
     }
     const g = calcDamage(params);
     if (g && steal > 0 && g.normalDps !== null && g.normalDps !== undefined) g.normalDps = nrm();
-    // 未命中特例的技能照常走通用结算,但补上面板/技能间隔字段(通用链不带)
-    return { ...g, panelAtk: (g && g.panelAtk) || panelAtk, realInterval: skillRealInterval, skillInterval: skillRealInterval, normalInterval: realInterval };
+    // 未命中特例的技能照常走通用结算:补上引擎返回字段(本分支是最终返回值,不能只依赖通用链)
+    return { ...g, type: 'damage', damageType: g.damageType || 'physical', isToggle: false, isPermanent: false, realInterval: skillRealInterval, skillInterval: skillRealInterval, normalInterval: realInterval, panelAtk: panelAtk * (1 + (levelData.atk || 0)) };
   } else if (op.subProfessionId === 'bombarder') {
     result = calcBombarderSkill(op, slotData, skillIndex, levelData, {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
