@@ -4017,9 +4017,12 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
         result = mkR(tot, win > 0 ? tot / win : 0, null, a, nDps);
       } else {
         // S3 圣约决裁:攻击间隔略微增大 +0.5(BAT_ADD,1.3→1.8s);攻击力 +X%(专一 +160%),
-        // 每消耗 1 颗弹药攻击力额外 +attack@atk%(专一 5%,上限 attack@max_stack_cnt = 30 层);
-        // 用户口径 2026-09-17:第 k 次攻击含 k 层(首击即 +5%,末击 +85%);
-        // 技能结束时对技能期间攻击过的目标追加 1 次 attack@final_atk_scale × 当前攻击力 的物理伤害(专一 200%)。
+        // 每消耗 1 颗弹药攻击力额外 +attack@atk%(专一 5%,上限 attack@max_stack_cnt = 30 层)。
+        // 结算顺序(用户口径 2026-09-17):「先结算弹药消耗带来的攻击力增加、再出伤」→ 第 k 发含 k 层
+        // (首击即 +5%,末发 17 发时 +85%);
+        // 技能结束时追加 1 击:对技能期间攻击过的目标造成 attack@final_atk_scale × 攻击力 的物理伤害
+        // (专一 200%/专三 250%)。PRTS 备注「技能结束时的攻击受到攻击力/特性加成影响」→ 基值取叠满后的攻击力
+        // (即叠加收益被末击再吃一次)。
         // 注:attack@atk 已由引擎按 1 层并入 skillAtk(见参数区 attack@atk 的 direct_mul),故每层增量单列。
         const perAmmo = levelData['attack@atk'] || 0;
         const capSt = levelData['attack@max_stack_cnt'] || 30;
