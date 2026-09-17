@@ -3393,6 +3393,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10029_slent2_protrb",
+    "name": "夜灯",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1031_slent2",
+    "ownerName": "淬羽赫默"
+  },
+  {
     "id": "char_4202_haruka",
     "name": "遥",
     "rarity": "TIER_6",

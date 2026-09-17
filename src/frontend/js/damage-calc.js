@@ -174,8 +174,9 @@ const FIGHTER_SPECIAL = {
 // ===== 剑豪(sword)专用助手 =====
 // ===== 辅助·凝滞师(slower) =====
 // 特性「攻击造成法术伤害」:数据 damageType 仍为 physical,统一按法术结算(常态/技能期/模组档)。
-// 凝滞师(slower):「攻击造成法术伤害，并使敌人停顿」;削弱者(underminer):「攻击造成法术伤害」(攻击使敌攻击力-10% 持续2秒为敌方减益,非己方输出,不建模)。
-const SUBPROF_ARTS = { slower: true, underminer: true };
+// 凝滞师(slower):「攻击造成法术伤害，并使敌人停顿」;削弱者(underminer):「攻击造成法术伤害」(攻击使敌攻击力-10% 持续2秒为敌方减益,非己方输出,不建模);
+// 护佑者(blessing):「攻击造成法术伤害,技能开启后改为治疗友方单位(治疗量相当于75%攻击力)」——常态也是法术伤害(同特米米口径,数据 damageType 仍为 physical)。
+const SUBPROF_ARTS = { slower: true, underminer: true, blessing: true };
 // 技能期每击倍率改写表(值 = 技能 blackboard 中的倍数键;安洁莉娜 S2「微粒模式」:间隔极大缩短但每击只造成 40% 攻击力法伤)
 const SKILL_PER_HIT_SCALE = {
   'char_291_aglina': { 1: 'damage_scale' },
@@ -312,6 +313,72 @@ function calcBardSkill(op, slotData, skillIndex, levelData, ctx) {
     }
   }
   return mk(normalHps, null);
+}
+// ===== 护佑者(blessing,辅助)专用结算 =====
+// 特性(7 人一致):「攻击造成法术伤害,技能开启后改为治疗友方单位(治疗量相当于 heal_scale×攻击力,基础 75%)」。
+// 与咒愈师的区别:咒愈师是「攻击时同时治疗(治疗量=50%伤害)」,护佑者是「技能开启后攻击改为治疗」→ 技能期无伤害。
+// 用户口径(2026-09-18):天赋的生命回复/技力回复效果不计算(淬羽赫默「丰润羽翼」、遥「扶摇花火」);
+// 召唤物(淬羽赫默的夜灯)信息在「特殊-干员附带单位」中查询。
+// X 模组 traitEnhance 把 heal_scale 提到 1(100%),走 calcTraitScale(op,slot,'heal_scale') 自动生效。
+const BLESSING_SPECIAL = {
+  'char_343_tknogi': [1],   // 月禾 S2 森廻:停止攻击,每秒恢复友军 攻击力×attack@atk_to_hp_recovery_ratio(专一 12%)
+};
+// 技能攻击力加成不计入治疗基准的技能(暂无:遥 S2 的攻击力+30% 已按用户口径 2026-09-18「直接按第二次使用永续计算」计入)
+const BLESSING_ATK_IGNORE = {};
+function calcBlessingSkill(op, slotData, skillIndex, levelData, ctx) {
+  const { panelAtk, skillRealInterval, skillDuration, isPermanent, normalDps } = ctx;
+  const healScale = calcTraitScale(op, slotData, 'heal_scale') ?? 0.75;
+  const dur = skillDuration > 0 ? skillDuration : 0;
+  const mk = (sHps, totalHeal, extra) => Object.assign({
+    type: 'heal', damageType: 'arts', isToggle: false, isPermanent: !!isPermanent,
+    skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps, normalHps: null,
+    skillHps: sHps, totalHeal: totalHeal === undefined ? null : totalHeal,
+    realInterval: skillRealInterval, panelAtk,
+  }, extra || {});
+  // 技能期攻击力 = 面板 ×(1+技能 atk 加成);治疗量同吃攻击力加成(skillAtk 含 atk_scale,不用)
+  const atkBuff = (BLESSING_ATK_IGNORE[op.id] || []).includes(skillIndex) ? 0 : (levelData.atk || 0);
+  const healAtk = panelAtk * (1 + atkBuff);
+  // 停止攻击型(月禾 S2):技能期改为每秒按比率恢复友军
+  if ((BLESSING_SPECIAL[op.id] || []).includes(skillIndex)) {
+    const perSec = healAtk * (levelData['attack@atk_to_hp_recovery_ratio'] || 0);
+    return mk(perSec, perSec * dur, { realInterval: 1 });
+  }
+  // 瞬发治疗型(dur≤−1、立即治疗 heal_scale;撷英调香师 S1 可充能 cnt 次):一次性给量,只记总治疗量(同落地点火惯例)
+  // 无限制型(持续时间无限/手动开关,如夏栎 S1)不走此分支 → 按每击治疗常态 HPS。
+  if ((skillDuration === -1 || skillDuration === 0) && !isPermanent && levelData.heal_scale !== undefined) {
+    const total = healAtk * (levelData.heal_scale ?? 0) * (levelData.cnt ?? 1);
+    return mk(0, total);
+  }
+  // 常规:每次攻击改为治疗一次(治疗量 = 技能期攻击力 × heal_scale)
+  const perHit = healAtk * healScale;
+  const hits = Math.max(1, Math.floor(dur / skillRealInterval));
+  // 遥 S2「幽隙栖萤」:友方受到遥的治疗效果时,对周围 3 名敌人造成相当于治疗量 atk_scale_extra 的法术伤害
+  // (治疗目标数+add 个 → 每击触发 add+1 次;单目标口径下每次触发命中同一敌人)
+  // 用户口径(2026-09-18):S2 直接按「第二次及以后使用」计算 → 攻击力+30% 生效、持续时间无限(永续型,不记总治疗量/总伤)
+  if (op.id === 'char_4202_haruka' && (levelData.atk_scale_extra !== undefined)) {
+    const healTargets = 1 + (levelData['attack@max_target_heal_add'] || 0);
+    const dmgPerHit = calcArtsDamage(perHit * (levelData.atk_scale_extra ?? 0), state.enemy.res) * healTargets;
+    if (isPermanent) {
+      return mk(perHit / skillRealInterval, null, {
+        skillDps: dmgPerHit / skillRealInterval, skillTotalDamage: 0,
+        dmgTypes: { arts: { skillDps: dmgPerHit / skillRealInterval, skillTotalDamage: 0, cycleDps: null } },
+      });
+    }
+    const total = dmgPerHit * hits;
+    return mk(perHit / skillRealInterval, perHit * hits, {
+      skillDps: total / dur, skillTotalDamage: total,
+      dmgTypes: { arts: { skillDps: total / dur, skillTotalDamage: total, cycleDps: null } },
+    });
+  }
+  // 行箸 S2「食不厌精」:额外治疗 1 名目标,且每秒恢复天赋生效目标 攻击力×ratio 的生命
+  const extraRegenRatio = levelData['attack@xingzh_s_2[heal].atk_to_hp_recovery_ratio'];
+  if (typeof extraRegenRatio === 'number') {
+    const hps = perHit / skillRealInterval + healAtk * extraRegenRatio;   // 每击治疗 + 每秒恢复天赋生效目标
+    return mk(hps, hps * dur, { realInterval: skillRealInterval });
+  }
+  // 无限持续型(夏栎 S1):按每击治疗给 HPS,总治疗量不记(同永久型惯例)
+  if (isPermanent) return mk(perHit / skillRealInterval, null);
+  return mk(perHit / skillRealInterval, perHit * hits);
 }
 // 凝滞师需专用结算的技能(其余落回引擎通用链尾)
 const SLOWER_SPECIAL = {
@@ -2111,13 +2178,13 @@ function calcModuleTalentEnhance(op, slotData) {
  * 强化覆盖(overrideTraitDataBundle,如咒愈师模组 L1 起 scale 0.5→0.6)。
  * 返回 null 表示干员无此特性变量(调用方回退默认值)。
  */
-function calcTraitScale(op, slotData) {
-  const base = (op.trait && op.trait.blackboard && typeof op.trait.blackboard.scale === 'number')
-    ? op.trait.blackboard.scale : null;
+function calcTraitScale(op, slotData, key = 'scale') {
+  const base = (op.trait && op.trait.blackboard && typeof op.trait.blackboard[key] === 'number')
+    ? op.trait.blackboard[key] : null;
   const lv = getModuleLevelData(op, slotData);
   if (lv && lv.traitEnhance) {
     for (const cand of lv.traitEnhance) {
-      const s = cand.blackboard && cand.blackboard.scale;
+      const s = cand.blackboard && cand.blackboard[key];
       if (typeof s === 'number') return s;
     }
   }
@@ -2996,6 +3063,11 @@ function calculateOperator(op, slotData, ctx) {
     if (isBard) {
       const hps = panelAtk * bardTraitRatio(op, null) + panelAtk * bardTalentHealRate(op, slotData);
       return { type: 'heal', damageType: 'arts', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: null, skillHps: null, normalHps: hps, totalHeal: null, isToggle: false, isPermanent: false, realInterval: 1, panelAtk };
+    }
+    // 护佑者(blessing):常态是法术伤害普攻(技能开启后才改为治疗) → 常态只有 DPS,无治疗
+    if (op.subProfessionId === 'blessing') {
+      const normHit = calcArtsDamage(panelAtk, effRes);
+      return { type: 'damage', damageType: 'arts', normalDamageType: 'arts', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: normHit / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
     }
     const isArts = op.damageType === 'arts';
     // 弱点伤害干员(赤刃明霄陈 形意洞照,精1+):常态普攻逐击取物理/法伤更高值
@@ -4757,6 +4829,12 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
   } else if (isBard) {
     // 吟游者:全部技能走专用分支(特性比率覆盖 / 微尘真伤 / 每跳法伤;鼓舞不计入自身输出)
     result = calcBardSkill(op, slotData, skillIndex, levelData, { panelAtk, skillDuration, isPermanent });
+  } else if (op.subProfessionId === 'blessing') {
+    // 护佑者:全部技能走专用分支(技能开启后攻击改为治疗 → 技能期 HPS;天赋生命/技力回复不计)
+    result = calcBlessingSkill(op, slotData, skillIndex, levelData, {
+      panelAtk, skillRealInterval, skillDuration, isPermanent,
+      normalDps: calcArtsDamage(panelAtk, effRes) / realInterval,
+    });
   } else if (op.subProfessionId === 'underminer' && UNDERMINER_SPECIAL[op.id] && UNDERMINER_SPECIAL[op.id].includes(skillIndex)) {
     // ===== 辅助·削弱者(underminer)特例技能 =====
     // 通用口径:削弱者普攻/技能均为法术伤害(SUBPROF_ARTS);特性「攻击使敌人攻击力-10% 持续2秒」为敌方减益(非己方输出),
@@ -5372,9 +5450,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
     const hps = talentHps + (pctRegen ? panelHp * pctRegen.ratio : 0);
     if (hps > 0) result = { ...result, normalHps: hps };
   }
-  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined);
-  // 吟游者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
-  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: isBard ? panelAtk : skillAtk };
+  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined) || (op.subProfessionId === 'blessing' && result.skillHps !== null && result.skillHps !== undefined);
+  // 吟游者/护佑者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
+  return { ...result, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: (isBard || op.subProfessionId === 'blessing') ? panelAtk : skillAtk };
 }
 
 /**
