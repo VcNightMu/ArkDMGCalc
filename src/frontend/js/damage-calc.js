@@ -19,6 +19,7 @@ function getSkillLevelData(skill, level) {
 // 作用于常态与技能期,随精英化/等级/潜能强化取满足条件的最高档。
 // key: 干员 id;value: 常驻加攻天赋在 op.talents 数组中的索引。
 const TALENT_ATK_DRIVERS = {
+  'char_137_brownb': 0,   // 猎蜂「竞技专注」:攻击力每层 +3/4/5/6%,最多 5 层(引擎按满层叠满)
   'char_1026_gvial2': 0,   // 百炼嘉维尔「战地巨斧」:攻击力 +10%(默认按"不阻挡敌人"的档,atk_add 档不计)
   'char_281_popka': 0,     // 泡普卡:攻击力 +3/5/6/8%(E2 潜0 = 6%)
   'char_017_huang': { talentIndex: 1, key: 'huang_t_2[e_002_atk].atk' },   // 煌「严酷训练」:攻击力增幅(模组 X 新增档,默认生效)
@@ -100,6 +101,56 @@ function calcTalentHealScale(op, slotData) {
 }
 
 // 查驱动表,返回常驻加攻天赋在当前精英化/等级下的直接乘算加数(0 表示无此天赋或未生效)。
+// ===== 斗士(fighter)专用助手 =====
+// 贝洛内「家族手段」:攻击使目标防御力降低,默认按叠满(本体 5 层,2 技能期间 8 层)
+function demetrDefDownPct(op, slotData, skillIndex) {
+  if (op.id !== 'char_4037_demetr') return 0;
+  const talent = (op.talents || [])[0];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      const per = Math.abs(typeof bb['attack@def'] === 'number' ? bb['attack@def'] : 0);
+      const key = skillIndex === 1 ? 'attack@s2_limited_stack_cnt' : 'attack@limited_stack_cnt';
+      const stacks = typeof bb[key] === 'number' ? bb[key] : (typeof bb['attack@limited_stack_cnt'] === 'number' ? bb['attack@limited_stack_cnt'] : 0);
+      const v = per * stacks;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
+
+// 燧石「身轻无痕」:伤害提升(non-skill 不生效,仅 2 技能期间);返回倍率
+function fighterFlintScale(op, slotData) {
+  if (op.id !== 'char_415_flint') return 1;
+  const talent = (op.talents || [])[0];
+  if (!talent) return 1;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 1;
+  for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const bb = cand.blackboard || {};
+      if (typeof bb.damage_scale === 'number' && bb.damage_scale > best) best = bb.damage_scale;
+    }
+  }
+  return best;
+}
+
+// 斗士特例技能表(只拦这些,其余走引擎通用链尾以免丢字段)
+const FIGHTER_SPECIAL = {
+  'char_347_jaksel': [1],   // 全神贯注:闪避默认不生效 → 0
+  'char_157_dagda': [0],    // 反制技巧:默认受击一次结算帮派精神
+  'char_2024_chyue': [2],   // 我无:按开满 5 次
+  'char_415_flint': [1],    // 锋芒毕露:身轻无痕伤害提升仅 2 技能
+  'char_4037_demetr': [1, 2] // 军师的手段 / 清算
+};
+
 function calcTalentAtkBonus(op, slotData) {
   const cfg = TALENT_ATK_DRIVERS[op.id];
   if (cfg === undefined) return 0;
@@ -1909,6 +1960,7 @@ function calcTalentDmgMul(op, slotData) {
 // ===== 不屈者(unyield)及相关通用机制驱动表 =====
 // base_attack_time 正小数按加算秒处理(引擎默认 (0,1)=乘算缩短;描述为"间隔增大"的技能例外)
 const BAT_ADD_OVERRIDES = {
+  'char_264_f12yin': { 2: true },   // 山 S3「震地碎岩击」:攻击间隔增大(0.78+0.7)
   'char_356_broca': { 1: true },   // 布洛卡 S2「高压电流」:基础攻击间隔 +0.65 秒(加算)
   'char_163_hpsts': { 1: true },   // 火神 S2 武力模式:攻击间隔略微增大(1.6+0.4=2.0s)
   'char_4065_judge': { 2: true },  // 斥罪 S3 披荆斩棘:攻击间隔增大(1.6+0.9=2.5s)
@@ -2112,6 +2164,9 @@ const PERIODIC_DOT = {
 };
 // 每攻击多次连击(技能描述"二/三连击",单目标模型全中;value=连击数)
 const MULTI_HIT = {
+  'char_157_dagda': { 1: 2 },    // 达格达 S2「精准捕杀」:攻击变为二连击
+  'char_264_f12yin': { 2: 2 },   // 山 S3「震地碎岩击」:攻击变为 2 连击
+  'char_4037_demetr': { 0: 2 },  // 贝洛内 S1「家主的余裕」:对目标造成两次 220% 物理伤害
   'char_271_spikes': { 0: 2 },   // 芳汀 S1「小玩笑」:攻击变为二连击(数据无 times,按文案写死)
   'char_4054_malist': { 1: 2 },   // 至简 S2「神工意匠」:下次攻击造成 1.7×atk 法伤并连续攻击两次(点燃类,可充能3次)
   'char_1044_hsgma2': { 2: 2 },    // 斩业星熊 S3 地狱变相:二连击打最多3敌(单目标=2连全中)
@@ -2432,7 +2487,7 @@ function calculateOperator(op, slotData, ctx) {
   // 有效防御:固定穿防直接减(defPenFixed=0 干员与 enemy.def 等价,函数内物理结算统一引用)
   // 偷取防御稳态(伺夜 Y 模组叠满:目标减防至上限,无模组为 0)
   const defStealSteady = calcTalentDefStealSteady(op, slotData);
-  const defIgnorePct = calcTalentDefIgnorePct(op, slotData);
+  const defIgnorePct = calcTalentDefIgnorePct(op, slotData) + demetrDefDownPct(op, slotData, slotData.skillIndex ?? -1);
   const effDef = Math.max(0, state.enemy.def * (1 - defIgnorePct) - defPenFixed - defStealSteady);
   // 攻速总加成 = 天赋攻速(含模组覆盖)+ 模组白值攻速(100 基准上加算),再换算攻击间隔
   const baseAspdBonus = talentAspd + mod.attackSpeed + modUncond.aspd;
@@ -2471,7 +2526,7 @@ function calculateOperator(op, slotData, ctx) {
     const normalDps = op.subProfessionId === 'phalanx' ? 0
       : (op.subProfessionId === 'lord'
         ? Math.max(calcPhysicalDamage(panelAtk * LORD_REMOTE_MUL, effDef), acdropMinDamage(op, slotData, panelAtk * LORD_REMOTE_MUL))
-        : Math.max(normalDpsRaw, acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
+        : Math.max(normalDpsRaw * (op.id === 'char_2024_chyue' ? 2 : 1), acdropMinDamage(op, slotData, panelAtk))) / realInterval * (op.subProfessionId === 'funnel' ? calcFunnelMuls(op, slotData, -1, {}, 0, 0).normalMul : 1)  // 驭械术师:无技能槽常态=本体+浮游单元(满层)
         * ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).factor  // 伊芙利特 Δ/D 模组:常态法伤按爆条窗口(法抗-20)平均修正
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
@@ -3758,6 +3813,47 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx) {
       damageType: 'physical', realInterval: skillRealInterval,
       dmgTypes: { physical: { skillDps: kroosDps, skillTotalDamage: kroosTotal, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'fighter' && FIGHTER_SPECIAL[op.id] && FIGHTER_SPECIAL[op.id].includes(skillIndex)) {
+    const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
+    const Pp = (a) => calcPhysicalDamage(a, effDef);
+    const mk = (sTot, sDps, cd, panel, mul) => ({ type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false, skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd, normalDps: null, skillHps: null, normalHps: null, totalHeal: null, realInterval: sIvl, panelAtk: panel || skillAtk, dmgTypes: { physical: { skillDps: sDps, skillTotalDamage: sTot, cycleDps: cd } } });
+    // 杰克 S2「全神贯注」:仅闪避成功后反击,闪避默认不生效 → 输出 0
+    if (op.id === 'char_347_jaksel' && skillIndex === 1) return mk(0, 0, 0, panelAtk);
+    // 达格达 S1「反制技巧」:默认受击一次结算帮派精神(1 层 +5%),下次攻击力提高至 190%
+    if (op.id === 'char_157_dagda' && skillIndex === 0) {
+      const a = panelAtk * 1.05 * 1.9;
+      return mk(Pp(a), 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Pp(a)), a);
+    }
+    // 重岳「我无」按开满 5 次处理:攻击变二连击 + 技能额外一次伤害(共 3 次 320%)
+    if (op.id === 'char_2024_chyue' && skillIndex === 2) {
+      return mk(Pp(skillAtk) * 3, 0, calcCycleDps(levelData, realInterval, Pp(panelAtk), Pp(skillAtk) * 3), skillAtk);
+    }
+    // 燧石 S2「锋芒毕露」:身轻无痕的伤害提升仅 2 技能开启时生效
+    if (op.id === 'char_415_flint' && skillIndex === 1) {
+      const mul = fighterFlintScale(op, slotData);
+      const n = skillDuration > 0 && sIvl > 0 ? Math.floor(skillDuration / sIvl + 1e-9) : 0;
+      const tot = n * Pp(skillAtk) * mul;
+      return mk(tot, skillDuration > 0 ? tot / skillDuration : 0, null, skillAtk);
+    }
+    // 贝洛内 S1「军师的手段」:每击 180%(键带 attack@ 前缀)+ 家族手段按 8 层减防
+    if (op.id === 'char_4037_demetr' && skillIndex === 1) {
+      const sc = levelData['attack@atk_scale'] || 1;
+      const n = skillDuration > 0 && sIvl > 0 ? Math.floor(skillDuration / sIvl + 1e-9) : 0;
+      const a = panelAtk * sc;
+      const tot = n * Pp(a);
+      return mk(tot, skillDuration > 0 ? tot / skillDuration : 0, null, a);
+    }
+    // 贝洛内 S2「清算」:攻击力 +150%、攻速 +40(键均带前缀);45% 概率追加伤害默认不生效
+    if (op.id === 'char_4037_demetr' && skillIndex === 2) {
+      const atkPct = levelData['attack@demetr_s3[bonus].atk'] || 0;
+      const aspd = levelData['attack@demetr_s3[bonus].attack_speed'] || 0;
+      const iv = calcRealInterval(phase.baseAttackTime, 100 + baseAspdBonus + aspd);
+      const n = skillDuration > 0 && iv > 0 ? Math.floor(skillDuration / iv + 1e-9) : 0;
+      const a = panelAtk * (1 + atkPct);
+      const tot = n * Pp(a);
+      return Object.assign(mk(tot, skillDuration > 0 ? tot / skillDuration : 0, null, a), { realInterval: iv, skillInterval: iv });
+    }
+    return calcDamage(params);
   } else if (op.subProfessionId === 'centurion' && op.id === 'char_017_huang' && skillIndex === 2) {
     const sIvl = (typeof skillRealInterval === 'number' && skillRealInterval > 0) ? skillRealInterval : realInterval;
     const tmul = calcTalentDmgMul(op, slotData);
