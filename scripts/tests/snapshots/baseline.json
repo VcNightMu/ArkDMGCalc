@@ -124099,12 +124099,12 @@
    "s0": {
     "type": "damage",
     "dt": "physical",
-    "atk": 778,
+    "atk": 918.04,
     "int": 1.3,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 136.923,
+    "nDps": 244.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -124114,20 +124114,20 @@
    "s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 778,
+    "atk": 918.04,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 178,
-    "cDps": 148.333,
-    "nDps": null,
+    "sDps": 1092.068,
+    "sTot": 11357.504,
+    "cDps": null,
+    "nDps": 244.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 178,
-      "cd": 148.333
+      "sd": 1092.068,
+      "st": 11357.504,
+      "cd": null
      }
     },
     "nm": null
@@ -124135,20 +124135,20 @@
    "s2": {
     "type": "damage",
     "dt": "physical",
-    "atk": 778,
+    "atk": 918.04,
     "int": 0.6,
-    "sDps": 0,
-    "sTot": 178,
-    "cDps": 296.667,
-    "nDps": null,
+    "sDps": 3284.187,
+    "sTot": 68967.92,
+    "cDps": null,
+    "nDps": 244.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 178,
-      "cd": 296.667
+      "sd": 3284.187,
+      "st": 68967.92,
+      "cd": null
      }
     },
     "nm": null
@@ -124156,20 +124156,20 @@
    "s3": {
     "type": "damage",
     "dt": "physical",
-    "atk": 949.16,
+    "atk": 1089.2,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 349.16,
-    "cDps": 142.205,
-    "nDps": null,
+    "sDps": 3976.154,
+    "sTot": 51690,
+    "cDps": null,
+    "nDps": 244.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 349.16,
-      "cd": 142.205
+      "sd": 3976.154,
+      "st": 51690,
+      "cd": null
      }
     },
     "nm": null
@@ -124177,12 +124177,12 @@
    "mXL1s0": {
     "type": "damage",
     "dt": "physical",
-    "atk": 828,
+    "atk": 977.04,
     "int": 1.3,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 175.385,
+    "nDps": 290.031,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -124192,20 +124192,20 @@
    "mXL1s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 828,
+    "atk": 977.04,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 228,
-    "cDps": 190,
-    "nDps": null,
+    "sDps": 1191.914,
+    "sTot": 12395.904,
+    "cDps": null,
+    "nDps": 290.031,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 228,
-      "cd": 190
+      "sd": 1191.914,
+      "st": 12395.904,
+      "cd": null
      }
     },
     "nm": null
@@ -124213,20 +124213,20 @@
    "mXL1s2": {
     "type": "damage",
     "dt": "physical",
-    "atk": 828,
+    "atk": 977.04,
     "int": 0.6,
-    "sDps": 0,
-    "sTot": 228,
-    "cDps": 380,
-    "nDps": null,
+    "sDps": 3559.52,
+    "sTot": 74749.92,
+    "cDps": null,
+    "nDps": 290.031,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 228,
-      "cd": 380
+      "sd": 3559.52,
+      "st": 74749.92,
+      "cd": null
      }
     },
     "nm": null
@@ -124234,20 +124234,20 @@
    "mXL1s3": {
     "type": "damage",
     "dt": "physical",
-    "atk": 1010.16,
+    "atk": 1159.2,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 410.16,
-    "cDps": 181.09,
-    "nDps": null,
+    "sDps": 4380,
+    "sTot": 56940,
+    "cDps": null,
+    "nDps": 290.031,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 410.16,
-      "cd": 181.09
+      "sd": 4380,
+      "st": 56940,
+      "cd": null
      }
     },
     "nm": null
@@ -124255,12 +124255,12 @@
    "mXL2s0": {
     "type": "damage",
     "dt": "physical",
-    "atk": 836,
+    "atk": 986.48,
     "int": 1.3,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 181.538,
+    "nDps": 297.292,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -124270,20 +124270,20 @@
    "mXL2s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 836,
+    "atk": 986.48,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 236,
-    "cDps": 196.667,
-    "nDps": null,
+    "sDps": 1207.889,
+    "sTot": 12562.048,
+    "cDps": null,
+    "nDps": 297.292,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 236,
-      "cd": 196.667
+      "sd": 1207.889,
+      "st": 12562.048,
+      "cd": null
      }
     },
     "nm": null
@@ -124291,20 +124291,20 @@
    "mXL2s2": {
     "type": "damage",
     "dt": "physical",
-    "atk": 836,
+    "atk": 986.48,
     "int": 0.6,
-    "sDps": 0,
-    "sTot": 236,
-    "cDps": 393.333,
-    "nDps": null,
+    "sDps": 3603.573,
+    "sTot": 75675.04,
+    "cDps": null,
+    "nDps": 297.292,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 236,
-      "cd": 393.333
+      "sd": 3603.573,
+      "st": 75675.04,
+      "cd": null
      }
     },
     "nm": null
@@ -124312,20 +124312,20 @@
    "mXL2s3": {
     "type": "damage",
     "dt": "physical",
-    "atk": 1019.92,
+    "atk": 1170.4,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 419.92,
-    "cDps": 187.312,
-    "nDps": null,
+    "sDps": 4444.615,
+    "sTot": 57780,
+    "cDps": null,
+    "nDps": 297.292,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 419.92,
-      "cd": 187.312
+      "sd": 4444.615,
+      "st": 57780,
+      "cd": null
      }
     },
     "nm": null
@@ -124333,12 +124333,12 @@
    "mXL3s0": {
     "type": "damage",
     "dt": "physical",
-    "atk": 843,
+    "atk": 994.74,
     "int": 1.3,
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 186.923,
+    "nDps": 303.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -124348,20 +124348,20 @@
    "mXL3s1": {
     "type": "damage",
     "dt": "physical",
-    "atk": 843,
+    "atk": 994.74,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 243,
-    "cDps": 202.5,
-    "nDps": null,
+    "sDps": 1221.868,
+    "sTot": 12707.424,
+    "cDps": null,
+    "nDps": 303.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 243,
-      "cd": 202.5
+      "sd": 1221.868,
+      "st": 12707.424,
+      "cd": null
      }
     },
     "nm": null
@@ -124369,20 +124369,20 @@
    "mXL3s2": {
     "type": "damage",
     "dt": "physical",
-    "atk": 843,
+    "atk": 994.74,
     "int": 0.6,
-    "sDps": 0,
-    "sTot": 243,
-    "cDps": 405,
-    "nDps": null,
+    "sDps": 3642.12,
+    "sTot": 76484.52,
+    "cDps": null,
+    "nDps": 303.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 243,
-      "cd": 405
+      "sd": 3642.12,
+      "st": 76484.52,
+      "cd": null
      }
     },
     "nm": null
@@ -124390,20 +124390,20 @@
    "mXL3s3": {
     "type": "damage",
     "dt": "physical",
-    "atk": 1028.46,
+    "atk": 1180.2,
     "int": 1.3,
-    "sDps": 0,
-    "sTot": 428.46,
-    "cDps": 192.756,
-    "nDps": null,
+    "sDps": 4501.154,
+    "sTot": 58515,
+    "cDps": null,
+    "nDps": 303.646,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 0,
-      "st": 428.46,
-      "cd": 192.756
+      "sd": 4501.154,
+      "st": 58515,
+      "cd": null
      }
     },
     "nm": null
@@ -124459,20 +124459,14 @@
     "dt": "physical",
     "atk": 753,
     "int": 1.3,
-    "sDps": 117.3,
-    "sTot": 3519,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 117.692,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 117.3,
-      "st": 3519,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "s3": {
@@ -124537,20 +124531,14 @@
     "dt": "physical",
     "atk": 790,
     "int": 1.3,
-    "sDps": 145.667,
-    "sTot": 4370,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 146.154,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 145.667,
-      "st": 4370,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL1s3": {
@@ -124615,20 +124603,14 @@
     "dt": "physical",
     "atk": 800,
     "int": 1.3,
-    "sDps": 153.333,
-    "sTot": 4600,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 153.846,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 153.333,
-      "st": 4600,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL2s3": {
@@ -124693,20 +124675,14 @@
     "dt": "physical",
     "atk": 810,
     "int": 1.3,
-    "sDps": 161,
-    "sTot": 4830,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 161.538,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 161,
-      "st": 4830,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mXL3s3": {
@@ -124771,20 +124747,14 @@
     "dt": "physical",
     "atk": 796,
     "int": 1.262,
-    "sDps": 150.267,
-    "sTot": 4508,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 155.292,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 150.267,
-      "st": 4508,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mYL1s3": {
@@ -124849,20 +124819,14 @@
     "dt": "physical",
     "atk": 813,
     "int": 1.25,
-    "sDps": 170.4,
-    "sTot": 5112,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 170.4,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 170.4,
-      "st": 5112,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mYL2s3": {
@@ -124927,20 +124891,14 @@
     "dt": "physical",
     "atk": 828,
     "int": 1.238,
-    "sDps": 182.4,
-    "sTot": 5472,
+    "sDps": 0,
+    "sTot": 0,
     "cDps": null,
     "nDps": 184.154,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
-    "dmg": {
-     "physical": {
-      "sd": 182.4,
-      "st": 5472,
-      "cd": null
-     }
-    },
+    "dmg": null,
     "nm": null
    },
    "mYL3s3": {

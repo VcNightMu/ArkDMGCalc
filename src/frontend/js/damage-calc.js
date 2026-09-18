@@ -93,6 +93,10 @@ const TALENT_ATK_DRIVERS = {
   'char_4102_threye': 1,  // 凛视「隐居者」:攻击力 +6%(E2,潜4 +7%);X 模组同名 te 0.09/0.11;同源天赋攻速在 TALENT_SPD_DRIVERS
   // ---- 辅助·召唤师(summoner) ----
   'char_2023_ling': 1,    // 令「随付笺咏醉屠苏」:召唤物被击倒/吸收/回收时攻击力 +3%/层(最多 5 层) — 用户口径 2026-09-18:按满层计算(+15%)
+  // ---- 特种·怪杰(geek) ----
+  'char_1041_angel2': { talentIndex: 1, mulKey: 'mult' },  // 新约能天使「铳弹协约」:在场时携带弹药类技能的干员攻击力 +9%,
+                           // 对【拉特兰】干员效果翻倍(mult=2)——本人即【拉特兰】且三技能全为弹药类 → 自身 +18%
+                           // (阵营光环含自身,同佩佩「弥漫莲香」本人吃口径)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -788,6 +792,8 @@ function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
   const pot = slotData.potentialRank || 0;
   let bonus = null;
   const noStack = (typeof TALENT_ATK_DRIVERS[op.id] === 'object' && TALENT_ATK_DRIVERS[op.id] !== null && TALENT_ATK_DRIVERS[op.id].noStack === true);
+  // 倍率键(如新约能天使「铳弹协约」对【拉特兰】效果翻倍 blackboard.mult=2)
+  const mulKey = (typeof TALENT_ATK_DRIVERS[op.id] === 'object' && TALENT_ATK_DRIVERS[op.id] !== null) ? TALENT_ATK_DRIVERS[op.id].mulKey : undefined;
   for (const cand of talentCandSource(op, slotData, talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && level >= (cand.level || 1) && candPot <= pot) {
@@ -797,6 +803,7 @@ function calcTalentAtkBonusEnhanced(op, slotData, talent, talentIndex) {
         if (commonKey !== undefined) atk = cand.blackboard[commonKey];
         else if (typeof cand.blackboard.atk === 'number') atk = cand.blackboard.atk;
         if (typeof cand.blackboard.max_stack_cnt === 'number' && !noStack) atk = atk * cand.blackboard.max_stack_cnt;
+        if (mulKey && typeof cand.blackboard[mulKey] === 'number') atk = atk * cand.blackboard[mulKey];
       }
       if (bonus === null || atk > bonus) bonus = atk;
     }
@@ -3057,6 +3064,8 @@ const NORMAL_ATK_SKILLS = {
   'char_452_bstalk': [0, 1], // 豆苗 S1 磐蟹部署指令:回 8 费;S2 定向指令:磐蟹防御强化(attack@def 0.7,本体无输出增益)
   'char_4147_mitm': [0],     // 渡桥 S1 出击指令:回 6 费+模様三号自爆(aoe_damage_scale 3.7 在召唤物侧建模),本体无输出
   'char_476_blkngt': [0, 1], // 夜半 S1 半醒:回费+眠兽休眠回血(bb 的 hp_recovery 是眠兽的,本体无输出);S2 安眠:沉睡+回费(控制无本体伤害)
+  // ---- 特种·怪杰(geek) ----
+  'char_225_haak': [1],      // 阿 S2 爆发剂·γ型:对友方 15 次 500 攻击(友伤非敌伤)并使自身和目标防御/生命上限+X%,自身对敌输出不变 → 归常态展示
 };
 // 附带固定 DOT 天赋（每次攻击施加，攻击间隔<持续秒数 → 等效常驻秒伤）：深巡「细胞活性抑制剂」
 // 攻击使目标 3s 每秒受 80 法伤（对海怪加倍不计），1.2s 间隔 < 3s 全覆盖 → 恒 80/s（吃法抗，不吃攻击加成）
@@ -4739,6 +4748,40 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       damageType: 'arts', normalDamageType: op.damageType, realInterval: vIv,
       dmgTypes: { arts: { skillDps: vWin > 0 ? vTot / vWin : 0, skillTotalDamage: vTot, cycleDps: null } },
     };
+  } else if (op.id === 'char_1041_angel2') {
+    // 特种·怪杰 新约能天使:三技能均为弹药型「攻击装有 attack@trigger_time 发弹药,打完后结束(可随时停止)」——
+    // 弹药打完即结束 → 技能窗口 = 弹药数 × 攻击间隔(期间逐发出击、即耗弹出伤),常态化列仍按自身普攻(同圣约送葬人口径)。
+    // 天赋「火力电台」的轰炸(概率溅射)按用户口径 2026-09-18 不计算。
+    const nI = realInterval > 0 ? realInterval : 1;
+    const sI = skillRealInterval > 0 ? skillRealInterval : nI;
+    const aP = (a) => calcPhysicalDamage(a, effDef);
+    const nDps = aP(panelAtk) / nI;
+    const aAmmo = Math.max(0, Math.round(levelData['attack@trigger_time'] || 0));
+    const aMk = (tot, win, iv) => ({
+      type: 'damage', damageType: 'physical', isToggle: false, isPermanent: false,
+      skillDps: win > 0 ? tot / win : 0, skillTotalDamage: tot, cycleDps: null,
+      normalDps: nDps, skillHps: null, normalHps: null, totalHeal: null,
+      realInterval: iv, panelAtk: skillAtk, dmgTypes: { physical: { skillDps: win > 0 ? tot / win : 0, skillTotalDamage: tot, cycleDps: null } },
+    });
+    if (skillIndex === 0) {
+      // S1 天空大扫除(自动触发,8 发):每发 = 攻击力 attack@atk_scale 物理(优先空中单位=索敌规则不计)
+      const per = aP(panelAtk * (levelData['attack@atk_scale'] || 1));
+      const win = aAmmo * nI;
+      result = aMk(per * aAmmo, win, nI);
+    } else if (skillIndex === 1) {
+      // S2 开火成瘾症(手动,35 发):攻击间隔 -0.7s(1.3→0.6);每发 = 攻击力 attack@atk_scale 物理;
+      // 用户口径 2026-09-18:默认不偷取友方攻击速度(也不额外 +5 发弹药);屏障/回血非输出不计
+      const per = aP(panelAtk * (levelData['attack@atk_scale'] || 1));
+      const win = aAmmo * sI;
+      result = aMk(per * aAmmo, win, sI);
+    } else {
+      // S3 使命必达！:攻击力 +X%(顶层 atk),每次攻击变为 5 连击每击 attack@atk_scale;弹药 50 发、每次攻击消耗 5 发 → 10 次攻击。
+      // 「投递坐标」的 250% 溅射与投送部署属部署区机制(需存在合法投递对象)→ 不计。
+      const perAtk = 5 * aP(skillAtk * (levelData['attack@atk_scale'] || 1));
+      const nAtk = Math.max(1, Math.floor(aAmmo / 5));
+      const win = nAtk * nI;
+      result = aMk(perAtk * nAtk, win, nI);
+    }
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
