@@ -97,6 +97,10 @@ const TALENT_ATK_DRIVERS = {
   'char_1041_angel2': { talentIndex: 1, mulKey: 'mult' },  // 新约能天使「铳弹协约」:在场时携带弹药类技能的干员攻击力 +9%,
                            // 对【拉特兰】干员效果翻倍(mult=2)——本人即【拉特兰】且三技能全为弹药类 → 自身 +18%
                            // (阵营光环含自身,同佩佩「弥漫莲香」本人吃口径)
+  // ---- 特种·陷阱师(traper) ----
+  'char_4048_doroth': 1,  // 多萝西「梦想家」:陷阱触发后攻击力 +2%/层,最多叠 10 层(潜4 12 层);用户口径 2026-09-18「默认叠满」
+                           // → ×max_stack_cnt = +20%;Y 模组「童话书」L2/L3 同名 te 覆盖为 0.03/0.04(×10 = +30%/+40%)
+                           // (该模组 traitEnhance 里 {prob:0.2,atk_scale:2} 为概率类,traitEnhance 不入天赋乘区,天然不计)
 };
 
 // 常驻治疗倍率天赋驱动表(blackboard.heal_scale 为治疗量乘数)。
@@ -3398,6 +3402,75 @@ function calcMerchantSkill(op, slotData, c) {
   };
 }
 
+// ===== 特种·陷阱师(traper) =====
+// 特性(可放置陷阱/召唤物,陷阱触发造成伤害)非输出,不建模。
+// 用户口径 2026-09-18(陷阱建模口径,与行商 琳琅诗怀雅 S2 一致,后续子职业沿用):
+//   技能主动 = 放置陷阱的技能 → 技能期 DPS 记 0、技能期总伤 = 一个陷阱触发造成的伤害
+//   = 攻击力 × 陷阱倍率(atk_scale 或 attack@atk_scale);常态化列 = 自身普攻;陷阱不单独成条
+//   (已确认 data/TOKEN/index.json 无陷阱 token)。
+//   天赋:多萝西「梦想家」攻击力增幅默认叠满(TALENT_ATK_DRIVERS,×max_stack_cnt);
+//        艾拉「正中靶心」30% 概率部分默认不计,只把「对受陷阱影响目标必定触发」折成 S2 一次、S3 两次的 ×atk_scale;
+//        望「料敌机先」伤害增幅与法抗穿透默认 2 层;钼铅「探险家的从容」(Y 模组 damage_scale)默认不计。
+//   数据核查(2026-09-18,对照仓库 skill_table):望 S1/S2/S3 与多萝西 S3 的陷阱为【法术】伤害(望天赋亦为法抗穿透),
+//   其余为物理 —— 与任务书「物理结算」表述冲突,已按数据实作并在 tools/traper-report.md 列出待用户验收。
+function calcTraperSkill(op, slotData, c) {
+  const { panelAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex } = c;
+  const mIvl = skillRealInterval > 0 ? skillRealInterval : (realInterval > 0 ? realInterval : 1);
+  const nIvl = realInterval > 0 ? realInterval : 1;
+  const P = (a) => calcPhysicalDamage(a, effDef);
+  const normalDps = P(panelAtk) / nIvl;
+  const mk = (trap, dmgType) => ({
+    type: 'damage', damageType: dmgType, normalDamageType: 'physical',
+    skillDps: 0, skillTotalDamage: trap, cycleDps: null,
+    normalDps, skillHps: null, normalHps: null, totalHeal: null,
+    isToggle: false, isPermanent: false, realInterval: mIvl, skillAtkOut: panelAtk,
+    dmgTypes: { [dmgType]: { skillDps: 0, skillTotalDamage: trap, cycleDps: null } },
+  });
+  if (op.id === 'char_4048_doroth') {
+    // 多萝西:陷阱倍率 = 顶层 atk_scale。S3 陷阱为法术伤害,其余物理。
+    const scale = levelData.atk_scale ?? 1;
+    if (skillIndex === 2) return mk(calcArtsDamage(panelAtk * scale, effRes), 'arts');
+    return mk(P(panelAtk * scale), 'physical');
+  }
+  if (op.id === 'char_4123_ela') {
+    // 艾拉:天赋「正中靶心」atk_scale(专一 1.5;D 模组 1.6/1.7)——S2 按 1 个陷阱、S3 按 2 个陷阱。
+    // S1 陷阱无伤害倍率 → 0。(S2 护盾/穿防、S3 40 发弹药攻击等额外效果默认不计,见报告)
+    const tScale = funnelTalentValue(op, slotData, 1, 'atk_scale') || 1.5;
+    const n = skillIndex === 1 ? 1 : (skillIndex === 2 ? 2 : 0);
+    return mk(n > 0 ? P(panelAtk * tScale) * n : 0, 'physical');
+  }
+  if (op.id === 'char_2027_wang') {
+    // 望:陷阱为法术伤害;「料敌机先」默认 2 层(伤害 +2×per_atk_scale,法抗穿透 2×per_magic_resist_penetrate_fixed)。
+    const per = funnelTalentValue(op, slotData, 1, 'attack@per_atk_scale') || 0;
+    const pen = funnelTalentValue(op, slotData, 1, 'attack@per_magic_resist_penetrate_fixed') || 0;
+    const mul = 1 + per * 2;
+    const res = Math.max(0, effRes - pen * 2);
+    const scale = levelData.atk_scale !== undefined ? levelData.atk_scale : (levelData['attack@atk_scale'] ?? 1);
+    return mk(calcArtsDamage(panelAtk * scale * mul, res), 'arts');
+  }
+  if (op.id === 'char_4171_wulfen') {
+    // 钼铅:S1 atk_scale×1;S2「两次」→ 引爆造成两次 atk_scale → ×2(逐击结算)。
+    const scale = levelData.atk_scale ?? 1;
+    const times = skillIndex === 1 ? 2 : 1;
+    return mk(P(panelAtk * scale) * times, 'physical');
+  }
+  if (op.id === 'char_451_robin') {
+    // 罗宾:S1/S2 均为陷阱单次 atk_scale 物理(束缚/推动为控制效果,不计)。
+    return mk(P(panelAtk * (levelData.atk_scale ?? 1)), 'physical');
+  }
+  if (op.id === 'char_458_rfrost') {
+    // 霜华:S1 陷阱 atk_scale;S2 踏垫造成 trap_atk_scale 伤害 + 若在攻击范围内则追加 atk_scale×times 次攻击
+    // (单目标模型默认在范围内 → 并入一次触发总伤)。
+    if (skillIndex === 1) {
+      const trap = P(panelAtk * (levelData.trap_atk_scale ?? 0));
+      const extra = P(panelAtk * (levelData.atk_scale ?? 0)) * (levelData.times ?? 1);
+      return mk(trap + extra, 'physical');
+    }
+    return mk(P(panelAtk * (levelData.atk_scale ?? 1)), 'physical');
+  }
+  return mk(0, 'physical');
+}
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -4868,6 +4941,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
     // 特种·行商(merchant)专用分支:孑 S1/S2(常驻强化 + S2 治疗量)、老鲤 S2(标记引爆法术)、
     // 琳琅诗怀雅 S2(香槟炸弹陷阱)、S3(二连击 + 关闭金币爆发)
     result = calcMerchantSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
+  } else if (op.subProfessionId === 'traper') {
+    // 特种·陷阱师(traper)专用分支:技能主动=放置陷阱 → 技能期 DPS 0、总伤=一个陷阱触发伤害,常态化列=自身普攻
+    result = calcTraperSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
