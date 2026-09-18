@@ -473,7 +473,10 @@ async function updateResults() {
       metricsHtml += '<div class="metric"><span class="label">技能期 ATK</span><span class="value stat">' + result.panelAtk.toFixed(0) + '</span></div>';
     } else {
       if (hasSkill) {
-        metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
+        // 瞬发型技能(陷阱师/香槟炸弹等):技能期 DPS 记 0,只显示一次性总伤,不显示 DPS 行
+        if (result.skillDps > 0) {
+          metricsHtml += '<div class="metric"><span class="label">技能期 DPS</span>' + dmgValHtml(result, 'skillDps') + '</div>';
+        }
         metricsHtml += '<div class="metric"><span class="label">技能期总伤</span>' + dmgValHtml(result, 'skillTotalDamage') + '</div>';
       }
       if (result.normalDps !== null && result.normalDps !== undefined && result.normalDps > 0) {
