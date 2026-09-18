@@ -97,6 +97,9 @@ const TALENT_ATK_DRIVERS = {
   'char_1041_angel2': { talentIndex: 1, mulKey: 'mult' },  // 新约能天使「铳弹协约」:在场时携带弹药类技能的干员攻击力 +9%,
                            // 对【拉特兰】干员效果翻倍(mult=2)——本人即【拉特兰】且三技能全为弹药类 → 自身 +18%
                            // (阵营光环含自身,同佩佩「弥漫莲香」本人吃口径)
+  // ---- 特种·炼金师(alchemist) ----
+  'char_1039_thorn2': 0,   // 引星棘刺「心相」:攻击力 +3%~+14%(随精化/潜4)→ E2潜0 = +10%;X 模组同名 te 覆盖 +15%(L3 pot0)/+19%(L3 pot4)
+                           // (攻击范围内存在其他干员时炼金单元持续时间延长 → 用户口径 2026-09-18「默认不延长」,不计)
   // ---- 特种·陷阱师(traper) ----
   'char_4048_doroth': 1,  // 多萝西「梦想家」:陷阱触发后攻击力 +2%/层,最多叠 10 层(潜4 12 层);用户口径 2026-09-18「默认叠满」
                            // → ×max_stack_cnt = +20%;Y 模组「童话书」L2/L3 同名 te 覆盖为 0.03/0.04(×10 = +30%/+40%)
@@ -1093,6 +1096,7 @@ const SKILL_REGEN_IGNORE = {
   'char_476_blkngt': [0],
   'char_249_mlyss': [1],
   'char_110_deepcl': [0],   // 深海色 S1:每秒恢复 55 点生命属触手(召唤物),非本体自回
+  'char_1039_thorn2': [1],  // 引星棘刺 S2:bb 顶层 hp_recovery_per_sec/-_by_max_hp_ratio 为「敌方受治疗降低」的负值占位(非本体自回),排除
 };
 
 // 技能期普攻切换为法术伤害(驭法铁卫类机制,如年 S1「锡灼」普通攻击造成法术伤害):
@@ -1262,6 +1266,9 @@ const TALENT_SPD_DRIVERS = {
   // ---- 特种·伏击客(stalker) ----
   'char_4132_ascln': 1,   // 阿斯卡纶「噬光残影」:攻击速度 +8(E2),自身周围四格有高台时额外 +6
                           // —— 用户口径(2026-09-18)按基础计算 → 仅 +8(条件类 +6 不计)
+  // ---- 特种·炼金师(alchemist) ----
+  'char_1039_thorn2': { talentIndex: 1, key: 'attack_speed_ally' },  // 引星棘刺「视界」:在场时全体友方攻速+5(含自身,同安洁莉娜「加速力场」先例);
+                          // 用户口径 2026-09-18「攻击速度增幅默认为基础版」→ 取 +5(直道翻倍档 attack_speed_ally_extra 不计);敌方 -5 不计
 };
 
 
@@ -3471,6 +3478,85 @@ function calcTraperSkill(op, slotData, c) {
   return mk(0, 'physical');
 }
 
+// ===== 特种·炼金师(alchemist) =====
+// 特性「可以投掷炼金单元协助作战」。用户口径 2026-09-18:炼金师技能都是「脱手技能」——干员抛出炼金单元后本体继续普攻,
+// 单元在 projectile_delay_time 秒内每秒持续生效(治疗/法伤 DoT)。数据 skillDuration=-1(弹药/占位语义),窗口以 projectile_delay_time 为准。
+// 炼金单元不单独成条(data 无对应 TOKEN),输出折进技能槽:
+//   技能期总伤 = 每秒法伤 × 窗口;技能期 HPS = 每秒治疗,总治疗量 = 每秒治疗 × 窗口;常态化列 = 自身普攻。
+// 敌方减益:法术抗性减抗按用户口径 2026-09-18「先减抗再结算」计入(见 S3);atk/def 减益与友方 def 增益仍按「状态效果一律不计入伤害」口径不建模(traper 先例)。
+// 天赋:引星棘刺「心相」攻击力 +10% 入 TALENT_ATK_DRIVERS(卡池/模组同名 te 自动覆盖),「视界」攻速 +5 入 TALENT_SPD_DRIVERS;
+//       锡人「凋敝魂灵」炼金单元持续伤害 +20% 计入(DoT ×skill@damage_scale;X 模组 L2/L3 1.23/1.25)。
+function calcAlchemistSkill(op, slotData, c) {
+  const { panelAtk, effDef, effRes, realInterval, levelData, skillIndex } = c;
+  const nIvl = realInterval > 0 ? realInterval : 1;
+  const P = (a) => calcPhysicalDamage(a, effDef);
+  const A = (a) => calcArtsDamage(a, effRes);
+  const normalDps = P(panelAtk) / nIvl;
+  // 炼金单元存活时长 = 每秒一跳的跳数(用户口径:不因有友军而延长)
+  const W = Math.max(0, levelData.projectile_delay_time || 0);
+  const base = {
+    normalDamageType: 'physical', isToggle: false, isPermanent: false, cycleDps: null,
+    normalDps, normalHps: null, skillHps: null, totalHeal: null, realInterval: nIvl, skillAtkOut: panelAtk,
+  };
+  // ---- 引星棘刺(char_1039_thorn2) ----
+  if (op.id === 'char_1039_thorn2') {
+    if (skillIndex === 0) {
+      // S1 度算浪波(自动):向友方投掷单元,窗口内每秒回复 攻击力×hp_recovery_per_sec_ratio(治疗型单元);防御增益为友方 buff,不计
+      const hps = panelAtk * (levelData.hp_recovery_per_sec_ratio || 0);
+      return { ...base, type: 'heal', damageType: 'physical', skillDps: 0, skillTotalDamage: 0, skillHps: hps, totalHeal: hps * W };
+    }
+    if (skillIndex === 1) {
+      // S2 解构涌潮(手动):窗口内每秒 攻击力×atk_scale 法伤 + 友方每秒 攻击力×hp_recovery_per_sec_ratio_chr 治疗
+      // (heal_scale 0.5 为敌方受治疗降低、移动/扩范围为机制类,单目标数值不受影响,不计)
+      const perSec = A(panelAtk * (levelData.atk_scale || 0));
+      const hps = panelAtk * (levelData.hp_recovery_per_sec_ratio_chr || 0);
+      return {
+        ...base, type: 'heal', damageType: 'arts',
+        skillDps: perSec, skillTotalDamage: perSec * W, skillHps: hps, totalHeal: hps * W,
+        dmgTypes: { arts: { skillDps: perSec, skillTotalDamage: perSec * W, cycleDps: null } },
+      };
+    }
+    // S3「我的海疆」(手动):窗口内每秒法伤,随 max_stack_cnt(15s)从 atk_scale 线性升至 max_atk_scale(每秒 +atk_scale_per_interval);
+    // 用户口径 2026-09-18:敌方「法术抗性−」要「先减抗、再计算伤害」必须计入 —— 每秒先按
+    //   |magic_resistance| + |magic_resistance_per_interval|×t(升至 |max_magic_resistance| 封顶)削弱敌方法抗,再用削弱后的法抗结算该秒法伤;
+    //   其余减益(atk−/def−)与 max_target_token(3/4 名干员)仍按状态效果不计 / 单目标 1 个单元计。
+    const per = levelData.atk_scale_per_interval || 0;
+    const s0 = levelData.atk_scale || 0, sMax = levelData.max_atk_scale || s0;
+    const mr0 = Math.abs(levelData.magic_resistance || 0);
+    const mrPer = Math.abs(levelData.magic_resistance_per_interval || 0);
+    const mrMax = Math.abs(levelData.max_magic_resistance || mr0);
+    let total = 0;
+    for (let t = 0; t < W; t++) {
+      const mr = Math.min(mr0 + mrPer * t, mrMax);
+      total += calcArtsDamage(panelAtk * Math.min(s0 + per * t, sMax), effRes * (1 - mr));
+    }
+    return {
+      ...base, type: 'damage', damageType: 'arts',
+      skillDps: W > 0 ? total / W : 0, skillTotalDamage: total,
+      dmgTypes: { arts: { skillDps: W > 0 ? total / W : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  }
+  // ---- 锡人(char_4151_tinman) ----
+  const dotMul = funnelTalentValue(op, slotData, 1, 'skill@damage_scale') || 1;  // 凋敝魂灵:炼金单元持续伤害提高
+  if (skillIndex === 0) {
+    // S1「老科利」(自动):窗口内每秒 攻击力×atk_scale 法伤(×凋敝魂灵);敌方虚弱(atk-)为减益不计
+    const perSec = A(panelAtk * (levelData.atk_scale || 0) * dotMul);
+    return {
+      ...base, type: 'damage', damageType: 'arts',
+      skillDps: perSec, skillTotalDamage: perSec * W,
+      dmgTypes: { arts: { skillDps: perSec, skillTotalDamage: perSec * W, cycleDps: null } },
+    };
+  }
+  // S2「大拉里」(手动):窗口内每秒 攻击力×atk_scale 法伤(×凋敝魂灵)+ 友方每秒 攻击力×hp_recovery_per_sec_ratio 治疗
+  const perSec2 = A(panelAtk * (levelData.atk_scale || 0) * dotMul);
+  const hps2 = panelAtk * (levelData.hp_recovery_per_sec_ratio || 0);
+  return {
+    ...base, type: 'heal', damageType: 'arts',
+    skillDps: perSec2, skillTotalDamage: perSec2 * W, skillHps: hps2, totalHeal: hps2 * W,
+    dmgTypes: { arts: { skillDps: perSec2, skillTotalDamage: perSec2 * W, cycleDps: null } },
+  };
+}
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -4944,6 +5030,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   } else if (op.subProfessionId === 'traper') {
     // 特种·陷阱师(traper)专用分支:技能主动=放置陷阱 → 技能期 DPS 0、总伤=一个陷阱触发伤害,常态化列=自身普攻
     result = calcTraperSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
+  } else if (op.subProfessionId === 'alchemist') {
+    // 特种·炼金师(alchemist)专用分支:脱手技能——炼金单元在窗口(=projectile_delay_time)内每秒法伤/治疗,本体普攻归常态列
+    result = calcAlchemistSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
