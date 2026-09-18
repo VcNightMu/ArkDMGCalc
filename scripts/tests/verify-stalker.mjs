@@ -42,12 +42,12 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
   near(s1.normalDps, 77.429, 0.02, '狮蝎 S1 常态化列=普攻');
   const s2 = calculateOperator(o, mk(o, 1));
   near(s2.realInterval, 5.2, 0.001, '狮蝎 S2 攻击间隔(3.5+1.7)');
-  near(s2.skillTotalDamage, 6164.9, 0.6, '狮蝎 S2 蓄力毒尾击 总伤(170% 物理 ×7)');
-  near(s2.skillDps, 162.234, 0.02, '狮蝎 S2 技能期 DPS');
+  near(s2.skillTotalDamage, 9213.4, 0.6, '狮蝎 S2 蓄力毒尾击 总伤(220% 物理 ×7:70% 技能+50% 隐匿必然触发)');
+  near(s2.skillDps, 242.458, 0.02, '狮蝎 S2 技能期 DPS');
   const x3 = calculateOperator(o, mk(o, -1, mod(o, 'uniequip_002_mantic', 3)));
   near(x3.panelAtk, 956, 0.01, '狮蝎 X3 面板攻击力(871+85)');
   near(x3.normalDps, 101.714, 0.02, '狮蝎 X3 常态 DPS');
-  near(calculateOperator(o, mk(o, 1, mod(o, 'uniequip_002_mantic', 3))).skillTotalDamage, 7176.4, 0.6, '狮蝎 X3 S2 总伤');
+  near(calculateOperator(o, mk(o, 1, mod(o, 'uniequip_002_mantic', 3))).skillTotalDamage, 11191.6, 0.6, '狮蝎 X3 S2 总伤(230%:70%+60% 隐匿)');
 }
 
 // ---- 伊桑(char_355_ethan) ----
@@ -134,16 +134,22 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
 // ---- 绮良(char_478_kirara) ----
 {
   const o = loadOp('char_478_kirara');
-  near(calculateOperator(o, mk(o, -1)).normalDps, 73.714, 0.02, '绮良 常态 DPS');
+  const r0 = calculateOperator(o, mk(o, -1));
+  near(r0.normalDps, 73.714, 0.02, '绮良 常态 DPS');
+  eq(r0.type, 'heal', '绮良 常态含回血 → heal 型');
+  near(r0.normalHps, 0.02 * 1980, 0.2, '绮良 常态 HPS(离群独守基础 2%)');
   const s1 = calculateOperator(o, mk(o, 0));
   near(s1.skillTotalDamage, 772.8, 0.5, '绮良 S1 锚击 总伤(普攻 258 物理 + 120% 法伤 514.8)');
   near(s1.cycleDps, 110.486, 0.05, '绮良 S1 循环 DPS(攻回 sp3)');
   near(s1.dmgTypes.arts.skillTotalDamage, 514.8, 0.5, '绮良 S1 法术段');
+  near(s1.normalHps, 0.02 * 1980, 0.2, '绮良 S1 常态化列 HPS=基础 2%');
   const s2 = calculateOperator(o, mk(o, 1));
   eq(s2.damageType, 'arts', '绮良 S2 锚点捕捉 伤害类型=法术');
   near(s2.skillDps, 343.2, 0.05, '绮良 S2 每秒法伤(80% 攻击力)');
   near(s2.skillTotalDamage, 2745.6, 0.5, '绮良 S2 总伤(8s)');
+  near(s2.normalHps, 0.02 * 1980, 0.2, '绮良 S2 常态化列 HPS=基础 2%(天赋效果提升不叠进回血)');
   near(calculateOperator(o, mk(o, -1, mod(o, 'uniequip_002_kirara', 3))).panelAtk, 858, 0.01, '绮良 X3 面板攻击力(白值仅生命/防御)');
+  near(calculateOperator(o, mk(o, -1, mod(o, 'uniequip_002_kirara', 3))).normalHps, 0.025 * (1980 + 330), 0.3, '绮良 X3 常态 HPS(2.5%)');
 }
 
 // ---- 不变量:非被动技能槽的常态化列 = 无技能态 ----

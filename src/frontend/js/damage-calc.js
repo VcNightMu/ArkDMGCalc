@@ -2145,6 +2145,8 @@ function calcTalentHps(op, slotData) {
 // def 固定值加面板白值(伤害计算不用防御);回血按每秒最大生命比例注入常态 HPS。
 const TALENT_FLAT_DEF_PCT_REGEN = {
   'char_1045_svash2': { talentIndex: 1, defKey: 'def', ratioKey: 'hp_recovery_per_sec_by_max_hp_ratio', scale: 2 },
+  // 绮良「离群独守」:每秒回复 2% 生命(仅固定值比例、无防御项;按基础档,周围 8 格无友方的 3.5% 档不计)
+  'char_478_kirara': { talentIndex: 0, ratioKey: 'hp_recovery_per_sec_by_max_hp_ratio' },
 };
 function calcTalentFlatDefPctRegen(op, slotData) {
   const cfg = TALENT_FLAT_DEF_PCT_REGEN[op.id];
@@ -2156,13 +2158,14 @@ function calcTalentFlatDefPctRegen(op, slotData) {
   for (const cand of talentCandSource(op, slotData, cfg.talentIndex, talent.candidates)) {
     const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
     if (cand.phase <= elite && candPot <= pot) {
-      const d = cand.blackboard && typeof cand.blackboard[cfg.defKey] === 'number' ? cand.blackboard[cfg.defKey] : 0;
+      const d = (cfg.defKey && cand.blackboard && typeof cand.blackboard[cfg.defKey] === 'number') ? cand.blackboard[cfg.defKey] : 0;
       const r = cand.blackboard && typeof cand.blackboard[cfg.ratioKey] === 'number' ? cand.blackboard[cfg.ratioKey] : 0;
-      if (d > flatDef) { flatDef = d; ratio = r; }
+      if (d > flatDef) flatDef = d;
+      if (r > ratio) ratio = r;
     }
   }
   if (flatDef <= 0 && ratio <= 0) return null;
-  return { flatDef: flatDef * cfg.scale, ratio: ratio * cfg.scale };
+  return { flatDef: flatDef * (cfg.scale || 1), ratio: ratio * (cfg.scale || 1) };
 }
 
 // 查驱动表,返回常驻攻速天赋的攻速加算值(0 表示无此天赋或未解锁)。
@@ -3200,7 +3203,10 @@ function calcStalkerSkill(op, slotData, c) {
     // S1 蝎毒(被动:每次攻击使目标 4s 内移速 -40%,无自身输出)→ 技能期 0,普攻归常态
     if (skillIndex === 0) return mk('physical', 0, 0, null, nI);
     // S2 蓄力毒尾击:攻击前摇与攻击间隔增大(+1.7s → 5.2s),攻击力 +70%(M3 +90%),命中晕眩(非输出)
-    const per = P(skillAtk);
+    // 间隔 5.2s > 天赋重新隐匿阈值 5s → 每次攻击均解除隐匿,天赋「隐匿的杀手」当次攻击加成必然触发(用户口径 2026-09-18)
+    const talAtk = funnelTalentValue(op, slotData, 0, 'atk');
+    const effAtk = panelAtk * (1 + (levelData.atk || 0) + talAtk);
+    const per = P(effAtk);
     const h = durHits(skillDuration, sI);
     const tot = per * h;
     return mk('physical', tot / (skillDuration || 1), tot, null, sI, { physical: { skillDps: tot / (skillDuration || 1), skillTotalDamage: tot, cycleDps: null } });
@@ -3485,7 +3491,9 @@ function calculateOperator(op, slotData, ctx) {
     if (op.subProfessionId === 'stalker') {
       const stArts = stalkerNormalExtras(op, slotData, panelAtk, effRes, realInterval);
       const stPhys = normalDps * calcTalentDmgMul(op, slotData);
-      return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: stPhys + stArts, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalTypes: stArts > 0 ? { physical: { dps: stPhys }, arts: { dps: stArts } } : undefined };
+      const stRegen = calcTalentFlatDefPctRegen(op, slotData);
+      const stHps = calcTalentHps(op, slotData) + (stRegen ? panelHp * stRegen.ratio : 0);
+      return { type: stHps > 0 ? 'heal' : 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: stPhys + stArts, skillHps: null, normalHps: stHps > 0 ? stHps : null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalTypes: stArts > 0 ? { physical: { dps: stPhys }, arts: { dps: stArts } } : undefined };
     }
     return { type: 'damage', skillDps: deployBurst ? deployBurst.dps : 0, skillTotalDamage: deployBurst ? deployBurst.total : 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType, deploySkill: !!deployBurst, dmgTypes: deployBurst ? { [deployBurst.damageType]: { skillDps: deployBurst.dps, skillTotalDamage: deployBurst.total, cycleDps: null } } : undefined };
   }
