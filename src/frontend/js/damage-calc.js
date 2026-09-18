@@ -1242,6 +1242,9 @@ const TALENT_SPD_DRIVERS = {
   'char_4102_threye': 1,   // 凛视「隐居者」:攻速 +6(E2,潜4 +7);X 模组同名 te 0.09/0.11(同源天赋攻击力在 TALENT_ATK_DRIVERS)
   'char_4223_botany': 0,   // 伯塔尼「背弃沉默」:攻击范围内有敌人侵蚀损伤爆发时攻速 +6(E2)/+7(潜4),最多 3 层 →
                            // 用户口径(2026-09-18)按满层:×max_stack_cnt = +18/+21(X 模组 L3 te 7×4 层 = +28)
+  // ---- 特种·伏击客(stalker) ----
+  'char_4132_ascln': 1,   // 阿斯卡纶「噬光残影」:攻击速度 +8(E2),自身周围四格有高台时额外 +6
+                          // —— 用户口径(2026-09-18)按基础计算 → 仅 +8(条件类 +6 不计)
 };
 
 
@@ -1262,6 +1265,7 @@ const MODULE_TE_ASPD_STACK = {
 // name=null 的模组 te(不指名天赋)允许并入的天赋索引白名单:需与 MODULE_TE_TALENT_MERGE 配合
 const MODULE_TE_NULL_MERGE = {
   'char_113_cqbw': [0],   // W Y 模组:部署后每秒+1层永久攻击力,并入天赋0「设伏」
+  'char_437_mizuki': [0], // 水月 A 模组(特限证章):创伤性癔症 te 为 name=null 多条(含空 blackboard 占位),并入天赋0
 };
 
 const MODULE_TE_TALENT_MERGE = {
@@ -1270,6 +1274,9 @@ const MODULE_TE_TALENT_MERGE = {
   // 异客 X 模组「孤卒」te 只给技力回复,但该天赋按用户口径不计 → 无需合并
   // 佩佩 RA-α「弥漫莲香」te 含空 blackboard 占位档(全模组档重复列出),整体替换会清掉基础 atk 键 → 改为合并
   'char_4058_pepe': [1],
+  // 水月 A 模组(特限证章)te 含“创伤性癔症={}”空占位档,整体替换会把第一天每击附加法伤清零 → 改为合并
+  // (实际数值在 name=null 的 te 里:atk_scale 0.5,与基础档同值)
+  'char_437_mizuki': [0],
 };
 
 // ===== 投掷手(bombarder)专用结算 =====
@@ -3099,6 +3106,204 @@ const INERT_SUMMONS = [
 // 与持有者技能同构、携带完整数值 → 按召唤物自身数据建模,需越过 isSummon && !hasRealSkills 分支)。
 const TOKEN_REAL_SKILL_IDS = ['token_10007_phatom_twin', 'token_10009_weedy_cannon'];  // 工程蓄水炮:自身携带 sktok 液氮大炮技能数据,按召唤物自身建模
 
+// ===== 特种·伏击客(stalker) =====
+// 特性:对攻击范围内所有敌人造成伤害(单目标模型=1目标)、阻挡数 0、攻击间隔 3.5s、
+//       50% 物理与法术闪避且更不易被选中(闪避/嘲讽为生存向、非输出 → 不建模)。
+// 每击附加法术伤害天赋(水月「创伤性癔症」):每次攻击额外对目标造成 攻击力×scale 的法术伤害;
+//       技能期由 talent_scale 放大(唤醒 2.5 倍)。
+const STALKER_HIT_ARTS = {
+  'char_437_mizuki': { talentIndex: 0, key: 'attack@mizuki_t_1.atk_scale', skillMulKey: 'talent_scale' },
+};
+// 常驻法伤 DOT 天赋(阿斯卡纶「死亡拘审」):每次攻击施加 DOT(移速-,每秒受 攻击力×atk_ratio 法伤),
+//       最多 max_stack_cnt 层 —— 用户口径(2026-09-18)层数默认叠满;攻击间隔 <持续时间 → 等效常驻秒伤。
+const STALKER_TALENT_DOT = {
+  'char_4132_ascln': { talentIndex: 0, key: 'atk_ratio', stackKey: 'max_stack_cnt' },
+};
+// 被动技能附带的普攻 DOT(伊桑 S1「花式回旋」):普通攻击时额外使目标每秒受 attack@poison_damage 法伤,
+//       持续 attack@duration 秒;攻击间隔 3.5s < 4s → 等效常驻(不叠层)。仅在装备该被动技能槽位时生效。
+const STALKER_PASSIVE_DOT = {
+  'char_355_ethan': { 0: { key: 'attack@poison_damage' } },
+};
+
+// 伏击客常态行附加法伤(每击附加法伤 + 常驻 DOT + 被动技能普攻 DOT)→ 返回附加秒伤
+function stalkerNormalExtras(op, slotData, panelAtk, effRes, realInterval) {
+  const nI = realInterval > 0 ? realInterval : 1;
+  let artsDps = 0;
+  const hit = STALKER_HIT_ARTS[op.id];
+  if (hit) {
+    const sc = funnelTalentValue(op, slotData, hit.talentIndex, hit.key);
+    if (sc > 0) artsDps += calcArtsDamage(panelAtk * sc, effRes) / nI;
+  }
+  const dot = STALKER_TALENT_DOT[op.id];
+  if (dot) {
+    const rate = funnelTalentValue(op, slotData, dot.talentIndex, dot.key);
+    const stack = funnelTalentValue(op, slotData, dot.talentIndex, dot.stackKey) || 1;
+    if (rate > 0) artsDps += calcArtsDamage(panelAtk * rate * stack, effRes);
+  }
+  const pd = STALKER_PASSIVE_DOT[op.id];
+  if (pd) {
+    const si = slotData.skillIndex ?? -1;
+    const cfg = pd[si];
+    const sk = (op.skills || [])[si];
+    if (cfg && sk) {
+      const ld = getSkillLevelData(sk, slotData.skillLevel);
+      const v = ld[cfg.key];
+      if (typeof v === 'number' && v > 0) artsDps += calcArtsDamage(v, effRes);
+    }
+  }
+  return artsDps;
+}
+
+// 伏击客技能期结算。特性(0 阻挡/3.5s 间隔/闪避)非输出不建模;技能多为普攻叠加天赋特效或领域型。
+function calcStalkerSkill(op, slotData, c) {
+  const { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, skillDuration, levelData, skillIndex } = c;
+  const P = (a) => calcPhysicalDamage(a, effDef);
+  const A = (a) => calcArtsDamage(a, effRes);
+  const nI = realInterval > 0 ? realInterval : 1;
+  const sI = skillRealInterval > 0 ? skillRealInterval : nI;
+  const atkNow = panelAtk * (1 + (levelData.atk || 0));    // 技能期基础攻击力(不含 atk_scale 伤害倍率)
+  const normPhys = P(panelAtk) / nI;
+  const normArts = stalkerNormalExtras(op, slotData, panelAtk, effRes, realInterval);
+  const normRow = normPhys + normArts;
+  const nTypes = normArts > 0 ? { physical: { dps: normPhys }, arts: { dps: normArts } } : undefined;
+
+  // 水月「创伤性癔症」每击附加法伤(技能期 talent_scale 放大)
+  let wScale = 0, wScaleBase = 0;
+  const hitCfg = STALKER_HIT_ARTS[op.id];
+  if (hitCfg) {
+    wScaleBase = funnelTalentValue(op, slotData, hitCfg.talentIndex, hitCfg.key);
+    wScale = wScaleBase;
+    if (hitCfg.skillMulKey && typeof levelData[hitCfg.skillMulKey] === 'number') wScale *= levelData[hitCfg.skillMulKey];
+  }
+  const wArts = (atk, sc) => (sc > 0 ? A(atk * sc) : 0);
+  // 阿斯卡纶「死亡拘审」DOT 倍率(默认叠满)
+  let dotRate = 0;
+  const dotCfg = STALKER_TALENT_DOT[op.id];
+  if (dotCfg) {
+    const r = funnelTalentValue(op, slotData, dotCfg.talentIndex, dotCfg.key);
+    const st = funnelTalentValue(op, slotData, dotCfg.talentIndex, dotCfg.stackKey) || 1;
+    dotRate = r * st;
+  }
+  const dotDps = (atk) => (dotRate > 0 ? A(atk * dotRate) : 0);
+
+  const durHits = (dur, iv) => (dur > 0 && iv > 0 ? Math.max(1, Math.floor(dur / iv + 1e-9)) : 1);
+  const mk = (dt, sd, st, cd, iv, types) => ({
+    type: 'damage', damageType: dt, normalDamageType: 'physical',
+    isToggle: false, isPermanent: false,
+    skillDps: sd, skillTotalDamage: st, cycleDps: cd,
+    normalDps: normRow, skillHps: null, normalHps: null, totalHeal: null,
+    realInterval: iv || sI, panelAtk, dmgTypes: types, normalTypes: nTypes,
+  });
+
+  // ---- 狮蝎(char_215_mantic) ----
+  if (op.id === 'char_215_mantic') {
+    // S1 蝎毒(被动:每次攻击使目标 4s 内移速 -40%,无自身输出)→ 技能期 0,普攻归常态
+    if (skillIndex === 0) return mk('physical', 0, 0, null, nI);
+    // S2 蓄力毒尾击:攻击前摇与攻击间隔增大(+1.7s → 5.2s),攻击力 +70%(M3 +90%),命中晕眩(非输出)
+    const per = P(skillAtk);
+    const h = durHits(skillDuration, sI);
+    const tot = per * h;
+    return mk('physical', tot / (skillDuration || 1), tot, null, sI, { physical: { skillDps: tot / (skillDuration || 1), skillTotalDamage: tot, cycleDps: null } });
+  }
+
+  // ---- 伊桑(char_355_ethan) ----
+  if (op.id === 'char_355_ethan') {
+    // S2 十字悬挂:攻击力 +55%(M1 +70%),天赋触发几率提升(概率类不计)。S1 花式回旋为被动(走无技能路径附加 DOT)
+    const per = P(skillAtk);
+    const h = durHits(skillDuration, sI);
+    const tot = per * h;
+    return mk('physical', tot / (skillDuration || 1), tot, null, sI, { physical: { skillDps: tot / (skillDuration || 1), skillTotalDamage: tot, cycleDps: null } });
+  }
+
+  // ---- 阿斯卡纶(char_4132_ascln) ----
+  if (op.id === 'char_4132_ascln') {
+    const dN = dotDps(panelAtk);
+    if (skillIndex === 0) {
+      // S1 追袭:自动回复自动触发(sp8)→ 下次攻击攻击力提升至 atk_scale,并连续攻击两次(每击 = skillAtk)
+      const per = 2 * P(skillAtk);
+      const cd = calcCycleDps(levelData, nI, P(panelAtk), per) + dN;
+      return mk('physical', 0, per, cd, nI, { physical: { skillDps: 0, skillTotalDamage: per, cycleDps: cd - dN }, arts: { skillDps: 0, skillTotalDamage: 0, cycleDps: dN } });
+    }
+    // S2 恩赐(攻击力+130%)/ S3 降临(间隔 -1.5s、攻击力+50%):技能期普攻物理 + 天赋 DOT 法伤
+    const perPhys = P(skillAtk);
+    const dS = dotDps(atkNow);
+    const h = durHits(skillDuration, sI);
+    const physTot = perPhys * h, artsTot = dS * skillDuration;   // DOT 按每秒结算至技能结束(与出手次数无关)
+    const tot = physTot + artsTot;
+    return mk('physical', tot / (skillDuration || 1), tot, null, sI, {
+      physical: { skillDps: physTot / (skillDuration || 1), skillTotalDamage: physTot, cycleDps: null },
+      arts: { skillDps: artsTot / (skillDuration || 1), skillTotalDamage: artsTot, cycleDps: null },
+    });
+  }
+
+  // ---- 八幡海铃(char_4186_tmoris) ----
+  if (op.id === 'char_4186_tmoris') {
+    if (skillIndex === 0) {
+      // S1 颤栗之弦:攻击回复手动触发 → 发动 5 连击,每击 atk_scale 攻击力的法术伤害
+      // (其他 Ave Mujica 成员开启技能额外释放一次 —— 用户口径 2026-09-18:不计)
+      const per = 5 * A(skillAtk);
+      const cd = calcCycleDps(levelData, nI, P(panelAtk), per);
+      return mk('arts', 0, per, cd, nI, { arts: { skillDps: 0, skillTotalDamage: per, cycleDps: cd } });
+    }
+    // S2 无存之所:立即恐惧(控制非输出),技能期间停止普攻,每秒对范围内敌人造成 attack@atk_scale 攻击力法伤
+    const tick = levelData['attack@interval'] > 0 ? levelData['attack@interval'] : 1;
+    const perTick = A(atkNow * (levelData['attack@atk_scale'] || 0));
+    const ticks = Math.max(1, Math.floor(skillDuration / tick + 1e-9));
+    const tot = perTick * ticks;
+    return mk('arts', perTick, tot, null, tick, { arts: { skillDps: perTick, skillTotalDamage: tot, cycleDps: null } });
+  }
+
+  // ---- 水月(char_437_mizuki) ----
+  if (op.id === 'char_437_mizuki') {
+    if (skillIndex === 0) {
+      // S1 唤醒:自动回复自动触发 → 下次攻击造成 atk_scale 攻击力物理伤害,且第一天赋伤害倍率提升至 talent_scale 倍
+      const perPhys = P(skillAtk);
+      const perArts = wArts(panelAtk, wScale);
+      const per = perPhys + perArts;
+      const nHit = P(panelAtk) + wArts(panelAtk, wScaleBase);
+      const cd = calcCycleDps(levelData, nI, nHit, per);
+      return mk('physical', 0, per, cd, nI, {
+        physical: { skillDps: 0, skillTotalDamage: perPhys, cycleDps: calcCycleDps(levelData, nI, P(panelAtk), perPhys) },
+        arts: { skillDps: 0, skillTotalDamage: perArts, cycleDps: calcCycleDps(levelData, nI, wArts(panelAtk, wScaleBase), perArts) },
+      });
+    }
+    // S2 囚徒困境(间隔 -1.5s、攻击力+30%)/ S3 镜花水月(攻击力+150%):技能期普攻物理 + 第一天每击附加法伤
+    const perPhys = P(skillAtk);
+    const perArts = wArts(atkNow, wScale);
+    const h = durHits(skillDuration, sI);
+    const physTot = perPhys * h, artsTot = perArts * h;
+    const tot = physTot + artsTot;
+    return mk('physical', tot / (skillDuration || 1), tot, null, sI, {
+      physical: { skillDps: physTot / (skillDuration || 1), skillTotalDamage: physTot, cycleDps: null },
+      arts: { skillDps: artsTot / (skillDuration || 1), skillTotalDamage: artsTot, cycleDps: null },
+    });
+  }
+
+  // ---- 绮良(char_478_kirara) ----
+  if (op.id === 'char_478_kirara') {
+    if (skillIndex === 0) {
+      // S1 锚击:攻击回复自动触发 → 下次攻击额外造成 kirara_s_1.atk_scale(120%)攻击力的法术伤害
+      const sc = levelData['kirara_s_1.atk_scale'] || 0;
+      const physHit = P(panelAtk);
+      const artsHit = A(panelAtk * sc);
+      const per = physHit + artsHit;
+      const cd = calcCycleDps(levelData, nI, physHit, per);
+      return mk('physical', 0, per, cd, nI, {
+        physical: { skillDps: 0, skillTotalDamage: physHit, cycleDps: calcCycleDps(levelData, nI, physHit, physHit) },
+        arts: { skillDps: 0, skillTotalDamage: artsHit, cycleDps: calcCycleDps(levelData, nI, 0, artsHit) },
+      });
+    }
+    // S2 锚点捕捉:天赋效果提升(talent_scale,仅回血)、停止普攻,每秒对范围内敌人造成 attack@atk_scale 攻击力法伤
+    const tick = levelData['attack@duration'] > 0 ? levelData['attack@duration'] : 1;
+    const perTick = A(atkNow * (levelData['attack@atk_scale'] || 0));
+    const ticks = Math.max(1, Math.floor(skillDuration / tick + 1e-9));
+    const tot = perTick * ticks;
+    return mk('arts', perTick, tot, null, tick, { arts: { skillDps: perTick, skillTotalDamage: tot, cycleDps: null } });
+  }
+
+  return calcDamage(c);
+}
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -3276,6 +3481,12 @@ function calculateOperator(op, slotData, ctx) {
     const normFlat = defHitArtsMax(op, slotData);
     // 落地点火/开局定时触发天赋(虎狼丸等):其伤害移入技能期显示,常态只留普攻
     const deployBurst = calcDeployBurstSkill(op, slotData, panelAtk, realInterval);
+    // 特种·伏击客(stalker):常态普攻(物理) + 天赋/被动附加法伤(水月每击附加、阿斯卡纶 DOT、伊桑被动 DOT)
+    if (op.subProfessionId === 'stalker') {
+      const stArts = stalkerNormalExtras(op, slotData, panelAtk, effRes, realInterval);
+      const stPhys = normalDps * calcTalentDmgMul(op, slotData);
+      return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: stPhys + stArts, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalTypes: stArts > 0 ? { physical: { dps: stPhys }, arts: { dps: stArts } } : undefined };
+    }
     return { type: 'damage', skillDps: deployBurst ? deployBurst.dps : 0, skillTotalDamage: deployBurst ? deployBurst.total : 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType, deploySkill: !!deployBurst, dmgTypes: deployBurst ? { [deployBurst.damageType]: { skillDps: deployBurst.dps, skillTotalDamage: deployBurst.total, cycleDps: null } } : undefined };
   }
 
@@ -5517,6 +5728,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       skillHps: null, normalHps: null, totalHeal: null, realInterval: gTickIvl, panelAtk,
       dmgTypes: { arts: { skillDps: gDps, skillTotalDamage: gTot, cycleDps: null } },
     };
+  } else if (op.subProfessionId === 'stalker') {
+    // 特种·伏击客(stalker):攻击范围内所有敌人(单目标模型)、0 阻挡、3.5s 间隔;天赋附加法伤/DOT/被动 DOT
+    result = calcStalkerSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, skillDuration, levelData, skillIndex });
   } else {
     result = calcDamage(params);
   }
