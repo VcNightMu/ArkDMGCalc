@@ -683,6 +683,10 @@ function calcDeployBurstSkill(op, slotData, panelAtk, realInterval) {
 }
 
 function calcTalentAtkBonus(op, slotData) {
+  // 巡空者起飞后攻击力增幅(予愿安洁莉娜「天穹间的舞步」含自身 / 云迹「低空乱流」)与天赋攻击力驱动同区累加
+  return skywalkerTalentAtkBonus(op, slotData) + calcTalentAtkBonusBase(op, slotData);
+}
+function calcTalentAtkBonusBase(op, slotData) {
   const cfg = TALENT_ATK_DRIVERS[op.id];
   if (cfg === undefined) return 0;
   // 携带技能条件天赋(夜魔「表里人格」:装备 2 技能时攻击+X%,装 1 技能为闪避向不计):cfg = {talentIndex, skillIndex}
@@ -3478,6 +3482,73 @@ function calcTraperSkill(op, slotData, c) {
   return mk(0, 'physical');
 }
 
+// ===== 特种·巡空者(skywalker) =====
+// 特性「起飞后能够阻挡2个飞行敌人」(仅 予愿安洁莉娜 在数据 trait 落文案;trait.blackboard.height_offset=0.8 为起飞高度,非数值)。
+// 用户口径 2026-09-18:予愿安洁莉娜 天赋「飘浮大地之上」的额外法术伤害默认为「基础版」(取 atk_scale_lo,不取对轻敌的 atk_scale_hi)。
+// 建模:常态/技能期均为「物理普攻 + 予愿安洁莉娜 每击附加法术伤害」(附加伤害随技能期攻击力缩放,不吃技能的物理伤害倍率);
+//   起飞后攻击力增幅(攻击力乘区,常态与技能期同乘)见 skywalkerTalentAtkBonus(接入 calcTalentAtkBonus);
+//   失重/减重、眩晕/束缚等状态效果、阻挡数、蒂比「片场工作指南」的闪避一律不计入伤害。
+// 天赋读数(潜0 E2):
+//   予愿安洁莉娜 T0「飘浮大地之上」:atk_scale_lo = 0.25(基础版额外法术比率;潜4 = 0.30)
+//   予愿安洁莉娜 T1「天穹间的舞步」:atk = 0.13(在场时所有起飞友方攻击力+13%,含自身,同安洁莉娜「加速力场」先例)
+//   云迹 T0「低空乱流」:atk_scale = 1.10(起飞后攻击敌人时攻击力提升至 110%,起飞默认成立 → +(1.10-1))
+//   蒂比 T0「片场工作指南」:闪避类 → 非输出,不建模
+function skywalkerTalentAtkBonus(op, slotData) {
+  if (op.subProfessionId !== 'skywalker') return 0;
+  if (op.id === 'char_1015_aglna2') return funnelTalentValue(op, slotData, 1, 'atk');   // T1「天穹间的舞步」:起飞友方攻击力+X%(含自身)
+  if (op.id === 'char_4165_ctrail') { const s = funnelTalentValue(op, slotData, 0, 'atk_scale'); return s > 0 ? s - 1 : 0; }  // T0「低空乱流」:起飞后攻击力提升至 X%
+  return 0;
+}
+// 予愿安洁莉娜「飘浮大地之上」:每击额外法术伤害 = 攻击力 × atk_scale_lo(基础版,不含对轻敌档)
+function skywalkerExtraArtsRatio(op, slotData) {
+  if (op.id !== 'char_1015_aglna2') return 0;
+  return funnelTalentValue(op, slotData, 0, 'atk_scale_lo') || 0;
+}
+// 巡空者技能:技能期 = duration,击数 = floor(duration/间隔),逐击单目标结算;
+// 常态列 = 自身普攻(保证「非永续、非触发型槽常态化列 = 无技能态」不变量)。
+// 予愿安洁莉娜 S3(skillDuration=-1 弹药型):33 发 ×(攻击力×330% 物理 + 攻击力×atk_scale_lo 法术)。
+function calcSkywalkerSkill(op, slotData, c) {
+  const { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex, skillDuration } = c;
+  const nIvl = realInterval > 0 ? realInterval : 1;
+  const exRatio = skywalkerExtraArtsRatio(op, slotData);
+  const Pp = (a) => calcPhysicalDamage(a, effDef);
+  const Aa = (a) => calcArtsDamage(a, effRes);
+  const physPer = (atkVal, mul) => Pp(atkVal * (mul || 1));
+  const artsPer = (atkVal) => exRatio > 0 ? Aa(atkVal * exRatio) : 0;
+  const normalDps = (physPer(panelAtk, 1) + artsPer(panelAtk)) / nIvl;
+  const base = {
+    normalDamageType: 'physical', isToggle: false, isPermanent: false, cycleDps: null,
+    normalDps, normalHps: null, skillHps: null, totalHeal: null, realInterval: nIvl, skillAtkOut: skillAtk,
+  };
+  const mkRes = (phys, arts, denom, iv) => {
+    const total = phys + arts;
+    const dps = denom > 0 ? total / denom : 0;
+    return {
+      ...base, type: 'damage', damageType: 'physical', realInterval: iv, skillDps: dps, skillTotalDamage: total,
+      dmgTypes: arts > 0
+        ? { physical: { skillDps: denom > 0 ? phys / denom : 0, skillTotalDamage: phys, cycleDps: null }, arts: { skillDps: denom > 0 ? arts / denom : 0, skillTotalDamage: arts, cycleDps: null } }
+        : { physical: { skillDps: dps, skillTotalDamage: total, cycleDps: null } },
+    };
+  };
+  // 予愿安洁莉娜 S3「酸橙的心事」:弹药型(33 发),每发 = 攻击力×attack@atk_scale 物理 + 天赋附加法术
+  if (op.id === 'char_1015_aglna2' && skillIndex === 2) {
+    const ammo = Math.max(0, Math.round(levelData['attack@trigger_time'] || 0));
+    const physMul = levelData['attack@atk_scale'] || 1;
+    const sIvl = skillRealInterval > 0 ? skillRealInterval : nIvl;
+    const phys = physPer(skillAtk, physMul) * ammo;
+    const arts = artsPer(skillAtk) * ammo;
+    const win = ammo * sIvl;
+    return mkRes(phys, arts, win, sIvl);
+  }
+  // 其余(有持续时间)技能:技能期 = duration
+  const duration = skillDuration > 0 ? skillDuration : 0;
+  const sIvl = skillRealInterval > 0 ? skillRealInterval : nIvl;
+  const hits = duration > 0 ? Math.max(0, Math.floor(duration / sIvl)) : 0;
+  const phys = physPer(skillAtk, 1) * hits;
+  const arts = artsPer(skillAtk) * hits;
+  return mkRes(phys, arts, duration, sIvl);
+}
+
 // ===== 特种·炼金师(alchemist) =====
 // 特性「可以投掷炼金单元协助作战」。用户口径 2026-09-18:炼金师技能都是「脱手技能」——干员抛出炼金单元后本体继续普攻,
 // 单元在 projectile_delay_time 秒内每秒持续生效(治疗/法伤 DoT)。数据 skillDuration=-1(弹药/占位语义),窗口以 projectile_delay_time 为准。
@@ -3744,6 +3815,13 @@ function calculateOperator(op, slotData, ctx) {
       const stRegen = calcTalentFlatDefPctRegen(op, slotData);
       const stHps = calcTalentHps(op, slotData) + (stRegen ? panelHp * stRegen.ratio : 0);
       return { type: stHps > 0 ? 'heal' : 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: stPhys + stArts, skillHps: null, normalHps: stHps > 0 ? stHps : null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalTypes: stArts > 0 ? { physical: { dps: stPhys }, arts: { dps: stArts } } : undefined };
+    }
+    // 特种·巡空者(skywalker)常态化列:物理普攻 + 予愿安洁莉娜天赋附加法术(逐击;起飞攻击力增幅已入 panelAtk)
+    if (op.subProfessionId === 'skywalker') {
+      const swRatio = skywalkerExtraArtsRatio(op, slotData);
+      const swPhys = calcPhysicalDamage(panelAtk, effDef);
+      const swArts = swRatio > 0 ? calcArtsDamage(panelAtk * swRatio, effRes) : 0;
+      return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: (swPhys + swArts) / realInterval, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, normalTypes: swArts > 0 ? { physical: { dps: swPhys / realInterval }, arts: { dps: swArts / realInterval } } : undefined };
     }
     return { type: 'damage', skillDps: deployBurst ? deployBurst.dps : 0, skillTotalDamage: deployBurst ? deployBurst.total : 0, cycleDps: null, normalDps: normalDps * calcTalentDmgMul(op, slotData) + normFlat / realInterval + calcBluePoisonDps(op, slotData, state.enemy) + (op.subProfessionId === 'lord' ? lordThornsDotDps(op, slotData) : 0), skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: normType, normalDamageType: normType, deploySkill: !!deployBurst, dmgTypes: deployBurst ? { [deployBurst.damageType]: { skillDps: deployBurst.dps, skillTotalDamage: deployBurst.total, cycleDps: null } } : undefined };
   }
@@ -5033,6 +5111,9 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   } else if (op.subProfessionId === 'alchemist') {
     // 特种·炼金师(alchemist)专用分支:脱手技能——炼金单元在窗口(=projectile_delay_time)内每秒法伤/治疗,本体普攻归常态列
     result = calcAlchemistSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
+  } else if (op.subProfessionId === 'skywalker') {
+    // 特种·巡空者(skywalker)专用分支:技能期 atk 增幅 + 予愿安洁莉娜 每击附加法术;S3 为弹药型(见 calcSkywalkerSkill)
+    result = calcSkywalkerSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex, skillDuration });
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
