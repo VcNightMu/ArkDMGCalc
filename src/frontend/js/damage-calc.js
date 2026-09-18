@@ -1012,6 +1012,11 @@ const PERMANENT_OVERRIDES = {
   'char_4042_lumen': [2],   // 流明 S3 灯火不灭：skillDuration=-1 弹药占位，实际永续
   'char_4230_mcnist': [1],  // 机械师 S2 协防术式：弹药仅屏障被摧毁时消耗（爆盾机制无受击模型）→ 永续
 };
+// 数据标记 isPermanent 但改按「有界技能期 + 一次性总伤」展示的技能:
+// 琳琅诗怀雅 S3 千金一掷(用户口径 2026-09-18):技能期=二连击,关闭时金币弹爆发按一次性总伤展示
+const PERMANENT_EXCLUDE = {
+  'char_1033_swire2': [2],
+};
 
 // 单次攻击多重治疗的技能(连发全打同一目标/单目标模型):纯烬艾雅法拉「火山回响」治疗变 5 连发(每发 attack@heal_scale),全部计入。
 const SKILL_HEAL_CHAIN = {
@@ -1048,6 +1053,7 @@ const SKILL_ATTACK_SPEED_OVERRIDES = {
   'char_4164_tecno': { 0: 0, 1: 0 },  // 特克诺 S2 恣意挥洒:attack_speed 为召唤物攻速(自身不吃)
   'char_4026_vulpis': { 2: 90 },   // 忍冬 S3:平均 +90
   'char_180_amgoat': { 0: 50 },    // 艾雅法拉 S1 二重咏唱:攻速+50(M1)
+  'char_455_nothin': { 1: 0 },     // 乌有 S2 阴晴圆缺:随机三选一中的「攻击速度+25」按用户口径 2026-09-18 不计(只留攻击力+50%)
 };
 const SKILL_ATK_KEY_OVERRIDES = {
   'char_1020_reed2': { 2: 'reed2_skil_3[switch_mode].atk' },
@@ -2845,6 +2851,8 @@ const MULTI_HIT = {
   'char_1001_amiya2': { 0: 2 },  // 阿米娅(近卫) S1 影霄·奔夜:攻击变为二连击(dur28 法伤)
   'char_1036_fang2': { 0: 2 },  // 历阵锐枪芬 S1 贯敌刺枪:下次攻击变二连击(1.8×atk×2,AUTO dur0 触发)
   'char_222_bpipe': { 2: 3 },   // 风笛 S3 闭膛连发:攻击变三连击(dur20 间隔+0.7→1.7s,atk+100% 三连全中)
+  // ---- 特种·行商(merchant) ----
+  'char_1033_swire2': { 2: 2 },  // 琳琅诗怀雅 S3 千金一掷:「攻击变为二连击」(数据无 times,按文案写死;atk_scale 1.3 是金币弹倍率,由 SKILL_ATK_SCALE_EXCLUDE 排除)
   // 注:灵知 S1「高速思考」的「下次攻击连续攻击两次」已由 UNDERMINER_SPECIAL 专用分支结算(二连击第二下处于冻结要吃冻结脆弱,不能只乘次数)
 };
 // 速射手连射(用户口径 2026-09-17):一次攻击打出 N 发,单目标模型全部命中。
@@ -2932,6 +2940,7 @@ const SKILL_ATK_SCALE_EXCLUDE = {
   'char_344_beewax': { 1: true },   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)
   'char_450_necras': { 1: true },   // 死芒 S2 折朽:atk_scale 是沉睡目标每 0.5s 的 DoT 倍率,不作普攻倍率
   'char_4055_bgsnow': { 0: true },  // 鸿雪 S1 抑扬格:atk_scale 1.85 是 30% 概率触发的当次攻击倍率(用户口径:概率增幅不计)
+  'char_1033_swire2': { 2: true },  // 琳琅诗怀雅 S3 千金一掷:顶层 atk_scale 1.3 实为「关闭技能时每枚金币」的弹道倍率,不作攻击力乘算(用户口径 2026-09-18:S3 = 二连击 + 关闭金币爆发)
   'token_10026_bgsnow_subbow': { 0: true },  // 打字机继承鸿雪 S1 同口径(继承技能,面板为打字机自身)   // 蜜蜡 S2 守卫尖峰:atk_scale 2.5 是方尖塔出现时的一次性范围爆发,不作普攻倍率(技能期普攻为正常倍率)    // 薄绿 S2 聚能漩涡:atk_scale 2.6 是技能结束时对范围内敌人的爆发倍率,不作普攻倍率(普攻倍率走 attack@atk_scale 1.2) // 机械师 S2 atk_scale 2 是屏障被摧毁法伤（受击机制不计）；S3 atk_scale 3 是冲锋碰撞倍率（召唤物轮处理）
 };
 // 顶层 atk 不作为普攻加成(键值是受击叠层基值,默认不受击 0 层,如车尔尼 S2 每层 +26%)
@@ -3319,6 +3328,76 @@ function calcStalkerSkill(op, slotData, c) {
   return calcDamage(c);
 }
 
+// ===== 特种·行商(merchant) =====
+// 特性(再部署时间减少、撤退不返还部署费用、在场时每 3 秒消耗 3 点部署费用)非输出,不建模。
+// 用户口径 2026-09-18:孑「解剖高手」、裁度「谨慎择客」、老鲤「和气生财」、乌有「出其不意」的
+//   攻击力/攻速/伤害增幅一律默认不计算(条件类或概率类);乌有 S2 的随机「攻击速度+25」不计;
+//   孑 S2 的治疗、乌有 S1 的回血给出治疗量。
+function calcMerchantSkill(op, slotData, c) {
+  const { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex } = c;
+  const mIvl = skillRealInterval > 0 ? skillRealInterval : (realInterval > 0 ? realInterval : 1);
+  const nIvl = realInterval > 0 ? realInterval : 1;
+  const P = (a) => calcPhysicalDamage(a, effDef);
+  if (op.id === 'char_272_strong') {
+    // 孑(4★):S1 断螯 / S2 刺身拼盘 均为「自动回复·自动触发·持续时间无限」的常驻攻击强化。
+    // S1:攻击力+50%(专一),命中目标失去特殊能力(沉默)。S2:攻击力+50%,
+    // 且每次攻击治疗周围一名友方(含自身)相当于造成伤害 40%(专一)的生命值 → 给出技能期治疗量(用户口径 2026-09-18)。
+    const dps = P(skillAtk) / mIvl;
+    const heal = skillIndex === 1 ? dps * (levelData.scale || 0) : 0;
+    return {
+      type: heal > 0 ? 'heal' : 'damage', damageType: 'physical', normalDamageType: 'physical',
+      skillDps: dps, skillTotalDamage: 0, cycleDps: null, normalDps: null,
+      skillHps: heal > 0 ? heal : null, normalHps: null, totalHeal: null,
+      isToggle: false, isPermanent: true, realInterval: mIvl, panelAtk: skillAtk,
+      dmgTypes: { physical: { skillDps: dps, skillTotalDamage: 0, cycleDps: null } },
+    };
+  }
+  if (op.id === 'char_322_lmlee' && skillIndex === 1) {
+    // 老鲤 S2 驱凶辟邪(手动,dur0 触发型):被动效果 攻击速度+20;主动开启标记目标,5 秒后标记爆炸
+    // 对周围造成 攻击力×(default_atk_scale + factor_atk_scale×叠层次数) 的法术伤害。
+    // 叠层次数来自「我方对目标造成伤害的次数」,但标记只存在 paper_duration(=5) 秒 → 用户口径 2026-09-18:
+    // 只计 5 次(而非满层 max_stack_cnt=25),直接用 blackboard.paper_duration。
+    const stacks = levelData.paper_duration || 0;
+    const boomMul = (levelData.default_atk_scale || 0) + (levelData.factor_atk_scale || 0) * stacks;
+    const boom = calcArtsDamage(panelAtk * boomMul, effRes);
+    const sp = levelData.spCost > 0 ? levelData.spCost : 10;
+    const cycleDps = sp > 0 ? (Math.floor(sp / mIvl) * P(panelAtk) + boom) / sp : 0;
+    return {
+      type: 'damage', damageType: 'arts', normalDamageType: 'physical',
+      skillDps: 0, skillTotalDamage: boom, cycleDps,
+      normalDps: P(panelAtk) / nIvl, skillHps: null, normalHps: null, totalHeal: null,
+      isToggle: false, isPermanent: false, realInterval: mIvl, panelAtk,
+      dmgTypes: { arts: { skillDps: 0, skillTotalDamage: boom, cycleDps } },
+    };
+  }
+  if (op.id === 'char_1033_swire2' && skillIndex === 1) {
+    // 琳琅诗怀雅 S2「见面礼」(PASSIVE 无时长):技能主动 = 放置一个香槟炸弹(按陷阱处理)。
+    // 用户口径 2026-09-18:技能期总伤 = 一个陷阱造成的伤害 = 攻击力×atk_scale(专一 1.8)物理;
+    // 技能期 DPS 记 0;常态化列 = 自身普攻。(陷阱建模口径,与陷阱师子职业一致)
+    const s2Trap = P(panelAtk * (levelData.atk_scale || 1));
+    return {
+      type: 'damage', damageType: 'physical', normalDamageType: 'physical',
+      skillDps: 0, skillTotalDamage: s2Trap, cycleDps: null,
+      normalDps: P(panelAtk) / nIvl, skillHps: null, normalHps: null, totalHeal: null,
+      isToggle: false, isPermanent: false, realInterval: mIvl, skillAtkOut: panelAtk,
+      dmgTypes: { physical: { skillDps: 0, skillTotalDamage: s2Trap, cycleDps: null } },
+    };
+  }
+  // 琳琅诗怀雅 S3 千金一掷(自动触发·持续时间无限):攻击变为二连击(顶层 atk_scale 1.3 实为
+  // 「关闭技能时每枚金币」的弹道倍率,不作攻击力乘算 → 已由 SKILL_ATK_SCALE_EXCLUDE 排除);
+  // 主动关闭时消耗所有金币(上限 10)对前方敌人随机攻击,每枚金币造成攻击力×atk_scale 物理伤害。
+  // 用户口径 2026-09-18:S3 = 二连击 + 关闭金币爆发(按 10 枚)。
+  const swDps = P(panelAtk) * 2 / mIvl;
+  const swBurst = P(panelAtk * (levelData.atk_scale || 1)) * 10;
+  return {
+    type: 'damage', damageType: 'physical', normalDamageType: 'physical',
+    skillDps: swDps, skillTotalDamage: swBurst, cycleDps: null, normalDps: null,
+    skillHps: null, normalHps: null, totalHeal: null,
+    isToggle: false, isPermanent: false, realInterval: mIvl, panelAtk,
+    dmgTypes: { physical: { skillDps: swDps, skillTotalDamage: swBurst, cycleDps: null } },
+  };
+}
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -3339,7 +3418,10 @@ function calculateOperator(op, slotData, ctx) {
   // 同属"部署后生效 N 秒"的一次性强化 → 一并按限时被动走技能期,不再并入常驻面板。
   const passiveRaw = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE') ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
   const passiveRawDur = passiveRaw ? (passiveRaw.skillDuration > 0 ? passiveRaw.skillDuration : (passiveRaw.duration > 0 ? passiveRaw.duration : 0)) : 0;
-  const passiveLv = (passiveRaw && !(passiveRawDur > 0) && op.subProfessionId !== 'executor') ? passiveRaw : null;
+  const passiveLv = (passiveRaw && !(passiveRawDur > 0) && op.subProfessionId !== 'executor'
+    // 琳琅诗怀雅 S2「见面礼」(PASSIVE 无时长):主动=放置香槟炸弹(按陷阱建模)→ 需走技能路径,
+    // 否则被当作常驻被动吞掉、陷阱总伤不可见(用户口径 2026-09-18,见 calcMerchantSkill / notes.json)
+    && !(op.id === 'char_1033_swire2' && slotData.skillIndex === 1)) ? passiveRaw : null;
 
   // ======== Panel Stats ========
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
@@ -4782,6 +4864,10 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       const win = nAtk * nI;
       result = aMk(perAtk * nAtk, win, nI);
     }
+  } else if (op.id === 'char_272_strong' || (op.id === 'char_322_lmlee' && skillIndex === 1) || (op.id === 'char_1033_swire2' && (skillIndex === 1 || skillIndex === 2))) {
+    // 特种·行商(merchant)专用分支:孑 S1/S2(常驻强化 + S2 治疗量)、老鲤 S2(标记引爆法术)、
+    // 琳琅诗怀雅 S2(香槟炸弹陷阱)、S3(二连击 + 关闭金币爆发)
+    result = calcMerchantSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex });
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
@@ -6146,12 +6232,13 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
     const hps = talentHps + (pctRegen ? panelHp * pctRegen.ratio : 0);
     if (hps > 0) result = { ...result, normalHps: hps };
   }
-  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined) || (op.subProfessionId === 'blessing' && result.skillHps !== null && result.skillHps !== undefined);
+  const isHealType = isMedic || (result.totalHeal !== null && result.totalHeal !== undefined) || (result.normalHps !== null && result.normalHps !== undefined) || (op.subProfessionId === 'blessing' && result.skillHps !== null && result.skillHps !== undefined)
+    || (result.isPermanent === true && result.skillHps !== null && result.skillHps !== undefined);  // 孑 S2 刺身拼盘:常驻攻击强化附带每击治疗 → 按治疗型卡片展示
   // 吟游者/护佑者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
   // basePanelAtk 为分支显式声明(如游击手 S2 的 atk_scale 是治疗比率,不含伤害倍率)
   const useBasePanelAtk = isBard || op.subProfessionId === 'blessing' || result.basePanelAtk === true;
   const { basePanelAtk: _basePanelAtkFlag, skillAtkOut: _skillAtkOutFlag, ...resultOut } = result;
-  return { ...resultOut, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: useBasePanelAtk ? panelAtk : (result.skillAtkOut !== undefined ? result.skillAtkOut : skillAtk) };
+  return { ...resultOut, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent: ((PERMANENT_EXCLUDE[op.id] || []).includes(skillIndex) ? false : isPermanent), realInterval: result.realInterval ?? skillRealInterval, panelAtk: useBasePanelAtk ? panelAtk : (result.skillAtkOut !== undefined ? result.skillAtkOut : skillAtk) };
 }
 
 /**

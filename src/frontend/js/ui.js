@@ -19,6 +19,12 @@ const TOKEN_SUMMON_OWNER_REF = {
   'token_10037_mitm_trshrb': 'char_4147_mitm',
   'token_10054_phatm2_encdool': 'char_1042_phatm2',   // 巫役·酒神「本能的召唤」:伤害源=酒神面板攻击力
 };
+// 干员「无时长被动但仍需展示技能期」白名单:这类技能在引擎里走技能路径产出技能期总伤(如陷阱),
+// 但 skillType=PASSIVE 且无时长 → hasSkill 判定会将其归为常驻被动而隐藏。
+// 与 damage-calc.js 的被动豁免同步(琳琅诗怀雅 S2「见面礼」主动=放置香槟炸弹,按陷阱建模)。
+const OP_PASSIVE_SKILL_SLOTS = {
+  'char_1033_swire2': { 1: true },
+};
 
 function isModuleUnlocked(op, slotData) {
   const m = slotData.module;
@@ -415,7 +421,7 @@ async function updateResults() {
     // result.deploySkill:落地点火/开局定时触发天赋(无技能选择也显示技能期 DPS/总伤)
     const hasSkill = result.deploySkill === true || (!!equipped && !!equipped.skillId
       && !(op.profession === 'TOKEN' && (String(equipped.skillId).startsWith('skcom_') || String(equipped.skillId).startsWith('sktok_')) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0])
-      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(equippedLv.duration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0]));
+      && !(equipped.levels && equipped.levels[0] && equipped.levels[0].skillType === 'PASSIVE' && !(equippedLv.skillDuration > 0) && !(equippedLv.duration > 0) && !(TOKEN_FORM_SKILLS[op.id] || {})[slotData.skillIndex || 0] && !(OP_PASSIVE_SKILL_SLOTS[op.id] || {})[slotData.skillIndex || 0]));
     const dmgCls = dmgClass(result.damageType);
 
     const subId = op.subProfessionId;
