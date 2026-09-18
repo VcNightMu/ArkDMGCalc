@@ -4032,6 +4032,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10007_phatom_twin",
+    "name": "镜中虚影",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_250_phatom",
+    "ownerName": "傀影"
+  },
+  {
     "id": "char_214_kafka",
     "name": "卡夫卡",
     "rarity": "TIER_5",

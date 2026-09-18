@@ -558,6 +558,21 @@ function kormrBurst(op, slotData) {
 // 治疗型为瞬发一次性给量,不存在"技能期 HPS"概念,只给总治疗量(damageType: 'heal' 区分)。
 // 处理范围仅限 ★1/★2 干员(低星常无技能,落地天赋是其输出主体);有技能的正常干员落地类天赋一般不处理。
 const DEPLOY_BURST_TALENTS = {
+  // THRM-EX「延迟引爆·I」:部署 3s 后对周围 8 格所有敌人造成 攻击力×damage_by_atk_scale 的物理伤害
+  // (8s 脆弱为敌方减益,不产生自身输出 → 不计);自身随即退场。单目标 1 次。
+  'char_376_therex': (op, slotData, panelAtk) => {
+    const talent = (op.talents || [])[0];
+    const pot = slotData.potentialRank || 0;
+    let scale = 0;
+    for (const cand of talentCandSource(op, slotData, 0, talent.candidates)) {
+      const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+      if (cand.phase <= slotData.elite && candPot <= pot) {
+        const bb = cand.blackboard || {};
+        if (typeof bb.damage_by_atk_scale === 'number' && bb.damage_by_atk_scale > scale) scale = bb.damage_by_atk_scale;
+      }
+    }
+    return { total: calcPhysicalDamage(panelAtk * scale, Math.max(0, state.enemy.def)), hits: 1, damageType: 'physical' };
+  },
   // 虎狼丸「黑色猎犬」:部署后 5 次 atk_scale 法术斩击 + 末次 final_atk_scale 法术斩击(单目标)
   'char_4220_kormr': (op, slotData, panelAtk) => {
     const b = kormrBurst(op, slotData);
@@ -582,6 +597,72 @@ const DEPLOY_BURST_TALENTS = {
     return { total: value, hits: 1, damageType: 'heal' };
   },
 };
+// ===== 特种·处决者(executor)辅助 =====
+// 天赋静态 blackboard(优先模组同名 te 覆盖档;否则按精英化/潜能取最高档的最后一条候选)。
+function execTalentBB(op, slotData, talentIndex) {
+  const enh = getTalentEnhBB(op, slotData, talentIndex);
+  if (enh) return enh;
+  const talent = (op.talents || [])[talentIndex];
+  if (!talent) return null;
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = null;
+  for (const c of talent.candidates || []) {
+    if (c.phase <= elite && (c.potentialRank ?? c.requiredPotentialRank ?? 0) <= pot) best = c.blackboard || {};
+  }
+  return best;
+}
+
+// 麒麟R夜刀「双雷剑麒麟」:每次攻击额外造成 攻击力×attack@atk_scale_1 的法术伤害(每击触发);
+// Y 模组追加「术法充盈」(按造成法术伤害次数叠层,属攻击次数型 → 按叠满 ×(1+damage_up×max_stack_cnt))。
+// scaleMul = 技能对该第一天赋的额外倍率(S2 用 blackboard.talent_scale;S3 用 atk_scale)。
+function yato2TalentMagicDmg(op, slotData, atk, effRes, scaleMul, hits) {
+  const bb = execTalentBB(op, slotData, 0) || {};
+  const scale = typeof bb['attack@atk_scale_1'] === 'number' ? bb['attack@atk_scale_1'] : 0;
+  if (scale <= 0) return 0;
+  let mul = 1;
+  const up = bb.damage_up, cap = bb.max_stack_cnt;
+  if (typeof up === 'number' && typeof cap === 'number') {
+    // 「术法充盈」按造成法术伤害次数叠层:先结算攻击增幅、再结算伤害 → 第 k 击(第 k 次法术伤害)吃到 k 层。
+    // 用户口径(2026-09-18 修正):落地技能窗口第 1 击即已有 1 层,逐击叠层取平均收益(非叠满);hits = 窗口内法术伤害次数
+    // (Infinity/缺省 = 常态化稳态,叠满)。
+    if (hits > 0 && hits !== Infinity) {
+      let s = 0;
+      for (let j = 1; j <= hits; j++) s += Math.min(j, cap);
+      mul = 1 + up * (s / hits);
+    } else {
+      mul = 1 + up * cap;
+    }
+  }
+  return calcArtsDamage(atk * scale * mul * (scaleMul || 1), effRes);
+}
+
+// 处决者常态普攻的附加段(仅麒麟R夜刀:每次攻击附第一天赋法术伤害),并入常态化列
+// 处决者(executor)Y 模组特性「周围四格没有友方干员时攻击力+X%」:数据驱动读取模组等级 traitEnhance
+// 的无名条目 blackboard.atk(与 talentEnhance 天赋增强分属不同字段,天然不重复计天赋)。
+// 用户口径(2026-09-18):按「单打独斗、周围无友军默认成立」计入,与天赋 atk 同区累加。
+function executorTraitAtkMul(op, slotData) {
+  if (op.subProfessionId !== 'executor') return 0;
+  const lv = getModuleLevelData(op, slotData);
+  if (!lv || !Array.isArray(lv.traitEnhance)) return 0;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const c of lv.traitEnhance) {
+    if (!c) continue;
+    const cPot = c.requiredPotentialRank ?? c.potentialRank ?? 0;
+    if (cPot > pot) continue;
+    const v = (c.blackboard || {}).atk;
+    if (typeof v === 'number' && v > best) best = v;
+  }
+  return best;
+}
+
+function executorNormalExtraDps(op, slotData, panelAtk, effRes, realInterval) {
+  if (op.subProfessionId !== 'executor') return 0;
+  const iv = realInterval > 0 ? realInterval : 1;
+  if (op.id === 'char_1029_yato2') return yato2TalentMagicDmg(op, slotData, panelAtk, effRes) / iv;
+  return 0;
+}
+
 function calcDeployBurstSkill(op, slotData, panelAtk, realInterval) {
   const handler = DEPLOY_BURST_TALENTS[op.id];
   if (!handler) return null;
@@ -1634,7 +1715,8 @@ function calcAoeSkill(op, slotData, skillIndex, levelData, ctx) {
 //  焰狐龙梓兰「强击瓶专家」「翔虫机动」攻击力增幅不计;「刚射」有充能即立刻释放 → 不触发刚连射,只按基础档(4 支 × atk_scale_1);
 //    「龙之箭」默认敌人仅受到一次伤害(物理 + 法术各一次)。
 function acdropMinDamage(op, slotData, atk) {
-  if (op.id !== 'char_366_acdrop') return 0;
+  // 处决者·红「刺骨」:每次攻击至少造成 atk_scale×攻击力 的伤害(攻击伤害下限)
+  if (op.id !== 'char_366_acdrop' && op.id !== 'char_144_red') return 0;
   const mul = funnelTalentValue(op, slotData, 0, 'atk_scale');
   return mul > 0 ? mul * atk : 0;
 }
@@ -2999,6 +3081,10 @@ const INERT_SUMMONS = [
   'token_10055_phatm2_mndclv',  // 巫役·酒神·迷狂牢笼(神经损伤爆发时生成的阻挡物,无输出)
 ];
 
+// 拥有真实自身技能的召唤物(sktok_ 前缀通常为占位/联动技能,但傀影「镜中虚影」的 sktok_phatom_1/2/3
+// 与持有者技能同构、携带完整数值 → 按召唤物自身数据建模,需越过 isSummon && !hasRealSkills 分支)。
+const TOKEN_REAL_SKILL_IDS = ['token_10007_phatom_twin'];
+
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)
   if (SUBPROF_ARTS[op.subProfessionId]) op = { ...op, damageType: 'arts' };
@@ -3019,7 +3105,7 @@ function calculateOperator(op, slotData, ctx) {
   // 同属"部署后生效 N 秒"的一次性强化 → 一并按限时被动走技能期,不再并入常驻面板。
   const passiveRaw = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE') ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
   const passiveRawDur = passiveRaw ? (passiveRaw.skillDuration > 0 ? passiveRaw.skillDuration : (passiveRaw.duration > 0 ? passiveRaw.duration : 0)) : 0;
-  const passiveLv = (passiveRaw && !(passiveRawDur > 0)) ? passiveRaw : null;
+  const passiveLv = (passiveRaw && !(passiveRawDur > 0) && op.subProfessionId !== 'executor') ? passiveRaw : null;
 
   // ======== Panel Stats ========
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
@@ -3071,7 +3157,8 @@ function calculateOperator(op, slotData, ctx) {
   const hodrerAtkScale = op.id === 'char_4088_hodrer' ? (funnelTalentValue(op, slotData, 0, 'atk_scale_2') || 1) : 1;
   // 吟游者自身不受鼓舞影响(不吃别人的鼓舞加成);浊心斯卡蒂「捕食习性」是自身攻击力加成(影响治疗量与 S3 真伤)
   const bardAtkMul = isBard ? bardSelfAtkMul(op, slotData) : 1;
-  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale * bardAtkMul;
+  const execTraitAtk = executorTraitAtkMul(op, slotData);  // 处决者 Y 模组特性:周围四格无友军(默认成立) atk+10%
+  let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul + execTraitAtk) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale * bardAtkMul;
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   const flatAttr = calcTalentFlatAttr(op, slotData);
   const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
@@ -3167,7 +3254,8 @@ function calculateOperator(op, slotData, ctx) {
         + calcArtsDamage(calcTalentFlatDotDps(op, slotData), state.enemy.res)  // 附带固定 DOT 天赋(维伊"战争技艺"/深巡"细胞活性抑制剂"):常态普攻同样施加 → 并入常态秒伤
         + ifritNormalFields(op, slotData, panelAtk, realInterval, effRes).elementDps  // Δ/D 模组:常态化元素爆条平均 DPS
         + bombarderNormalExtraDps(op, slotData, panelAtk, effDef, realInterval)  // 投掷手特性:常态普攻的余震(含保底伤害)
-        + loopshooterExtraAtkDps(op, slotData, panelAtk, effDef, realInterval);  // 回环射手:娜仁图亚偷取攻击力(默认满层)
+        + loopshooterExtraAtkDps(op, slotData, panelAtk, effDef, realInterval)  // 回环射手:娜仁图亚偷取攻击力(默认满层)
+        + executorNormalExtraDps(op, slotData, panelAtk, effRes, realInterval)  // 处决者:常态化列附加段(麒麟R夜刀第一天赋法伤)
     // 常驻伤害乘区（勇冠三军等）：常态普攻同步乘
     const normType = isWeaknessOn ? (calcPhysicalDamage(panelAtk, effDef) >= calcArtsDamage(panelAtk, state.enemy.res) ? 'physical' : 'arts') : (isArts ? 'arts' : 'physical');
     // 剥壳类每击附加法伤(按敌方防御):常态普攻频率并入(不吃伤害乘区,独立加算;递增模组取稳态上限)
@@ -3519,7 +3607,7 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   // 与医疗探机 skcom_)的召唤物无独立技能期 → 攻击型走常态普攻、非攻击型走 calcSummonHeal。
   // 继承持有者技能的召唤物(鸿雪「打字机」:技能与鸿雪同名同值,但用打字机自身面板)按普通干员口径结算
   const inheritedSkills = TOKEN_INHERIT_OWNER_SKILLS[op.id] === true;
-  const hasRealSkills = inheritedSkills || (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'));
+  const hasRealSkills = inheritedSkills || TOKEN_REAL_SKILL_IDS.includes(op.id) || (op.skills || []).some(s => s.skillId && !String(s.skillId).startsWith('skcom_') && !String(s.skillId).startsWith('sktok_'));
   // 守护者治疗技能识别:治疗模式型(bb 带 base_attack_time,普攻转治疗)、
   // 急救族 AUTO(heal_scale + AUTO 充能触发治疗)与特殊模式(塞雷娅S3 钙质化每秒HOT attack@heal_scale;
   // 瑕光S1 双通道 atk_scale+heal_scale AUTO / S2 沉睡 attack@atk_to_hp_recovery_ratio / S3 物法双伤 attack@blemsh_s_3...;
@@ -4962,6 +5050,144 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       const total = dotSec * Aa(panelAtk * (levelData.atk_scale ?? 1)) * tmul;
       result = mkS(total, dotSec > 0 ? total / dotSec : 0, calcCycleDps(levelData, realInterval, nAtk, total), realInterval);
     }
+  } else if (op.subProfessionId === 'executor') {
+    // ===== 特种·处决者(executor):全部技能为 spType 8「落地/限时被动」型 =====
+    // 特性(再部署时间)与敌方减益/位移/控制不建模;概率/条件类(闪避、概率增幅、被击条件增伤)默认不计。
+    // 口径:一次性爆发(skillDuration≤0 且无 blackboard.duration)技能期时长 = 攻击次数×攻击间隔(同「落地点火」);
+    //       限时强化(skillDuration>0 或 blackboard.duration>0)技能期时长 = 该时长。
+    //       常态化列恒为自身普攻 DPS(与无技能态一致)。
+    const eIv = realInterval > 0 ? realInterval : 1;
+    const eP = (a) => calcPhysicalDamage(a, effDef);
+    const eA = (a, res) => calcArtsDamage(a, res === undefined ? effRes : res);
+    const eFloor = op.id === 'char_144_red' ? (funnelTalentValue(op, slotData, 0, 'atk_scale') || 0) : 0;  // 红「刺骨」伤害下限
+    const ePf = (a) => (eFloor > 0 ? Math.max(eP(a), eFloor * a) : eP(a));
+    const eNormHit = Math.max(eP(panelAtk), eFloor * panelAtk)
+      + (op.id === 'char_1029_yato2' ? yato2TalentMagicDmg(op, slotData, panelAtk, effRes) : 0);
+    const eNormalDps = eNormHit / eIv;
+    const eBB = (ti) => execTalentBB(op, slotData, ti) || {};
+    const eDur = skillDuration > 0 ? skillDuration : ((levelData.duration > 0) ? levelData.duration : 0);
+    const eHits = Math.max(1, Math.floor((eDur > 0 ? eDur : eIv) / eIv + 1e-9));
+    const eFinish = (tp, ta, dur, skIv, skAtk) => {
+      const dtot = tp + ta;
+      const dts = {};
+      if (tp > 0 || ta === 0) dts.physical = { skillDps: dur > 0 ? tp / dur : 0, skillTotalDamage: tp, cycleDps: null };
+      if (ta > 0) dts.arts = { skillDps: dur > 0 ? ta / dur : 0, skillTotalDamage: ta, cycleDps: null };
+      return {
+        type: 'damage', isToggle: false, isPermanent: false, skillHps: null, normalHps: null, totalHeal: null, cycleDps: null,
+        normalDps: eNormalDps, skillDps: dur > 0 ? dtot / dur : 0, skillTotalDamage: dtot,
+        damageType: ta > tp ? 'arts' : 'physical', normalDamageType: 'physical',
+        realInterval: skIv, panelAtk: skAtk, skillAtkOut: skAtk, dmgTypes: dts,
+      };
+    };
+    const eZero = () => ({
+      type: 'damage', isToggle: false, isPermanent: false, skillHps: null, normalHps: null, totalHeal: null, cycleDps: null,
+      normalDps: eNormalDps, skillDps: 0, skillTotalDamage: 0, damageType: 'physical', normalDamageType: 'physical',
+      realInterval: eIv, panelAtk, skillAtkOut: panelAtk, dmgTypes: { physical: { skillDps: 0, skillTotalDamage: 0, cycleDps: null } },
+    });
+
+    if (op.id === 'char_144_red') {
+      if (skillIndex === 0) {  // S1 处决模式:攻击力+70%,10s(40% 物法闪避不计)
+        const skAtk = panelAtk * (1 + (levelData.atk || 0));
+        result = eFinish(ePf(skAtk) * eHits, 0, eDur, eIv, skAtk);
+      } else {                 // S2 狼群:落地立即 攻击力210% 物理(眩晕不计),单目标 1 次
+        const skAtk = panelAtk * (levelData.atk_scale || 1);
+        result = eFinish(ePf(skAtk), 0, eIv, eIv, skAtk);
+      }
+    } else if (op.id === 'char_1028_texas2') {
+      const txAtk = typeof eBB(0).atk === 'number' ? eBB(0).atk : 0;  // 天赋「德克萨斯传统」被动技能持续时间内攻击力+
+      if (skillIndex === 0) {  // S1 细雨无声:攻击力+60%,12s;命中沉默8s 期间每秒 350 法伤(沉默不计,DOT 计入)
+        const skAtk = panelAtk * (1 + (levelData.atk || 0) + txAtk);
+        const totP = eP(skAtk) * eHits;
+        // 「细雨无声」DOT(沉默期间每秒 dot_damage 法伤):技能期全程持续 + 技能结束后仍残留 duration 秒。
+        // 用户口径(2026-09-18):8~10s 尾伤计入技能期总伤;DPS 按 总伤/(skillDuration+dotDuration) 摊。
+        const dotDur = levelData['attack@texas2_s_1[dot].duration'] || 0;
+        const dotWin = eDur + dotDur;
+        const totA = eA(levelData['attack@texas2_s_1[dot].dot_damage'] || 0) * dotWin;
+        result = eFinish(totP, totA, dotWin, eIv, skAtk);
+      } else if (skillIndex === 1) {  // S2 阵雨连绵:落地 攻击力200% 法术(先减抗再结算) + 10s 攻击力+45% 二连击法伤
+        const skRes = Math.max(0, effRes * (1 + (levelData.magic_resistance || 0)));
+        const skAtk = panelAtk * (1 + (levelData.atk || 0) + txAtk);
+        const burst = eA(skAtk * (levelData.atk_scale || 0), skRes);
+        const totA = burst + eA(skAtk, skRes) * eHits * 2;
+        result = eFinish(0, totA, eDur, eIv, skAtk);
+      } else {                 // S3 剑雨滂沱:落地 2×135% 法术 + 之后每 1s 剑雨 110% 法术 7s(单目标每跳 1 次)
+        const skAtk = panelAtk * (1 + txAtk);
+        const appear = eA(skAtk * (levelData['appear.atk_scale'] || 0)) * 2;
+        const ticks = Math.max(1, Math.floor(eDur / (levelData['texas2_s_3[sword].interval'] || 1) + 1e-9));
+        const rain = eA(skAtk * (levelData.atk_scale || 0)) * ticks;
+        result = eFinish(0, appear + rain, eDur, eIv, skAtk);
+      }
+    } else if (op.id === 'char_1029_yato2') {
+      const t1 = eBB(1);
+      const t1Atk = (typeof t1.atk === 'number' ? t1.atk : 0)
+        + (typeof t1['yato2_e_002[atk].atk'] === 'number' ? t1['yato2_e_002[atk].atk'] : 0);  // 天赋「鬼人强化状态」技能期间攻击力+
+      if (skillIndex === 0) {  // S1 鬼人化:攻速+80,20s;每击二连击,每第三次攻击变六连击(占 2 个间隔:前4+后2)→ 4 间隔共 10 击
+        const skIv = calcRealInterval(phase.baseAttackTime + talentBat, 100 + baseAspdBonus + (levelData.attack_speed || 0));
+        const skAtk = panelAtk * (1 + t1Atk);
+        const nIv = Math.max(0, Math.floor(eDur / skIv + 1e-9));
+        const CUM = [0, 2, 4, 10, 10];
+        const hits = Math.floor(nIv / 4) * 10 + CUM[nIv % 4];
+        const per = eP(skAtk) + yato2TalentMagicDmg(op, slotData, skAtk, effRes, undefined, hits);
+        result = eFinish(per * hits, 0, eDur, skIv, skAtk);
+      } else if (skillIndex === 1) {  // S2 乱舞:落地 16 次斩击,攻击力135%(倍率同时作用于第一天赋,blackboard talent_scale 已含)
+        const skAtk = panelAtk * (1 + t1Atk);
+        const phys = eP(skAtk * (levelData.atk_scale || 1));
+        const magic = yato2TalentMagicDmg(op, slotData, skAtk, effRes, levelData.talent_scale || 1, 16);  // talent_scale 已含 atk_scale 倍率
+        result = eFinish((phys + magic) * 16, 0, 16 * eIv, eIv, skAtk);
+      } else {                 // S3 空中回旋乱舞:突进斩击,每 dist_unit 格一段(最多 max_dist)→ 段数,攻击力270%(倍率同时作用于第一天赋)
+        const skAtk = panelAtk * (1 + t1Atk);
+        const segs = Math.max(1, Math.floor((levelData.max_dist || 0) / (levelData.dist_unit || 1) + 1e-9));
+        const phys = eP(skAtk * (levelData.atk_scale || 1));
+        const magic = yato2TalentMagicDmg(op, slotData, skAtk, effRes, levelData.atk_scale || 1, segs);  // 攻击倍率同时作用于第一天赋
+        result = eFinish((phys + magic) * segs, 0, segs * eIv, eIv, skAtk);
+      }
+    } else if (op.id === 'char_1502_crosly') {
+      if (skillIndex === 0) {  // S1 尘烟蔽目:攻击力+85%,10s(40% 闪避不计)
+        const skAtk = panelAtk * (1 + (levelData.atk || 0));
+        result = eFinish(eP(skAtk) * eHits, 0, eDur, eIv, skAtk);
+      } else if (skillIndex === 1) {  // S2 硝烟震爆:停攻 8s,结束时 400% 物理(第一天赋倍率/嘲讽不计)
+        const skAtk = panelAtk * (levelData['attack@atk_scale_s2'] || 0);
+        result = eFinish(eP(skAtk), 0, eDur, eIv, skAtk);
+      } else {                 // S3 烽烟行刑场:16s,同一目标每 mark_duration(6s)触发一次 2 击 ×210% 物理(眩晕/隐匿不计)
+        const skAtk = panelAtk * (levelData['attack@atk_scale_s3'] || 0);
+        const times = levelData['attack@times'] || 2;
+        const trig = Math.max(1, Math.ceil(eDur / (levelData.mark_duration || 1)));
+        result = eFinish(eP(skAtk) * times * trig, 0, eDur, eIv, skAtk);
+      }
+    } else if (op.id === 'char_250_phatom' || op.id === 'token_10007_phatom_twin') {
+      if (skillIndex === 0) {  // S1 暗夜魅影:闪避+屏障,无输出
+        result = eZero();
+      } else if (skillIndex === 1) {  // S2 血色乐章:times 层可叠加攻击力+atk,每击(造成伤害后)消耗一层
+        const times = levelData.times || 0;
+        const inc = levelData.atk || 0;
+        let tot = 0;
+        for (let i = 1; i <= times; i++) tot += eP(panelAtk * (1 + inc * (times - i + 1)));
+        result = eFinish(tot, 0, Math.max(1, times) * eIv, eIv, panelAtk * (1 + inc * times));
+      } else {                 // S3 夜幕突袭:落地 260% 物理(小力推开/随机状态不计)
+        const skAtk = panelAtk * (levelData.atk_scale || 1);
+        result = eFinish(eP(skAtk), 0, eIv, eIv, skAtk);
+      }
+    } else if (op.id === 'char_214_kafka') {
+      const kAtk = typeof eBB(0).atk === 'number' ? eBB(0).atk : 0;  // 天赋「注意力误导」被动技能触发期间攻击力+
+      const skAtk = panelAtk * (1 + kAtk);
+      if (skillIndex === 0) {  // S1 怪异魔方:停攻 5s,结束时 380% 法术(沉睡不计)
+        result = eFinish(0, eA(skAtk * (levelData.atk_scale || 0)), eDur, eIv, skAtk);
+      } else {                 // S2 诡异剪刀:落地 330% 法术 + 之后 13s 对目标格单体法术攻击
+        const burst = eA(skAtk * (levelData.atk_scale || 0));
+        result = eFinish(0, burst + eA(skAtk) * eHits, eDur, eIv, skAtk);
+      }
+    } else if (op.id === 'char_243_waaifu') {
+      if (skillIndex === 0) {  // S1 寸劲:攻击力+60%,10s(敌方减攻不计)
+        const skAtk = panelAtk * (1 + (levelData['waaifu_s_1[self].atk'] || 0));
+        result = eFinish(eP(skAtk) * eHits, 0, eDur, eIv, skAtk);
+      } else {                 // S2 七武掠阵踢:落地 255% 物理(沉默/击退不计)
+        const skAtk = panelAtk * (levelData.atk_scale || 1);
+        result = eFinish(eP(skAtk), 0, eIv, eIv, skAtk);
+      }
+    } else {
+      // 砾(char_237_gravel):纯防御/屏障技能 → 技能期无输出(常态仍为自身普攻)
+      result = eZero();
+    }
   } else if (isBard) {
     // 吟游者:全部技能走专用分支(特性比率覆盖 / 微尘真伤 / 每跳法伤;鼓舞不计入自身输出)
     result = calcBardSkill(op, slotData, skillIndex, levelData, { panelAtk, skillDuration, isPermanent });
@@ -5629,8 +5855,8 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   // 吟游者/护佑者:技能期 ATK 就是自身面板攻击力(不受鼓舞比率/atk_scale 污染;skillAtk 会被技能里的 atk/attack@atk 乘坏)
   // basePanelAtk 为分支显式声明(如游击手 S2 的 atk_scale 是治疗比率,不含伤害倍率)
   const useBasePanelAtk = isBard || op.subProfessionId === 'blessing' || result.basePanelAtk === true;
-  const { basePanelAtk: _basePanelAtkFlag, ...resultOut } = result;
-  return { ...resultOut, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: useBasePanelAtk ? panelAtk : skillAtk };
+  const { basePanelAtk: _basePanelAtkFlag, skillAtkOut: _skillAtkOutFlag, ...resultOut } = result;
+  return { ...resultOut, type: isHealType ? 'heal' : 'damage', damageType, isToggle, isPermanent, realInterval: result.realInterval ?? skillRealInterval, panelAtk: useBasePanelAtk ? panelAtk : (result.skillAtkOut !== undefined ? result.skillAtkOut : skillAtk) };
 }
 
 /**
@@ -5658,7 +5884,7 @@ function calcPanelStats(op, slotData) {
   // 同属"部署后生效 N 秒"的一次性强化 → 一并按限时被动走技能期,不再并入常驻面板。
   const passiveRaw = (!isSummon && equippedSkill && equippedSkill.levels[0]?.skillType === 'PASSIVE') ? getSkillLevelData(equippedSkill, slotData.skillLevel) : null;
   const passiveRawDur = passiveRaw ? (passiveRaw.skillDuration > 0 ? passiveRaw.skillDuration : (passiveRaw.duration > 0 ? passiveRaw.duration : 0)) : 0;
-  const passiveLv = (passiveRaw && !(passiveRawDur > 0)) ? passiveRaw : null;
+  const passiveLv = (passiveRaw && !(passiveRawDur > 0) && op.subProfessionId !== 'executor') ? passiveRaw : null;
 
   const baseAtk = interpolateAttr(phase.atk[0], phase.atk[1], slotData.level, maxLevel);
   const baseDef = interpolateAttr(phase.def[0], phase.def[1], slotData.level, maxLevel);
@@ -5702,7 +5928,7 @@ function calcPanelStats(op, slotData) {
 
   return {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
-    panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
+    panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul + executorTraitAtkMul(op, slotData)) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
     panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul + modUncond.defMul) + aura.defFlat
       + ((calcTalentFlatDefPctRegen(op, slotData) || {}).flatDef || 0) + calcTalentFlatAttr(op, slotData).defFlat),
     magicResistance: (phase.magicResistance ?? 0) + mod.magicResistance + aura.resFlat + calcTalentFlatAttr(op, slotData).resFlat,
