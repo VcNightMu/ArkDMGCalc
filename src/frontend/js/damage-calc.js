@@ -1093,6 +1093,8 @@ const SKILL_ARTS_OVERRIDES = {
   'char_4026_vulpis': [1], // 忍冬 S2 坠刃拷问:对周围最多6敌 3×atk 法术伤害
   // ---- 近卫·武者(musha) ----
   'char_337_utage': [1],   // 宴 S2 落地斩·破门(落地限时被动):技能期伤害类型变为法术(常态仍为物理普攻)
+  // ---- 特种·推击手(pusher) ----
+  'char_400_weedy': [2],   // 温蒂 S3 液氮大炮:群体法术伤害(按距离的真实伤害按用户口径不计算)
 };
 
 /**
@@ -2636,6 +2638,8 @@ const INTERVAL_GROW_OVERRIDES = {
   'char_2015_dusk': { 2: true },   // 夕 S3 写意胜形:攻击间隔增大(+40%)
   // ---- 近卫·佣兵(mercenary) ----
   'char_1049_catap2': { 0: true },  // 雷狼龙S空爆 S1 高压回填斩:攻击间隔增大(+100% → 1.25×2=2.5s)
+  // ---- 特种·推击手(pusher) ----
+  'char_400_weedy': { 1: true },   // 温蒂 S2 水炮模式:攻击间隔增大(+220% → 1.2×3.2=3.84s)
 };
 
 // 普攻改写注册表(attack@atk_scale 无 attack@times 的持续型,值=技能期每击伤害倍率):
@@ -3083,7 +3087,7 @@ const INERT_SUMMONS = [
 
 // 拥有真实自身技能的召唤物(sktok_ 前缀通常为占位/联动技能,但傀影「镜中虚影」的 sktok_phatom_1/2/3
 // 与持有者技能同构、携带完整数值 → 按召唤物自身数据建模,需越过 isSummon && !hasRealSkills 分支)。
-const TOKEN_REAL_SKILL_IDS = ['token_10007_phatom_twin'];
+const TOKEN_REAL_SKILL_IDS = ['token_10007_phatom_twin', 'token_10009_weedy_cannon'];  // 工程蓄水炮:自身携带 sktok 液氮大炮技能数据,按召唤物自身建模
 
 function calculateOperator(op, slotData, ctx) {
   // 辅助·凝滞师(slower):特性「攻击造成法术伤害」——数据 damageType 为 physical,统一按法术结算(常态/技能期/模组档)

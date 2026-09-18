@@ -406,6 +406,8 @@ const OPERATORS = {
       'token_10027_ironmn_pile1', 'token_10027_ironmn_pile2', 'token_10027_ironmn_pile3',
       'token_10059_nasti_nstdef', 'token_10060_nasti_nstchr', 'token_10061_nasti_nstbld',
       'token_10041_cathy_catsld', 'token_10045_alanna_crane', 'token_10023_windft_wrench', 'token_10018_robrta_mach',
+      // 推击手·温蒂召唤物(工程蓄水炮:以本体面板攻击力结算;本体附带单位)
+      'token_10009_weedy_cannon',
       // 巫役·酒神召唤物(2 个:本能的召唤 / 迷狂牢笼;本能的召唤伤害源为酒神面板)
       'token_10054_phatm2_encdool', 'token_10055_phatm2_mndclv', 'token_10007_phatom_twin'], // 干员附带单位（赫默·医疗探机 / 凯尔希·Mon3tr / 夜莺·幻影 / 涤火杰西卡·机动盾牌 / 机械师·结构性原理 / 维娜·黄金盟誓 / 豆苗·磐蟹护卫队 / 夜半·眠兽 / 伺夜·狼群 / 缪尔赛思·流形 / 渡桥·樱桃三号 / 凛御银灰·风雪之眼×3 / 罗德岛隐秘队·牙猎犬 / 可露希尔·指挥中心 / 浊心斯卡蒂·海嗣 / 淬羽赫默·夜灯 / 工匠装置×10）
   },

@@ -32,6 +32,9 @@ export const TOKEN_MODS = {
   'token_10036_lasher_mcbird': { owner: 'char_4140_lasher', skills: [0, 1], dtype: 'physical', mods: { 0: { spdKey: 'attack_speed' }, 1: { atkKey: 'atk' } } },
   // 深海色:触手
   'token_10001_deepcl_tentac': { owner: 'char_110_deepcl', skills: [0, 1], dtype: 'physical', mods: { 0: { atkKey: 'atk' }, 1: {} } },
+  // 推击手·温蒂「工程蓄水炮」(本体附带单位,非召唤师):按 PRTS「除基本力度外均以本体的数值为准」→ 伤害基值取温蒂面板攻击力;
+  // 常态普攻物理单目标(间隔取自身 2.4s);技能槽=自身「液氮大炮」(群体法术,单目标模型算 1 次;按距离的真实伤害不计)。
+  'token_10009_weedy_cannon': { owner: 'char_400_weedy', skills: [0], dtype: 'physical', ownerAtk: true, mods: { 0: { ownerTriggerKey: 'atk_scale', arts: true, noCycle: true } } },
 };
 
 // 召唤师自身:这些技能只强化召唤物 → 自身输出按常态展示(技能期无自身伤害)
@@ -57,7 +60,7 @@ export function calcSummonerToken(p) {
   const info = TOKEN_MODS[p.op.id];
   const { enemy } = p;
   const ownerBonus = ownerTalentAtkBonus(p);
-  const atk0 = (p.panelAtk || 0) + ownerBonus;
+  const atk0 = (info.ownerAtk ? (p.ownerPanelAtk || 0) : (p.panelAtk || 0)) + ownerBonus;
   const dtype0 = info.dtype;
   const A = (x) => calcArtsDamage(x, enemy.res);
   const P = (x) => calcPhysicalDamage(x, enemy.def);
@@ -104,7 +107,7 @@ export function calcSummonerToken(p) {
     const scale = ld[mod.triggerKey || mod.ownerTriggerKey] || 0;
     const src = mod.ownerTriggerKey ? (p.ownerPanelAtk || atk0) : atk0;
     const one = hitOf(mod.arts ? 'arts' : dtype, src * scale);
-    const cyc = calcCycleDps(ld, baseInterval, normalHit, one);
+    const cyc = mod.noCycle ? null : calcCycleDps(ld, baseInterval, normalHit, one);
     return mk({
       normalDps, normalDamageType: dtype0, normalTypes,
       skillTotalDamage: one, cycleDps: cyc,

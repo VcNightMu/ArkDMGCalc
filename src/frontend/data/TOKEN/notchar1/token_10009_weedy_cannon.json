@@ -1,0 +1,366 @@
+{
+  "id": "token_10009_weedy_cannon",
+  "name": "工程蓄水炮",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_400_weedy",
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        264,
+        373
+      ],
+      "def": [
+        100,
+        100
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        373,
+        479
+      ],
+      "def": [
+        100,
+        100
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        479,
+        585
+      ],
+      "def": [
+        100,
+        100
+      ],
+      "maxHp": [
+        100,
+        100
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 2.4,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 0,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "sktok_weedy_token",
+      "name": "液氮大炮",
+      "levels": [
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 2.6,
+          "duration": 4,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 0,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 2.7,
+          "duration": 4,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 1,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 2.8,
+          "duration": 4,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 2,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 2.9,
+          "duration": 5,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 3,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 3,
+          "duration": 5,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 4,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 1,
+          "stun": 0,
+          "atk_scale": 3.1,
+          "duration": 5,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 5,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 2,
+          "stun": 0,
+          "atk_scale": 3.2,
+          "duration": 6,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 6,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 2,
+          "stun": 0,
+          "atk_scale": 3.3,
+          "duration": 6,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 7,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 2,
+          "stun": 0,
+          "atk_scale": 3.4,
+          "duration": 7,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 8,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "force": 3,
+          "stun": 0,
+          "atk_scale": 3.5,
+          "duration": 8,
+          "dist": 1,
+          "value": 1200,
+          "interval": 0.066,
+          "level": 9,
+          "spCost": 0,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工程蓄水炮",
+          "description": "攻击时会将目标小力度地推开，部署后持续15秒",
+          "blackboard": {
+            "duration": 15
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工程蓄水炮",
+          "description": "攻击时会将目标小力度地推开，部署后持续20秒",
+          "blackboard": {
+            "duration": 20
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "蓄水炮强化",
+          "description": "普通攻击和技能的推力增加一级，且在温蒂周围4格内时令其每3秒获得1点技力",
+          "blackboard": {
+            "base_force_level": 1,
+            "interval": 3,
+            "sp": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [],
+  "ownerRef": {
+    "id": "char_400_weedy",
+    "name": "温蒂",
+    "phases": [
+      {
+        "eliteLevel": 0,
+        "maxLevel": 50,
+        "atk": [
+          295,
+          411
+        ],
+        "def": [
+          163,
+          248
+        ],
+        "maxHp": [
+          984,
+          1313
+        ],
+        "magicResistance": 0,
+        "baseAttackTime": 1.2,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 1,
+        "maxLevel": 80,
+        "atk": [
+          411,
+          548
+        ],
+        "def": [
+          248,
+          327
+        ],
+        "maxHp": [
+          1313,
+          1663
+        ],
+        "magicResistance": 0,
+        "baseAttackTime": 1.2,
+        "attackSpeed": 100
+      },
+      {
+        "eliteLevel": 2,
+        "maxLevel": 90,
+        "atk": [
+          548,
+          677
+        ],
+        "def": [
+          327,
+          394
+        ],
+        "maxHp": [
+          1663,
+          2133
+        ],
+        "magicResistance": 0,
+        "baseAttackTime": 1.2,
+        "attackSpeed": 100
+      }
+    ],
+    "trustBonus": {
+      "atk": 45,
+      "def": 45,
+      "maxHp": 0
+    }
+  }
+}

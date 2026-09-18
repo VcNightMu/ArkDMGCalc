@@ -4086,6 +4086,15 @@
     "ownerName": null
   },
   {
+    "id": "token_10009_weedy_cannon",
+    "name": "工程蓄水炮",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_400_weedy",
+    "ownerName": "温蒂"
+  },
+  {
     "id": "char_241_panda",
     "name": "食铁兽",
     "rarity": "TIER_5",
