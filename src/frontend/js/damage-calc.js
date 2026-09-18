@@ -1095,6 +1095,10 @@ const SKILL_ARTS_OVERRIDES = {
   'char_337_utage': [1],   // 宴 S2 落地斩·破门(落地限时被动):技能期伤害类型变为法术(常态仍为物理普攻)
   // ---- 特种·推击手(pusher) ----
   'char_400_weedy': [2],   // 温蒂 S3 液氮大炮:群体法术伤害(按距离的真实伤害按用户口径不计算)
+  // ---- 特种·钩索师(hookmaster) ----
+  'char_474_glady': [2],   // 歌蕾蒂娅 S3 缺水的碎漩狂舞:每 1.5s 法术伤害(专用分支结算跳数)
+  'char_173_slchan': [0],  // 崖心 S1 锁链勾爪:法术伤害
+  'char_383_snsant': [1],  // 雪雉 S2 伸缩式电捕网:法术伤害
 };
 
 /**
@@ -1951,6 +1955,8 @@ const WEAKNESS_DAMAGE = {
 // 技能期伤害强制真实:数据缺 trueDamage 标记的技能(阿米娅 S3 奇美拉:攻击造成真实伤害,数据仅 atk/max_hp 键)
 const SKILL_TRUE_DAMAGE = {
   'char_002_amiya': [2],  // 阿米娅(术师) S3 奇美拉:30s 攻击力+X% 且伤害变真伤(自损/生命上限提升生存向不计)
+  // ---- 特种·钩索师(hookmaster) ----
+  'char_173_slchan': [1],  // 崖心 S2 束缚链:造成相当于攻击力 X% 的真实伤害(数据仅 atk_scale/force/max_target)
 };
 
 // 技能开启期普攻切物理(特米米「荒野法术」:技能开启时攻击范围缩小、攻击变物理且只打地面——单目标模型范围不计)
@@ -2640,6 +2646,8 @@ const INTERVAL_GROW_OVERRIDES = {
   'char_1049_catap2': { 0: true },  // 雷狼龙S空爆 S1 高压回填斩:攻击间隔增大(+100% → 1.25×2=2.5s)
   // ---- 特种·推击手(pusher) ----
   'char_400_weedy': { 1: true },   // 温蒂 S2 水炮模式:攻击间隔增大(+220% → 1.2×3.2=3.84s)
+  // ---- 特种·钩索师(hookmaster) ----
+  'char_474_glady': { 1: true },   // 歌蕾蒂娅 S2 缺水的掌握怒海:攻击间隔增大(+50% → 1.8×1.5=2.7s)
 };
 
 // 普攻改写注册表(attack@atk_scale 无 attack@times 的持续型,值=技能期每击伤害倍率):
@@ -2657,6 +2665,8 @@ const ATK_SCALE_REWRITE = {
   'char_469_indigo': [0],   // 深靛 S1 灯塔守卫者:每次攻击 40/43/50%(间隔键 -0.8 语义待定,见口径清单)
   // ---- 辅助·工匠(craftsman) ----
   'char_4072_ironmn': [0],  // 白铁 S1「极致火力」:攻击造成相当于 180%(专一)攻击力的物理伤害(attack@atk_scale 作每击倍率改写)
+  // ---- 特种·钩索师(hookmaster) ----
+  'char_474_glady': [1],   // 歌蕾蒂娅 S2 缺水的掌握怒海:attack@atk_scale(专一 160%)作每击倍率(顶层无 atk)
 };
 // 阵法术师技能改造①:技能「每次攻击造成相当于攻击力 X% 的法术伤害」→ 把该值作为技能期每击最终倍率
 // (键名多为 attack@atk_scale_s2/_s3 或 attack@atk_scale;伤害对攻击力线性,等价于最终乘算倍率;永续槽同样生效故不设时长门槛)
@@ -5491,6 +5501,22 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       panelAtk, realInterval: skillRealInterval, normalInterval: realInterval, effDef, enemy: state.enemy, skillDuration,
       generic: () => calcDamage(params),
     });
+  } else if (op.id === 'char_474_glady' && skillIndex === 2) {
+    // 歌蕾蒂娅 S3 缺水的碎漩狂舞(手动 8s):对最远目标制造龙卷风,每 interval(1.5s)造成 atk_scale×攻击力 法术伤害;
+    // 龙卷风持续 hit_duration(9s)→ 共 6 次伤害(PRTS:7 次拖拽、第 7 次无伤害不计);单目标模型=1 个龙卷风。
+    const gTickIvl = levelData.interval > 0 ? levelData.interval : 1.5;
+    const gTickDur = levelData.hit_duration > 0 ? levelData.hit_duration : skillDuration;
+    const gTicks = gTickIvl > 0 ? Math.max(1, Math.floor(gTickDur / gTickIvl + 1e-9)) : 1;
+    const gHit = calcArtsDamage(panelAtk * (levelData.atk_scale || 1), state.enemy.res);
+    const gTot = gHit * gTicks;
+    const gDps = skillDuration > 0 ? gTot / skillDuration : 0;
+    const gNorm = realInterval > 0 ? calcPhysicalDamage(panelAtk, effDef) / realInterval : null;
+    result = {
+      type: 'damage', damageType: 'arts', isToggle: false, isPermanent: false,
+      skillDps: gDps, skillTotalDamage: gTot, cycleDps: null, normalDps: gNorm,
+      skillHps: null, normalHps: null, totalHeal: null, realInterval: gTickIvl, panelAtk,
+      dmgTypes: { arts: { skillDps: gDps, skillTotalDamage: gTot, cycleDps: null } },
+    };
   } else {
     result = calcDamage(params);
   }
