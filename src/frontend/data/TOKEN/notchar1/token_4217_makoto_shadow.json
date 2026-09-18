@@ -1,0 +1,809 @@
+{
+  "id": "token_4217_makoto_shadow",
+  "name": "人格面具",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "arts",
+  "ownerOperatorId": "char_4217_makoto",
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        356,
+        488
+      ],
+      "def": [
+        126,
+        194
+      ],
+      "maxHp": [
+        1311,
+        1749
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        488,
+        643
+      ],
+      "def": [
+        194,
+        253
+      ],
+      "maxHp": [
+        1749,
+        2215
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        643,
+        785
+      ],
+      "def": [
+        253,
+        305
+      ],
+      "maxHp": [
+        2215,
+        2805
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "skills": [
+    {
+      "skillId": "skchr_makoto_1",
+      "name": "俄耳甫斯的竖琴",
+      "levels": [
+        {
+          "attack@atk_scale": 1.1,
+          "attack@heal_scale": 0.3,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.2,
+          "attack@heal_scale": 0.3,
+          "level": 1,
+          "spCost": 18,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.3,
+          "attack@heal_scale": 0.3,
+          "level": 2,
+          "spCost": 16,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.5,
+          "attack@heal_scale": 0.4,
+          "level": 3,
+          "spCost": 14,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.7,
+          "attack@heal_scale": 0.4,
+          "level": 4,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 1.9,
+          "attack@heal_scale": 0.4,
+          "level": 5,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.1,
+          "attack@heal_scale": 0.5,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.3,
+          "attack@heal_scale": 0.6,
+          "level": 7,
+          "spCost": 7,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.5,
+          "attack@heal_scale": 0.6,
+          "level": 8,
+          "spCost": 7,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@atk_scale": 2.8,
+          "attack@heal_scale": 0.6,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_makoto_2",
+      "name": "塔纳托斯的囚锁",
+      "levels": [
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.2,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2,
+          "attack@kill_damage": 9999999,
+          "level": 0,
+          "spCost": 24,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.3,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2,
+          "attack@kill_damage": 9999999,
+          "level": 1,
+          "spCost": 22,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.4,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2,
+          "attack@kill_damage": 9999999,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.6,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.3,
+          "attack@kill_damage": 9999999,
+          "level": 3,
+          "spCost": 18,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.8,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.3,
+          "attack@kill_damage": 9999999,
+          "level": 4,
+          "spCost": 16,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 2,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.3,
+          "attack@kill_damage": 9999999,
+          "level": 5,
+          "spCost": 14,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 4,
+          "attack@atk_scale": 2.2,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.5,
+          "attack@kill_damage": 9999999,
+          "level": 6,
+          "spCost": 12,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 4,
+          "attack@atk_scale": 2.3,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.6,
+          "attack@kill_damage": 9999999,
+          "level": 7,
+          "spCost": 12,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 4,
+          "attack@atk_scale": 2.4,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.7,
+          "attack@kill_damage": 9999999,
+          "level": 8,
+          "spCost": 12,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 4,
+          "attack@atk_scale": 2.5,
+          "attack@prob": 0.35,
+          "attack@fear": 1.5,
+          "attack@kill_atk_scale": 2.8,
+          "attack@kill_damage": 9999999,
+          "level": 9,
+          "spCost": 12,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_makoto_3",
+      "name": "开辟明日的剑刃",
+      "levels": [
+        {
+          "talent@attack_speed": 15,
+          "attack@atk_scale": 1.4,
+          "attack@heal_scale": 0.2,
+          "attack@interval": 1,
+          "attack@prob": 0.25,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 0,
+          "spCost": 29,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 20,
+          "attack@atk_scale": 1.5,
+          "attack@heal_scale": 0.2,
+          "attack@interval": 1,
+          "attack@prob": 0.25,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 1,
+          "spCost": 26,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 25,
+          "attack@atk_scale": 1.6,
+          "attack@heal_scale": 0.2,
+          "attack@interval": 1,
+          "attack@prob": 0.25,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 2,
+          "spCost": 23,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 30,
+          "attack@atk_scale": 1.7,
+          "attack@heal_scale": 0.25,
+          "attack@interval": 1,
+          "attack@prob": 0.3,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 3,
+          "spCost": 20,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 35,
+          "attack@atk_scale": 1.8,
+          "attack@heal_scale": 0.25,
+          "attack@interval": 1,
+          "attack@prob": 0.3,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 4,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 40,
+          "attack@atk_scale": 1.9,
+          "attack@heal_scale": 0.25,
+          "attack@interval": 1,
+          "attack@prob": 0.3,
+          "attack@max_target": 3,
+          "attack@max_target_heal": 3,
+          "attack@block_cnt": 2,
+          "level": 5,
+          "spCost": 16,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 45,
+          "attack@atk_scale": 2,
+          "attack@heal_scale": 0.3,
+          "attack@interval": 1,
+          "attack@prob": 0.35,
+          "attack@max_target": 4,
+          "attack@max_target_heal": 4,
+          "attack@block_cnt": 2,
+          "level": 6,
+          "spCost": 15,
+          "initialSp": 7,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 50,
+          "attack@atk_scale": 2.1,
+          "attack@heal_scale": 0.35,
+          "attack@interval": 1,
+          "attack@prob": 0.36,
+          "attack@max_target": 4,
+          "attack@max_target_heal": 4,
+          "attack@block_cnt": 2,
+          "level": 7,
+          "spCost": 15,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 55,
+          "attack@atk_scale": 2.2,
+          "attack@heal_scale": 0.35,
+          "attack@interval": 1,
+          "attack@prob": 0.38,
+          "attack@max_target": 4,
+          "attack@max_target_heal": 4,
+          "attack@block_cnt": 2,
+          "level": 8,
+          "spCost": 15,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "talent@attack_speed": 60,
+          "attack@atk_scale": 2.3,
+          "attack@heal_scale": 0.35,
+          "attack@interval": 1,
+          "attack@prob": 0.4,
+          "attack@max_target": 4,
+          "attack@max_target_heal": 4,
+          "attack@block_cnt": 2,
+          "level": 9,
+          "spCost": 15,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不羁之力",
+          "description": "<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+40%，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.4,
+            "base_attack_time": 0.4,
+            "sluggish": 0,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不羁之力",
+          "description": "<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+45%<@ba.talpu>（+5%）</>，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.45,
+            "base_attack_time": 0.4,
+            "sluggish": 0,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不羁之力",
+          "description": "结城理切换为<替身>状态时<$ba.sluggish>停顿</>周围一定范围内敌人5秒；<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+60%，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.6,
+            "base_attack_time": 0.4,
+            "sluggish": 5,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不羁之力",
+          "description": "结城理切换为<替身>状态时<$ba.sluggish>停顿</>周围一定范围内敌人5秒；<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+65%<@ba.talpu>（+5%）</>，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.65,
+            "base_attack_time": 0.4,
+            "sluggish": 5,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "不羁之力",
+          "description": "结城理切换为<替身>状态时<$ba.sluggish>停顿</>周围一定范围内敌人8秒；<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+80%，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.8,
+            "base_attack_time": 0.4,
+            "sluggish": 8,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "不羁之力",
+          "description": "结城理切换为<替身>状态时<$ba.sluggish>停顿</>周围一定范围内敌人8秒；<替身>状态下结城理召唤人格面具作战，攻击间隔增大，攻击力+85%<@ba.talpu>（+5%）</>，生命值+35%，作战能力随技能选择而改变",
+          "blackboard": {
+            "atk": 0.85,
+            "base_attack_time": 0.4,
+            "sluggish": 8,
+            "max_hp_t1": 0.35,
+            "range_id": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成<替身>作战（替身阻挡数为0），持续20秒后自身再次替换<替身>",
+    "blackboard": {
+      "duration": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+34",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_002_makoto",
+      "name": "彼此的声音",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 18,
+            "def": 18
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 257,
+            "atk": 27,
+            "def": 27
+          },
+          "talentEnhance": [
+            {
+              "name": "不羁之力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.88,
+                "base_attack_time": 0.4,
+                "sluggish": 9,
+                "max_hp_t1": 0.38,
+                "range_id": 0
+              }
+            },
+            {
+              "name": "不羁之力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 0.93,
+                "base_attack_time": 0.4,
+                "sluggish": 9,
+                "max_hp_t1": 0.38,
+                "range_id": 0
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 304,
+            "atk": 34,
+            "def": 34
+          },
+          "talentEnhance": [
+            {
+              "name": "不羁之力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.95,
+                "base_attack_time": 0.4,
+                "sluggish": 10,
+                "max_hp_t1": 0.4,
+                "range_id": 0
+              }
+            },
+            {
+              "name": "不羁之力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "atk": 1,
+                "base_attack_time": 0.4,
+                "sluggish": 10,
+                "max_hp_t1": 0.4,
+                "range_id": 0
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

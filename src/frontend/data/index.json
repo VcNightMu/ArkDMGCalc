@@ -4356,6 +4356,15 @@
     "ownerName": null
   },
   {
+    "id": "token_1023_ghost2_shadow",
+    "name": "替身",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_1023_ghost2",
+    "ownerName": "归溟幽灵鲨"
+  },
+  {
     "id": "char_4217_makoto",
     "name": "结城理",
     "rarity": "TIER_6",
@@ -4363,6 +4372,15 @@
     "subProfessionId": "dollkeeper",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_4217_makoto_shadow",
+    "name": "人格面具",
+    "rarity": "TIER_6",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4217_makoto",
+    "ownerName": "结城理"
   },
   {
     "id": "char_369_bena",
@@ -4374,6 +4392,15 @@
     "ownerName": null
   },
   {
+    "id": "token_369_bena_shadow",
+    "name": "替身",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_369_bena",
+    "ownerName": "贝娜"
+  },
+  {
     "id": "char_4016_kazema",
     "name": "风丸",
     "rarity": "TIER_5",
@@ -4381,6 +4408,15 @@
     "subProfessionId": "dollkeeper",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_10022_kazema_shadow",
+    "name": "纸偶",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4016_kazema",
+    "ownerName": "风丸"
   },
   {
     "id": "char_4124_iana",
@@ -4392,6 +4428,15 @@
     "ownerName": null
   },
   {
+    "id": "token_4124_iana_shadow",
+    "name": "替身",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4124_iana",
+    "ownerName": "双月"
+  },
+  {
     "id": "char_4183_mortis",
     "name": "若叶睦",
     "rarity": "TIER_5",
@@ -4401,6 +4446,15 @@
     "ownerName": null
   },
   {
+    "id": "token_4183_mortis_shadow",
+    "name": "替身",
+    "rarity": "TIER_5",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4183_mortis",
+    "ownerName": "若叶睦"
+  },
+  {
     "id": "char_4107_vrdant",
     "name": "维荻",
     "rarity": "TIER_4",
@@ -4408,6 +4462,15 @@
     "subProfessionId": "dollkeeper",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "token_4107_vrdant_shadow",
+    "name": "替身",
+    "rarity": "TIER_4",
+    "profession": "TOKEN",
+    "subProfessionId": "notchar1",
+    "ownerOperatorId": "char_4107_vrdant",
+    "ownerName": "维荻"
   },
   {
     "id": "char_1039_thorn2",

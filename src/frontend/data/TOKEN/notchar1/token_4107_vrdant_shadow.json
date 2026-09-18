@@ -1,0 +1,278 @@
+{
+  "id": "token_4107_vrdant_shadow",
+  "name": "替身",
+  "rarity": "TIER_4",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "physical",
+  "ownerOperatorId": "char_4107_vrdant",
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 100
+  },
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        305,
+        418
+      ],
+      "def": [
+        106,
+        164
+      ],
+      "maxHp": [
+        1060,
+        1414
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        418,
+        551
+      ],
+      "def": [
+        164,
+        214
+      ],
+      "maxHp": [
+        1414,
+        1790
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        551,
+        672
+      ],
+      "def": [
+        214,
+        259
+      ],
+      "maxHp": [
+        1790,
+        2266
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复2%生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复2.5%<@ba.talpu>（+0.5%）</>生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.025
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复3.5%生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.035
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "植物自愈力",
+          "description": "<替身>每秒回复4%<@ba.talpu>（+0.5%）</>生命值",
+          "blackboard": {
+            "hp_recovery_per_sec_by_max_hp_ratio": 0.04
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成<替身>作战（替身阻挡数为0），持续20秒后自身再次替换<替身>",
+    "blackboard": {
+      "duration": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "生命上限+160",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "MAX_HP",
+          "formula": "ADDITION",
+          "value": 160
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_002_vrdant",
+      "name": "密林撷萃",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 40,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 145,
+            "atk": 28
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 170,
+            "atk": 38
+          },
+          "talentEnhance": [
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "magic_resistance": 5
+              }
+            },
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "magic_resistance": 5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 185,
+            "atk": 45
+          },
+          "talentEnhance": [
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.035,
+                "magic_resistance": 8
+              }
+            },
+            {
+              "name": "植物自愈力",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hp_recovery_per_sec_by_max_hp_ratio": 0.04,
+                "magic_resistance": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

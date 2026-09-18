@@ -850,6 +850,48 @@ async function main() {
     }
   }
 
+  // 傀儡师(dollkeeper)替身:游戏数据无独立「替身」实体(傀儡师二阶段与本体共用面板/天赋)。
+  // 按既定虚拟条目通路派生 TOKEN/notchar1 独立条目(index 紧随本体);替身面板=本体面板,模组按本体同档。
+  // 归溟幽灵鲨/若叶睦替身不普攻;贝娜替身法伤普攻;维荻/双月物理普攻;风丸·纸偶物理普攻+出现爆发;
+  // 双月/结城理替身以技能形态作战 → 技能槽 = 本体技能(结城理=人格面具,攻击间隔+0.4s→1.6s)。
+  const DOLLKEEPER_SUBS = [
+    { id: 'token_1023_ghost2_shadow', owner: 'char_1023_ghost2', name: '替身', damageType: 'arts', skillIdx: [] },
+    { id: 'token_369_bena_shadow', owner: 'char_369_bena', name: '替身', damageType: 'arts', skillIdx: [] },
+    { id: 'token_10022_kazema_shadow', owner: 'char_4016_kazema', name: '纸偶', damageType: 'physical', skillIdx: [] },
+    { id: 'token_4107_vrdant_shadow', owner: 'char_4107_vrdant', name: '替身', damageType: 'physical', skillIdx: [] },
+    { id: 'token_4124_iana_shadow', owner: 'char_4124_iana', name: '替身', damageType: 'physical', skillIdx: [0, 1] },
+    { id: 'token_4183_mortis_shadow', owner: 'char_4183_mortis', name: '替身', damageType: 'physical', skillIdx: [] },
+    { id: 'token_4217_makoto_shadow', owner: 'char_4217_makoto', name: '人格面具', damageType: 'arts', skillIdx: [0, 1, 2] },
+  ];
+  const DOLL_SUB_TRAIT = { description: '受到致命伤时不撤退，切换成<替身>作战（替身阻挡数为0），持续20秒后自身再次替换<替身>', blackboard: { duration: 20 } };
+  for (const s of DOLLKEEPER_SUBS) {
+    const ownerPath = path.join(BASE, 'SPECIAL', 'dollkeeper', s.owner + '.json');
+    if (!fs.existsSync(ownerPath)) continue;
+    const owner = JSON.parse(fs.readFileSync(ownerPath, 'utf8'));
+    const sub = {
+      id: s.id, name: s.name, rarity: owner.rarity, profession: 'TOKEN', subProfessionId: 'notchar1',
+      damageType: s.damageType, ownerOperatorId: s.owner, trustBonus: owner.trustBonus,
+      phases: JSON.parse(JSON.stringify(owner.phases)),
+      skills: s.skillIdx.map(i => JSON.parse(JSON.stringify(owner.skills[i]))),
+      talents: [JSON.parse(JSON.stringify(owner.talents[0]))],
+      trait: JSON.parse(JSON.stringify(DOLL_SUB_TRAIT)),
+      potentialRanks: JSON.parse(JSON.stringify(owner.potentialRanks)),
+      modules: JSON.parse(JSON.stringify((owner.modules || []).filter(m => m.type === 'ADVANCED'))),
+    };
+    if (s.id === 'token_4217_makoto_shadow') for (const p of sub.phases) p.baseAttackTime = 1.6;  // 天赋「不羁之力」攻击间隔+0.4s
+    const subDir = path.join(BASE, 'TOKEN', 'notchar1');
+    fs.mkdirSync(subDir, { recursive: true });
+    fs.writeFileSync(path.join(subDir, s.id + '.json'), JSON.stringify(sub, null, 2), 'utf8');
+    let ei = index.findIndex(e => e.id === s.id);
+    const entry = { id: s.id, name: s.name, rarity: owner.rarity, profession: 'TOKEN', subProfessionId: 'notchar1', ownerOperatorId: s.owner, ownerName: owner.name };
+    if (ei >= 0) { index[ei] = { ...index[ei], ...entry }; }
+    else {
+      const at = index.findIndex(e => e.id === s.owner);
+      if (at >= 0) index.splice(at + 1, 0, entry); else index.push(entry);
+    }
+    console.log('  [VIRTUAL-DOLL] ' + owner.name + '·' + s.name + ' → TOKEN/notchar1/' + s.id + '.json');
+  }
+
   // Save index
   fs.writeFileSync(path.join(BASE, 'index.json'), JSON.stringify(index, null, 2), 'utf8');
   console.log(`\n完成: ${index.length} 个干员 + sub-professions.json → ${BASE}`);

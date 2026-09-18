@@ -1,0 +1,479 @@
+{
+  "id": "token_1023_ghost2_shadow",
+  "name": "替身",
+  "rarity": "TIER_6",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "arts",
+  "ownerOperatorId": "char_1023_ghost2",
+  "trustBonus": {
+    "atk": 80,
+    "def": 0,
+    "maxHp": 0
+  },
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        335,
+        459
+      ],
+      "def": [
+        133,
+        205
+      ],
+      "maxHp": [
+        1311,
+        1749
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        459,
+        604
+      ],
+      "def": [
+        205,
+        267
+      ],
+      "maxHp": [
+        1749,
+        2214
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        604,
+        737
+      ],
+      "def": [
+        267,
+        322
+      ],
+      "maxHp": [
+        2214,
+        2803
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-20%且每秒造成相当于20%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.2,
+            "atk_scale": 0.2,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-30%且每秒造成相当于30%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.3,
+            "atk_scale": 0.3,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "拥抱自我",
+          "description": "<替身>使周围敌人移动速度-40%且每秒造成相当于40%攻击力的法术伤害",
+          "blackboard": {
+            "move_speed": -0.4,
+            "atk_scale": 0.4,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成<替身>作战（替身阻挡数为0），持续20秒后自身再次替换<替身>",
+    "blackboard": {
+      "duration": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+33",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 33
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_002_ghost2",
+      "name": "“唱片”收藏箱",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 50
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 69,
+            "def": 20
+          },
+          "talentEnhance": [
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.5,
+                "atk_scale": 0.6,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 8
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 83,
+            "def": 30
+          },
+          "talentEnhance": [
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.6,
+                "atk_scale": 0.8,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp": 15
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0.15,
+                "max_hp": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_003_ghost2",
+      "name": "未竟之美",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 25,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 33,
+            "def": 48
+          },
+          "talentEnhance": [
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.25,
+                "sp_recovery_per_sec": 0.3
+              }
+            },
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.28,
+                "sp_recovery_per_sec": 0.3
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 40,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.3,
+                "sp_recovery_per_sec": 0.5
+              }
+            },
+            {
+              "name": "阿戈尔的深邃",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.33,
+                "sp_recovery_per_sec": 0.5
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "atk": 0,
+                "max_hp": 0.2,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uniequip_004_ghost2",
+      "name": "归溟幽灵鲨特限证章",
+      "type": "ADVANCED",
+      "typeName2": "A",
+      "isSpecialEquip": true,
+      "unlockLevel": 60,
+      "order": 4,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 40
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 275,
+            "atk": 57
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.4,
+                "atk_scale": 0.4,
+                "talent_override_rangeid_flag": 1,
+                "atk_scale_2": 1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 70
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "output_damage_scale": 1.4,
+                "take_damage_scale": 0.6
+              }
+            },
+            {
+              "name": "拥抱自我",
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.4,
+                "atk_scale": 0.4,
+                "talent_override_rangeid_flag": 1,
+                "atk_scale_2": 1.6
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "protect_duration": 8,
+                "undead_duration": 8,
+                "atk_scale": 0.4,
+                "atk_scale_2": 1.6,
+                "move_speed": -0.4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

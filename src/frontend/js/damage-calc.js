@@ -3142,6 +3142,160 @@ const INERT_SUMMONS = [
 // 与持有者技能同构、携带完整数值 → 按召唤物自身数据建模,需越过 isSummon && !hasRealSkills 分支)。
 const TOKEN_REAL_SKILL_IDS = ['token_10007_phatom_twin', 'token_10009_weedy_cannon'];  // 工程蓄水炮:自身携带 sktok 液氮大炮技能数据,按召唤物自身建模
 
+// ===== 特种·傀儡师(dollkeeper):本体 + 替身两位一体 =====
+// 替身按「特殊-干员附带单位」(TOKEN/notchar1)独立成条,选择器紧随本体;若替身以技能形态作战则技能下拉可选。
+// 替身面板 = 本体面板(同档信赖/潜能/模组白值);结城理替身(=人格面具)另按天赋「不羁之力」×1.8 攻击 / ×1.35 生命。
+// mode: aura=不普攻,仅天赋范围法伤光环(归溟幽灵鲨);arts-attack=法术普攻(贝娜);
+//       phys-attack=物理普攻(维荻/双月);phys-burst=物理普攻+出现时一次性法伤(风丸·纸偶);
+//       none=不攻击(若叶睦);persona=人格面具(结城理,攻击/伤害随技能选择,见 calcDollkeeperSkill)。
+const DOLLKEEPER_SUB_IDS = {
+  'token_1023_ghost2_shadow': { owner: 'char_1023_ghost2', mode: 'aura', talentIdx: 0 },
+  'token_369_bena_shadow': { owner: 'char_369_bena', mode: 'arts-attack' },
+  'token_10022_kazema_shadow': { owner: 'char_4016_kazema', mode: 'phys-burst', talentIdx: 0 },
+  'token_4107_vrdant_shadow': { owner: 'char_4107_vrdant', mode: 'phys-attack' },
+  'token_4124_iana_shadow': { owner: 'char_4124_iana', mode: 'phys-attack' },
+  'token_4183_mortis_shadow': { owner: 'char_4183_mortis', mode: 'none' },
+  'token_4217_makoto_shadow': { owner: 'char_4217_makoto', mode: 'persona', atkMul: 1.8, hpMul: 1.35 },
+};
+
+// 取天赋候选的 blackboard(按精英/潜能的最高满足档)。
+function dollTalentBB(op, slotData, idx) {
+  const t = (op.talents || [])[idx];
+  if (!t) return {};
+  const elite = slotData.elite, pot = slotData.potentialRank || 0;
+  let best = null;
+  for (const c of (t.candidates || [])) if (c.phase <= elite && (c.potentialRank || 0) <= pot) best = c;
+  return best ? best.blackboard : {};
+}
+
+// 替身所选模组的 traitEnhance(替身 atk/max_hp 增幅)与 talentEnhance(天赋数值覆盖)。
+function dollSubModule(op, slotData) {
+  const res = { traitAtk: 0, traitHp: 0, talentBB: {} };
+  const sel = slotData.module;
+  if (!sel || !sel.moduleId) return res;
+  const mod = (op.modules || []).find((m) => m.id === sel.moduleId);
+  if (!mod) return res;
+  const lv = (mod.levels || []).find((l) => l.level === sel.moduleLevel) || (mod.levels || []).slice(-1)[0];
+  if (!lv) return res;
+  const pot = slotData.potentialRank || 0;
+  for (const te of (lv.traitEnhance || [])) {
+    if ((te.requiredPotentialRank || 0) > pot) continue;
+    if (typeof te.blackboard.atk === 'number') res.traitAtk += te.blackboard.atk;
+    if (typeof te.blackboard.max_hp === 'number') res.traitHp += te.blackboard.max_hp;
+  }
+  for (const ta of (lv.talentEnhance || [])) {
+    if ((ta.requiredPotentialRank || 0) > pot) continue;
+    Object.assign(res.talentBB, ta.blackboard || {});
+  }
+  return res;
+}
+
+// 傀儡师技能结算:本体特殊个案 + 替身(独立成条)。
+function calcDollkeeperSkill(op, slotData, ctx) {
+  const { panelAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex, skillDuration } = ctx;
+  const iv0 = realInterval > 0 ? realInterval : 1;
+  const opNorm = () => calcPhysicalDamage(panelAtk, effDef) / iv0;  // 本体常态普攻 DPS
+  const mkSub = (tot, dps, dur, iv, dt, ndps, skAtk) => ({
+    type: 'damage', isToggle: false, isPermanent: false, cycleDps: null,
+    skillDps: dps, skillTotalDamage: tot, normalDps: ndps === undefined ? null : ndps, skillHps: null, normalHps: null, totalHeal: null,
+    damageType: dt, normalDamageType: dt, realInterval: iv, panelAtk, skillAtkOut: skAtk === undefined ? panelAtk : skAtk,
+    dmgTypes: { [dt]: { skillDps: dps, skillTotalDamage: tot, cycleDps: null } },
+  });
+  const zeroSkill = (ndps) => ({
+    type: 'damage', isToggle: false, isPermanent: false, cycleDps: null,
+    skillDps: 0, skillTotalDamage: 0, normalDps: ndps === undefined ? null : ndps, skillHps: null, normalHps: null, totalHeal: null,
+    damageType: op.damageType, normalDamageType: op.damageType, realInterval: iv0, panelAtk, skillAtkOut: panelAtk, dmgTypes: {},
+  });
+
+  // ---- 替身条目 ----
+  if (DOLLKEEPER_SUB_IDS[op.id]) {
+    const mod = dollSubModule(op, slotData);
+    const atk = panelAtk * (1 + mod.traitAtk);
+    const iv = realInterval > 0 ? realInterval : 1;
+    if (op.id === 'token_4124_iana_shadow') {
+      if (skillIndex === 0) {   // S1 幻影诡雷(被动):切换为替身时 340%(专一 360%) 物理一次
+        const tot = calcPhysicalDamage(atk * (levelData.atk_scale || 1), effDef);
+        return mkSub(tot, tot / iv, iv, iv, 'physical');
+      }
+      // S2 全知者的战术:攻速 +260(专一 270),持续 10s(替身形态)
+      const aspd = levelData.attack_speed || 0;
+      const dur = skillDuration > 0 ? skillDuration : 10;
+      const ivS = iv / (1 + aspd / 100);
+      const hits = Math.max(1, Math.floor(dur / ivS + 1e-9));
+      const tot = calcPhysicalDamage(atk, effDef) * hits;
+      return mkSub(tot, tot / dur, dur, ivS, 'physical', undefined, atk);
+    }
+    if (op.id === 'token_4217_makoto_shadow') {
+      // 人格面具:攻击间隔增大(+0.4)→ 1.6s;伤害随技能选择(俄耳甫斯 / 塔纳托斯)
+      const ivS = iv / (1 + ((levelData['talent@attack_speed'] || 0) / 100));
+      const dur = 20;  // <替身>持续 20s
+      const hits = Math.max(1, Math.floor(dur / ivS + 1e-9));
+      const per = calcArtsDamage(atk * (levelData['attack@atk_scale'] || 0), effRes);
+      const tot = per * hits;
+      return mkSub(tot, tot / dur, dur, ivS, 'arts', undefined, atk);
+    }
+    return zeroSkill(0);
+  }
+  // ---- 本体条目 ----
+  if (op.id === 'char_4217_makoto' || op.id === 'char_4124_iana') {
+    // 技能立即切换为<替身>作战(双月本体亦不攻击) → 技能期本体无输出;常态化列由外层保持无技能态(不变量)
+    return zeroSkill(op.id === 'char_4124_iana' ? 0 : opNorm());
+  }
+  if (op.id === 'char_4183_mortis' && skillIndex === 1) {
+    // S2 破坏与滋养:三连发 每击 attack@atk_scale 法伤,默认攻击同一目标(用户口径 2026-09-18)
+    const iv = skillRealInterval > 0 ? skillRealInterval : iv0;
+    const dur = skillDuration > 0 ? skillDuration : 15;
+    const hits = Math.max(1, Math.floor(dur / iv + 1e-9));
+    const per = 3 * calcArtsDamage(panelAtk * (levelData['attack@atk_scale'] || 0), effRes);
+    const tot = per * hits;
+    return mkSub(tot, tot / dur, dur, iv, 'arts', opNorm());
+  }
+  if (op.id === 'char_369_bena' && skillIndex === 0) {
+    // S1 奋力修剪:攻击力 +85%,无视目标 35% 防御力
+    const iv = skillRealInterval > 0 ? skillRealInterval : iv0;
+    const dur = skillDuration > 0 ? skillDuration : 20;
+    const hits = Math.max(1, Math.floor(dur / iv + 1e-9));
+    const pen = levelData.def_penetrate || 0;
+    const per = calcPhysicalDamage(panelAtk * (1 + (levelData.atk || 0)), effDef * (1 - pen));
+    const tot = per * hits;
+    return mkSub(tot, tot / dur, dur, iv, 'physical', opNorm(), panelAtk * (1 + (levelData.atk || 0)));
+  }
+  return zeroSkill(opNorm());
+}
+
+// 傀儡师无技能态:替身独立成条(常态 = 20s 替身形态下的稳定输出);双月本体不攻击。
+function calcDollkeeperNormal(op, slotData, ctx) {
+  const { panelAtk, realInterval, effDef, effRes } = ctx;
+  const iv = realInterval > 0 ? realInterval : 1;
+  const mkAns = (normalDps, dt, ivOut, extra) => ({
+    type: 'damage', damageType: dt, normalDamageType: dt, skillDps: 0, skillTotalDamage: 0, cycleDps: null,
+    normalDps, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval: ivOut, panelAtk, ...(extra || {}),
+  });
+  const sub = DOLLKEEPER_SUB_IDS[op.id];
+  if (sub) {
+    const mod = dollSubModule(op, slotData);
+    const atk = panelAtk * (1 + mod.traitAtk);
+    if (sub.mode === 'aura') {
+      const tb = dollTalentBB(op, slotData, sub.talentIdx);
+      const scale = mod.talentBB.atk_scale !== undefined ? mod.talentBB.atk_scale : (tb.atk_scale || 0);
+      return mkAns(calcArtsDamage(atk * scale, effRes), 'arts', iv);
+    }
+    if (sub.mode === 'arts-attack') return mkAns(calcArtsDamage(atk, effRes) / iv, 'arts', iv);
+    if (sub.mode === 'phys-attack') return mkAns(calcPhysicalDamage(atk, effDef) / iv, 'physical', iv);
+    if (sub.mode === 'phys-burst') {
+      const tb = dollTalentBB(op, slotData, sub.talentIdx);
+      const ds = mod.talentBB.damage_scale !== undefined ? mod.talentBB.damage_scale : (tb.damage_scale || 0);
+      const burst = ds > 0 ? calcArtsDamage(atk * ds, effRes) : 0;
+      return mkAns(calcPhysicalDamage(atk, effDef) / iv, 'physical', iv, burst > 0
+        ? { skillTotalDamage: burst, dmgTypes: { physical: { skillDps: 0, skillTotalDamage: 0, cycleDps: null }, arts: { skillDps: 0, skillTotalDamage: burst, cycleDps: null } } }
+        : undefined);
+    }
+    return mkAns(0, op.damageType || 'physical', iv);  // none / persona:不攻击
+  }
+  if (op.id === 'char_4124_iana') return mkAns(0, 'physical', iv);  // 双月本体:不攻击(仅阻挡/诱饵)
+  return null;
+}
+
 // ===== 特种·伏击客(stalker) =====
 // 特性:对攻击范围内所有敌人造成伤害(单目标模型=1目标)、阻挡数 0、攻击间隔 3.5s、
 //       50% 物理与法术闪避且更不易被选中(闪避/嘲讽为生存向、非输出 → 不建模)。
@@ -3705,11 +3859,14 @@ function calculateOperator(op, slotData, ctx) {
   const bardAtkMul = isBard ? bardSelfAtkMul(op, slotData) : 1;
   const execTraitAtk = executorTraitAtkMul(op, slotData);  // 处决者 Y 模组特性:周围四格无友军(默认成立) atk+10%
   let panelAtk = rawAtk * (1 + talentAtk + extraAtkMul + execTraitAtk) * (isTacticianOp ? 1.5 : 1) * hodrerAtkScale * bardAtkMul;
+  // 特种·傀儡师替身:结城理人格面具按天赋「不羁之力」×1.8 攻击 / ×1.35 生命(其余替身面板=本体面板)
+  const dkPanelMul = DOLLKEEPER_SUB_IDS[op.id];
+  if (dkPanelMul && dkPanelMul.atkMul) panelAtk *= dkPanelMul.atkMul;
   const flatDefRegen = calcTalentFlatDefPctRegen(op, slotData);
   const flatAttr = calcTalentFlatAttr(op, slotData);
   const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
   let panelDef = rawDef * (1 + pctTalent.defMul + modUncond.defMul) + (flatDefRegen ? flatDefRegen.flatDef : 0) + flatAttr.defFlat;
-  const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul);
+  const panelHp = (baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul) * (dkPanelMul && dkPanelMul.hpMul ? dkPanelMul.hpMul : 1);
 
   // ======== Skill Modifiers ========
   const skill = passiveLv ? null : equippedSkill;   // PASSIVE 无技能期:走 no-skill 路径(面板已含被动加成)
@@ -3735,6 +3892,9 @@ function calculateOperator(op, slotData, ctx) {
   if (!skill) {
     const healScale = calcTalentHealScale(op, slotData) * (enh.healScale || 1);  // 无技能干员也乘常驻治疗倍率
     const healRatio = 1.0;
+    // 特种·傀儡师:本体无技能态个案(双月不攻击)与替身独立成条(常态=20s替身形态输出)
+    const dkNormEarly = calcDollkeeperNormal(op, slotData, { panelAtk, realInterval, effDef, effRes });
+    if (dkNormEarly) return dkNormEarly;
     // 工匠(craftsman)装置类召唤物:无技能、不攻击不治疗 → 输出全 0(仅占位置;给友方的增益不建模)
     if (INERT_SUMMONS.includes(op.id)) {
       return { type: 'damage', damageType: 'physical', normalDamageType: 'physical', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: 0, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk };
@@ -5114,6 +5274,12 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   } else if (op.subProfessionId === 'skywalker') {
     // 特种·巡空者(skywalker)专用分支:技能期 atk 增幅 + 予愿安洁莉娜 每击附加法术;S3 为弹药型(见 calcSkywalkerSkill)
     result = calcSkywalkerSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex, skillDuration });
+  } else if (op.id === 'char_4217_makoto' || op.id === 'char_4124_iana'
+    || (op.id === 'char_4183_mortis' && skillIndex === 1)
+    || (op.id === 'char_369_bena' && skillIndex === 0)
+    || DOLLKEEPER_SUB_IDS[op.id]) {
+    // 特种·傀儡师(dollkeeper)专用分支:本体个案(结城理切换替身/双月本体不攻击/若叶睦三连发/贝娜穿防)+ 替身输出
+    result = calcDollkeeperSkill(op, slotData, { panelAtk, skillAtk, effDef, effRes, realInterval, skillRealInterval, levelData, skillIndex, skillDuration });
   } else if ((AUTO_BOOST_SKILLS[op.id] || {})[skillIndex] !== undefined) {
     // AUTO 下次攻击强化:自然回 sp 周期内普攻照常,强化击按级别倍率(单目标:多目标/弹跳不计)
     const abKey = AUTO_BOOST_SKILLS[op.id][skillIndex];
@@ -6142,6 +6308,17 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   // 解放者(librator):特性「通常不攻击且阻挡数为 0」→ 常态行恒为 0(用户口径 2026-09-17:常态 DPS 记 0)
   if (op.subProfessionId === 'librator') result = { ...result, normalDps: 0, normalHps: null, normalDamageType: op.damageType };
 
+  // 特种·傀儡师替身:技能槽常态化列 = 替身形态稳定输出(与无技能态一致,不变量)
+  if (DOLLKEEPER_SUB_IDS[op.id]) {
+    const dkNorm = calcDollkeeperNormal(op, slotData, { panelAtk, realInterval, effDef, effRes });
+    if (dkNorm) result = { ...result, normalDps: dkNorm.normalDps, normalHps: null, normalDamageType: dkNorm.normalDamageType };
+  }
+  // 特种·傀儡师本体:触发型(AUTO 下次攻击强化)分支未显式回填常态化列 → 按普攻口径补回(不变量)
+  if (op.subProfessionId === 'dollkeeper' && !DOLLKEEPER_SUB_IDS[op.id]
+    && (result.normalDps === null || result.normalDps === undefined)) {
+    result = { ...result, normalDps: calcPhysicalDamage(panelAtk, effDef) / (realInterval > 0 ? realInterval : 1) };
+  }
+
   // 阵法术师技能改造③:DoT(圣聆初雪 S2 积雪每秒法伤)与技能结束收尾爆发(薄绿 S2)
   if (op.subProfessionId === 'phalanx' && skillIndex >= 0) {
     const phExtra = PHALANX_EXTRA[op.id] || {};
@@ -6554,7 +6731,7 @@ function calcPanelStats(op, slotData) {
   const modUncond = calcModuleUncondAttr(op, slotData);  // 模组特性追加/常驻段无条件属性(号角 Y 攻速/def)
   const attackInterval = calcRealInterval(phase.baseAttackTime, 100 + talentAspd + mod.attackSpeed + modUncond.aspd);
 
-  return {
+  const out = {
     panelHp: Math.round((baseHp + (op.trustBonus.maxHp || 0) * (slotData.trustPercent / 100) + potHp + mod.maxHp) * (1 + pctTalent.hpMul)),
     panelAtk: Math.round(rawAtk * (1 + talentAtk + extraAtkMul + executorTraitAtkMul(op, slotData)) * (op.profession === 'PIONEER' && op.subProfessionId === 'tactician' ? 1.5 : 1)),
     panelDef: Math.round((baseDef + trustDef + potDef + mod.def) * (1 + pctTalent.defMul + modUncond.defMul) + aura.defFlat
@@ -6563,6 +6740,13 @@ function calcPanelStats(op, slotData) {
     baseAttackTime: phase.baseAttackTime,
     attackInterval
   };
+  // 傀儡师替身:结城理人格面具按天赋「不羁之力」×1.8 攻击 / ×1.35 生命(其余替身面板=本体面板)
+  const dkSubMul = DOLLKEEPER_SUB_IDS[op.id];
+  if (dkSubMul && dkSubMul.atkMul) {
+    out.panelAtk = Math.round(out.panelAtk * dkSubMul.atkMul);
+    out.panelHp = Math.round(out.panelHp * (dkSubMul.hpMul || 1));
+  }
+  return out;
 }
 
 export { calculateOperator, getSkillLevelData, calcPanelStats, calcTalentAtkBonus, calcTalentAttackSpeed, calcTalentHealScale, calcModuleTalentEnhance, calcTalentHpDefMul, calcTalentDmgMul, calcSelfAuraFlat, TALENT_ATK_DRIVERS, TALENT_HEAL_DRIVERS, TALENT_SPD_DRIVERS, TALENT_HP_DEF_DRIVERS, SELF_AURA_DRIVERS };

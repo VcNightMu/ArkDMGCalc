@@ -1,0 +1,291 @@
+{
+  "id": "token_369_bena_shadow",
+  "name": "替身",
+  "rarity": "TIER_5",
+  "profession": "TOKEN",
+  "subProfessionId": "notchar1",
+  "damageType": "arts",
+  "ownerOperatorId": "char_369_bena",
+  "trustBonus": {
+    "atk": 60,
+    "def": 0,
+    "maxHp": 100
+  },
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        309,
+        424
+      ],
+      "def": [
+        130,
+        200
+      ],
+      "maxHp": [
+        1139,
+        1519
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        424,
+        559
+      ],
+      "def": [
+        200,
+        261
+      ],
+      "maxHp": [
+        1519,
+        1923
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        559,
+        682
+      ],
+      "def": [
+        261,
+        315
+      ],
+      "maxHp": [
+        1923,
+        2435
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "skills": [],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害",
+          "blackboard": {
+            "damage_resistance": 0,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少20%",
+          "blackboard": {
+            "damage_resistance": 0.2,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少23%<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "damage_resistance": 0.23,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少40%",
+          "blackboard": {
+            "damage_resistance": 0.4,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "贝娜的量角器",
+          "description": "<替身>攻击造成法术伤害且受到的物理与法术伤害减少43%<@ba.talpu>（+3）</>",
+          "blackboard": {
+            "damage_resistance": 0.43,
+            "talent_override_rangeid_flag": 1
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "受到致命伤时不撤退，切换成<替身>作战（替身阻挡数为0），持续20秒后自身再次替换<替身>",
+    "blackboard": {
+      "duration": 20
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_002_bena",
+      "name": "《乔弗瑞古今童话集》精装本",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 200,
+            "atk": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 250,
+            "atk": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.43,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.46,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 280,
+            "atk": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "damage_resistance": 0.45,
+                "talent_override_rangeid_flag": 1
+              }
+            },
+            {
+              "name": "贝娜的量角器",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "damage_resistance": 0.48,
+                "talent_override_rangeid_flag": 1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "duration": 20,
+                "max_hp": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
