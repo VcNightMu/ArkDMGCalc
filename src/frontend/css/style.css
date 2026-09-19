@@ -110,6 +110,28 @@ body {
 }
 
 /* 干员选择器 */
+.picker-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.picker-search:focus {
+  border-color: var(--accent);
+}
+
+.picker-search::placeholder {
+  color: #6a6a80;
+}
+
 .picker-selects {
   display: flex;
   gap: 12px;
@@ -147,6 +169,78 @@ body {
 .picker-item:hover {
   border-color: var(--accent);
   background: var(--bg-primary);
+}
+
+/* 搜索结果项：头像 + 名字(高亮) + 职业/子职业 + ID */
+.picker-item-search {
+  gap: 10px;
+}
+
+.picker-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--bg-primary);
+}
+
+.picker-avatar-fb {
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.picker-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.picker-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.picker-item-rarity {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.picker-item-name {
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.picker-item-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.picker-item-id {
+  color: #5f5f78;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 11px;
+}
+
+/* 匹配段高亮：暗色主题下用亮暖底 + 深字，保证对比度 */
+mark.search-hit,
+.picker-item mark.search-hit {
+  background: #f5c542;
+  color: #1a1a2e;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: 700;
+}
+
+.picker-empty {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 24px 0;
+  font-size: 13px;
 }
 
 /* 干员槽位 */

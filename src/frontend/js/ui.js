@@ -118,6 +118,18 @@ function initOperatorSlots() {
   }
 }
 
+// 搜索匹配段高亮：把 needle(lower) 在 text 中首次出现处（大小写不敏感）用 <mark> 包裹；
+// text 先做 HTML 转义，避免干员名/ID 意外注入。needle 为空或无匹配时返回转义后的原文。
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function highlightMatch(text, needleLower) {
+  const t = String(text);
+  const i = needleLower ? t.toLowerCase().indexOf(needleLower) : -1;
+  if (i < 0) return escapeHtml(t);
+  return escapeHtml(t.slice(0, i)) + '<mark class="search-hit">' + escapeHtml(t.slice(i, i + needleLower.length)) + '</mark>' + escapeHtml(t.slice(i + needleLower.length));
+}
+
 async function showOperatorPicker(slotIndex) {
   const operators = await getPopularOperators();
 const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '二星', 1: '一星' };
@@ -137,6 +149,8 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
   picker.style.cssText = 'background:#16213e;border-radius:12px;padding:20px;max-width:520px;width:90%;max-height:70vh;overflow-y:auto;border:1px solid #2a2a4a;';
 
   let html = '<h3 style="margin-bottom:16px;color:#eaeaea;">选择干员</h3>';
+  // 搜索框（在三级下拉之上）：输入即过滤全库、部分字符匹配、匹配段高亮；点击才加入
+  html += '<input type="text" id="picker-search" class="picker-search" placeholder="搜索干员（支持部分字符，如 推进 / ami）" autocomplete="off">';
   html += '<div class="picker-selects">';
   html += '<select id="picker-profession"><option value="">主职业</option>';
   for (const prof of Object.keys(profGroups)) {
@@ -150,13 +164,60 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
   overlay.appendChild(picker);
   document.body.appendChild(overlay);
 
+  const searchInput = picker.querySelector('#picker-search');
   const profSelect = picker.querySelector('#picker-profession');
   const subSelect = picker.querySelector('#picker-subprof');
   const listEl = picker.querySelector('#picker-list');
 
+  // 三级选择：子职业 → 干员列表（按星级降序(6→1)排列,同星级保持数据顺序）
+  async function renderSubList(prof, sub) {
+    listEl.innerHTML = '';
+    if (!prof || !sub) return;
+    const subOps = (profGroups[prof] && profGroups[prof][sub] || []).slice().sort((a, b) => (b.rarity || 0) - (a.rarity || 0));
+    let out = '';
+    for (const op of subOps) {
+      const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
+      out += '<div class="picker-item" data-id="' + op.id + '">' +
+        '<span class="rarity-' + op.rarity + '" style="font-size:13px;min-width:36px;">' + (rarityLabels[op.rarity] || '') + '</span>' +
+        '<span>' + displayName + '</span>' +
+        '</div>';
+    }
+    listEl.innerHTML = out;
+  }
+
+  // 全库搜索：子串匹配（名字 or ID，大小写不敏感）+ 匹配段高亮；清空则恢复三级选择视图
+  async function renderSearchResults(rawKeyword) {
+    const q = (rawKeyword || '').trim().toLowerCase();
+    listEl.innerHTML = '';
+    if (!q) { await renderSubList(profSelect.value, subSelect.value); return; }
+    const matches = operators.filter(op =>
+      (op.name && op.name.toLowerCase().includes(q)) ||
+      (op.id && op.id.toLowerCase().includes(q))
+    ).sort((a, b) => (b.rarity || 0) - (a.rarity || 0));
+    if (matches.length === 0) {
+      listEl.innerHTML = '<div class="picker-empty">无匹配干员</div>';
+      return;
+    }
+    let out = '';
+    for (const op of matches) {
+      const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
+      const subName = await getSubProfessionCN(op.subProfessionId);
+      const avatar = 'assets/avatars/' + op.profession + '/' + op.subProfessionId + '/' + op.id + '.png';
+      out += '<div class="picker-item picker-item-search" data-id="' + op.id + '">';
+      out += '<img class="picker-avatar" src="' + avatar + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
+      out += '<div class="picker-avatar picker-avatar-fb" style="display:none;">' + (op.profession === 'TOKEN' ? '唤' : (op.name || '').charAt(0)) + '</div>';
+      out += '<div class="picker-item-main">';
+      out += '<div class="picker-item-row"><span class="rarity-' + op.rarity + ' picker-item-rarity">' + (rarityLabels[op.rarity] || '') + '</span><span class="picker-item-name">' + highlightMatch(displayName, q) + '</span></div>';
+      out += '<div class="picker-item-sub">' + getProfessionCN(op.profession) + ' · ' + subName + ' <span class="picker-item-id">' + highlightMatch(op.id, q) + '</span></div>';
+      out += '</div></div>';
+    }
+    listEl.innerHTML = out;
+  }
+
   // 主职业变化 → 填充子职业下拉框（只显示有数据的子职业）
   profSelect.addEventListener('change', async () => {
     const prof = profSelect.value;
+    if (searchInput) searchInput.value = '';
     subSelect.innerHTML = '<option value="">子职业</option>';
     listEl.innerHTML = '';
     if (!prof) return;
@@ -167,23 +228,27 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
   });
 
   // 子职业变化 → 填充干员列表
-  subSelect.addEventListener('change', () => {
-    const prof = profSelect.value;
-    const sub = subSelect.value;
-    listEl.innerHTML = '';
-    if (!prof || !sub) return;
-    // 干员列表按星级降序(6→1)排列,同星级保持数据顺序
-    const subOps = (profGroups[prof][sub] || []).slice().sort((a, b) => (b.rarity || 0) - (a.rarity || 0));
-    for (const op of subOps) {
-      const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
-      listEl.innerHTML += '<div class="picker-item" data-id="' + op.id + '">' +
-        '<span class="rarity-' + op.rarity + '" style="font-size:13px;min-width:36px;">' + (rarityLabels[op.rarity] || '') + '</span>' +
-        '<span>' + displayName + '</span>' +
-        '</div>';
-    }
+  subSelect.addEventListener('change', async () => {
+    if (searchInput) searchInput.value = '';
+    await renderSubList(profSelect.value, subSelect.value);
   });
 
-  // 点击干员 → 添加
+  // 搜索框：输入即过滤（清空恢复三级下拉视图）
+  if (searchInput) {
+    searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+    // 键盘：回车选中第一项，Esc 清空
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const first = listEl.querySelector ? listEl.querySelector('.picker-item') : null;
+        if (first && first.click) { first.click(); e.preventDefault(); }
+      } else if (e.key === 'Escape') {
+        if (searchInput.value) { searchInput.value = ''; renderSearchResults(''); }
+        e.preventDefault();
+      }
+    });
+  }
+
+  // 点击干员 → 添加（三级列表与搜索结果共用）
   listEl.addEventListener('click', async (e) => {
     const item = e.target.closest ? e.target.closest('.picker-item') : null;
     if (!item) return;
@@ -207,6 +272,7 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
   });
 
   overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+  if (searchInput && searchInput.focus) searchInput.focus();
 }
 
 /**
