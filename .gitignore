@@ -4,8 +4,3 @@ src-tauri/gen/schemas/
 
 # 单文件 exe 的分发目录
 dist/
-
-# 测试临时产物(探针/转储/跑测日志) — 一次性脚本,不进版本库
-scripts/tests/_tmp_*
-scripts/tests/_audit_*
-scripts/tests/_opsearch_probe.mjs
