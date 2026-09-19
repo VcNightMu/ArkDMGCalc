@@ -119,7 +119,7 @@ function initOperatorSlots() {
 }
 
 // 搜索匹配段高亮：把 needle(lower) 在 text 中首次出现处（大小写不敏感）用 <mark> 包裹；
-// text 先做 HTML 转义，避免干员名/ID 意外注入。needle 为空或无匹配时返回转义后的原文。
+// text 先做 HTML 转义，避免干员名意外注入。needle 为空或无匹配时返回转义后的原文。
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -143,14 +143,16 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
   }
 
   const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:100;display:flex;align-items:center;justify-content:center;';
+  // 顶部锚定：overlay 顶部固定偏移 + 底部留白，面板只向下延伸，不随内容垂直居中/上下跳动
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:48px 12px 24px;box-sizing:border-box;overflow:hidden;';
 
   const picker = document.createElement('div');
-  picker.style.cssText = 'background:#16213e;border-radius:12px;padding:20px;max-width:520px;width:90%;max-height:70vh;overflow-y:auto;border:1px solid #2a2a4a;';
+  // 面板顶部与内容多少无关；列表变长时面板内部滚动（max-height = 100vh - 顶部偏移48 - 底部留白24），不顶出屏幕
+  picker.style.cssText = 'background:#16213e;border-radius:12px;padding:20px;max-width:520px;width:100%;box-sizing:border-box;max-height:calc(100vh - 72px);overflow-y:auto;border:1px solid #2a2a4a;';
 
   let html = '<h3 style="margin-bottom:16px;color:#eaeaea;">选择干员</h3>';
   // 搜索框（在三级下拉之上）：输入即过滤全库、部分字符匹配、匹配段高亮；点击才加入
-  html += '<input type="text" id="picker-search" class="picker-search" placeholder="搜索干员（支持部分字符，如 推进 / ami）" autocomplete="off">';
+  html += '<input type="text" id="picker-search" class="picker-search" placeholder="搜索干员（中文名，支持部分字符，如 推进）" autocomplete="off">';
   html += '<div class="picker-selects">';
   html += '<select id="picker-profession"><option value="">主职业</option>';
   for (const prof of Object.keys(profGroups)) {
@@ -185,14 +187,14 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
     listEl.innerHTML = out;
   }
 
-  // 全库搜索：子串匹配（名字 or ID，大小写不敏感）+ 匹配段高亮；清空则恢复三级选择视图
+  // 全库搜索：仅匹配显示名 op.name（子串，大小写不敏感）+ 名字命中段高亮；清空则恢复三级选择视图。
+  // 不匹配内部 id/代号（char_*、token_* 等）、子职业 id、职业英文等任何其它字段。
   async function renderSearchResults(rawKeyword) {
     const q = (rawKeyword || '').trim().toLowerCase();
     listEl.innerHTML = '';
     if (!q) { await renderSubList(profSelect.value, subSelect.value); return; }
     const matches = operators.filter(op =>
-      (op.name && op.name.toLowerCase().includes(q)) ||
-      (op.id && op.id.toLowerCase().includes(q))
+      op.name && op.name.toLowerCase().includes(q)
     ).sort((a, b) => (b.rarity || 0) - (a.rarity || 0));
     if (matches.length === 0) {
       listEl.innerHTML = '<div class="picker-empty">无匹配干员</div>';
@@ -200,15 +202,16 @@ const rarityLabels = { 6: '六星', 5: '五星', 4: '四星', 3: '三星', 2: '�
     }
     let out = '';
     for (const op of matches) {
-      const displayName = op.ownerName ? (op.ownerName + '·' + op.name) : op.name;
+      // 名字命中段只高亮 op.name 本身（ownerName 前缀只转义不高亮，职业/子职业不参与高亮）
+      const nameHtml = op.ownerName ? escapeHtml(op.ownerName + '·') + highlightMatch(op.name, q) : highlightMatch(op.name, q);
       const subName = await getSubProfessionCN(op.subProfessionId);
       const avatar = 'assets/avatars/' + op.profession + '/' + op.subProfessionId + '/' + op.id + '.png';
       out += '<div class="picker-item picker-item-search" data-id="' + op.id + '">';
       out += '<img class="picker-avatar" src="' + avatar + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
       out += '<div class="picker-avatar picker-avatar-fb" style="display:none;">' + (op.profession === 'TOKEN' ? '唤' : (op.name || '').charAt(0)) + '</div>';
       out += '<div class="picker-item-main">';
-      out += '<div class="picker-item-row"><span class="rarity-' + op.rarity + ' picker-item-rarity">' + (rarityLabels[op.rarity] || '') + '</span><span class="picker-item-name">' + highlightMatch(displayName, q) + '</span></div>';
-      out += '<div class="picker-item-sub">' + getProfessionCN(op.profession) + ' · ' + subName + ' <span class="picker-item-id">' + highlightMatch(op.id, q) + '</span></div>';
+      out += '<div class="picker-item-row"><span class="rarity-' + op.rarity + ' picker-item-rarity">' + (rarityLabels[op.rarity] || '') + '</span><span class="picker-item-name">' + nameHtml + '</span></div>';
+      out += '<div class="picker-item-sub">' + getProfessionCN(op.profession) + ' · ' + subName + '</div>';
       out += '</div></div>';
     }
     listEl.innerHTML = out;
