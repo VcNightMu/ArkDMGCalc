@@ -1,0 +1,27 @@
+# ArkDMGCalc Tauri 打包配置（GNU 工具链，全程绕开 MSVC）
+#
+# 背景：本机无法安装 Visual Studio / MSVC。
+#   * rustup 已安装 stable-x86_64-pc-windows-gnu，该 toolchain 自带 rust-mingw
+#     self-contained 库（crt2.o / dllcrt2.o / libmingw32.a / libkernel32.a / libgcc.a ...）。
+#   * 额外安装了 llvm-tools-preview 组件，提供 rust-lld 作为链接器。
+#   * windres（编译 .rc 资源）来自 w64devkit，通过 PATH 提供。
+#
+# 构建方式：
+#   set RUSTUP_TOOLCHAIN=stable-x86_64-pc-windows-gnu
+#   set PATH=%PATH%;C:\w64devkit\bin
+#   node <tauri-cli>\tauri.js build --target x86_64-pc-windows-gnu
+
+[target.x86_64-pc-windows-gnu]
+linker = "rust-lld"
+# ld.lld 是 stable 的 linker-flavor（gnu-lld 需要 nightly -Z unstable-options）
+rustflags = ["-C", "linker-flavor=ld.lld"]
+
+# crates.io 走 rsproxy.cn 镜像（国内加速），仅作用于本仓库
+[source.crates-io]
+replace-with = "rsproxy-sparse"
+
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[net]
+git-fetch-with-cli = true

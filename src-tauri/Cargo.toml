@@ -1,0 +1,20 @@
+[package]
+name = "arkdmgcalc"
+version = "1.0.0"
+description = "ArkDMGCalc - 明日方舟干员输出计算器"
+authors = ["二阶堂希罗"]
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

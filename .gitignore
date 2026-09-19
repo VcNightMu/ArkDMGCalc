@@ -1,0 +1,6 @@
+# Tauri 打包产物与生成物
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# 单文件 exe 的分发目录
+dist/
