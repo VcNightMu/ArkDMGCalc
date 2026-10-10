@@ -1,6 +1,6 @@
 # ArkDMGCalc - 明日方舟干员伤害计算器
 
-填入敌人的生命 / 攻击 / 防御 / 法术抗性，选择干员（精英化 / 等级 / 信赖 / 潜能 / 模组 / 技能等级与专精），算出**常态 DPS、技能期总伤与 DPS、触发类周期 DPS、治疗 HPS 与总治疗量**，最多 5 名干员并排对比。
+填入敌人的生命 / 攻击 / 防御 / 法术抗性，选择干员（精英化 / 等级 / 信赖 / 潜能 / 模组 / 技能等级与专精），算出**常态 DPS、技能期总伤与 DPS、触发类周期 DPS、治疗 HPS 与总治疗量**，最多 4 名干员并排对比。
 
 覆盖 **72/72 个子职业**（先锋 6、重装 8、医疗 7、术师 9、狙击 10、近卫 14、辅助 8、特种 10），数据索引共 **502 条**（含召唤物与傀儡师替身等附带单位）。
 
@@ -10,7 +10,7 @@
 
 - **前端**：原生 HTML + CSS + ES Module JavaScript。**无框架、无打包、无构建步骤、零 npm 依赖**，浏览器直接加载。
 - **计算**：全部在前端 JS 内完成，无服务端。`damage-calc.js`（约 472 KB）是主引擎，聚集了各子职业的分支与全部口径表；部分子职业另有专用模块。
-- **数据**：本地 JSON。干员/单位数据、索引、职业结构、口径说明文本都在 `src/frontend/data/` 下，前端用 `fetch` 读取。
+- **数据**：本地 JSON。干员/单位数值来自 [Kengxxiao/ArknightsGameData](https://github.com/Kengxxiao/ArknightsGameData)（游戏解包数据），**头像**来自 PRTS Wiki；索引、职业结构、口径说明文本都在 `src/frontend/data/` 下，前端用 `fetch` 读取。
 - **桌面壳**：Tauri v2（Rust 只做窗口与资源协议，计算逻辑不进 Rust）。Windows 打包走 **GNU 工具链，不需要 Visual Studio / MSVC**，内嵌 WebView2 运行时加载器，产物为单个 exe。
 - **数据抓取**：由 Node 脚本人工触发（`scripts/` 下），**不是**后端定时任务。
 
@@ -136,4 +136,4 @@ node dev-server.js            # 或 .\dev-server.ps1
 
 ## 许可与版权
 
-本项目仅用于学习和个人使用。明日方舟及相关内容版权归鹰角网络所有；数据与头像抓取自 PRTS Wiki，归各贡献者所有。
+本项目仅用于学习和个人使用。明日方舟及相关内容版权归鹰角网络所有。干员/单位数值来自 [Kengxxiao/ArknightsGameData](https://github.com/Kengxxiao/ArknightsGameData)（游戏解包数据）；头像抓取自 PRTS Wiki，归各贡献者所有。
