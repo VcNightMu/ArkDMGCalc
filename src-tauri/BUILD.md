@@ -66,6 +66,6 @@ cargo build --release --target x86_64-pc-windows-gnu
 
 ```powershell
 cd scripts/tests
-node verify-snapshot.mjs        # 期望输出「计算条目: 502 / 快照全等: 502 干员 无差异」
+node verify-snapshot.mjs        # 期望输出「计算条目: 505 / 快照全等: 505 干员 无差异」
 # 其余 verify-*.mjs 共 103 个用例全部通过
 ```

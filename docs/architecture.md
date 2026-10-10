@@ -92,7 +92,7 @@ JS 改完刷新即生效，不必重新编译；计算不涉及系统权限，�
 
 用户点击空槽
   └─ showOperatorPicker(i)
-       └─ getPopularOperators() → fetch data/index.json（502 条，首次后缓存）
+       └─ getPopularOperators() → fetch data/index.json（505 条，首次后缓存）
        └─ 三级下拉：主职业 → 子职业 → 干员；或搜索框按显示名子串过滤全库（命中段高亮）
        └─ 点击某条 → 写入 state.slots[i] → renderSlot(i)
 

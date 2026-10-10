@@ -11,7 +11,7 @@
 
 ```
 src/frontend/data/
-  index.json                       干员/单位索引（502 条）
+  index.json                       干员/单位索引（505 条）
   sub-professions.json             子职业字典（76 条 = 72 真实 + 4 特殊）
   notes.json                       口径说明文本（手工维护，重抓不覆盖）
   <主职业>/<子职业>/<id>.json      干员/单位数据（只存数值键，不含技能描述文本）
@@ -206,7 +206,7 @@ F_t = Π 最终乘算（final_mul；任一项 < 0 时补正为该项 + 1）
 
 ## 索引与说明文本
 
-**`index.json`**（502 条，干员与召唤物混排）：
+**`index.json`**（505 条，干员与召唤物混排）：
 
 ```json
 { "id": "char_112_siege", "name": "推进之王", "rarity": "TIER_6",
