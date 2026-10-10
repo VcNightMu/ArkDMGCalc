@@ -25,7 +25,7 @@ globalThis.document = {
   createElement: (tag) => makeEl(tag),
   addEventListener() {}, body: makeEl('body'),
 };
-state.slots = [null, null, null, null, null];
+state.slots = [null, null, null, null];
 
 const op = JSON.parse(fs.readFileSync(BASE + '/MEDIC/incantationmedic/char_1020_reed2.json', 'utf8'));
 let pass = 0, fail = 0;

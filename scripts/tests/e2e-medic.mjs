@@ -27,7 +27,7 @@ globalThis.document = {
   addEventListener() {}, body: makeEl('body'),
 };
 
-state.slots = [null, null, null, null, null];
+state.slots = [null, null, null, null];
 
 // 闪灵·信条，切换两个技能等级，对比技能期 HPS
 async function renderAt(level) {

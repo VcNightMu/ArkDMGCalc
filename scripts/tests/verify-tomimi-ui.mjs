@@ -26,7 +26,7 @@ globalThis.document = {
   createElement: (tag) => makeEl(tag),
   addEventListener() {}, body: makeEl('body'),
 };
-state.slots = [null, null, null, null, null];
+state.slots = [null, null, null, null];
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
 
 const op = JSON.parse(fs.readFileSync(BASE + '/CASTER/corecaster/char_411_tomimi.json', 'utf8'));

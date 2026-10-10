@@ -28,7 +28,7 @@ globalThis.document = {
 };
 
 // 重置状态
-state.slots = [null, null, null, null, null];
+state.slots = [null, null, null, null];
 
 let pass = 0, fail = 0;
 function t(name, fn) {
