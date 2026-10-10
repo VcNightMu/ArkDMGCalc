@@ -1,0 +1,727 @@
+{
+  "id": "char_4231_clemnt",
+  "name": "克莱门莎",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "primguard",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        410,
+        587
+      ],
+      "def": [
+        178,
+        245
+      ],
+      "maxHp": [
+        1116,
+        1550
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        587,
+        763
+      ],
+      "def": [
+        245,
+        315
+      ],
+      "maxHp": [
+        1550,
+        2040
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        763,
+        920
+      ],
+      "def": [
+        315,
+        371
+      ],
+      "maxHp": [
+        2040,
+        2720
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 110,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_clemnt_1",
+      "name": "冲蚀",
+      "levels": [
+        {
+          "atk_scale": 1.9,
+          "ep_damage_ratio": 0.2,
+          "level": 0,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.95,
+          "ep_damage_ratio": 0.2,
+          "level": 1,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "ep_damage_ratio": 0.2,
+          "level": 2,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.05,
+          "ep_damage_ratio": 0.25,
+          "level": 3,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "ep_damage_ratio": 0.25,
+          "level": 4,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.15,
+          "ep_damage_ratio": 0.25,
+          "level": 5,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.25,
+          "ep_damage_ratio": 0.3,
+          "level": 6,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "ep_damage_ratio": 0.3,
+          "level": 7,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.65,
+          "ep_damage_ratio": 0.35,
+          "level": 8,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "ep_damage_ratio": 0.35,
+          "level": 9,
+          "spCost": 2,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_clemnt_2",
+      "name": "风暴潮",
+      "levels": [
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.5,
+          "attack@max_target": 5,
+          "level": 0,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.55,
+          "attack@max_target": 5,
+          "level": 1,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.6,
+          "attack@max_target": 5,
+          "level": 2,
+          "spCost": 25,
+          "initialSp": 8,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.65,
+          "attack@max_target": 5,
+          "level": 3,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.7,
+          "attack@max_target": 5,
+          "level": 4,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.2,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.8,
+          "attack@max_target": 5,
+          "level": 5,
+          "spCost": 22,
+          "initialSp": 9,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.3,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.85,
+          "attack@max_target": 5,
+          "level": 6,
+          "spCost": 20,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.3,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.9,
+          "attack@max_target": 5,
+          "level": 7,
+          "spCost": 20,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.35,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 2.95,
+          "attack@max_target": 5,
+          "level": 8,
+          "spCost": 20,
+          "initialSp": 13,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 100,
+          "attack@aoe_atk_scale": 2.5,
+          "attack@max_passenger_mass": 8,
+          "attack@max_passenger_cnt": 15,
+          "attack@move_speed": -0.7,
+          "attack@water_element": 200,
+          "attack@physical_atk_scale": 3,
+          "attack@max_target": 5,
+          "level": 9,
+          "spCost": 20,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 16,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_clemnt_3",
+      "name": "与海为敌",
+      "levels": [
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.5,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2,
+          "ep_damage_scale": 1.5,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.6,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2,
+          "ep_damage_scale": 1.5,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.7,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.3,
+          "ep_damage_scale": 1.5,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.8,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.5,
+          "ep_damage_scale": 1.8,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 3,
+          "spCost": 58,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.85,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.5,
+          "ep_damage_scale": 1.8,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 1.9,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.5,
+          "ep_damage_scale": 1.8,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 2,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.7,
+          "ep_damage_scale": 2,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 2.2,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.8,
+          "ep_damage_scale": 2.1,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 2.3,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 2.9,
+          "ep_damage_scale": 2.3,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack@max_target": 3,
+          "attack@atk_scale": 2.35,
+          "attack@ep_damage_ratio": 0.2,
+          "attack@ep_break_duration": 1,
+          "projectile_life_time": 5,
+          "s3_atk_scale": 3,
+          "ep_damage_scale": 2.5,
+          "trigger_time": 10,
+          "audio_trigger_cnt": 3,
+          "ep_break_duration": 1,
+          "level": 9,
+          "spCost": 42,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生死定夺",
+          "description": "造成物理伤害时有25%概率攻击力提升至120%，目标防御力低于初始值时概率提升至50%",
+          "blackboard": {
+            "t1_atk_scale": 1.2,
+            "prob_normal": 0.25,
+            "prob_special": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "生死定夺",
+          "description": "造成物理伤害时有25%概率攻击力提升至135%<@ba.talpu>（+15%）</>，目标防御力低于初始值时概率提升至50%",
+          "blackboard": {
+            "t1_atk_scale": 1.35,
+            "prob_normal": 0.25,
+            "prob_special": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "生死定夺",
+          "description": "造成物理伤害时有25%概率攻击力提升至135%，目标防御力低于初始值时概率提升至50%",
+          "blackboard": {
+            "t1_atk_scale": 1.35,
+            "prob_normal": 0.25,
+            "prob_special": 0.5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "生死定夺",
+          "description": "造成物理伤害时有25%概率攻击力提升至150%<@ba.talpu>（+15%）</>，目标防御力低于初始值时概率提升至50%",
+          "blackboard": {
+            "t1_atk_scale": 1.5,
+            "prob_normal": 0.25,
+            "prob_special": 0.5
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "习得性防御",
+          "description": "受到来自自身前方单位造成的物理和法术伤害降低30%，若伤害来源为【海怪】，则降低50%",
+          "blackboard": {
+            "damage_resistance_normal": 0.3,
+            "damage_resistance_seamonster": 0.5,
+            "tag": 0
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "习得性防御",
+          "description": "受到来自自身前方单位造成的物理和法术伤害降低35%<@ba.talpu>（+5%）</>，若伤害来源为【海怪】，则降低55%<@ba.talpu>（+5%）</>",
+          "blackboard": {
+            "damage_resistance_normal": 0.35,
+            "damage_resistance_seamonster": 0.55,
+            "tag": 0
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

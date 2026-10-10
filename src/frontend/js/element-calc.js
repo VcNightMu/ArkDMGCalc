@@ -37,6 +37,8 @@ export const OPERATOR_ELEMENT = {
   'char_4198_christ': 'sanity',  // Miss.Christine：神经损伤
   'char_4081_warmy': 'fire',     // 温米：灼燃损伤
   'char_499_kaitou': 'dark',     // 折光：凋亡损伤
+  // ---- 本源近卫(primguard) ----
+  'char_4231_clemnt': 'water',   // 克莱门莎(2026-10 版本)：侵蚀损伤（技能描述明写 <$ba.dt.erosion2>侵蚀损伤）
 };
 
 /**
@@ -292,7 +294,7 @@ export function simulateElementTimeline(p) {
     }
   }
   evs.sort((a, b) => a.t - b.t);
-  let arts = 0, breakDmg = 0, condDmg = 0, condCount = 0, artsInWindow = 0;
+  let arts = 0, breakDmg = 0, condDmg = 0, condCount = 0, artsInWindow = 0, physical = 0;
   for (const e of evs) {
     const s = e.s;
     let atk = s.atk;
@@ -301,14 +303,19 @@ export function simulateElementTimeline(p) {
     const inFire = ELEMENT_BREAK.fire.resDebuff ? inWin('fire', e.t) : false;
     if (inFire) r = baseRes + ELEMENT_BREAK.fire.resDebuff;
     r = Math.max(0, r);
-    const dmg = (s.dmgMul ? atk * s.dmgMul : 0) * (100 - r) / 100;
-    arts += dmg;
+    // phys:true 的流按物理结算并累加到 physical(如克莱门莎风暴潮的漩涡每秒物理伤害)
+    const dmg = s.phys
+      ? (s.dmgMul ? atk * s.dmgMul : 0)
+      : (s.dmgMul ? atk * s.dmgMul : 0) * (100 - r) / 100;
+    if (s.phys) physical += dmg; else arts += dmg;
     if (inFire && dmg > 0) artsInWindow += dmg;
     if (s.condScale && s.condEl !== undefined && inWin(s.condEl, e.t)) { condDmg += atk * s.condScale; condCount++; }
-    if (s.el && s.epMul) {
+    // 损伤应用：epFlat 为固定值（如克莱门莎漩涡每秒 200 点侵蚀、PhonoR-0 攻击附带 45 点），
+    // 否则按 epBase 取 atk（'atk'，默认）或该次实际伤害 dmg（'damage'）× epMul。
+    if (s.el && (s.epMul || s.epFlat !== undefined)) {
       ensure(s.el);
       if (!(e.t < cdUntil[s.el])) {
-        const epAmt = (s.epBase === 'atk' ? atk : dmg) * s.epMul;
+        const epAmt = s.epFlat !== undefined ? s.epFlat : (s.epBase === 'atk' ? atk : dmg) * s.epMul;
         eps[s.el] -= epAmt;
         if (eps[s.el] <= 0) {
           const def = ELEMENT_BREAK[s.el];
@@ -335,6 +342,6 @@ export function simulateElementTimeline(p) {
   }
   let breakCount = 0;
   for (const k of Object.keys(brk)) breakCount += brk[k].length;
-  return { arts, element: breakDmg + condDmg + dotDmg, breakDmg, condDmg, dotDmg, dotCount, condCount, breaks: brk, breakCount, artsInWindow };
+  return { arts, physical, element: breakDmg + condDmg + dotDmg, breakDmg, condDmg, dotDmg, dotCount, condCount, breaks: brk, breakCount, artsInWindow };
 }
 

@@ -159,6 +159,7 @@ const OPERATORS = {
     ],
     primguard: [
       'char_4187_graceb',     // 聆音 TIER_51★
+      'char_4231_clemnt',     // 克莱门莎 TIER_6 6★（2026-10 版本新增；侵蚀损伤）
     ],
     mercenary: [
       'char_1049_catap2',     // 雷狼龙S空爆 TIER_51★(异格/升变)
@@ -321,6 +322,7 @@ const OPERATORS = {
     underminer: [ // 削弱者
       'char_206_gnosis',                                                             // 灵知 6★
       'char_174_slbell', 'char_254_vodfox', 'char_4079_haini',                         // 初雪/巫恋/海霓 5★
+      'char_393_toledo',                                                             // 德·托莱多 5★（2026-10 版本新增）
     ],
     bard: [ // 吟游者
       'char_1012_skadi2', 'char_4134_cetsyr',                                        // 浊心斯卡蒂(异格)/魔王 6★
@@ -393,6 +395,7 @@ const OPERATORS = {
     alchemist: [ // 炼金师
       'char_1039_thorn2',                                                           // 引星棘刺(异格) 6★
       'char_4151_tinman',                                                           // 锡人 5★
+      'char_4232_hbound',                                                           // 旅骨 5★（2026-10 版本新增）
     ],
     skywalker: [ // 巡空者
       'char_1015_aglna2',                                                           // 予愿安洁莉娜(异格) 6★

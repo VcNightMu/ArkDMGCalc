@@ -742,6 +742,102 @@
           ]
         }
       ]
+    },
+    {
+      "id": "uniequip_003_shu",
+      "name": "好时节",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 25,
+            "def": 40
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 240,
+            "atk": 33,
+            "def": 48
+          },
+          "talentEnhance": [
+            {
+              "name": "天有四时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.14,
+                "attack_speed": 14,
+                "atk": 0.14,
+                "interval": 4,
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.03
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 300,
+            "atk": 40,
+            "def": 55
+          },
+          "talentEnhance": [
+            {
+              "name": "天有四时",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.16,
+                "attack_speed": 16,
+                "atk": 0.16,
+                "interval": 4,
+                "sp": 1
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "atk": 0.05
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_resistance": 0.15
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

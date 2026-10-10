@@ -4516,5 +4516,32 @@
     "subProfessionId": "skywalker",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_4231_clemnt",
+    "name": "克莱门莎",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "primguard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_393_toledo",
+    "name": "德·托莱多",
+    "rarity": "TIER_5",
+    "profession": "SUPPORT",
+    "subProfessionId": "underminer",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4232_hbound",
+    "name": "旅骨",
+    "rarity": "TIER_5",
+    "profession": "SPECIAL",
+    "subProfessionId": "alchemist",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

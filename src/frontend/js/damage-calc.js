@@ -3761,8 +3761,38 @@ function calcAlchemistSkill(op, slotData, c) {
       dmgTypes: { arts: { skillDps: W > 0 ? total / W : 0, skillTotalDamage: total, cycleDps: null } },
     };
   }
+  // ---- 德·托莱多(char_393_toledo, 2026-10 版本新增) ----
+  // 走在本函数内以隔离 attack@atk：该技能的 attack@atk(−25%) 是**作用于被阻挡敌人的虚弱**（降低敌人攻击力），
+  // 不是自身加攻；若走通用路径会被当作自身 direct_mul 减攻（同炼金师「敌方虚弱不计」的既有处理）。
+  // S1 以假乱真：技能期攻击力 = panelAtk×(1+atk)（专三 +100%），窗口 = skillDuration(30s)、每秒一次普攻。
+  // 天赋「贵族血统」（攻击范围内被阻挡敌人脆弱 damage_scale 1.08~1.18）属条件类，默认不生效（见 notes）。
+  if (op.id === 'char_393_toledo') {
+    const buf = panelAtk * (1 + (levelData.atk || 0));
+    const dur = c.skillDuration > 0 ? c.skillDuration : (levelData.skillDuration > 0 ? levelData.skillDuration : 0);
+    const hits = dur > 0 && nIvl > 0 ? Math.floor(dur / nIvl) : 1;
+    const per = A(buf);                                   // 削弱者特性:攻击造成法术伤害
+    const total = per * hits;
+    return {
+      ...base, type: 'damage', damageType: 'arts',
+      skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total,
+      skillAtkOut: buf,
+      dmgTypes: { arts: { skillDps: dur > 0 ? total / dur : 0, skillTotalDamage: total, cycleDps: null } },
+    };
+  }
   // ---- 锡人(char_4151_tinman) ----
   const dotMul = funnelTalentValue(op, slotData, 1, 'skill@damage_scale') || 1;  // 凋敝魂灵:炼金单元持续伤害提高
+  // ---- 旅骨(char_4232_hbound, 2026-10 版本新增) ----
+  // 天赋「潜水作业」为降低敌人命中率（非输出向）→ 不建模；两技能均为投掷炼金单元、
+  // 窗口 = projectile_delay_time 秒、每秒一跳 atk_scale 法伤（口径同锡人）。
+  // S2 另对重量≥3 的敌人每秒额外 heavy_atk_scale（单目标模型默认目标为普通重量 → 该额外档不计，见 notes）。
+  if (op.id === 'char_4232_hbound') {
+    const perSec = A(panelAtk * (levelData.atk_scale || 0));
+    return {
+      ...base, type: 'damage', damageType: 'arts',
+      skillDps: perSec, skillTotalDamage: perSec * W,
+      dmgTypes: { arts: { skillDps: perSec, skillTotalDamage: perSec * W, cycleDps: null } },
+    };
+  }
   if (skillIndex === 0) {
     // S1「老科利」(自动):窗口内每秒 攻击力×atk_scale 法伤(×凋敝魂灵);敌方虚弱(atk-)为减益不计
     const perSec = A(panelAtk * (levelData.atk_scale || 0) * dotMul);
@@ -6582,7 +6612,7 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
   // 本源近卫(primguard)元素损伤建模(用户口径 2026-09-17:与本源术师同源处理)
   if (op.subProfessionId === 'primguard') {
     result = calcPrimGuardSkill({
-      op, slotData, levelData, panelAtk, skillAtk, skillRealInterval, skillDuration, effRes, effDef, skillIndex,
+      op, slotData, levelData, panelAtk, rawAtk, skillAtk, skillRealInterval, skillDuration, effRes, effDef, skillIndex,
       grade: (state.enemy && state.enemy.grade) || 'normal', result,
     });
   }

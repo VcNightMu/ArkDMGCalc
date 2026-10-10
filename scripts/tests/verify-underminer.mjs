@@ -133,5 +133,23 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
   near(y3s3.skillTotalDamage, 9838.25, 0.5, '灵知 Y3 S3 总伤');
   near(y3s3.skillDps, 894.386, 0.1, '灵知 Y3 S3 技能期 DPS');
 }
+// ---- 德·托莱多(char_393_toledo, 2026-10 版本新增) ----
+// 口径:天赋「贵族血统」脆弱(仅攻击范围内被阻挡的敌人,同类先例见初雪「虚弱化」)默认不生效;
+//   S1 的 attack@atk(−25% 专三)是**敌方虚弱**不计 → 走专用分支隔离,只取顶层 atk 加攻;
+//   S2 的「天赋效果提升至 ×2」因天赋本身不生效故不生效,召唤物与战栗为控制类不计。
+{
+  const o = loadOp('char_393_toledo');
+  const r0 = calculateOperator(o, mk(o, -1));
+  eq(r0.damageType, 'arts', '德·托莱多 常态伤害类型=法术(削弱者特性)');
+  near(r0.normalDps, 146.875, 0.05, '德·托莱多 常态 DPS(470-600 保底 5%=23.5,→法术)');
+  const s1 = calculateOperator(o, mk(o, 0));
+  eq(s1.damageType, 'arts', '德·托莱多 S1 法术伤害');
+  near(s1.panelAtk, 747.3, 0.1, '德·托莱多 S1 技能期 ATK=470×1.59(专一 +59%,attack@atk 虚弱不计)');
+  near(s1.skillTotalDamage, 6352.05, 0.5, '德·托莱多 S1 总伤(18 击×352.79)');
+  near(s1.normalDps, 146.875, 0.05, '德·托莱多 S1 常态普攻保留');
+  const s2 = calculateOperator(o, mk(o, 1));
+  near(s2.skillTotalDamage, 2820, 0.5, '德·托莱多 S2 总伤(20 击×141,天赋提升不生效)');
+  eq(s2.panelAtk, 470, '德·托莱多 S2 技能期 ATK=470(无自身加攻)');
+}
 console.log('削弱者: ' + pass + ' 通过 / ' + fail + ' 失败');
 process.exit(fail > 0 ? 1 : 0);

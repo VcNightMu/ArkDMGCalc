@@ -113,7 +113,7 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
 
 // ---- 数据健全性:2 人 damageType=physical、trait=null(炼金单元不单独成条)、subProfessionId=alchemist ----
 {
-  for (const id of ['char_1039_thorn2', 'char_4151_tinman']) {
+  for (const id of ['char_1039_thorn2', 'char_4151_tinman', 'char_4232_hbound']) {
     const o = loadOp(id);
     eq(o.damageType, 'physical', id + ' damageType=physical');
     eq(o.trait, null, id + ' trait=null');
@@ -123,7 +123,7 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
 
 // ---- 不变量:非永续、非触发型槽(全为窗口型)常态化列 = 无技能态;且技能位均非永续 ----
 {
-  for (const id of ['char_1039_thorn2', 'char_4151_tinman']) {
+  for (const id of ['char_1039_thorn2', 'char_4151_tinman', 'char_4232_hbound']) {
     const o = loadOp(id);
     const mods = [null];
     for (const m of (o.modules || [])) if (m.type === 'ADVANCED') for (const lv of (m.levels || [])) mods.push(mod(m.id, lv.level));
@@ -137,6 +137,22 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
       }
     }
   }
+}
+// ---- 旅骨(char_4232_hbound, 2026-10 版本新增) ----
+// 口径:天赋「潜水作业」为降低敌人命中率(非输出向)不计;两技能均为投掷炼金单元、窗口=projectile_delay_time、每秒一跳;
+//   S2 对重量≥3 敌人的额外秒伤不计(单目标模型默认目标为普通重量)。
+{
+  const o = loadOp('char_4232_hbound');
+  const r0 = calculateOperator(o, mk(o, -1));
+  eq(r0.damageType, 'physical', '旅骨 常态伤害类型=物理(普攻)');
+  near(r0.normalDps, 16.367, 0.05, '旅骨 常态 DPS(491-600 保底 5%=24.55 /1.5)');
+  const s1 = calculateOperator(o, mk(o, 0));
+  eq(s1.damageType, 'arts', '旅骨 S1 法术伤害(炼金单元)');
+  near(s1.skillTotalDamage, 1436.175, 0.5, '旅骨 S1 触礁 9s×159.575(专一 atk_scale 0.55)');
+  near(s1.normalDps, 16.367, 0.05, '旅骨 S1 常态普攻保留');
+  const s2 = calculateOperator(o, mk(o, 1));
+  near(s2.skillTotalDamage, 1458.27, 0.5, '旅骨 S2 座浅 33s×44.19(含重量≥3 额外档不计)');
+  near(s2.normalDps, 16.367, 0.05, '旅骨 S2 常态普攻保留');
 }
 console.log('炼金师: ' + pass + ' 通过 / ' + fail + ' 失败');
 process.exit(fail > 0 ? 1 : 0);

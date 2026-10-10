@@ -728,6 +728,129 @@
           ]
         }
       ]
+    },
+    {
+      "id": "uniequip_003_ulpia",
+      "name": "“前路”",
+      "type": "ADVANCED",
+      "typeName2": "Y",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 2,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 360,
+            "atk": 100
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 410,
+            "atk": 130
+          },
+          "talentEnhance": [
+            {
+              "name": "血脉的哺养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 9,
+                "max_hp": 140,
+                "atk": 35,
+                "ulpia_t_1[abyssal].max_hp": 77,
+                "ulpia_t_1[abyssal].atk": 19.25,
+                "ulpia_t_1[abyssal].max_stack_cnt": 9,
+                "block_cnt": 1,
+                "add_block_cnt_stack_cnt": 9
+              }
+            },
+            {
+              "name": "血脉的哺养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 10,
+                "max_hp": 140,
+                "atk": 35,
+                "ulpia_t_1[abyssal].max_hp": 77,
+                "ulpia_t_1[abyssal].atk": 19.25,
+                "ulpia_t_1[abyssal].max_stack_cnt": 10,
+                "block_cnt": 1,
+                "add_block_cnt_stack_cnt": 9
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 460,
+            "atk": 150
+          },
+          "talentEnhance": [
+            {
+              "name": "血脉的哺养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_stack_cnt": 9,
+                "max_hp": 150,
+                "atk": 38,
+                "ulpia_t_1[abyssal].max_hp": 90,
+                "ulpia_t_1[abyssal].atk": 22.799999,
+                "ulpia_t_1[abyssal].max_stack_cnt": 9,
+                "block_cnt": 1,
+                "add_block_cnt_stack_cnt": 9
+              }
+            },
+            {
+              "name": "血脉的哺养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_stack_cnt": 10,
+                "max_hp": 150,
+                "atk": 38,
+                "ulpia_t_1[abyssal].max_hp": 90,
+                "ulpia_t_1[abyssal].atk": 22.799999,
+                "ulpia_t_1[abyssal].max_stack_cnt": 10,
+                "block_cnt": 1,
+                "add_block_cnt_stack_cnt": 9
+              }
+            },
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {}
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "damage_scale": 1.1
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,624 @@
+{
+  "id": "char_4232_hbound",
+  "name": "旅骨",
+  "rarity": "TIER_5",
+  "profession": "SPECIAL",
+  "subProfessionId": "alchemist",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        203,
+        283
+      ],
+      "def": [
+        44,
+        66
+      ],
+      "maxHp": [
+        521,
+        705
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        283,
+        373
+      ],
+      "def": [
+        66,
+        84
+      ],
+      "maxHp": [
+        705,
+        916
+      ],
+      "magicResistance": 25,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        373,
+        461
+      ],
+      "def": [
+        84,
+        100
+      ],
+      "maxHp": [
+        916,
+        1160
+      ],
+      "magicResistance": 30,
+      "baseAttackTime": 1.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hbound_1",
+      "name": "触礁",
+      "levels": [
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.25,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.2,
+          "level": 0,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.3,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.2,
+          "level": 1,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.35,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.2,
+          "level": 2,
+          "spCost": 20,
+          "initialSp": 3,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.4,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.3,
+          "level": 3,
+          "spCost": 19,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.45,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.3,
+          "level": 4,
+          "spCost": 19,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 8,
+          "atk_scale": 0.5,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.3,
+          "level": 5,
+          "spCost": 19,
+          "initialSp": 4,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 9,
+          "atk_scale": 0.6,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.4,
+          "level": 6,
+          "spCost": 18,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 9,
+          "atk_scale": 0.65,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.45,
+          "level": 7,
+          "spCost": 17,
+          "initialSp": 5,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 10,
+          "atk_scale": 0.7,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.45,
+          "level": 8,
+          "spCost": 17,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 10,
+          "atk_scale": 0.8,
+          "projectile_range": 1.5,
+          "interval": 1,
+          "move_speed": -0.5,
+          "level": 9,
+          "spCost": 16,
+          "initialSp": 6,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hbound_2",
+      "name": "座浅",
+      "levels": [
+        {
+          "projectile_delay_time": 30,
+          "atk_scale": 0.11,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.5,
+          "heavy_atk_scale": 0.9,
+          "value": 3,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 30,
+          "atk_scale": 0.12,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.5,
+          "heavy_atk_scale": 1,
+          "value": 3,
+          "level": 1,
+          "spCost": 59,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 30,
+          "atk_scale": 0.13,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.5,
+          "heavy_atk_scale": 1.1,
+          "value": 3,
+          "level": 2,
+          "spCost": 58,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 31,
+          "atk_scale": 0.14,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.6,
+          "heavy_atk_scale": 1.2,
+          "value": 3,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 26,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 31,
+          "atk_scale": 0.15,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.6,
+          "heavy_atk_scale": 1.3,
+          "value": 3,
+          "level": 4,
+          "spCost": 56,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 31,
+          "atk_scale": 0.16,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.6,
+          "heavy_atk_scale": 1.4,
+          "value": 3,
+          "level": 5,
+          "spCost": 55,
+          "initialSp": 28,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 32,
+          "atk_scale": 0.17,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.7,
+          "heavy_atk_scale": 1.5,
+          "value": 3,
+          "level": 6,
+          "spCost": 54,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 33,
+          "atk_scale": 0.18,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.7,
+          "heavy_atk_scale": 1.6,
+          "value": 3,
+          "level": 7,
+          "spCost": 52,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 34,
+          "atk_scale": 0.19,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.7,
+          "heavy_atk_scale": 1.7,
+          "value": 3,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "projectile_delay_time": 35,
+          "atk_scale": 0.2,
+          "projectile_range": 2,
+          "interval": 1,
+          "move_speed": -0.7,
+          "heavy_atk_scale": 1.8,
+          "value": 3,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 32,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "潜水作业",
+          "description": "使自身炼金单元影响范围内地面敌人的物理和法术命中率-5%；若敌人重量大于等于3，改为物理和法术命中率-9%",
+          "blackboard": {
+            "hitrate": -0.05,
+            "heavy_hitrate": -0.09,
+            "value": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "潜水作业",
+          "description": "使自身炼金单元影响范围内地面敌人的物理和法术命中率-6%<@ba.talpu>（-1%）</>；若敌人重量大于等于3，改为物理和法术命中率-11%<@ba.talpu>（-2%）</>",
+          "blackboard": {
+            "hitrate": -0.06,
+            "heavy_hitrate": -0.11,
+            "value": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "潜水作业",
+          "description": "使自身炼金单元影响范围内地面敌人的物理和法术命中率-9%；若敌人重量大于等于3，改为物理和法术命中率-13%",
+          "blackboard": {
+            "hitrate": -0.09,
+            "heavy_hitrate": -0.13,
+            "value": 3
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "潜水作业",
+          "description": "使自身炼金单元影响范围内地面敌人的物理和法术命中率-10%<@ba.talpu>（-1%）</>；若敌人重量大于等于3，改为物理和法术命中率-15%<@ba.talpu>（-2%）</>",
+          "blackboard": {
+            "hitrate": -0.1,
+            "heavy_hitrate": -0.15,
+            "value": 3
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_hbound",
+      "name": "旅骨证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_hbound",
+      "name": "看不见的大海",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 100,
+            "atk": 20
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 120,
+            "atk": 25
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            },
+            {
+              "name": "潜水作业",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hitrate": -0.12,
+                "heavy_hitrate": -0.16,
+                "value": 3
+              }
+            },
+            {
+              "name": "潜水作业",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hitrate": -0.13,
+                "heavy_hitrate": -0.18,
+                "value": 3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 130,
+            "atk": 30
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "sp_recovery_per_sec": 0.1
+              }
+            },
+            {
+              "name": "潜水作业",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "hitrate": -0.14,
+                "heavy_hitrate": -0.18,
+                "value": 3
+              }
+            },
+            {
+              "name": "潜水作业",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "hitrate": -0.15,
+                "heavy_hitrate": -0.2,
+                "value": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
