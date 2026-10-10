@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 中坚术师(corecaster)通用批引擎验证:无技能常态/攻速通用/连发hitMul/永续/间隔改写/火山
 // 口径:E2满级 trust100 pot0 L7(levels[7]=专一档),敌人 def600 res50
 // 法伤 A(atk)=max(atk*0.5, atk*0.05) → res50 下 = atk*0.5
@@ -5,8 +13,8 @@ import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DIR = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/CASTER/corecaster/';
-const load = n => JSON.parse(fs.readFileSync(DIR + n + '.json', 'utf8'));
+const DIR = rel('CASTER', 'corecaster');
+const load = n => JSON.parse(fs.readFileSync(D('/CASTER/corecaster/', n + '.json'), 'utf8'));
 const mkFor = (o, si, sl = 7) => {
   const ph = o.phases[o.phases.length - 1];
   return { elite: 2, level: ph.maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: sl };

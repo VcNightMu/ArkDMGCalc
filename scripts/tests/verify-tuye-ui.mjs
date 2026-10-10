@@ -1,9 +1,17 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证图耶 1 技能「水流环」UI 展示：不显示技能期 HPS，显示周期 HPS / 总治疗量
 import * as ui from '../../src/frontend/js/ui.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const p = BASE + '/' + url.replace(/^data\//, '');
   return { ok: true, json: async () => JSON.parse(fs.readFileSync(p, 'utf8')) };

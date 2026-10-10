@@ -1,6 +1,13 @@
+// [path-fix] 仓库内相对定位
+const path = require('path');
+const REPO_ROOT = path.resolve(__dirname, '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证 fetch-operators.js 重构后的嵌套结构展平结果
 const fs = require('fs');
-const src = fs.readFileSync('F:/ArkCodes/ArkDMGCalc/scripts/fetch-operators.js', 'utf8');
+const src = fs.readFileSync(path.join(REPO_ROOT, 'scripts', 'fetch-operators.js'), 'utf8');
 
 const start = src.indexOf('const OPERATORS = {');
 const endMark = src.indexOf('// 展平嵌套结构', start);

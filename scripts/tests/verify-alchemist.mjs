@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 炼金师(alchemist,特种)验证:精二满级/满信赖/潜0/技能等级 7(=专一档),敌 hp50000 atk800 def600 res50
 // 用户口径(2026-09-18):
 //   引星棘刺:天赋「心相」的炼金单元时间默认不延长;天赋「视界」的攻击速度增幅默认为基础版(取 +5,不翻倍)。
@@ -13,7 +20,7 @@ import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 import path from 'path';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 function loadOp(id) { return JSON.parse(fs.readFileSync(path.join(DATA, 'SPECIAL', 'alchemist', id + '.json'), 'utf8')); }
 function mk(op, si, module) {
   const elite = op.phases.length - 1;

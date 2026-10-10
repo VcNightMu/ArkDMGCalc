@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 炮手(aoesniper)验证:E2 满 / 信赖 100 / 潜 0 / 专一档(L7)/ 敌 def600 res50。
 // 口径(用户 2026-09-17 说明文本):陨星概率增幅不计、S2 防御 -250 仅对本技能伤害生效;慑砂物理增幅不计;
 // W 两天赋增幅不计;菲亚梅塔精力充沛不计、S2 灼痕爆炸只计一次、S3 攻击力提升不计;截云天赋增幅不计。
@@ -8,7 +15,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk, def = 600) => calcPhysicalDamage(atk, def);
 const A = (atk) => calcArtsDamage(atk, 50);
 let pass = 0, fail = 0;

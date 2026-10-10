@@ -1,8 +1,16 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 说明区顺序验证（独立进程）：notes.json 模块级缓存，先写两条说明再渲染断言顺序，退出前还原
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 const NOTES = BASE + '/notes.json';
 const orig = fs.readFileSync(NOTES, 'utf8');
 

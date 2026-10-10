@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 策士(counsellor)引擎验证:凛御银灰(S1回费归常态/S2瞬发AOE/S3直线普攻改写) + 松桐(S1回费归常态/S2前缀键atk+自回)
 import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/PIONEER/counsellor/';
-const load = n => JSON.parse(fs.readFileSync(B + n + '.json', 'utf8'));
+const B = rel('PIONEER', 'counsellor');
+const load = n => JSON.parse(fs.readFileSync(D('/PIONEER/counsellor/', n + '.json'), 'utf8'));
 const mkFor = (o, si, sl, elite = 2, pot = 0) => ({ elite, level: o.phases[elite].maxLevel, trustPercent: 100, potentialRank: pot, skillIndex: si, skillLevel: sl });
 const P = atk => Math.max(atk - 600, atk * 0.05);   // 物理 600 防
 let pass = 0, fail = 0;

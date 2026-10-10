@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 速射手(fastshot)验证:E2 满级 / 信赖 100 / 潜 0 / 专一档(L7 = levels[7],全项目既有约定)/ 敌 def600 res50。
 // 口径来源(用户 2026-09-17):连射走"每发独立结算"(hitCount);强力击类走既有 cycle 通道;
 // 梅 S2 间隔 +0.5 按 1.5s 加算;灰喉 S2 固定 3 连射、寒芒克洛丝 S1/S2 固定 2 连射写死;
@@ -11,7 +18,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk) => calcPhysicalDamage(atk, 600);
 const A = (atk) => calcArtsDamage(atk, 50);
 let pass = 0, fail = 0;

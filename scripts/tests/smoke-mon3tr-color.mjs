@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 冒烟：Mon3tr 3技能（真伤）结果卡渲染检查——真伤行 dmg-true、面板行 stat、互不串色
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
@@ -20,7 +28,7 @@ globalThis.document = {
   addEventListener() {},
   body: makeEl('body'),
 };
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 
 globalThis.fetch = async (url) => {
   const p = BASE + '/' + String(url).replace(/^data\//, '');

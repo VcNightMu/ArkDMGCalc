@@ -1,9 +1,17 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证赫默召唤物「医疗探机」独立治疗计算
 import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const summon = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/TOKEN/notchar1/token_10000_silent_healrb.json', 'utf8'));
+const summon = JSON.parse(fs.readFileSync(rel('TOKEN', 'notchar1', 'token_10000_silent_healrb.json'), 'utf8'));
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50 };
 
 let ok = true;

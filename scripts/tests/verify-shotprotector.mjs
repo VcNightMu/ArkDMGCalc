@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 哨戒铁卫（shotprotector）验证：涤火杰西卡/雷蛇/深巡/信仰搅拌机/机械师/闪击，interval 1.2s 物理
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { calcPhysicalDamage, calcArtsDamage, calcRealInterval } from '../../src/frontend/js/calculator.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/TANK/shotprotector/';
-const load = n => JSON.parse(fs.readFileSync(B + n, 'utf8'));
+const B = rel('TANK', 'shotprotector');
+const load = n => JSON.parse(fs.readFileSync(D('/TANK/shotprotector/', n), 'utf8'));
 const mk = (op, si) => {
   const e = Math.min(2, op.phases.length - 1);
   return { elite: e, level: op.phases[e].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: 7 };
@@ -88,8 +96,8 @@ const stunAtt = Math.floor(6 / stunInt);
 check('闪击S2 先手1.8+眩晕击×N', near(bl2.skillTotalDamage, P(bRaw * 1.8) + P(bRaw * 2.4) * stunAtt));
 
 // ===== 召唤物独立查询（TOKEN/notchar1）=====
-const TB = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/TOKEN/notchar1/';
-const loadTok = n => JSON.parse(fs.readFileSync(TB + n, 'utf8'));
+const TB = rel('TOKEN', 'notchar1');
+const loadTok = n => JSON.parse(fs.readFileSync(D('/TOKEN/notchar1/', n), 'utf8'));
 const shield = loadTok('token_10032_jesca2_jckshd.json');
 const shCalc = calculateOperator(shield, { elite: 2, level: shield.phases[2].maxLevel, trustPercent: 0, potentialRank: 0, skillIndex: 0, skillLevel: 7 });
 check('机动盾牌 无技能无输出', shield.skills.length === 0 && shield.ownerOperatorId === 'char_1034_jesca2');

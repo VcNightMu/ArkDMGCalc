@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 落地点火 / 开局定时触发天赋(★1/★2 无技能槽干员)数值验证
 // 虎狼丸(伤害型):技能期 DPS/总伤;Lancet-2(治疗型):瞬发只给总治疗量,无技能期 HPS;常态均只留普攻/普攻治疗
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
@@ -5,7 +13,7 @@ import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const BASE = 'F:/ArkCodes/ArkDMGCalc';
+const BASE = REPO_ROOT;
 const load = (prof, sub, id) => JSON.parse(fs.readFileSync(`${BASE}/src/frontend/data/${prof}/${sub}/${id}.json`, 'utf8'));
 
 let pass = 0, fail = 0;

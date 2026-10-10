@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 说明区（notes-panel）渲染验证：
 // 只展示有说明的已选干员、无说明跳过、空槽/全空显示占位
 // （双说明顺序验证见 verify-notes-order.mjs：notes.json 有模块级缓存，需独立进程）
@@ -18,7 +26,7 @@ globalThis.document = {
   getElementById: (id) => (els[id] || (els[id] = makeEl(id))),
   createElement: (tag) => makeEl(tag), addEventListener() {}, body: makeEl('body'),
 };
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const p = BASE + '/' + String(url).replace(/^data\//, '');
   return { ok: true, json: async () => JSON.parse(fs.readFileSync(p, 'utf8')) };

@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 本源铁卫(primprotector)验证：余(灼燃)/珊比(侵蚀)/响石(神经)元素损伤时间轴 + 菲莱/裂响防御向
 // 敌人默认 def600 res50；元素:灼燃爆7000/侵蚀5000/神经6000；EP 普通1000
 import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-calc.js';
 import { simulateSkillTimeline, steadyElementDps, breakTotalDmg, EP_CAPACITY } from '../../src/frontend/js/element-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/TANK/primprotector/';
-const load = n => JSON.parse(fs.readFileSync(BASE + n + '.json', 'utf8'));
+const BASE = rel('TANK', 'primprotector');
+const load = n => JSON.parse(fs.readFileSync(D('/TANK/primprotector/', n + '.json'), 'utf8'));
 const mk = (op, si, sl = 6) => ({ elite: 2, level: op.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: sl });
 let pass = 0, fail = 0;
 const near = (a, b, eps = 0.6) => Math.abs(a - b) <= eps;

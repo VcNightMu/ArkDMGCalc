@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 本源术师(primcaster)引擎断言 —— 干员:真言/烛煌/妮芙/Miss.Christine/温米/折光
 // 口径(用户 2026-09-16,与伊芙利特 Δ/D 模组同源):
 //  - 特性「攻击造成法术伤害,可以造成元素伤害」(可对空);元素:真言/Christine=神经,烛煌/温米=灼燃,妮芙/折光=凋亡
@@ -16,7 +23,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 const byId = {};
 for (const e of idx) byId[e.id] = e;

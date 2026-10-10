@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 链愈师（chainhealer）验证：明椒/莎草/乌啾/Mon3tr(干员本体)
 // 通用口径：默认仅治疗 1 人（第一跳 100%），不考虑跳跃治疗量降低（trait 0.75 衰减不入引擎）；
 // 普攻治疗 = 攻击力 × 1.0（与医师同模板），攻击间隔 2.85s
@@ -5,8 +13,8 @@ import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/chainhealer/';
-const load = n => JSON.parse(fs.readFileSync(BASE + n, 'utf8'));
+const BASE = rel('MEDIC', 'chainhealer');
+const load = n => JSON.parse(fs.readFileSync(D('/MEDIC/chainhealer/', n), 'utf8'));
 const mk = (op, si, sl = 7, module = null) => ({ elite: 2, level: op.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, module, skillIndex: si, skillLevel: sl });
 let pass = 0, fail = 0;
 const near = (a, b, eps = 0.5) => Math.abs(a - b) <= eps;

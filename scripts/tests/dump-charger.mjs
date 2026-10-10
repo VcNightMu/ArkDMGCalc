@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 冲锋手 dump:7人各槽位输出
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/PIONEER/charger/';
+const B = rel('PIONEER', 'charger');
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50 };
 for (const f of fs.readdirSync(B).filter(f => f.endsWith('.json')).sort()) {
-  const op = JSON.parse(fs.readFileSync(B + f, 'utf8'));
+  const op = JSON.parse(fs.readFileSync(D('/PIONEER/charger/', f), 'utf8'));
   const e = Math.min(2, op.phases.length - 1);
   const slot = { elite: e, level: op.phases[e].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 7 };
   const ps = calcPanelStats(op, slot);

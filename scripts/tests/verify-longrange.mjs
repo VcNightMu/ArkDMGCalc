@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 神射手(longrange)验证:E2 满 / 信赖 100 / 潜 0 / 专一档(L7)/ 敌 def600 res50。
 // 口径(用户 2026-09-17 说明文本):守林人「暗杀者」增幅不计、S2 炸弹只计一次;远牙「凝神」增幅不计、S3 伤害增幅不计;
 // 蕾缪安「跨境追缉许可」增幅不计、「逃犯引渡手续」攻击力与弹药上限默认常驻、S2 不触发特殊狙击、S3 取基础伤害。
@@ -8,7 +15,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk, def = 600) => calcPhysicalDamage(atk, def);
 let pass = 0, fail = 0;
 const check = (n, ok, ex = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + n + (ex ? ' => ' + ex : '')); } };

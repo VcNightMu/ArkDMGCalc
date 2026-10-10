@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证凯尔希召唤物 Mon3tr（token_10002_kalts_mon3tr）技能效果：
 // 技能由持有者凯尔希注入（attack@ 前缀剥离）：1技能防御型（输出=常态）、2技能加攻物理、
 // 3技能攻击力增幅线性衰减 + 真实伤害（按每次攻击时刻即时攻击力结算）
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const op = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/TOKEN/notchar1/token_10002_kalts_mon3tr.json', 'utf8'));
+const op = JSON.parse(fs.readFileSync(rel('TOKEN', 'notchar1', 'token_10002_kalts_mon3tr.json'), 'utf8'));
 
 let ok = true;
 const near = (label, actual, expect, tol = 0.01) => {

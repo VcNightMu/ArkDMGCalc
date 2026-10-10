@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 吟游者(bard,辅助)验证:精二满级/满信赖/潜0/专一(技能等级 7),敌 hp50000 atk800 def600 res50
 // 口径(用户 2026-09-18):「鼓舞」作用于友方 → 不进自身输出(纯鼓舞技能无自身输出变化);
 // 只算技能期治疗量(技能把特性效果提高至 X% → 技能期 HPS = 面板攻击力 × X);技能改为造成伤害的按伤害算。
@@ -10,7 +17,7 @@ import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 import path from 'path';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 function loadOp(id) {
   const e = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8')).find((x) => x.id === id);
   return JSON.parse(fs.readFileSync(path.join(DATA, e.profession, e.subProfessionId, id + '.json'), 'utf8'));

@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 战术家召唤物形态验证:眠兽 S2(夜半安眠期)=5s 群攻法伤攻击沉睡目标×1.7(M1),4 击
 import * as ui from '../../src/frontend/js/ui.js';
 import { state } from '../../src/frontend/js/state.js';
@@ -5,7 +13,7 @@ import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const fp = BASE + '/' + url.replace(/^data\//, '');
   return { ok: true, json: async () => JSON.parse(fs.readFileSync(fp, 'utf8')) };

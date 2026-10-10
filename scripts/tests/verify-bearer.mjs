@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 执旗手(bearer)验证:技能开启停止攻击输出归0(9处) + 琴柳S3单发瞬伤 + 常态保留
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { calcPhysicalDamage, calcRealInterval } from '../../src/frontend/js/calculator.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/PIONEER/bearer/';
-const load = n => JSON.parse(fs.readFileSync(B + n + '.json', 'utf8'));
+const B = rel('PIONEER', 'bearer');
+const load = n => JSON.parse(fs.readFileSync(D('/PIONEER/bearer/', n + '.json'), 'utf8'));
 const mk = (op, si) => {
   const e = Math.min(2, op.phases.length - 1);
   return { elite: e, level: op.phases[e].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: 7 };

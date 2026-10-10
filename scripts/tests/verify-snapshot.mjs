@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 全干员数值快照防护网:对 index 全部条目(含召唤物)满练配置,遍历全技能位+无技能态+效果模组L3档,
 // 计算关键数值落盘 baseline.json。运行模式: node verify-snapshot.mjs        → 重算比对,有差异即失败
 //                                                  node verify-snapshot.mjs --update → 重算并覆盖基线
@@ -7,8 +14,8 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
-const BASE_FILE = 'F:/ArkCodes/ArkDMGCalc/scripts/tests/snapshots/baseline.json';
+const DATA = rel();
+const BASE_FILE = path.join(REPO_ROOT, 'scripts', 'tests', 'snapshots', 'baseline.json');
 const UPDATE = process.argv.includes('--update');
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 

@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 情报官(agent)验证:线性模拟(伊内丝S2攻速逐击/寻澜S2偷防/谜图S2叠层DOT) + 伊内丝偷攻天赋 + 晓歌弹药/攻速
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { calcPhysicalDamage, calcArtsDamage, calcRealInterval } from '../../src/frontend/js/calculator.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/PIONEER/agent/';
-const load = n => JSON.parse(fs.readFileSync(B + n + '.json', 'utf8'));
+const B = rel('PIONEER', 'agent');
+const load = n => JSON.parse(fs.readFileSync(D('/PIONEER/agent/', n + '.json'), 'utf8'));
 const mk = (op, si, elite = 2) => ({ elite, level: op.phases[elite].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: 7 });
 const P = atk => calcPhysicalDamage(atk, 600);
 const A = atk => calcArtsDamage(atk, 50);

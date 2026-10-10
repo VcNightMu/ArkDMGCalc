@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 特米米(corecaster)UI 端到端:两个技能的结果卡都必须展示「常态 DPS」(法术色)。
 // 回归点:「荒野法术」仅技能开启时把普攻切物理,非技能期仍是职业法术普攻;
 // 曾错误地在技能期普攻改写时把 normalDps 整行置空,导致 S1/S2 卡片都没有常态信息。
@@ -6,7 +14,7 @@ import { state } from '../../src/frontend/js/state.js';
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const p = BASE + '/' + url.replace(/^data\//, '');
   return { ok: true, json: async () => JSON.parse(fs.readFileSync(p, 'utf8')) };

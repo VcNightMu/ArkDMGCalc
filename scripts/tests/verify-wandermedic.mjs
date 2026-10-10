@@ -1,9 +1,17 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 行医（wandermedic）技能与天赋验证：哈洛德/褐果/桑葚/蜜莓/纯烬艾雅法拉
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/wandermedic/';
-const load = n => JSON.parse(fs.readFileSync(BASE + n, 'utf8'));
+const BASE = rel('MEDIC', 'wandermedic');
+const load = n => JSON.parse(fs.readFileSync(D('/MEDIC/wandermedic/', n), 'utf8'));
 const mk = (op, si, sl = 9) => ({ elite: 2, level: op.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, module: null, skillIndex: si, skillLevel: sl });
 let pass = 0, fail = 0;
 const near = (a, b, eps = 0.5) => Math.abs(a - b) <= eps;

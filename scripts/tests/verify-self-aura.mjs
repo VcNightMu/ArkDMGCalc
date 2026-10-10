@@ -1,12 +1,20 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 闪灵/夜莺范围光环自加成的验证断言（追加进 e2e-modules.mjs 风格的独立验证）
 import { calcPanelStats } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/';
+const B = rel();
 const mk = (op, module) => ({ elite: 2, level: op.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: 0, skillLevel: 9, module });
 let pass = 0, fail = 0;
 const check = (n, ok) => { if (ok) pass++; else { fail++; console.log('FAIL: ' + n); } };
-const sh = JSON.parse(fs.readFileSync(B + 'MEDIC/physician/char_147_shining.json', 'utf8'));
-const nk = JSON.parse(fs.readFileSync(B + 'MEDIC/ringhealer/char_179_cgbird.json', 'utf8'));
+const sh = JSON.parse(fs.readFileSync(path.join(B, 'MEDIC/physician/char_147_shining.json'), 'utf8'));
+const nk = JSON.parse(fs.readFileSync(path.join(B, 'MEDIC/ringhealer/char_179_cgbird.json'), 'utf8'));
 
 // 闪灵：黑恶魔庇护（自身必在范围）E2 def +60
 const s0 = calcPanelStats(sh, mk(sh, null));

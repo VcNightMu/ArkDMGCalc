@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 攻城手(siegesniper)验证:E2 满 / 信赖 100 / 潜 0 / 专一档(L7)/ 敌 def600 res50。
 // 口径(用户 2026-09-17 说明文本):早露深入骨髓不生效;熔泉火热直觉不生效;埃拉托琴音入梦不生效;
 // 铅踝目光如炬不生效、S2 默认多目标(只算本目标);提丰锐如兽牙无视防御按最高计算、重如沼泥不计、S3 只算本目标;
@@ -9,7 +16,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk, def = 600) => calcPhysicalDamage(atk, def);
 let pass = 0, fail = 0;
 const check = (n, ok, ex = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + n + (ex ? ' => ' + ex : '')); } };

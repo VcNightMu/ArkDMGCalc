@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 扩散术士(splashcaster)引擎验证:12F常态/炎狱炎熔S2火环周期/天火S2间隔增大+陨石改写/夕S3间隔增大/
 // 莫S2荒时之锁周期/寒檀天赋+女巫之泪改写/复奏S2瞬发+DOT/莱恩哈特S2减抗/通用加攻与攻速通道
 // 口径:M1档(levels[7]=游戏L8/专一),E2满级 trust100 pot0,敌人 def600 res50
@@ -6,8 +14,8 @@ import { calculateOperator, calcPanelStats } from '../../src/frontend/js/damage-
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DIR = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/CASTER/splashcaster/';
-const load = n => JSON.parse(fs.readFileSync(DIR + n + '.json', 'utf8'));
+const DIR = rel('CASTER', 'splashcaster');
+const load = n => JSON.parse(fs.readFileSync(D('/CASTER/splashcaster/', n + '.json'), 'utf8'));
 const mkFor = (o, si, sl = 7, module = null, pot = 0) => {
   const ph = o.phases[o.phases.length - 1];
   return { elite: o.phases.length - 1, level: ph.maxLevel, trustPercent: 100, potentialRank: pot, skillIndex: si, skillLevel: sl, module };
@@ -137,7 +145,7 @@ const mrS3 = calculateOperator(mr, mkFor(mr, 2));
 check('玛露S3 满魔10爆×A(3.5×atk)', mrS3.skillTotalDamage, 10 * A(mrRaw * 1.2 * 3.5), 1);
 
 // ===== 夕小自在召唤物(静态面板 398/1.9s 法伤,无技能常态) =====
-const xz = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/TOKEN/notchar1/token_10015_dusk_drgn.json', 'utf8'));
+const xz = JSON.parse(fs.readFileSync(rel('TOKEN', 'notchar1', 'token_10015_dusk_drgn.json'), 'utf8'));
 const xzN = calculateOperator(xz, { elite: 2, level: 90, trustPercent: 0, potentialRank: 0, skillIndex: -1, skillLevel: 7, module: null });
 check('小自在 常态DPS=A(398)/1.9法伤', xzN.normalDps, A(398) / 1.9, 0.01);
 

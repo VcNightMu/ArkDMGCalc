@@ -1,8 +1,15 @@
+// [path-fix] 仓库内相对定位
+const path = require('path');
+const REPO_ROOT = path.resolve(__dirname, '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 去重 index.json：按 id 去重，保留首次出现
 const fs = require('fs');
-const path = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/index.json';
+const INDEX_FILE = rel('index.json');
 
-const raw = fs.readFileSync(path, 'utf8');
+const raw = fs.readFileSync(INDEX_FILE, 'utf8');
 const list = JSON.parse(raw);
 
 const seen = new Set();
@@ -28,5 +35,5 @@ for (const op of list) {
   if (!deduped.some(o => o.id === op.id)) deduped.push(op);
 }
 
-fs.writeFileSync(path, JSON.stringify(deduped, null, 2) + '\n', 'utf8');
+fs.writeFileSync(INDEX_FILE, JSON.stringify(deduped, null, 2) + '\n', 'utf8');
 console.log('已写回 index.json，去重完成');

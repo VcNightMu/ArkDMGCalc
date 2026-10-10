@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 轰击术师(blastcaster)引擎断言 —— 干员:谬因/伊芙利特/阿罗玛/蚀清/协律
 // 口径(用户 2026-09-16):
 //  - 特性「攻击造成超远距离的群体法术伤害」:单目标模型按 1 个目标计;S2 类技能期间本体不再普攻
@@ -12,7 +19,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 const byId = {};
 for (const e of idx) byId[e.id] = e;

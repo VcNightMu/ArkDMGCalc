@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 塑灵术师(soulcaster)引擎断言 —— 干员:死芒/特克诺
 // 口径(用户 2026-09-16):
 //  - 召唤物增幅效果只在召唤物侧体现,干员侧只看技能对本体加成(特克诺两技能均只加成召唤物 → 自身输出＝本体普攻)
@@ -11,7 +18,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 const byId = {};
 for (const e of idx) byId[e.id] = e;

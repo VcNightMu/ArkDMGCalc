@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 模组同名增强接线防护:对覆盖层(calcTalentXxx 经 talentCandSource 消费模组 talentEnhance)
 // 的每一对「已入表天赋 × 同名增强 te」做两态对比(无模组 vs 装增强档,均 pot0/满级/满信赖):
 //   1) te 增强值方向必须正确(正值增强→装后 ≥ 装前,防负增长/断线)
@@ -8,7 +15,7 @@ import { calcTalentAtkBonus, calcTalentHpDefMul, calcTalentAttackSpeed, calcTale
 import fs from 'fs';
 import path from 'path';
 
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 
 // [族名, te.bb 消费键, calc 函数, 取值器]

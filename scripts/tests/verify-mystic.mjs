@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 秘术师(mystic)引擎断言:
 //  - 特性「找不到目标时储存攻击能量(最多3个)之后一齐发射」:持续打人模型恒有目标 → 不建模
 //  - 普攻改写型一技能(黑键/和弦/爱丽丝/戴菲恩/深靛:间隔缩短 + 每次攻击 X% 攻击力法伤)
@@ -10,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 const byId = {};
 for (const e of idx) byId[e.id] = e;

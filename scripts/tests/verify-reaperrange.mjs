@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 散射手(reaperrange)验证:E2 满 / 信赖 100 / 潜 0 / 专一档(L7)/ 敌 def600 res50。
 // 口径(用户 2026-09-17 说明文本):奥斯塔「尖钉」流血不生效;松果「便携电源」不生效、S2 无攻击力追加;
 // 假日威龙陈「节约风气」不消耗弹药不生效、「假日余韵」取基础效果(三级模组技能期视为水地形);吉星「好运连击！」不生效。
@@ -8,7 +15,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk, def = 600) => calcPhysicalDamage(atk, def);
 let pass = 0, fail = 0;
 const check = (n, ok, ex = '') => { if (ok) pass++; else { fail++; console.log('FAIL: ' + n + (ex ? ' => ' + ex : '')); } };

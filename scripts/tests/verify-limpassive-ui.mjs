@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 限时被动 UI 验证：PASSIVE+duration>0(芬 S2 执守阵线)按正常技能显示技能期+常态；
 // 永久被动(星熊 S2 荆棘)仍只显示常态(回归)
 import * as ui from '../../src/frontend/js/ui.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const fp = BASE + '/' + url.replace(/^data\//, '');
   return { ok: fs.existsSync(fp), json: async () => JSON.parse(fs.readFileSync(fp, 'utf8')) };

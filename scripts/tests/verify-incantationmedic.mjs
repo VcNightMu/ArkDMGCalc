@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 咒愈师（incantationmedic）验证：焰影苇草/濯尘芙蓉/刺玫/缇缇
 // 模板：普攻=法术伤害（对敌方法抗结算）+ 治疗 scale×实际伤害（trait scale 0.5；效果模组 L1 起 0.6）
 // 敌人默认 res=50 → 法伤 = atk × (100-50)/100 = atk×0.5；间隔 1.6s
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/incantationmedic/';
-const load = n => JSON.parse(fs.readFileSync(BASE + n, 'utf8'));
+const BASE = rel('MEDIC', 'incantationmedic');
+const load = n => JSON.parse(fs.readFileSync(D('/MEDIC/incantationmedic/', n), 'utf8'));
 const mk = (op, si, sl = 7, module = null) => ({ elite: 2, level: op.phases[2].maxLevel, trustPercent: 100, potentialRank: 0, module, skillIndex: si, skillLevel: sl });
 let pass = 0, fail = 0;
 const near = (a, b, eps = 0.5) => Math.abs(a - b) <= eps;

@@ -1,9 +1,17 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 疗养师(healer)子职业验证：清流(瞬抬+乘算间隔)/锡兰(默认天赋+触发+持续)/絮雨(攻回触发+永续)/诺威尔(常规+12sHOT)/流明(沐雨auraHOT+沛霖瞬抬)
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/healer/';
-const load = p => JSON.parse(fs.readFileSync(BASE + p, 'utf8'));
+const BASE = rel('MEDIC', 'healer');
+const load = p => JSON.parse(fs.readFileSync(D('/MEDIC/healer/', p), 'utf8'));
 let ok = true;
 const check = (label, cond) => { if (!cond) ok = false; console.log(label + ': ' + (cond ? 'OK' : 'FAIL')); };
 const near = (a, b, eps = 0.5) => Math.abs(a - b) < eps;

@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 常态回归:普攻(常态)必须等于「无技能状态」——间隔取基础(面板)间隔(不含技能期攻速),
 // 法脆/天赋等技能期才生效的增益也不得漏进常态(如焰苇S3灼痕必触发)。
 // 覆盖:改攻速/改间隔的技能 + 技能期才生效法脆的情况;同时校验效果模组各档。
@@ -8,7 +15,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 const byId = {};
 for (const e of idx) byId[e.id] = e;

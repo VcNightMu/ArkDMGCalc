@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证华法琳特殊处理：
 // 1技能「紧急包扎」：攻击回复触发型，额外回复目标最大生命值 hp_ratio（默认目标=自身→panelHp），算周期 HPS
 // 2技能「不稳定血浆」：手动开启自身加攻 buff 持续 duration 秒，视为持续型技能（技能期=15s）
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const op = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/physician/char_171_bldsk.json', 'utf8'));
+const op = JSON.parse(fs.readFileSync(rel('MEDIC', 'physician', 'char_171_bldsk.json'), 'utf8'));
 
 let ok = true;
 const check = (label, actual, expect) => {

@@ -1,8 +1,16 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 守望者子职业验证：风絮(1技能间隔乘算+普攻倍率替换 / 2技能attack@atk乘算)、凯尔希·思衡托(1攻速3间隔减算常规、2弹药机制真伤+治疗双轨)
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 const load = p => JSON.parse(fs.readFileSync(BASE + p, 'utf8'));
 
 let ok = true;

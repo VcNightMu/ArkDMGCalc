@@ -1,9 +1,17 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证嘉维尔触发型 buff 治疗：附带型普攻仍在；自动触发有 sp 吞延迟计入周期，手动触发无延迟
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const gavial = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/physician/char_187_ccheal.json', 'utf8'));
+const gavial = JSON.parse(fs.readFileSync(rel('MEDIC', 'physician', 'char_187_ccheal.json'), 'utf8'));
 
 let ok = true;
 const check = (label, actual, expect) => {

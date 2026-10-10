@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 驭械术师(funnel)引擎验证
 // 特性:本体普攻 100% + 浮游单元(scale 叠层:初始 init,每次命中同一目标 +delta,上限 max)
 //   单目标模型:既有单元默认满层(max);技能期新增单元(levelData['attack@cnt'])从 0 起叠,按其技能期攻击次数取平均。
@@ -10,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 function load(id) {
   const e = idx.find(x => x.id === id);

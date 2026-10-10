@@ -1,11 +1,18 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath, pathToFileURL } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 叠层天赋/模组 te 口径(用户 2026-09-17):
 //   攻击次数型 / 时间型 / 必定触发型 → 按叠满计入;击杀型 / 受击型 / 概率与敌方状态型 → 不计
 import fs from 'fs';
 import path from 'path';
-const DC = await import('file:///F:/ArkCodes/ArkDMGCalc/src/frontend/js/damage-calc.js');
-const { state } = await import('file:///F:/ArkCodes/ArkDMGCalc/src/frontend/js/state.js');
+const DC = await import(pathToFileURL(path.join(REPO_ROOT, 'src', 'frontend', 'js', 'damage-calc.js')).href);
+const { state } = await import(pathToFileURL(path.join(REPO_ROOT, 'src', 'frontend', 'js', 'state.js')).href);
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 let pass = 0, fail = 0;
 const near = (a, b, tol = 0.05) => Math.abs(a - b) <= Math.max(tol, Math.abs(b) * 0.002);

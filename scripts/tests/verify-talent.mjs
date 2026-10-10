@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证常驻加攻天赋：驱动表查表 + 直接乘算累加（技能期 = 白值 × (1 + 天赋atk + 技能atk)）
 import { calcTalentAtkBonus, TALENT_ATK_DRIVERS, calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const hibisc = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/MEDIC/physician/char_120_hibisc.json', 'utf8'));
-const silverash = JSON.parse(fs.readFileSync('F:/ArkCodes/ArkDMGCalc/src/frontend/data/WARRIOR/lord/char_172_svrash.json', 'utf8'));
+const hibisc = JSON.parse(fs.readFileSync(rel('MEDIC', 'physician', 'char_120_hibisc.json'), 'utf8'));
+const silverash = JSON.parse(fs.readFileSync(rel('WARRIOR', 'lord', 'char_172_svrash.json'), 'utf8'));
 
 let ok = true;
 const check = (label, actual, expect) => {

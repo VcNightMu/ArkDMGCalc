@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 阵法术师(phalanx)引擎验证
 // 特性:通常时不攻击 → 常态 DPS 恒为 0(技能槽同样为 0);防御/法抗大幅提升属防御向,不入面板。
 // 模型:技能期 = 技能期普攻(面板攻击力×技能期攻击加成,间隔按面板/技能攻速) + 特殊项:
@@ -10,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const idx = JSON.parse(fs.readFileSync(DATA + '/index.json', 'utf8'));
 function load(id) {
   const e = idx.find(x => x.id === id);

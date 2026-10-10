@@ -1,11 +1,19 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 ﻿// 铁卫（protector）验证：PASSIVE常驻/停攻清零/自回通道/自愈 + 数据层 + 通用技能
 import { calcPanelStats, calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import { calcPhysicalDamage, calcRealInterval } from '../../src/frontend/js/calculator.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const B = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data/TANK/protector/';
-const load = n => JSON.parse(fs.readFileSync(B + n + '.json', 'utf8'));
+const B = rel('TANK', 'protector');
+const load = n => JSON.parse(fs.readFileSync(D('/TANK/protector/', n + '.json'), 'utf8'));
 const mk = (op, si, sl) => ({ elite: Math.min(2, op.phases.length - 1), level: op.phases[Math.min(2, op.phases.length - 1)].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: sl });
 let pass = 0, fail = 0;
 const near = (a, b, eps = 0.5) => Math.abs(a - b) <= eps;

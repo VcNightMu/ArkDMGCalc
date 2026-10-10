@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证医疗干员技能等级是否影响 HPS / 总治疗量
 // 口径: elite2/maxLevel/信赖100/潜0;闪灵 S1 信条(攻击力档)、白面鸮 S1 治疗强化·γ型(攻击力档)、
 //       白面鸮 S2 脑啡肽(base_attack_time 缩短间隔)。数值为当前引擎真值，用于等级→HPS/总治疗量的回归。
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc';
+const BASE = REPO_ROOT;
 function load(id, sub) {
   return JSON.parse(fs.readFileSync(`${BASE}/src/frontend/data/MEDIC/${sub}/${id}.json`, 'utf8'));
 }

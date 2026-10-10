@@ -1,3 +1,11 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 咒愈师 UI 端到端：焰影苇草结果卡需同时展示 常态DPS+常态HPS（普攻双轨）与 技能期DPS+技能期HPS+总治疗；
 // 效果模组切换把 trait scale 0.5→0.6，常态 HPS 应同步放大（DPS 不变）。
 import * as ui from '../../src/frontend/js/ui.js';
@@ -5,7 +13,7 @@ import { state } from '../../src/frontend/js/state.js';
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 globalThis.fetch = async (url) => {
   const p = BASE + '/' + url.replace(/^data\//, '');
   return { ok: true, json: async () => JSON.parse(fs.readFileSync(p, 'utf8')) };

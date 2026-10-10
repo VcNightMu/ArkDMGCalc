@@ -1,10 +1,18 @@
+// [path-fix] 仓库内相对定位
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 验证伤害类型字段传递与 UI 颜色 class（物理红/法术紫/真实白/元素灰）
 import { calculateOperator } from '../../src/frontend/js/damage-calc.js';
 import * as ui from '../../src/frontend/js/ui.js';
 import { state } from '../../src/frontend/js/state.js';
 import fs from 'fs';
 
-const BASE = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const BASE = rel();
 const load = (id) => {
   const p = BASE + '/';
   const walk = (dir) => {

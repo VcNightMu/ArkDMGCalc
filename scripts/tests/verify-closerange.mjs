@@ -1,3 +1,10 @@
+// [path-fix] 仓库内相对定位
+import { fileURLToPath } from 'node:url';
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.join(REPO_ROOT, 'src', 'frontend', 'data');
+const rel = (...p) => path.join(ROOT, ...p);
+const D = (...p) => rel(p.map((s) => String(s).replace(/^[/\\]+|[/\\]+$/g, '')).filter(Boolean).join('/'));
+
 // 重射手(closerange)验证:E2 满级 / 信赖 100 / 潜 0 / 专一档(L7 = levels[7])/ 敌 def600 res50。
 // 口径来源(用户 2026-09-17 说明文本):黑天赋仅在 S3 计入;普罗旺斯狼眼默认满血;酸糖滑射技巧默认不在正前方两格(取下限基础档);
 // 鸿雪打字机不生效、抑扬格概率增幅不计、锐笔速写默认不在正前方 3 格;玫拉参数校准常驻、临界爆发取衰减最低档;
@@ -9,7 +16,7 @@ import fs from 'fs';
 import path from 'path';
 
 state.enemy = { hp: 50000, atk: 800, def: 600, res: 50, grade: 'normal' };
-const DATA = 'F:/ArkCodes/ArkDMGCalc/src/frontend/data';
+const DATA = rel();
 const P = (atk, def = 600) => calcPhysicalDamage(atk, def);
 const A = (atk) => calcArtsDamage(atk, 50);
 let pass = 0, fail = 0;
