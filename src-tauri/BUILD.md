@@ -45,6 +45,11 @@ cargo build --release --target x86_64-pc-windows-gnu
 
 产物：`src-tauri/target/x86_64-pc-windows-gnu/release/arkdmgcalc.exe`
 
+> **换了检出目录（或复制过仓库）后必须先删 `target/` 再构建**：`target/` 里的 `.d` 依赖文件
+> 记录的是构建时的绝对路径，迁移后会残留旧路径，`tauri-build` 读 `permissions\...` 时报
+> `系统找不到指定的路径 (os error 3)`。实测：`Remove-Item target -Recurse -Force` 后
+> 从零构建 **150 秒**可出包（24032768 字节）。
+
 `Cargo.lock` 已提交，`[patch]`/镜像等都在 `.cargo/config.toml` 里（crates.io 走 rsproxy 加速），
 不改用户级 `~/.cargo/config.toml`。
 
@@ -69,3 +74,33 @@ cd scripts/tests
 node verify-snapshot.mjs        # 期望输出「计算条目: 505 / 快照全等: 505 干员 无差异」
 # 其余 verify-*.mjs 共 103 个用例全部通过
 ```
+
+## 出包后的验收（建议每次都做）
+
+单元回归证明**引擎**对，但证明不了**包**能用（内嵌资源、WebView2 拉起、打包环境下的渲染）。
+最低成本的做法是让 WebView2 打开远程调试端口，再用 CDP 驱动应用内真实页面：
+
+```powershell
+# 1) 进程级：把包复制到临时目录再跑，别在仓库里留浏览器 profile
+$stage = Join-Path $env:TEMP 'arkverify-stage'; New-Item -ItemType Directory -Force $stage | Out-Null
+Copy-Item dist\arkdmgcalc.exe "$stage\ArkDMGCalc-verify.exe" -Force
+
+# 2) 带调试端口启动（该环境变量只对本次启动的进程有效，不写系统设置）
+$env:WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS = '--remote-debugging-port=9555'
+Start-Process "$stage\ArkDMGCalc-verify.exe"
+
+# 3) 期望：进程存活、窗口标题「ArkDMGCalc - 明日方舟干员输出计算器」、
+#    有 msedgewebview2 子进程、下面端点可用（Browser 为 Edg/149…）
+Invoke-WebRequest http://127.0.0.1:9555/json/version -UseBasicParsing | Select-Object -Expand Content
+# 应用内页面 URL 是 http://tauri.localhost/（说明走内嵌资源，不是 dev-server）
+Invoke-WebRequest http://127.0.0.1:9555/json/list -UseBasicParsing | Select-Object -Expand Content
+```
+
+接上 CDP 后的断言集合（`.probe-sessions/exe-e2e.mjs` 即这套，2026-10-10 实测 12 条全过）：
+4 个空槽渲染 → 点槽位开选择器 → 搜「克莱门莎」→ 点击入槽 → 设 E2/90/信赖100/潜0/冲蚀/专一 →
+读回结果卡（总伤 5838+5000、循环 DPS 4480、技能期 ATK 2575）与基础属性卡（生命 2720 / 攻击 1030），
+并确认头像 `<img>` 的 `naturalWidth > 0`（证明 `assets/` 也在包内）。
+
+> 注意：**不要**用「源文件字节是否为 exe 子串」判断内嵌是否完整——Tauri 把前端**整体压缩**嵌入，
+> 只有 ASCII 短串可能碰巧命中，中文一律找不到，容易误判成「缺数据」。以运行时渲染为准。
+
