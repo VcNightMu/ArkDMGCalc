@@ -4,3 +4,10 @@ src-tauri/gen/schemas/
 
 # 单文件 exe 的分发目录
 dist/
+
+# AI 会话交接文档（本地工作用，不入库）
+HANDOVER.md
+
+# 浏览器验证产物与临时探针（含 Chrome profile 缓存，本地工作用，不入库）
+.probe-chrome/
+.probe/
