@@ -13,11 +13,13 @@
 // water 额外：永久 -120 防御（可叠）→ 用户口径：计算干员伤害时不考虑减防，按原防御。仅记录爆条次数供参考。
 // sanity 额外：3 层麻痹（打断普攻）→ 不影响我方输出，不计。
 // dark：50% 虚弱（衰减）+ 期间每秒 800 元素伤害 ×15s → 虚弱不影响我方输出，只算持续伤害总量。
+// anger（狂躁）：爆发期间敌人攻速 +20（对我方输出无影响，不计）+ 每秒元素持续伤害，初始 160、每跳 +130（递增、无上限）×15s。
 export const ELEMENT_BREAK = {
   fire:   { dmg: 7000, cd: 10, resDebuff: -20, debuffDur: 10, label: '灼燃' },
   water:  { dmg: 5000, cd: 8, label: '侵蚀' },
   sanity: { dmg: 6000, cd: 10, label: '神经' },
   dark:   { dmgPerSec: 800, dur: 15, cd: 15, label: '凋亡' }, // 总量 = 800×15
+  anger:  { dmgInit: 160, dmgStep: 130, dur: 15, cd: 15, label: '狂躁' }, // 递增：160/290/…/1980，总量 16050
 };
 
 // 敌人 EP 容量（按敌人阶级；损伤抵抗全员 0）
@@ -39,6 +41,9 @@ export const OPERATOR_ELEMENT = {
   'char_499_kaitou': 'dark',     // 折光：凋亡损伤
   // ---- 本源近卫(primguard) ----
   'char_4231_clemnt': 'water',   // 克莱门莎(2026-10 版本)：侵蚀损伤（技能描述明写 <$ba.dt.erosion2>侵蚀损伤）
+  'char_4247_oxi': 'fire',       // 塔露拉(2026-11 版本)：灼燃损伤（天赋「绝不妥协」<ba.dt.burning2>，攻击造成法术伤害）
+  // ---- 本源铁卫(primprotector) ----
+  'char_4169_caledo': 'anger',   // 镜匠(2026-11 版本)：狂躁损伤（<$ba.dt.rampage>）
 };
 
 /**
@@ -65,7 +70,7 @@ export function simulateEp(grade, el, events) {
     ep -= ev.ep;
     if (ep > 0) continue;
     // 爆条
-    const dmg = def.dmg !== undefined ? def.dmg : (def.dmgPerSec * def.dur);
+    const dmg = breakTotalDmg(el);
     breaks.push({
       t: ev.t,
       dmg,
@@ -78,10 +83,17 @@ export function simulateEp(grade, el, events) {
   return { breaks, totalDmg, count: breaks.length, capacity };
 }
 
-/** dark/灼燃等持续型敌方爆发伤害总量（供断言与展示） */
+/** dark/灼燃/狂躁等持续型敌方爆发伤害总量（供断言与展示） */
 export function breakTotalDmg(el) {
   const def = ELEMENT_BREAK[el];
-  return def.dmg !== undefined ? def.dmg : def.dmgPerSec * def.dur;
+  if (def.dmg !== undefined) return def.dmg;
+  if (def.dmgPerSec !== undefined) return def.dmgPerSec * def.dur;
+  // 狂躁：递增持续伤害，首项 dmgInit、公差 dmgStep、共 dur 跳 → 等差数列求和
+  if (def.dmgInit !== undefined) {
+    const n = def.dur;
+    return n * def.dmgInit + (def.dmgStep || 0) * n * (n - 1) / 2;
+  }
+  return 0;
 }
 
 /** 灼燃爆条窗口内敌方法抗（减抗直接加算，窗口外回原值）；res 为空/无窗口时原样返回 */
@@ -142,7 +154,7 @@ export function steadyElementDps(grade, el, epPerEvent, eventInterval, cdOverrid
   }
   const capacity = EP_CAPACITY[grade] || 1000;
   const cd = cdOverride !== null ? cdOverride : def.cd;
-  const dmg = def.dmg !== undefined ? def.dmg : (def.dmgPerSec * def.dur);
+  const dmg = breakTotalDmg(el);
   // 首事件 t=0：第 n 次事件时刻 t=(n-1)×interval；需 n×ep ≥ capacity
   const n = Math.ceil(capacity / epPerEvent);
   const breakAt = (n - 1) * eventInterval; // 爆条发生在第 n 次事件的时刻
@@ -180,7 +192,7 @@ export function simulateSkillTimeline(p) {
     eps[el] -= amount;
     if (eps[el] > 0) return;
     const def = ELEMENT_BREAK[el];
-    const dmg = def.dmg !== undefined ? def.dmg : (def.dmgPerSec * def.dur);
+    const dmg = breakTotalDmg(el);
     breaks[el].push({ t, dmg, resWindowEnd: def.resDebuff ? t + def.debuffDur : null });
     eps[el] = capacity;
     cdUntil[el] = t + def.cd;

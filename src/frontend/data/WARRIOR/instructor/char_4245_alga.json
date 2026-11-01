@@ -1,0 +1,576 @@
+{
+  "id": "char_4245_alga",
+  "name": "奥尔佳",
+  "rarity": "TIER_5",
+  "profession": "WARRIOR",
+  "subProfessionId": "instructor",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        281,
+        402
+      ],
+      "def": [
+        197,
+        278
+      ],
+      "maxHp": [
+        803,
+        1101
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        402,
+        537
+      ],
+      "def": [
+        278,
+        353
+      ],
+      "maxHp": [
+        1101,
+        1431
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        537,
+        640
+      ],
+      "def": [
+        353,
+        421
+      ],
+      "maxHp": [
+        1431,
+        1988
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 1.05,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 150
+  },
+  "skills": [
+    {
+      "skillId": "skchr_alga_1",
+      "name": "交叉施压",
+      "levels": [
+        {
+          "atk_scale": 1.1,
+          "level": 0,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.15,
+          "level": 1,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.2,
+          "level": 2,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.25,
+          "level": 3,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.3,
+          "level": 4,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.35,
+          "level": 5,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.45,
+          "level": 6,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.55,
+          "level": 7,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.65,
+          "level": 8,
+          "spCost": 4,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.75,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_ATTACK",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_alga_2",
+      "name": "只为我的答案",
+      "levels": [
+        {
+          "atk": 0.3,
+          "talent_scale": 1.1,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 0,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "talent_scale": 1.2,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 1,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.3,
+          "talent_scale": 1.3,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 2,
+          "spCost": 35,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "talent_scale": 1.4,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 3,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "talent_scale": 1.5,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 4,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "talent_scale": 1.6,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 5,
+          "spCost": 32,
+          "initialSp": 10,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "talent_scale": 1.7,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 6,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "talent_scale": 1.8,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 7,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "talent_scale": 1.9,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 8,
+          "spCost": 30,
+          "initialSp": 15,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "talent_scale": 2,
+          "attack@debuff_duration": 2,
+          "attack@taunt_level": 1,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 15,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+2%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+2%且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.02,
+            "alga[check_enemy].atk": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+2%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+4%<@ba.talpu>（+2%）</>且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.02,
+            "alga[check_enemy].atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+5%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+2%且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.05,
+            "alga[check_enemy].atk": 0.02
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+5%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+4%<@ba.talpu>（+2%）</>且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.05,
+            "alga[check_enemy].atk": 0.04
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+5%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+5%且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.05,
+            "alga[check_enemy].atk": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "先声夺人",
+          "description": "周围8格内所有干员攻击力+5%，\n自身攻击范围内存在精英及领袖敌人时周围所有干员攻击力额外+7%<@ba.talpu>（+2%）</>且自身优先攻击攻击力最高的精英及领袖敌人",
+          "blackboard": {
+            "alga[atk_up].atk": 0.05,
+            "alga[check_enemy].atk": 0.07
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "atk_scale": 1.2
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+26",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_alga",
+      "name": "奥尔佳证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_alga",
+      "name": "来自昨天",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 150,
+            "atk": 20,
+            "def": 20
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 175,
+            "atk": 28,
+            "def": 28
+          },
+          "talentEnhance": [
+            {
+              "name": "先声夺人",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "alga[atk_up].atk": 0.05,
+                "alga[check_enemy].atk": 0.08
+              }
+            },
+            {
+              "name": "先声夺人",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "alga[atk_up].atk": 0.05,
+                "alga[check_enemy].atk": 0.1
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 190,
+            "atk": 32,
+            "def": 32
+          },
+          "talentEnhance": [
+            {
+              "name": "先声夺人",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "alga[atk_up].atk": 0.05,
+                "alga[check_enemy].atk": 0.1
+              }
+            },
+            {
+              "name": "先声夺人",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "alga[atk_up].atk": 0.05,
+                "alga[check_enemy].atk": 0.12
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "atk_scale": 1.3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

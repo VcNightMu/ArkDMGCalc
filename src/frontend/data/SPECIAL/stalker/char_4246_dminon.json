@@ -1,0 +1,687 @@
+{
+  "id": "char_4246_dminon",
+  "name": "国度",
+  "rarity": "TIER_6",
+  "profession": "SPECIAL",
+  "subProfessionId": "stalker",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        399,
+        570
+      ],
+      "def": [
+        151,
+        223
+      ],
+      "maxHp": [
+        688,
+        930
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        570,
+        741
+      ],
+      "def": [
+        223,
+        294
+      ],
+      "maxHp": [
+        930,
+        1208
+      ],
+      "magicResistance": 20,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        741,
+        927
+      ],
+      "def": [
+        294,
+        346
+      ],
+      "maxHp": [
+        1208,
+        1590
+      ],
+      "magicResistance": 30,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 40,
+    "def": 0,
+    "maxHp": 200
+  },
+  "skills": [
+    {
+      "skillId": "skchr_dminon_1",
+      "name": "停步",
+      "levels": [
+        {
+          "attack_speed": 46,
+          "sluggish": 3,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 50,
+          "sluggish": 3,
+          "level": 1,
+          "spCost": 43,
+          "initialSp": 12,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 54,
+          "sluggish": 3,
+          "level": 2,
+          "spCost": 43,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 58,
+          "sluggish": 3,
+          "level": 3,
+          "spCost": 40,
+          "initialSp": 14,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 62,
+          "sluggish": 4,
+          "level": 4,
+          "spCost": 38,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 66,
+          "sluggish": 4,
+          "level": 5,
+          "spCost": 36,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 70,
+          "sluggish": 4,
+          "level": 6,
+          "spCost": 35,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 72,
+          "sluggish": 5,
+          "level": 7,
+          "spCost": 34,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 75,
+          "sluggish": 5,
+          "level": 8,
+          "spCost": 32,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "attack_speed": 80,
+          "sluggish": 5,
+          "level": 9,
+          "spCost": 30,
+          "initialSp": 22,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dminon_2",
+      "name": "受戮",
+      "levels": [
+        {
+          "atk": 0.2,
+          "attack_speed": 30,
+          "level": 0,
+          "spCost": 55,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.25,
+          "attack_speed": 30,
+          "level": 1,
+          "spCost": 55,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.3,
+          "attack_speed": 30,
+          "level": 2,
+          "spCost": 55,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.4,
+          "attack_speed": 30,
+          "level": 3,
+          "spCost": 50,
+          "initialSp": 23,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.45,
+          "attack_speed": 30,
+          "level": 4,
+          "spCost": 50,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.5,
+          "attack_speed": 30,
+          "level": 5,
+          "spCost": 50,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.55,
+          "attack_speed": 30,
+          "level": 6,
+          "spCost": 50,
+          "initialSp": 29,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.66,
+          "attack_speed": 30,
+          "level": 7,
+          "spCost": 47,
+          "initialSp": 31,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.71,
+          "attack_speed": 30,
+          "level": 8,
+          "spCost": 46,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        },
+        {
+          "atk": 0.75,
+          "attack_speed": 30,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 20,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": true
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_dminon_3",
+      "name": "无人的国度",
+      "levels": [
+        {
+          "atk": 0.3,
+          "attack@aoe_atk_scale": 0.4,
+          "attack_speed": 10,
+          "attack@cd": 0.5,
+          "level": 0,
+          "spCost": 63,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.4,
+          "attack@aoe_atk_scale": 0.4,
+          "attack_speed": 10,
+          "attack@cd": 0.5,
+          "level": 1,
+          "spCost": 61,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.5,
+          "attack@aoe_atk_scale": 0.5,
+          "attack_speed": 10,
+          "attack@cd": 0.5,
+          "level": 2,
+          "spCost": 59,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.55,
+          "attack@aoe_atk_scale": 0.5,
+          "attack_speed": 20,
+          "attack@cd": 0.5,
+          "level": 3,
+          "spCost": 57,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "attack@aoe_atk_scale": 0.6,
+          "attack_speed": 20,
+          "attack@cd": 0.5,
+          "level": 4,
+          "spCost": 55,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "attack@aoe_atk_scale": 0.6,
+          "attack_speed": 20,
+          "attack@cd": 0.5,
+          "level": 5,
+          "spCost": 53,
+          "initialSp": 25,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "attack@aoe_atk_scale": 0.6,
+          "attack_speed": 30,
+          "attack@cd": 0.5,
+          "level": 6,
+          "spCost": 51,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "attack@aoe_atk_scale": 0.7,
+          "attack_speed": 35,
+          "attack@cd": 0.5,
+          "level": 7,
+          "spCost": 49,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "attack@aoe_atk_scale": 0.75,
+          "attack_speed": 37,
+          "attack@cd": 0.5,
+          "level": 8,
+          "spCost": 47,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "attack@aoe_atk_scale": 0.8,
+          "attack_speed": 40,
+          "attack@cd": 0.5,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "实质坍缩",
+          "description": "自身攻击范围内弥漫“国度”，处于“国度”内的地面敌人攻击速度-5，每秒受到攻击力10%的法术伤害",
+          "blackboard": {
+            "attack_speed": -5,
+            "atk_scale": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "实质坍缩",
+          "description": "自身攻击范围内弥漫“国度”，处于“国度”内的地面敌人攻击速度-10，每秒受到攻击力10%的法术伤害",
+          "blackboard": {
+            "attack_speed": -10,
+            "atk_scale": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "实质坍缩",
+          "description": "自身攻击范围内弥漫“国度”，处于“国度”内的地面敌人攻击速度-15，每秒受到攻击力13%的法术伤害",
+          "blackboard": {
+            "attack_speed": -15,
+            "atk_scale": 0.13
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "此身为界",
+          "description": "自身撤退时，对“国度”内的所有地面敌人造成相当于攻击力500%的法术伤害和5秒<$ba.stun>晕眩</>，随后所有“国度”消失",
+          "blackboard": {
+            "atk_scale": 5,
+            "stun": 5
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "此身为界",
+          "description": "自身撤退时，对“国度”内的所有地面敌人造成相当于攻击力600%<@ba.talpu>（+100%）</>的法术伤害和5秒<$ba.stun>晕眩</>，随后所有“国度”消失",
+          "blackboard": {
+            "atk_scale": 6,
+            "stun": 5
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "",
+    "blackboard": {
+      "prob": 0.5
+    }
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-10秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -10
+        }
+      ]
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_dminon",
+      "name": "国度证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_dminon",
+      "name": "空瓶罐们",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 60,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "max_hp": 180,
+            "atk": 60
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "max_hp": 210,
+            "atk": 72
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            },
+            {
+              "name": "实质坍缩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": -18,
+                "atk_scale": 0.17
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "max_hp": 230,
+            "atk": 80
+          },
+          "talentEnhance": [
+            {
+              "name": null,
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "move_speed": -0.2
+              }
+            },
+            {
+              "name": "实质坍缩",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "attack_speed": -20,
+                "atk_scale": 0.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

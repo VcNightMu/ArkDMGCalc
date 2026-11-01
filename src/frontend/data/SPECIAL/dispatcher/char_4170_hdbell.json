@@ -1,0 +1,472 @@
+{
+  "id": "char_4170_hdbell",
+  "name": "行铃",
+  "rarity": "TIER_4",
+  "profession": "SPECIAL",
+  "subProfessionId": "dispatcher",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 45,
+      "atk": [
+        625,
+        893
+      ],
+      "def": [
+        175,
+        258
+      ],
+      "maxHp": [
+        887,
+        1199
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 60,
+      "atk": [
+        893,
+        1160
+      ],
+      "def": [
+        258,
+        340
+      ],
+      "maxHp": [
+        1199,
+        1558
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 70,
+      "atk": [
+        1160,
+        1450
+      ],
+      "def": [
+        340,
+        400
+      ],
+      "maxHp": [
+        1558,
+        2050
+      ],
+      "magicResistance": 0,
+      "baseAttackTime": 3.5,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 50,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_hdbell_1",
+      "name": "花椰菜冲击",
+      "levels": [
+        {
+          "atk_scale": 1.5,
+          "force": 0,
+          "projectile_range": 0.5,
+          "level": 0,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.6,
+          "force": 0,
+          "projectile_range": 0.5,
+          "level": 1,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.7,
+          "force": 0,
+          "projectile_range": 0.5,
+          "level": 2,
+          "spCost": 12,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.8,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 3,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 1.9,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 4,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 5,
+          "spCost": 11,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 6,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 7,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 8,
+          "spCost": 10,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.4,
+          "force": 1,
+          "projectile_range": 0.5,
+          "level": 9,
+          "spCost": 9,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_hdbell_2",
+      "name": "蔬菜大拼盘",
+      "levels": [
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.15,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 0,
+          "spCost": 50,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.2,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 1,
+          "spCost": 49,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.25,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 2,
+          "spCost": 48,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.3,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 3,
+          "spCost": 47,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.35,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 4,
+          "spCost": 46,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.4,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.45,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 6,
+          "spCost": 44,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.5,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 7,
+          "spCost": 43,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.55,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 8,
+          "spCost": 42,
+          "initialSp": 24,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "base_attack_time": -0.5,
+          "atk": 0.6,
+          "attack@delta_atk_scale": 0.12,
+          "attack@max_atk_scale": 1.48,
+          "attack@projectile_range": 0.5,
+          "level": 9,
+          "spCost": 40,
+          "initialSp": 27,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "驮兽边界感",
+          "description": "未阻挡敌人时攻击力+8%",
+          "blackboard": {
+            "atk": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "驮兽边界感",
+          "description": "未阻挡敌人时攻击力+10%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "驮兽边界感",
+          "description": "未阻挡敌人时攻击力+10%",
+          "blackboard": {
+            "atk": 0.1
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "驮兽边界感",
+          "description": "未阻挡敌人时攻击力+12%<@ba.talpu>（+2%）</>",
+          "blackboard": {
+            "atk": 0.12
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": {
+    "description": "开启技能后可以造成超远距离的群体物理伤害",
+    "blackboard": {}
+  },
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

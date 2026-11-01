@@ -11,7 +11,7 @@
 
 ```
 src/frontend/data/
-  index.json                       干员/单位索引（505 条）
+  index.json                       干员/单位索引（511 条）
   sub-professions.json             子职业字典（76 条 = 72 真实 + 4 特殊）
   notes.json                       口径说明文本（手工维护，重抓不覆盖）
   <主职业>/<子职业>/<id>.json      干员/单位数据（只存数值键，不含技能描述文本）

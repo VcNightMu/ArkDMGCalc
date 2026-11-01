@@ -65,16 +65,45 @@ ok(rc.dmgTypes && near(rc.dmgTypes.physical.skillTotalDamage, 104580) && near(rc
 ok(near(rc.normalDps, 358.33), '克莱门莎 S2 槽内常态=普攻 358.33 实=' + rc.normalDps);
 
 // S3 与海为敌：弹药 10 发，每次爆发(耗 1 发)打 3×(3.0×1030-600)=3×2490 物理 + 3×(1030×2.5)=3×2575 元素
+// ※projectile_life_time 5→3.5(上游 2026-11 同步) → 窗口 = 弹药期 + 3.5s 滞空，DPS 相应提高(总伤不变)
 rc = runC(2);
 ok(near(rc.panelAtk, 2420.5), '克莱门莎 S3 技能期 ATK = 1030×2.35 = 2420.5 实=' + rc.panelAtk);
 ok(rc.normalDps === null, '克莱门莎 S3 弹药槽常态行保持 null 实=' + rc.normalDps);
 ok(rc.dmgTypes && rc.dmgTypes.element && rc.dmgTypes.element.skillTotalDamage > 0,
   '克莱门莎 S3 含元素档（侵蚀爆条元素伤害）实=' + JSON.stringify(rc.dmgTypes && rc.dmgTypes.element));
-ok(near(rc.skillTotalDamage, 226770, 1) && near(rc.skillDps, 13339, 1),
-  '克莱门莎 S3 与海为敌 总伤 226770 / DPS 13339 实=' + rc.skillTotalDamage + '/' + rc.skillDps);
+ok(near(rc.skillTotalDamage, 226770, 1) && near(rc.skillDps, 14630.3, 1),
+  '克莱门莎 S3 与海为敌 总伤 226770 / DPS 14630 实=' + rc.skillTotalDamage + '/' + rc.skillDps);
 
 // 元素类型登记为 water（侵蚀）：珊比/克莱门莎同型，爆条 5000/8s
 ok(OPERATOR_ELEMENT['char_4231_clemnt'] === 'water', '克莱门莎 元素登记为 water(侵蚀) 实=' + OPERATOR_ELEMENT['char_4231_clemnt']);
+
+// ===== 塔露拉 char_4247_oxi（2026-11 版本新增，灼燃/fire，法术伤害）=====
+// 口径(2026-11，见 notes.json)：
+//  - 天赋1「绝不妥协」：攻击造成法术伤害(damageType=arts) + 附带 ep_damage_ratio 灼燃损伤(精2 13%)；
+//  - 天赋2「我即火焰」灼燃爆发后「足迹」持续法伤：依赖爆条节奏的场地效果 → 默认不建模；
+//  - S1 照霎白夜：自回触发型 sp8，atk_scale 倍法术强化(专三 6.0) + 恐惧(控制不计) + 天赋灼燃；
+//  - S2 阂断骤雪：护盾/反击/回血/减伤承伤向 → 不计输出，普攻照常；
+//  - S3 日冕重烈：热浪波，atk 加成 + heatwave_atk_scale 倍法术(单目标简化为每次热浪波) + 天赋灼燃。
+const ox = JSON.parse(fs.readFileSync(new URL('../../src/frontend/data/WARRIOR/primguard/char_4247_oxi.json', import.meta.url), 'utf8'));
+const oe = ox.phases.length - 1;
+const runO = (si) => calculateOperator(ox, { elite: oe, level: ox.phases[oe].maxLevel, trustPercent: 100, potentialRank: 0, skillIndex: si, skillLevel: 9 });
+
+let ro = runO(-1);
+ok(ro.damageType === 'arts', '塔露拉 damageType = arts（天赋「绝不妥协」攻击造成法术伤害）实=' + ro.damageType);
+ok(near(ro.panelAtk, 965) && near(ro.realInterval, 1.2), '塔露拉 面板 875+90=965 / 间隔 1.2 实=' + ro.panelAtk + '/' + ro.realInterval);
+ok(near(ro.normalDps, 738.62) && ro.normalTypes && ro.normalTypes.arts && ro.normalTypes.element,
+  '塔露拉 常态 法术 + 灼燃稳态 738.62 实=' + ro.normalDps + '/' + JSON.stringify(ro.normalTypes));
+
+ro = runO(0);
+ok(near(ro.panelAtk, 5790) && near(ro.skillTotalDamage, 2895) && near(ro.cycleDps, 723.75),
+  '塔露拉 S1 照霎白夜(6.0×965 法术)2895/循环 723.75 实=' + ro.skillTotalDamage + '/' + ro.cycleDps);
+
+ro = runO(2);
+ok(near(ro.skillTotalDamage, 75374) && near(ro.skillDps, 2093.72),
+  '塔露拉 S3 日冕重烈(热浪波 + 灼燃)75374/2093.72 实=' + ro.skillTotalDamage + '/' + ro.skillDps);
+ok(ro.dmgTypes && near(ro.dmgTypes.arts.skillTotalDamage, 61374) && near(ro.dmgTypes.element.skillTotalDamage, 14000),
+  '塔露拉 S3 分档 法术 61374 + 灼燃 14000 实=' + JSON.stringify(ro.dmgTypes));
+ok(OPERATOR_ELEMENT['char_4247_oxi'] === 'fire', '塔露拉 元素登记为 fire(灼燃) 实=' + OPERATOR_ELEMENT['char_4247_oxi']);
 
 console.log('本源近卫(含克莱门莎): ' + pass + ' 通过 / ' + fail + ' 失败');
 process.exit(fail ? 1 : 0);

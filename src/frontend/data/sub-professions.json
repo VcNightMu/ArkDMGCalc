@@ -378,5 +378,10 @@
     "subProfessionId": "supportiveranger",
     "subProfessionName": "游击手",
     "subProfessionCatagory": 76
+  },
+  "dispatcher": {
+    "subProfessionId": "dispatcher",
+    "subProfessionName": "调度者",
+    "subProfessionCatagory": 77
   }
 }

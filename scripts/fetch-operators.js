@@ -89,6 +89,7 @@ const OPERATORS = {
       'char_4106_bryota',     // 苍苔 TIER_51★
       'char_4125_rdoc',       // 医生 TIER_51★
       'char_485_pallas',      // 帕拉斯 TIER_61★
+      'char_4245_alga',       // 奥尔佳 TIER_51★（2026-11 版本新增）
     ],
     lord: [
       'char_140_whitew',      // 拉普兰德 TIER_51★
@@ -160,6 +161,7 @@ const OPERATORS = {
     primguard: [
       'char_4187_graceb',     // 聆音 TIER_51★
       'char_4231_clemnt',     // 克莱门莎 TIER_6 6★（2026-10 版本新增；侵蚀损伤）
+      'char_4247_oxi',        // 塔露拉 TIER_6 6★（2026-11 版本新增；灼燃损伤）
     ],
     mercenary: [
       'char_1049_catap2',     // 雷狼龙S空爆 TIER_51★(异格/升变)
@@ -194,6 +196,7 @@ const OPERATORS = {
     primprotector: [ // 本源铁卫
       'char_2026_yu', 'char_4235_thumpy',                               // 余/珊比 6★
       'char_4148_philae', 'char_4225_tanya', 'char_4214_cairn',         // 菲莱/裂响/响石 5★
+      'char_4169_caledo',                                               // 镜匠 5★（2026-11 版本新增）
     ],
   },
   SNIPER: { // 狙击
@@ -350,6 +353,7 @@ const OPERATORS = {
     ], // 不录：盟约·辅助干员 char_616_pithst（isNotObtainable，卫戍协议模式形态）
     supportiveranger: [ // 游击手
       'char_4219_yukari', 'char_4234_pedro',                                         // 岳羽由加莉/佩德洛 5★
+      'char_4244_tocka',                                                             // 冻河 6★（2026-11 版本新增）
     ],
   },
   SPECIAL: { // 特种
@@ -368,6 +372,7 @@ const OPERATORS = {
       'char_4132_ascln', 'char_437_mizuki',                                          // 阿斯卡纶/水月 6★
       'char_215_mantic', 'char_4186_tmoris', 'char_478_kirara',                      // 狮蝎/八幡海铃/绮良 5★
       'char_355_ethan',                                                             // 伊桑 4★
+      'char_4246_dminon',                                                           // 国度 6★（2026-11 版本新增）
     ],
     hookmaster: [ // 钩索师
       'char_474_glady',                                                             // 歌蕾蒂娅 6★
@@ -401,6 +406,9 @@ const OPERATORS = {
       'char_1015_aglna2',                                                           // 予愿安洁莉娜(异格) 6★
       'char_4191_tippi',                                                            // 蒂比 5★
       'char_4165_ctrail',                                                           // 云迹 4★
+    ],
+    dispatcher: [ // 调度者（2026-11 版本新增子职业）
+      'char_4170_hdbell',                                                           // 行铃 4★
     ],
   },
   TOKEN: { // 特殊（干员附带单位/召唤物）
@@ -626,9 +634,11 @@ function convertOperator(id, charData, skillTable, ownerOperatorId, ownerCharDat
   const tokenArtsIds = ['token_10003_cgbird_bird'];
   // 真伤召唤物（如维娜·黄金盟誓：攻击造成真实伤害，无视防御法抗）
   const tokenTrueIds = ['token_10040_siege2_vlion'];
+  // 天赋把普攻改成法术伤害的干员（塔露拉「绝不妥协」：攻击造成法术伤害）
+  const forceArtsIds = ['char_4247_oxi'];
   const isNoAtkToken = String(id).startsWith('token_') && tokenArtsIds.includes(id);
   const isTrueToken = String(id).startsWith('token_') && tokenTrueIds.includes(id);
-  const damageType = isTrueToken ? 'true' : ((artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical');
+  const damageType = isTrueToken ? 'true' : ((forceArtsIds.includes(id) || artsSubs.includes(charData.subProfessionId) || isNoAtkToken) ? 'arts' : 'physical');
 
   const skills = [];
   // 剔除召唤物自带的占位/联动技能（结构性原理的 sktok_mcgraf_1/2 空占位、sktok_mcgraf_3 冲锋被动由持有者 S3 触发，

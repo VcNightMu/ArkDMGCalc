@@ -9,8 +9,8 @@
 //     该槽自身不移交损伤,用户口径(2026-09-17 问答)按"视为目标处于爆发"处理 → 三段均按元素伤害结算;
 //  4) 充能按惯例不计(聆音 S2 可充能 2 次 → 单次);
 //  5) 常态(无技能)不含元素(普攻不移交损伤)→ 常态行不变。
-import { calcPhysicalDamage } from './calculator.js';
-import { simulateElementTimeline, OPERATOR_ELEMENT } from './element-calc.js';
+import { calcPhysicalDamage, calcArtsDamage } from './calculator.js';
+import { simulateElementTimeline, steadyElementDps, OPERATOR_ELEMENT } from './element-calc.js';
 
 // 元素类型按干员登记(OPERATOR_ELEMENT)：聆音=神经(sanity)、克莱门莎=侵蚀(water)。
 // 未登记时回退 sanity(聆音的历史硬编码口径)。
@@ -29,6 +29,10 @@ export function calcPrimGuardSkill(p) {
 
   if (id === 'char_4231_clemnt') {
     return calcClemntSkill({ op, levelData: L, rawAtk: p.rawAtk, panelAtk, skillAtk, I, D, grade, effDef, effRes: p.effRes, skillIndex, result });
+  }
+
+  if (id === 'char_4247_oxi') {
+    return calcTalulahSkill({ op, slotData, levelData: L, rawAtk: p.rawAtk, panelAtk, skillAtk, I, D, grade, effDef, effRes: p.effRes, skillIndex, result });
   }
 
   const ELEMENT = elOf(id);
@@ -228,4 +232,116 @@ function calcClemntSkill(c) {
   }
 
   return result;
+}
+
+/**
+ * 塔露拉天赋 1「绝不妥协」灼燃损伤比例（按精化/潜能取当前生效档）。
+ * 攻击造成法术伤害 + 附带 ep_damage_ratio 灼燃损伤（精0 3%/5%、精1 6%/8%、精2 11%/13%）。
+ */
+function talulahEpRatio(op, slotData) {
+  const talent = (op.talents || [])[0];
+  if (!talent) return 0;
+  const elite = slotData.elite;
+  const pot = slotData.potentialRank || 0;
+  let best = 0;
+  for (const cand of talent.candidates) {
+    const candPot = cand.potentialRank ?? cand.requiredPotentialRank ?? 0;
+    if (cand.phase <= elite && candPot <= pot) {
+      const v = cand.blackboard && typeof cand.blackboard.ep_damage_ratio === 'number' ? cand.blackboard.ep_damage_ratio : 0;
+      if (v > best) best = v;
+    }
+  }
+  return best;
+}
+
+/**
+ * 塔露拉(char_4247_oxi, 6★ 本源近卫, 2026-11 版本新增, 灼燃/fire, 法术伤害)。
+ *
+ * 天赋 1「绝不妥协」：攻击造成法术伤害（damageType 已按 arts 落数据）+ 附带 ep_damage_ratio 灼燃损伤。
+ *   灼燃累积走 simulateElementTimeline（爆条 7000/cd10，见 element-calc.js）。
+ * 天赋 2「我即火焰」（精2）：灼燃爆发后留下「足迹」持续法伤 → 依赖爆条节奏的场地效果，默认不建模（口径见 notes）。
+ *
+ * S1「照霎白夜」(AUTO 自回触发型 sp8)：下次攻击 atk_scale(专三 6.0) 倍法术 + 恐惧(控制不计) + 天赋灼燃。
+ *   充能周期 = spCost 秒自回（非攻回），周期内普攻(法术)照常。
+ * S2「阂断骤雪」(AUTO 触发型 dur0)：护盾/反击/回血/减伤均为承伤向不计；atk/def 加成为瞬时 buff 不计输出 → 普攻照常。
+ * S3「日冕重烈」(MANUAL 36s 热浪波)：atk 加成 + 热浪波(heatwave_atk_scale 倍法术，间隔按 overload_interval) + 天赋灼燃。
+ *   ※热浪波的波宽/波速/同波重复衰减为范围几何参数，单目标模型下简化为「每次热浪波对目标造成 attack×heatwave_atk_scale 法术」。
+ */
+function calcTalulahSkill(c) {
+  const { op, slotData, levelData: L, rawAtk, panelAtk, skillAtk, I, D, grade, effDef, effRes, skillIndex, result } = c;
+  const EL = 'fire';
+  const A = (a) => calcArtsDamage(a, effRes);
+  const num = (v, d) => (typeof v === 'number' ? v : d);
+  const epRatio = talulahEpRatio(op, slotData);
+
+  if (skillIndex === 0) {
+    // S1 照霎白夜：自回触发型单发，atk_scale 倍法术（skillAtk 已含 atk_scale，引擎 dispatch 前已乘）+ 天赋灼燃
+    const arts = A(skillAtk);
+    const sim = simulateElementTimeline({
+      grade, duration: 1, enemy: { res: effRes || 0 },
+      streams: [{ atk: skillAtk, dmgMul: 1, el: EL, epMul: epRatio, epBase: 'damage', times: [0] }],
+    });
+    const total = arts + sim.element;
+    const sp = num(L.spCost, 8);
+    let cyc = null;
+    if (sp > 0) {
+      const genCycle = result.cycleDps;
+      const normalPart = (genCycle !== null && genCycle !== undefined)
+        ? genCycle * sp - (result.skillTotalDamage || 0)
+        : A(panelAtk) * Math.max(0, Math.floor(sp / I));
+      cyc = (normalPart + total) / sp;
+    }
+    const dmgTypes = { arts: { skillDps: 0, skillTotalDamage: arts, cycleDps: cyc } };
+    if (sim.element > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: sim.element, cycleDps: null };
+    return {
+      ...result, type: 'damage', damageType: 'arts', normalDamageType: 'arts',
+      skillDps: 0, skillTotalDamage: total, cycleDps: cyc,
+      normalDps: result.normalDps, realInterval: I, skillAtkOut: skillAtk, dmgTypes,
+    };
+  }
+
+  if (skillIndex === 2) {
+    // S3 日冕重烈：MANUAL 36s，atk 加成(入口已并入 skillAtk) + 热浪波法术 + 天赋灼燃
+    const waveScale = num(L.heatwave_atk_scale, 1);
+    const waveInt = num(L.overload_interval, 2);
+    const n = Math.max(0, Math.floor(D / waveInt));
+    const times = [];
+    for (let i = 1; i <= n; i++) times.push(i * waveInt);
+    const sim = simulateElementTimeline({
+      grade, duration: D, enemy: { res: effRes || 0 },
+      streams: [
+        { atk: skillAtk, dmgMul: waveScale, times, el: EL, epMul: epRatio, epBase: 'damage' },
+      ],
+    });
+    const total = sim.arts + sim.element;
+    const dmgTypes = { arts: { skillDps: D > 0 ? sim.arts / D : 0, skillTotalDamage: sim.arts, cycleDps: null } };
+    if (sim.element > 0) dmgTypes.element = { skillDps: D > 0 ? sim.element / D : 0, skillTotalDamage: sim.element, cycleDps: null };
+    return {
+      ...result, type: 'damage', damageType: 'arts', normalDamageType: 'arts',
+      skillDps: D > 0 ? total / D : 0, skillTotalDamage: total, cycleDps: null,
+      normalDps: result.normalDps, realInterval: waveInt, skillAtkOut: skillAtk * waveScale, dmgTypes,
+    };
+  }
+
+  // S2 阂断骤雪（skillIndex 1）：承伤向，输出照常（普攻法术 + 天赋灼燃，无技能期输出增益）
+  return result;
+}
+
+/**
+ * 塔露拉常态（无技能槽）：法术普攻（天赋「绝不妥协」改法术）+ 灼燃稳态爆条平均（每击附带 ep_damage_ratio）。
+ * 与本源铁卫 primNormalFields 同构；灼燃爆条 7000/cd10、EP 1000(普通/精英)/2000(领袖)。
+ */
+export function talulahNormalFields(op, slotData, panelAtk, enemy) {
+  const baseInt = ((op.phases[slotData.elite] || op.phases[op.phases.length - 1]) || {}).baseAttackTime || 1.2;
+  const grade = (enemy && enemy.grade) || 'normal';
+  const epRatio = talulahEpRatio(op, slotData);
+  const artsDps = calcArtsDamage(panelAtk, enemy.res) / baseInt;
+  let elementDps = 0;
+  if (epRatio > 0) {
+    const st = steadyElementDps(grade, 'fire', panelAtk * epRatio, baseInt, null);
+    elementDps += st.avgDps;
+  }
+  const normalTypes = { arts: { dps: artsDps } };
+  if (elementDps > 0) normalTypes.element = { dps: elementDps };
+  return { normalDps: artsDps + elementDps, normalTypes, grade, baseInt };
 }

@@ -26,6 +26,7 @@ const mkEnemy = (grade = 'normal') => { const { state } = globalThis; return nul
 check('灼燃爆条 7000', breakTotalDmg('fire') === 7000);
 check('侵蚀爆条 5000', breakTotalDmg('water') === 5000);
 check('神经爆条 6000', breakTotalDmg('sanity') === 6000);
+check('狂躁爆条 16050（递增持续伤害 160/290/…/1980）', breakTotalDmg('anger') === 16050);
 check('EP 普通=1000 领袖=2000', EP_CAPACITY.normal === 1000 && EP_CAPACITY.leader === 2000);
 
 // ===== 余：常态 =====
@@ -158,6 +159,24 @@ check('菲莱S1 纯防御普攻照常（skillDps≈0 归常态）', philaeS1.ski
 const tanya = load('char_4225_tanya');
 const tanyaS2 = calculateOperator(tanya, mk(tanya, 1, 6));
 check('裂响S2 防御叠层（普攻照常）', tanyaS2.normalDps > 0);
+
+// ===== 镜匠 char_4169_caledo（狂躁 anger，2026-11 版本新增） =====
+// 口径(2026-11)：天赋1「工匠的素养」元素爆发期间回血 = 承伤向不计；狂躁损伤来自技能(非天赋)。
+//  S1 无公差切割：受击回技力触发型(不展示周期 DPS)，单次 atk_scale 物理强化 + ep_damage_ratio 狂躁(单次不足 1000 不爆条)。
+//  S2「多面镜」：MANUAL 35s，atk/max_hp 加成 + 每击狂躁(attack@ep_damage_ratio) + 每秒狂躁(ep_damage_ratio) → 累积爆条 16050×2。
+const caledo = load('char_4169_caledo');
+const calPan = calcPanelStats(caledo, mk(caledo, 0, 9));
+check('镜匠 E2 atk=625', near(calPan.panelAtk, 625, 1));
+{
+  const r = calculateOperator(caledo, mk(caledo, 0, 9));
+  check('镜匠 S1 单次物理 1212.5(受击回技力触发型)', near(r.skillTotalDamage, 1212.5, 1));
+  check('镜匠 S1 无周期(cycleDps null)', r.cycleDps === null);
+}
+{
+  const r = calculateOperator(caledo, mk(caledo, 1, 9));
+  check('镜匠 S2 元素=2次狂躁爆条 32100', r.dmgTypes && near(r.dmgTypes.element.skillTotalDamage, 32100, 1));
+  check('镜匠 S2 物理 16275', r.dmgTypes && near(r.dmgTypes.physical.skillTotalDamage, 16275, 1));
+}
 
 console.log(`\n本源铁卫验证: ${pass} 通过, ${fail} 失败`);
 process.exit(fail > 0 ? 1 : 0);

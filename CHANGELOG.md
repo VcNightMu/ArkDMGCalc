@@ -1,5 +1,33 @@
 # Changelog
 
+## v0.6.0 (2026-11-01)
+
+### feat: 2026-11 版本数据更新（塔露拉/冻河/国度/奥尔佳/镜匠/行铃 + 狂躁损伤 + 调度者新子职业）
+
+- 数据源同步：本地 `Data:26-10-08` → 上游 `[CN UPDATE] Client:2.7.91 Data:26-10-29`（跨 10-14/10-22/10-29 三次更新）。
+  新增可录干员 **6 位**（index 505→511），另有 29 个预备/试用形态（`isNotObtainable`/`itemObtainApproach=null`）按既有口径不录。
+- **塔露拉**（`char_4247_oxi`，6★ 近卫·本源近卫，**灼燃/fire，法术伤害**）：
+  天赋「绝不妥协」攻击造成**法术伤害**（`damageType` 修正为 arts，fetch 脚本加 `forceArtsIds` 覆盖）
+  + 附带灼燃损伤（精0 3%/5%、精1 6%/8%、精2 11%/13%）；天赋「我即火焰」灼燃爆发后「足迹」持续法伤依赖爆条节奏 → 不建模；
+  S1「照霎白夜」自回触发型 atk_scale 倍法术（专三 6.0）；S2「阂断骤雪」护盾/反击/回血/减伤承伤向不计；
+  S3「日冕重烈」热浪波按单目标简化为 `attack×heatwave_atk_scale` 法术（波宽/波速/同波重复衰减等范围几何参数不计）。
+- **冻河**（`char_4244_tocka`，6★ 辅助·游击手）：S1 护盾+眩晕、S2 攻速 buff 均为触发型/承伤向不计输出；
+  S3「踽踽独行之春」攻击力先 `bonus_init_atk` 提升、每秒 `bonus_atk_dec_per_sec` 衰减（线性平均）+ 攻速 + `attack@atk_scale`。
+- **国度**（`char_4246_dminon`，6★ 特种·伏击客）：天赋「实质坍缩」攻击范围内「国度」地面敌人每秒受 `攻击力×atk_scale` 法术伤害（精0 起常驻）；
+  S3「无人的国度」范围伤害按单目标全额；S1 迟缓/S3 眩晕为控制不计。
+- **镜匠**（`char_4169_caledo`，5★ 重装·本源铁卫，**狂躁/anger——全新元素类型**）：
+  S1「无公差切割」受击回技力触发型（无自然充能周期）；S2「多面镜」攻击附带 + 每秒狂躁损伤。
+  **狂躁爆条 16050**（每秒递增 160/290/…/1980，共 15 跳；爆发期间敌人攻速+20 对我方输出无影响不计）——
+  `element-calc.js` 新增 `ELEMENT_BREAK.anger`（`dmgInit`+`dmgStep` 递增），`breakTotalDmg` 支持等差数列求和。
+- **奥尔佳**（`char_4245_alga`，5★ 近卫·教官）：S1「交叉施压」攻回触发型 atk_scale、S2「只为我的答案」atk 加成；
+  天赋「先声夺人」友方攻击力光环不建模（教官特性「攻击未阻挡敌人 120%」沿用既有口径不建模）。
+- **行铃**（`char_4170_hdbell`，4★ 特种·**调度者 dispatcher——全新子职业**）：
+  特性「开启技能后超远距离群体物理伤害」按单目标全额；S1「花椰菜冲击」触发型、S2「蔬菜大拼盘」atk 加成 + 递增攻击倍率（`attack@delta_atk_scale`，上限 `attack@max_atk_scale`）。
+- 数据修正：克莱门莎 S3「与海为敌」`projectile_life_time` **5→3.5**（上游平衡调整 → 窗口缩短，DPS 13339→14630，总伤不变）。
+- 说明文本：新增 6 位干员 + `__subprof_dispatcher`，并更新 `__subprof_primguard`（塔露拉=灼燃）。
+- 验证：`verify-primguard`/`verify-primprotector`/`verify-supportiveranger`/`verify-stalker`/`verify-instructor` 各加断言 +
+  新增 `verify-dispatcher.mjs`；baseline 更新至 511 条；全量回归 **104 脚本 104 PASS 0 FAIL**。
+
 ## v0.5.1 (2026-10-10)
 
 ### feat: 2026-10 版本数据更新（克莱门莎 + 德·托莱多 + 旅骨 + 2 个新 Y 模组）

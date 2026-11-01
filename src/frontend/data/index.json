@@ -4543,5 +4543,59 @@
     "subProfessionId": "alchemist",
     "ownerOperatorId": null,
     "ownerName": null
+  },
+  {
+    "id": "char_4247_oxi",
+    "name": "塔露拉",
+    "rarity": "TIER_6",
+    "profession": "WARRIOR",
+    "subProfessionId": "primguard",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4244_tocka",
+    "name": "冻河",
+    "rarity": "TIER_6",
+    "profession": "SUPPORT",
+    "subProfessionId": "supportiveranger",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4246_dminon",
+    "name": "国度",
+    "rarity": "TIER_6",
+    "profession": "SPECIAL",
+    "subProfessionId": "stalker",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4245_alga",
+    "name": "奥尔佳",
+    "rarity": "TIER_5",
+    "profession": "WARRIOR",
+    "subProfessionId": "instructor",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4169_caledo",
+    "name": "镜匠",
+    "rarity": "TIER_5",
+    "profession": "TANK",
+    "subProfessionId": "primprotector",
+    "ownerOperatorId": null,
+    "ownerName": null
+  },
+  {
+    "id": "char_4170_hdbell",
+    "name": "行铃",
+    "rarity": "TIER_4",
+    "profession": "SPECIAL",
+    "subProfessionId": "dispatcher",
+    "ownerOperatorId": null,
+    "ownerName": null
   }
 ]

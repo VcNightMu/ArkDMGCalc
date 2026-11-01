@@ -1,0 +1,827 @@
+{
+  "id": "char_4247_oxi",
+  "name": "塔露拉",
+  "rarity": "TIER_6",
+  "profession": "WARRIOR",
+  "subProfessionId": "primguard",
+  "damageType": "arts",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        400,
+        572
+      ],
+      "def": [
+        202,
+        281
+      ],
+      "maxHp": [
+        1449,
+        1907
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 80,
+      "atk": [
+        572,
+        743
+      ],
+      "def": [
+        281,
+        361
+      ],
+      "maxHp": [
+        1907,
+        2415
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 90,
+      "atk": [
+        743,
+        875
+      ],
+      "def": [
+        361,
+        425
+      ],
+      "maxHp": [
+        2415,
+        2910
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.2,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 90,
+    "def": 0,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_oxi_1",
+      "name": "照霎白夜",
+      "levels": [
+        {
+          "atk_scale": 3.4,
+          "fear": 1.5,
+          "level": 0,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.6,
+          "fear": 1.5,
+          "level": 1,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 3.8,
+          "fear": 1.5,
+          "level": 2,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4,
+          "fear": 2,
+          "level": 3,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.3,
+          "fear": 2,
+          "level": 4,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.6,
+          "fear": 2,
+          "level": 5,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 4.9,
+          "fear": 2.5,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 5.2,
+          "fear": 2.5,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 5.5,
+          "fear": 2.5,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 6,
+          "fear": 3,
+          "level": 9,
+          "spCost": 8,
+          "initialSp": 0,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_oxi_2",
+      "name": "阂断骤雪",
+      "levels": [
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 1.4,
+          "heal_ratio": 0.05,
+          "atk": 0.3,
+          "def": 0.3,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 0,
+          "spCost": 10,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 1.5,
+          "heal_ratio": 0.05,
+          "atk": 0.32,
+          "def": 0.32,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 1,
+          "spCost": 10,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 1.6,
+          "heal_ratio": 0.05,
+          "atk": 0.35,
+          "def": 0.35,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 2,
+          "spCost": 10,
+          "initialSp": 16,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 1.7,
+          "heal_ratio": 0.05,
+          "atk": 0.37,
+          "def": 0.37,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 3,
+          "spCost": 9,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 1.9,
+          "heal_ratio": 0.05,
+          "atk": 0.4,
+          "def": 0.4,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 4,
+          "spCost": 9,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 2.1,
+          "heal_ratio": 0.05,
+          "atk": 0.43,
+          "def": 0.43,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 5,
+          "spCost": 9,
+          "initialSp": 17,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 2.3,
+          "heal_ratio": 0.05,
+          "atk": 0.47,
+          "def": 0.47,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 6,
+          "spCost": 8,
+          "initialSp": 18,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 2.5,
+          "heal_ratio": 0.05,
+          "atk": 0.5,
+          "def": 0.5,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 7,
+          "spCost": 8,
+          "initialSp": 19,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 2.7,
+          "heal_ratio": 0.05,
+          "atk": 0.55,
+          "def": 0.55,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 8,
+          "spCost": 8,
+          "initialSp": 20,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "skill_duration": 1.3,
+          "damage_remaining_scale": 0.1,
+          "damage_resistance": 0.9,
+          "shelter_hold_duration": 0.2,
+          "retaliate_atk_scale": 3,
+          "heal_ratio": 0.05,
+          "atk": 0.6,
+          "def": 0.6,
+          "max_stack_cnt": 5,
+          "stack_duration": 5,
+          "ability_range_radius": 1,
+          "attack@buffed_attack_atk_scale": 1,
+          "level": 9,
+          "spCost": 7,
+          "initialSp": 21,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 0,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_oxi_3",
+      "name": "日冕重烈",
+      "levels": [
+        {
+          "atk": 1,
+          "heatwave_atk_scale": 1,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 0,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.02,
+          "heatwave_atk_scale": 1.075,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 1,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.04,
+          "heatwave_atk_scale": 1.15,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 2,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.08,
+          "heatwave_atk_scale": 1.3,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 3,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.12,
+          "heatwave_atk_scale": 1.45,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 4,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.16,
+          "heatwave_atk_scale": 1.6,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 5,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "heatwave_atk_scale": 1.75,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 6,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.24,
+          "heatwave_atk_scale": 1.9,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 7,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.32,
+          "heatwave_atk_scale": 2.2,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 8,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.4,
+          "heatwave_atk_scale": 2.5,
+          "normal_interval": 2.67,
+          "overload_interval": 2,
+          "wave_speed": 2.3,
+          "normal_half_width": 2,
+          "overload_half_width": 6,
+          "projectile_range": 0.5,
+          "range_radius": 1.5,
+          "random_birth_delay": 0,
+          "wave_exit_distance": 5,
+          "same_wave_repeat_damage_scale": 0.15,
+          "level": 9,
+          "spCost": 45,
+          "initialSp": 38,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 36,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带3%的<$ba.dt.burning2>灼燃损伤</>",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0,
+            "arcane_max": 0,
+            "ep_damage_ratio": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 0,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带5%<@ba.talpu>（+2%）</>的<$ba.dt.burning2>灼燃损伤</>",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0,
+            "arcane_max": 0,
+            "ep_damage_ratio": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带6%的<$ba.dt.burning2>灼燃损伤</>；停止攻击3秒后法术和元素伤害逐渐提升（最高提升9%，每次攻击时衰减）",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0.015,
+            "arcane_max": 0.09,
+            "ep_damage_ratio": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带8%<@ba.talpu>（+2%）</>的<$ba.dt.burning2>灼燃损伤</>；停止攻击3秒后法术和元素伤害逐渐提升（最高提升12%<@ba.talpu>（+3%）</>，每次攻击时衰减）",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0.02,
+            "arcane_max": 0.12,
+            "ep_damage_ratio": 0.08
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带11%的<$ba.dt.burning2>灼燃损伤</>；停止攻击3秒后法术和元素伤害逐渐提升（最高提升15%，每次攻击时衰减）",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0.025,
+            "arcane_max": 0.15,
+            "ep_damage_ratio": 0.11
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "绝不妥协",
+          "description": "攻击造成法术伤害；造成法术伤害时附带13%<@ba.talpu>（+2%）</>的<$ba.dt.burning2>灼燃损伤</>；停止攻击3秒后法术和元素伤害逐渐提升（最高提升18%<@ba.talpu>（+3%）</>，每次攻击时衰减）",
+          "blackboard": {
+            "arcane_idle_delay": 3,
+            "arcane_step_interval": 0.5,
+            "arcane_step": 0.03,
+            "arcane_max": 0.18,
+            "ep_damage_ratio": 0.13
+          },
+          "isHideTalent": false
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "我即火焰",
+          "description": "在场时，全场敌人<$ba.dt.burning2>灼燃损伤</>爆发后5秒内，于可通行地面留下持续3秒的“足迹”（最多25格），每0.3秒造成塔露拉攻击力12%的法术伤害",
+          "blackboard": {
+            "field_duration": 3,
+            "field_interval": 0.3,
+            "field_atk_scale": 0.12,
+            "max_count": 25
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 2,
+          "name": "我即火焰",
+          "description": "在场时，全场敌人<$ba.dt.burning2>灼燃损伤</>爆发后5秒内，于可通行地面留下持续4<@ba.talpu>（+1）</>秒的“足迹”（最多25格），每0.3秒造成塔露拉攻击力15%<@ba.talpu>（+3%）</>的法术伤害",
+          "blackboard": {
+            "field_duration": 4,
+            "field_interval": 0.3,
+            "field_atk_scale": 0.15,
+            "max_count": 25
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "第二天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "攻击力+35",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

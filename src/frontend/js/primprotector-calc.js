@@ -233,6 +233,46 @@ export function calcPrimSkill(p) {
     }
   }
 
+  // ========== 镜匠 char_4169_caledo（狂躁 anger，2026-11 版本新增） ==========
+  if (id === 'char_4169_caledo') {
+    if (si === 0) {
+      // S1 无公差切割：受击回技力触发型（引擎口径：无自然充能周期 → 不展示 cycleDps，仅单次总伤）。
+      // 单次 atk_scale 物理强化 + 附带的 ep_damage_ratio 狂躁损伤（单次损伤通常不足 1000 不爆条）。
+      const scale = levelData.atk_scale || 1;
+      const epMul = levelData.ep_damage_ratio || 0;
+      const phys = calcPhysicalDamage(skillAtk * scale, enemy.def);
+      const sim = simulateSkillTimeline({
+        grade, duration: 1, enemy,
+        dots: [{ type: null, atk: skillAtk * scale, epMul, el, interval: 1, count: 1 }],
+      });
+      const total = phys + sim.element;
+      const dmgTypes = { physical: { skillDps: 0, skillTotalDamage: phys, cycleDps: null } };
+      if (sim.element > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: sim.element, cycleDps: null };
+      return {
+        type: 'damage', skillDps: 0, skillTotalDamage: total, cycleDps: null,
+        normalDps: null, normalTypes: undefined,
+        skillHps: null, normalHps: null, totalHeal: null,
+        isToggle: false, isPermanent: false, realInterval: int, panelAtk,
+        damageType: 'physical', normalDamageType: 'physical', dmgTypes,
+      };
+    }
+    if (si === 1) {
+      // S2「多面镜」：MANUAL 35s，atk/max_hp 加成 + 攻击附带狂躁（attack@ep_damage_ratio）+ 每秒 ep_damage_ratio 狂躁；
+      // 减伤/生命上限为承伤向不计。狂躁累积 → 爆条（16050 递增持续伤害，见 element-calc.js ELEMENT_BREAK.anger）。
+      const atkEpMul = levelData['attack@ep_damage_ratio'] || 0;   // 每击狂躁倍率
+      const perSecEpMul = levelData.ep_damage_ratio || 0;          // 每秒狂躁倍率
+      const sim = simulateSkillTimeline({
+        grade, duration: skillDuration, enemy,
+        attacks: [{ type: 'physical', atk: skillAtk, interval: int }],
+        dots: [
+          ...(atkEpMul ? [{ type: null, atk: skillAtk, epMul: atkEpMul, el, interval: int }] : []),
+          ...(perSecEpMul ? [{ type: null, atk: skillAtk, epMul: perSecEpMul, el, interval: 1 }] : []),
+        ],
+      });
+      return makeResult(sim, p);
+    }
+  }
+
   // 菲莱/裂响等防御向干员技能兜底：普攻照常（无攻击增益时 skillAtk≈panelAtk）
   const physHit = calcPhysicalDamage(skillAtk, enemy.def);
   const sim = simulateSkillTimeline({

@@ -62,6 +62,19 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
   near(s2.panelAtk, 810, 0.01, '佩德洛 S2 技能期 ATK 显示自身面板(atk_scale 1.9 是治疗比率)');
   eq((o.modules || []).length, 0, '佩德洛暂无模组');
 }
+// ---- 冻河 char_4244_tocka（2026-11 版本新增，6★ 游击手） ----
+{
+  const o = loadOp('char_4244_tocka');
+  near(calculateOperator(o, mk(o, -1)).panelAtk, 851, 0.01, '冻河 面板攻击力 851(801+信赖50)');
+  near(calculateOperator(o, mk(o, -1)).normalDps, 119.524, 0.01, '冻河 常态物理 DPS((851-600)/2.1)');
+  const s1 = calculateOperator(o, mk(o, 0));
+  near(s1.skillTotalDamage, 0, 0.001, '冻河 S1 一无所有之人 护盾+眩晕(承伤向)不计输出');
+  const s2 = calculateOperator(o, mk(o, 1));
+  near(s2.skillTotalDamage, 0, 0.001, '冻河 S2 意欲呼啸之心 攻速 buff(触发型)不计输出');
+  const s3 = calculateOperator(o, mk(o, 2));
+  near(s3.skillTotalDamage, 26618.56, 1, '冻河 S3 踽踽独行之春 总伤(atk 衰减+攻速+attack@atk_scale)');
+  near(s3.skillDps, 1330.93, 0.5, '冻河 S3 技能期 DPS');
+}
 // ---- 说明文本 ----
 {
   const notes = JSON.parse(fs.readFileSync(DATA + '/notes.json', 'utf8'));

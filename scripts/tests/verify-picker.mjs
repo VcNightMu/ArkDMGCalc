@@ -64,10 +64,10 @@ check('选近卫后子职业含 术战者', subSelect.innerHTML.includes('术战
 check('选近卫后子职业含 教官(现已有数据)', subSelect.innerHTML.includes('教官'));
 check('选近卫后子职业项与数据一致(' + warriorSubIds.length + ' 项)', subOptions.length === warriorSubIds.length && warriorSubIds.every((id) => subOptions.includes(subDict[id].subProfessionName)));
 
-// 选择教官 → 干员列表含全部 6 名教官(杜宾/鞭刃/诗怀雅/苍苔/医生/帕拉斯)
+// 选择教官 → 干员列表含全部 7 名教官(杜宾/鞭刃/诗怀雅/苍苔/医生/帕拉斯/奥尔佳)
 subSelect.value = 'instructor';
 await subSelect._onchange();
-check('选教官后干员列表含 6 名教官', ['杜宾', '鞭刃', '诗怀雅', '苍苔', '医生', '帕拉斯'].every((n) => listEl.innerHTML.includes(n)) && (listEl.innerHTML.match(/class="picker-item"/g) || []).length === 6);
+check('选教官后干员列表含 7 名教官', ['杜宾', '鞭刃', '诗怀雅', '苍苔', '医生', '帕拉斯', '奥尔佳'].every((n) => listEl.innerHTML.includes(n)) && (listEl.innerHTML.match(/class="picker-item"/g) || []).length === 7);
 
 // 选择领主 → 干员列表含银灰、棘刺
 subSelect.value = 'lord';

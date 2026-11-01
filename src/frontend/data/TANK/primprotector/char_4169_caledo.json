@@ -1,0 +1,572 @@
+{
+  "id": "char_4169_caledo",
+  "name": "镜匠",
+  "rarity": "TIER_5",
+  "profession": "TANK",
+  "subProfessionId": "primprotector",
+  "damageType": "physical",
+  "ownerOperatorId": null,
+  "phases": [
+    {
+      "eliteLevel": 0,
+      "maxLevel": 50,
+      "atk": [
+        249,
+        357
+      ],
+      "def": [
+        206,
+        279
+      ],
+      "maxHp": [
+        1440,
+        1946
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 1,
+      "maxLevel": 70,
+      "atk": [
+        357,
+        476
+      ],
+      "def": [
+        279,
+        372
+      ],
+      "maxHp": [
+        1946,
+        2595
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    },
+    {
+      "eliteLevel": 2,
+      "maxLevel": 80,
+      "atk": [
+        476,
+        595
+      ],
+      "def": [
+        372,
+        518
+      ],
+      "maxHp": [
+        2595,
+        3605
+      ],
+      "magicResistance": 10,
+      "baseAttackTime": 1.6,
+      "attackSpeed": 100
+    }
+  ],
+  "trustBonus": {
+    "atk": 30,
+    "def": 50,
+    "maxHp": 0
+  },
+  "skills": [
+    {
+      "skillId": "skchr_caledo_1",
+      "name": "无公差切割",
+      "levels": [
+        {
+          "atk_scale": 1.9,
+          "ep_damage_ratio": 0.5,
+          "level": 0,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2,
+          "ep_damage_ratio": 0.5,
+          "level": 1,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.1,
+          "ep_damage_ratio": 0.5,
+          "level": 2,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.2,
+          "ep_damage_ratio": 0.5,
+          "level": 3,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.3,
+          "ep_damage_ratio": 0.5,
+          "level": 4,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.35,
+          "ep_damage_ratio": 0.5,
+          "level": 5,
+          "spCost": 7,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.5,
+          "ep_damage_ratio": 0.5,
+          "level": 6,
+          "spCost": 6,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.7,
+          "ep_damage_ratio": 0.5,
+          "level": 7,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.8,
+          "ep_damage_ratio": 0.5,
+          "level": 8,
+          "spCost": 5,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk_scale": 2.9,
+          "ep_damage_ratio": 0.5,
+          "level": 9,
+          "spCost": 3,
+          "initialSp": 0,
+          "spType": "INCREASE_WHEN_TAKEN_DAMAGE",
+          "skillDuration": -1,
+          "skillType": "AUTO",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    },
+    {
+      "skillId": "skchr_caledo_2",
+      "name": "“多面镜”",
+      "levels": [
+        {
+          "atk": 0.5,
+          "max_hp": 0.5,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 0,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.6,
+          "max_hp": 0.5,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 1,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.65,
+          "max_hp": 0.5,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 2,
+          "spCost": 60,
+          "initialSp": 30,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.7,
+          "max_hp": 0.6,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 3,
+          "spCost": 58,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.75,
+          "max_hp": 0.6,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 4,
+          "spCost": 58,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.8,
+          "max_hp": 0.6,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 5,
+          "spCost": 58,
+          "initialSp": 33,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 0.9,
+          "max_hp": 0.7,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 6,
+          "spCost": 55,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1,
+          "max_hp": 0.8,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 7,
+          "spCost": 53,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.1,
+          "max_hp": 0.9,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 8,
+          "spCost": 52,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        },
+        {
+          "atk": 1.2,
+          "max_hp": 1,
+          "damage_resistance": 0.3,
+          "attack@ep_damage_ratio": 0.25,
+          "ep_damage_ratio": 0.15,
+          "level": 9,
+          "spCost": 50,
+          "initialSp": 35,
+          "spType": "INCREASE_WITH_TIME",
+          "skillDuration": 35,
+          "skillType": "MANUAL",
+          "isToggle": false,
+          "isPermanent": false
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "candidates": [
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工匠的素养",
+          "description": "自身处于元素损伤爆发期间，每秒回复自身2%的最大生命值，若为<$ba.dt.rampage>狂躁损伤</>爆发，则改为3%的最大生命值",
+          "blackboard": {
+            "max_hp": 0,
+            "hp_ratio_1": 0.02,
+            "hp_ratio_2": 0.03
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 1,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "工匠的素养",
+          "description": "自身处于元素损伤爆发期间，每秒回复自身2%的最大生命值，若为<$ba.dt.rampage>狂躁损伤</>爆发，则改为5%<@ba.talpu>（+2%）</>的最大生命值",
+          "blackboard": {
+            "max_hp": 0,
+            "hp_ratio_1": 0.02,
+            "hp_ratio_2": 0.05
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 0,
+          "name": "工匠的素养",
+          "description": "自身处于元素损伤爆发期间，每秒回复自身2%的最大生命值，若为<$ba.dt.rampage>狂躁损伤</>爆发，则改为6%的最大生命值",
+          "blackboard": {
+            "max_hp": 0,
+            "hp_ratio_1": 0.02,
+            "hp_ratio_2": 0.06
+          },
+          "isHideTalent": false
+        },
+        {
+          "phase": 2,
+          "level": 1,
+          "potentialRank": 4,
+          "name": "工匠的素养",
+          "description": "自身处于元素损伤爆发期间，每秒回复自身2%的最大生命值，若为<$ba.dt.rampage>狂躁损伤</>爆发，则改为8%<@ba.talpu>（+2%）</>的最大生命值",
+          "blackboard": {
+            "max_hp": 0,
+            "hp_ratio_1": 0.02,
+            "hp_ratio_2": 0.08
+          },
+          "isHideTalent": false
+        }
+      ]
+    }
+  ],
+  "trait": null,
+  "potentialRanks": [
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "description": "再部署时间-4秒",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "RESPAWN_TIME",
+          "formula": "ADDITION",
+          "value": -4
+        }
+      ]
+    },
+    {
+      "description": "攻击力+25",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "ATK",
+          "formula": "ADDITION",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "description": "第一天赋效果增强",
+      "type": "CUSTOM",
+      "modifiers": []
+    },
+    {
+      "description": "部署费用-1",
+      "type": "BUFF",
+      "modifiers": [
+        {
+          "attr": "COST",
+          "formula": "ADDITION",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "uniequip_001_caledo",
+      "name": "镜匠证章",
+      "type": "INITIAL",
+      "typeName2": null,
+      "isSpecialEquip": false,
+      "unlockLevel": 0,
+      "order": 0,
+      "levels": []
+    },
+    {
+      "id": "uniequip_002_caledo",
+      "name": "“啊哈！”",
+      "type": "ADVANCED",
+      "typeName2": "X",
+      "isSpecialEquip": false,
+      "unlockLevel": 50,
+      "order": 1,
+      "levels": [
+        {
+          "level": 1,
+          "attributeBlackboard": {
+            "atk": 25,
+            "def": 15
+          },
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "attributeBlackboard": {
+            "atk": 38,
+            "def": 31
+          },
+          "talentEnhance": [
+            {
+              "name": "工匠的素养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.05,
+                "hp_ratio_1": 0.02,
+                "hp_ratio_2": 0.06
+              }
+            },
+            {
+              "name": "工匠的素养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.05,
+                "hp_ratio_1": 0.02,
+                "hp_ratio_2": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "attributeBlackboard": {
+            "atk": 60,
+            "def": 50
+          },
+          "talentEnhance": [
+            {
+              "name": "工匠的素养",
+              "requiredPotentialRank": 0,
+              "blackboard": {
+                "max_hp": 0.1,
+                "hp_ratio_1": 0.02,
+                "hp_ratio_2": 0.06
+              }
+            },
+            {
+              "name": "工匠的素养",
+              "requiredPotentialRank": 4,
+              "blackboard": {
+                "max_hp": 0.1,
+                "hp_ratio_1": 0.02,
+                "hp_ratio_2": 0.08
+              }
+            }
+          ],
+          "traitEnhance": [
+            {
+              "blackboard": {
+                "ep_damage_scale": 1.15
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

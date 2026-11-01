@@ -159,6 +159,19 @@ const eq = (a, e, label) => { if (a !== e) { fail++; console.log('  FAIL ' + lab
   near(calculateOperator(o, mk(o, -1, mod(o, 'uniequip_002_kirara', 3))).normalHps, 0.025 * (1980 + 330), 0.3, '绮良 X3 常态 HPS(2.5%)');
 }
 
+// ---- 国度(char_4246_dminon, 2026-11 版本新增) ----
+{
+  const o = loadOp('char_4246_dminon');
+  near(calculateOperator(o, mk(o, -1)).panelAtk, 967, 0.01, '国度 面板攻击力(927+信赖40)');
+  near(calculateOperator(o, mk(o, -1)).normalDps, 167.712, 0.02, '国度 常态 DPS(物理普攻 + 国度每秒法伤)');
+  const s1 = calculateOperator(o, mk(o, 0));
+  near(s1.skillTotalDamage, 4560.10, 0.5, '国度 S1 停步 总伤(攻速+普攻+国度法伤)');
+  const s2 = calculateOperator(o, mk(o, 1));
+  near(s2.skillTotalDamage, 8293.64, 0.5, '国度 S2 受戮 总伤(atk 加成普攻+国度法伤)');
+  const s3 = calculateOperator(o, mk(o, 2));
+  near(s3.skillTotalDamage, 25130.04, 1, '国度 S3 无人的国度 总伤(atk+范围+国度法伤)');
+}
+
 // ---- 不变量:非被动技能槽的常态化列 = 无技能态 ----
 {
   const ids = ['char_215_mantic', 'char_4132_ascln', 'char_4186_tmoris', 'char_437_mizuki', 'char_478_kirara'];

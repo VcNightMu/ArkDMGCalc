@@ -8,7 +8,7 @@ import { calcDamage } from './damage-ops-calc.js';
 import { calcPrimSkill, primNormalFields } from './primprotector-calc.js';
 import { OPERATOR_ELEMENT, steadyElementDps, fireWindowBenefit, simulateSkillTimeline } from './element-calc.js';
 import { calcPrimCasterSkill } from './primcaster-calc.js';
-import { calcPrimGuardSkill } from './primguard-calc.js';
+import { calcPrimGuardSkill, talulahNormalFields } from './primguard-calc.js';
 import { calcRitualSkill, ritualNormalFields, calcPhonorDeploy, setRitualEpMul } from './ritualist-calc.js';
 import { calcSummonerToken, isSummonerToken, SUMMONER_OWN_NORMAL_SKILLS } from './summoner-calc.js';
 
@@ -3341,6 +3341,11 @@ function stalkerNormalExtras(op, slotData, panelAtk, effRes, realInterval) {
       if (typeof v === 'number' && v > 0) artsDps += calcArtsDamage(v, effRes);
     }
   }
+  // 国度「实质坍缩」：攻击范围内弥漫"国度"，其中地面敌人每秒受 攻击力×atk_scale 法术伤害（精0 起常驻）
+  if (op.id === 'char_4246_dminon') {
+    const sc = funnelTalentValue(op, slotData, 0, 'atk_scale');
+    if (sc > 0) artsDps += calcArtsDamage(panelAtk * sc, effRes);
+  }
   return artsDps;
 }
 
@@ -3427,6 +3432,27 @@ function calcStalkerSkill(op, slotData, c) {
       physical: { skillDps: physTot / (skillDuration || 1), skillTotalDamage: physTot, cycleDps: null },
       arts: { skillDps: artsTot / (skillDuration || 1), skillTotalDamage: artsTot, cycleDps: null },
     });
+  }
+
+  // ---- 国度(char_4246_dminon) ----
+  if (op.id === 'char_4246_dminon') {
+    // 天赋「实质坍缩」：攻击范围内弥漫"国度"，其中地面敌人每秒受 攻击力×atk_scale 法术伤害（常驻，技能期照常）
+    const realmScale = funnelTalentValue(op, slotData, 0, 'atk_scale') || 0;
+    const realmDps = realmScale > 0 ? A(panelAtk * realmScale) : 0;
+    const h = durHits(skillDuration, sI);
+    const physPer = P(skillAtk);
+    const physTot = physPer * h;
+    const realmTot = realmDps * skillDuration;
+    let aoeTot = 0;
+    if (skillIndex === 2) {
+      // S3 无人的国度：额外范围伤害（attack@aoe_atk_scale，单目标模型按 1 目标全额）
+      const aoeScale = levelData['attack@aoe_atk_scale'] || 0;
+      aoeTot = P(skillAtk * aoeScale) * h;
+    }
+    const tot = physTot + realmTot + aoeTot;
+    const types = { physical: { skillDps: (physTot + aoeTot) / (skillDuration || 1), skillTotalDamage: physTot + aoeTot, cycleDps: null } };
+    if (realmTot > 0) types.arts = { skillDps: realmDps, skillTotalDamage: realmTot, cycleDps: null };
+    return mk('physical', tot / (skillDuration || 1), tot, null, sI, types);
   }
 
   // ---- 八幡海铃(char_4186_tmoris) ----
@@ -3979,6 +4005,11 @@ function calculateOperator(op, slotData, ctx) {
       const norm = primNormalFields(op, slotData, panelAtk, state.enemy);
       const isMed = op.id === 'char_2026_yu' && norm.normalTypes.arts; // 余常态含每秒法伤
       return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: norm.normalDps, normalTypes: norm.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: isMed ? 'physical' : 'physical', normalDamageType: 'physical' };
+    }
+    // 塔露拉 no-skill（primguard 本源近卫）：天赋「绝不妥协」攻击造成法术伤害 + 附带灼燃 → 常态法术 + 灼燃稳态
+    if (op.id === 'char_4247_oxi') {
+      const nf = talulahNormalFields(op, slotData, panelAtk, state.enemy);
+      return { type: 'damage', skillDps: 0, skillTotalDamage: 0, cycleDps: null, normalDps: nf.normalDps, normalTypes: nf.normalTypes, skillHps: null, normalHps: null, totalHeal: null, isToggle: false, isPermanent: false, realInterval, panelAtk, damageType: 'arts', normalDamageType: 'arts' };
     }
     // 阵法术师:特性「通常时不攻击」→ 常态不造成伤害(normalDps = 0)
     // 解放者(librator):特性「通常不攻击且阻挡数为 0」→ 无技能态常态行记 0(用户口径 2026-09-17)
@@ -6036,9 +6067,46 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       // 随后追加一次 final_atk_scale(专一 350%)范围法术伤害并浮空 1.5s → 一次性法术总伤(单目标口径)。
       const per = AaS(panelAtk * ((levelData.multi_atk_scale ?? 0) * 3 + (levelData.final_atk_scale ?? 0)));
       result = mkS(per, 0, calcCycleDps(levelData, realInterval, nAtkS, per), { arts: { skillDps: 0, skillTotalDamage: per, cycleDps: null } }, realInterval, null);
+    } else if (op.id === 'char_4244_tocka' && skillIndex === 2) {
+      // 冻河 S3「踽踽独行之春」(MANUAL 20s)：攻击力先 bonus_init_atk 提升、每秒 bonus_atk_dec_per_sec 衰减(线性平均)，
+      // 攻速 +attack_speed(已进 skillRealInterval)、每击 attack@atk_scale 倍物理、最多 4 目标(单目标模型=1)。
+      // 眩晕/范围扩敌为控制/索敌，不计。
+      const initAtk = levelData.bonus_init_atk || 0;
+      const dec = levelData.bonus_atk_dec_per_sec || 0;
+      const avgAtk = Math.max(0, initAtk - dec * skillDuration / 2);
+      const atkNow = skillAtk * (1 + avgAtk);
+      const hitScale = levelData['attack@atk_scale'] || 1;
+      const iv = skillRealInterval > 0 ? skillRealInterval : realInterval;
+      const n = Math.max(0, Math.floor(skillDuration / iv));
+      const per = calcPhysicalDamage(atkNow * hitScale, effDef);
+      const total = per * n;
+      result = mkS(total, skillDuration > 0 ? total / skillDuration : 0, null, { physical: { skillDps: skillDuration > 0 ? total / skillDuration : 0, skillTotalDamage: total, cycleDps: null } }, iv, null);
+    } else if (op.id === 'char_4244_tocka') {
+      // 冻河 S1「一无所有之人」护盾+眩晕(承伤向)/S2「意欲呼啸之心」攻速 buff(触发型 buff 不计输出) → 普攻照常归常态
+      result = { ...mkS(0, 0, null, undefined, realInterval, nDpsS), basePanelAtk: true };
     } else {
       // 其余技能(佩德洛 S2「交替撤离」/ 岳羽由加莉 S2「明镜止水」)触发型效果不计 → 技能期普攻照常归常态展示
       result = { ...mkS(0, 0, null, undefined, realInterval, nDpsS), basePanelAtk: true };
+    }
+  } else if (op.subProfessionId === 'dispatcher') {
+    // ===== 特种·调度者(dispatcher, 2026-11 新增子职业) =====
+    // 特性「开启技能后可以造成超远距离的群体物理伤害」(单目标模型 = 1 目标全额)。
+    // 行铃 S1 花椰菜冲击为 AUTO 触发型 atk_scale 单次强化(推力=控制不计) → 走通用触发型路径。
+    // 行铃 S2 蔬菜大拼盘：atk 加成 + 每次攻击倍率递增(attack@delta_atk_scale, 上限 attack@max_atk_scale)。
+    if (op.id === 'char_4170_hdbell' && skillIndex === 1) {
+      const delta = levelData['attack@delta_atk_scale'] || 0;
+      const maxScale = levelData['attack@max_atk_scale'] || 1;
+      const iv = skillRealInterval > 0 ? skillRealInterval : realInterval;
+      const n = Math.max(1, Math.floor(skillDuration / iv));
+      let totalMul = 0;
+      for (let i = 0; i < n; i++) totalMul += Math.min(1 + i * delta, maxScale);
+      const avgMul = totalMul / n;
+      const per = calcPhysicalDamage(skillAtk * avgMul, effDef);
+      const total = per * n;
+      result = { type: 'damage', damageType: 'physical', normalDamageType: 'physical', isToggle: false, isPermanent: false, skillDps: total / (skillDuration || 1), skillTotalDamage: total, cycleDps: null, normalDps: calcPhysicalDamage(panelAtk, effDef) / realInterval, skillHps: null, normalHps: null, totalHeal: null, realInterval: iv, panelAtk, dmgTypes: { physical: { skillDps: total / (skillDuration || 1), skillTotalDamage: total, cycleDps: null } } };
+    } else {
+      // S1 触发型（atk_scale 单次强化，引擎 dispatch 前已乘进 skillAtk）走通用触发型结算
+      result = calcDamage(params);
     }
   } else if (op.subProfessionId === 'underminer' && UNDERMINER_SPECIAL[op.id] && UNDERMINER_SPECIAL[op.id].includes(skillIndex)) {
     // ===== 辅助·削弱者(underminer)特例技能 =====

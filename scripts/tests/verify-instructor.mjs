@@ -28,5 +28,9 @@ r = run('char_485_pallas', -1); ok(near(r.normalDps, 130.5), '帕拉斯 常态(�
 r = run('char_485_pallas', 0); ok(near(r.skillTotalDamage, 542.4), '帕拉斯 胜利的连击 542.4 实=' + r.skillTotalDamage);
 r = run('char_485_pallas', 1); ok(near(r.skillTotalDamage, 11584.0), '帕拉斯 信念的长鞭 11584.0 实=' + r.skillTotalDamage);
 r = run('char_485_pallas', 2); ok(near(r.skillTotalDamage, 20344.8), '帕拉斯 英勇的祝福(精力充沛不触发)20344.8 实=' + r.skillTotalDamage);
+// 奥尔佳(char_4245_alga, 2026-11 版本新增)：天赋「先声夺人」友方光环不计；S1 交叉施压攻回触发型 atk_scale；S2 只为我的答案 atk 加成+嘲讽(控制不计)
+r = run('char_4245_alga', -1); ok(near(r.normalDps, 76.2), '奥尔佳 常态 76.2 实=' + r.normalDps);
+r = run('char_4245_alga', 0); ok(near(r.skillTotalDamage, 454.0), '奥尔佳 交叉施压 454.0 实=' + r.skillTotalDamage);
+r = run('char_4245_alga', 1); ok(near(r.skillTotalDamage, 6832.0), '奥尔佳 只为我的答案 6832.0 实=' + r.skillTotalDamage);
 console.log('教官: ' + pass + ' 通过 / ' + fail + ' 失败');
 process.exit(fail ? 1 : 0);
