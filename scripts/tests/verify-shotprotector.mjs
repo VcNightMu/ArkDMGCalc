@@ -65,7 +65,7 @@ check('深巡S2 DOT档总伤=dot×15s', near(ud2.dmgTypes.arts.skillTotalDamage,
 const rm = load('char_4194_rmixer.json');
 const rRaw = rawOf(rm);
 const rm1 = calculateOperator(rm, mk(rm, 0));
-check('搅拌机S1 受击AUTO 无周期', rm1.cycleDps === null);
+check('搅拌机S1 受击回复均伤 131.14(=普攻+单次/spCost×2s)', near(rm1.cycleDps, 131.140, 0.01));
 check('搅拌机S1 单次=三连击3×P(1.7atk)', near(rm1.skillTotalDamage, 3 * P(rRaw * 1.7)));
 const rm2 = calculateOperator(rm, mk(rm, 1));
 check('搅拌机S2 总伤=P(2.2atk)×47发', near(rm2.skillTotalDamage, P(rRaw * 2.2) * 47));

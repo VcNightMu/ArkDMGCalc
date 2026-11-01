@@ -60,7 +60,7 @@ check('火神S1 type=heal(含治疗通道)', hpS1.type === 'heal');
 // ===== 泥岩 S2「岩崩锤」：受击触发，单次 2.3atk 物理 + 回 5%最大生命 =====
 const mudPs = calcPanelStats(mud, mk(mud, -1, 7));
 const mS2 = calculateOperator(mud, mk(mud, 1, 7));
-check('泥岩S2 无周期(受击回复)', mS2.cycleDps === null || mS2.cycleDps === undefined);
+check('泥岩S2 受击回复均伤 354.83(=普攻+单次/spCost×2s)', near(mS2.cycleDps, 354.825, 0.01));
 check('泥岩S2 单次总伤=2.3atk物理', near(mS2.skillTotalDamage, calcPhysicalDamage(mudPs.panelAtk * 2.3, 600)));
 check('泥岩S2 自疗=5%最大生命', near(mS2.totalHeal, mudPs.panelHp * 0.05));
 check('泥岩S2 常态DPS保留', mS2.normalDps > 0);

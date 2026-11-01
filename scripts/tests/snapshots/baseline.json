@@ -16029,7 +16029,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 920,
-    "cDps": null,
+    "cDps": 40.044,
     "nDps": 15.833,
     "sHps": null,
     "nHps": null,
@@ -16038,7 +16038,7 @@
      "physical": {
       "sd": 0,
       "st": 920,
-      "cd": 63.421
+      "cd": 40.044
      }
     },
     "nm": null
@@ -16086,7 +16086,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 920,
-    "cDps": null,
+    "cDps": 40.044,
     "nDps": 15.833,
     "sHps": null,
     "nHps": null,
@@ -16095,7 +16095,7 @@
      "physical": {
       "sd": 0,
       "st": 920,
-      "cd": 63.421
+      "cd": 40.044
      }
     },
     "nm": null
@@ -16143,7 +16143,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 920,
-    "cDps": null,
+    "cDps": 40.044,
     "nDps": 15.833,
     "sHps": null,
     "nHps": null,
@@ -16152,7 +16152,7 @@
      "physical": {
       "sd": 0,
       "st": 920,
-      "cd": 63.421
+      "cd": 40.044
      }
     },
     "nm": null
@@ -16200,7 +16200,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 920,
-    "cDps": null,
+    "cDps": 40.044,
     "nDps": 15.833,
     "sHps": null,
     "nHps": null,
@@ -16209,7 +16209,7 @@
      "physical": {
       "sd": 0,
       "st": 920,
-      "cd": 63.421
+      "cd": 40.044
      }
     },
     "nm": null
@@ -19194,7 +19194,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 18.417,
     "nDps": 18.417,
     "sHps": null,
     "nHps": null,
@@ -19239,7 +19239,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 18.417,
     "nDps": 18.417,
     "sHps": null,
     "nHps": null,
@@ -19284,7 +19284,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 18.417,
     "nDps": 18.417,
     "sHps": null,
     "nHps": null,
@@ -19329,7 +19329,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 18.417,
     "nDps": 18.417,
     "sHps": null,
     "nHps": null,
@@ -20010,7 +20010,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1428.6,
-    "cDps": null,
+    "cDps": 354.825,
     "nDps": 176.25,
     "sHps": null,
     "nHps": null,
@@ -20019,7 +20019,7 @@
      "physical": {
       "sd": 0,
       "st": 1428.6,
-      "cd": 498.15
+      "cd": 354.825
      }
     },
     "nm": null
@@ -20088,7 +20088,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1555.1,
-    "cDps": null,
+    "cDps": 405.013,
     "nDps": 210.625,
     "sHps": null,
     "nHps": null,
@@ -20097,7 +20097,7 @@
      "physical": {
       "sd": 0,
       "st": 1555.1,
-      "cd": 557.275
+      "cd": 405.013
      }
     },
     "nm": null
@@ -20166,7 +20166,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1589.6,
-    "cDps": null,
+    "cDps": 418.7,
     "nDps": 220,
     "sHps": null,
     "nHps": null,
@@ -20175,7 +20175,7 @@
      "physical": {
       "sd": 0,
       "st": 1589.6,
-      "cd": 573.4
+      "cd": 418.7
      }
     },
     "nm": null
@@ -20244,7 +20244,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1612.6,
-    "cDps": null,
+    "cDps": 427.825,
     "nDps": 226.25,
     "sHps": null,
     "nHps": null,
@@ -20253,7 +20253,7 @@
      "physical": {
       "sd": 0,
       "st": 1612.6,
-      "cd": 584.15
+      "cd": 427.825
      }
     },
     "nm": null
@@ -20322,7 +20322,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1566.6,
-    "cDps": null,
+    "cDps": 409.575,
     "nDps": 213.75,
     "sHps": null,
     "nHps": null,
@@ -20331,7 +20331,7 @@
      "physical": {
       "sd": 0,
       "st": 1566.6,
-      "cd": 562.65
+      "cd": 409.575
      }
     },
     "nm": null
@@ -20400,7 +20400,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1601.1,
-    "cDps": null,
+    "cDps": 423.263,
     "nDps": 223.125,
     "sHps": null,
     "nHps": null,
@@ -20409,7 +20409,7 @@
      "physical": {
       "sd": 0,
       "st": 1601.1,
-      "cd": 578.775
+      "cd": 423.263
      }
     },
     "nm": null
@@ -20478,7 +20478,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1624.1,
-    "cDps": null,
+    "cDps": 432.388,
     "nDps": 229.375,
     "sHps": null,
     "nHps": null,
@@ -20487,7 +20487,7 @@
      "physical": {
       "sd": 0,
       "st": 1624.1,
-      "cd": 589.525
+      "cd": 432.388
      }
     },
     "nm": null
@@ -21847,7 +21847,7 @@
     "int": 1.6,
     "sDps": 523.45,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 76.25,
     "nDps": 76.25,
     "sHps": null,
     "nHps": null,
@@ -21856,7 +21856,7 @@
      "arts": {
       "sd": 523.45,
       "st": 0,
-      "cd": null
+      "cd": 0
      }
     },
     "nm": null
@@ -21930,7 +21930,7 @@
     "int": 1.6,
     "sDps": 563.325,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 110.625,
     "nDps": 110.625,
     "sHps": null,
     "nHps": null,
@@ -21939,7 +21939,7 @@
      "arts": {
       "sd": 563.325,
       "st": 0,
-      "cd": null
+      "cd": 0
      }
     },
     "nm": null
@@ -22013,7 +22013,7 @@
     "int": 1.6,
     "sDps": 574.2,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 120,
     "nDps": 120,
     "sHps": null,
     "nHps": null,
@@ -22022,7 +22022,7 @@
      "arts": {
       "sd": 574.2,
       "st": 0,
-      "cd": null
+      "cd": 0
      }
     },
     "nm": null
@@ -22096,7 +22096,7 @@
     "int": 1.6,
     "sDps": 581.45,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 126.25,
     "nDps": 126.25,
     "sHps": null,
     "nHps": null,
@@ -22105,7 +22105,7 @@
      "arts": {
       "sd": 581.45,
       "st": 0,
-      "cd": null
+      "cd": 0
      }
     },
     "nm": null
@@ -26002,7 +26002,7 @@
     "int": 1.101,
     "sDps": 0,
     "sTot": 1076.4,
-    "cDps": null,
+    "cDps": 131.14,
     "nDps": 23.5,
     "sHps": null,
     "nHps": null,
@@ -26011,7 +26011,7 @@
      "physical": {
       "sd": 0,
       "st": 1076.4,
-      "cd": 237.84
+      "cd": 131.14
      }
     },
     "nm": null
@@ -26080,7 +26080,7 @@
     "int": 1.101,
     "sDps": 0,
     "sTot": 1280.4,
-    "cDps": null,
+    "cDps": 153.207,
     "nDps": 25.167,
     "sHps": null,
     "nHps": null,
@@ -26089,7 +26089,7 @@
      "physical": {
       "sd": 0,
       "st": 1280.4,
-      "cd": 280.24
+      "cd": 153.207
      }
     },
     "nm": null
@@ -26158,7 +26158,7 @@
     "int": 1.071,
     "sDps": 0,
     "sTot": 1321.2,
-    "cDps": null,
+    "cDps": 157.62,
     "nDps": 25.5,
     "sHps": null,
     "nHps": null,
@@ -26167,7 +26167,7 @@
      "physical": {
       "sd": 0,
       "st": 1321.2,
-      "cd": 288.72
+      "cd": 157.62
      }
     },
     "nm": null
@@ -26236,7 +26236,7 @@
     "int": 1.043,
     "sDps": 0,
     "sTot": 1351.8,
-    "cDps": null,
+    "cDps": 160.93,
     "nDps": 25.75,
     "sHps": null,
     "nHps": null,
@@ -26245,7 +26245,7 @@
      "physical": {
       "sd": 0,
       "st": 1351.8,
-      "cd": 295.08
+      "cd": 160.93
      }
     },
     "nm": null
@@ -26314,7 +26314,7 @@
     "int": 1.101,
     "sDps": 0,
     "sTot": 1382.4,
-    "cDps": null,
+    "cDps": 164.24,
     "nDps": 26,
     "sHps": null,
     "nHps": null,
@@ -26323,7 +26323,7 @@
      "physical": {
       "sd": 0,
       "st": 1382.4,
-      "cd": 301.44
+      "cd": 164.24
      }
     },
     "nm": null
@@ -26392,7 +26392,7 @@
     "int": 1.101,
     "sDps": 0,
     "sTot": 1423.2,
-    "cDps": null,
+    "cDps": 168.987,
     "nDps": 26.667,
     "sHps": null,
     "nHps": null,
@@ -26401,7 +26401,7 @@
      "physical": {
       "sd": 0,
       "st": 1423.2,
-      "cd": 310.24
+      "cd": 168.987
      }
     },
     "nm": null
@@ -26470,7 +26470,7 @@
     "int": 1.101,
     "sDps": 0,
     "sTot": 1453.8,
-    "cDps": null,
+    "cDps": 177.047,
     "nDps": 31.667,
     "sHps": null,
     "nHps": null,
@@ -26479,7 +26479,7 @@
      "physical": {
       "sd": 0,
       "st": 1453.8,
-      "cd": 321.16
+      "cd": 177.047
      }
     },
     "nm": null
@@ -26899,7 +26899,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 19.583,
     "nDps": 19.583,
     "sHps": null,
     "nHps": null,
@@ -26950,7 +26950,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 21.167,
     "nDps": 21.167,
     "sHps": null,
     "nHps": null,
@@ -27001,7 +27001,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 21.542,
     "nDps": 21.542,
     "sHps": null,
     "nHps": null,
@@ -27052,7 +27052,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 0,
-    "cDps": null,
+    "cDps": 21.75,
     "nDps": 21.75,
     "sHps": null,
     "nHps": null,
@@ -134976,7 +134976,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 1931.25,
-    "cDps": null,
+    "cDps": 212.656,
     "nDps": 19.531,
     "sHps": null,
     "nHps": null,
@@ -134985,12 +134985,12 @@
      "physical": {
       "sd": 0,
       "st": 1087.5,
-      "cd": null
+      "cd": 128.281
      },
      "element": {
       "sd": 0,
       "st": 843.75,
-      "cd": null
+      "cd": 84.375
      }
     },
     "nm": null
@@ -135051,7 +135051,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 2032.5,
-    "cDps": null,
+    "cDps": 234.5,
     "nDps": 31.25,
     "sHps": null,
     "nHps": null,
@@ -135060,12 +135060,12 @@
      "physical": {
       "sd": 0,
       "st": 1155,
-      "cd": null
+      "cd": 146.75
      },
      "element": {
       "sd": 0,
       "st": 877.5,
-      "cd": null
+      "cd": 87.75
      }
     },
     "nm": null
@@ -135126,7 +135126,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 2085.15,
-    "cDps": null,
+    "cDps": 247.89,
     "nDps": 39.375,
     "sHps": null,
     "nHps": null,
@@ -135135,12 +135135,12 @@
      "physical": {
       "sd": 0,
       "st": 1190.1,
-      "cd": null
+      "cd": 158.385
      },
      "element": {
       "sd": 0,
       "st": 895.05,
-      "cd": null
+      "cd": 89.505
      }
     },
     "nm": null
@@ -135201,7 +135201,7 @@
     "int": 1.6,
     "sDps": 0,
     "sTot": 2174.25,
-    "cDps": null,
+    "cDps": 270.55,
     "nDps": 53.125,
     "sHps": null,
     "nHps": null,
@@ -135210,12 +135210,12 @@
      "physical": {
       "sd": 0,
       "st": 1249.5,
-      "cd": null
+      "cd": 178.075
      },
      "element": {
       "sd": 0,
       "st": 924.75,
-      "cd": null
+      "cd": 92.475
      }
     },
     "nm": null

@@ -6447,18 +6447,41 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
       result = { ...result, dmgTypes: clean };
     }
   }
-  // 受击回复触发型技能(INCREASE_WHEN_TAKEN_DAMAGE,无自然充能周期):不展示周期 DPS,仅保留单次技能总伤/总治疗；
-  // 常态普攻照常展示——这类技能不停止攻击(可颂 S2 磁爆锤/泥岩 S2 岩崩锤等单发触发型 dur=0 走 calcDamage
-  // else 分支 normalDps 为 null,此处统一按职业普攻口径补回;有持续时间的受击型(斥罪 S3)已有 normalDps 不覆盖)
+  // 受击回复技能(INCREASE_WHEN_TAKEN_DAMAGE)：敌方每次攻击 +1 SP → 充能周期 = spCost × 敌方攻击间隔。
+  // 触发型(skillDuration<=0，如可颂 S2/泥岩 S2/镜匠 S1/吽 S1 等)：按该周期算均伤 cycleDps = 普攻 + 单次/周期；
+  // 持续型(skillDuration>0，如斥罪 S3/瑕光 S3/余 S1 等)：按自动回复持续型口径分技能期与常态，不套受击周期(保持 cycleDps=null)。
+  // 常态普攻照常展示——这类技能不停止攻击(单发触发型 dur=0 走 calcDamage else 分支 normalDps 为 null,此处统一按职业普攻口径补回)。
   if (levelData.spType === 'INCREASE_WHEN_TAKEN_DAMAGE' && !isMedic && !isSummon) {
     const normI = phase.baseAttackTime > 0 ? phase.baseAttackTime : 1;
     const normTypeArts = op.damageType === 'arts';
     const normalDps = (normTypeArts ? calcArtsDamage(panelAtk, state.enemy.res) : calcPhysicalDamage(panelAtk, effDef)) / normI;
+    let cycleDps = null;
+    let dmgTypes = result.dmgTypes;
+    if ((levelData.skillDuration ?? -1) <= 0) {
+      // 触发型：充能周期 = spCost × 敌方攻击间隔（默认 2s）
+      const atkInterval = (state.enemy && typeof state.enemy.attackInterval === 'number' && state.enemy.attackInterval > 0)
+        ? state.enemy.attackInterval : 2;
+      const spCost = levelData.spCost || 0;
+      if (spCost > 0 && atkInterval > 0) {
+        const cycleSec = spCost * atkInterval;
+        cycleDps = normalDps + (result.skillTotalDamage || 0) / cycleSec;
+        if (dmgTypes) {
+          const normKey = normTypeArts ? 'arts' : 'physical';
+          const newTypes = {};
+          for (const t of Object.keys(dmgTypes)) {
+            const st = dmgTypes[t].skillTotalDamage || 0;
+            newTypes[t] = { ...dmgTypes[t], cycleDps: (t === normKey ? normalDps : 0) + st / cycleSec };
+          }
+          dmgTypes = newTypes;
+        }
+      }
+    }
     result = {
       ...result,
-      cycleDps: null,
+      cycleDps,
       normalDps: result.normalDps ?? normalDps,
       normalDamageType: normTypeArts ? 'arts' : 'physical',
+      ...(dmgTypes ? { dmgTypes } : {}),
     };
   }
   // 受击回复触发时的自疗(泥岩 S2 岩崩锤:触发时回 maxHp×hp_ratio 单发;常态普攻保留展示)

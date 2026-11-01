@@ -170,7 +170,7 @@ check('镜匠 E2 atk=625', near(calPan.panelAtk, 625, 1));
 {
   const r = calculateOperator(caledo, mk(caledo, 0, 9));
   check('镜匠 S1 物理 1212.5 + 狂躁累积 906.25 = 2118.75(受击回技力触发型)', near(r.skillTotalDamage, 2118.75, 1));
-  check('镜匠 S1 无周期(cycleDps null)', r.cycleDps === null);
+  check('镜匠 S1 受击回复均伤 372.66(=普攻+单次/spCost×2s)', near(r.cycleDps, 372.656, 0.1));
   check('镜匠 S1 元素档=单次狂躁累积 906.25', r.dmgTypes && near(r.dmgTypes.element.skillTotalDamage, 906.25, 1));
 }
 {

@@ -100,10 +100,10 @@ const nianS3 = calculateOperator(nian, mk(nian, 2, 7));
 check('年S3 技能期DPS>常态(atk+90%)', nianS3.skillDps > nianS3.normalDps);
 check('年S3 总伤=物理(atk×1.9)×次数(41s/1.5)', near(nianS3.skillTotalDamage, phys(nianPs.panelAtk * 1.9) * Math.floor(41 / nianInt)));
 
-// ===== 可颂 S2「磁爆锤」：受击回复触发型，不展示周期，仅单次总伤=4×攻击力物理 =====
+// ===== 可颂 S2「磁爆锤」：受击回复触发型，充能周期=spCost(20)×敌方攻击间隔(2s)=40s，均伤=普攻+单次/周期 =====
 const moeshdS2 = calculateOperator(moeshd, mk(moeshd, 1, 7));
 const moeAtk = calcPanelStats(moeshd, mk(moeshd, -1, 7)).panelAtk;
-check('可颂S2 无周期DPS(受击回复)', moeshdS2.cycleDps === null || moeshdS2.cycleDps === undefined);
+check('可颂S2 受击回复均伤 40.04(=普攻+单次/40s)', near(moeshdS2.cycleDps, 40.044, 0.01));
 check('可颂S2 单次总伤=4×攻击力物理', near(moeshdS2.skillTotalDamage, phys(moeAtk * 4)));
 // 回归:受击回复单发型需保留常态普攻展示(同泥岩S2口径,曾漏补 normalDps=null)
 check('可颂S2 常态DPS保留=保底物伤/1.2s', moeshdS2.normalDps !== null && moeshdS2.normalDps !== undefined && near(moeshdS2.normalDps, Math.max(moeAtk - 600, moeAtk * 0.05) / 1.2, 0.01));

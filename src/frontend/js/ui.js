@@ -84,7 +84,8 @@ function initEnemyPanel() {
     hp: document.getElementById('enemy-hp'),
     atk: document.getElementById('enemy-atk'),
     def: document.getElementById('enemy-def'),
-    res: document.getElementById('enemy-res')
+    res: document.getElementById('enemy-res'),
+    attackInterval: document.getElementById('enemy-atkinterval')
   };
   Object.entries(inputs).forEach(([key, input]) => {
     input.addEventListener('input', () => {
