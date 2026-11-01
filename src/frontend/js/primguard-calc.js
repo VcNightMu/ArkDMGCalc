@@ -294,18 +294,15 @@ function calcTalulahSkill(c) {
         { atk: skillAtk, dmgMul: 1, el: EL, epMul: epRatio, epBase: 'damage', times: skillTimes },
       ],
     });
-    const elementPerLoop = sim.element / nLoops;       // 每循环灼燃爆条平均
-    const elementDps = loopT > 0 ? elementPerLoop / loopT : 0;
-    let cyc = null;
-    if (sp > 0) {
-      const genCycle = result.cycleDps;
-      const normalPart = (genCycle !== null && genCycle !== undefined)
-        ? genCycle * sp - (result.skillTotalDamage || 0)
-        : A(panelAtk) * nNormal;
-      cyc = (normalPart + arts) / sp + elementDps;     // 循环法术 + 灼燃爆条平均
-    }
-    const dmgTypes = { arts: { skillDps: 0, skillTotalDamage: arts, cycleDps: cyc } };
-    if (elementPerLoop > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: elementPerLoop, cycleDps: elementDps };
+    const elementPerLoop = sim.element / nLoops;       // 每循环灼燃爆条平均（跨循环稳态）
+    // 周期统一取实际循环时间 loopT=(nNormal+1)×I（技能每 loopT 秒打出一次，而非 spCost 秒）
+    const normalPart = A(panelAtk) * nNormal;          // 充能期普攻法术(≈6 次)
+    const artsCycle = loopT > 0 ? (normalPart + arts) / loopT : null;   // 循环法术 DPS(纯法术)
+    const elementDps = loopT > 0 ? elementPerLoop / loopT : 0;           // 循环元素 DPS(灼燃爆条)
+    const cyc = (artsCycle ?? 0) + elementDps;                    // 总循环 DPS
+    // 「总伤」= 单次技能法术；灼燃爆条是循环累积的 → 只进「循环 DPS」，单次总伤的元素档记 0
+    const dmgTypes = { arts: { skillDps: 0, skillTotalDamage: arts, cycleDps: artsCycle } };
+    if (elementPerLoop > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: 0, cycleDps: elementDps };
     return {
       ...result, type: 'damage', damageType: 'arts', normalDamageType: 'arts',
       skillDps: 0, skillTotalDamage: arts, cycleDps: cyc,
