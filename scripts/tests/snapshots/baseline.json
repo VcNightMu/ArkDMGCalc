@@ -134047,7 +134047,7 @@
     "sDps": 0,
     "sTot": 0,
     "cDps": null,
-    "nDps": 738.622,
+    "nDps": 623.602,
     "sHps": null,
     "nHps": null,
     "tHeal": null,
@@ -134057,7 +134057,7 @@
       "dps": 402.083
      },
      "element": {
-      "dps": 336.538
+      "dps": 221.519
      }
     }
    },
@@ -134068,7 +134068,7 @@
     "int": 1.2,
     "sDps": 0,
     "sTot": 2509,
-    "cDps": 675.5,
+    "cDps": 953.278,
     "nDps": null,
     "sHps": null,
     "nHps": null,
@@ -134077,7 +134077,12 @@
      "arts": {
       "sd": 0,
       "st": 2509,
-      "cd": 675.5
+      "cd": 953.278
+     },
+     "element": {
+      "sd": 0,
+      "st": 2333.333,
+      "cd": 277.778
      }
     },
     "nm": null
@@ -134970,7 +134975,7 @@
     "atk": 1687.5,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 1087.5,
+    "sTot": 1931.25,
     "cDps": null,
     "nDps": 19.531,
     "sHps": null,
@@ -134980,6 +134985,11 @@
      "physical": {
       "sd": 0,
       "st": 1087.5,
+      "cd": null
+     },
+     "element": {
+      "sd": 0,
+      "st": 843.75,
       "cd": null
      }
     },
@@ -135040,7 +135050,7 @@
     "atk": 1755,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 1155,
+    "sTot": 2032.5,
     "cDps": null,
     "nDps": 31.25,
     "sHps": null,
@@ -135050,6 +135060,11 @@
      "physical": {
       "sd": 0,
       "st": 1155,
+      "cd": null
+     },
+     "element": {
+      "sd": 0,
+      "st": 877.5,
       "cd": null
      }
     },
@@ -135110,7 +135125,7 @@
     "atk": 1790.1,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 1190.1,
+    "sTot": 2085.15,
     "cDps": null,
     "nDps": 39.375,
     "sHps": null,
@@ -135120,6 +135135,11 @@
      "physical": {
       "sd": 0,
       "st": 1190.1,
+      "cd": null
+     },
+     "element": {
+      "sd": 0,
+      "st": 895.05,
       "cd": null
      }
     },
@@ -135180,7 +135200,7 @@
     "atk": 1849.5,
     "int": 1.6,
     "sDps": 0,
-    "sTot": 1249.5,
+    "sTot": 2174.25,
     "cDps": null,
     "nDps": 53.125,
     "sHps": null,
@@ -135190,6 +135210,11 @@
      "physical": {
       "sd": 0,
       "st": 1249.5,
+      "cd": null
+     },
+     "element": {
+      "sd": 0,
+      "st": 924.75,
       "cd": null
      }
     },
@@ -135275,8 +135300,8 @@
     "dt": "physical",
     "atk": 2250,
     "int": 3,
-    "sDps": 835,
-    "sTot": 30060,
+    "sDps": 550,
+    "sTot": 19800,
     "cDps": null,
     "nDps": 257.143,
     "sHps": null,
@@ -135284,8 +135309,8 @@
     "tHeal": null,
     "dmg": {
      "physical": {
-      "sd": 835,
-      "st": 30060,
+      "sd": 550,
+      "st": 19800,
       "cd": null
      }
     },

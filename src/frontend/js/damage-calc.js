@@ -6092,16 +6092,13 @@ function calcSummonFormMode(op, skillIndex, panelAtk, phase, ctx, levelData) {
     // ===== 特种·调度者(dispatcher, 2026-11 新增子职业) =====
     // 特性「开启技能后可以造成超远距离的群体物理伤害」(单目标模型 = 1 目标全额)。
     // 行铃 S1 花椰菜冲击为 AUTO 触发型 atk_scale 单次强化(推力=控制不计) → 走通用触发型路径。
-    // 行铃 S2 蔬菜大拼盘：atk 加成 + 每次攻击倍率递增(attack@delta_atk_scale, 上限 attack@max_atk_scale)。
+    // 行铃 S2 蔬菜大拼盘：atk 加成(入口已并入 skillAtk) + 攻速(base_attack_time 已进 skillRealInterval)。
+    // attack@delta_atk_scale 是「驮兽每经过一格距离额外 +12%」、attack@max_atk_scale 是其上限，均按与敌人的距离计；
+    // 默认阻挡到敌人 → 距离 0 → 无额外伤害提升，故不计。
     if (op.id === 'char_4170_hdbell' && skillIndex === 1) {
-      const delta = levelData['attack@delta_atk_scale'] || 0;
-      const maxScale = levelData['attack@max_atk_scale'] || 1;
       const iv = skillRealInterval > 0 ? skillRealInterval : realInterval;
       const n = Math.max(1, Math.floor(skillDuration / iv));
-      let totalMul = 0;
-      for (let i = 0; i < n; i++) totalMul += Math.min(1 + i * delta, maxScale);
-      const avgMul = totalMul / n;
-      const per = calcPhysicalDamage(skillAtk * avgMul, effDef);
+      const per = calcPhysicalDamage(skillAtk, effDef);
       const total = per * n;
       result = { type: 'damage', damageType: 'physical', normalDamageType: 'physical', isToggle: false, isPermanent: false, skillDps: total / (skillDuration || 1), skillTotalDamage: total, cycleDps: null, normalDps: calcPhysicalDamage(panelAtk, effDef) / realInterval, skillHps: null, normalHps: null, totalHeal: null, realInterval: iv, panelAtk, dmgTypes: { physical: { skillDps: total / (skillDuration || 1), skillTotalDamage: total, cycleDps: null } } };
     } else {

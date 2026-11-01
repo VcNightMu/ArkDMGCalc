@@ -275,27 +275,40 @@ function calcTalulahSkill(c) {
   const epRatio = talulahEpRatio(op, slotData);
 
   if (skillIndex === 0) {
-    // S1 照霎白夜：自回触发型单发，atk_scale 倍法术（skillAtk 已含 atk_scale，引擎 dispatch 前已乘）+ 天赋灼燃
+    // S1 照霎白夜：自回触发型单发，atk_scale 倍法术（skillAtk 已含 atk_scale）+ 天赋灼燃。
+    // 天赋灼燃是常驻的：循环内普攻(法术)与技能都累积灼燃 → 跨循环稳态爆条(7000/cd10)。
     const arts = A(skillAtk);
-    const sim = simulateElementTimeline({
-      grade, duration: 1, enemy: { res: effRes || 0 },
-      streams: [{ atk: skillAtk, dmgMul: 1, el: EL, epMul: epRatio, epBase: 'damage', times: [0] }],
-    });
-    const total = arts + sim.element;
     const sp = num(L.spCost, 8);
+    const nNormal = Math.max(0, Math.floor(sp / I));   // 充能期普攻次数(≈6)
+    const loopT = (nNormal + 1) * I;                   // 循环时长 = 7 次攻击
+    const nLoops = 30;
+    const normalTimes = [], skillTimes = [];
+    for (let k = 0; k < nLoops; k++) {
+      for (let i = 1; i <= nNormal; i++) normalTimes.push(k * loopT + i * I);
+      skillTimes.push(k * loopT + (nNormal + 1) * I);
+    }
+    const sim = simulateElementTimeline({
+      grade, duration: nLoops * loopT, enemy: { res: effRes || 0 },
+      streams: [
+        { atk: panelAtk, dmgMul: 1, el: EL, epMul: epRatio, epBase: 'damage', times: normalTimes },
+        { atk: skillAtk, dmgMul: 1, el: EL, epMul: epRatio, epBase: 'damage', times: skillTimes },
+      ],
+    });
+    const elementPerLoop = sim.element / nLoops;       // 每循环灼燃爆条平均
+    const elementDps = loopT > 0 ? elementPerLoop / loopT : 0;
     let cyc = null;
     if (sp > 0) {
       const genCycle = result.cycleDps;
       const normalPart = (genCycle !== null && genCycle !== undefined)
         ? genCycle * sp - (result.skillTotalDamage || 0)
-        : A(panelAtk) * Math.max(0, Math.floor(sp / I));
-      cyc = (normalPart + total) / sp;
+        : A(panelAtk) * nNormal;
+      cyc = (normalPart + arts) / sp + elementDps;     // 循环法术 + 灼燃爆条平均
     }
     const dmgTypes = { arts: { skillDps: 0, skillTotalDamage: arts, cycleDps: cyc } };
-    if (sim.element > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: sim.element, cycleDps: null };
+    if (elementPerLoop > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: elementPerLoop, cycleDps: elementDps };
     return {
       ...result, type: 'damage', damageType: 'arts', normalDamageType: 'arts',
-      skillDps: 0, skillTotalDamage: total, cycleDps: cyc,
+      skillDps: 0, skillTotalDamage: arts, cycleDps: cyc,
       normalDps: result.normalDps, realInterval: I, skillAtkOut: skillAtk, dmgTypes,
     };
   }
@@ -338,7 +351,8 @@ export function talulahNormalFields(op, slotData, panelAtk, enemy) {
   const artsDps = calcArtsDamage(panelAtk, enemy.res) / baseInt;
   let elementDps = 0;
   if (epRatio > 0) {
-    const st = steadyElementDps(grade, 'fire', panelAtk * epRatio, baseInt, null);
+    // 灼燃损伤 = 该次法术伤害(吃法抗后) × epRatio
+    const st = steadyElementDps(grade, 'fire', calcArtsDamage(panelAtk, enemy.res) * epRatio, baseInt, null);
     elementDps += st.avgDps;
   }
   const normalTypes = { arts: { dps: artsDps } };

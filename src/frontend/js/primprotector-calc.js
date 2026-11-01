@@ -237,17 +237,20 @@ export function calcPrimSkill(p) {
   if (id === 'char_4169_caledo') {
     if (si === 0) {
       // S1 无公差切割：受击回技力触发型（引擎口径：无自然充能周期 → 不展示 cycleDps，仅单次总伤）。
-      // 单次 atk_scale 物理强化 + 附带的 ep_damage_ratio 狂躁损伤（单次损伤通常不足 1000 不爆条）。
+      // 单次 atk_scale 物理强化 + 附带 ep_damage_ratio 狂躁损伤（单次损伤不足 1000 不爆条，但损伤本身计入元素档）。
       const scale = levelData.atk_scale || 1;
       const epMul = levelData.ep_damage_ratio || 0;
       const phys = calcPhysicalDamage(skillAtk * scale, enemy.def);
+      const epAmt = (skillAtk * scale) * epMul;   // 单次狂躁损伤累积量
       const sim = simulateSkillTimeline({
         grade, duration: 1, enemy,
         dots: [{ type: null, atk: skillAtk * scale, epMul, el, interval: 1, count: 1 }],
       });
-      const total = phys + sim.element;
+      // 元素档 = 爆条伤害(单次若爆条) + 累积量(未爆条部分)
+      const element = sim.element > 0 ? sim.element : epAmt;
+      const total = phys + element;
       const dmgTypes = { physical: { skillDps: 0, skillTotalDamage: phys, cycleDps: null } };
-      if (sim.element > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: sim.element, cycleDps: null };
+      if (element > 0) dmgTypes.element = { skillDps: 0, skillTotalDamage: element, cycleDps: null };
       return {
         type: 'damage', skillDps: 0, skillTotalDamage: total, cycleDps: null,
         normalDps: null, normalTypes: undefined,

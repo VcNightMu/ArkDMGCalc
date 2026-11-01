@@ -91,12 +91,14 @@ const runO = (si) => calculateOperator(ox, { elite: oe, level: ox.phases[oe].max
 let ro = runO(-1);
 ok(ro.damageType === 'arts', '塔露拉 damageType = arts（天赋「绝不妥协」攻击造成法术伤害）实=' + ro.damageType);
 ok(near(ro.panelAtk, 965) && near(ro.realInterval, 1.2), '塔露拉 面板 875+90=965 / 间隔 1.2 实=' + ro.panelAtk + '/' + ro.realInterval);
-ok(near(ro.normalDps, 738.62) && ro.normalTypes && ro.normalTypes.arts && ro.normalTypes.element,
-  '塔露拉 常态 法术 + 灼燃稳态 738.62 实=' + ro.normalDps + '/' + JSON.stringify(ro.normalTypes));
+ok(near(ro.normalDps, 623.60) && ro.normalTypes && ro.normalTypes.arts && ro.normalTypes.element,
+  '塔露拉 常态 法术 402.08 + 灼燃稳态 221.52 = 623.60 实=' + ro.normalDps + '/' + JSON.stringify(ro.normalTypes));
 
 ro = runO(0);
-ok(near(ro.panelAtk, 5790) && near(ro.skillTotalDamage, 2895) && near(ro.cycleDps, 723.75),
-  '塔露拉 S1 照霎白夜(6.0×965 法术)2895/循环 723.75 实=' + ro.skillTotalDamage + '/' + ro.cycleDps);
+ok(near(ro.panelAtk, 5790) && near(ro.skillTotalDamage, 2895) && near(ro.cycleDps, 1001.53),
+  '塔露拉 S1 照霎白夜(6.0×965 法术)2895/循环 1001.53(含灼燃爆条) 实=' + ro.skillTotalDamage + '/' + ro.cycleDps);
+ok(ro.dmgTypes && ro.dmgTypes.element && near(ro.dmgTypes.element.skillTotalDamage, 2333.33),
+  '塔露拉 S1 含灼燃爆条档(每循环平均 2333.33) 实=' + JSON.stringify(ro.dmgTypes.element));
 
 ro = runO(2);
 ok(near(ro.skillTotalDamage, 75374) && near(ro.skillDps, 2093.72),
